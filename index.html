@@ -3,82 +3,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stop Losing Customers - AI Chatbot Services</title>
+    <title>Stop Losing Customers While You Sleep - AI Chatbot Services</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-            color: white;
+        * {
             margin: 0;
-            padding: 20px;
-            min-height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            color: #f5f5f5;
+        }
+
+        .chat-container {
             max-width: 800px;
             margin: 0 auto;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
             background: #1e1e1e;
-            padding: 40px;
-            border-radius: 12px;
             box-shadow: 0 0 20px rgba(0,0,0,0.3);
         }
-        h1 {
-            color: #4A90E2;
+
+        .chat-header {
+            background: linear-gradient(135deg, #4A90E2, #357ABD);
+            padding: 25px;
             text-align: center;
-            font-size: 2.5em;
+            color: white;
+            position: relative;
+        }
+
+        .chat-header h1 {
+            font-size: 1.6em;
+            margin-bottom: 8px;
+        }
+
+        .chat-header p {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+
+        .status-dot {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 12px;
+            height: 12px;
+            background: #4CAF50;
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #2a2a2a;
+        }
+
+        .message {
             margin-bottom: 20px;
+            padding: 16px;
+            border-radius: 12px;
+            animation: slideIn 0.3s ease;
+            max-width: 85%;
         }
-        .tagline {
-            text-align: center;
-            font-size: 1.3em;
-            color: #cccccc;
-            margin-bottom: 40px;
+
+        .message.bot {
+            background: linear-gradient(135deg, #4A90E2, #357ABD);
+            color: white;
+            margin-right: auto;
         }
-        .demo-box {
+
+        .message.user {
             background: #333;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            margin-bottom: 30px;
+            color: #f5f5f5;
+            margin-left: auto;
+            text-align: right;
         }
-        .cta-button {
+
+        .quick-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .quick-option {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .quick-option:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .input-area {
+            background: #1a1a1a;
+            padding: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #555;
+            border-radius: 25px;
+            background: #333;
+            color: #f5f5f5;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .send-btn {
             background: #4A90E2;
             color: white;
-            padding: 15px 30px;
             border: none;
-            border-radius: 8px;
-            font-size: 1.2em;
+            padding: 15px 25px;
+            border-radius: 25px;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
-        .cta-button:hover {
+
+        .send-btn:hover {
             background: #357ABD;
+            transform: translateY(-2px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+            background: rgba(255,107,53,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,107,53,0.3);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #FF6B35;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .chat-container { height: 100vh; margin: 0; }
+            .message { max-width: 95%; }
+            .stats-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🤖 24/7 AI Chatbot Services</h1>
-        <div class="tagline">Stop Losing Customers While You Sleep</div>
-        
-        <div class="demo-box">
-            <h2>📈 Increase Revenue by 35-55%</h2>
-            <p>Our AI chatbots work 24/7 to capture every lead, book appointments, collect deposits, and follow up with customers automatically.</p>
-            
-            <h3>Perfect for:</h3>
-            <p>🎨 Tattoo Shops • 💇 Hair Salons • 🦷 Dental Practices • 🔧 Auto Repair • 🏢 Any Service Business</p>
-            
-            <a href="mailto:seanebones.lang@gmail.com" class="cta-button">📧 Get Your Free Demo</a>
-            <a href="tel:+1234567890" class="cta-button">📞 Call Now</a>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="status-dot"></div>
+            <h1>🤖 24/7 AI Chatbot Specialist</h1>
+            <p>Helping businesses capture every lead • Available right now</p>
         </div>
-        
-        <div style="text-align: center; margin-top: 40px;">
-            <h3>💰 Starting at $99/month</h3>
-            <p>Setup fee included • 30-day money-back guarantee • No long-term contracts</p>
-            <p><strong>Contact: seanebones.lang@gmail.com</strong></p>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div>👋 <strong>Hi! I help business owners stop losing customers to slow responses.</strong><br><br>
+                
+                I've seen businesses increase revenue by 35-55% just by having a 24/7 chatbot that never sleeps, never calls in sick, and captures every opportunity.<br><br>
+                
+                <strong>Quick question - what type of business do you own?</strong></div>
+                <div class="quick-options">
+                    <div class="quick-option" onclick="selectBusiness('tattoo')">🎨 Tattoo Shop</div>
+                    <div class="quick-option" onclick="selectBusiness('salon')">💇 Hair Salon</div>
+                    <div class="quick-option" onclick="selectBusiness('dental')">🦷 Dental Practice</div>
+                    <div class="quick-option" onclick="selectBusiness('auto')">🔧 Auto Repair</div>
+                    <div class="quick-option" onclick="selectBusiness('other')">🏢 Other Business</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <div class="input-group">
+                <input type="text" class="chat-input" id="messageInput" placeholder="Type your business type or question..." onkeypress="handleKeyPress(event)">
+                <button class="send-btn" onclick="sendMessage()">Send</button>
+            </div>
         </div>
     </div>
+
+    <script>
+        const businessData = {
+            tattoo: { name: 'Tattoo Shop', avgValue: 200, missedDaily: 6, industry: 'tattoo' },
+            salon: { name: 'Hair Salon', avgValue: 120, missedDaily: 5, industry: 'salon' },
+            dental: { name: 'Dental Practice', avgValue: 300, missedDaily: 4, industry: 'dental' },
+            auto: { name: 'Auto Repair', avgValue: 400, missedDaily: 5, industry: 'auto' },
+            other: { name: 'Service Business', avgValue: 150, missedDaily: 5, industry: 'general' }
+        };
+
+        function addMessage(content, isUser = false) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            messageDiv.innerHTML = `<div>${content}</div>`;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function selectBusiness(type) {
+            const business = businessData[type];
+            addMessage(`${business.name}`, true);
+            
+            setTimeout(() => {
+                const dailyLoss = business.missedDaily * business.avgValue * 0.75;
+                const monthlyLoss = dailyLoss * 30;
+                const yearlyLoss = dailyLoss * 365;
+
+                const response = `🎯 <strong>Perfect! ${business.name} businesses see incredible results.</strong><br><br>
+                
+                Here's what you're potentially losing right now:
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">$${Math.round(dailyLoss).toLocaleString()}</div>
+                        <div class="stat-label">Daily Loss</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$${Math.round(monthlyLoss).toLocaleString()}</div>
+                        <div class="stat-label">Monthly Loss</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$${Math.round(yearlyLoss).toLocaleString()}</div>
+                        <div class="stat-label">Yearly Loss</div>
+                    </div>
+                </div>
+                
+                <strong>The good news?</strong> My chatbot system recovers 70-85% of these missed opportunities!<br><br>
+                
+                <strong>Ready to see how this works for your business?</strong>`;
+
+                addMessage(response);
+                
+                setTimeout(() => {
+                    showContactOptions();
+                }, 2000);
+            }, 1000);
+        }
+
+        function showContactOptions() {
+            const contactMessage = `🚀 <strong>Let's get you set up!</strong><br><br>
+            
+            I can show you exactly how this works with a free 15-minute demo.<br><br>
+            
+            <strong>Contact me directly:</strong><br>
+            📧 Email: seanebones.lang@gmail.com<br>
+            📞 Phone: Available upon request<br><br>
+            
+            <strong>What you'll get:</strong><br>
+            ✅ Custom demo for your business<br>
+            ✅ Revenue impact calculation<br>
+            ✅ Pricing options starting at $99/month<br>
+            ✅ Setup included - no hidden fees<br><br>
+            
+            <strong>Ready to stop losing customers? Contact me now!</strong>`;
+            
+            addMessage(contactMessage);
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            addMessage(message, true);
+            input.value = '';
+            
+            setTimeout(() => {
+                if (message.toLowerCase().includes('interested') || message.toLowerCase().includes('demo')) {
+                    addMessage('🎯 <strong>Excellent!</strong> Contact me at <strong>seanebones.lang@gmail.com</strong> and I\'ll set up your personalized demo within 24 hours!');
+                } else if (message.toLowerCase().includes('price') || message.toLowerCase().includes('cost')) {
+                    addMessage('💰 <strong>Pricing starts at just $99/month</strong> - which typically pays for itself with just 1 recovered booking per month!<br><br>Contact <strong>seanebones.lang@gmail.com</strong> for detailed pricing based on your business size.');
+                } else {
+                    addMessage('Thanks for your question! For detailed information and a personalized demo, contact me directly at <strong>seanebones.lang@gmail.com</strong>. I\'d love to show you how this can transform your business!');
+                }
+            }, 1000);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
 </body>
 </html>
-<--break-system-packages Updated Mon Aug 25 11:39:06 CDT 2025 -->
