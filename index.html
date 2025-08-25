@@ -353,6 +353,11 @@
             .main-section { padding: 30px 20px; }
             .pricing-card.featured { transform: none; }
         }
+        /* Modal adjustments */
+        input[name^="x_"] {
+            /* discourage browser autofill heuristics */
+            background: #333;
+        }
     </style>
 </head>
 <body>
@@ -369,7 +374,7 @@
                 
                 <div class="input-group">
                     <label for="businessType">Select Your Industry</label>
-                    <select id="businessType">
+                    <select id="businessType" autocomplete="off">
                         <option value="">Choose your business type...</option>
                         <option value="tattoo">Tattoo Shop / Artist</option>
                         <option value="hair_salon">Hair Salon / Stylist</option>
@@ -390,17 +395,17 @@
 
                 <div class="input-group">
                     <label for="businessName">Your Business Name</label>
-                    <input type="text" id="businessName" placeholder="Enter your business name">
+                    <input type="text" id="businessName" placeholder="Enter your business name" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" name="x_business_name">
                 </div>
 
                 <div class="input-group">
                     <label for="avgService">Average Service/Sale Value ($)</label>
-                    <input type="number" id="avgService" placeholder="150">
+                    <input type="number" id="avgService" placeholder="150" autocomplete="off" inputmode="numeric" name="x_avg">
                 </div>
 
                 <div class="input-group">
                     <label for="dailyCalls">Missed Calls/Inquiries Per Day</label>
-                    <input type="number" id="dailyCalls" placeholder="5">
+                    <input type="number" id="dailyCalls" placeholder="5" autocomplete="off" inputmode="numeric" name="x_daily">
                 </div>
 
                 <button class="analyze-btn" onclick="analyzeRevenueLoss()">
@@ -511,7 +516,7 @@
         <div class="cta-section">
             <h2 style="color: #ffffff; margin-bottom: 20px; font-size: 2.2em;">Ready to Stop Losing Money?</h2>
             <p style="color: #cccccc; font-size: 1.3em; margin-bottom: 30px;">Join hundreds of businesses already using our AI chatbots to capture every opportunity.</p>
-            <button class="cta-btn" onclick="scheduleDemo()">
+            <button class="cta-btn" onclick="openDemoModal()">
                 🚀 Get My Free Demo & Setup Call
             </button>
             <p style="color: #888; margin-top: 20px;">No commitment required • See it working in 15 minutes</p>
@@ -676,17 +681,63 @@
             }, messages.length * 2000 + 2000);
         }
 
-        function scheduleDemo() {
-            alert(`🎉 Demo Request Submitted!
+        function scheduleDemo() { /* deprecated, replaced by openDemoModal() */ }
 
-We'll contact you within 24 hours to:
+        function openDemoModal() {
+            const modal = document.getElementById('demoModal');
+            if (modal) modal.style.display = 'block';
+        }
 
-✅ Show you a live demo customized for your business
-✅ Set up your AI chatbot in 15 minutes  
-✅ Provide 1 week free trial
-✅ No contracts or long-term commitments
+        function closeDemoModal() {
+            const modal = document.getElementById('demoModal');
+            if (modal) modal.style.display = 'none';
+        }
 
-Check your email for confirmation and next steps!`);
+        async function submitDemoRequest(event) {
+            event.preventDefault();
+
+            const emailInput = document.getElementById('leadEmail');
+            const nameInput = document.getElementById('leadName');
+
+            const email = (emailInput?.value || '').trim();
+            const name = (nameInput?.value || '').trim();
+
+            if (!email) {
+                alert('Please enter your email to schedule a free demo.');
+                return;
+            }
+
+            const businessType = document.getElementById('businessType')?.value || '';
+            const businessName = document.getElementById('businessName')?.value || '';
+            const avgService = parseInt(document.getElementById('avgService')?.value) || undefined;
+            const dailyCalls = parseInt(document.getElementById('dailyCalls')?.value) || undefined;
+
+            const payload = {
+                source: 'cta_free_demo',
+                businessName: businessName,
+                industry: businessType || 'unspecified',
+                email: email,
+                avgValue: avgService,
+                missedDaily: dailyCalls,
+                messageHistory: []
+            };
+
+            try {
+                const res = await fetch('/api/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await res.json();
+                if (!data.ok) throw new Error(data.error || 'Failed to submit');
+
+                closeDemoModal();
+                alert('🎉 Demo request received! We\'ll email you shortly.');
+            } catch (e) {
+                console.error(e);
+                alert('Sorry, something went wrong submitting your demo request. Please email seanebones.lang@gmail.com directly.');
+            }
         }
 
         // Smooth scrolling for better UX
@@ -698,5 +749,28 @@ Check your email for confirmation and next steps!`);
             }, 500);
         });
     </script>
+
+    <!-- Free Demo Modal -->
+    <div id="demoModal" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000;">
+        <div style="max-width: 520px; margin: 8% auto; background: #1f1f1f; border: 1px solid #444; border-radius: 12px; padding: 24px; color: #fff;">
+            <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="margin:0; color:#5C6BC0;">Book Your Free Demo</h3>
+                <button onclick="closeDemoModal()" aria-label="Close" style="background: transparent; border: none; color: #ccc; font-size: 1.6em; cursor: pointer;">×</button>
+            </div>
+            <p style="color:#ccc; margin-bottom: 16px;">Enter your details and we\'ll email you to confirm your 15-minute setup call.</p>
+            <form onsubmit="submitDemoRequest(event)" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+                <div class="input-group">
+                    <label for="leadName">Your Name</label>
+                    <input id="leadName" name="x_name" type="text" placeholder="Jane Doe" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" style="background:#333;">
+                </div>
+                <div class="input-group">
+                    <label for="leadEmail">Your Email</label>
+                    <input id="leadEmail" name="x_email" type="email" placeholder="you@example.com" inputmode="email" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" style="background:#333;">
+                </div>
+                <button type="submit" class="cta-btn" style="width: 100%; margin-top: 10px;">Send Me the Free Demo</button>
+                <div style="color:#888; font-size: 0.9em; margin-top: 10px; text-align: center;">No spam. Cancel anytime.</div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
