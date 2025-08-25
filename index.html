@@ -574,6 +574,126 @@
                     { type: 'customer', text: 'Today at 4pm sounds good' },
                     { type: 'bot', text: '🔧 <strong>DIAGNOSTIC APPOINTMENT CONFIRMED</strong><br><br>📅 <strong>Today 4:00pm - Bay 3</strong><br>💳 <strong>$100 service deposit</strong> (covers diagnostic + applied to repairs)<br><br>🚗 <strong>Vehicle Information Captured:</strong><br>• Make/Model/Year: [Recorded]<br>• VIN: [Stored for parts lookup]<br>• Mileage: [Logged]<br>• Symptoms: [Detailed notes]<br><br>📊 <strong>Shop Management Integration:</strong><br>• Work order created: #WO-2847<br>• Technician assigned: Mike<br>• Parts availability pre-checked<br><br>📄 <strong>Customer packet sent:</strong><br>• Service process guide<br>• Warranty information<br>• Current promotions' }
                 ]
+            },
+            nail_salon: {
+                avgValue: 70,
+                conversionRate: 75,
+                industryFacts: "Most nail bookings are made the evening before the appointment",
+                depositAmount: 15,
+                chatExamples: [
+                    { type: 'customer', text: 'Hi! Do you have availability for a gel manicure and pedicure?' },
+                    { type: 'bot', text: 'We do! A gel mani-pedi combo is $85 and takes about 90 minutes. I can book you tomorrow at 11am or 3pm. Which time works better?' },
+                    { type: 'customer', text: '3pm works.' },
+                    { type: 'bot', text: '💅 <strong>APPOINTMENT CONFIRMED</strong><br><br>📅 Tomorrow 3:00pm with Kim<br>💳 $15 deposit secured (applied to service)<br>📧 Confirmation email sent with prep tips<br>📱 SMS reminder will be sent 24hrs before' }
+                ]
+            },
+            massage: {
+                avgValue: 95,
+                conversionRate: 70,
+                industryFacts: "Evening and weekend massage slots fill fastest via online booking",
+                depositAmount: 20,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you offer 60-minute deep tissue massages?' },
+                    { type: 'bot', text: 'Yes! A 60-minute deep tissue session is $95. I can book you today at 6pm or tomorrow at 10am. Would you like me to reserve a slot?' },
+                    { type: 'customer', text: 'Today at 6pm.' },
+                    { type: 'bot', text: '🧖 <strong>BOOKED</strong><br><br>📅 Today 6:00pm with Alex<br>💳 $20 deposit collected<br>📧 Confirmation + intake form emailed<br>📱 SMS reminder scheduled' }
+                ]
+            },
+            pet_grooming: {
+                avgValue: 80,
+                conversionRate: 74,
+                industryFacts: "First-time grooming customers often book after hours via chat",
+                depositAmount: 20,
+                chatExamples: [
+                    { type: 'customer', text: 'Can I book grooming for a small dog? Do you have availability this week?' },
+                    { type: 'bot', text: 'Absolutely! Small dog full groom is $80. I can book Wednesday 1pm or Friday 10am. Does either work?' },
+                    { type: 'customer', text: 'Friday 10am.' },
+                    { type: 'bot', text: '🐶 <strong>GROOMING CONFIRMED</strong><br><br>📅 Friday 10:00am with Maya<br>💳 $20 deposit collected<br>📧 Confirmation sent with pre-visit tips' }
+                ]
+            },
+            restaurant: {
+                avgValue: 40,
+                conversionRate: 60,
+                industryFacts: "Most reservations are made on mobile between 5-8pm",
+                depositAmount: 0,
+                chatExamples: [
+                    { type: 'customer', text: 'Hi, do you have a table for 4 tomorrow evening?' },
+                    { type: 'bot', text: 'We do! I can reserve for 6:30pm or 7:15pm tomorrow. Any dietary preferences I should note?' },
+                    { type: 'customer', text: '7:15pm, one vegetarian.' },
+                    { type: 'bot', text: '🍽️ <strong>RESERVATION CONFIRMED</strong><br><br>📅 Tomorrow 7:15pm, party of 4<br>📝 Noted: 1 vegetarian<br>📧 Confirmation email sent' }
+                ]
+            },
+            fitness: {
+                avgValue: 75,
+                conversionRate: 68,
+                industryFacts: "Trial sessions convert 2x better when booked instantly",
+                depositAmount: 25,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you offer personal training intro sessions?' },
+                    { type: 'bot', text: 'Yes! A 45-minute intro assessment is $75. I can book Thursday 5pm or Saturday 10am. Which do you prefer?' },
+                    { type: 'customer', text: 'Saturday 10am.' },
+                    { type: 'bot', text: '🏋️ <strong>SESSION BOOKED</strong><br><br>📅 Saturday 10:00am with Jordan<br>💳 $25 deposit collected<br>📧 Assessment form emailed' }
+                ]
+            },
+            contractor: {
+                avgValue: 500,
+                conversionRate: 55,
+                industryFacts: "Fast quote turnarounds increase win rate by 30%",
+                depositAmount: 50,
+                chatExamples: [
+                    { type: 'customer', text: 'Can I get a quote for drywall repair and painting?' },
+                    { type: 'bot', text: 'Yes! I can schedule a free estimate visit. I have Wednesday 3pm or Thursday 11am available. Which works?' },
+                    { type: 'customer', text: 'Thursday 11am.' },
+                    { type: 'bot', text: '🛠️ <strong>ESTIMATE SCHEDULED</strong><br><br>📅 Thursday 11:00am onsite<br>💳 $50 booking fee (credited toward work)<br>📧 Confirmation sent with prep checklist' }
+                ]
+            },
+            real_estate: {
+                avgValue: 3000,
+                conversionRate: 40,
+                industryFacts: "Speed-to-lead under 5 minutes doubles showing conversions",
+                depositAmount: 0,
+                chatExamples: [
+                    { type: 'customer', text: 'I want to schedule a showing for the 3-bed on Maple St.' },
+                    { type: 'bot', text: 'Great choice! I can schedule a showing tomorrow 1pm or Saturday 11am. Do either work?' },
+                    { type: 'customer', text: 'Saturday 11am.' },
+                    { type: 'bot', text: '🏠 <strong>SHOWING CONFIRMED</strong><br><br>📅 Saturday 11:00am with Agent Kim<br>📧 Confirmation + property packet emailed<br>📱 SMS reminder scheduled' }
+                ]
+            },
+            medical: {
+                avgValue: 180,
+                conversionRate: 62,
+                industryFacts: "After-hours triage captures urgent appointments next day",
+                depositAmount: 50,
+                chatExamples: [
+                    { type: 'customer', text: 'I need to see a doctor for a persistent cough.' },
+                    { type: 'bot', text: 'I can book you for a same-week appointment. Next available is Tuesday 9am or Wednesday 2pm. Which works better?' },
+                    { type: 'customer', text: 'Wednesday 2pm.' },
+                    { type: 'bot', text: '🏥 <strong>APPOINTMENT BOOKED</strong><br><br>📅 Wednesday 2:00pm<br>💳 $50 deposit collected (applied to visit)<br>📧 Forms and instructions emailed' }
+                ]
+            },
+            legal: {
+                avgValue: 250,
+                conversionRate: 50,
+                industryFacts: "Instant consult booking reduces no-shows by 35%",
+                depositAmount: 75,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you offer free consultations for contract review?' },
+                    { type: 'bot', text: 'We offer a 30-minute consult for $250, credited if you proceed. I can book Thursday 4pm or Friday 1pm. Which time works?' },
+                    { type: 'customer', text: 'Friday 1pm.' },
+                    { type: 'bot', text: '⚖️ <strong>CONSULT BOOKED</strong><br><br>📅 Friday 1:00pm with Attorney Lee<br>💳 $75 deposit collected<br>📧 Confirmation + document checklist emailed' }
+                ]
+            },
+            other: {
+                avgValue: 150,
+                conversionRate: 60,
+                industryFacts: "Automated lead capture prevents most missed opportunities",
+                depositAmount: 25,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you take bookings and how much is a typical service?' },
+                    { type: 'bot', text: 'Yes! Most services range around $150. I can book a consultation this week to personalize your quote. Would Wednesday afternoon or Thursday morning work?' },
+                    { type: 'customer', text: 'Thursday morning.' },
+                    { type: 'bot', text: '✅ <strong>CONSULTATION SCHEDULED</strong><br><br>📅 Thursday 10:00am<br>💳 $25 deposit collected<br>📧 Confirmation email sent' }
+                ]
             }
         };
 
@@ -624,6 +744,24 @@
             // Start chat simulation
             setTimeout(() => simulateChat(businessType), 1000);
         }
+
+        // Show demo when a business is selected (without requiring the full form)
+        (function attachBusinessSelectorHandler() {
+            const selector = document.getElementById('businessType');
+            if (!selector) return;
+            selector.addEventListener('change', () => {
+                const selected = selector.value;
+                if (!selected) return;
+                const results = document.getElementById('resultsContainer');
+                if (results) {
+                    results.style.display = 'block';
+                }
+                simulateChat(selected);
+                setTimeout(() => {
+                    results?.scrollIntoView({ behavior: 'smooth' });
+                }, 200);
+            });
+        })();
 
         function simulateChat(businessType) {
             const data = businessData[businessType] || businessData.tattoo;
