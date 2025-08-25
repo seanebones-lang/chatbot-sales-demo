@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24/7 AI Chatbot - Stop Losing Customers While You Sleep</title>
+    <title>24/7 AI Chatbot - Stop Losing Customers While You Sleep | seventwelve</title>
+    <base href="https://seanebones-lang.github.io/chatbot-sales-demo/">
     <style>
         * {
             margin: 0;
@@ -359,7 +360,7 @@
     <div class="container">
         <div class="header">
             <h1>Stop Losing Customers While You Sleep</h1>
-            <div class="tagline">24/7 AI Chatbot That Never Calls In Sick</div>
+            <div class="tagline">24/7 AI Chatbot That Never Calls In Sick • by seventwelve</div>
             <p>Every missed call, delayed response, and after-hours inquiry is money walking out your door. See exactly how much you're losing and how our AI chatbot can recover it.</p>
         </div>
 
@@ -439,6 +440,7 @@
                                 <li>1 complete rework included</li>
                                 <li>Email support only</li>
                             </ul>
+                            <button class="cta-btn" onclick="startTrial()" style="padding: 14px 22px; font-size: 1em;">Start 14-Day Free Trial</button>
                         </div>
 
                         <div class="pricing-card featured">
@@ -454,6 +456,7 @@
                                 <li>2 complete reworks</li>
                                 <li>Priority support</li>
                             </ul>
+                            <button class="cta-btn" onclick="startTrial()" style="padding: 14px 22px; font-size: 1em;">Start 14-Day Free Trial</button>
                         </div>
 
                         <div class="pricing-card">
@@ -461,7 +464,7 @@
                             <div class="price">$199<span style="font-size: 0.4em;">/month</span></div>
                             <div class="setup">$400 setup fee</div>
                             <ul>
-                                <li><strong>💳 DEPOSIT COLLECTION</strong></li>
+                                <li><strong>💳 Collect deposits seamlessly to secure 20% more bookings</strong></li>
                                 <li>Smart scheduling system</li>
                                 <li>Unlimited PDFs</li>
                                 <li>Advanced follow-up automation</li>
@@ -470,6 +473,7 @@
                                 <li>3 complete reworks</li>
                                 <li>Phone support</li>
                             </ul>
+                            <button class="cta-btn" onclick="startTrial()" style="padding: 14px 22px; font-size: 1em;">Start 14-Day Free Trial</button>
                         </div>
 
                         <div class="pricing-card">
@@ -486,6 +490,7 @@
                                 <li>Unlimited reworks</li>
                                 <li>Dedicated account manager</li>
                             </ul>
+                            <button class="cta-btn" onclick="startTrial()" style="padding: 14px 22px; font-size: 1em;">Start 14-Day Free Trial</button>
                         </div>
 
                         <div class="pricing-card">
@@ -502,7 +507,33 @@
                                 <li>Monthly strategy calls</li>
                                 <li>Revenue performance guarantees</li>
                             </ul>
+                            <button class="cta-btn" onclick="startTrial()" style="padding: 14px 22px; font-size: 1em;">Start 14-Day Free Trial</button>
                         </div>
+                    </div>
+                </div>
+
+                <div class="pricing-section" id="whyChooseUs">
+                    <h3 style="text-align: center; color: #ffffff; margin-bottom: 20px; font-size: 2em;">Why Choose Us?</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div style="background:#333; padding:20px; border-radius:12px; border:1px solid #444;">
+                            <h4 style="color:#4A90E2; margin-bottom:10px;">Outcomes, Not Features</h4>
+                            <p style="color:#cccccc;">Increase bookings, collect deposits automatically, and reclaim after-hours revenue with a chatbot that closes the loop.</p>
+                        </div>
+                        <div style="background:#333; padding:20px; border-radius:12px; border:1px solid #444;">
+                            <h4 style="color:#4A90E2; margin-bottom:10px;">Fast Time to Value</h4>
+                            <p style="color:#cccccc;">Live in 15 minutes with industry templates and best-practice follow-up sequences preconfigured.</p>
+                        </div>
+                        <div style="background:#333; padding:20px; border-radius:12px; border:1px solid #444;">
+                            <h4 style="color:#4A90E2; margin-bottom:10px;">Proven Performance</h4>
+                            <p style="color:#cccccc;">Backed by revenue performance guarantees on Platinum Plus so you scale with confidence.</p>
+                        </div>
+                        <div style="background:#333; padding:20px; border-radius:12px; border:1px solid #444;">
+                            <h4 style="color:#4A90E2; margin-bottom:10px;">Integrates With Your Stack</h4>
+                            <p style="color:#cccccc;">Calendar, CRM, and payments out of the box to minimize admin and maximize ROI.</p>
+                        </div>
+                    </div>
+                    <div style="text-align:center; margin-top:25px;">
+                        <button class="cta-btn" onclick="startTrial()">Start 14-Day Free Trial</button>
                     </div>
                 </div>
             </div>
@@ -514,7 +545,10 @@
             <button class="cta-btn" onclick="scheduleDemo()">
                 🚀 Get My Free Demo & Setup Call
             </button>
-            <p style="color: #888; margin-top: 20px;">No commitment required • See it working in 15 minutes</p>
+            <div>
+                <button class="cta-btn" onclick="startTrial()" style="margin-left:10px;">Start 14-Day Free Trial</button>
+            </div>
+            <p style="color: #888; margin-top: 20px;">14-day free trial • Auto-renews unless canceled • See it working in 15 minutes</p>
         </div>
     </div>
 
@@ -572,6 +606,130 @@
             }
         };
 
+        // Additional industries
+        Object.assign(businessData, {
+            nail_salon: {
+                avgValue: 80,
+                conversionRate: 74,
+                industryFacts: "62% of nail bookings are requested after hours",
+                depositAmount: 20,
+                chatExamples: [
+                    { type: 'customer', text: 'Hi! Do you have availability for a gel manicure with nail art?' },
+                    { type: 'bot', text: 'Absolutely! Gel manicures typically range from $45-$65, and custom nail art varies based on design. I can book you with Mia tomorrow at 1pm or 3:30pm. Would you like me to reserve a spot?' },
+                    { type: 'customer', text: '3:30pm works!' },
+                    { type: 'bot', text: '✅ <strong>Appointment Reserved</strong><br><br>📅 <strong>Tomorrow 3:30pm</strong> with Mia<br>💳 <strong>$20 deposit</strong> to secure the booking (applied to service).<br><br>📄 <strong>Sending:</strong> Prep tips and aftercare guide.' }
+                ]
+            },
+            massage: {
+                avgValue: 100,
+                conversionRate: 70,
+                industryFacts: "76% of massage inquiries occur outside business hours",
+                depositAmount: 25,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you have openings for a 60-minute deep tissue this week?' },
+                    { type: 'bot', text: 'Yes! A 60-minute deep tissue session is $100. I can schedule you with Alex Thursday 11am or Friday 5pm. Which works better?' },
+                    { type: 'customer', text: 'Friday 5pm' },
+                    { type: 'bot', text: '🧘 <strong>Session Confirmed</strong><br><br>📅 <strong>Friday 5:00pm</strong> with Alex<br>💳 <strong>$25 deposit received</strong> (applied to session).<br>📧 Confirmation sent. Please arrive 10 minutes early.' }
+                ]
+            },
+            pet_grooming: {
+                avgValue: 90,
+                conversionRate: 68,
+                industryFacts: "57% of grooming requests are made after 6pm",
+                depositAmount: 20,
+                chatExamples: [
+                    { type: 'customer', text: 'Can I book a full groom for a small poodle this weekend?' },
+                    { type: 'bot', text: 'Yes! Full grooms for small breeds typically range $75-$95 depending on coat condition. I can book you Saturday 10am or Sunday 1pm. Which do you prefer?' },
+                    { type: 'customer', text: 'Saturday 10am please' },
+                    { type: 'bot', text: '🐾 <strong>Grooming Booked</strong><br><br>📅 <strong>Saturday 10:00am</strong><br>💳 <strong>$20 deposit</strong> applied to service.<br>📱 SMS reminders enabled.' }
+                ]
+            },
+            restaurant: {
+                avgValue: 40,
+                conversionRate: 60,
+                industryFacts: "Most group reservation requests arrive after hours",
+                depositAmount: 50,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you accept reservations for a party of 8 on Friday night?' },
+                    { type: 'bot', text: 'We do! I can seat 8 people at 7pm or 8:30pm this Friday. A refundable $50 deposit holds the table and is applied to your bill. Which time works?' },
+                    { type: 'customer', text: '7pm works' },
+                    { type: 'bot', text: '🍽️ <strong>Table Reserved</strong><br><br>📅 <strong>Friday 7:00pm</strong> for 8 guests<br>💳 <strong>$50 deposit received</strong><br>📧 Confirmation and pre-order options sent.' }
+                ]
+            },
+            fitness: {
+                avgValue: 65,
+                conversionRate: 66,
+                industryFacts: "72% of trial signups happen outside staffed hours",
+                depositAmount: 0,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you offer personal training packages? What are the prices?' },
+                    { type: 'bot', text: 'Yes! Personal training starts at $65/session with discounts on 10-session packs. I can book you for a free assessment tomorrow 6pm or Saturday 10am. Which time would you like?' },
+                    { type: 'customer', text: 'Tomorrow 6pm' },
+                    { type: 'bot', text: '💪 <strong>Assessment Booked</strong><br><br>📅 <strong>Tomorrow 6:00pm</strong><br>💳 <strong>No deposit required</strong><br>📧 Calendar invite sent. See you soon!' }
+                ]
+            },
+            contractor: {
+                avgValue: 500,
+                conversionRate: 58,
+                industryFacts: "Home service requests spike after work hours",
+                depositAmount: 50,
+                chatExamples: [
+                    { type: 'customer', text: 'Can I get a quote for drywall repair and painting a small room?' },
+                    { type: 'bot', text: 'Absolutely. Typical drywall repair + paint for a small room ranges $400-$700 depending on damage. I can schedule a free on-site estimate Wednesday 3pm or Thursday 10am. Which works?' },
+                    { type: 'customer', text: 'Thursday 10am' },
+                    { type: 'bot', text: '🛠️ <strong>Estimate Scheduled</strong><br><br>📅 <strong>Thursday 10:00am</strong><br>💳 <strong>$50 refundable deposit</strong> to secure the visit.<br>📧 Details sent with preparation checklist.' }
+                ]
+            },
+            real_estate: {
+                avgValue: 2000,
+                conversionRate: 55,
+                industryFacts: "Many showing requests are submitted evenings and weekends",
+                depositAmount: 0,
+                chatExamples: [
+                    { type: 'customer', text: 'Is the 3-bedroom on Elm Street still available for viewing?' },
+                    { type: 'bot', text: 'Yes! I can schedule a showing Saturday 11am or Sunday 2pm. I will also send the property flyer and mortgage pre-qual guide. Which time works?' },
+                    { type: 'customer', text: 'Sunday 2pm' },
+                    { type: 'bot', text: '🏠 <strong>Showing Confirmed</strong><br><br>📅 <strong>Sunday 2:00pm</strong><br>📄 Documents sent: Property flyer, comps, pre-qual guide.<br>📱 Reminder set 24 hours before.' }
+                ]
+            },
+            medical: {
+                avgValue: 220,
+                conversionRate: 62,
+                industryFacts: "81% of non-emergency medical inquiries occur after hours",
+                depositAmount: 40,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you have new patient appointments next week for a physical?' },
+                    { type: 'bot', text: 'Yes. New patient physicals are $220 before insurance. I can book you Tuesday 9am or Thursday 1pm. We collect a $40 copay deposit which applies to your visit. Which time is better?' },
+                    { type: 'customer', text: 'Thursday 1pm' },
+                    { type: 'bot', text: '🏥 <strong>Appointment Scheduled</strong><br><br>📅 <strong>Thursday 1:00pm</strong><br>💳 <strong>$40 deposit received</strong><br>📧 Forms sent for faster check-in.' }
+                ]
+            },
+            legal: {
+                avgValue: 300,
+                conversionRate: 50,
+                industryFacts: "Initial consultations are often requested after work hours",
+                depositAmount: 50,
+                chatExamples: [
+                    { type: 'customer', text: 'Can I book a consultation for a contract review?' },
+                    { type: 'bot', text: 'Certainly. Initial consultations are $300 with a $50 deposit applied to your fee. I can schedule Wednesday 4pm or Friday 10am. Which do you prefer?' },
+                    { type: 'customer', text: 'Friday 10am' },
+                    { type: 'bot', text: '⚖️ <strong>Consultation Booked</strong><br><br>📅 <strong>Friday 10:00am</strong><br>💳 <strong>$50 deposit received</strong><br>📧 Confirmation and document upload link sent.' }
+                ]
+            },
+            other: {
+                avgValue: 150,
+                conversionRate: 60,
+                industryFacts: "Most service inquiries arrive outside typical business hours",
+                depositAmount: 30,
+                chatExamples: [
+                    { type: 'customer', text: 'Hi, I need help with a custom service. How do I get started?' },
+                    { type: 'bot', text: 'I can help with that! We start with a brief consultation to scope your needs. I can book you tomorrow 2pm or Thursday 11am. A $30 deposit holds your spot and is applied to your service. Which time would you like?' },
+                    { type: 'customer', text: 'Tomorrow 2pm' },
+                    { type: 'bot', text: '📅 <strong>Consultation Scheduled</strong><br><br>⏰ <strong>Tomorrow 2:00pm</strong><br>💳 <strong>$30 deposit received</strong><br>📧 Confirmation and next steps sent.' }
+                ]
+            }
+        });
+
         function analyzeRevenueLoss() {
             const businessType = document.getElementById('businessType').value;
             const businessName = document.getElementById('businessName').value;
@@ -616,7 +774,6 @@
             document.getElementById('resultsContainer').style.display = 'block';
             document.querySelector('.business-input-section').style.display = 'none';
 
-            // Start chat simulation
             setTimeout(() => simulateChat(businessType), 1000);
         }
 
@@ -640,35 +797,29 @@
                 }, index * 2000);
             });
 
-            // Add final comprehensive summary with analytics dashboard
             setTimeout(() => {
                 const analyticsDiv = document.createElement('div');
                 analyticsDiv.className = 'chat-message bot';
                 analyticsDiv.innerHTML = `
                     <div class="label">📊 PLATINUM ANALYTICS DASHBOARD</div>
                     <strong>🎯 Real-time Business Intelligence:</strong><br><br>
-                    
                     📈 <strong>Today's Performance:</strong><br>
                     • 12 conversations handled<br>
                     • 9 appointments booked<br>
                     • $1,850 in deposits collected<br>
                     • 75% conversion rate<br><br>
-                    
                     🔄 <strong>Follow-up Pipeline:</strong><br>
                     • 23 customers in nurture sequence<br>
                     • 8 ready for rebooking<br>
                     • 15 pending consultation responses<br><br>
-                    
                     📱 <strong>Multi-Location Sync:</strong><br>
                     • Downtown: 4 bookings<br>
                     • Westside: 3 bookings<br>
                     • Mall location: 2 bookings<br><br>
-                    
                     💼 <strong>CRM Integration Active:</strong><br>
                     • Customer profiles auto-updated<br>
                     • Service history tracked<br>
                     • Preference learning enabled<br><br>
-                    
                     <strong>🚀 This level of automation runs 24/7 while you sleep!</strong>
                 `;
                 chatContainer.appendChild(analyticsDiv);
@@ -683,19 +834,45 @@ We'll contact you within 24 hours to:
 
 ✅ Show you a live demo customized for your business
 ✅ Set up your AI chatbot in 15 minutes  
-✅ Provide 1 week free trial
+✅ Start your 14-day free trial (auto-renews unless canceled)
 ✅ No contracts or long-term commitments
 
 Check your email for confirmation and next steps!`);
         }
 
-        // Smooth scrolling for better UX
+        function startTrial() {
+            window.location.href = 'contact.html#trial';
+        }
+
         document.querySelector('.analyze-btn').addEventListener('click', () => {
             setTimeout(() => {
                 document.getElementById('resultsContainer').scrollIntoView({ 
                     behavior: 'smooth' 
                 });
             }, 500);
+        });
+
+        // Deep link: auto-run demo for a given industry via URL (?industry=tattoo&name=Acme)
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const industry = params.get('industry');
+            const businessNameParam = params.get('name');
+            if (industry) {
+                const businessTypeSelect = document.getElementById('businessType');
+                const nameInput = document.getElementById('businessName');
+                const avgServiceInput = document.getElementById('avgService');
+                const dailyCallsInput = document.getElementById('dailyCalls');
+
+                if (businessTypeSelect) businessTypeSelect.value = industry;
+                if (nameInput) nameInput.value = businessNameParam || industry.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                if (avgServiceInput && !avgServiceInput.value) avgServiceInput.value = (businessData[industry] && businessData[industry].avgValue) || 150;
+                if (dailyCallsInput && !dailyCallsInput.value) dailyCallsInput.value = 5;
+
+                analyzeRevenueLoss();
+                setTimeout(() => {
+                    document.getElementById('resultsContainer').scrollIntoView({ behavior: 'smooth' });
+                }, 600);
+            }
         });
     </script>
 </body>
