@@ -805,15 +805,33 @@
             });
         })();
 
+        // Chat simulation scheduling control
+        let __chatTimeouts = [];
+        let __chatRunId = 0;
+
+        function clearChatSchedule() {
+            if (__chatTimeouts && __chatTimeouts.length) {
+                __chatTimeouts.forEach(id => clearTimeout(id));
+            }
+            __chatTimeouts = [];
+        }
+
         function simulateChat(businessType) {
             const data = businessData[businessType] || businessData.tattoo;
             const chatContainer = document.getElementById('chatDemo');
-            const messages = data.chatExamples;
+            const messages = data.chatExamples || [];
 
+            // Cancel any pending message injections from a previous selection
+            clearChatSchedule();
+            // Bump run id to invalidate older timeouts
+            const runId = ++__chatRunId;
+
+            // Reset chat UI
             chatContainer.innerHTML = '';
 
             messages.forEach((message, index) => {
-                setTimeout(() => {
+                const t = setTimeout(() => {
+                    if (runId !== __chatRunId) return; // stale run, skip
                     const messageDiv = document.createElement('div');
                     messageDiv.className = `chat-message ${message.type}`;
                     messageDiv.innerHTML = `
@@ -823,10 +841,12 @@
                     chatContainer.appendChild(messageDiv);
                     chatContainer.scrollTop = chatContainer.scrollHeight;
                 }, index * 2000);
+                __chatTimeouts.push(t);
             });
 
             // Add final comprehensive summary with analytics dashboard
-            setTimeout(() => {
+            const tail = setTimeout(() => {
+                if (runId !== __chatRunId) return; // stale run, skip
                 const analyticsDiv = document.createElement('div');
                 analyticsDiv.className = 'chat-message bot';
                 analyticsDiv.innerHTML = `
@@ -859,6 +879,7 @@
                 chatContainer.appendChild(analyticsDiv);
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }, messages.length * 2000 + 2000);
+            __chatTimeouts.push(tail);
         }
 
         function scheduleDemo() { /* deprecated, replaced by openDemoModal() */ }
