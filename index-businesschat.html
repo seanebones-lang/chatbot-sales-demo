@@ -830,9 +830,12 @@
         // Page Navigation with hash-based routing
         const navMenu = document.getElementById('navMenu');
         function showPage(pageId) {
+            // Hide all pages
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            // Show selected
             const target = document.getElementById(pageId) || document.getElementById('home');
             if (target) target.classList.add('active');
+            // Update active states
             document.querySelectorAll('.nav-link').forEach(navLink => {
                 const linkPage = navLink.getAttribute('data-page');
                 if (linkPage === pageId) {
@@ -843,7 +846,9 @@
                     navLink.removeAttribute('aria-current');
                 }
             });
+            // Close mobile menu
             navMenu.classList.remove('show');
+            // Smooth scroll
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -851,6 +856,7 @@
             link.addEventListener('click', function(e) {
                 const pageId = this.getAttribute('data-page');
                 if (!pageId) return;
+                // Update hash; hashchange will call showPage
                 if (location.hash !== '#' + pageId) {
                     location.hash = '#' + pageId;
                 } else {
@@ -864,8 +870,9 @@
             showPage(pageId);
         }
         window.addEventListener('hashchange', initFromHash);
+        // Initialize on load
         initFromHash();
-
+        
         // Mobile Menu Toggle
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
             document.getElementById('navMenu').classList.toggle('show');
@@ -889,24 +896,32 @@
             localStorage.setItem('offerShown', 'true');
         }
         
+        // Check if user has already seen the offer
         if (!localStorage.getItem('offerShown')) {
             setTimeout(openModal, 2000);
         }
         
+        // Close modal
         modalClose.addEventListener('click', closeModal);
         maybeLater.addEventListener('click', function(e) {
             e.preventDefault();
             closeModal();
         });
+        
+        // Click outside modal to close
         offerModal.addEventListener('click', function(e) {
             if (e.target === offerModal) {
                 closeModal();
             }
         });
+        
+        // Banner offer link
         bannerOfferLink.addEventListener('click', function(e) {
             e.preventDefault();
             openModal();
         });
+        
+        // Escape key closes modal
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && offerModal.classList.contains('active')) {
                 closeModal();
