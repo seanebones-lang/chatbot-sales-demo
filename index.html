@@ -6,87 +6,720 @@
     <title>24/7 AI Chatbot for Businesses – Stop Losing Customers Today</title>
     <meta name="description" content="AI chatbot pricing and business chatbot solutions that capture leads 24/7. Stop losing customers to slow responses. Bookings, deposits, and lead generation chatbot features included.">
     <meta name="keywords" content="AI chatbot pricing, business chatbot solutions, lead generation chatbot, 24/7 chatbot, appointment booking chatbot, deposit collection chatbot">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Accessibility: skip link and focus */
-        .skip-link { position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-        .skip-link:focus { left: 20px; top: 20px; width: auto; height: auto; padding: 10px 14px; background: #FFD54F; color: #000; border-radius: 6px; z-index: 10000; }
-
-        :focus-visible { outline: 3px solid #FFD54F; outline-offset: 2px; }
-
-        button:focus-visible,
-        .cta-btn:focus-visible,
-        .analyze-btn:focus-visible,
-        select:focus-visible,
-        input:focus-visible {
-            outline: 3px solid #FFD54F;
-            outline-offset: 2px;
-        }
-
-        /* Visually hidden but accessible text */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
+        /* Global Styles */
+        * {
+            margin: 0;
             padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+        
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --text: #34495e;
+            --text-light: #7f8c8d;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
-
-        /* Comparison table */
-        .comparison-section {
-            margin-top: 30px;
-            background: #1a1a1a;
-            border: 1px solid #404040;
-            border-radius: 12px;
-            overflow-x: auto;
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            color: var(--text);
+            line-height: 1.6;
         }
-
-        table.compare-table {
+        
+        .container {
             width: 100%;
-            border-collapse: collapse;
-            color: #eaeaea;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-
-        .compare-table th,
-        .compare-table td {
-            border-bottom: 1px solid #333;
-            padding: 14px 12px;
-            text-align: center;
-        }
-
-        .compare-table thead th {
+        
+        /* Header & Navigation */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
-            background: #242424;
-            z-index: 1;
-            font-weight: 700;
+            z-index: 100;
         }
-
-        .compare-feature {
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .logo i {
+            font-size: 1.8rem;
+        }
+        
+        /* Email Gate */
+        .email-gate {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin: 40px 0;
+        }
+        
+        .email-gate-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .email-gate h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .email-gate p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+        
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 500px;
+            gap: 15px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
             text-align: left;
+        }
+        
+        .form-group label {
             font-weight: 600;
-            color: #cccccc;
+            margin-bottom: 8px;
+            color: var(--secondary);
         }
-
-        .badge-popular {
+        
+        .form-group input {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .btn {
             display: inline-block;
-            margin-top: 6px;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: #5C6BC0;
-            color: #fff;
-            font-size: 0.75em;
-            font-weight: 700;
+            padding: 15px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
         }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-large {
+            padding: 18px 35px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+        
+        .btn-disabled:hover {
+            background: #bdc3c7;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Loss Calculator */
+        .loss-calculator {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            display: none;
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-title {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        
+        .calculator-description {
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .calculator-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-results {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .results-title {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .loss-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .results-description {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Page Index */
+        .page-index {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            display: none;
+        }
+        
+        .index-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .index-title {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+        
+        .index-description {
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .index-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .index-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .index-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .index-item h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .index-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .index-item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .index-item.disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .email-form {
+                flex-direction: column;
+            }
+            
+            .calculator-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .index-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .loss-amount {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Validation Styles */
+        .error-message {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-group.error input {
+            border-color: var(--accent);
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .success-message {
+            color: var(--success);
+            font-size: 1.1rem;
+            margin-top: 20px;
+            font-weight: 600;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <span>BusinessChat</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
-        .check { color: #4CAF50; font-weight: 900; }
-        .dash { color: #777; font-weight: 900; }
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Email Gate -->
+            <div class="email-gate" id="emailGate">
+                <div class="email-gate-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h2>Unlock Your Business Potential</h2>
+                <p>Enter your email to discover how much revenue you're losing without our chatbot solution and access all our resources.</p>
+                
+                <form class="email-form" id="emailForm">
+                    <div class="form-group">
+                        <label for="email">Business Email Address</label>
+                        <input type="email" id="email" placeholder="you@yourbusiness.com" required>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-large">Show Me What I'm Losing</button>
+                </form>
+                
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Thank you! Calculating your potential losses...
+                </div>
+            </div>
+            
+            <!-- Loss Calculator -->
+            <div class="loss-calculator" id="lossCalculator">
+                <div class="calculator-header">
+                    <h2 class="calculator-title">Calculate Your Potential Losses</h2>
+                    <p class="calculator-description">See how much revenue you're losing by not using our chatbot solution. Adjust the values below based on your business.</p>
+                </div>
+                
+                <form class="calculator-form" id="calculatorForm">
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <select id="industry" class="form-control">
+                            <option value="tattoo">Tattoo Shop / Artist</option>
+                            <option value="hair">Hair Salon / Stylist</option>
+                            <option value="nail">Nail Salon</option>
+                            <option value="dental">Dental Practice</option>
+                            <option value="massage">Massage Therapy</option>
+                            <option value="auto">Auto Repair Shop</option>
+                            <option value="pet">Pet Grooming</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="fitness">Fitness Training</option>
+                            <option value="contractor">Contractor / Handyman</option>
+                            <option value="realestate">Real Estate Agent</option>
+                            <option value="medical">Medical Practice</option>
+                            <option value="legal">Legal Services</option>
+                            <option value="other">Other Service Business</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="monthlyLeads">Monthly Website Visitors</label>
+                        <input type="number" id="monthlyLeads" value="1000" min="100" step="100">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="conversionRate">Current Conversion Rate (%)</label>
+                        <input type="number" id="conversionRate" value="2" min="0.1" step="0.1" max="10">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="averageValue">Average Customer Value ($)</label>
+                        <input type="number" id="averageValue" value="150" min="10" step="10">
+                    </div>
+                </form>
+                
+                <div class="calculator-results">
+                    <h3 class="results-title">You're Losing Approximately</h3>
+                    <div class="loss-amount" id="lossAmount">$5,400</div>
+                    <p class="results-description">per month by not using our chatbot solution to capture and convert more of your website visitors.</p>
+                    <button class="btn btn-large" style="margin-top: 20px;">See How We Can Help</button>
+                </div>
+            </div>
+            
+            <!-- Page Index -->
+            <div class="page-index" id="pageIndex">
+                <div class="index-header">
+                    <h2 class="index-title">Explore BusinessChat Resources</h2>
+                    <p class="index-description">Now that you've seen what you're missing, explore our resources to learn how we can help your business grow.</p>
+                </div>
+                
+                <div class="index-grid">
+                    <div class="index-item" data-page="features">
+                        <i class="fas fa-star"></i>
+                        <h3>Features</h3>
+                        <p>Discover our powerful chatbot capabilities</p>
+                    </div>
+                    
+                    <div class="index-item" data-page="pricing">
+                        <i class="fas fa-tag"></i>
+                        <h3>Pricing</h3>
+                        <p>Find the perfect plan for your business</p>
+                    </div>
+                    
+                    <div class="index-item" data-page="case-studies">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Case Studies</h3>
+                        <p>See how others have succeeded with us</p>
+                    </div>
+                    
+                    <div class="index-item" data-page="testimonials">
+                        <i class="fas fa-comment"></i>
+                        <h3>Testimonials</h3>
+                        <p>Hear from our satisfied customers</p>
+                    </div>
+                    
+                    <div class="index-item disabled">
+                        <i class="fas fa-video"></i>
+                        <h3>Demo</h3>
+                        <p>See our chatbot in action (coming soon)</p>
+                    </div>
+                    
+                    <div class="index-item" data-page="contact">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Contact Us</h3>
+                        <p>Get in touch with our team</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BusinessChat</h3>
+                    <p>AI-powered chatbot solutions for service businesses of all types.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#" class="footer-link" data-page="features">Features</a></li>
+                        <li><a href="#" class="footer-link" data-page="pricing">Pricing</a></li>
+                        <li><a href="#" class="footer-link" data-page="case-studies">Case Studies</a></li>
+                        <li><a href="#" class="footer-link" data-page="testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#" class="footer-link" data-page="blog">Blog</a></li>
+                        <li><a href="#" class="footer-link" data-page="documentation">Documentation</a></li>
+                        <li><a href="#" class="footer-link" data-page="support">Support</a></li>
+                        <li><a href="#" class="footer-link" data-page="api">API</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#" class="footer-link" data-page="about">About Us</a></li>
+                        <li><a href="#" class="footer-link" data-page="contact">Contact</a></li>
+                        <li><a href="#" class="footer-link" data-page="careers">Careers</a></li>
+                        <li><a href="#" class="footer-link" data-page="privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 BusinessChat. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Email Form Validation
+        const emailForm = document.getElementById('emailForm');
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        const emailGate = document.getElementById('emailGate');
+        const successMessage = document.getElementById('successMessage');
+        const lossCalculator = document.getElementById('lossCalculator');
+        const pageIndex = document.getElementById('pageIndex');
+        const calculatorForm = document.getElementById('calculatorForm');
+        const lossAmount = document.getElementById('lossAmount');
+        
+        // Form validation
+        emailForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset error state
+            emailInput.parentElement.classList.remove('error');
+            
+            // Validate email
+            if (!validateEmail(emailInput.value)) {
+                emailInput.parentElement.classList.add('error');
+                return;
+            }
+            
+            // Fire-and-forget lead submission to backend
+            try {
+                fetch('/api/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        source: 'email_gate',
+                        email: emailInput.value.trim(),
+                        industry: null,
+                        businessName: null,
+                        messageHistory: []
+                    })
+                }).catch(() => {});
+            } catch (_) {}
+            
+            // Show success message
+            successMessage.style.display = 'block';
+            
+            // After a delay, show the calculator and page index
+            setTimeout(() => {
+                emailGate.style.display = 'none';
+                lossCalculator.style.display = 'block';
+                pageIndex.style.display = 'block';
+                
+                // Calculate initial loss amount
+                calculateLoss();
+            }, 1200);
+        });
+        
+        // Email validation function
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+        
+        // Loss Calculator
+        function calculateLoss() {
+            const monthlyLeads = parseInt(document.getElementById('monthlyLeads').value) || 1000;
+            const conversionRate = parseFloat(document.getElementById('conversionRate').value) || 2;
+            const averageValue = parseInt(document.getElementById('averageValue').value) || 150;
+            
+            // Current conversions
+            const currentConversions = monthlyLeads * (conversionRate / 100);
+            const currentRevenue = currentConversions * averageValue;
+            
+            // With chatbot (assuming 50% improvement in conversion rate)
+            const improvedConversionRate = conversionRate * 1.5;
+            const improvedConversions = monthlyLeads * (improvedConversionRate / 100);
+            const improvedRevenue = improvedConversions * averageValue;
+            
+            // Calculate loss
+            const monthlyLoss = improvedRevenue - currentRevenue;
+            
+            // Update display
+            lossAmount.textContent = `$${monthlyLoss.toLocaleString()}`;
+        }
+        
+        // Add event listeners to calculator inputs
+        const calculatorInputs = calculatorForm.querySelectorAll('input, select');
+        calculatorInputs.forEach(input => {
+            input.addEventListener('input', calculateLoss);
+            input.addEventListener('change', calculateLoss);
+        });
+        
+        // Page navigation
+        document.querySelectorAll('.index-item:not(.disabled), .footer-link').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const page = this.getAttribute('data-page');
+                
+                if (page) {
+                    alert(`This would navigate to the ${page} page. In a real implementation, this would show the actual page content.`);
+                }
+            });
+        });
+        
+        // Initial calculation
+        calculateLoss();
+    </script>
+</body>
+</html>
+
