@@ -1,52 +1,92 @@
-        .cta-section {
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-            padding: 60px 40px;
-            text-align: center;
-            border-top: 2px solid #333;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24/7 AI Chatbot for Businesses – Stop Losing Customers Today</title>
+    <meta name="description" content="AI chatbot pricing and business chatbot solutions that capture leads 24/7. Stop losing customers to slow responses. Bookings, deposits, and lead generation chatbot features included.">
+    <meta name="keywords" content="AI chatbot pricing, business chatbot solutions, lead generation chatbot, 24/7 chatbot, appointment booking chatbot, deposit collection chatbot">
+    <style>
+        /* Accessibility: skip link and focus */
+        .skip-link { position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+        .skip-link:focus { left: 20px; top: 20px; width: auto; height: auto; padding: 10px 14px; background: #FFD54F; color: #000; border-radius: 6px; z-index: 10000; }
+
+        :focus-visible { outline: 3px solid #FFD54F; outline-offset: 2px; }
+
+        button:focus-visible,
+        .cta-btn:focus-visible,
+        .analyze-btn:focus-visible,
+        select:focus-visible,
+        input:focus-visible {
+            outline: 3px solid #FFD54F;
+            outline-offset: 2px;
         }
-        .testimonials-section {
-            background: #1a1a1a;
-            padding: 50px 40px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            border: 1px solid #333;
+
+        /* Visually hidden but accessible text */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
-        .testimonials-section h3 {
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 2em;
-        }
-        .testimonials-grid {
+
+        .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
-        .testimonial-card {
-            background: #232323;
-            border: 1px solid #3a3a3a;
+
+        /* Comparison table */
+        .comparison-section {
+            margin-top: 30px;
+            background: #1a1a1a;
+            border: 1px solid #404040;
             border-radius: 12px;
-            padding: 20px;
+            overflow-x: auto;
         }
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
+
+        table.compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #eaeaea;
         }
-        .avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .compare-table th,
+        .compare-table td {
+            border-bottom: 1px solid #333;
+            padding: 14px 12px;
+            text-align: center;
+        }
+
+        .compare-table thead th {
+            position: sticky;
+            top: 0;
+            background: #242424;
+            z-index: 1;
             font-weight: 700;
-            color: #fff;
-            background: linear-gradient(135deg, #5C6BC0, #4A90E2);
-            border: 2px solid #2e2e2e;
         }
-        .name { color: #ffffff; font-weight: 600; }
-        .role { color: #aaaaaa; font-size: 0.9em; }
-        .quote { color: #dddddd; font-style: italic; margin: 10px 0 12px 0; }
-        .metric { color: #4CAF50; font-weight: 700; }
+
+        .compare-feature {
+            text-align: left;
+            font-weight: 600;
+            color: #cccccc;
+        }
+
+        .badge-popular {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #5C6BC0;
+            color: #fff;
+            font-size: 0.75em;
+            font-weight: 700;
+        }
+
+        .check { color: #4CAF50; font-weight: 900; }
+        .dash { color: #777; font-weight: 900; }
