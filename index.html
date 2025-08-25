@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24/7 AI Chatbot - Stop Losing Customers While You Sleep | seventwelve</title>
+    <base href="https://seanebones-lang.github.io/chatbot-sales-demo/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border: 1px solid #333;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+
+        .header h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .tagline {
+            font-size: 1.4em;
+            color: #4A90E2;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.8;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .main-section {
+            padding: 50px 40px;
+        }
+
+        .business-input-section {
+            background: #2a2a2a;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid #404040;
+        }
+
+        .business-input-section h2 {
+            color: #ffffff;
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: #f5f5f5;
+            font-size: 1.2em;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 18px;
+            border: 1px solid #555;
+            border-radius: 8px;
+            font-size: 1.1em;
+            background: #333;
+            color: #f5f5f5;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #4A90E2;
+            box-shadow: 0 0 0 3px rgba(74,144,226,0.2);
+        }
+
+        .analyze-btn {
+            background: linear-gradient(135deg, #4A90E2, #357ABD);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            border-radius: 8px;
+            font-size: 1.3em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .analyze-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(74,144,226,0.4);
+        }
+
+        .results-container {
+            display: none;
+        }
+
+        .loss-calculator {
+            background: linear-gradient(135deg, #1a2332, #1a1a1a);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 2px solid #4A90E2;
+        }
+
+        .loss-calculator h3 {
+            color: #4A90E2;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .loss-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .loss-stat {
+            background: #333;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #4A90E2;
+        }
+
+        .loss-stat h4 {
+            color: #f5f5f5;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .loss-stat .number {
+            font-size: 2.2em;
+            color: #4A90E2;
+            font-weight: 700;
+        }
+
+        .demo-section {
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid #444;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .demo-header h3 {
+            color: #4CAF50;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .chat-demo {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 30px;
+            max-height: 500px;
+            overflow-y: auto;
+            border: 1px solid #555;
+        }
+
+        .chat-message {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            animation: slideIn 0.5s ease;
+        }
+
+        .chat-message.customer {
+            background: #444;
+            margin-left: 60px;
+            color: #f5f5f5;
+        }
+
+        .chat-message.bot {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            margin-right: 60px;
+            color: white;
+        }
+
+        .chat-message .label {
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
+        .pricing-section {
+            background: #2a2a2a;
+            padding: 50px 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid #404040;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .pricing-card {
+            background: #333;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: #4A90E2;
+            box-shadow: 0 10px 30px rgba(74,144,226,0.2);
+        }
+
+        .pricing-card.featured {
+            border-color: #5C6BC0;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #5C6BC0;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .pricing-card h4 {
+            font-size: 1.4em;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5em;
+            color: #5C6BC0;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .setup {
+            color: #4A90E2;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 8px 0;
+            color: #cccccc;
+            border-bottom: 1px solid #444;
+        }
+
+        .pricing-card li:before {
+            content: "✓ ";
+            color: #5C6BC0;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 2px solid #333;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #5C6BC0, #4A90E2);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            border-radius: 8px;
+            font-size: 1.4em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(92,107,192,0.4);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.2em; }
+            .main-section { padding: 30px 20px; }
+            .pricing-card.featured { transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Stop Losing Customers While You Sleep</h1>
+            <div class="tagline">24/7 AI Chatbot That Never Calls In Sick • by seventwelve</div>
+            <p>Every missed call, delayed response, and after-hours inquiry is money walking out your door. See exactly how much you're losing and how our AI chatbot can recover it.</p>
+        </div>
+
+        <div class="main-section">
+            <div class="business-input-section">
+                <h2>What Type of Business Do You Own?</h2>
+                
+                <div class="input-group">
+                    <label for="businessType">Select Your Industry</label>
+                    <select id="businessType">
+                        <option value="">Choose your business type...</option>
+                        <option value="tattoo">Tattoo Shop / Artist</option>
+                        <option value="hair_salon">Hair Salon / Stylist</option>
+                        <option value="nail_salon">Nail Salon</option>
+                        <option value="dental">Dental Practice</option>
+                        <option value="massage">Massage Therapy</option>
+                        <option value="auto_repair">Auto Repair Shop</option>
+                        <option value="pet_grooming">Pet Grooming</option>
+                        <option value="restaurant">Restaurant</option>
+                        <option value="fitness">Fitness Training</option>
+                        <option value="contractor">Contractor / Handyman</option>
+                        <option value="real_estate">Real Estate Agent</option>
+                        <option value="medical">Medical Practice</option>
+                        <option value="legal">Legal Services</option>
+                        <option value="other">Other Service Business</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="businessName">Your Business Name</label>
+                    <input type="text" id="businessName" placeholder="Enter your business name">
+                </div>
+
+                <div class="input-group">
+                    <label for="avgService">Average Service/Sale Value ($)</label>
+                    <input type="number" id="avgService" placeholder="150">
+                </div>
+
+                <div class="input-group">
+                    <label for="dailyCalls">Missed Calls/Inquiries Per Day</label>
+                    <input type="number" id="dailyCalls" placeholder="5">
+                </div>
+
+                <button class="analyze-btn" onclick="analyzeRevenueLoss()">
+                    📊 Show Me How Much I'm Losing
+                </button>
+            </div>
+
+            <div class="results-container" id="resultsContainer">
+                <div class="loss-calculator" id="lossCalculator">
+                    <!-- Loss calculations will be populated here -->
+                </div>
+
+                <div class="demo-section">
+                    <div class="demo-header">
+                        <h3>🤖 Watch Your AI Chatbot In Action</h3>
+                        <p style="color: #cccccc;">This is exactly how your chatbot will interact with your customers 24/7:</p>
+                    </div>
+                    <div class="chat-demo" id="chatDemo">
+                        <!-- Chat simulation will appear here -->
+                    </div>
+                </div>
+
+                <div class="pricing-section">
+                    <h3 style="text-align: center; color: #ffffff; margin-bottom: 40px; font-size: 2em;">Choose Your Chatbot Package</h3>
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h4>Basic Package</h4>
+                            <div class="price">$99<span style="font-size: 0.4em;">/month</span></div>
+                            <div class="setup">$200 setup fee</div>
+                            <ul>
+                                <li>Basic FAQ responses</li>
+                                <li>Simple callback scheduling</li>
+                                <li>3 PDF downloads</li>
+                                <li>Email notifications</li>
+                                <li>30-day service</li>
+                                <li>1 complete rework included</li>
+                                <li>Email support only</li>
+                            </ul>
+                            <button class="cta-btn" onclick="startTrial()" style="padding: 14px 22px; font-size: 1em;">Start 14-Day Free Trial</button>
+                        </div>
+
+                        <div class="pricing-card featured">
+                            <h4>Standard Package</h4>
+                            <div class="price">$149<span style="font-size: 0.4em;">/month</span></div>
+                            <div class="setup">$300 setup fee</div>
+                            <ul>
+                                <li>Advanced FAQ system</li>
+                                <li>Calendar appointment scheduling</li>
+                                <li>Customer info collection</li>
+                                <li>6 PDF downloads</li>
+                                <li>Basic follow-up sequences</li>
+                                <li>2 complete reworks</li>
+                                <li>Priority support</li>
+                            </ul>
+                            <button class="cta-btn" onclick="startTrial()" style="padding: 14px 22px; font-size: 1em;">Start 14-Day Free Trial</button>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h4>Gold Package</h4>
+                            <div class="price">$199<span style="font-size: 0.4em;">/month</span></div>
+                            <div class="setup">$400 setup fee</div>
+                            <ul>
+                                <li><strong>💳 Collect deposits seamlessly to secure 20% more bookings</strong></li>
+                                <li>Smart scheduling system</li>
+                                <li>Unlimited PDFs</li>
+                                <li>Advanced follow-up automation</li>
+                                <li>Customer database</li>
+                                <li>Basic analytics dashboard</li>
+                                <li>3 complete reworks</li>
+                                <li>Phone support</li>
+                            </ul>
+                            <button class="cta-btn" onclick="startTrial()" style="padding: 14px 22px; font-size: 1em;">Start 14-Day Free Trial</button>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h4>Platinum Package</h4>
+                            <div class="price">$299<span style="font-size: 0.4em;">/month</span></div>
+                            <div class="setup">$500 setup fee</div>
+                            <ul>
+                                <li><strong>🏢 MULTI-LOCATION SUPPORT</strong></li>
+                                <li><strong>📊 FULL CRM INTEGRATION</strong></li>
+                                <li><strong>📈 ADVANCED ANALYTICS</strong></li>
+                                <li>Payment processing integration</li>
+                                <li>Custom branding & white-label</li>
+                                <li>API access for integrations</li>
+                                <li>Unlimited reworks</li>
+                                <li>Dedicated account manager</li>
+                            </ul>
+                            <button class="cta-btn" onclick="startTrial()" style="padding: 14px 22px; font-size: 1em;">Start 14-Day Free Trial</button>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h4>Platinum Plus</h4>
+                            <div class="price">$399<span style="font-size: 0.4em;">/month</span></div>
+                            <div class="setup">$700 setup fee</div>
+                            <ul>
+                                <li><strong>🏪 FRANCHISE/CHAIN SUPPORT</strong></li>
+                                <li><strong>🤖 ADVANCED AI TRAINING</strong></li>
+                                <li><strong>📊 REAL-TIME DASHBOARDS</strong></li>
+                                <li><strong>💼 FULL WHITE-LABEL RIGHTS</strong></li>
+                                <li>Custom integrations & APIs</li>
+                                <li>24/7 priority support</li>
+                                <li>Monthly strategy calls</li>
+                                <li>Revenue performance guarantees</li>
+                            </ul>
+                            <button class="cta-btn" onclick="startTrial()" style="padding: 14px 22px; font-size: 1em;">Start 14-Day Free Trial</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-section" id="whyChooseUs">
+                    <h3 style="text-align: center; color: #ffffff; margin-bottom: 20px; font-size: 2em;">Why Choose Us?</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div style="background:#333; padding:20px; border-radius:12px; border:1px solid #444;">
+                            <h4 style="color:#4A90E2; margin-bottom:10px;">Outcomes, Not Features</h4>
+                            <p style="color:#cccccc;">Increase bookings, collect deposits automatically, and reclaim after-hours revenue with a chatbot that closes the loop.</p>
+                        </div>
+                        <div style="background:#333; padding:20px; border-radius:12px; border:1px solid #444;">
+                            <h4 style="color:#4A90E2; margin-bottom:10px;">Fast Time to Value</h4>
+                            <p style="color:#cccccc;">Live in 15 minutes with industry templates and best-practice follow-up sequences preconfigured.</p>
+                        </div>
+                        <div style="background:#333; padding:20px; border-radius:12px; border:1px solid #444;">
+                            <h4 style="color:#4A90E2; margin-bottom:10px;">Proven Performance</h4>
+                            <p style="color:#cccccc;">Backed by revenue performance guarantees on Platinum Plus so you scale with confidence.</p>
+                        </div>
+                        <div style="background:#333; padding:20px; border-radius:12px; border:1px solid #444;">
+                            <h4 style="color:#4A90E2; margin-bottom:10px;">Integrates With Your Stack</h4>
+                            <p style="color:#cccccc;">Calendar, CRM, and payments out of the box to minimize admin and maximize ROI.</p>
+                        </div>
+                    </div>
+                    <div style="text-align:center; margin-top:25px;">
+                        <button class="cta-btn" onclick="startTrial()">Start 14-Day Free Trial</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="color: #ffffff; margin-bottom: 20px; font-size: 2.2em;">Ready to Stop Losing Money?</h2>
+            <p style="color: #cccccc; font-size: 1.3em; margin-bottom: 30px;">Join hundreds of businesses already using our AI chatbots to capture every opportunity.</p>
+            <button class="cta-btn" onclick="scheduleDemo()">
+                🚀 Get My Free Demo & Setup Call
+            </button>
+            <div>
+                <button class="cta-btn" onclick="startTrial()" style="margin-left:10px;">Start 14-Day Free Trial</button>
+            </div>
+            <p style="color: #888; margin-top: 20px;">14-day free trial • Auto-renews unless canceled • See it working in 15 minutes</p>
+        </div>
+    </div>
+
+    <script>
+        const businessData = {
+            tattoo: {
+                avgValue: 200,
+                conversionRate: 85,
+                industryFacts: "73% of tattoo inquiries happen after hours",
+                depositAmount: 50,
+                chatExamples: [
+                    { type: 'customer', text: 'Hi, do you do cover-up tattoos? What would a sleeve cost?' },
+                    { type: 'bot', text: 'Absolutely! We specialize in cover-ups and custom sleeves. A full sleeve typically ranges from $1,500-$3,500 depending on detail and size. I can schedule you a free consultation with our artist to discuss your specific design. Would you prefer this week or next?' },
+                    { type: 'customer', text: 'This week would be great, what do you have available?' },
+                    { type: 'bot', text: '✅ Perfect! I have Thursday 2pm or Friday 11am for consultations.<br><br>📋 <strong>Let me collect your information:</strong><br>• Name: [Captured]<br>• Phone: [Captured]<br>• Email: [Captured]<br><br>💳 <strong>$50 consultation deposit</strong> secures your spot and is applied to your tattoo.<br><br>📄 <strong>Sending you:</strong><br>• Portfolio PDF<br>• Aftercare Guide<br>• Pricing Menu<br><br>Which time works - Thursday 2pm or Friday 11am?' },
+                    { type: 'customer', text: 'Thursday 2pm, and here\'s my card info...' },
+                    { type: 'bot', text: '🎉 <strong>APPOINTMENT CONFIRMED!</strong><br><br>📅 <strong>Thursday, Oct 26 at 2:00pm</strong><br>👤 <strong>Artist:</strong> Mike Rodriguez<br>💳 <strong>$50 deposit received</strong><br>📍 <strong>Location:</strong> Downtown Studio<br><br>📧 <strong>Confirmation sent to email</strong><br>📱 <strong>SMS reminder set for 24hrs before</strong><br><br>🔄 <strong>Follow-up sequence activated:</strong><br>• Day before: Appointment reminder<br>• Day of: Preparation checklist<br>• 1 week after: Aftercare check-in<br>• 1 month after: Touch-up availability' }
+                ]
+            },
+            hair_salon: {
+                avgValue: 120,
+                conversionRate: 78,
+                industryFacts: "68% of salon bookings happen outside business hours",
+                depositAmount: 25,
+                chatExamples: [
+                    { type: 'customer', text: 'Hi! I need a color correction and cut, how much would that cost?' },
+                    { type: 'bot', text: 'Hi there! Color corrections typically range from $180-$280 depending on your current color and desired result. With a cut, you\'re looking at $220-$320 total. I can schedule you a consultation where we\'ll assess your hair and give you an exact quote. Are you available this week?' },
+                    { type: 'customer', text: 'Yes, what about tomorrow afternoon?' },
+                    { type: 'bot', text: '✅ <strong>Available: Tomorrow 2:30pm with Sarah</strong><br><br>📋 <strong>Customer Profile Created:</strong><br>• Service: Color correction + cut<br>• Hair history: [Captured via questions]<br>• Allergies: [Checked]<br>• Preferred stylist: Sarah<br><br>💳 <strong>$25 booking deposit</strong><br>Applied to final service cost<br><br>📱 <strong>CRM Integration:</strong><br>• Added to client database<br>• Service history tracked<br>• Automatic rebooking reminders<br><br>📄 <strong>Sending:</strong> Portfolio, pricing menu, prep instructions' }
+                ]
+            },
+            dental: {
+                avgValue: 300,
+                conversionRate: 65,
+                industryFacts: "81% of dental emergencies occur outside office hours",
+                depositAmount: 75,
+                chatExamples: [
+                    { type: 'customer', text: 'I have a terrible toothache, do you have any emergency appointments?' },
+                    { type: 'bot', text: 'I\'m so sorry you\'re in pain! We can see you for an emergency appointment. Dr. Smith has an opening at 3pm today or 9am tomorrow. For immediate relief, rinse with warm salt water and take ibuprofen as directed. Which appointment time works for you?' },
+                    { type: 'customer', text: 'Today at 3pm please!' },
+                    { type: 'bot', text: '🚨 <strong>EMERGENCY APPOINTMENT BOOKED</strong><br><br>📅 <strong>Today 3:00pm with Dr. Smith</strong><br>💳 <strong>$75 emergency deposit</strong> (applied to treatment)<br><br>📋 <strong>Pre-appointment completed:</strong><br>• Insurance verification: [Checked]<br>• Medical history: [Updated]<br>• Pain level assessment: [Recorded]<br><br>📱 <strong>Multi-channel notifications:</strong><br>• SMS confirmation sent<br>• Email with forms attached<br>• Calendar reminder set<br><br>🏥 <strong>Clinic preparation:</strong><br>• Chart prepared<br>• Emergency kit ready<br>• Dr. Smith notified' }
+                ]
+            },
+            auto_repair: {
+                avgValue: 400,
+                conversionRate: 72,
+                industryFacts: "89% of auto repair inquiries need immediate attention",
+                depositAmount: 100,
+                chatExamples: [
+                    { type: 'customer', text: 'My check engine light just came on, can you diagnose it today?' },
+                    { type: 'bot', text: 'Absolutely! A diagnostic typically takes 1 hour and costs $120 (applied toward repairs if you proceed). I can get you in today at 4pm or tomorrow at 10am. Most check engine lights are minor issues, but it\'s smart to address quickly. Which time works better?' },
+                    { type: 'customer', text: 'Today at 4pm sounds good' },
+                    { type: 'bot', text: '🔧 <strong>DIAGNOSTIC APPOINTMENT CONFIRMED</strong><br><br>📅 <strong>Today 4:00pm - Bay 3</strong><br>💳 <strong>$100 service deposit</strong> (covers diagnostic + applied to repairs)<br><br>🚗 <strong>Vehicle Information Captured:</strong><br>• Make/Model/Year: [Recorded]<br>• VIN: [Stored for parts lookup]<br>• Mileage: [Logged]<br>• Symptoms: [Detailed notes]<br><br>📊 <strong>Shop Management Integration:</strong><br>• Work order created: #WO-2847<br>• Technician assigned: Mike<br>• Parts availability pre-checked<br><br>📄 <strong>Customer packet sent:</strong><br>• Service process guide<br>• Warranty information<br>• Current promotions' }
+                ]
+            }
+        };
+
+        // Additional industries
+        Object.assign(businessData, {
+            nail_salon: {
+                avgValue: 80,
+                conversionRate: 74,
+                industryFacts: "62% of nail bookings are requested after hours",
+                depositAmount: 20,
+                chatExamples: [
+                    { type: 'customer', text: 'Hi! Do you have availability for a gel manicure with nail art?' },
+                    { type: 'bot', text: 'Absolutely! Gel manicures typically range from $45-$65, and custom nail art varies based on design. I can book you with Mia tomorrow at 1pm or 3:30pm. Would you like me to reserve a spot?' },
+                    { type: 'customer', text: '3:30pm works!' },
+                    { type: 'bot', text: '✅ <strong>Appointment Reserved</strong><br><br>📅 <strong>Tomorrow 3:30pm</strong> with Mia<br>💳 <strong>$20 deposit</strong> to secure the booking (applied to service).<br><br>📄 <strong>Sending:</strong> Prep tips and aftercare guide.' }
+                ]
+            },
+            massage: {
+                avgValue: 100,
+                conversionRate: 70,
+                industryFacts: "76% of massage inquiries occur outside business hours",
+                depositAmount: 25,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you have openings for a 60-minute deep tissue this week?' },
+                    { type: 'bot', text: 'Yes! A 60-minute deep tissue session is $100. I can schedule you with Alex Thursday 11am or Friday 5pm. Which works better?' },
+                    { type: 'customer', text: 'Friday 5pm' },
+                    { type: 'bot', text: '🧘 <strong>Session Confirmed</strong><br><br>📅 <strong>Friday 5:00pm</strong> with Alex<br>💳 <strong>$25 deposit received</strong> (applied to session).<br>📧 Confirmation sent. Please arrive 10 minutes early.' }
+                ]
+            },
+            pet_grooming: {
+                avgValue: 90,
+                conversionRate: 68,
+                industryFacts: "57% of grooming requests are made after 6pm",
+                depositAmount: 20,
+                chatExamples: [
+                    { type: 'customer', text: 'Can I book a full groom for a small poodle this weekend?' },
+                    { type: 'bot', text: 'Yes! Full grooms for small breeds typically range $75-$95 depending on coat condition. I can book you Saturday 10am or Sunday 1pm. Which do you prefer?' },
+                    { type: 'customer', text: 'Saturday 10am please' },
+                    { type: 'bot', text: '🐾 <strong>Grooming Booked</strong><br><br>📅 <strong>Saturday 10:00am</strong><br>💳 <strong>$20 deposit</strong> applied to service.<br>📱 SMS reminders enabled.' }
+                ]
+            },
+            restaurant: {
+                avgValue: 40,
+                conversionRate: 60,
+                industryFacts: "Most group reservation requests arrive after hours",
+                depositAmount: 50,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you accept reservations for a party of 8 on Friday night?' },
+                    { type: 'bot', text: 'We do! I can seat 8 people at 7pm or 8:30pm this Friday. A refundable $50 deposit holds the table and is applied to your bill. Which time works?' },
+                    { type: 'customer', text: '7pm works' },
+                    { type: 'bot', text: '🍽️ <strong>Table Reserved</strong><br><br>📅 <strong>Friday 7:00pm</strong> for 8 guests<br>💳 <strong>$50 deposit received</strong><br>📧 Confirmation and pre-order options sent.' }
+                ]
+            },
+            fitness: {
+                avgValue: 65,
+                conversionRate: 66,
+                industryFacts: "72% of trial signups happen outside staffed hours",
+                depositAmount: 0,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you offer personal training packages? What are the prices?' },
+                    { type: 'bot', text: 'Yes! Personal training starts at $65/session with discounts on 10-session packs. I can book you for a free assessment tomorrow 6pm or Saturday 10am. Which time would you like?' },
+                    { type: 'customer', text: 'Tomorrow 6pm' },
+                    { type: 'bot', text: '💪 <strong>Assessment Booked</strong><br><br>📅 <strong>Tomorrow 6:00pm</strong><br>💳 <strong>No deposit required</strong><br>📧 Calendar invite sent. See you soon!' }
+                ]
+            },
+            contractor: {
+                avgValue: 500,
+                conversionRate: 58,
+                industryFacts: "Home service requests spike after work hours",
+                depositAmount: 50,
+                chatExamples: [
+                    { type: 'customer', text: 'Can I get a quote for drywall repair and painting a small room?' },
+                    { type: 'bot', text: 'Absolutely. Typical drywall repair + paint for a small room ranges $400-$700 depending on damage. I can schedule a free on-site estimate Wednesday 3pm or Thursday 10am. Which works?' },
+                    { type: 'customer', text: 'Thursday 10am' },
+                    { type: 'bot', text: '🛠️ <strong>Estimate Scheduled</strong><br><br>📅 <strong>Thursday 10:00am</strong><br>💳 <strong>$50 refundable deposit</strong> to secure the visit.<br>📧 Details sent with preparation checklist.' }
+                ]
+            },
+            real_estate: {
+                avgValue: 2000,
+                conversionRate: 55,
+                industryFacts: "Many showing requests are submitted evenings and weekends",
+                depositAmount: 0,
+                chatExamples: [
+                    { type: 'customer', text: 'Is the 3-bedroom on Elm Street still available for viewing?' },
+                    { type: 'bot', text: 'Yes! I can schedule a showing Saturday 11am or Sunday 2pm. I will also send the property flyer and mortgage pre-qual guide. Which time works?' },
+                    { type: 'customer', text: 'Sunday 2pm' },
+                    { type: 'bot', text: '🏠 <strong>Showing Confirmed</strong><br><br>📅 <strong>Sunday 2:00pm</strong><br>📄 Documents sent: Property flyer, comps, pre-qual guide.<br>📱 Reminder set 24 hours before.' }
+                ]
+            },
+            medical: {
+                avgValue: 220,
+                conversionRate: 62,
+                industryFacts: "81% of non-emergency medical inquiries occur after hours",
+                depositAmount: 40,
+                chatExamples: [
+                    { type: 'customer', text: 'Do you have new patient appointments next week for a physical?' },
+                    { type: 'bot', text: 'Yes. New patient physicals are $220 before insurance. I can book you Tuesday 9am or Thursday 1pm. We collect a $40 copay deposit which applies to your visit. Which time is better?' },
+                    { type: 'customer', text: 'Thursday 1pm' },
+                    { type: 'bot', text: '🏥 <strong>Appointment Scheduled</strong><br><br>📅 <strong>Thursday 1:00pm</strong><br>💳 <strong>$40 deposit received</strong><br>📧 Forms sent for faster check-in.' }
+                ]
+            },
+            legal: {
+                avgValue: 300,
+                conversionRate: 50,
+                industryFacts: "Initial consultations are often requested after work hours",
+                depositAmount: 50,
+                chatExamples: [
+                    { type: 'customer', text: 'Can I book a consultation for a contract review?' },
+                    { type: 'bot', text: 'Certainly. Initial consultations are $300 with a $50 deposit applied to your fee. I can schedule Wednesday 4pm or Friday 10am. Which do you prefer?' },
+                    { type: 'customer', text: 'Friday 10am' },
+                    { type: 'bot', text: '⚖️ <strong>Consultation Booked</strong><br><br>📅 <strong>Friday 10:00am</strong><br>💳 <strong>$50 deposit received</strong><br>📧 Confirmation and document upload link sent.' }
+                ]
+            },
+            other: {
+                avgValue: 150,
+                conversionRate: 60,
+                industryFacts: "Most service inquiries arrive outside typical business hours",
+                depositAmount: 30,
+                chatExamples: [
+                    { type: 'customer', text: 'Hi, I need help with a custom service. How do I get started?' },
+                    { type: 'bot', text: 'I can help with that! We start with a brief consultation to scope your needs. I can book you tomorrow 2pm or Thursday 11am. A $30 deposit holds your spot and is applied to your service. Which time would you like?' },
+                    { type: 'customer', text: 'Tomorrow 2pm' },
+                    { type: 'bot', text: '📅 <strong>Consultation Scheduled</strong><br><br>⏰ <strong>Tomorrow 2:00pm</strong><br>💳 <strong>$30 deposit received</strong><br>📧 Confirmation and next steps sent.' }
+                ]
+            }
+        });
+
+        function analyzeRevenueLoss() {
+            const businessType = document.getElementById('businessType').value;
+            const businessName = document.getElementById('businessName').value;
+            const avgService = parseInt(document.getElementById('avgService').value) || 150;
+            const dailyCalls = parseInt(document.getElementById('dailyCalls').value) || 5;
+
+            if (!businessType || !businessName) {
+                alert('Please fill in all fields to see your revenue analysis.');
+                return;
+            }
+
+            const data = businessData[businessType] || businessData.tattoo;
+            const dailyLoss = dailyCalls * avgService * (data.conversionRate / 100);
+            const monthlyLoss = dailyLoss * 30;
+            const yearlyLoss = dailyLoss * 365;
+
+            document.getElementById('lossCalculator').innerHTML = `
+                <h3>💸 ${businessName} - Revenue Loss Analysis</h3>
+                <div class="loss-stats">
+                    <div class="loss-stat">
+                        <h4>Daily Revenue Lost</h4>
+                        <div class="number">$${Math.round(dailyLoss).toLocaleString()}</div>
+                    </div>
+                    <div class="loss-stat">
+                        <h4>Monthly Revenue Lost</h4>
+                        <div class="number">$${Math.round(monthlyLoss).toLocaleString()}</div>
+                    </div>
+                    <div class="loss-stat">
+                        <h4>Annual Revenue Lost</h4>
+                        <div class="number">$${Math.round(yearlyLoss).toLocaleString()}</div>
+                    </div>
+                </div>
+                <div style="background: #333; padding: 20px; border-radius: 8px; text-align: center;">
+                    <h4 style="color: #4A90E2; margin-bottom: 10px;">Industry Fact:</h4>
+                    <p style="color: #cccccc; font-size: 1.1em;">${data.industryFacts}</p>
+                    <p style="color: #5C6BC0; font-size: 1.2em; margin-top: 15px; font-weight: 600;">
+                        Our AI chatbot captures ${data.conversionRate}% of these missed opportunities!
+                    </p>
+                </div>
+            `;
+
+            document.getElementById('resultsContainer').style.display = 'block';
+            document.querySelector('.business-input-section').style.display = 'none';
+
+            setTimeout(() => simulateChat(businessType), 1000);
+        }
+
+        function simulateChat(businessType) {
+            const data = businessData[businessType] || businessData.tattoo;
+            const chatContainer = document.getElementById('chatDemo');
+            const messages = data.chatExamples;
+
+            chatContainer.innerHTML = '';
+
+            messages.forEach((message, index) => {
+                setTimeout(() => {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = `chat-message ${message.type}`;
+                    messageDiv.innerHTML = `
+                        <div class="label">${message.type === 'customer' ? 'Potential Customer' : 'Your AI Chatbot'}</div>
+                        ${message.text}
+                    `;
+                    chatContainer.appendChild(messageDiv);
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }, index * 2000);
+            });
+
+            setTimeout(() => {
+                const analyticsDiv = document.createElement('div');
+                analyticsDiv.className = 'chat-message bot';
+                analyticsDiv.innerHTML = `
+                    <div class="label">📊 PLATINUM ANALYTICS DASHBOARD</div>
+                    <strong>🎯 Real-time Business Intelligence:</strong><br><br>
+                    📈 <strong>Today's Performance:</strong><br>
+                    • 12 conversations handled<br>
+                    • 9 appointments booked<br>
+                    • $1,850 in deposits collected<br>
+                    • 75% conversion rate<br><br>
+                    🔄 <strong>Follow-up Pipeline:</strong><br>
+                    • 23 customers in nurture sequence<br>
+                    • 8 ready for rebooking<br>
+                    • 15 pending consultation responses<br><br>
+                    📱 <strong>Multi-Location Sync:</strong><br>
+                    • Downtown: 4 bookings<br>
+                    • Westside: 3 bookings<br>
+                    • Mall location: 2 bookings<br><br>
+                    💼 <strong>CRM Integration Active:</strong><br>
+                    • Customer profiles auto-updated<br>
+                    • Service history tracked<br>
+                    • Preference learning enabled<br><br>
+                    <strong>🚀 This level of automation runs 24/7 while you sleep!</strong>
+                `;
+                chatContainer.appendChild(analyticsDiv);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }, messages.length * 2000 + 2000);
+        }
+
+        function scheduleDemo() {
+            alert(`🎉 Demo Request Submitted!
+
+We'll contact you within 24 hours to:
+
+✅ Show you a live demo customized for your business
+✅ Set up your AI chatbot in 15 minutes  
+✅ Start your 14-day free trial (auto-renews unless canceled)
+✅ No contracts or long-term commitments
+
+Check your email for confirmation and next steps!`);
+        }
+
+        function startTrial() {
+            window.location.href = 'contact.html#trial';
+        }
+
+        document.querySelector('.analyze-btn').addEventListener('click', () => {
+            setTimeout(() => {
+                document.getElementById('resultsContainer').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }, 500);
+        });
+
+        // Deep link: auto-run demo for a given industry via URL (?industry=tattoo&name=Acme)
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const industry = params.get('industry');
+            const businessNameParam = params.get('name');
+            if (industry) {
+                const businessTypeSelect = document.getElementById('businessType');
+                const nameInput = document.getElementById('businessName');
+                const avgServiceInput = document.getElementById('avgService');
+                const dailyCallsInput = document.getElementById('dailyCalls');
+
+                if (businessTypeSelect) businessTypeSelect.value = industry;
+                if (nameInput) nameInput.value = businessNameParam || industry.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                if (avgServiceInput && !avgServiceInput.value) avgServiceInput.value = (businessData[industry] && businessData[industry].avgValue) || 150;
+                if (dailyCallsInput && !dailyCallsInput.value) dailyCallsInput.value = 5;
+
+                analyzeRevenueLoss();
+                setTimeout(() => {
+                    document.getElementById('resultsContainer').scrollIntoView({ behavior: 'smooth' });
+                }, 600);
+            }
+        });
+    </script>
+</body>
+</html>
