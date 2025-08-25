@@ -10,7 +10,7 @@ Example placeholder snippet (replace with your live snippet):
 <script src="https://cdn.botpress.cloud/webchat/v2/config.js"></script>
 <script>
   window.botpressWebChat.init({
-    botId: "seventwelve-salesbot",
+    botId: "nexteleven-salesbot",
     clientId: "YOUR_CLIENT_ID",
     composerPlaceholder: "Ask about pricing, features, or request a demo",
     themeName: "prism",
@@ -19,7 +19,7 @@ Example placeholder snippet (replace with your live snippet):
     window.botpressWebChat.sendEvent({ type: 'proactive-trigger', channel: 'web' });
   }, ['LIFECYCLE.LOADED']);
   window.botpressWebChat.onEvent(function() {
-    window.botpressWebChat.sendPayload({ type: 'proactive-message', text: 'Hi! I\'m the SevenTwelve SalesBot. Want pricing or a quick demo?' });
+    window.botpressWebChat.sendPayload({ type: 'proactive-message', text: 'Hi! I\'m the NextEleven SalesBot. Want pricing or a quick demo?' });
   }, ['WEBCHAT.OPEN']);
   window.botpressWebChat.renderPopup();
 </script>

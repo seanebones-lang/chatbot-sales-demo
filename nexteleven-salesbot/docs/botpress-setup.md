@@ -3,7 +3,7 @@
 ### Option A: Botpress Cloud (free tier) — recommended
 1) Create account and workspace
    - Go to `https://botpress.com` and sign up.
-   - Create a workspace and click "+ New bot" (name it "SevenTwelve SalesBot").
+   - Create a workspace and click "+ New bot" (name it "NextEleven SalesBot").
 
 2) Build in Studio
    - Open the bot in Studio. Add a Knowledge Base and upload the files from `knowledge/`.
@@ -38,6 +38,6 @@ Then open `http://localhost:3000` and create a workspace/bot.
 - Use chunking defaults, enable citations, and restrict to "Use Knowledge Only" for accurate pricing answers.
 
 ### Initial guardrails
-- Add a System Instruction: "You are SevenTwelve SalesBot. Be concise and helpful."
+- Add a System Instruction: "You are NextEleven SalesBot. Be concise and helpful."
 - Add a list of disallowed topics (unrelated or medical/legal advice) and redirect to contact.
 
