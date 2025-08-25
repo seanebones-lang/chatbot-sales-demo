@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessChat - AI Chatbot Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --text: #34495e;
+            --text-light: #7f8c8d;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        body.modal-open { overflow: hidden; }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .logo i {
+            font-size: 1.8rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary);
+            background: rgba(52, 152, 219, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Special Offer Banner */
+        .offer-banner {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: var(--dark);
+            text-align: center;
+            padding: 10px 0;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .offer-banner .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        /* Page Styles */
+        .page {
+            display: none;
+            padding: 40px 0;
+            min-height: calc(100vh - 80px);
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        .page-title {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        
+        .page-description {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Home Page */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-special {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: var(--dark);
+            font-weight: 700;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-special:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-special::after {
+            content: "Limited Time!";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            transform: rotate(15deg);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* Cards + Pricing (missing styles added) */
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+        
+        .pricing-plan {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .pricing-plan .price {
+            font-size: 2rem;
+            margin: 10px 0;
+            color: var(--secondary);
+        }
+        
+        .pricing-plan .plan-features {
+            list-style: none;
+            text-align: left;
+            margin: 15px 0;
+            padding-left: 0;
+        }
+        
+        .pricing-plan .plan-features li {
+            margin: 6px 0;
+        }
+        
+        .pricing-plan.featured {
+            border: 2px solid var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        /* Popup Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            transform: translateY(50px);
+            transition: var(--transition);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-icon {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .modal-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .modal-body {
+            margin-bottom: 25px;
+        }
+        
+        .offer-highlight {
+            text-align: center;
+            background: linear-gradient(135deg, #fff6b7 0%, #f6416c 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .modal-footer {
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+                gap: 15px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .page-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Special Offer Banner -->
+    <div class="offer-banner">
+        <i class="fas fa-gift"></i> Special Offer: <span class="highlight">20% OFF</span> + No Setup Fee with Annual Subscription! <a href="#" id="bannerOfferLink" style="color: var(--dark); text-decoration: underline; margin-left: 10px;">Claim Now</a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <span>BusinessChat</span>
+                </div>
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#" class="nav-link active" data-page="home" aria-current="page">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="features">Features</a></li>
+                        <li><a href="#" class="nav-link" data-page="pricing">Pricing</a></li>
+                        <li><a href="#" class="nav-link" data-page="testimonials">Testimonials</a></li>
+                        <li><a href="#" class="nav-link" data-page="case-studies">Case Studies</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                        <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+                        <li><a href="#" class="nav-link" data-page="documentation">Documentation</a></li>
+                        <li><a href="#" class="nav-link" data-page="support">Support</a></li>
+                        <li><a href="#" class="nav-link" data-page="api">API Examples</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="container">
+                <div class="hero">
+                    <h1>AI Chatbot Solutions for Every Business</h1>
+                    <p>Transform your customer experience with our intelligent chatbot technology designed specifically for service businesses.</p>
+                    <a href="#" class="btn">Get Started</a>
+                    <a href="#" class="btn btn-special">Claim 20% Off Offer</a>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="feature-title">24/7 Customer Support</h3>
+                        <p>Provide instant responses to customer inquiries at any time of day, even outside business hours.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3 class="feature-title">Appointment Booking</h3>
+                        <p>Allow customers to book appointments directly through the chatbot interface.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="feature-title">AI-Powered Responses</h3>
+                        <p>Our chatbot learns from interactions to provide increasingly accurate responses over time.</p>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <h2>Special Limited Time Offer</h2>
+                    <div class="offer-highlight">
+                        <i class="fas fa-gift"></i> Get 20% OFF + No Setup Fee with Annual Subscription!
+                    </div>
+                    <p>This exclusive offer includes:</p>
+                    <ul>
+                        <li>20% discount on your first year of service</li>
+                        <li>No setup fees (save $199)</li>
+                        <li>Priority onboarding</li>
+                        <li>Dedicated account manager</li>
+                    </ul>
+                    <p style="margin-top: 20px;"><strong>Hurry!</strong> This offer is valid for the first 50 customers who sign up.</p>
+                    <a href="#" class="btn btn-special" style="margin-top: 20px;">Claim Your Discount Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Page -->
+        <section id="features" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2 class="page-title">Features</h2>
+                    <p class="page-description">Discover the powerful capabilities of our chatbot platform</p>
+                </div>
+                
+                <div class="content-card">
+                    <h2>Core Features</h2>
+                    <div class="features">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3 class="feature-title">Natural Language Processing</h3>
+                            <p>Our AI understands and processes customer queries in natural language for more intuitive interactions.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <h3 class="feature-title">Easy Integrations</h3>
+                            <p>Connect with your existing calendar, booking, and payment systems for a seamless workflow.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="feature-title">Analytics Dashboard</h3>
+                            <p>Gain insights into customer interactions, frequently asked questions, and conversion metrics.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-highlight">
+                        <i class="fas fa-gift"></i> Special Offer: Get 20% OFF + No Setup Fee with Annual Subscription!
+                    </div>
+                    
+                    <p style="text-align: center; margin-top: 20px;">
+                        <a href="#" class="btn btn-special">Claim Your Discount</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Page -->
+        <section id="pricing" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2 class="page-title">Pricing Plans</h2>
+                    <p class="page-description">Choose the plan that works best for your business</p>
+                </div>
+                
+                <div class="pricing-plans">
+                    <div class="pricing-plan">
+                        <h3>Starter</h3>
+                        <div class="price">$29<span>/month</span></div>
+                        <p>Perfect for small businesses getting started with chatbots</p>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> 500 conversations/mo</li>
+                            <li><i class="fas fa-check"></i> Basic integrations</li>
+                            <li><i class="fas fa-check"></i> Email support</li>
+                            <li><i class="fas fa-times"></i> Advanced AI</li>
+                            <li><i class="fas fa-times"></i> Phone support</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-plan featured">
+                        <div class="offer-highlight">Best Value</div>
+                        <h3>Professional</h3>
+                        <div class="price">$79<span>/month</span></div>
+                        <div class="price" style="color: var(--accent); font-size: 1.5rem;">
+                            <s>$99</s> $79 with annual plan
+                        </div>
+                        <p>Ideal for growing businesses with higher chat volumes</p>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> 2,000 conversations/mo</li>
+                            <li><i class="fas fa-check"></i> All integrations</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                            <li><i class="fas fa-check"></i> Advanced AI</li>
+                            <li><i class="fas fa-times"></i> Dedicated account manager</li>
+                        </ul>
+                        <a href="#" class="btn">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-plan">
+                        <h3>Enterprise</h3>
+                        <div class="price">$199<span>/month</span></div>
+                        <div class="price" style="color: var(--accent); font-size: 1.5rem;">
+                            <s>$249</s> $199 with annual plan
+                        </div>
+                        <p>For large businesses with complex needs</p>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Unlimited conversations</li>
+                            <li><i class="fas fa-check"></i> Custom integrations</li>
+                            <li><i class="fas fa-check"></i> 24/7 support</li>
+                            <li><i class="fas fa-check"></i> Advanced AI + Training</li>
+                            <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Contact Sales</a>
+                    </div>
+                </div>
+                
+                <div class="content-card" style="margin-top: 30px;">
+                    <div class="offer-highlight">
+                        <i class="fas fa-gift"></i> Special Limited Time Offer: Get 20% OFF + No Setup Fee with Annual Subscription!
+                    </div>
+                    <p style="text-align: center; margin-top: 15px;">
+                        <a href="#" class="btn btn-special">Claim Your Discount Now</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placeholder sections for other nav links -->
+        <section id="testimonials" class="page"><div class="container"><div class="page-header"><h2 class="page-title">Testimonials</h2><p class="page-description">What our customers say</p></div><div class="content-card"><p>Coming soon.</p></div></div></section>
+        <section id="case-studies" class="page"><div class="container"><div class="page-header"><h2 class="page-title">Case Studies</h2><p class="page-description">Success stories and outcomes</p></div><div class="content-card"><p>Coming soon.</p></div></div></section>
+        <section id="about" class="page"><div class="container"><div class="page-header"><h2 class="page-title">About Us</h2><p class="page-description">Learn more about our mission</p></div><div class="content-card"><p>Coming soon.</p></div></div></section>
+        <section id="contact" class="page"><div class="container"><div class="page-header"><h2 class="page-title">Contact</h2><p class="page-description">Get in touch with our team</p></div><div class="content-card"><p>Coming soon.</p></div></div></section>
+        <section id="blog" class="page"><div class="container"><div class="page-header"><h2 class="page-title">Blog</h2><p class="page-description">Latest articles and insights</p></div><div class="content-card"><p>Coming soon.</p></div></div></section>
+        <section id="documentation" class="page"><div class="container"><div class="page-header"><h2 class="page-title">Documentation</h2><p class="page-description">Guides and API docs</p></div><div class="content-card"><p>Coming soon.</p></div></div></section>
+        <section id="support" class="page"><div class="container"><div class="page-header"><h2 class="page-title">Support</h2><p class="page-description">We're here to help</p></div><div class="content-card"><p>Coming soon.</p></div></div></section>
+        <section id="api" class="page"><div class="container"><div class="page-header"><h2 class="page-title">API Examples</h2><p class="page-description">Code snippets and demos</p></div><div class="content-card"><p>Coming soon.</p></div></div></section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BusinessChat</h3>
+                    <p>AI-powered chatbot solutions for service businesses of all types.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="features">Features</a></li>
+                        <li><a href="#" class="nav-link" data-page="pricing">Pricing</a></li>
+                        <li><a href="#" class="nav-link" data-page="case-studies">Case Studies</a></li>
+                        <li><a href="#" class="nav-link" data-page="testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="documentation">Documentation</a></li>
+                        <li><a href="#" class="nav-link" data-page="api">API Examples</a></li>
+                        <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+                        <li><a href="#" class="nav-link" data-page="support">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 BusinessChat. All rights reserved.</p>
+                <p>Special Offer: <strong>20% OFF + No Setup Fee</strong> with Annual Subscription!</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Popup Modal -->
+    <div class="modal-overlay" id="offerModal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="offerTitle" aria-describedby="offerDesc">
+            <button class="modal-close" id="modalClose" aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h2 class="modal-title" id="offerTitle">Special Offer Just For You!</h2>
+                <p class="modal-subtitle">We're excited to have you here</p>
+            </div>
+            
+            <div class="modal-body" id="offerDesc">
+                <div class="offer-highlight">
+                    Get 20% OFF + No Setup Fee with Annual Subscription!
+                </div>
+                
+                <p>As a new visitor, we'd like to offer you:</p>
+                <ul style="margin: 15px 0 15px 20px;">
+                    <li>20% discount on your first year</li>
+                    <li>No setup fees (save $199)</li>
+                    <li>Priority onboarding</li>
+                    <li>Dedicated account manager</li>
+                </ul>
+                
+                <p>This exclusive offer is available for a limited time only.</p>
+            </div>
+            
+            <div class="modal-footer">
+                <a href="#" class="btn btn-special">Claim This Offer Now</a>
+                <p style="margin-top: 15px; font-size: 0.9rem;">
+                    <a href="#" style="color: var(--text-light);" id="maybeLater">Maybe later</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Page Navigation
+        const navMenu = document.getElementById('navMenu');
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                if (!pageId) return;
+                
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show selected page
+                const target = document.getElementById(pageId);
+                if (target) target.classList.add('active');
+                
+                // Update active nav link + aria-current
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                    navLink.removeAttribute('aria-current');
+                });
+                this.classList.add('active');
+                this.setAttribute('aria-current', 'page');
+                
+                // Close mobile menu if open
+                navMenu.classList.remove('show');
+                
+                // Smooth scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+        
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('show');
+        });
+        
+        // Offer Modal
+        const offerModal = document.getElementById('offerModal');
+        const modalClose = document.getElementById('modalClose');
+        const maybeLater = document.getElementById('maybeLater');
+        const bannerOfferLink = document.getElementById('bannerOfferLink');
+        
+        function openModal() {
+            offerModal.classList.add('active');
+            offerModal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+        }
+        function closeModal() {
+            offerModal.classList.remove('active');
+            offerModal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('modal-open');
+            localStorage.setItem('offerShown', 'true');
+        }
+        
+        // Check if user has already seen the offer
+        if (!localStorage.getItem('offerShown')) {
+            setTimeout(openModal, 2000);
+        }
+        
+        // Close modal
+        modalClose.addEventListener('click', closeModal);
+        maybeLater.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeModal();
+        });
+        
+        // Click outside modal to close
+        offerModal.addEventListener('click', function(e) {
+            if (e.target === offerModal) {
+                closeModal();
+            }
+        });
+        
+        // Banner offer link
+        bannerOfferLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal();
+        });
+        
+        // Escape key closes modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && offerModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
+        // Special offer buttons navigate to pricing page
+        document.querySelectorAll('.btn-special').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Navigate to pricing page
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById('pricing').classList.add('active');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                    navLink.removeAttribute('aria-current');
+                });
+                const pricingLink = document.querySelector('[data-page="pricing"]');
+                if (pricingLink) {
+                    pricingLink.classList.add('active');
+                    pricingLink.setAttribute('aria-current', 'page');
+                }
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
+
