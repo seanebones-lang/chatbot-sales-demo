@@ -750,7 +750,11 @@
                 return;
             }
 
-            const data = businessData[businessType] || businessData.tattoo;
+            const data = businessData[businessType];
+            if (!data) {
+                alert('Please select a valid business type.');
+                return;
+            }
             const dailyLoss = dailyCalls * avgService * (data.conversionRate / 100);
             const monthlyLoss = dailyLoss * 30;
             const yearlyLoss = dailyLoss * 365;
@@ -817,7 +821,13 @@
         }
 
         function simulateChat(businessType) {
-            const data = businessData[businessType] || businessData.tattoo;
+            const data = businessData[businessType];
+            if (!data) {
+                clearChatSchedule();
+                const chatContainer = document.getElementById('chatDemo');
+                if (chatContainer) chatContainer.innerHTML = '';
+                return;
+            }
             const chatContainer = document.getElementById('chatDemo');
             const messages = data.chatExamples || [];
 
