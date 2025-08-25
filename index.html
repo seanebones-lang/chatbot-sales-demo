@@ -572,6 +572,136 @@
             }
         };
 
+        businessData.nail_salon = {
+            avgValue: 80,
+            conversionRate: 74,
+            industryFacts: "62% of nail bookings are requested after hours",
+            depositAmount: 20,
+            chatExamples: [
+                { type: 'customer', text: 'Hi! Do you have availability for a gel manicure with nail art?' },
+                { type: 'bot', text: 'Absolutely! Gel manicures typically range from $45-$65, and custom nail art varies based on design. I can book you with Mia tomorrow at 1pm or 3:30pm. Would you like me to reserve a spot?' },
+                { type: 'customer', text: '3:30pm works!' },
+                { type: 'bot', text: `✅ <strong>Appointment Reserved</strong><br><br>📅 <strong>Tomorrow 3:30pm</strong> with Mia<br>💳 <strong>$${20} deposit</strong> to secure the booking (applied to service).<br><br>📄 <strong>Sending:</strong> Prep tips and aftercare guide.` }
+            ]
+        };
+
+        businessData.massage = {
+            avgValue: 100,
+            conversionRate: 70,
+            industryFacts: "76% of massage inquiries occur outside business hours",
+            depositAmount: 25,
+            chatExamples: [
+                { type: 'customer', text: 'Do you have openings for a 60-minute deep tissue this week?' },
+                { type: 'bot', text: 'Yes! A 60-minute deep tissue session is $100. I can schedule you with Alex Thursday 11am or Friday 5pm. Which works better?' },
+                { type: 'customer', text: 'Friday 5pm' },
+                { type: 'bot', text: '🧘 <strong>Session Confirmed</strong><br><br>📅 <strong>Friday 5:00pm</strong> with Alex<br>💳 <strong>$25 deposit received</strong> (applied to session).<br>📧 Confirmation sent. Please arrive 10 minutes early.' }
+            ]
+        };
+
+        businessData.pet_grooming = {
+            avgValue: 90,
+            conversionRate: 68,
+            industryFacts: "57% of grooming requests are made after 6pm",
+            depositAmount: 20,
+            chatExamples: [
+                { type: 'customer', text: 'Can I book a full groom for a small poodle this weekend?' },
+                { type: 'bot', text: 'Yes! Full grooms for small breeds typically range $75-$95 depending on coat condition. I can book you Saturday 10am or Sunday 1pm. Which do you prefer?' },
+                { type: 'customer', text: 'Saturday 10am please' },
+                { type: 'bot', text: '🐾 <strong>Grooming Booked</strong><br><br>📅 <strong>Saturday 10:00am</strong><br>💳 <strong>$20 deposit</strong> applied to service.<br>📱 SMS reminders enabled.' }
+            ]
+        };
+
+        businessData.restaurant = {
+            avgValue: 40,
+            conversionRate: 60,
+            industryFacts: "Most group reservation requests arrive after hours",
+            depositAmount: 50,
+            chatExamples: [
+                { type: 'customer', text: 'Do you accept reservations for a party of 8 on Friday night?' },
+                { type: 'bot', text: 'We do! I can seat 8 people at 7pm or 8:30pm this Friday. A refundable $50 deposit holds the table and is applied to your bill. Which time works?' },
+                { type: 'customer', text: '7pm works' },
+                { type: 'bot', text: '🍽️ <strong>Table Reserved</strong><br><br>📅 <strong>Friday 7:00pm</strong> for 8 guests<br>💳 <strong>$50 deposit received</strong><br>📧 Confirmation and pre-order options sent.' }
+            ]
+        };
+
+        businessData.fitness = {
+            avgValue: 65,
+            conversionRate: 66,
+            industryFacts: "72% of trial signups happen outside staffed hours",
+            depositAmount: 0,
+            chatExamples: [
+                { type: 'customer', text: 'Do you offer personal training packages? What are the prices?' },
+                { type: 'bot', text: 'Yes! Personal training starts at $65/session with discounts on 10-session packs. I can book you for a free assessment tomorrow 6pm or Saturday 10am. Which time would you like?' },
+                { type: 'customer', text: 'Tomorrow 6pm' },
+                { type: 'bot', text: '💪 <strong>Assessment Booked</strong><br><br>📅 <strong>Tomorrow 6:00pm</strong><br>💳 <strong>No deposit required</strong><br>📧 Calendar invite sent. See you soon!' }
+            ]
+        };
+
+        businessData.contractor = {
+            avgValue: 500,
+            conversionRate: 58,
+            industryFacts: "Home service requests spike after work hours",
+            depositAmount: 50,
+            chatExamples: [
+                { type: 'customer', text: 'Can I get a quote for drywall repair and painting a small room?' },
+                { type: 'bot', text: 'Absolutely. Typical drywall repair + paint for a small room ranges $400-$700 depending on damage. I can schedule a free on-site estimate Wednesday 3pm or Thursday 10am. Which works?' },
+                { type: 'customer', text: 'Thursday 10am' },
+                { type: 'bot', text: '🛠️ <strong>Estimate Scheduled</strong><br><br>📅 <strong>Thursday 10:00am</strong><br>💳 <strong>$50 refundable deposit</strong> to secure the visit.<br>📧 Details sent with preparation checklist.' }
+            ]
+        };
+
+        businessData.real_estate = {
+            avgValue: 2000,
+            conversionRate: 55,
+            industryFacts: "Many showing requests are submitted evenings and weekends",
+            depositAmount: 0,
+            chatExamples: [
+                { type: 'customer', text: 'Is the 3-bedroom on Elm Street still available for viewing?' },
+                { type: 'bot', text: 'Yes! I can schedule a showing Saturday 11am or Sunday 2pm. I will also send the property flyer and mortgage pre-qual guide. Which time works?' },
+                { type: 'customer', text: 'Sunday 2pm' },
+                { type: 'bot', text: '🏠 <strong>Showing Confirmed</strong><br><br>📅 <strong>Sunday 2:00pm</strong><br>📄 Documents sent: Property flyer, comps, pre-qual guide.<br>📱 Reminder set 24 hours before.' }
+            ]
+        };
+
+        businessData.medical = {
+            avgValue: 220,
+            conversionRate: 62,
+            industryFacts: "81% of non-emergency medical inquiries occur after hours",
+            depositAmount: 40,
+            chatExamples: [
+                { type: 'customer', text: 'Do you have new patient appointments next week for a physical?' },
+                { type: 'bot', text: 'Yes. New patient physicals are $220 before insurance. I can book you Tuesday 9am or Thursday 1pm. We collect a $40 copay deposit which applies to your visit. Which time is better?' },
+                { type: 'customer', text: 'Thursday 1pm' },
+                { type: 'bot', text: '🏥 <strong>Appointment Scheduled</strong><br><br>📅 <strong>Thursday 1:00pm</strong><br>💳 <strong>$40 deposit received</strong><br>📧 Forms sent for faster check-in.' }
+            ]
+        };
+
+        businessData.legal = {
+            avgValue: 300,
+            conversionRate: 50,
+            industryFacts: "Initial consultations are often requested after work hours",
+            depositAmount: 50,
+            chatExamples: [
+                { type: 'customer', text: 'Can I book a consultation for a contract review?' },
+                { type: 'bot', text: 'Certainly. Initial consultations are $300 with a $50 deposit applied to your fee. I can schedule Wednesday 4pm or Friday 10am. Which do you prefer?' },
+                { type: 'customer', text: 'Friday 10am' },
+                { type: 'bot', text: '⚖️ <strong>Consultation Booked</strong><br><br>📅 <strong>Friday 10:00am</strong><br>💳 <strong>$50 deposit received</strong><br>📧 Confirmation and document upload link sent.' }
+            ]
+        };
+
+        businessData.other = {
+            avgValue: 150,
+            conversionRate: 60,
+            industryFacts: "Most service inquiries arrive outside typical business hours",
+            depositAmount: 30,
+            chatExamples: [
+                { type: 'customer', text: 'Hi, I need help with a custom service. How do I get started?' },
+                { type: 'bot', text: 'I can help with that! We start with a brief consultation to scope your needs. I can book you tomorrow 2pm or Thursday 11am. A $30 deposit holds your spot and is applied to your service. Which time would you like?' },
+                { type: 'customer', text: 'Tomorrow 2pm' },
+                { type: 'bot', text: '📅 <strong>Consultation Scheduled</strong><br><br>⏰ <strong>Tomorrow 2:00pm</strong><br>💳 <strong>$30 deposit received</strong><br>📧 Confirmation and next steps sent.' }
+            ]
+        };
+
         function analyzeRevenueLoss() {
             const businessType = document.getElementById('businessType').value;
             const businessName = document.getElementById('businessName').value;
