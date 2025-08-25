@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start 14-Day Free Trial</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#111; color:#eee; margin:0; }
+        .container { max-width: 720px; margin: 0 auto; padding: 40px 20px; }
+        .card { background:#1a1a1a; border:1px solid #333; border-radius:12px; padding:24px; }
+        h1 { margin:0 0 10px; font-weight:600; }
+        p { color:#bbb; }
+        label { display:block; margin:14px 0 6px; }
+        input, select { width:100%; padding:12px; border-radius:8px; border:1px solid #444; background:#222; color:#eee; }
+        .row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+        .actions { margin-top:18px; display:flex; gap:12px; align-items:center; }
+        .btn { background: linear-gradient(135deg, #5C6BC0, #4A90E2); color:#fff; border:none; padding:14px 20px; border-radius:8px; cursor:pointer; font-weight:600; }
+        .note { font-size:12px; color:#888; margin-top:8px; }
+        .success { display:none; background:#0f2a17; color:#9be7a7; padding:12px; border-radius:8px; margin-top:12px; border:1px solid #245b2c; }
+        a { color:#8ab4ff; }
+        @media (max-width:680px){ .row{ grid-template-columns:1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Start Your 14-Day Free Trial</h1>
+            <p>Get full access. Trial auto-renews at the selected plan unless canceled during the trial.</p>
+            <form id="trialForm">
+                <div class="row">
+                    <div>
+                        <label for="name">Full Name</label>
+                        <input id="name" name="name" required />
+                    </div>
+                    <div>
+                        <label for="email">Work Email</label>
+                        <input id="email" name="email" type="email" required />
+                    </div>
+                </div>
+                <label for="business">Business Name</label>
+                <input id="business" name="business" required />
+                <label for="industry">Industry</label>
+                <select id="industry" name="industry" required>
+                    <option value="">Select...</option>
+                    <option value="tattoo">Tattoo Shop / Artist</option>
+                    <option value="hair_salon">Hair Salon / Stylist</option>
+                    <option value="nail_salon">Nail Salon</option>
+                    <option value="dental">Dental Practice</option>
+                    <option value="massage">Massage Therapy</option>
+                    <option value="auto_repair">Auto Repair Shop</option>
+                    <option value="pet_grooming">Pet Grooming</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="fitness">Fitness Training</option>
+                    <option value="contractor">Contractor / Handyman</option>
+                    <option value="real_estate">Real Estate Agent</option>
+                    <option value="medical">Medical Practice</option>
+                    <option value="legal">Legal Services</option>
+                    <option value="other">Other Service Business</option>
+                </select>
+                <label for="plan">Select Plan</label>
+                <select id="plan" name="plan" required>
+                    <option value="standard">Standard - $149/mo</option>
+                    <option value="gold">Gold - $199/mo</option>
+                    <option value="platinum">Platinum - $299/mo</option>
+                    <option value="platinum_plus">Platinum Plus - $399/mo</option>
+                </select>
+                <div>
+                    <input id="consent" type="checkbox" required />
+                    <label for="consent">I agree to the <a href="#">Terms</a> and acknowledge the trial auto-renews unless canceled.</label>
+                </div>
+                <div class="actions">
+                    <button class="btn" type="submit">Start Free Trial</button>
+                    <a href="index.html" class="btn" style="text-decoration:none; background:#333; border:1px solid #444;">Back</a>
+                </div>
+                <div class="note">We’ll email setup steps. Cancel anytime during trial to avoid charges.</div>
+                <div class="success" id="success">✅ Trial started! Check your email for next steps.</div>
+            </form>
+        </div>
+    </div>
+    <script>
+        (function(){
+            const params = new URLSearchParams(location.hash.slice(1));
+            if (location.hash.includes('trial')) {
+                // default
+            }
+            const industryParam = new URLSearchParams(location.search).get('industry');
+            if (industryParam) {
+                const sel = document.getElementById('industry');
+                if (sel) sel.value = industryParam;
+            }
+            document.getElementById('trialForm').addEventListener('submit', function(e){
+                e.preventDefault();
+                document.getElementById('success').style.display = 'block';
+                setTimeout(()=>{ window.location.href = `index.html?industry=${encodeURIComponent(document.getElementById('industry').value)}&name=${encodeURIComponent(document.getElementById('business').value)}`; }, 1200);
+            });
+        })();
+    </script>
+</body>
+</html>
