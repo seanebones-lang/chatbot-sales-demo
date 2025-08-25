@@ -1,10 +1,10 @@
-## SevenTwelve SalesBot (Botpress)
+## NextEleven SalesBot (Botpress)
 
-A knowledge-based SalesBot for SevenTwelve to demonstrate our chatbot services to prospects using Botpress.
+A knowledge-based SalesBot for NextEleven to demonstrate our chatbot services to prospects using Botpress.
 
 ### Folder structure
 ```text
-seventwelve-salesbot/
+nexteleven-salesbot/
   README.md
   docs/
     botpress-setup.md
@@ -42,7 +42,7 @@ seventwelve-salesbot/
 - Use `embed/instructions.md` to add the bot to a website when ready.
 
 ### Project goals
-- Demonstrate SevenTwelve capabilities, pricing, industries served, and current offers.
+- Demonstrate NextEleven capabilities, pricing, industries served, and current offers.
 - Capture leads and schedule demos directly in chat.
 - Provide a clean structure for knowledge, flows, and deployment.
 
