@@ -239,6 +239,29 @@
             border: 1px solid #404040;
         }
 
+        .billing-toggle {
+            display: inline-flex;
+            background: #333;
+            border: 1px solid #555;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 0 auto 25px auto;
+        }
+
+        .billing-toggle button {
+            padding: 10px 16px;
+            border: none;
+            background: transparent;
+            color: #ccc;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .billing-toggle button.active {
+            background: #4A90E2;
+            color: #fff;
+        }
+
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -430,41 +453,37 @@
 
                 <div class="pricing-section">
                     <h3 style="text-align: center; color: #ffffff; margin-bottom: 40px; font-size: 2em;">Choose Your Chatbot Package</h3>
+                    <div style="text-align:center; margin-bottom: 10px;">
+                        <div class="billing-toggle" role="tablist" aria-label="Billing Toggle">
+                            <button id="billingMonthly" class="active" aria-selected="true" onclick="setBilling('monthly')">Monthly</button>
+                            <button id="billingAnnual" aria-selected="false" onclick="setBilling('annual')">Annual <span style="opacity:0.9;">(Save setup + 10%)</span></button>
+                        </div>
+                        <div style="color:#aaa; font-size: 0.95em;">Year 1 cost shown below each plan</div>
+                    </div>
                     <div class="pricing-grid">
                         <div class="pricing-card">
                             <h4>Basic Package</h4>
-                            <div class="price">$99<span style="font-size: 0.4em;">/month</span></div>
-                            <div class="setup">$200 setup fee</div>
+                            <div class="price" data-plan-price="basic">$99<span style="font-size: 0.4em;">/month</span></div>
+                            <div class="setup" data-plan-setup="basic">$200 setup fee</div>
+                            <div style="color:#9ec3ff; margin: 8px 0 14px 0; font-weight:600;" data-plan-year1="basic">Year 1: $1,388</div>
                             <ul>
                                 <li>Basic FAQ responses</li>
                                 <li>Simple callback scheduling</li>
                                 <li>3 PDF downloads</li>
                                 <li>Email notifications</li>
+                                <li><strong>Support:</strong> Email (48hr response)</li>
                                 <li>30-day service</li>
                                 <li>1 complete rework included</li>
                                 <li>Email support only</li>
                             </ul>
+                            <button class="cta-btn" style="width:100%;" onclick="choosePlan('basic')">Choose Basic</button>
                         </div>
 
-                        <div class="pricing-card featured">
-                            <h4>Standard Package</h4>
-                            <div class="price">$149<span style="font-size: 0.4em;">/month</span></div>
-                            <div class="setup">$300 setup fee</div>
-                            <ul>
-                                <li>Advanced FAQ system</li>
-                                <li>Calendar appointment scheduling</li>
-                                <li>Customer info collection</li>
-                                <li>6 PDF downloads</li>
-                                <li>Basic follow-up sequences</li>
-                                <li>2 complete reworks</li>
-                                <li>Priority support</li>
-                            </ul>
-                        </div>
-
-                        <div class="pricing-card">
+                        <div class="pricing-card featured" data-most-popular="gold" style="border-color: transparent; transform:none;">
                             <h4>Gold Package</h4>
-                            <div class="price">$199<span style="font-size: 0.4em;">/month</span></div>
-                            <div class="setup">$400 setup fee</div>
+                            <div class="price" data-plan-price="gold">$199<span style="font-size: 0.4em;">/month</span></div>
+                            <div class="setup" data-plan-setup="gold">$400 setup fee</div>
+                            <div style="color:#9ec3ff; margin: 8px 0 14px 0; font-weight:600;" data-plan-year1="gold">Year 1: $2,788</div>
                             <ul>
                                 <li><strong>💳 DEPOSIT COLLECTION</strong></li>
                                 <li>Smart scheduling system</li>
@@ -473,14 +492,33 @@
                                 <li>Customer database</li>
                                 <li>Basic analytics dashboard</li>
                                 <li>3 complete reworks</li>
-                                <li>Phone support</li>
+                                <li><strong>Support:</strong> Phone & Email (4hr response)</li>
                             </ul>
+                            <button class="cta-btn" style="width:100%;" onclick="choosePlan('gold')">Choose Gold</button>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h4>Standard Package</h4>
+                            <div class="price" data-plan-price="standard">$149<span style="font-size: 0.4em;">/month</span></div>
+                            <div class="setup" data-plan-setup="standard">$300 setup fee</div>
+                            <div style="color:#9ec3ff; margin: 8px 0 14px 0; font-weight:600;" data-plan-year1="standard">Year 1: $2,088</div>
+                            <ul>
+                                <li>Advanced FAQ system</li>
+                                <li>Calendar appointment scheduling</li>
+                                <li>Customer info collection</li>
+                                <li>6 PDF downloads</li>
+                                <li>Basic follow-up sequences</li>
+                                <li>2 complete reworks</li>
+                                <li><strong>Support:</strong> Priority (1hr response)</li>
+                            </ul>
+                            <button class="cta-btn" style="width:100%;" onclick="choosePlan('standard')">Choose Standard</button>
                         </div>
 
                         <div class="pricing-card">
                             <h4>Platinum Package</h4>
-                            <div class="price">$299<span style="font-size: 0.4em;">/month</span></div>
-                            <div class="setup">$500 setup fee</div>
+                            <div class="price" data-plan-price="platinum">$299<span style="font-size: 0.4em;">/month</span></div>
+                            <div class="setup" data-plan-setup="platinum">$500 setup fee</div>
+                            <div style="color:#9ec3ff; margin: 8px 0 14px 0; font-weight:600;" data-plan-year1="platinum">Year 1: $4,088</div>
                             <ul>
                                 <li><strong>🏢 MULTI-LOCATION SUPPORT</strong></li>
                                 <li><strong>📊 FULL CRM INTEGRATION</strong></li>
@@ -490,23 +528,27 @@
                                 <li>API access for integrations</li>
                                 <li>Unlimited reworks</li>
                                 <li>Dedicated account manager</li>
+                                <li><strong>Support:</strong> Priority (1hr response)</li>
                             </ul>
+                            <button class="cta-btn" style="width:100%;" onclick="choosePlan('platinum')">Choose Platinum</button>
                         </div>
 
                         <div class="pricing-card">
-                            <h4>Platinum Plus</h4>
-                            <div class="price">$399<span style="font-size: 0.4em;">/month</span></div>
-                            <div class="setup">$700 setup fee</div>
+                            <h4>Agency</h4>
+                            <div class="price" data-plan-price="agency">$399<span style="font-size: 0.4em;">/month</span></div>
+                            <div class="setup" data-plan-setup="agency">$700 setup fee</div>
+                            <div style="color:#9ec3ff; margin: 8px 0 14px 0; font-weight:600;" data-plan-year1="agency">Year 1: $5,488</div>
                             <ul>
                                 <li><strong>🏪 FRANCHISE/CHAIN SUPPORT</strong></li>
                                 <li><strong>🤖 ADVANCED AI TRAINING</strong></li>
                                 <li><strong>📊 REAL-TIME DASHBOARDS</strong></li>
                                 <li><strong>💼 FULL WHITE-LABEL RIGHTS</strong></li>
                                 <li>Custom integrations & APIs</li>
-                                <li>24/7 priority support</li>
+                                <li><strong>Support:</strong> 24/7 Dedicated Priority</li>
                                 <li>Monthly strategy calls</li>
                                 <li>Revenue performance guarantees</li>
                             </ul>
+                            <button class="cta-btn" style="width:100%;" onclick="choosePlan('agency')">Choose Agency</button>
                         </div>
                     </div>
                 </div>
@@ -878,6 +920,80 @@
             }
         }
 
+        // Pricing and Billing Logic
+        const pricingConfig = {
+            basic:    { monthly: 99,  setup: 200 },
+            standard: { monthly: 149, setup: 300 },
+            gold:     { monthly: 199, setup: 400 },
+            platinum: { monthly: 299, setup: 500 },
+            agency:   { monthly: 399, setup: 700 },
+        };
+        let currentBilling = 'monthly'; // or 'annual'
+
+        function computeYear1(planKey, billing) {
+            const cfg = pricingConfig[planKey];
+            if (!cfg) return { year1: 0, priceLabel: '', setupLabel: '' };
+            if (billing === 'monthly') {
+                const year1 = cfg.setup + cfg.monthly * 12;
+                return {
+                    year1,
+                    priceLabel: `$${cfg.monthly}<span style="font-size: 0.4em;">/month</span>`,
+                    setupLabel: `$${cfg.setup} setup fee`
+                };
+            }
+            // annual: waive setup + 10% discount on annual subscription
+            const annualBeforeDiscount = cfg.monthly * 12;
+            const annualDiscount = Math.round(annualBeforeDiscount * 0.10);
+            const annualTotal = annualBeforeDiscount - annualDiscount; // setup waived
+            return {
+                year1: annualTotal,
+                priceLabel: `$${annualTotal}<span style="font-size: 0.4em;">/year</span> <span style="font-size:0.8em; color:#9ec3ff;">(~$${Math.round(annualTotal/12)}/mo)</span>`,
+                setupLabel: `<span style="color:#7CFC00;">$0 setup (save $${cfg.setup})</span>`
+            };
+        }
+
+        function updatePricingUI() {
+            Object.keys(pricingConfig).forEach((plan) => {
+                const priceEl = document.querySelector(`[data-plan-price="${plan}"]`);
+                const setupEl = document.querySelector(`[data-plan-setup="${plan}"]`);
+                const year1El = document.querySelector(`[data-plan-year1="${plan}"]`);
+                if (!priceEl || !setupEl || !year1El) return;
+                const { year1, priceLabel, setupLabel } = computeYear1(plan, currentBilling);
+                priceEl.innerHTML = priceLabel;
+                setupEl.innerHTML = setupLabel;
+                year1El.textContent = `Year 1: $${year1.toLocaleString()}`;
+            });
+
+            const m = document.getElementById('billingMonthly');
+            const a = document.getElementById('billingAnnual');
+            if (m && a) {
+                m.classList.toggle('active', currentBilling === 'monthly');
+                a.classList.toggle('active', currentBilling === 'annual');
+                m.setAttribute('aria-selected', String(currentBilling === 'monthly'));
+                a.setAttribute('aria-selected', String(currentBilling === 'annual'));
+            }
+        }
+
+        function setBilling(mode) {
+            currentBilling = mode === 'annual' ? 'annual' : 'monthly';
+            updatePricingUI();
+        }
+
+        function choosePlan(planKey) {
+            window.__selectedPlan = planKey;
+            window.__selectedBilling = currentBilling;
+            openDemoModal();
+            const summary = document.getElementById('demoPlanSummary');
+            if (summary) {
+                const planName = planKey.charAt(0).toUpperCase() + planKey.slice(1);
+                const { year1 } = computeYear1(planKey, currentBilling);
+                summary.textContent = `Selected: ${planName} • Billing: ${currentBilling.toUpperCase()} • Year 1: $${year1.toLocaleString()}`;
+            }
+        }
+
+        // initialize pricing UI
+        updatePricingUI();
+
         // Smooth scrolling for better UX
         document.querySelector('.analyze-btn').addEventListener('click', () => {
             setTimeout(() => {
@@ -896,6 +1012,7 @@
                 <button onclick="closeDemoModal()" aria-label="Close" style="background: transparent; border: none; color: #ccc; font-size: 1.6em; cursor: pointer;">×</button>
             </div>
             <p style="color:#ccc; margin-bottom: 16px;">Enter your details and we\'ll email you to confirm your 15-minute setup call.</p>
+            <div id="demoPlanSummary" style="background:#2a2a2a; border:1px solid #444; padding:10px 12px; border-radius:8px; color:#9ec3ff; margin-bottom:12px; display:block;"></div>
             <form onsubmit="submitDemoRequest(event)" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
                 <div class="input-group">
                     <label for="leadName">Your Name</label>
