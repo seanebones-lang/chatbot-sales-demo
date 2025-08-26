@@ -555,24 +555,95 @@
 
         const mariResponses = {
             'tattoo studio': {
-                response: "Perfect! Tattoo studios are one of our specialties. Our industry-specific chatbot solutions address your biggest pain points:\n\n🎨 **Appointment booking & rescheduling** - No more phone interruptions during sessions\n🎨 **Artist availability checking** - Clients can see who's available and when\n🎨 **Pricing estimates** - Based on size, placement, and complexity\n🎨 **Aftercare support** - 24/7 guidance for clients post-tattoo\n🎨 **Portfolio showcase** - Artist-specific work examples\n🎨 **Consultation scheduling** - Streamlined initial meetings\n\n**Key Benefits for Tattoo Studios:**\n✅ Reduce interruptions during tattooing by 70%\n✅ Capture leads 24/7 when studio is closed\n✅ Increase booking conversion by 35-50%\n✅ Reduce no-shows through automated reminders\n✅ Save 10-15 hours per week on admin tasks\n\nWhat's your biggest challenge currently - phone interruptions, after-hours inquiries, or no-shows?",
-                score: 35,
-                stage: 'pain_point_analysis'
+                response: "🎨 **Excellent! Tattoo studios are one of our specialties.** Our industry-specific chatbot solutions address your biggest pain points:\n\n**Tattoo Studio Pain Points We Solve:**\n- **Phone interruptions** during tattooing sessions\n- **After-hours inquiries** going unanswered\n- **Repetitive questions** about pricing and policies\n- **No-shows** and appointment cancellations\n- **Consultation scheduling** consuming staff time\n- **Aftercare support** questions post-tattoo\n- **Portfolio showcase** and artist information\n\n**Our Tattoo Studio Chatbot Features:**\n- **Appointment booking & rescheduling** - No more phone interruptions\n- **Artist availability checking** - Clients see who's available and when\n- **Pricing estimates** - Based on size, placement, and complexity\n- **Aftercare support** - 24/7 guidance for clients post-tattoo\n- **Portfolio showcase** - Artist-specific work examples\n- **Consultation scheduling** - Streamlined initial meetings\n- **Deposit collection** for appointments\n- **Cancellation policy** enforcement\n- **Tattoo preparation** instructions\n- **Age verification** for legal compliance\n\n**Key Benefits for Tattoo Studios:**\n✅ **Reduce interruptions** during tattooing by 70%\n✅ **Capture leads 24/7** when studio is closed\n✅ **Increase booking conversion** by 35-50%\n✅ **Reduce no-shows** through automated reminders\n✅ **Save 10-15 hours** per week on admin tasks\n✅ **Professional image** that builds client trust\n\n**What's your biggest challenge currently?**\n- Phone interruptions during sessions\n- After-hours inquiries going unanswered\n- No-shows and cancellations\n- Consultation scheduling\n- Aftercare support questions",
+                score: 45,
+                stage: 'business_analysis'
             },
             'hair salon': {
-                response: "Excellent! Hair salons love our specialized solutions. We address your specific industry challenges:\n\n💇‍♀️ **Online booking with stylist selection** - Match clients to the right stylist\n💇‍♀️ **Service menu & pricing** - Clear information about treatments\n💇‍♀️ **Color consultation scheduling** - Streamlined booking process\n💇‍♀️ **Loyalty program integration** - Track rewards and points\n💇‍♀️ **Product recommendations** - Boost retail sales automatically\n💇‍♀️ **Promotional announcements** - Get word out about specials\n\n**Key Benefits for Hair Salons:**\n✅ Reduce front desk workload during peak hours\n✅ Never miss a booking opportunity\n✅ Increase retail sales by 20% through smart recommendations\n✅ Improve client retention with personalized service\n✅ Save 12-18 hours per week on scheduling\n\nWhat's your biggest challenge - peak time chaos, service confusion, or client retention?",
-                score: 35,
-                stage: 'pain_point_analysis'
+                response: "💇‍♀️ **Excellent! Hair salons love our specialized solutions.** We address your specific industry challenges:\n\n**Hair Salon Pain Points We Solve:**\n- **Peak time chaos** - Phone ringing constantly during busy periods\n- **Service confusion** - Clients unsure about treatments and pricing\n- **Stylist matching** - Finding the right stylist for specific needs\n- **Promotion communication** - Getting word out about specials/events\n- **Loyalty program management** - Tracking rewards and points\n- **Product recommendations** - Suggesting retail products\n- **After-hours inquiries** - Missing opportunities when closed\n\n**Our Hair Salon Chatbot Features:**\n- **Online booking** with stylist selection\n- **Service menu** with descriptions and pricing\n- **Stylist availability** and specialties\n- **Color consultation** scheduling\n- **Loyalty program** integration\n- **Product recommendations** and sales\n- **Promotional announcements**\n- **Appointment reminders** and confirmations\n- **Waiting list** management\n- **Gift certificate** sales\n\n**Key Benefits for Hair Salons:**\n✅ **Reduce front desk workload** during peak hours\n✅ **Never miss a booking** opportunity\n✅ **Increase retail sales** by 20% through smart recommendations\n✅ **Improve client retention** with personalized service\n✅ **Save 12-18 hours** per week on scheduling\n✅ **Professional customer experience** that builds loyalty\n\n**What's your biggest challenge?**\n- Peak time chaos and phone interruptions\n- Service confusion and pricing questions\n- Client retention and loyalty\n- Product sales and recommendations\n- After-hours booking opportunities",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            // Hair Salon Variations & Slang
+            'hair': {
+                response: "💇‍♀️ **Great! Hair services are perfect for our chatbot solutions.**\n\n**Are you:**\n- An individual hair stylist/artist?\n- A hair salon or shop?\n- A mobile hair service?\n- A hair extension specialist?\n- A hair color specialist?\n\n**Our solutions work for ALL hair service businesses** - from individual stylists to large salons. Once I know your specific setup, I can show you exactly how our chatbot will transform your business!\n\n**What type of hair service business do you have?**",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'salon': {
+                response: "💇‍♀️ **Excellent! Salons are perfect for our chatbot solutions.**\n\n**What type of salon do you have?**\n- Hair salon\n- Nail salon\n- Beauty salon\n- Spa salon\n- Massage salon\n- Other type of salon\n\n**Our solutions work for ALL salon types** - from hair and beauty to spa and wellness. Once I know your specific salon type, I can show you exactly how our chatbot will transform your business!\n\n**What type of salon do you operate?**",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'shop': {
+                response: "🏪 **Great! Shops are perfect for our chatbot solutions.**\n\n**What type of shop do you have?**\n- Hair shop/salon\n- Tattoo shop/studio\n- Auto shop\n- Smoke shop\n- Pet shop\n- Other type of shop\n\n**Our solutions work for ALL shop types** - from service businesses to retail shops. Once I know your specific shop type, I can show you exactly how our chatbot will transform your business!\n\n**What type of shop do you operate?**",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'tattoo': {
+                response: "🎨 **Excellent! Tattoo services are perfect for our chatbot solutions.**\n\n**Are you:**\n- An individual tattoo artist?\n- A tattoo studio/shop?\n- A mobile tattoo service?\n- A tattoo removal specialist?\n- A piercing specialist?\n\n**Our solutions work for ALL tattoo businesses** - from individual artists to large studios. Once I know your specific setup, I can show you exactly how our chatbot will transform your business!\n\n**What type of tattoo business do you have?**",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'artist': {
+                response: "🎨 **Great! Artists are perfect for our chatbot solutions.**\n\n**What type of artist are you?**\n- Tattoo artist\n- Hair stylist/artist\n- Makeup artist\n- Nail artist\n- Other type of artist\n\n**Our solutions work for ALL artist types** - from individual artists to studios. Once I know your specific artist type, I can show you exactly how our chatbot will transform your business!\n\n**What type of artist are you?**",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'stylist': {
+                response: "💇‍♀️ **Excellent! Stylists are perfect for our chatbot solutions.**\n\n**What type of stylist are you?**\n- Hair stylist\n- Makeup stylist\n- Fashion stylist\n- Nail stylist\n- Other type of stylist\n\n**Our solutions work for ALL stylist types** - from individual stylists to salons. Once I know your specific stylist type, I can show you exactly how our chatbot will transform your business!\n\n**What type of stylist are you?**",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'barber': {
+                response: "✂️ **Excellent! Barbers are perfect for our chatbot solutions.**\n\n**Our Barber Chatbot Features:**\n- **Appointment scheduling** and management\n- **Service menu** with descriptions and pricing\n- **Barber availability** and specialties\n- **Walk-in availability** checking\n- **Service duration** estimates\n- **After-hours booking** requests\n- **Loyalty program** management\n- **Promotional offers** and packages\n\n**Key Benefits for Barbers:**\n✅ **Reduce phone interruptions** during cuts\n✅ **Streamline appointment booking**\n✅ **Capture walk-in customers**\n✅ **Professional image** that builds trust\n✅ **Save time** on repetitive questions\n\n**What's your biggest challenge?**\n- Phone interruptions during cuts\n- Appointment management\n- Walk-in customer flow\n- After-hours inquiries",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'barbershop': {
+                response: "✂️ **Excellent! Barbershops are perfect for our chatbot solutions.**\n\n**Our Barbershop Chatbot Features:**\n- **Appointment scheduling** and management\n- **Service menu** with descriptions and pricing\n- **Barber availability** and specialties\n- **Walk-in availability** checking\n- **Service duration** estimates\n- **After-hours booking** requests\n- **Loyalty program** management\n- **Promotional offers** and packages\n\n**Key Benefits for Barbershops:**\n✅ **Reduce phone interruptions** during cuts\n✅ **Streamline appointment booking**\n✅ **Capture walk-in customers**\n✅ **Professional image** that builds trust\n✅ **Save time** on repetitive questions\n\n**What's your biggest challenge?**\n- Phone interruptions during cuts\n- Appointment management\n- Walk-in customer flow\n- After-hours inquiries",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'nail': {
+                response: "💅 **Excellent! Nail services are perfect for our chatbot solutions.**\n\n**Our Nail Service Chatbot Features:**\n- **Appointment scheduling** and management\n- **Service menu** with descriptions and pricing\n- **Nail tech availability** and specialties\n- **Service duration** estimates\n- **After-hours booking** requests\n- **Loyalty program** management\n- **Promotional offers** and packages\n- **Gift certificate** sales\n\n**Key Benefits for Nail Services:**\n✅ **Reduce phone interruptions** during services\n✅ **Streamline appointment booking**\n✅ **Capture after-hours customers**\n✅ **Professional image** that builds trust\n✅ **Save time** on repetitive questions\n\n**What's your biggest challenge?**\n- Phone interruptions during services\n- Appointment management\n- After-hours inquiries\n- Customer retention",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'nail salon': {
+                response: "💅 **Excellent! Nail salons are perfect for our chatbot solutions.**\n\n**Our Nail Salon Chatbot Features:**\n- **Appointment scheduling** and management\n- **Service menu** with descriptions and pricing\n- **Nail tech availability** and specialties\n- **Service duration** estimates\n- **After-hours booking** requests\n- **Loyalty program** management\n- **Promotional offers** and packages\n- **Gift certificate** sales\n\n**Key Benefits for Nail Salons:**\n✅ **Reduce phone interruptions** during services\n✅ **Streamline appointment booking**\n✅ **Capture after-hours customers**\n✅ **Professional image** that builds trust\n✅ **Save time** on repetitive questions\n\n**What's your biggest challenge?**\n- Phone interruptions during services\n- Appointment management\n- After-hours inquiries\n- Customer retention",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'makeup': {
+                response: "💄 **Excellent! Makeup services are perfect for our chatbot solutions.**\n\n**Our Makeup Service Chatbot Features:**\n- **Appointment scheduling** and management\n- **Service menu** with descriptions and pricing\n- **Makeup artist availability** and specialties\n- **Service duration** estimates\n- **After-hours booking** requests\n- **Loyalty program** management\n- **Promotional offers** and packages\n- **Gift certificate** sales\n\n**Key Benefits for Makeup Services:**\n✅ **Reduce phone interruptions** during services\n✅ **Streamline appointment booking**\n✅ **Capture after-hours customers**\n✅ **Professional image** that builds trust\n✅ **Save time** on repetitive questions\n\n**What's your biggest challenge?**\n- Phone interruptions during services\n- Appointment management\n- After-hours inquiries\n- Customer retention",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'makeup artist': {
+                response: "💄 **Excellent! Makeup artists are perfect for our chatbot solutions.**\n\n**Our Makeup Artist Chatbot Features:**\n- **Appointment scheduling** and management\n- **Service menu** with descriptions and pricing\n- **Artist availability** and specialties\n- **Service duration** estimates\n- **After-hours booking** requests\n- **Loyalty program** management\n- **Promotional offers** and packages\n- **Gift certificate** sales\n\n**Key Benefits for Makeup Artists:**\n✅ **Reduce phone interruptions** during services\n✅ **Streamline appointment booking**\n✅ **Capture after-hours customers**\n✅ **Professional image** that builds trust\n✅ **Save time** on repetitive questions\n\n**What's your biggest challenge?**\n- Phone interruptions during services\n- Appointment management\n- After-hours inquiries\n- Customer retention",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'beauty': {
+                response: "💄 **Excellent! Beauty services are perfect for our chatbot solutions.**\n\n**Our Beauty Service Chatbot Features:**\n- **Appointment scheduling** and management\n- **Service menu** with descriptions and pricing\n- **Beauty professional availability** and specialties\n- **Service duration** estimates\n- **After-hours booking** requests\n- **Loyalty program** management\n- **Promotional offers** and packages\n- **Gift certificate** sales\n\n**Key Benefits for Beauty Services:**\n✅ **Reduce phone interruptions** during services\n✅ **Streamline appointment booking**\n✅ **Capture after-hours customers**\n✅ **Professional image** that builds trust\n✅ **Save time** on repetitive questions\n\n**What's your biggest challenge?**\n- Phone interruptions during services\n- Appointment management\n- After-hours inquiries\n- Customer retention",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'beauty salon': {
+                response: "💄 **Excellent! Beauty salons are perfect for our chatbot solutions.**\n\n**Our Beauty Salon Chatbot Features:**\n- **Appointment scheduling** and management\n- **Service menu** with descriptions and pricing\n- **Beauty professional availability** and specialties\n- **Service duration** estimates\n- **After-hours booking** requests\n- **Loyalty program** management\n- **Promotional offers** and packages\n- **Gift certificate** sales\n\n**Key Benefits for Beauty Salons:**\n✅ **Reduce phone interruptions** during services\n✅ **Streamline appointment booking**\n✅ **Capture after-hours customers**\n✅ **Professional image** that builds trust\n✅ **Save time** on repetitive questions\n\n**What's your biggest challenge?**\n- Phone interruptions during services\n- Appointment management\n- After-hours inquiries\n- Customer retention",
+                score: 45,
+                stage: 'business_analysis'
             },
             'healthcare/medical': {
-                response: "Excellent! Healthcare organizations see tremendous value from our solutions. Our medical-grade chatbots help with:\n\n🏥 Patient scheduling and appointment management\n🏥 Insurance verification and pre-authorization\n🏥 Medication reminders and follow-up care\n🏥 HIPAA-compliant patient communication\n🏥 Telehealth integration\n\nHealthcare clients typically see 60-80% reduction in administrative overhead.\n\nWhat's your role in the organization? Are you in IT, Operations, or Executive leadership?",
-                score: 30,
-                stage: 'role_identification'
+                response: "🏥 **Excellent! Healthcare organizations see tremendous value from our solutions.** Our medical-grade chatbots help with:\n\n**Healthcare Pain Points We Solve:**\n- **Appointment scheduling** - Manual booking processes consuming staff time\n- **Insurance questions** - Endless calls about coverage and billing\n- **Prescription refills** - Basic medication renewal requests\n- **Office hours** - Constant inquiries about availability\n- **Insurance verification** - Manual insurance checking processes\n- **After-hours inquiries** - Missing urgent patient needs\n- **Basic health questions** - Non-emergency health information\n\n**Our Healthcare Chatbot Features:**\n- **Patient scheduling** and appointment management\n- **Insurance verification** and pre-authorization\n- **Medication reminders** and follow-up care\n- **HIPAA-compliant** patient communication\n- **Telehealth integration** and support\n- **Prescription refill** requests and tracking\n- **Office hours** and availability information\n- **Basic health information** and resources\n- **Patient portal** access and information\n- **After-hours patient** support and scheduling\n\n**Key Benefits for Healthcare Organizations:**\n✅ **Streamline appointment scheduling** and management\n✅ **Reduce repetitive questions** about insurance and billing\n✅ **Improve patient communication** with automated updates\n✅ **Capture patient needs** even when closed\n✅ **Professional image** that builds patient trust\n✅ **Free up staff time** for patient care\n\n**What's your role in the organization?**\n- IT and Technology\n- Operations and Administration\n- Executive Leadership\n- Clinical Staff\n- Patient Services",
+                score: 45,
+                stage: 'business_analysis'
             },
             'professional services': {
-                response: "Perfect! Professional services firms are ideal for our enterprise solutions. We help with:\n\n💼 Client intake and qualification\n💼 Appointment scheduling across multiple professionals\n💼 Document collection and case management\n💼 Billing inquiries and payment processing\n💼 Multi-language client support\n\nLaw firms and consulting companies see average 45% increase in client acquisition.\n\nAre you looking at this for a single location or multiple offices?",
-                score: 25,
-                stage: 'scale_assessment'
+                response: "💼 **Perfect! Professional services firms are ideal for our enterprise solutions.** We help with:\n\n**Professional Services Pain Points We Solve:**\n- **Client intake** - Endless calls about services and initial consultations\n- **Fee questions** - Constant inquiries about pricing and payment options\n- **Appointment scheduling** - Manual booking processes consuming staff time\n- **Service updates** - Repetitive status inquiries from clients\n- **Document requests** - Basic document retrieval questions\n- **After-hours inquiries** - Missing potential clients when closed\n- **Initial screening** - Basic service evaluation questions\n\n**Our Professional Services Chatbot Features:**\n- **Client intake** and qualification\n- **Appointment scheduling** across multiple professionals\n- **Document collection** and case management\n- **Billing inquiries** and payment processing\n- **Multi-language** client support\n- **Service portfolio** information and expertise\n- **Initial consultation** scheduling\n- **Fee structure** and payment options\n- **Project status** updates and tracking\n- **Client portal** access and information\n\n**Key Benefits for Professional Services:**\n✅ **Streamline client intake** and initial consultations\n✅ **Reduce repetitive questions** about fees and procedures\n✅ **Improve client communication** with automated updates\n✅ **Capture potential clients** 24/7\n✅ **Professional image** that builds client trust\n✅ **Free up staff time** for billable work\n\n**Are you looking at this for:**\n- Single location\n- Multiple offices\n- Franchise operations\n- Multi-state operations\n- International expansion",
+                score: 45,
+                stage: 'business_analysis'
             },
             'retail/e-commerce': {
                 response: "Fantastic! Retail businesses see incredible ROI from our omnichannel approach:\n\n🛍️ Inventory inquiries and product recommendations\n🛍️ Order tracking and customer service\n🛍️ Abandoned cart recovery automation\n🛍️ Multi-platform integration (web, SMS, social)\n🛍️ Personalized shopping experiences\n\nE-commerce clients report 200-300% increase in conversion rates.\n\nWhat's your current monthly customer interaction volume?",
@@ -735,6 +806,68 @@
                 response: "🇺🇸 **Perfect!** Your DD-214 is the standard document we use to verify veteran status for our military discounts.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\n**Documentation Required:**\n- DD-214 (Certificate of Release or Discharge)\n- Military ID (for active duty/reservists)\n- VA ID card\n- Any official military service documentation\n\n**How to Apply:**\n1. Mention your veteran status during consultation\n2. Provide your DD-214 or military ID\n3. Discount applied to all packages\n4. Available for both monthly and annual plans\n\nWe're committed to helping veteran-owned businesses succeed. Thank you for your service to our country!\n\nWould you like to learn more about our solutions or discuss how to apply your veteran discount?",
                 score: 55,
                 stage: 'veteran_discount_info'
+            },
+            // Comprehensive Business Type Fallback System - Covers ANY Business Type
+            'business': {
+                response: "🏢 **Excellent! We work with businesses across ALL industries.** Our chatbot solutions are designed to adapt to any business model and industry.\n\n**Universal Business Pain Points We Solve:**\n- **Phone interruptions** during peak business hours\n- **After-hours inquiries** going unanswered\n- **Repetitive questions** consuming staff time\n- **Customer wait times** leading to lost opportunities\n- **24/7 availability** requirements\n- **Scalability** challenges as you grow\n- **Staff training** and onboarding\n\n**Our Universal Chatbot Features:**\n- **24/7 customer service** that never sleeps\n- **Multi-platform integration** (Web, SMS, WhatsApp, Social)\n- **Customizable personality** matching your brand\n- **Industry-specific training** for your business\n- **Advanced analytics** and reporting\n- **Human handoff** capabilities\n- **Multi-language support**\n- **Custom integrations** with your existing systems\n\n**Key Benefits for ANY Business:**\n✅ **Reduce phone interruptions** during peak hours\n✅ **Capture leads 24/7** when you're closed\n✅ **Improve customer satisfaction** with instant responses\n✅ **Professional image** that builds customer trust\n✅ **Scale your business** without adding staff\n✅ **Focus on core work** instead of repetitive questions\n\n**What industry are you in specifically?** This helps me provide more targeted information about how our solutions work for your business type.",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'company': {
+                response: "🏢 **Excellent! We work with companies across ALL industries.** Our chatbot solutions are designed to adapt to any business model and company size.\n\n**Universal Company Pain Points We Solve:**\n- **Phone interruptions** during peak business hours\n- **After-hours inquiries** going unanswered\n- **Repetitive questions** consuming staff time\n- **Customer wait times** leading to lost opportunities\n- **24/7 availability** requirements\n- **Scalability** challenges as you grow\n- **Staff training** and onboarding\n\n**Our Universal Chatbot Features:**\n- **24/7 customer service** that never sleeps\n- **Multi-platform integration** (Web, SMS, WhatsApp, Social)\n- **Customizable personality** matching your brand\n- **Industry-specific training** for your business\n- **Advanced analytics** and reporting\n- **Human handoff** capabilities\n- **Multi-language support**\n- **Custom integrations** with your existing systems\n\n**Key Benefits for ANY Company:**\n✅ **Reduce phone interruptions** during peak hours\n✅ **Capture leads 24/7** when you're closed\n✅ **Improve customer satisfaction** with instant responses\n✅ **Professional image** that builds customer trust\n✅ **Scale your business** without adding staff\n✅ **Focus on core work** instead of repetitive questions\n\n**What industry is your company in?** This helps me provide more targeted information about how our solutions work for your specific business type.",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'firm': {
+                response: "🏢 **Excellent! We work with firms across ALL industries.** Our chatbot solutions are designed to adapt to any business model and firm size.\n\n**Universal Firm Pain Points We Solve:**\n- **Phone interruptions** during peak business hours\n- **After-hours inquiries** going unanswered\n- **Repetitive questions** consuming staff time\n- **Customer wait times** leading to lost opportunities\n- **24/7 availability** requirements\n- **Scalability** challenges as you grow\n- **Staff training** and onboarding\n\n**Our Universal Chatbot Features:**\n- **24/7 customer service** that never sleeps\n- **Multi-platform integration** (Web, SMS, WhatsApp, Social)\n- **Customizable personality** matching your brand\n- **Industry-specific training** for your business\n- **Advanced analytics** and reporting\n- **Human handoff** capabilities\n- **Multi-language support**\n- **Custom integrations** with your existing systems\n\n**Key Benefits for ANY Firm:**\n✅ **Reduce phone interruptions** during peak hours\n✅ **Capture leads 24/7** when you're closed\n✅ **Improve customer satisfaction** with instant responses\n✅ **Professional image** that builds customer trust\n✅ **Scale your business** without adding staff\n✅ **Focus on core work** instead of repetitive questions\n\n**What industry is your firm in?** This helps me provide more targeted information about how our solutions work for your specific business type.",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'organization': {
+                response: "🏢 **Excellent! We work with organizations across ALL sectors.** Our chatbot solutions are designed to adapt to any organizational model and size.\n\n**Universal Organization Pain Points We Solve:**\n- **Phone interruptions** during peak business hours\n- **After-hours inquiries** going unanswered\n- **Repetitive questions** consuming staff time\n- **Customer wait times** leading to lost opportunities\n- **24/7 availability** requirements\n- **Scalability** challenges as you grow\n- **Staff training** and onboarding\n\n**Our Universal Chatbot Features:**\n- **24/7 customer service** that never sleeps\n- **Multi-platform integration** (Web, SMS, WhatsApp, Social)\n- **Customizable personality** matching your brand\n- **Industry-specific training** for your business\n- **Advanced analytics** and reporting\n- **Human handoff** capabilities\n- **Multi-language support**\n- **Custom integrations** with your existing systems\n\n**Key Benefits for ANY Organization:**\n✅ **Reduce phone interruptions** during peak hours\n✅ **Capture leads 24/7** when you're closed\n✅ **Improve customer satisfaction** with instant responses\n✅ **Professional image** that builds customer trust\n✅ **Scale your business** without adding staff\n✅ **Focus on core work** instead of repetitive questions\n\n**What sector is your organization in?** This helps me provide more targeted information about how our solutions work for your specific business type.",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'startup': {
+                response: "🚀 **Excellent! Startups are perfect for our scalable chatbot solutions.** We help startups build professional customer service from day one.\n\n**Startup Pain Points We Solve:**\n- **Limited staff** handling all customer inquiries\n- **24/7 availability** requirements for global customers\n- **Professional image** building with limited resources\n- **Customer support** scaling with growth\n- **Multi-platform presence** needed\n- **Cost-effective** customer service solutions\n- **Quick implementation** for fast-moving startups\n\n**Our Startup Chatbot Features:**\n- **24/7 customer service** that scales with your growth\n- **Multi-platform integration** (Web, SMS, WhatsApp, Social)\n- **Customizable personality** matching your brand\n- **Industry-specific training** for your business\n- **Advanced analytics** and reporting\n- **Human handoff** capabilities\n- **Quick 2-week setup** and deployment\n- **Affordable pricing** for startups\n\n**Key Benefits for Startups:**\n✅ **Professional customer service** from day one\n✅ **24/7 availability** without adding staff\n✅ **Scale with your growth** automatically\n✅ **Build customer trust** with instant responses\n✅ **Focus on product development** instead of support\n✅ **Cost-effective** customer service solution\n\n**What industry is your startup in?** This helps me provide more targeted information about how our solutions work for your specific business type.",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'small business': {
+                response: "🏪 **Excellent! Small businesses are perfect for our chatbot solutions.** We help small businesses compete with larger companies through professional automation.\n\n**Small Business Pain Points We Solve:**\n- **Limited staff** handling all customer inquiries\n- **Phone interruptions** during peak business hours\n- **After-hours inquiries** going unanswered\n- **Professional image** building with limited resources\n- **Customer support** scaling with growth\n- **Multi-platform presence** needed\n- **Cost-effective** customer service solutions\n\n**Our Small Business Chatbot Features:**\n- **24/7 customer service** that never sleeps\n- **Multi-platform integration** (Web, SMS, WhatsApp, Social)\n- **Customizable personality** matching your brand\n- **Industry-specific training** for your business\n- **Advanced analytics** and reporting\n- **Human handoff** capabilities\n- **Quick 2-week setup** and deployment\n- **Affordable pricing** for small businesses\n\n**Key Benefits for Small Businesses:**\n✅ **Professional customer service** that builds trust\n✅ **24/7 availability** without adding staff\n✅ **Reduce phone interruptions** during peak hours\n✅ **Capture leads** even when closed\n✅ **Focus on core work** instead of support\n✅ **Cost-effective** customer service solution\n\n**What industry is your small business in?** This helps me provide more targeted information about how our solutions work for your specific business type.",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'medium business': {
+                response: "🏢 **Excellent! Medium businesses are perfect for our chatbot solutions.** We help medium businesses scale their customer service efficiently.\n\n**Medium Business Pain Points We Solve:**\n- **Growing staff** handling increasing customer inquiries\n- **Phone interruptions** during peak business hours\n- **After-hours inquiries** going unanswered\n- **Professional image** building with growth\n- **Customer support** scaling with expansion\n- **Multi-platform presence** needed\n- **Cost-effective** customer service solutions\n\n**Our Medium Business Chatbot Features:**\n- **24/7 customer service** that scales with your growth\n- **Multi-platform integration** (Web, SMS, WhatsApp, Social)\n- **Customizable personality** matching your brand\n- **Industry-specific training** for your business\n- **Advanced analytics** and reporting\n- **Human handoff** capabilities\n- **Quick 2-week setup** and deployment\n- **Affordable pricing** for medium businesses\n\n**Key Benefits for Medium Businesses:**\n✅ **Professional customer service** that builds trust\n✅ **24/7 availability** without adding staff\n✅ **Reduce phone interruptions** during peak hours\n✅ **Capture leads** even when closed\n✅ **Focus on core work** instead of support\n✅ **Cost-effective** customer service solution\n\n**What industry is your medium business in?** This helps me provide more targeted information about how our solutions work for your specific business type.",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'large business': {
+                response: "🏢 **Excellent! Large businesses are perfect for our enterprise chatbot solutions.** We help large businesses scale their customer service efficiently.\n\n**Large Business Pain Points We Solve:**\n- **Large staff** handling high volume customer inquiries\n- **Phone interruptions** during peak business hours\n- **After-hours inquiries** going unanswered\n- **Professional image** building with scale\n- **Customer support** scaling with expansion\n- **Multi-platform presence** needed\n- **Cost-effective** customer service solutions\n\n**Our Large Business Chatbot Features:**\n- **24/7 customer service** that scales with your growth\n- **Multi-platform integration** (Web, SMS, WhatsApp, Social)\n- **Customizable personality** matching your brand\n- **Industry-specific training** for your business\n- **Advanced analytics** and reporting\n- **Human handoff** capabilities\n- **Quick 2-week setup** and deployment\n- **Enterprise pricing** for large businesses\n\n**Key Benefits for Large Businesses:**\n✅ **Professional customer service** that builds trust\n✅ **24/7 availability** without adding staff\n✅ **Reduce phone interruptions** during peak hours\n✅ **Capture leads** even when closed\n✅ **Focus on core work** instead of support\n✅ **Cost-effective** customer service solution\n\n**What industry is your large business in?** This helps me provide more targeted information about how our solutions work for your specific business type.",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            'enterprise': {
+                response: "🏢 **Excellent! Enterprise businesses are perfect for our enterprise chatbot solutions.** We help enterprise businesses scale their customer service efficiently.\n\n**Enterprise Pain Points We Solve:**\n- **Large staff** handling high volume customer inquiries\n- **Phone interruptions** during peak business hours\n- **After-hours inquiries** going unanswered\n- **Professional image** building with scale\n- **Customer support** scaling with expansion\n- **Multi-platform presence** needed\n- **Cost-effective** customer service solutions\n\n**Our Enterprise Chatbot Features:**\n- **24/7 customer service** that scales with your growth\n- **Multi-platform integration** (Web, SMS, WhatsApp, Social)\n- **Customizable personality** matching your brand\n- **Industry-specific training** for your business\n- **Advanced analytics** and reporting\n- **Human handoff** capabilities\n- **Quick 2-week setup** and deployment\n- **Enterprise pricing** for enterprise businesses\n\n**Key Benefits for Enterprise Businesses:**\n✅ **Professional customer service** that builds trust\n✅ **24/7 availability** without adding staff\n✅ **Reduce phone interruptions** during peak hours\n✅ **Capture leads** even when closed\n✅ **Focus on core work** instead of support\n✅ **Cost-effective** customer service solution\n\n**What industry is your enterprise business in?** This helps me provide more targeted information about how our solutions work for your specific business type.",
+                score: 40,
+                stage: 'business_analysis'
+            },
+            // Comprehensive Fallback System - Covers ANY Unrecognized Business Type
+            'unrecognized_business': {
+                response: "🤔 **I apologize, but I don't have specific information about that business type yet.** However, this is EXACTLY why you need NextEleven!\n\n**We work with businesses across ALL industries** - even ones we haven't encountered before. Our platform is designed to adapt to any business model.\n\n**What I can tell you:**\n✅ **We can definitely help** your business type\n✅ **Custom solutions** for your specific industry\n✅ **Quick 2-week setup** and deployment\n✅ **24/7 customer service** automation\n✅ **Multi-platform integration** (Web, SMS, Social)\n\n**Let me set up a callback** so our team can research your specific industry and create a customized solution. This way, you'll get exactly what you need.\n\n**What's the best email to send callback details to?** I'll also forward this inquiry to our team at seanebones@icloud.com for immediate attention.",
+                score: 35,
+                stage: 'callback_setup'
+            },
+            'callback_setup': {
+                response: "📞 **Perfect! I'm setting up your callback right now.**\n\n**What happens next:**\n1. **Immediate notification** sent to our team\n2. **Industry research** on your business type\n3. **Custom solution design** for your needs\n4. **Callback within 24 hours** (usually same day)\n5. **Personalized demo** of your solution\n\n**Your inquiry has been forwarded to:** seanebones@icloud.com\n\n**What's your name and the best phone number to reach you?**\n\n**Also, tell me briefly about your business** so our team can prepare the perfect solution for you!",
+                score: 30,
+                stage: 'callback_details'
+            },
+            'callback_details': {
+                response: "📋 **Excellent! I've captured your information.**\n\n**Your callback request has been submitted:**\n✅ **Name:** [Your Name]\n✅ **Phone:** [Your Number]\n✅ **Business Type:** [Your Business]\n✅ **Priority:** HIGH - New Industry Research\n✅ **Forwarded to:** seanebones@icloud.com\n\n**What happens in the next 24 hours:**\n1. **Our team researches** your specific industry\n2. **Custom solution designed** for your business\n3. **Personalized demo created** just for you\n4. **Callback scheduled** at your preferred time\n5. **Complete proposal** with industry-specific benefits\n\n**You'll receive:**\n- Email confirmation within 1 hour\n- Phone call within 24 hours\n- Custom demo link\n- Industry-specific case studies\n\n**Thank you for bringing this new business type to our attention!** We're excited to create a solution that will transform your business.\n\n**Is there anything else you'd like me to note for our team?**",
+                score: 25,
+                stage: 'callback_confirmation'
             },
             // Enhanced General Conversation & Business Knowledge
             'hello': {
@@ -998,51 +1131,96 @@
         }
 
         function sendMessage(message) {
+            if (!message.trim()) return;
+            
             addMessage(message, true);
             showTypingIndicator();
             
             setTimeout(() => {
                 hideTypingIndicator();
                 
-                const response = mariResponses[message.toLowerCase()];
-                if (response) {
-                    addMessage(response.response, false);
+                const lowerMessage = message.toLowerCase();
+                let bestMatch = null;
+                let bestScore = 0;
+                
+                // Check for business type keywords
+                const businessKeywords = [
+                    'business', 'company', 'firm', 'organization', 'startup', 'small business', 'medium business', 'large business', 'enterprise',
+                    'hair', 'salon', 'shop', 'tattoo', 'artist', 'stylist', 'barber', 'barbershop', 'nail', 'makeup', 'beauty',
+                    'healthcare', 'medical', 'dental', 'dentist', 'professional services', 'retail', 'e-commerce', 'hospitality', 'real estate',
+                    'automotive', 'auto shop', 'plumbing', 'plumber', 'pet grooming', 'pet groomer', 'cellphone', 'mobile phone', 'smoke shop', 'tobacco', 'vape', 'vaping',
+                    'restaurant', 'spa', 'law firm', 'fitness', 'gym'
+                ];
+                
+                // Regular keyword matching
+                for (const [keyword, response] of Object.entries(mariResponses)) {
+                    if (lowerMessage.includes(keyword.toLowerCase())) {
+                        if (response.score > bestScore) {
+                            bestScore = response.score;
+                            bestMatch = response;
+                        }
+                    }
+                }
+                
+                // If it's a business inquiry but no specific match found
+                if (businessKeywords.some(keyword => lowerMessage.includes(keyword.toLowerCase())) && !bestMatch) {
+                    // Auto-email seanebones@icloud.com about unrecognized business type
+                    const subject = `New Unrecognized Business Type Inquiry: ${message}`;
+                    const body = `New inquiry from chatbot:\n\nMessage: ${message}\n\nThis business type is not in our database yet. Please research and add appropriate responses.\n\nTime: ${new Date().toLocaleString()}`;
+                    
+                    // Send email notification
+                    sendEmail('seanebones@icloud.com', subject, body);
+                    
+                    // Use fallback response
+                    bestMatch = mariResponses['unrecognized_business'];
+                }
+                
+                if (bestMatch) {
+                    addMessage(bestMatch.response, false);
                     
                     // Handle email collection for PDF delivery
-                    if (response.stage === 'email_collection') {
+                    if (bestMatch.stage === 'email_collection') {
                         // Store the user's intent for PDF delivery
-                        window.userIntent = response.intent || 'general_information';
+                        window.userIntent = bestMatch.intent || 'general_information';
                         addMessage("📧 **Perfect! I'll send you the information right now.**\n\n**What's the best email address to send this to?**\n\nI'll send you everything within 5 minutes, plus:\n- Follow-up call from our team within 24 hours\n- Access to our client portal\n- Additional resources and materials", false);
                     }
                     // Handle email input for PDF delivery
-                    else if (response.stage === 'pdf_delivery' && message.includes('@')) {
+                    else if (bestMatch.stage === 'pdf_delivery' && message.includes('@')) {
                         const userEmail = message;
                         const packageType = window.userIntent || 'information';
                         deliverPDF(packageType, userEmail);
                     }
                     // Handle demo scheduling
-                    else if (response.stage === 'demo_scheduling') {
+                    else if (bestMatch.stage === 'demo_scheduling') {
                         addMessage("🎯 **Great! Let me help you schedule your demo.**\n\n**What's your preferred time?**\n- Morning (9 AM - 12 PM)\n- Afternoon (1 PM - 5 PM)\n- Evening (6 PM - 8 PM)\n\n**What's the best email to send your demo confirmation?**", false);
                     }
                     // Handle consultation scheduling
-                    else if (response.stage === 'consultation_scheduling') {
+                    else if (bestMatch.stage === 'consultation_scheduling') {
                         addMessage("📅 **Perfect! Let's get your consultation scheduled.**\n\n**What's your preferred time?**\n- Morning (9 AM - 12 PM)\n- Afternoon (1 PM - 5 PM)\n- Evening (6 PM - 8 PM)\n\n**What's the best email to send your consultation details?**", false);
                     }
                     // Handle trial setup
-                    else if (response.stage === 'trial_setup') {
+                    else if (bestMatch.stage === 'trial_setup') {
                         addMessage("🚀 **Excellent! Let's get your free trial set up.**\n\n**What's your preferred setup time?**\n- Morning (9 AM - 12 PM)\n- Afternoon (1 PM - 5 PM)\n- Evening (6 PM - 8 PM)\n\n**What's the best email to send your trial setup details?**", false);
                     }
                     // Handle sales contact
-                    else if (response.stage === 'sales_contact') {
+                    else if (bestMatch.stage === 'sales_contact') {
                         addMessage("👥 **Perfect! Let me connect you with our sales team.**\n\n**What's the best way to reach you?**\n- Phone call\n- Email\n- Schedule a demo\n- Get pricing information\n\n**What's your preferred contact method and details?**", false);
                     }
                     // Handle pricing inquiries
-                    else if (response.stage === 'pricing_detailed') {
+                    else if (bestMatch.stage === 'pricing_detailed') {
                         addMessage("💰 **Absolutely! Let me show you our complete pricing structure.**\n\n**Which package would you like detailed information about?**\n- Starter Plan ($149 setup + $79/month)\n- Professional Plan ($247/month, setup waived on annual)\n- Agency Plan ($597/month, setup waived)\n- Enterprise Plan (Custom pricing)\n\n**Or would you like me to send you our complete pricing guide?** Just let me know your email address!", false);
                     }
                     // Handle case study requests
-                    else if (response.stage === 'case_study_selection') {
+                    else if (bestMatch.stage === 'case_study_selection') {
                         addMessage("📚 **Excellent! I'd love to share some real success stories with you.**\n\n**What industry interests you most?**\n- Dental Practice\n- Hair Salon\n- Tattoo Studio\n- Plumbing Service\n- Other Industry\n\n**Or would you like me to send you our complete case studies collection?** Just let me know your email address!", false);
+                    }
+                    // Handle callback setup for unrecognized business types
+                    else if (bestMatch.stage === 'callback_setup') {
+                        addMessage("📞 **Perfect! I'm setting up your callback right now.**\n\n**What happens next:**\n1. **Immediate notification** sent to our team\n2. **Industry research** on your business type\n3. **Custom solution design** for your needs\n4. **Callback within 24 hours** (usually same day)\n5. **Personalized demo** of your solution\n\n**Your inquiry has been forwarded to:** seanebones@icloud.com\n\n**What's your name and the best phone number to reach you?**\n\n**Also, tell me briefly about your business** so our team can prepare the perfect solution for you!", false);
+                    }
+                    // Handle callback details collection
+                    else if (bestMatch.stage === 'callback_details') {
+                        addMessage("📋 **Excellent! I've captured your information.**\n\n**Your callback request has been submitted:**\n✅ **Name:** [Your Name]\n✅ **Phone:** [Your Number]\n✅ **Business Type:** [Your Business]\n✅ **Priority:** HIGH - New Industry Research\n✅ **Forwarded to:** seanebones@icloud.com\n\n**What happens in the next 24 hours:**\n1. **Our team researches** your specific industry\n2. **Custom solution designed** for your business\n3. **Personalized demo created** just for you\n4. **Callback scheduled** at your preferred time\n5. **Complete proposal** with industry-specific benefits\n\n**You'll receive:**\n- Email confirmation within 1 hour\n- Phone call within 24 hours\n- Custom demo link\n- Industry-specific case studies\n\n**Thank you for bringing this new business type to our attention!** We're excited to create a solution that will transform your business.\n\n**Is there anything else you'd like me to note for our team?**", false);
                     }
                     // Handle general guidance
                     else {
@@ -1080,7 +1258,7 @@
                     
                     addMessage(response, false);
                 }
-            }, 1500);
+            }, 1000);
         }
 
         function sendUserMessage() {
