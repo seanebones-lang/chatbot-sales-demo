@@ -928,7 +928,7 @@
                 stage: 'email_collection'
             },
             'schedule call': {
-                response: "Excellent! Let's get you scheduled for a personalized consultation call.\n\n📞 **What Our Consultation Call Includes:**\n\n✅ **Business Analysis** - Understand your specific challenges\n✅ **Solution Mapping** - Show exactly how we can help\n✅ **Custom ROI Calculation** - Numbers specific to your business\n✅ **Implementation Planning** - Step-by-step process\n✅ **Q&A Session** - Answer all your questions\n✅ **Next Steps** - Clear path forward\n\n**Call Details:**\n⏰ **Duration**: 45 minutes\n📱 **Format**: Phone or video call (your preference)\n👥 **Attendees**: You + our business consultant\n📅 **Available**: Morning, afternoon, or evening slots\n\n**What's your preferred time?** I'll have our team reach out to schedule it!\n\n**Morning, afternoon, or evening works best for us.**",
+                response: "Excellent! Let's get you scheduled for a personalized consultation call.\n\n📞 **What Our Consultation Call Includes:**\n\n✅ **Business Analysis** - Understand your specific challenges\n✅ **Solution Mapping** - Show exactly how we can help\n✅ **Custom Business Impact Analysis** - Numbers specific to your business\n✅ **Implementation Planning** - Step-by-step process\n✅ **Q&A Session** - Answer all your questions\n✅ **Next Steps** - Clear path forward\n\n**Call Details:**\n⏰ **Duration**: 45 minutes\n📱 **Format**: Phone or video call (your preference)\n👥 **Attendees**: You + our business consultant\n📅 **Available**: Morning, afternoon, or evening slots\n\n**What's your preferred time?** I'll have our team reach out to schedule it!\n\n**Morning, afternoon, or evening works best for us.**",
                 score: 30,
                 stage: 'call_scheduling'
             },
@@ -936,6 +936,80 @@
                 response: "Perfect! Tattoo studios are one of our specialties. Our industry-specific chatbot solutions address your biggest pain points:\n\n🎨 **Appointment booking & rescheduling** - No more phone interruptions during sessions\n🎨 **Artist availability checking** - Clients can see who's available and when\n🎨 **Pricing estimates** - Based on size, placement, and complexity\n🎨 **Aftercare support** - 24/7 guidance for clients post-tattoo\n🎨 **Portfolio showcase** - Artist-specific work examples\n🎨 **Consultation scheduling** - Streamlined initial meetings\n\n**Key Benefits for Tattoo Studios:**\n✅ Reduce interruptions during tattooing by 70%\n✅ Capture leads 24/7 when studio is closed\n✅ Increase booking conversion by 35-50%\n✅ Reduce no-shows through automated reminders\n✅ Save 10-15 hours per week on admin tasks\n\nWhat's your biggest challenge currently - phone interruptions, after-hours inquiries, or no-shows?",                   
                 score: 35,
                 stage: 'pain_point_analysis'
+            },
+            // Fun & Humorous Responses with Deep Knowledge
+            'lol': {
+                response: "😄 Glad I could make you laugh! But seriously, while I'm here cracking jokes, I'm also pretty good at solving real business problems.\n\n🎭 **Fun Fact**: Did you know that 73% of business owners say their biggest stress is customer communication? (I made that stat up, but it feels true, right?)\n\n**Real Talk**: What's actually stressing you out in your business? Phone calls driving you crazy? Missing appointments? Customers asking the same questions 47 times a day?\n\nI'm here to help - and maybe share a few more dad jokes while we're at it! 🎯\n\nWhat business are you in? I promise to keep the puns to a minimum... mostly.",
+                score: 10,
+                stage: 'humor_engagement'
+            },
+            'haha': {
+                response: "😆 Haha indeed! You know what's not funny though? Missing customer calls because you're too busy to answer the phone.\n\n🎪 **Business Comedy Hour**:\n- Customer calls during your busiest time: 😵\n- Missing calls when you're closed: 😭\n- Staff explaining the same thing 100 times: 🤯\n- Our chatbot handling it all 24/7: 😎\n\n**But seriously folks** (said in my best stand-up voice), what's your biggest customer service headache? I'm here to solve it, not just make you laugh.\n\nThough I do have a great joke about chatbots... but I'll save it for when you're ready to hear about our solutions! 🎤\n\nWhat industry are you in?",
+                score: 10,
+                stage: 'humor_engagement'
+            },
+            'funny': {
+                response: "😄 Thanks! I try to keep things light while solving serious business problems. You know what's not funny though?\n\n🎭 **The Comedy of Business Errors**:\n- Phone ringing off the hook during peak hours\n- Customers asking the same questions repeatedly\n- Missing appointments because you're too busy to answer calls\n- Staff spending hours on routine inquiries\n\n**But here's the punchline**: Our chatbot handles all of that while you focus on what you do best!\n\n🎪 **My Stand-up Routine**:\n'Why did the business owner go broke? Because they spent all their time answering the phone instead of serving customers!' 😅\n\n**Enough comedy** - what's your business? I promise to be professional... mostly!",
+                score: 10,
+                stage: 'humor_engagement'
+            },
+            'joke': {
+                response: "🎭 Oh, you want jokes? I've got 'em!\n\n**Business Jokes (I'm sorry in advance):**\n\n🎪 **Why did the chatbot go to therapy?**\nBecause it had too many conversations to process! 😅\n\n🎪 **What do you call a business that answers phones 24/7?**\nNextEleven! (I'll see myself out...) 🚪\n\n🎪 **Why did the customer call the salon?**\nBecause they wanted to make a hair appointment! (I know, I know...)\n\n**But seriously** (said in my best dad voice), while I'm here being the class clown, I'm also pretty good at:\n- Solving customer service problems\n- Increasing business efficiency\n- Making your life easier\n- Saving you money\n\n**What business are you in?** I promise to keep the jokes coming... and maybe help you solve some real problems too! 🎯",
+                score: 10,
+                stage: 'humor_engagement'
+            },
+            'tell me a joke': {
+                response: "🎭 Oh boy, you asked for it! Here are some business-themed jokes (quality not guaranteed):\n\n🎪 **Why did the business owner go broke?**\nBecause they spent all their money on phone bills from answering customer calls! 📞💸\n\n🎪 **What do you call a business that never sleeps?**\nNextEleven! (I'm so proud of that one) 😴➡️😎\n\n🎪 **Why did the customer call the tattoo studio?**\nBecause they wanted to make a permanent appointment! 🎨\n\n🎪 **What do you call a chatbot that's always working?**\nA workaholic! (I'll stop now...) 🤖\n\n**But in all seriousness** (said in my best professional voice), while I'm here being the office comedian, I'm also pretty good at solving real business problems.\n\n**What business are you in?** I promise to be helpful... and maybe share a few more terrible jokes! 🎯",
+                score: 10,
+                stage: 'humor_engagement'
+            },
+            // Deep Technical Knowledge with Personality
+            'how does ai work': {
+                response: "🤖 Great question! Let me break down AI in a way that won't make your brain hurt:\n\n🧠 **AI 101 (The Fun Version):**\n\n**Think of AI like a really smart intern who:**\n- Never gets tired or cranky\n- Remembers everything perfectly\n- Learns from every conversation\n- Speaks 15+ languages\n- Works 24/7 without coffee breaks\n- Never asks for a raise\n\n**How Our AI Actually Works:**\n\n🔍 **Natural Language Processing (NLP)**:\n- Understands human language (even when we're not making sense)\n- Recognizes intent and context\n- Learns from conversations to get smarter\n\n🧠 **Machine Learning**:\n- Gets better with every interaction\n- Adapts to your business needs\n- Improves responses over time\n\n🔗 **Integration Magic**:\n- Connects with your existing systems\n- Shares data seamlessly\n- Works across all platforms\n\n**Real Example**:\nWhen someone asks 'How much does a tattoo cost?', our AI:\n1. Understands they want pricing\n2. Asks about size and placement\n3. Gives a realistic estimate\n4. Offers to book a consultation\n5. Learns from the interaction\n\n**Want to see it in action?** What business are you in? I can show you exactly how it would work! 🎯",
+                score: 25,
+                stage: 'ai_education'
+            },
+            'technical details': {
+                response: "🔧 Oh, you want the technical nitty-gritty! Let me geek out for a moment:\n\n⚙️ **Technical Deep Dive:**\n\n**Architecture & Infrastructure:**\n- **Cloud-based platform** with 99.9% uptime guarantee\n- **Microservices architecture** for scalability and reliability\n- **Real-time processing** with <2 second response times\n- **Multi-tenant design** with complete data isolation\n\n**AI & Machine Learning:**\n- **BERT-based language models** for superior understanding\n- **Intent recognition** with 95%+ accuracy\n- **Context awareness** across conversation threads\n- **Continuous learning** from every interaction\n- **Multi-language support** in 15+ languages\n\n**Security & Compliance:**\n- **SOC 2 Type II certified** infrastructure\n- **GDPR compliant** data handling\n- **End-to-end encryption** for all communications\n- **Regular security audits** and penetration testing\n- **HIPAA compliance** for healthcare businesses\n\n**Integration Capabilities:**\n- **RESTful APIs** for seamless system integration\n- **Webhook support** for real-time data synchronization\n- **OAuth 2.0** for secure authentication\n- **Custom webhook endpoints** for business logic\n- **Database connectors** for CRM and booking systems\n\n**Performance Metrics:**\n- **1000+ concurrent conversations** supported\n- **<500ms response time** for simple queries\n- **99.9% uptime** with enterprise SLA\n- **Global CDN** for worldwide accessibility\n\n**Want me to dive deeper into any specific area?** Or shall we talk about how this translates to business benefits? 🚀",
+                score: 30,
+                stage: 'technical_deep_dive'
+            },
+            'integration': {
+                response: "🔗 Integration is where the magic happens! Let me show you how we connect everything:\n\n**🔄 Integration Magic - How It Works:**\n\n**Website Integration:**\n- **Widget installation** in 5 minutes\n- **Customizable appearance** to match your brand\n- **Responsive design** for all devices\n- **SEO-friendly** implementation\n\n**CRM Integration:**\n- **Salesforce, HubSpot, Pipedrive** - we connect to them all\n- **Real-time data sync** - no more manual entry\n- **Lead capture** directly into your system\n- **Customer history** available in every conversation\n\n**Booking Systems:**\n- **Acuity, Calendly, Booksy** - seamless integration\n- **Real-time availability** checking\n- **Automatic scheduling** and confirmation\n- **Conflict prevention** and management\n\n**Payment Processing:**\n- **Stripe, Square, PayPal** - secure payment handling\n- **Automated invoicing** and billing\n- **Payment plan management** for larger services\n- **Refund and cancellation** handling\n\n**Communication Platforms:**\n- **Slack, Microsoft Teams** - team notifications\n- **Email marketing** integration\n- **SMS and WhatsApp** support\n- **Social media** platform connections\n\n**Analytics & Reporting:**\n- **Google Analytics** integration\n- **Custom dashboards** for your business\n- **Performance metrics** and optimization\n- **Business impact tracking** and reporting\n\n**The Best Part?** We handle all the technical complexity so you don't have to!\n\n**What systems are you currently using?** I can show you exactly how we'll connect them! 🚀",
+                score: 30,
+                stage: 'integration_detailed'
+            },
+            // More Humorous & Knowledgeable Responses
+            'cool': {
+                response: "😎 Cool indeed! You know what's even cooler though? A business that runs like a well-oiled machine while you're sipping coffee.\n\n🎭 **The Cool Factor**:\n- Your phone not ringing off the hook: 😎\n- Customers getting instant answers: 😎\n- Staff focused on revenue activities: 😎\n- You actually having time to grow your business: 😎\n- Our chatbot working 24/7 while you sleep: 😎\n\n**But here's the real cool part**: We make it look easy while doing the heavy lifting behind the scenes.\n\n🎪 **Cool Business Fact**: The word 'cool' in business actually comes from jazz musicians in the 1940s who used it to describe something sophisticated and understated. Just like our solutions - sophisticated technology that works so smoothly, it just feels... cool.\n\n**What business are you in?** I promise to keep the cool factor high while solving your problems! 🚀",
+                score: 10,
+                stage: 'humor_engagement'
+            },
+            'awesome': {
+                response: "🤩 Awesome! You know what else is awesome? A business that practically runs itself while you focus on what you love.\n\n🌟 **The Awesome Factor**:\n- Never missing a customer call: 🤩\n- Staff productivity through the roof: 🤩\n- Customer satisfaction scores soaring: 🤩\n- Revenue increasing month over month: 🤩\n- You actually having time for a life: 🤩\n\n**But here's what makes it truly awesome**: We're not just another tech company - we're your business growth partner.\n\n🎭 **Awesome Business Fact**: The word 'awesome' originally meant 'inspiring awe' - like looking at a mountain or the ocean. That's how we want you to feel about your business growth with NextEleven!\n\n**What business are you in?** Let's make something awesome happen together! 🚀",
+                score: 10,
+                stage: 'humor_engagement'
+            },
+            'amazing': {
+                response: "✨ Amazing! You know what's truly amazing? The fact that most businesses are still doing customer service like it's 1995.\n\n🎭 **The Amazing Reality**:\n- While others are playing phone tag, you're serving customers\n- While others are explaining the same thing repeatedly, you're growing your business\n- While others are missing calls, you're capturing every opportunity\n- While others are stressed, you're relaxed and profitable\n\n**But here's the amazing part**: We make this transformation happen in just 2 weeks!\n\n🌟 **Amazing Business Fact**: The word 'amazing' comes from the Old English 'amasian' meaning 'to confound with wonder.' That's exactly what happens when business owners see how much time and money they've been wasting on manual processes!\n\n**What business are you in?** Let's create something truly amazing together! 🚀",
+                score: 10,
+                stage: 'humor_engagement'
+            },
+            'wow': {
+                response: "😲 Wow! You know what's really wow-worthy? The fact that you're even considering upgrading your business systems.\n\n🎭 **The Wow Factor**:\n- Most business owners just accept the chaos\n- Most business owners keep doing things the hard way\n- Most business owners never think about automation\n- Most business owners miss huge opportunities\n\n**But you?** You're different. You're thinking ahead. You're ready to wow your customers and competitors!\n\n🌟 **Wow Business Fact**: The word 'wow' was first recorded in 1513 and is considered one of the most expressive words in the English language. It's the sound of someone seeing something truly impressive - like your business transformation! 🎯\n\n**What business are you in?** I can't wait to show you what's possible! 🚀",
+                score: 10,
+                stage: 'humor_engagement'
+            },
+            // Deep Industry Knowledge with Personality
+            'marketing': {
+                response: "📢 Marketing! Now we're talking about the fun stuff! Let me show you how our chatbot becomes your 24/7 marketing machine:\n\n🎯 **Marketing Magic with NextEleven:**\n\n**Lead Generation 24/7:**\n- Capture leads when you're sleeping, eating, or on vacation\n- Qualify prospects automatically with smart questions\n- Collect contact info and preferences\n- Route hot leads directly to your team\n\n**Customer Nurturing:**\n- Automated follow-up sequences\n- Birthday and anniversary recognition\n- Special offer delivery\n- Re-engagement campaigns\n\n**Social Media Integration:**\n- Facebook Messenger chatbot\n- Instagram DM automation\n- WhatsApp business integration\n- Twitter customer service\n\n**Content Marketing:**\n- FAQ handling and education\n- Service explanations and demos\n- Industry tips and insights\n- Customer success stories\n\n**Analytics & Optimization:**\n- Track which messages convert best\n- A/B test different approaches\n- Measure engagement and response rates\n- Optimize for maximum results\n\n**Real Example**:\nA hair salon increased their social media leads by 300% using our chatbot to handle Instagram inquiries 24/7!\n\n**What's your biggest marketing challenge?** Lead generation, customer retention, or brand awareness?",
+                score: 35,
+                stage: 'marketing_analysis'
+            },
+            'automation': {
+                response: "🤖 Automation! My favorite topic! Let me show you how we turn your business into a well-oiled machine:\n\n⚙️ **Automation Magic - What We Automate:**\n\n**Customer Service Automation:**\n- 80% of routine inquiries handled automatically\n- 24/7 availability without hiring night staff\n- Consistent responses every single time\n- Instant customer satisfaction\n\n**Appointment Management:**\n- Self-service booking and rescheduling\n- Automated reminders and confirmations\n- Conflict prevention and management\n- Calendar integration and optimization\n\n**Lead Qualification:**\n- Automatic prospect screening\n- Service matching and recommendations\n- Pricing estimates and proposals\n- Follow-up sequence automation\n\n**Communication Workflows:**\n- Multi-channel messaging (SMS, email, chat)\n- Personalized communication sequences\n- Event-triggered messaging\n- Customer preference management\n\n**Business Intelligence:**\n- Automated reporting and analytics\n- Performance tracking and optimization\n- Customer behavior analysis\n- ROI measurement and reporting\n\n**The Beautiful Part**: You set it up once, and it works forever while getting smarter every day!\n\n**What process would you love to automate first?** Customer service, scheduling, or lead management?",
+                score: 35,
+                stage: 'automation_analysis'
             },
             'hair salon': {
                 response: "Excellent! Hair salons love our specialized solutions. We address your specific industry challenges:\n\n💇‍♀️ **Online booking with stylist selection** - Match clients to the right stylist\n💇‍♀️ **Service menu & pricing** - Clear information about treatments\n💇‍♀️ **Color consultation scheduling** - Streamlined booking process\n💇‍♀️ **Loyalty program integration** - Track rewards and points\n💇‍♀️ **Product recommendations** - Boost retail sales automatically\n💇‍♀️ **Promotional announcements** - Get word out about specials\n\n**Key Benefits for Hair Salons:**\n✅ Reduce front desk workload during peak hours\n✅ Never miss a booking opportunity\n✅ Increase retail sales by 20% through smart recommendations\n✅ Improve client retention with personalized service\n✅ Save 12-18 hours per week on scheduling\n\nWhat's your biggest challenge - peak time chaos, service confusion, or client retention?",
@@ -1146,6 +1220,18 @@
                         addQuickOptions(['Send now', 'Schedule call', 'See pricing', 'Start trial']);
                     } else if (response.stage === 'call_scheduling') {
                         addQuickOptions(['Morning', 'Afternoon', 'Evening', 'Send information']);
+                    } else if (response.stage === 'humor_engagement') {
+                        addQuickOptions(['Tell me a joke', 'How does AI work?', 'See pricing', 'Schedule demo']);
+                    } else if (response.stage === 'ai_education') {
+                        addQuickOptions(['Technical details', 'Integration info', 'See pricing', 'Schedule demo']);
+                    } else if (response.stage === 'technical_deep_dive') {
+                        addQuickOptions(['Integration details', 'See pricing', 'Schedule demo', 'Start trial']);
+                    } else if (response.stage === 'integration_detailed') {
+                        addQuickOptions(['See pricing', 'Schedule demo', 'Start trial', 'Get proposal']);
+                    } else if (response.stage === 'marketing_analysis') {
+                        addQuickOptions(['Lead generation', 'Customer retention', 'Brand awareness', 'Schedule demo']);
+                    } else if (response.stage === 'automation_analysis') {
+                        addQuickOptions(['Customer service', 'Scheduling', 'Lead management', 'Schedule demo']);
                     } else {
                         addQuickOptions(['Continue', 'More Information', 'Schedule Demo', 'See Pricing']);
                     }
