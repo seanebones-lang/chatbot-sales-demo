@@ -500,6 +500,14 @@
 
         <footer class="enterprise-footer">
             NextEleven Enterprise Solutions | Trusted by 500+ Companies Worldwide | Contact: enterprise@nexteleven.com
+            <br><br>
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-top: 10px;">
+                <strong>🇺🇸 Military Veteran Discounts</strong><br>
+                <span style="font-size: 0.9em;">
+                    10% off for Veterans | 20% off for Combat Veterans<br>
+                    Thank you for your service.
+                </span>
+            </div>
         </footer>
     </div>
 
@@ -549,6 +557,107 @@
                 response: "No problem! We work with businesses across all industries. Our platform adapts to any business model:\n\n🏢 Custom workflow automation\n🏢 Industry-specific compliance requirements\n🏢 Integration with existing CRM/ERP systems\n🏢 Scalable architecture for any size business\n🏢 White-label solutions available\n\nWhat industry are you in specifically? This helps me provide more targeted information.",
                 score: 20,
                 stage: 'industry_specification'
+            },
+            // Military Veteran Recognition and Discounts
+            'military': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our military veterans.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping veteran-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'veteran': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our military veterans.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping veteran-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'veterans': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our military veterans.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping veteran-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'combat veteran': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is deeply honored to support our combat veterans.\n\n**Military Veteran Discounts:**\n- **20% off** for Combat Veterans (your service level)\n- **10% off** for all other Veterans\n\nWe're committed to helping combat veteran-owned businesses succeed with our chatbot solutions. Your extraordinary service and sacrifice for our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our combat veteran discount program?",
+                score: 60,
+                stage: 'combat_veteran_recognition'
+            },
+            'combat veterans': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is deeply honored to support our combat veterans.\n\n**Military Veteran Discounts:**\n- **20% off** for Combat Veterans (your service level)\n- **10% off** for all other Veterans\n\nWe're committed to helping combat veteran-owned businesses succeed with our chatbot solutions. Your extraordinary service and sacrifice for our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our combat veteran discount program?",
+                score: 60,
+                stage: 'combat_veteran_recognition'
+            },
+            'army': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our Army veterans.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping Army veteran-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'navy': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our Navy veterans.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping Navy veteran-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'air force': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our Air Force veterans.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping Air Force veteran-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'marine': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our Marine veterans.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping Marine veteran-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'marines': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our Marine veterans.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping Marine veteran-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'coast guard': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our Coast Guard veterans.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping Coast Guard veteran-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'national guard': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our National Guard veterans.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping National Guard veteran-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'reserves': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our military reservists.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping reservist-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'served': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support those who have served our country.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping veteran-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'serving': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our active duty service members.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping service member-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'active duty': {
+                response: "🇺🇸 **Thank you for your service!** NextEleven is honored to support our active duty service members.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\nWe're committed to helping service member-owned businesses succeed with our chatbot solutions. Your service to our country is deeply appreciated.\n\nWould you like me to show you how our solutions can help your business, or would you like to learn more about our veteran discount program?",
+                score: 50,
+                stage: 'veteran_recognition'
+            },
+            'military discount': {
+                response: "🇺🇸 **Absolutely!** NextEleven proudly offers military veteran discounts to honor your service.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\n**How to Apply:**\n1. Mention your veteran status during consultation\n2. Provide your DD-214 or military ID\n3. Discount applied to all packages\n4. Available for both monthly and annual plans\n\nWe're committed to helping veteran-owned businesses succeed. Thank you for your service to our country!\n\nWould you like to learn more about our solutions or discuss how to apply your veteran discount?",
+                score: 55,
+                stage: 'veteran_discount_info'
+            },
+            'veteran discount': {
+                response: "🇺🇸 **Absolutely!** NextEleven proudly offers military veteran discounts to honor your service.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\n**How to Apply:**\n1. Mention your veteran status during consultation\n2. Provide your DD-214 or military ID\n3. Discount applied to all packages\n4. Available for both monthly and annual plans\n\nWe're committed to helping veteran-owned businesses succeed. Thank you for your service to our country!\n\nWould you like to learn more about our solutions or discuss how to apply your veteran discount?",
+                score: 55,
+                stage: 'veteran_discount_info'
+            },
+            'dd-214': {
+                response: "🇺🇸 **Perfect!** Your DD-214 is the standard document we use to verify veteran status for our military discounts.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\n**Documentation Required:**\n- DD-214 (Certificate of Release or Discharge)\n- Military ID (for active duty/reservists)\n- VA ID card\n- Any official military service documentation\n\n**How to Apply:**\n1. Mention your veteran status during consultation\n2. Provide your DD-214 or military ID\n3. Discount applied to all packages\n4. Available for both monthly and annual plans\n\nWe're committed to helping veteran-owned businesses succeed. Thank you for your service to our country!\n\nWould you like to learn more about our solutions or discuss how to apply your veteran discount?",
+                score: 55,
+                stage: 'veteran_discount_info'
+            },
+            'dd214': {
+                response: "🇺🇸 **Perfect!** Your DD-214 is the standard document we use to verify veteran status for our military discounts.\n\n**Military Veteran Discounts:**\n- **10% off** for all Veterans\n- **20% off** for Combat Veterans\n\n**Documentation Required:**\n- DD-214 (Certificate of Release or Discharge)\n- Military ID (for active duty/reservists)\n- VA ID card\n- Any official military service documentation\n\n**How to Apply:**\n1. Mention your veteran status during consultation\n2. Provide your DD-214 or military ID\n3. Discount applied to all packages\n4. Available for both monthly and annual plans\n\nWe're committed to helping veteran-owned businesses succeed. Thank you for your service to our country!\n\nWould you like to learn more about our solutions or discuss how to apply your veteran discount?",
+                score: 55,
+                stage: 'veteran_discount_info'
             },
             'email_collection': {
                 response: "📧 **Perfect! I'll send you the information right now.**\n\n**What's the best email address to send this to?**\n\nI'll send you everything within 5 minutes, plus:\n- Follow-up call from our team within 24 hours\n- Access to our client portal\n- Additional resources and materials",
