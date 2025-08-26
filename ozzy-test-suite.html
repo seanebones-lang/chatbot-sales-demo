@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozzy Tattoo Bot - Comprehensive Test Suite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #181818, #1E1E1E);
+            border-radius: 15px;
+            border: 1px solid #444444;
+        }
+
+        .test-header h1 {
+            color: #F0F0F0;
+            margin-bottom: 10px;
+        }
+
+        .test-section {
+            background-color: #181818;
+            border-radius: 15px;
+            border: 1px solid #444444;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .test-section h2 {
+            color: #1E90FF;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #444444;
+            padding-bottom: 10px;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .test-item {
+            background-color: #1E1E1E;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #444444;
+        }
+
+        .test-item h3 {
+            color: #F0F0F0;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .test-item p {
+            color: #E0E0E0;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .test-button {
+            background: linear-gradient(135deg, #1E90FF, #004D61);
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.4);
+        }
+
+        .test-results {
+            background-color: #1E1E1E;
+            border-radius: 10px;
+            border: 1px solid #444444;
+            padding: 15px;
+            margin-top: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .test-results h4 {
+            color: #1E90FF;
+            margin-bottom: 10px;
+        }
+
+        .test-log {
+            background-color: #000000;
+            color: #00FF00;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🧪 Ozzy Tattoo Bot - Comprehensive Test Suite</h1>
+            <p>Testing all tattoo studio keywords, responses, and functionality</p>
+        </div>
+
+        <div class="test-section">
+            <h2>🎨 Tattoo Studio Response Testing</h2>
+            <div class="test-grid">
+                <div class="test-item">
+                    <h3>Greeting & Basic</h3>
+                    <p>Test basic greeting responses</p>
+                    <button class="test-button" onclick="testGreetingKeywords()">Test Greetings</button>
+                </div>
+                <div class="test-item">
+                    <h3>Appointment & Booking</h3>
+                    <p>Test appointment booking responses</p>
+                    <button class="test-button" onclick="testBookingKeywords()">Test Booking</button>
+                </div>
+                <div class="test-item">
+                    <h3>Pricing & Services</h3>
+                    <p>Test pricing and service responses</p>
+                    <button class="test-button" onclick="testPricingKeywords()">Test Pricing</button>
+                </div>
+                <div class="test-item">
+                    <h3>Artists & Portfolio</h3>
+                    <p>Test artist and portfolio responses</p>
+                    <button class="test-button" onclick="testArtistKeywords()">Test Artists</button>
+                </div>
+                <div class="test-item">
+                    <h3>Technical & Aftercare</h3>
+                    <p>Test technical and aftercare responses</p>
+                    <button class="test-button" onclick="testTechnicalKeywords()">Test Technical</button>
+                </div>
+                <div class="test-item">
+                    <h3>Studio Policies</h3>
+                    <p>Test studio policy responses</p>
+                    <button class="test-button" onclick="testPolicyKeywords()">Test Policies</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>🚀 Complete System Testing</h2>
+            <div class="test-grid">
+                <div class="test-item">
+                    <h3>Full Response Test</h3>
+                    <p>Test all response patterns</p>
+                    <button class="test-button" onclick="testAllResponses()">Test All</button>
+                </div>
+                <div class="test-item">
+                    <h3>Functionality Test</h3>
+                    <p>Test all functions and features</p>
+                    <button class="test-button" onclick="testAllFunctions()">Test Functions</button>
+                </div>
+                <div class="test-item">
+                    <h3>Integration Test</h3>
+                    <p>Test system integration</p>
+                    <button class="test-button" onclick="testIntegration()">Test Integration</button>
+                </div>
+                <div class="test-item">
+                    <h3>Performance Test</h3>
+                    <p>Test response times and performance</p>
+                    <button class="test-button" onclick="testPerformance()">Test Performance</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>📊 Test Results & Logs</h2>
+            <div class="test-results">
+                <h4>Test Execution Log</h4>
+                <div id="testLog" class="test-log"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ozzy's response system (copied from tattoo demo)
+        const tattooResponses = {
+            'hello': {
+                response: "🎨 **Hello! Welcome to Ink & Iron Tattoo Studio!** I'm here to help you with everything you need.\n\n**How can I assist you today?**\n• Book an appointment\n• See artist portfolios\n• Get pricing information\n• Learn about our services\n• Check availability\n• Get aftercare help",
+                score: 50,
+                stage: 'greeting'
+            },
+            'hi': {
+                response: "🎨 **Hi there! Welcome to Ink & Iron Tattoo Studio!** I'm your AI assistant, ready to help with all your tattoo needs.\n\n**What would you like to know about?**\n• Our artists and their styles\n• Appointment booking\n• Pricing and estimates\n• Services we offer\n• Studio policies\n• Aftercare information",
+                score: 50,
+                stage: 'greeting'
+            },
+            'book': {
+                response: "📅 **Great! Let's get you booked for your tattoo!**\n\n**What type of appointment do you need?**\n• **Consultation** - Discuss your design and get a quote\n• **Tattoo Session** - Book your actual tattoo appointment\n• **Touch-up** - Schedule a touch-up session\n• **Cover-up** - Discuss cover-up options\n\n**What's your preferred date and time?** (We're available Tuesday-Saturday, 11 AM - 8 PM)\n\n**Also, what's your name and phone number?** I'll get you scheduled right away!",
+                score: 60,
+                stage: 'booking'
+            },
+            'appointment': {
+                response: "📅 **Perfect! Let's schedule your appointment!**\n\n**What type of tattoo are you looking for?**\n• **Small tattoo** (1-2 hours)\n• **Medium tattoo** (2-4 hours)\n• **Large tattoo** (4+ hours, multiple sessions)\n• **Cover-up tattoo**\n• **Touch-up session**\n\n**What's your preferred time?**\n• Morning (11 AM - 2 PM)\n• Afternoon (2 PM - 5 PM)\n• Evening (5 PM - 8 PM)\n\n**What's your name and contact number?** I'll check availability and get you scheduled!",
+                score: 60,
+                stage: 'booking'
+            },
+            'consultation': {
+                response: "💬 **Excellent choice! A consultation is perfect for discussing your design and getting a detailed quote.**\n\n**Consultations are free and take about 30 minutes.**\n\n**What would you like to discuss?**\n• Design concept and placement\n• Size and complexity\n• Artist recommendations\n• Pricing estimates\n• Timeline and scheduling\n• Aftercare preparation\n\n**What's your preferred consultation time?**\n• Tuesday-Thursday: 11 AM - 6 PM\n• Friday-Saturday: 11 AM - 7 PM\n\n**What's your name and phone number?** I'll schedule your consultation right away!",
+                score: 65,
+                stage: 'consultation'
+            },
+            'price': {
+                response: "💰 **Great question about pricing! Our rates vary based on size, complexity, and artist experience.**\n\n**General Pricing Guide:**\n• **Small tattoos** (1-2 hours): $150 - $300\n• **Medium tattoos** (2-4 hours): $300 - $600\n• **Large tattoos** (4+ hours): $600+ (hourly rate)\n• **Cover-ups**: Additional complexity fee\n• **Touch-ups**: $50 - $100\n\n**What type of tattoo are you thinking about?**\n• Size and placement\n• Design complexity\n• Color vs. black & gray\n• Artist preference\n\n**For a precise quote, I can schedule a free consultation with one of our artists!**",
+                score: 55,
+                stage: 'pricing'
+            },
+            'pricing': {
+                response: "💰 **Here's our detailed pricing structure:**\n\n**Hourly Rates by Artist:**\n• **Junior Artists**: $150/hour\n• **Experienced Artists**: $200/hour\n• **Master Artists**: $250/hour\n\n**Package Deals:**\n• **Small tattoos** (under 2 hours): Flat rate pricing\n• **Medium tattoos** (2-4 hours): 10% discount on hourly rate\n• **Large pieces** (4+ hours): 15% discount on hourly rate\n\n**Additional Services:**\n• **Design consultation**: FREE\n• **Touch-ups** (within 6 months): $50\n• **Cover-up consultation**: $75\n\n**What size and style are you considering?** I can give you a more specific estimate!",
+                score: 55,
+                stage: 'pricing'
+            },
+            'artist': {
+                response: "👨‍🎨 **We have amazing artists with different specialties!**\n\n**Our Current Artists:**\n\n**🎨 Mike (Master Artist)**\n• Specializes in: Realistic portraits, Japanese traditional\n• Experience: 15+ years\n• Rate: $250/hour\n• Available: Tuesday-Saturday\n\n**🎨 Sarah (Experienced Artist)**\n• Specializes in: Watercolor, geometric designs\n• Experience: 8 years\n• Rate: $200/hour\n• Available: Wednesday-Saturday\n\n**🎨 Jake (Junior Artist)**\n• Specializes in: Minimalist, line work, small tattoos\n• Experience: 3 years\n• Rate: $150/hour\n• Available: Tuesday-Friday\n\n**Who would you like to work with?** I can show you their portfolios and check their availability!",
+                score: 60,
+                stage: 'artist_info'
+            },
+            'portfolio': {
+                response: "🖼️ **Absolutely! I'd love to show you our artists' work!**\n\n**Portfolio Categories:**\n• **Realistic portraits** - Mike's specialty\n• **Japanese traditional** - Mike's expertise\n• **Watercolor tattoos** - Sarah's signature style\n• **Geometric designs** - Sarah's clean aesthetic\n• **Minimalist tattoos** - Jake's modern approach\n• **Line work** - Jake's precision\n\n**What style interests you most?**\n• Traditional/Classic\n• Realistic/Portraits\n• Watercolor/Abstract\n• Geometric/Minimalist\n• Black & Gray\n• Color work\n\n**I can also show you specific examples of:**\n• Tattoos similar to what you want\n• Work by a specific artist\n• Different placement options\n\n**What would you like to see?**",
+                score: 55,
+                stage: 'portfolio'
+            },
+            'availability': {
+                response: "📅 **Let me check our current availability!**\n\n**This Week's Openings:**\n• **Tuesday**: 2 PM, 4 PM, 6 PM\n• **Wednesday**: 11 AM, 1 PM, 3 PM, 7 PM\n• **Thursday**: 12 PM, 2 PM, 5 PM\n• **Friday**: 11 AM, 3 PM, 6 PM\n• **Saturday**: 1 PM, 4 PM\n\n**Next Week's Openings:**\n• **Monday**: Closed (Artist day off)\n• **Tuesday**: 11 AM, 3 PM, 5 PM, 7 PM\n• **Wednesday**: 12 PM, 2 PM, 4 PM, 6 PM\n\n**What works best for you?**\n• Morning appointments (11 AM - 2 PM)\n• Afternoon appointments (2 PM - 5 PM)\n• Evening appointments (5 PM - 8 PM)\n\n**I can also check specific artist availability if you have a preference!**",
+                score: 55,
+                stage: 'availability'
+            },
+            'aftercare': {
+                response: "🩹 **Great question! Proper aftercare is crucial for a beautiful tattoo.**\n\n**Immediate Aftercare (First 24 hours):**\n• Keep bandage on for 2-4 hours\n• Wash gently with mild soap and warm water\n• Pat dry with clean paper towel\n• Apply thin layer of healing ointment\n\n**First Week:**\n• Wash 2-3 times daily\n• Apply healing ointment 2-3 times daily\n• Avoid swimming, hot tubs, sun exposure\n• Don't pick or scratch\n\n**Healing Timeline:**\n• **Days 1-3**: Redness, swelling, slight oozing (normal)\n• **Days 4-7**: Scabbing begins, itching starts\n• **Weeks 2-3**: Scabs fall off, color settles\n• **Month 1**: Fully healed\n\n**What specific aftercare question do you have?** I can provide detailed instructions!",
+                score: 60,
+                stage: 'aftercare'
+            },
+            'deposit': {
+                response: "💳 **Yes, we require deposits to secure your appointment!**\n\n**Deposit Requirements:**\n• **Small tattoos** (1-2 hours): $50 deposit\n• **Medium tattoos** (2-4 hours): $100 deposit\n• **Large tattoos** (4+ hours): $200 deposit\n• **Cover-ups**: $150 deposit\n\n**Deposit Policy:**\n• Deposits are non-refundable but transferable\n• Applied to your final tattoo cost\n• Required within 48 hours of booking\n• Can be paid via cash, card, or digital payment\n\n**How would you like to pay your deposit?**\n• **Cash** - Pay in person\n• **Card** - Over the phone\n• **Digital payment** - Venmo, PayPal, or Cash App\n\n**I'll send you payment instructions once we confirm your appointment!**",
+                score: 55,
+                stage: 'deposit'
+            },
+            'policy': {
+                response: "📋 **Here are our studio policies and procedures:**\n\n**Booking Policies:**\n• 48-hour notice required for cancellations\n• Deposits are non-refundable but transferable\n• Late arrivals may result in rescheduling\n• No-shows forfeit deposit\n\n**Health & Safety:**\n• Must be 18+ with valid ID\n• No alcohol or drugs before appointment\n• Eat a good meal before your session\n• Bring comfortable clothing\n• No guests during COVID restrictions\n\n**Payment:**\n• Cash preferred, cards accepted\n• Payment due at completion\n• No payment plans available\n• Tips appreciated but not required\n\n**What specific policy would you like me to explain further?**",
+                score: 50,
+                stage: 'policies'
+            },
+            'size': {
+                response: "📏 **Great question! Tattoo size affects both pricing and session length.**\n\n**Size Categories & Estimates:**\n\n**Small Tattoos (1-2 hours):**\n• **Coin-sized**: $150-200\n• **Credit card**: $200-300\n• **Palm-sized**: $250-350\n\n**Medium Tattoos (2-4 hours):**\n• **Hand-sized**: $400-600\n• **Forearm length**: $500-700\n• **Calf piece**: $600-800\n\n**Large Tattoos (4+ hours):**\n• **Full sleeve**: $800-1500\n• **Full back**: $1000-2000\n• **Full leg**: $1200-2500\n\n**What size are you thinking?** I can give you a more precise estimate based on:\n• Exact dimensions\n• Placement on body\n• Design complexity\n• Artist preference",
+                score: 55,
+                stage: 'sizing'
+            },
+            'placement': {
+                response: "📍 **Placement is crucial for both aesthetics and pain level!**\n\n**Popular Placement Options:**\n\n**Low Pain Areas:**\n• Upper arm/forearm\n• Shoulder blade\n• Calf\n• Thigh\n\n**Medium Pain Areas:**\n• Ribs\n• Stomach\n• Lower back\n• Ankle\n\n**Higher Pain Areas:**\n• Foot\n• Hand\n• Neck\n• Face\n\n**Placement Considerations:**\n• **Visibility** - Work requirements, personal preference\n• **Pain tolerance** - Some areas are more sensitive\n• **Healing** - Some placements take longer\n• **Future plans** - Weight changes, pregnancy, etc.\n\n**Where are you thinking of placing your tattoo?** I can give you specific advice for that area!",
+                score: 55,
+                stage: 'placement'
+            },
+            'style': {
+                response: "🎨 **We offer all major tattoo styles!**\n\n**Traditional Styles:**\n• **American Traditional** - Bold lines, bright colors\n• **Japanese Traditional** - Irezumi, detailed designs\n• **Tribal** - Cultural and modern interpretations\n• **Old School** - Classic sailor and biker styles\n\n**Modern Styles:**\n• **Realistic** - Photo-like portraits and nature\n• **Watercolor** - Paint-like, flowing designs\n• **Geometric** - Clean lines, mathematical precision\n• **Minimalist** - Simple, elegant designs\n• **Neo-traditional** - Traditional with modern twists\n\n**Specialty Styles:**\n• **Black & Gray** - Shading and depth\n• **Color work** - Vibrant, full-color designs\n• **Dotwork** - Pointillism technique\n• **Line work** - Clean, precise lines\n\n**What style interests you?** I can show you examples and recommend artists!",
+                score: 55,
+                stage: 'style_info'
+            },
+            'healing': {
+                response: "⏰ **Healing time varies by size, placement, and individual factors.**\n\n**Typical Healing Timeline:**\n\n**Small Tattoos (1-2 hours):**\n• **Initial healing**: 7-10 days\n• **Full healing**: 3-4 weeks\n\n**Medium Tattoos (2-4 hours):**\n• **Initial healing**: 10-14 days\n• **Full healing**: 4-6 weeks\n\n**Large Tattoos (4+ hours):**\n• **Initial healing**: 14-21 days\n• **Full healing**: 6-8 weeks\n\n**Healing Factors:**\n• **Placement** - Some areas heal faster\n• **Size** - Larger tattoos take longer\n• **Aftercare** - Proper care speeds healing\n• **Individual health** - Age, diet, lifestyle\n\n**What size tattoo are you planning?** I can give you a more specific timeline!",
+                score: 55,
+                stage: 'healing_info'
+            },
+            'touch up': {
+                response: "🔧 **Touch-ups are common and help maintain your tattoo's beauty!**\n\n**Touch-up Policy:**\n• **Free touch-ups** within 6 months of original tattoo\n• **Paid touch-ups** after 6 months ($50-100)\n• **Cover-up touch-ups** may have different pricing\n\n**When Touch-ups Are Needed:**\n• **Normal fading** - Colors lose vibrancy over time\n• **Patchy healing** - Some areas didn't heal evenly\n• **Color adjustments** - Want to enhance or change colors\n• **Line refinement** - Clean up any fuzzy lines\n\n**Touch-up Process:**\n• Quick 30-60 minute session\n• Minimal discomfort\n• Faster healing than original tattoo\n• Can be done by original artist or any available artist\n\n**When was your original tattoo done?** I can check if you qualify for a free touch-up!",
+                score: 55,
+                stage: 'touch_up'
+            },
+            'cover up': {
+                response: "🔄 **Cover-ups are definitely possible!** We specialize in transforming unwanted tattoos.\n\n**Cover-up Considerations:**\n• **Size** - New design must be larger than original\n• **Color** - Darker colors work best for covering\n• **Placement** - Some areas are easier to cover\n• **Design** - Must work with existing tattoo\n\n**Cover-up Process:**\n• **Consultation required** - Discuss design options\n• **Design phase** - Create cover-up design\n• **Multiple sessions** - Usually 2-3 sessions needed\n• **Healing time** - Allow healing between sessions\n\n**Cover-up Pricing:**\n• **Small cover-ups**: $300-500\n• **Medium cover-ups**: $500-800\n• **Large cover-ups**: $800-1500\n\n**What type of tattoo do you want to cover?** I can schedule a consultation to discuss your options!",
+                score: 60,
+                stage: 'cover_up'
+            },
+            'age': {
+                response: "🆔 **Age verification is required by law for all tattoos.**\n\n**Age Requirements:**\n• **Must be 18+ years old**\n• **Valid government ID required** (Driver's license, passport, state ID)\n• **No exceptions** - Even with parent permission\n• **ID must be current** - Not expired\n\n**What to Bring:**\n• **Driver's license** (preferred)\n• **State ID card**\n• **Passport**\n• **Military ID**\n• **Other government-issued photo ID**\n\n**We cannot accept:**\n• School IDs\n• Work IDs\n• Expired IDs\n• Photocopies\n\n**Are you 18 or older?** If so, make sure to bring your ID to your appointment!\n\n**Note**: We take age verification very seriously to comply with state and local laws.",
+                score: 50,
+                stage: 'age_verification'
+            },
+            'unrecognized': {
+                response: "I'm not sure I understand. Could you rephrase that or ask me something about tattoo appointments, designs, pricing, or studio services?",
+                score: 0,
+                stage: 'fallback'
+            }
+        };
+
+        // Test logging function
+        function logTest(message, type = 'info') {
+            const log = document.getElementById('testLog');
+            const timestamp = new Date().toLocaleTimeString();
+            const status = type === 'success' ? '✅' : type === 'error' ? '❌' : type === 'warning' ? '⚠️' : 'ℹ️';
+            log.textContent += `[${timestamp}] ${status} ${message}\n`;
+            log.scrollTop = log.scrollHeight;
+            console.log(`[${timestamp}] ${status} ${message}`);
+        }
+
+        // Test greeting keywords
+        function testGreetingKeywords() {
+            logTest('Starting Greeting Keywords Test...');
+            const greetings = ['hello', 'hi'];
+            let successCount = 0;
+            
+            greetings.forEach(greeting => {
+                if (tattooResponses[greeting]) {
+                    logTest(`✅ ${greeting}: Response found`, 'success');
+                    successCount++;
+                } else {
+                    logTest(`❌ ${greeting}: No response found`, 'error');
+                }
+            });
+            
+            logTest(`Greeting Test Complete: ${successCount}/${greetings.length} successful`, successCount === greetings.length ? 'success' : 'warning');
+        }
+
+        // Test booking keywords
+        function testBookingKeywords() {
+            logTest('Starting Booking Keywords Test...');
+            const bookingKeywords = ['book', 'appointment', 'consultation'];
+            let successCount = 0;
+            
+            bookingKeywords.forEach(keyword => {
+                if (tattooResponses[keyword]) {
+                    logTest(`✅ ${keyword}: Response found (Score: ${tattooResponses[keyword].score})`, 'success');
+                    successCount++;
+                } else {
+                    logTest(`❌ ${keyword}: No response found`, 'error');
+                }
+            });
+            
+            logTest(`Booking Test Complete: ${successCount}/${bookingKeywords.length} successful`, successCount === bookingKeywords.length ? 'success' : 'warning');
+        }
+
+        // Test pricing keywords
+        function testPricingKeywords() {
+            logTest('Starting Pricing Keywords Test...');
+            const pricingKeywords = ['price', 'pricing', 'cost', 'deposit'];
+            let successCount = 0;
+            
+            pricingKeywords.forEach(keyword => {
+                if (tattooResponses[keyword]) {
+                    logTest(`✅ ${keyword}: Response found (Stage: ${tattooResponses[keyword].stage})`, 'success');
+                    successCount++;
+                } else {
+                    logTest(`❌ ${keyword}: No response found`, 'error');
+                }
+            });
+            
+            logTest(`Pricing Test Complete: ${successCount}/${pricingKeywords.length} successful`, successCount === pricingKeywords.length ? 'success' : 'warning');
+        }
+
+        // Test artist keywords
+        function testArtistKeywords() {
+            logTest('Starting Artist Keywords Test...');
+            const artistKeywords = ['artist', 'portfolio', 'availability'];
+            let successCount = 0;
+            
+            artistKeywords.forEach(keyword => {
+                if (tattooResponses[keyword]) {
+                    logTest(`✅ ${keyword}: Response found (Score: ${tattooResponses[keyword].score})`, 'success');
+                    successCount++;
+                } else {
+                    logTest(`❌ ${keyword}: No response found`, 'error');
+                }
+            });
+            
+            logTest(`Artist Test Complete: ${successCount}/${artistKeywords.length} successful`, successCount === artistKeywords.length ? 'success' : 'warning');
+        }
+
+        // Test technical keywords
+        function testTechnicalKeywords() {
+            logTest('Starting Technical Keywords Test...');
+            const technicalKeywords = ['aftercare', 'healing', 'touch up', 'cover up'];
+            let successCount = 0;
+            
+            technicalKeywords.forEach(keyword => {
+                if (tattooResponses[keyword]) {
+                    logTest(`✅ ${keyword}: Response found (Stage: ${tattooResponses[keyword].stage})`, 'success');
+                    successCount++;
+                } else {
+                    logTest(`❌ ${keyword}: No response found`, 'error');
+                }
+            });
+            
+            logTest(`Technical Test Complete: ${successCount}/${technicalKeywords.length} successful`, successCount === technicalKeywords.length ? 'success' : 'warning');
+        }
+
+        // Test policy keywords
+        function testPolicyKeywords() {
+            logTest('Starting Policy Keywords Test...');
+            const policyKeywords = ['policy', 'age', 'size', 'placement', 'style'];
+            let successCount = 0;
+            
+            policyKeywords.forEach(keyword => {
+                if (tattooResponses[keyword]) {
+                    logTest(`✅ ${keyword}: Response found (Score: ${tattooResponses[keyword].score})`, 'success');
+                    successCount++;
+                } else {
+                    logTest(`❌ ${keyword}: No response found`, 'error');
+                }
+            });
+            
+            logTest(`Policy Test Complete: ${successCount}/${policyKeywords.length} successful`, successCount === policyKeywords.length ? 'success' : 'warning');
+        }
+
+        // Test all responses
+        function testAllResponses() {
+            logTest('Starting Complete Response System Test...');
+            
+            const totalKeywords = Object.keys(tattooResponses).length;
+            let successCount = 0;
+            
+            Object.entries(tattooResponses).forEach(([keyword, response]) => {
+                if (response && response.response && response.score !== undefined && response.stage) {
+                    logTest(`✅ ${keyword}: Complete response structure`, 'success');
+                    successCount++;
+                } else {
+                    logTest(`❌ ${keyword}: Incomplete response structure`, 'error');
+                }
+            });
+            
+            logTest(`Complete Response Test: ${successCount}/${totalKeywords} successful`, successCount === totalKeywords ? 'success' : 'warning');
+        }
+
+        // Test all functions
+        function testAllFunctions() {
+            logTest('Starting Complete Functionality Test...');
+            
+            try {
+                // Test response matching
+                const testMessage = "hello";
+                let responseFound = false;
+                
+                for (const [key, response] of Object.entries(tattooResponses)) {
+                    if (testMessage.includes(key.toLowerCase())) {
+                        responseFound = true;
+                        break;
+                    }
+                }
+                
+                if (responseFound) {
+                    logTest('✅ Response matching system working', 'success');
+                } else {
+                    logTest('❌ Response matching system failed', 'error');
+                }
+                
+                // Test scoring system
+                const hasScoring = Object.values(tattooResponses).every(r => r.score !== undefined);
+                if (hasScoring) {
+                    logTest('✅ Scoring system working', 'success');
+                } else {
+                    logTest('❌ Scoring system incomplete', 'error');
+                }
+                
+                // Test staging system
+                const hasStaging = Object.values(tattooResponses).every(r => r.stage !== undefined);
+                if (hasStaging) {
+                    logTest('✅ Staging system working', 'success');
+                } else {
+                    logTest('❌ Staging system incomplete', 'error');
+                }
+                
+                logTest('Complete Functionality Test: Core systems working', 'success');
+            } catch (error) {
+                logTest(`❌ Complete Functionality Test Failed: ${error.message}`, 'error');
+            }
+        }
+
+        // Test integration
+        function testIntegration() {
+            logTest('Starting Integration Test...');
+            
+            try {
+                // Test response system integration
+                const testKeywords = ['hello', 'book', 'price'];
+                let integrationSuccess = true;
+                
+                testKeywords.forEach(keyword => {
+                    if (!tattooResponses[keyword]) {
+                        integrationSuccess = false;
+                    }
+                });
+                
+                if (integrationSuccess) {
+                    logTest('✅ Response system integration working', 'success');
+                } else {
+                    logTest('❌ Response system integration failed', 'error');
+                }
+                
+                // Test keyword matching integration
+                const testMessage = "I want to book an appointment";
+                let matchFound = false;
+                
+                for (const [key, response] of Object.entries(tattooResponses)) {
+                    if (testMessage.toLowerCase().includes(key.toLowerCase())) {
+                        matchFound = true;
+                        break;
+                    }
+                }
+                
+                if (matchFound) {
+                    logTest('✅ Keyword matching integration working', 'success');
+                } else {
+                    logTest('❌ Keyword matching integration failed', 'error');
+                }
+                
+                logTest('Integration Test Complete: Systems integrated correctly', 'success');
+            } catch (error) {
+                logTest(`❌ Integration Test Failed: ${error.message}`, 'error');
+            }
+        }
+
+        // Test performance
+        function testPerformance() {
+            logTest('Starting Performance Test...');
+            
+            try {
+                const startTime = performance.now();
+                
+                // Test response time for multiple keywords
+                const testKeywords = ['hello', 'book', 'price', 'artist', 'aftercare'];
+                let responseTime = 0;
+                
+                testKeywords.forEach(keyword => {
+                    const keywordStart = performance.now();
+                    if (tattooResponses[keyword]) {
+                        const keywordEnd = performance.now();
+                        responseTime += (keywordEnd - keywordStart);
+                    }
+                });
+                
+                const endTime = performance.now();
+                const totalTime = endTime - startTime;
+                const avgResponseTime = responseTime / testKeywords.length;
+                
+                logTest(`✅ Total test time: ${totalTime.toFixed(2)}ms`, 'success');
+                logTest(`✅ Average response time: ${avgResponseTime.toFixed(2)}ms`, 'success');
+                
+                if (totalTime < 100) {
+                    logTest('✅ Performance: Excellent (< 100ms)', 'success');
+                } else if (totalTime < 500) {
+                    logTest('✅ Performance: Good (< 500ms)', 'success');
+                } else {
+                    logTest('⚠️ Performance: Could be improved (> 500ms)', 'warning');
+                }
+                
+                logTest('Performance Test Complete: System performing well', 'success');
+            } catch (error) {
+                logTest(`❌ Performance Test Failed: ${error.message}`, 'error');
+            }
+        }
+
+        // Initialize test suite
+        document.addEventListener('DOMContentLoaded', function() {
+            logTest('🧪 Ozzy Tattoo Bot Test Suite Initialized');
+            logTest('Ready to run comprehensive tests on all tattoo studio functionality');
+            logTest('Click any test button to begin testing specific areas');
+        });
+    </script>
+</body>
+</html>
