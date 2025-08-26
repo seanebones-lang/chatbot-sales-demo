@@ -62,13 +62,12 @@
             font-weight: 900;
             color: #FF1493;
             text-shadow: 
-                0 0 2px #FF1493,
-                0 0 4px #FF1493,
-                0 0 6px #FF1493;
+                0 0 1px #FF1493,
+                0 0 2px #FF1493;
             animation: neonFlicker 3s infinite alternate;
             letter-spacing: 8px;
             text-transform: uppercase;
-            filter: drop-shadow(0 0 4px rgba(255, 20, 147, 0.3));
+            filter: drop-shadow(0 0 2px rgba(255, 20, 147, 0.2));
             position: relative;
             z-index: 2;
         }
@@ -79,13 +78,12 @@
             font-weight: 900;
             color: #00CED1;
             text-shadow: 
-                0 0 2px #00CED1,
-                0 0 4px #00CED1;
+                0 0 1px #00CED1;
             animation: neonFlicker 2.5s infinite alternate-reverse;
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-top: 10px;
-            filter: drop-shadow(0 0 2px rgba(0, 206, 209, 0.3));
+            filter: drop-shadow(0 0 1px rgba(0, 206, 209, 0.2));
             position: relative;
             z-index: 2;
         }
@@ -97,8 +95,8 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(ellipse at center, 
-                rgba(255, 20, 147, 0.036) 0%, 
-                rgba(0, 206, 209, 0.024) 30%, 
+                rgba(255, 20, 147, 0.014) 0%, 
+                rgba(0, 206, 209, 0.01) 30%, 
                 transparent 70%);
             border-radius: 50%;
             animation: glowPulse 4s ease-in-out infinite;
@@ -109,22 +107,22 @@
         @keyframes neonFlicker {
             0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
                 opacity: 1;
-                filter: drop-shadow(0 0 4px currentColor);
+                filter: drop-shadow(0 0 2px currentColor);
             }
             20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
                 opacity: 0.7;
-                filter: drop-shadow(0 0 2px currentColor);
+                filter: drop-shadow(0 0 1px currentColor);
             }
         }
 
         @keyframes glowPulse {
             0%, 100% {
-                opacity: 0.024;
+                opacity: 0.01;
                 transform: scale(1);
             }
             50% {
-                opacity: 0.06;
-                transform: scale(1.01);
+                opacity: 0.024;
+                transform: scale(1.005);
             }
         }
 
