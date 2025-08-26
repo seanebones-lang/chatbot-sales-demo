@@ -930,6 +930,83 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
             sendMessage(message);
         }
 
+        // Main function to send message and get bot response
+        function sendMessage(message) {
+            // Add user message to chat
+            addMessage(message, true);
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Simulate bot thinking
+            setTimeout(() => {
+                hideTypingIndicator();
+                
+                // Find best response from mariResponses
+                const lowerMessage = message.toLowerCase();
+                let bestMatch = null;
+                let bestScore = 0;
+                
+                for (const [keyword, response] of Object.entries(mariResponses)) {
+                    if (lowerMessage.includes(keyword)) {
+                        if (response.score > bestScore) {
+                            bestScore = response.score;
+                            bestMatch = response;
+                        }
+                    }
+                }
+                
+                if (bestMatch) {
+                    addMessage(bestMatch.response, false);
+                    
+                    // Add context-specific quick actions
+                    if (bestMatch.stage === 'pricing') {
+                        addQuickOptions([
+                            'Schedule Demo',
+                            'Start Free Trial',
+                            'See Veteran Pricing',
+                            'Technical Details'
+                        ]);
+                    } else if (bestMatch.stage === 'demo') {
+                        addQuickOptions([
+                            'Start Free Trial',
+                            'See Pricing Details',
+                            'Technical Details',
+                            'Business Analysis'
+                        ]);
+                    } else if (bestMatch.stage === 'trial') {
+                        addQuickOptions([
+                            'Schedule Demo',
+                            'See Pricing Details',
+                            'Technical Details',
+                            'Business Analysis'
+                        ]);
+                    }
+                    
+                    // Special handling for specific requests
+                    if (lowerMessage.includes('pdf') || lowerMessage.includes('document')) {
+                        setTimeout(() => {
+                            addMessage("📄 **Generating your comprehensive PDF document...**\n\nI'm creating a detailed analysis with pricing, ROI calculations, and implementation timeline. This will be sent to your email shortly.", false);
+                            
+                            // Simulate PDF generation and email sending
+                            setTimeout(() => {
+                                const businessType = extractBusinessType(lowerMessage);
+                                deliverComprehensivePDF(businessType, 'professional');
+                            }, 2000);
+                        }, 1000);
+                    }
+                    
+                    if (lowerMessage.includes('email') || lowerMessage.includes('send')) {
+                        setTimeout(() => {
+                            addMessage("📧 **Preparing your detailed information...**\n\nI'll send you comprehensive details about our solution, pricing, and next steps. What's the best email address to send this to?", false);
+                        }, 1000);
+                    }
+                } else {
+                    addMessage(mariResponses['unrecognized'].response, false);
+                }
+            }, 1000);
+        }
+
         // Function to send user message and clear input
         function sendUserMessage() {
             const input = document.getElementById('messageInput');
@@ -940,6 +1017,140 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
                 input.value = ''; // Clear the input field
             }
         }
+
+        // Mariam's response patterns
+        const mariResponses = {
+            'hello': {
+                response: "👋 **Hello! Welcome to NextEleven Studios!** I'm Mariam, your AI business consultant.\n\n**How can I help you today?**\n• Schedule a professional demo\n• Start your free trial\n• See pricing details\n• Get business analysis\n• Learn about our solutions\n• Discuss your specific needs",
+                score: 50,
+                stage: 'greeting'
+            },
+            'hi': {
+                response: "👋 **Hi there! I'm Mariam from NextEleven Studios.**\n\n**I'm here to help you with:**\n• AI chatbot solutions for your business\n• Lead generation and customer service\n• Sales automation and optimization\n• Business process improvement\n• ROI analysis and implementation\n\n**What would you like to explore today?**",
+                score: 50,
+                stage: 'greeting'
+            },
+            'hey': {
+                response: "👋 **Hey! Great to meet you!** I'm Mariam, your AI business consultant at NextEleven Studios.\n\n**I specialize in helping businesses like yours:**\n• Increase customer engagement\n• Automate repetitive tasks\n• Boost sales and conversions\n• Improve customer satisfaction\n• Scale operations efficiently\n\n**What's your biggest business challenge right now?**",
+                score: 50,
+                stage: 'greeting'
+            },
+            'schedule demo': {
+                response: "📅 **Perfect! Let's get you scheduled for a professional demo.**\n\n**What works best for you?**\n• **This week** - I have openings Tuesday-Friday\n• **Next week** - Flexible scheduling available\n• **Evening slots** - After 6 PM options\n\n**What's your name and business type?** I'll get you scheduled right away!\n\n**Demo includes:**\n• Live solution demonstration\n• Custom use case analysis\n• ROI calculation for your business\n• Implementation timeline\n• Q&A session",
+                score: 60,
+                stage: 'demo'
+            },
+            'start free trial': {
+                response: "🚀 **Excellent choice! Let's get your free trial started.**\n\n**Trial includes:**\n• Full access to our AI chatbot platform\n• Custom configuration for your business\n• 14-day unlimited usage\n• Performance analytics\n• Support from our team\n\n**To get started, I need:**\n• Your business name and type\n• Primary use case (sales, support, etc.)\n• Number of expected users\n• Preferred start date\n\n**What's your business name and type?**",
+                score: 60,
+                stage: 'trial'
+            },
+            'see pricing': {
+                response: "💰 **Here's our transparent pricing structure:**\n\n**Starter Plan: $79/month**\n• 1 Custom AI Chatbot\n• 1,000 queries/month\n• Basic integrations\n• Email support\n\n**Professional Plan: $247/month**\n• 3 Custom AI Chatbots\n• 5,000 queries/month\n• Payment processing\n• Advanced analytics\n• Priority support\n\n**Agency Plan: $497/month**\n• 10 Custom AI Chatbots\n• 15,000 queries/month\n• White-label options\n• Multi-account management\n• Dedicated account manager\n\n**Enterprise Plan: Custom Pricing**\n• Unlimited chatbots\n• Unlimited queries\n• Full white-label solution\n• Custom payment workflows\n• Private cloud deployment\n\n**Which plan interests you most?**",
+                score: 70,
+                stage: 'pricing'
+            },
+            'pricing': {
+                response: "💰 **Our pricing is designed to scale with your business:**\n\n**Starter: $79/month** - Perfect for small businesses\n**Professional: $247/month** - Growing companies\n**Agency: $497/month** - Multi-location businesses\n**Enterprise: Custom** - Large organizations\n\n**All plans include:**\n• 24/7 customer support\n• Regular updates and improvements\n• Security and compliance\n• Training and onboarding\n\n**What's your business size and budget range?**",
+                score: 70,
+                stage: 'pricing'
+            },
+            'price': {
+                response: "💰 **Let me break down our pricing for you:**\n\n**Starter Plan: $79/month**\n• Basic AI chatbot functionality\n• Up to 1,000 conversations/month\n• Standard integrations\n\n**Professional Plan: $247/month**\n• Advanced AI capabilities\n• Up to 5,000 conversations/month\n• Payment processing included\n• Advanced analytics dashboard\n\n**Agency Plan: $497/month**\n• Multi-brand management\n• Up to 15,000 conversations/month\n• White-label options\n• Dedicated support\n\n**Enterprise: Custom pricing**\n• Unlimited conversations\n• Custom integrations\n• Private cloud deployment\n• Dedicated account manager\n\n**Which tier matches your business needs?**",
+                score: 70,
+                stage: 'pricing'
+            },
+            'cost': {
+                response: "💰 **Let's talk about the investment and ROI:**\n\n**Our pricing starts at just $79/month** and scales with your business.\n\n**ROI Breakdown:**\n• **Month 1:** Setup and training (investment phase)\n• **Month 2:** Initial results and optimization\n• **Month 3:** 300-500% ROI achieved\n\n**Cost Comparison:**\n• Traditional customer service: $3,000-8,000/month\n• Our AI solution: $79-497/month\n• **Savings:** 85-95% cost reduction\n\n**What's your current customer service budget?**",
+                score: 70,
+                stage: 'pricing'
+            },
+            'demo': {
+                response: "📅 **Absolutely! Let's schedule your personalized demo.**\n\n**Demo Details:**\n• **Duration:** 30-45 minutes\n• **Format:** Live video call\n• **Content:** Custom to your business needs\n• **Outcome:** Clear implementation plan\n\n**Available Times:**\n• **This Week:** Tuesday-Friday, 10 AM - 6 PM\n• **Next Week:** Monday-Friday, flexible scheduling\n• **Evening:** After 6 PM options available\n\n**What's your preferred day and time?**\n\n**I'll also need:**\n• Your business name and type\n• Primary use case\n• Current challenges you're facing",
+                score: 60,
+                stage: 'demo'
+            },
+            'demonstration': {
+                response: "📅 **Perfect! Let's show you exactly how our solution works for your business.**\n\n**Demo Experience:**\n• **Live walkthrough** of our platform\n• **Custom scenarios** based on your business\n• **Real-time Q&A** with our team\n• **ROI calculation** for your specific case\n• **Implementation timeline** and next steps\n\n**Scheduling Options:**\n• **This Week:** Tuesday-Friday available\n• **Next Week:** Full availability\n• **Evening Slots:** After 6 PM\n\n**What's your business name and when would you like to see the demo?**",
+                score: 60,
+                stage: 'demo'
+            },
+            'trial': {
+                response: "🚀 **Great choice! Let's get your free trial up and running.**\n\n**14-Day Free Trial Includes:**\n• **Full platform access** - No limitations\n• **Custom configuration** for your business\n• **Unlimited conversations** during trial\n• **Performance analytics** and insights\n• **Email and chat support** from our team\n• **Easy setup** - Get started in minutes\n\n**To begin your trial, I need:**\n• Business name and type\n• Primary use case (sales, support, etc.)\n• Expected user volume\n• Preferred start date\n\n**What's your business name?**",
+                score: 60,
+                stage: 'trial'
+            },
+            'free trial': {
+                response: "🚀 **Excellent! Your free trial is just a few clicks away.**\n\n**Trial Benefits:**\n• **No credit card required**\n• **Full feature access** for 14 days\n• **Custom setup** for your business\n• **Performance tracking** and analytics\n• **Support from our team**\n• **Easy cancellation** - No commitment\n\n**Getting Started:**\n• **Step 1:** Business information\n• **Step 2:** Use case selection\n• **Step 3:** Platform configuration\n• **Step 4:** Go live immediately\n\n**What's your business name and type?**",
+                score: 60,
+                stage: 'trial'
+            },
+            'business': {
+                response: "🏢 **Tell me about your business!** I'm excited to learn how we can help you grow.\n\n**I'd love to know:**\n• **Business type** (retail, healthcare, automotive, etc.)\n• **Current size** and growth stage\n• **Primary challenges** you're facing\n• **Goals** for the next 6-12 months\n• **Customer service** needs and volume\n\n**This helps me:**\n• Customize our solution for your needs\n• Calculate potential ROI\n• Design the perfect implementation plan\n• Show you relevant features and benefits\n\n**What type of business do you run?**",
+                score: 80,
+                stage: 'business'
+            },
+            'consultation': {
+                response: "💼 **Perfect! Let's have a comprehensive consultation.**\n\n**Consultation Covers:**\n• **Business analysis** and current challenges\n• **Solution mapping** to your specific needs\n• **ROI calculation** and business case\n• **Implementation strategy** and timeline\n• **Training and support** planning\n• **Success metrics** and KPIs\n\n**Consultation Details:**\n• **Duration:** 45-60 minutes\n• **Format:** Video call or in-person\n• **Cost:** Free (no obligation)\n• **Outcome:** Detailed implementation plan\n\n**When would you like to schedule your consultation?**",
+                score: 80,
+                stage: 'business'
+            },
+            'analysis': {
+                response: "📊 **Let's analyze your business and create a custom solution!**\n\n**Business Analysis Includes:**\n• **Current operations** assessment\n• **Pain point identification**\n• **Opportunity mapping**\n• **ROI projection** calculation\n• **Implementation roadmap**\n• **Success metrics** definition\n\n**To get started, I need to understand:**\n• Your business type and industry\n• Current customer service approach\n• Daily interaction volume\n• Growth goals and challenges\n• Budget and timeline preferences\n\n**What industry is your business in?**",
+                score: 80,
+                stage: 'business'
+            },
+            'healthcare': {
+                response: "🏥 **Healthcare businesses are perfect for our AI solutions!**\n\n**Healthcare-Specific Features:**\n• **HIPAA compliance** and security\n• **Patient communication** automation\n• **Appointment scheduling** and reminders\n• **Medical FAQ handling**\n• **Insurance verification** assistance\n• **After-hours support** for patients\n\n**Benefits for Healthcare:**\n• **24/7 patient support** without staff costs\n• **Reduced call volume** to reception\n• **Improved patient satisfaction**\n• **Streamlined operations**\n• **Compliance and security**\n\n**What's your healthcare business name and how many patients do you serve monthly?**",
+                score: 90,
+                stage: 'industry'
+            },
+            'retail': {
+                response: "🛍️ **Retail businesses love our AI solutions!**\n\n**Retail-Specific Features:**\n• **Product information** and recommendations\n• **Order tracking** and status updates\n• **Return and exchange** assistance\n• **Inventory checking** and availability\n• **Loyalty program** integration\n• **Multi-channel support** (web, mobile, social)\n\n**Benefits for Retail:**\n• **Increased sales** through better customer service\n• **Reduced support costs**\n• **Improved customer satisfaction**\n• **24/7 availability** for customers\n• **Scalable support** during peak periods\n\n**What's your retail business name and what products do you sell?**",
+                score: 90,
+                stage: 'industry'
+            },
+            'automotive': {
+                response: "🚗 **Automotive businesses get amazing results with our AI!**\n\n**Automotive-Specific Features:**\n• **Service scheduling** and reminders\n• **Parts catalog** and availability\n• **Service history** tracking\n• **Maintenance reminders**\n• **Warranty information**\n• **Roadside assistance** coordination\n\n**Benefits for Automotive:**\n• **Increased service bookings**\n• **Better customer retention**\n• **Reduced phone calls** to service desk\n• **Improved customer experience**\n• **24/7 support** for customers\n\n**What's your automotive business name and what services do you offer?**",
+                score: 90,
+                stage: 'industry'
+            },
+            'restaurant': {
+                response: "🍽️ **Restaurants see incredible results with our AI solutions!**\n\n**Restaurant-Specific Features:**\n• **Menu support** and recommendations\n• **Reservation management**\n• **Catering quotes** and planning\n• **Delivery tracking** and updates\n• **Allergy information** and dietary restrictions\n• **Special event** coordination\n\n**Benefits for Restaurants:**\n• **Increased reservations** and orders\n• **Better customer service**\n• **Reduced staff workload**\n• **Improved customer satisfaction**\n• **24/7 availability** for customers\n\n**What's your restaurant name and what type of cuisine do you serve?**",
+                score: 90,
+                stage: 'industry'
+            },
+            'technical': {
+                response: "⚙️ **Let me explain the technical details of our solution!**\n\n**Technical Architecture:**\n• **AI-Powered:** Advanced natural language processing\n• **Cloud-Based:** Secure, scalable infrastructure\n• **API Integration:** Connects with your existing systems\n• **Multi-Platform:** Web, mobile, and social media support\n• **Real-Time Analytics:** Live performance monitoring\n• **Security:** Enterprise-grade encryption and compliance\n\n**Integration Capabilities:**\n• **CRM Systems:** Salesforce, HubSpot, etc.\n• **Payment Processors:** Stripe, PayPal, etc.\n• **Communication Tools:** Slack, Teams, etc.\n• **Analytics Platforms:** Google Analytics, etc.\n• **Custom APIs:** Your proprietary systems\n\n**What systems do you currently use that we should integrate with?**",
+                score: 85,
+                stage: 'technical'
+            },
+            'technology': {
+                response: "⚙️ **Our technology is cutting-edge and enterprise-ready!**\n\n**Core Technology:**\n• **Natural Language Processing:** Understands customer intent\n• **Machine Learning:** Continuously improves responses\n• **Cloud Infrastructure:** 99.9% uptime guarantee\n• **Real-Time Processing:** Instant response generation\n• **Multi-Language Support:** Global customer reach\n• **Advanced Analytics:** Deep insights and reporting\n\n**Security Features:**\n• **Data Encryption:** End-to-end security\n• **Compliance:** GDPR, HIPAA, SOC2 ready\n• **Access Control:** Role-based permissions\n• **Audit Logging:** Complete activity tracking\n• **Backup & Recovery:** Automated data protection\n\n**What security requirements does your business have?**",
+                score: 85,
+                stage: 'technical'
+            },
+            'integration': {
+                response: "🔗 **Integration is seamless with our platform!**\n\n**Integration Options:**\n• **API-First Design:** Easy connection to any system\n• **Pre-built Connectors:** Popular platforms ready to go\n• **Custom Development:** Tailored to your specific needs\n• **Webhook Support:** Real-time data synchronization\n• **Data Mapping:** Flexible field mapping and transformation\n• **Testing Tools:** Built-in integration testing\n\n**Popular Integrations:**\n• **CRM Systems:** Salesforce, HubSpot, Pipedrive\n• **E-commerce:** Shopify, WooCommerce, Magento\n• **Communication:** Slack, Microsoft Teams, Discord\n• **Analytics:** Google Analytics, Mixpanel, Amplitude\n• **Payment:** Stripe, PayPal, Square\n\n**What systems do you need to integrate with?**",
+                score: 85,
+                stage: 'technical'
+            },
+            'veteran': {
+                response: "🇺🇸 **Thank you for your service! We offer special veteran discounts.**\n\n**Veteran Benefits:**\n• **10% off** for all veterans\n• **20% off** for combat veterans\n• **Priority implementation** scheduling\n• **Dedicated veteran support** team\n• **Flexible payment options**\n• **Extended trial period** (21 days)\n\n**Veteran Discounts Apply To:**\n• All subscription plans\n• Implementation services\n• Training and support\n• Custom development\n• Ongoing maintenance\n\n**To qualify, I'll need:**\n• Proof of service (DD-214 or similar)\n• Business verification\n• Service branch and dates\n\n**What branch did you serve in and when?**",
+                score: 95,
+                stage: 'veteran'
+            },
+            'military': {
+                response: "🇺🇸 **Military service deserves special recognition!**\n\n**Military Benefits:**\n• **15% off** for active duty\n• **20% off** for veterans\n• **25% off** for combat veterans\n• **Priority support** and scheduling\n• **Flexible deployment** options\n• **Extended trial** period\n\n**Special Military Features:**\n• **Secure deployment** options\n• **Compliance** with military standards\n• **Training** for military personnel\n• **Support** during deployments\n• **Flexible contracts** for service members\n\n**What's your military status and how can I help you today?**",
+                score: 95,
+                stage: 'veteran'
+            },
+            'unrecognized': {
+                response: "🤔 **I'm not sure I understood that request.**\n\n**Let me help you better. I can assist with:**\n• **Business solutions** and AI chatbots\n• **Pricing** and package options\n• **Demos** and consultations\n• **Free trials** and setup\n• **Technical details** and integration\n• **Veteran discounts** and special offers\n\n**Try asking about:**\n• 'Schedule a demo'\n• 'See pricing'\n• 'Start free trial'\n• 'Business analysis'\n• 'Technical details'\n\n**What would you like to know about?**",
+                score: 10,
+                stage: 'general'
+            }
+        };
 
         // Event listeners for Mariam
         document.addEventListener('DOMContentLoaded', function() {
