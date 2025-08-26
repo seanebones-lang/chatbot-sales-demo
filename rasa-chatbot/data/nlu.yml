@@ -1,0 +1,171 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+    - good morning
+    - good afternoon
+    - good evening
+    - howdy
+    - greetings
+    - what's up
+    - sup
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you
+    - see you later
+    - talk to you later
+    - catch you later
+    - have a good day
+    - take care
+    - farewell
+    - until next time
+
+- intent: ask_question
+  examples: |
+    - I have a question
+    - Can you help me?
+    - I need help
+    - What can you do?
+    - How does this work?
+    - Tell me more
+    - I want to learn more
+    - Can you explain?
+    - What should I know?
+    - Help me understand
+
+- intent: get_pricing
+  examples: |
+    - How much does this cost?
+    - What's the price?
+    - Pricing information
+    - Cost details
+    - How much is it?
+    - What are your rates?
+    - Pricing plans
+    - Cost breakdown
+    - How much per month?
+    - What's the investment?
+
+- intent: schedule_demo
+  examples: |
+    - I want a demo
+    - Schedule a demo
+    - Book a demo
+    - Show me how it works
+    - I'd like to see a demo
+    - Can you demonstrate?
+    - Demo appointment
+    - Show me the system
+    - Walk me through it
+    - Let's schedule a demo
+
+- intent: start_trial
+  examples: |
+    - I want to try it
+    - Start free trial
+    - Begin trial
+    - Sign up for trial
+    - Free trial
+    - Test the system
+    - Try before buying
+    - Trial period
+    - Sample the service
+    - Give it a try
+
+- intent: business_analysis
+  examples: |
+    - Analyze my business
+    - Business assessment
+    - What's best for my business?
+    - Business needs analysis
+    - Evaluate my business
+    - Business consultation
+    - Business review
+    - Business assessment
+    - Business evaluation
+    - Business analysis
+
+- intent: technical_details
+  examples: |
+    - Technical specifications
+    - How does the technology work?
+    - Technical information
+    - Technical details
+    - System requirements
+    - Integration details
+    - Technical support
+    - Technology stack
+    - Technical architecture
+    - Technical implementation
+
+- intent: veteran_discounts
+  examples: |
+    - Veteran discount
+    - Military discount
+    - Veteran pricing
+    - Military pricing
+    - Veteran benefits
+    - Military benefits
+    - Veteran rates
+    - Military rates
+    - Veteran special
+    - Military special
+
+- intent: thank_you
+  examples: |
+    - thank you
+    - thanks
+    - thank you so much
+    - thanks a lot
+    - appreciate it
+    - grateful
+    - thank you very much
+    - thanks for your help
+    - much appreciated
+    - thank you kindly
+
+- intent: affirm
+  examples: |
+    - yes
+    - yep
+    - yeah
+    - sure
+    - absolutely
+    - definitely
+    - of course
+    - that's right
+    - correct
+    - right
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - not really
+    - not at all
+    - negative
+    - that's not right
+    - incorrect
+    - wrong
+    - not exactly
+    - not quite
+
+- intent: out_of_scope
+  examples: |
+    - What's the weather like?
+    - Tell me a joke
+    - What's 2+2?
+    - How do I cook pasta?
+    - What's the capital of France?
+    - Tell me about history
+    - What's the meaning of life?
+    - How do I fix my car?
+    - What's the best restaurant?
+    - How do I learn guitar?
