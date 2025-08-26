@@ -73,9 +73,9 @@ If you don't know something specific, suggest they schedule a consultation call 
                         {"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_message}
                     ],
-                    max_tokens: 400,
-                    temperature: 0.7,
-                    timeout: 30
+                    max_tokens=400,
+                    temperature=0.7,
+                    timeout=30
                 )
                 
                 # Extract the response
