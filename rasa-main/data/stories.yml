@@ -1,0 +1,168 @@
+version: "3.1"
+
+stories:
+- story: greet and ask question
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_question
+  - action: utter_ask_question
+
+- story: get pricing flow
+  steps:
+  - intent: get_pricing
+  - action: utter_get_pricing
+  - intent: business_analysis
+  - action: utter_business_analysis
+  - action: action_openai_knowledge
+
+- story: schedule demo flow
+  steps:
+  - intent: schedule_demo
+  - action: utter_schedule_demo
+  - action: action_openai_knowledge
+
+- story: start trial flow
+  steps:
+  - intent: start_trial
+  - action: utter_start_trial
+  - action: action_openai_knowledge
+
+- story: technical details flow
+  steps:
+  - intent: technical_details
+  - action: utter_technical_details
+  - action: action_openai_knowledge
+
+- story: veteran discounts flow
+  steps:
+  - intent: veteran_discounts
+  - action: utter_veteran_discounts
+  - action: action_openai_knowledge
+
+- story: business analysis flow
+  steps:
+  - intent: business_analysis
+  - action: utter_business_analysis
+  - action: action_openai_knowledge
+
+- story: learn more flow
+  steps:
+  - intent: learn_more
+  - action: utter_learn_more
+  - action: action_openai_knowledge
+
+- story: see pricing flow
+  steps:
+  - intent: see_pricing
+  - action: utter_see_pricing
+  - action: action_openai_knowledge
+
+- story: contact sales flow
+  steps:
+  - intent: contact_sales
+  - action: utter_contact_sales
+  - action: action_openai_knowledge
+
+- story: how it works flow
+  steps:
+  - intent: how_it_works
+  - action: utter_how_it_works
+  - action: action_openai_knowledge
+
+- story: industry specific flow
+  steps:
+  - intent: industry_specific
+  - action: utter_industry_specific
+  - action: action_openai_knowledge
+
+- story: package comparison flow
+  steps:
+  - intent: package_comparison
+  - action: utter_package_comparison
+  - action: action_openai_knowledge
+
+- story: implementation timeline flow
+  steps:
+  - intent: implementation_timeline
+  - action: utter_implementation_timeline
+  - action: action_openai_knowledge
+
+- story: roi calculation flow
+  steps:
+  - intent: roi_calculation
+  - action: utter_roi_calculation
+  - action: action_openai_knowledge
+
+- story: integration details flow
+  steps:
+  - intent: integration_details
+  - action: utter_integration_details
+  - action: action_openai_knowledge
+
+- story: security compliance flow
+  steps:
+  - intent: security_compliance
+  - action: utter_security_compliance
+  - action: action_openai_knowledge
+
+- story: support questions flow
+  steps:
+  - intent: support_questions
+  - action: utter_support_questions
+  - action: action_openai_knowledge
+
+- story: thank you and goodbye
+  steps:
+  - intent: thank_you
+  - action: utter_thank_you
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: out of scope handling
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- story: fallback handling
+  steps:
+  - intent: nlu_fallback
+  - action: action_default_fallback
+
+- story: comprehensive business consultation
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: business_analysis
+  - action: utter_business_analysis
+  - action: action_business_analysis
+  - intent: get_pricing
+  - action: utter_get_pricing
+  - action: action_package_recommendation
+  - intent: schedule_demo
+  - action: utter_schedule_demo
+  - action: action_openai_knowledge
+
+- story: pricing and package selection
+  steps:
+  - intent: see_pricing
+  - action: utter_see_pricing
+  - action: action_openai_knowledge
+  - intent: package_comparison
+  - action: utter_package_comparison
+  - action: action_openai_knowledge
+  - intent: roi_calculation
+  - action: utter_roi_calculation
+  - action: action_roi_calculation
+
+- story: technical and implementation
+  steps:
+  - intent: technical_details
+  - action: utter_technical_details
+  - action: action_openai_knowledge
+  - intent: how_it_works
+  - action: utter_how_it_works
+  - action: action_openai_knowledge
+  - intent: implementation_timeline
+  - action: utter_implementation_timeline
+  - action: action_openai_knowledge

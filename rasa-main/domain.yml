@@ -1,0 +1,201 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_question
+  - get_pricing
+  - schedule_demo
+  - start_trial
+  - business_analysis
+  - technical_details
+  - veteran_discounts
+  - thank_you
+  - affirm
+  - deny
+  - out_of_scope
+  - nlu_fallback
+  - learn_more
+  - see_pricing
+  - contact_sales
+  - how_it_works
+  - industry_specific
+  - package_comparison
+  - implementation_timeline
+  - roi_calculation
+  - integration_details
+  - security_compliance
+  - support_questions
+
+entities:
+  - business_type
+  - package_type
+  - email
+  - name
+  - time_preference
+  - budget_range
+  - industry
+  - company_size
+  - current_systems
+  - pain_points
+
+slots:
+  business_type:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: business_type
+  package_type:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: package_type
+  email:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: email
+  name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: name
+  time_preference:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: time_preference
+  budget_range:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: budget_range
+  industry:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: industry
+  company_size:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: company_size
+  current_systems:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: current_systems
+  pain_points:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: pain_points
+
+responses:
+  utter_greet:
+    - text: "Hello! I'm Mariam, your AI consultant for NextEleven. I help businesses like yours implement enterprise-grade AI chatbot solutions. How can I assist you today?"
+    - text: "Hi there! I'm Mariam from NextEleven. I specialize in helping businesses automate customer service and increase sales with AI chatbots. What would you like to know?"
+    - text: "Welcome! I'm Mariam, your AI solutions consultant. I can help you understand how NextEleven can transform your business operations. What interests you most?"
+
+  utter_goodbye:
+    - text: "Thank you for your time! Feel free to return if you have more questions about NextEleven's solutions."
+    - text: "Goodbye! I'm here whenever you're ready to explore AI chatbot solutions for your business."
+    - text: "Take care! Don't hesitate to reach out when you're ready to discuss NextEleven's AI solutions."
+
+  utter_ask_question:
+    - text: "I'd be happy to help! I can answer questions about our AI chatbot solutions, pricing, implementation, or show you how it works for your specific business. What would you like to know?"
+    - text: "Of course! I'm here to help you understand how NextEleven can benefit your business. What specific information are you looking for?"
+    - text: "I'm here to help! I can explain our technology, show you pricing, schedule a demo, or analyze your business needs. What would be most helpful?"
+
+  utter_get_pricing:
+    - text: "Great question about pricing! We offer flexible packages starting at $79/month. To give you the most accurate recommendation, what type of business are you in? I can then show you exactly how our solutions would work for your industry and calculate the ROI."
+
+  utter_schedule_demo:
+    - text: "Excellent! I'd love to schedule a personalized demo for your business. What's your preferred time - morning, afternoon, or evening? Also, what's the best email to send your demo confirmation and customized agenda to?"
+
+  utter_start_trial:
+    - text: "Perfect! Let's get your free trial set up. What type of business do you have? I'll customize the solution for your specific needs and send you setup details, plus schedule a training session to get you started immediately."
+
+  utter_business_analysis:
+    - text: "I'd love to analyze your business needs! What industry are you in? I can then show you exactly how NextEleven solves your specific challenges, provide industry-specific case studies, and calculate the ROI for your business."
+
+  utter_technical_details:
+    - text: "Great! I'd be happy to explain our technical capabilities. What specific aspect interests you most - integration with your current systems, security and compliance, performance and scalability, or our AI technology architecture?"
+
+  utter_veteran_discounts:
+    - text: "Thank you for your service! We proudly offer 10% off for all veterans and 20% off for combat veterans on all packages. What's your email address? I'll send you our complete pricing with veteran discounts applied, plus priority implementation scheduling."
+
+  utter_learn_more:
+    - text: "Absolutely! Let me give you a comprehensive overview of NextEleven's solutions. We're a leading provider of enterprise-grade AI chatbot solutions that help businesses automate customer service, increase sales, and reduce operational costs. What aspect would you like me to dive deeper into?"
+
+  utter_see_pricing:
+    - text: "I'd love to show you our complete pricing structure! We have packages for businesses of all sizes, from startups to enterprises. What type of business are you in so I can give you the most relevant pricing and ROI calculations?"
+
+  utter_contact_sales:
+    - text: "Perfect! Let me connect you with our sales team right now. They can help with custom solution design, detailed quotes, and implementation planning. What's the best way to reach you - phone call, email, or would you prefer to schedule a meeting?"
+
+  utter_how_it_works:
+    - text: "Great question! Let me explain how NextEleven works step by step. We start with a business analysis, then create a customized AI chatbot, integrate it with your systems, and provide ongoing optimization. What specific part of the process would you like me to explain in detail?"
+
+  utter_industry_specific:
+    - text: "Excellent! I can show you exactly how NextEleven works for your specific industry. We have solutions for healthcare, retail, automotive, professional services, and many more. What industry are you in so I can provide relevant examples and case studies?"
+
+  utter_package_comparison:
+    - text: "I'd be happy to compare our packages! We offer Starter, Professional, Agency, and Enterprise plans. Each has different features and pricing. What's most important to you - cost, features, scalability, or something else? I can then show you the best comparison."
+
+  utter_implementation_timeline:
+    - text: "Great question about implementation! Our typical timeline is 2-3 weeks from start to finish. This includes business analysis, custom development, integration, testing, and training. What's your timeline for implementation? I can adjust our process to meet your needs."
+
+  utter_roi_calculation:
+    - text: "Excellent question about ROI! Most of our clients see ROI within 2-3 months. I can calculate the specific ROI for your business based on your industry, current costs, and goals. What type of business are you in so I can provide accurate calculations?"
+
+  utter_integration_details:
+    - text: "Great question about integration! We integrate with most major platforms including websites, CRM systems, social media, and messaging apps. What systems are you currently using? I can show you exactly how the integration would work for your setup."
+
+  utter_security_compliance:
+    - text: "Excellent question about security! We're SOC 2 Type II compliant, GDPR ready, and follow enterprise security standards. What compliance requirements does your business have? I can show you our security documentation and compliance certifications."
+
+  utter_support_questions:
+    - text: "Great question about support! We provide 24/7 technical support, dedicated account managers for Professional+ plans, and ongoing optimization services. What level of support do you need? I can show you our support packages and response times."
+
+  utter_thank_you:
+    - text: "You're very welcome! Is there anything else I can help you with regarding NextEleven's solutions?"
+    - text: "My pleasure! Let me know if you need more information about pricing, demos, trials, or any other aspect of our services."
+
+  utter_affirm:
+    - text: "Great! Let's continue. What would you like to do next?"
+    - text: "Perfect! How can I help you proceed?"
+
+  utter_deny:
+    - text: "No problem! What would you prefer instead?"
+    - text: "That's fine! What would you like to do instead?"
+
+  utter_out_of_scope:
+    - text: "I'm sorry, but that's outside my area of expertise. I can help you with questions about NextEleven's AI chatbot solutions, pricing, demos, trials, and business analysis. What would you like to know about our services?"
+
+  utter_default:
+    - text: "I'm not sure I understand. Could you rephrase that or ask me something about NextEleven's AI chatbot solutions, pricing, demos, or how to get started?"
+
+  utter_ask_business_type:
+    - text: "To give you the most relevant information, what type of business are you in?"
+
+  utter_ask_email:
+    - text: "What's the best email address to send this information to?"
+
+  utter_ask_time_preference:
+    - text: "What time works best for you - morning, afternoon, or evening?"
+
+  utter_ask_package_interest:
+    - text: "Which package interests you most - Starter, Professional, Agency, or Enterprise?"
+
+actions:
+  - action_openai_knowledge
+  - action_default_fallback
+  - action_restart
+  - action_business_analysis
+  - action_package_recommendation
+  - action_roi_calculation
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

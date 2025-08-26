@@ -1,0 +1,122 @@
+version: "3.1"
+
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say thank you anytime the user says thank you
+  steps:
+  - intent: thank_you
+  - action: utter_thank_you
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: deny
+  - action: utter_deny
+
+- rule: Say 'I am a bot' anytime the user affirms
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- rule: Out of scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: Greet user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Ask question
+  steps:
+  - intent: ask_question
+  - action: utter_ask_question
+
+- rule: Get pricing
+  steps:
+  - intent: get_pricing
+  - action: utter_get_pricing
+
+- rule: Schedule demo
+  steps:
+  - intent: schedule_demo
+  - action: utter_schedule_demo
+
+- rule: Start trial
+  steps:
+  - intent: start_trial
+  - action: utter_start_trial
+
+- rule: Business analysis
+  steps:
+  - intent: business_analysis
+  - action: utter_business_analysis
+
+- rule: Technical details
+  steps:
+  - intent: technical_details
+  - action: utter_technical_details
+
+- rule: Veteran discounts
+  steps:
+  - intent: veteran_discounts
+  - action: utter_veteran_discounts
+
+- rule: Learn more
+  steps:
+  - intent: learn_more
+  - action: utter_learn_more
+
+- rule: See pricing
+  steps:
+  - intent: see_pricing
+  - action: utter_see_pricing
+
+- rule: Contact sales
+  steps:
+  - intent: contact_sales
+  - action: utter_contact_sales
+
+- rule: How it works
+  steps:
+  - intent: how_it_works
+  - action: utter_how_it_works
+
+- rule: Industry specific
+  steps:
+  - intent: industry_specific
+  - action: utter_industry_specific
+
+- rule: Package comparison
+  steps:
+  - intent: package_comparison
+  - action: utter_package_comparison
+
+- rule: Implementation timeline
+  steps:
+  - intent: implementation_timeline
+  - action: utter_implementation_timeline
+
+- rule: ROI calculation
+  steps:
+  - intent: roi_calculation
+  - action: utter_roi_calculation
+
+- rule: Integration details
+  steps:
+  - intent: integration_details
+  - action: utter_integration_details
+
+- rule: Security compliance
+  steps:
+  - intent: security_compliance
+  - action: utter_security_compliance
+
+- rule: Support questions
+  steps:
+  - intent: support_questions
+  - action: utter_support_questions
