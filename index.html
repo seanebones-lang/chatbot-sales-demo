@@ -1153,31 +1153,60 @@
                 ];
                 
                 // Regular keyword matching - check if user message contains any business keywords
+                console.log('🔍 Searching for matches in message:', lowerMessage);
                 for (const [keyword, response] of Object.entries(mariResponses)) {
                     if (lowerMessage.includes(keyword.toLowerCase())) {
+                        console.log('✅ Found match for keyword:', keyword, 'with score:', response.score);
                         if (response.score > bestScore) {
                             bestScore = response.score;
                             bestMatch = response;
                         }
                     }
                 }
+                console.log('🏆 Best match:', bestMatch ? bestMatch.response.substring(0, 50) + '...' : 'None');
+                console.log('🏆 Best score:', bestScore);
                 
                 // If no match found but message contains business keywords, use fallback
                 if (!bestMatch && businessKeywords.some(keyword => lowerMessage.includes(keyword.toLowerCase()))) {
+                    console.log('🚨 No match found but contains business keywords, using fallback');
+                    
                     // Auto-email seanebones@icloud.com about unrecognized business type
                     const subject = `New Unrecognized Business Type Inquiry: ${message}`;
                     const body = `New inquiry from chatbot:\n\nMessage: ${message}\n\nThis business type is not in our database yet. Please research and add appropriate responses.\n\nTime: ${new Date().toLocaleString()}`;
                     
-                    // Send email notification
-                    sendEmail('seanebones@icloud.com', subject, body);
+                    try {
+                        // Send email notification
+                        sendEmail('seanebones@icloud.com', subject, body);
+                        console.log('📧 Email sent successfully to seanebones@icloud.com');
+                    } catch (error) {
+                        console.error('❌ Error sending email:', error);
+                    }
                     
-                    // Use fallback response
-                    bestMatch = mariResponses['unrecognized_business'];
+                    // Use fallback response with error handling
+                    try {
+                        bestMatch = mariResponses['unrecognized_business'];
+                        if (!bestMatch) {
+                            console.error('❌ unrecognized_business not found in mariResponses');
+                            bestMatch = {
+                                response: "🤔 **I apologize, but I don't have specific information about that business type yet.** However, this is EXACTLY why you need NextEleven!\n\n**We work with businesses across ALL industries** - even ones we haven't encountered before. Our platform is designed to adapt to any business model.\n\n**What I can tell you:**\n✅ **We can definitely help** your business type\n✅ **Custom solutions** for your specific industry\n✅ **Quick 2-week setup** and deployment\n✅ **24/7 customer service** automation\n✅ **Multi-platform integration** (Web, SMS, Social)\n\n**Let me set up a callback** so our team can research your specific industry and create a customized solution. This way, you'll get exactly what you need.\n\n**What's the best email to send callback details to?** I'll also forward this inquiry to our team at seanebones@icloud.com for immediate attention.",
+                                score: 35,
+                                stage: 'callback_setup'
+                            };
+                        }
+                    } catch (error) {
+                        console.error('❌ Error accessing unrecognized_business:', error);
+                        bestMatch = {
+                            response: "🤔 **I apologize, but I don't have specific information about that business type yet.** However, this is EXACTLY why you need NextEleven!\n\n**We work with businesses across ALL industries** - even ones we haven't encountered before. Our platform is designed to adapt to any business type.\n\n**What I can tell you:**\n✅ **We can definitely help** your business type\n✅ **Custom solutions** for your specific industry\n✅ **Quick 2-week setup** and deployment\n✅ **24/7 customer service** automation\n✅ **Multi-platform integration** (Web, SMS, Social)\n\n**Let me set up a callback** so our team can research your specific industry and create a customized solution. This way, you'll get exactly what you need.\n\n**What's the best email to send callback details to?** I'll also forward this inquiry to our team at seanebones@icloud.com for immediate attention.",
+                            score: 35,
+                            stage: 'callback_setup'
+                        };
+                    }
                 }
                 
 
                 
                 if (bestMatch) {
+                    console.log('🎯 Using response for stage:', bestMatch.stage);
                     addMessage(bestMatch.response, false);
                     
                     // Handle email collection for PDF delivery
@@ -1229,6 +1258,7 @@
                         addMessage("💬 **Great! I'm here to help guide you through everything.**\n\n**What would you like to explore next?**\n- Learn more about how it works\n- See pricing and packages\n- Schedule a demo or consultation\n- Get started with a free trial\n- Contact our sales team\n\n**Just tell me what interests you most, and I'll guide you through it step by step!**", false);
                     }
                 } else {
+                    console.log('🔄 No match found, using fallback response');
                     // Enhanced natural language handling for unrecognized messages
                     const messageLower = message.toLowerCase();
                     let response = '';
