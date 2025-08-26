@@ -1,6 +1,7 @@
 version: "3.1"
 
 nlu:
+# Greeting & Introduction
 - intent: greet
   examples: |
     - hello
@@ -10,9 +11,7 @@ nlu:
     - good afternoon
     - good evening
     - howdy
-    - greetings
     - what's up
-    - sup
     - yo
     - hi there
     - hello there
@@ -21,6 +20,10 @@ nlu:
     - morning
     - afternoon
     - evening
+    - greetings
+    - hiya
+    - how are you
+    - what's going on
 
 - intent: goodbye
   examples: |
@@ -29,477 +32,534 @@ nlu:
     - see you
     - see ya
     - later
-    - talk to you later
-    - catch you later
+    - take care
     - have a good day
     - have a nice day
-    - take care
+    - talk to you later
+    - catch you later
+    - peace out
+    - signing off
+    - gotta go
+    - need to run
+    - talk soon
+    - until next time
+    - see you around
+    - have a good one
     - cheers
-    - thanks bye
-    - thank you bye
-    - that's all
-    - that's it
-    - end chat
-    - stop
-    - exit
+    - adios
 
+# Business Consultation Core
 - intent: business_consultation
   examples: |
-    - I need business help
+    - I need help with my business
     - help with my business
-    - business consultation
-    - business advice
-    - business analysis
-    - analyze my business
-    - business review
-    - business assessment
-    - business evaluation
-    - business strategy
-    - business planning
-    - business growth
-    - improve my business
-    - optimize my business
-    - business automation
+    - business help
+    - I'm looking for business solutions
     - business solutions
-    - business consulting
-    - business support
-    - business guidance
-    - business coaching
+    - business automation
+    - automate my business
+    - business efficiency
+    - improve my business
+    - business optimization
+    - business growth
+    - scale my business
+    - business technology
+    - digital transformation
+    - business modernization
+    - business tools
+    - business software
+    - business systems
+    - business processes
+    - business operations
 
 - intent: business_analysis
   examples: |
     - analyze my business
     - business analysis
-    - review my business
-    - assess my business
-    - evaluate my business
-    - business review
     - business assessment
+    - business review
     - business evaluation
     - business audit
     - business diagnosis
     - business health check
     - business performance review
-    - business improvement analysis
-    - business optimization analysis
-    - business growth analysis
+    - business improvement
+    - business optimization
     - business efficiency analysis
-    - business productivity analysis
-    - business cost analysis
-    - business revenue analysis
-    - business market analysis
+    - business process review
+    - business workflow analysis
+    - business automation assessment
+    - business technology review
+    - business digital readiness
+    - business transformation analysis
+    - business growth analysis
+    - business scalability assessment
 
+# Pricing & Plans
 - intent: pricing_inquiry
   examples: |
     - how much does it cost
     - what's the price
-    - pricing information
-    - cost details
-    - price list
-    - pricing structure
-    - how much is it
+    - pricing
+    - cost
+    - how much
     - what do you charge
-    - pricing plans
+    - pricing information
     - cost breakdown
-    - price breakdown
+    - pricing plans
+    - pricing options
+    - pricing structure
     - monthly cost
     - annual cost
-    - subscription cost
-    - package pricing
-    - pricing options
-    - cost comparison
-    - price comparison
-    - affordable options
-    - budget friendly
-    - cost effective
-    - pricing tiers
-    - pricing levels
-    - cost per month
-    - price per month
+    - setup cost
+    - implementation cost
+    - total cost
+    - pricing details
+    - cost estimate
+    - price quote
+    - pricing comparison
 
+- intent: ask_package_details
+  examples: |
+    - what's included in the package
+    - package details
+    - what's in the plan
+    - plan features
+    - what do I get
+    - package contents
+    - plan contents
+    - what's covered
+    - package breakdown
+    - plan breakdown
+    - feature list
+    - what's included
+    - package features
+    - plan features
+    - what comes with it
+    - package contents
+    - plan contents
+    - what's in the deal
+    - package overview
+    - plan overview
+
+# Demo & Trial
 - intent: schedule_demo
   examples: |
     - schedule a demo
     - book a demo
     - demo appointment
-    - schedule demonstration
-    - book demonstration
-    - demo booking
-    - schedule presentation
-    - book presentation
+    - set up demo
+    - arrange demo
     - demo scheduling
-    - demonstration scheduling
-    - presentation scheduling
-    - demo time
-    - demonstration time
-    - presentation time
-    - demo slot
-    - demonstration slot
-    - presentation slot
-    - demo availability
-    - demonstration availability
-    - presentation availability
-    - when can I see a demo
-    - when is the next demo
-    - demo schedule
-    - demonstration schedule
-    - presentation schedule
+    - book demo time
+    - schedule demo call
+    - demo meeting
+    - demo session
+    - product demo
+    - solution demo
+    - live demo
+    - demo walkthrough
+    - demo presentation
+    - demo call
+    - demo meeting
+    - demo appointment
+    - demo scheduling
+    - book demo slot
 
-- intent: free_trial
+- intent: start_free_trial
   examples: |
-    - free trial
     - start free trial
     - begin free trial
-    - sign up for free trial
-    - register for free trial
+    - sign up for trial
+    - free trial
+    - trial period
+    - test drive
+    - try before buy
     - free trial signup
-    - free trial registration
-    - free trial account
+    - trial account
+    - trial access
     - free trial access
-    - free trial period
-    - free trial offer
+    - trial version
     - free trial version
-    - free trial software
-    - free trial platform
-    - free trial service
-    - free trial solution
-    - free trial chatbot
-    - free trial ai
-    - free trial automation
-    - free trial bot
-    - try for free
-    - test for free
-    - sample for free
-    - demo for free
-    - free sample
+    - trial setup
+    - trial activation
+    - trial registration
+    - trial signup
+    - trial account creation
+    - trial access setup
+    - trial activation
 
-- intent: veteran_discounts
-  examples: |
-    - veteran discount
-    - military discount
-    - veteran benefits
-    - military benefits
-    - veteran pricing
-    - military pricing
-    - veteran rates
-    - military rates
-    - veteran special
-    - military special
-    - veteran offer
-    - military offer
-    - veteran deal
-    - military deal
-    - veteran savings
-    - military savings
-    - veteran pricing
-    - military pricing
-    - veteran program
-    - military program
-    - veteran support
-    - military support
-    - veteran assistance
-    - military assistance
-    - veteran help
-    - military help
-    - I'm a veteran
-    - I served in the military
-    - military service
-    - veteran status
-    - military status
-
+# Technical Details
 - intent: technical_details
   examples: |
     - technical details
     - technical specifications
-    - technical specs
     - technical information
-    - technical data
-    - technical requirements
-    - technical features
-    - technical capabilities
+    - technical specs
+    - how does it work
+    - technical overview
     - technical architecture
-    - technical design
+    - technical requirements
+    - technical capabilities
+    - technical features
     - technical implementation
     - technical setup
     - technical configuration
     - technical integration
+    - technical deployment
     - technical support
     - technical documentation
     - technical manual
     - technical guide
     - technical help
-    - technical assistance
-    - how does it work
-    - how is it built
-    - what technology
-    - what platform
-    - what systems
-    - integration details
-    - api information
-    - security features
-    - compliance details
-    - performance specs
 
+- intent: ask_integration
+  examples: |
+    - integration
+    - system integration
+    - software integration
+    - platform integration
+    - API integration
+    - third party integration
+    - integration capabilities
+    - integration options
+    - integration setup
+    - integration process
+    - integration requirements
+    - integration support
+    - integration documentation
+    - integration guide
+    - integration help
+    - integration assistance
+    - integration setup
+    - integration configuration
+    - integration testing
+    - integration deployment
+
+# Industry-Specific
 - intent: healthcare_business
   examples: |
     - healthcare business
     - medical practice
-    - medical office
-    - medical clinic
-    - medical center
-    - hospital
-    - healthcare practice
-    - healthcare office
-    - healthcare clinic
-    - healthcare center
     - dental practice
-    - dental office
-    - dental clinic
-    - dental center
-    - veterinary practice
-    - veterinary office
-    - veterinary clinic
-    - veterinary center
-    - pharmacy
-    - medical supply
-    - healthcare supply
-    - medical equipment
-    - healthcare equipment
-    - medical services
-    - healthcare services
-    - patient care
-    - medical care
-    - healthcare care
-    - medical support
-    - healthcare support
+    - hospital
+    - clinic
+    - medical office
+    - healthcare provider
+    - medical facility
+    - healthcare organization
+    - medical organization
+    - healthcare practice
+    - medical practice
+    - healthcare business
+    - medical business
+    - healthcare company
+    - medical company
+    - healthcare startup
+    - medical startup
+    - healthcare technology
+    - medical technology
 
 - intent: retail_business
   examples: |
     - retail business
     - retail store
     - retail shop
-    - retail outlet
-    - retail location
     - retail company
+    - retail organization
     - retail operation
-    - retail enterprise
-    - retail establishment
-    - retail facility
-    - retail center
-    - retail mall
-    - retail plaza
-    - retail market
-    - retail vendor
-    - retail seller
-    - retail merchant
-    - retail trader
-    - retail dealer
-    - retail distributor
-    - retail supplier
-    - retail provider
-    - retail service
-    - retail solution
-    - retail platform
-    - retail system
-    - retail software
-    - retail technology
-    - retail automation
-    - retail optimization
+    - retail business
+    - retail company
+    - retail organization
+    - retail operation
+    - retail business
+    - retail company
+    - retail organization
+    - retail operation
+    - retail business
+    - retail company
+    - retail organization
+    - retail operation
+    - retail business
+    - retail company
 
 - intent: automotive_business
   examples: |
     - automotive business
-    - auto business
-    - car business
-    - vehicle business
     - auto repair
     - car repair
-    - vehicle repair
     - auto service
     - car service
-    - vehicle service
     - auto shop
     - car shop
-    - vehicle shop
-    - auto center
-    - car center
-    - vehicle center
     - auto dealership
     - car dealership
-    - vehicle dealership
     - auto parts
     - car parts
-    - vehicle parts
     - auto maintenance
     - car maintenance
-    - vehicle maintenance
-    - auto sales
-    - car sales
-    - vehicle sales
-    - auto body
-    - car body
-    - vehicle body
+    - auto service center
+    - car service center
+    - auto business
+    - car business
+    - automotive service
+    - automotive repair
+    - automotive shop
 
 - intent: restaurant_business
   examples: |
     - restaurant business
     - restaurant
-    - cafe
-    - diner
-    - eatery
     - food service
-    - food business
     - dining business
-    - culinary business
-    - food establishment
-    - dining establishment
-    - culinary establishment
+    - restaurant operation
+    - food business
+    - restaurant company
+    - restaurant organization
+    - restaurant management
     - food service business
-    - dining service business
-    - culinary service business
-    - food operation
-    - dining operation
-    - culinary operation
-    - food company
-    - dining company
-    - culinary company
-    - food enterprise
-    - dining enterprise
-    - culinary enterprise
-    - food facility
-    - dining facility
-    - culinary facility
-    - food center
-    - dining center
-    - culinary center
+    - dining business
+    - restaurant operation
+    - food business
+    - restaurant company
+    - restaurant organization
+    - restaurant management
+    - food service business
+    - dining business
+    - restaurant operation
+    - food business
 
-- intent: roi_calculation
+# Veteran & Special Programs
+- intent: veteran_discounts
   examples: |
-    - roi calculation
-    - return on investment
-    - roi analysis
-    - return on investment analysis
-    - roi projection
-    - return on investment projection
-    - roi estimate
-    - return on investment estimate
-    - roi forecast
-    - return on investment forecast
-    - roi prediction
-    - return on investment prediction
-    - roi modeling
-    - return on investment modeling
-    - roi planning
-    - return on investment planning
-    - roi strategy
-    - return on investment strategy
-    - roi optimization
-    - return on investment optimization
-    - calculate roi
-    - calculate return on investment
-    - figure roi
-    - figure return on investment
-    - determine roi
-    - determine return on investment
-    - assess roi
-    - assess return on investment
-    - evaluate roi
-    - evaluate return on investment
+    - veteran discount
+    - military discount
+    - veteran pricing
+    - military pricing
+    - veteran benefits
+    - military benefits
+    - veteran program
+    - military program
+    - veteran special
+    - military special
+    - veteran offer
+    - military offer
+    - veteran deal
+    - military deal
+    - veteran pricing
+    - military pricing
+    - veteran discount
+    - military discount
+    - veteran benefits
+    - military benefits
 
-- intent: implementation_timeline
+- intent: schedule_veteran_consultation
+  examples: |
+    - veteran consultation
+    - military consultation
+    - veteran meeting
+    - military meeting
+    - veteran appointment
+    - military appointment
+    - veteran session
+    - military session
+    - veteran call
+    - military call
+    - veteran meeting
+    - military meeting
+    - veteran consultation
+    - military consultation
+    - veteran session
+    - military session
+    - veteran call
+    - military call
+    - veteran meeting
+    - military meeting
+
+# ROI & Business Value
+- intent: ask_roi_calculation
+  examples: |
+    - ROI calculation
+    - return on investment
+    - ROI analysis
+    - investment return
+    - business value
+    - cost benefit analysis
+    - ROI projection
+    - investment analysis
+    - business case
+    - value proposition
+    - ROI estimate
+    - investment return
+    - business value
+    - cost benefit
+    - ROI analysis
+    - investment analysis
+    - business case
+    - value proposition
+    - ROI estimate
+    - investment return
+
+- intent: ask_implementation_timeline
   examples: |
     - implementation timeline
+    - setup timeline
+    - deployment timeline
+    - project timeline
     - implementation schedule
+    - setup schedule
+    - deployment schedule
+    - project schedule
     - implementation plan
-    - implementation roadmap
-    - implementation process
+    - setup plan
+    - deployment plan
+    - project plan
     - implementation steps
-    - implementation phases
-    - implementation stages
-    - implementation duration
-    - implementation time
-    - implementation period
-    - implementation length
-    - implementation schedule
-    - implementation calendar
-    - implementation dates
-    - implementation deadlines
-    - implementation milestones
-    - implementation checkpoints
-    - implementation progress
-    - implementation status
-    - when will it be ready
-    - how long does it take
-    - what's the timeline
-    - what's the schedule
-    - what's the plan
-    - what's the process
-    - how many weeks
-    - how many months
-    - start date
-    - completion date
+    - setup steps
+    - deployment steps
+    - project steps
+    - implementation process
+    - setup process
+    - deployment process
+    - project process
 
-- intent: contact_info
+# Contact & Support
+- intent: ask_contact_info
   examples: |
     - contact information
     - contact details
     - contact info
-    - contact data
-    - contact address
-    - contact phone
-    - contact email
-    - contact website
-    - contact number
-    - contact person
-    - contact method
-    - contact way
-    - contact means
-    - contact channel
-    - contact option
-    - contact choice
-    - contact preference
-    - contact availability
-    - contact hours
-    - contact time
-    - how to contact
-    - how to reach
-    - how to get in touch
-    - how to reach out
-    - how to connect
-    - how to communicate
-    - how to message
-    - how to call
-    - how to email
-    - how to visit
+    - contact details
+    - contact information
+    - contact info
+    - contact details
+    - contact information
+    - contact info
+    - contact details
+    - contact information
+    - contact info
+    - contact details
+    - contact information
+    - contact info
+    - contact details
+    - contact information
+    - contact info
+    - contact details
+    - contact information
 
+- intent: ask_support_hours
+  examples: |
+    - support hours
+    - customer service hours
+    - help desk hours
+    - support availability
+    - customer service availability
+    - help desk availability
+    - support schedule
+    - customer service schedule
+    - help desk schedule
+    - support times
+    - customer service times
+    - help desk times
+    - support availability
+    - customer service availability
+    - help desk availability
+    - support schedule
+    - customer service schedule
+    - help desk schedule
+    - support times
+    - customer service times
+
+# Affirmations & Denials
+- intent: affirm
+  examples: |
+    - yes
+    - yeah
+    - yep
+    - sure
+    - absolutely
+    - definitely
+    - correct
+    - right
+    - that's right
+    - that's correct
+    - exactly
+    - indeed
+    - of course
+    - certainly
+    - positively
+    - affirmative
+    - ok
+    - okay
+    - fine
+    - good
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - nah
+    - not really
+    - not at all
+    - absolutely not
+    - definitely not
+    - incorrect
+    - wrong
+    - that's wrong
+    - that's incorrect
+    - not exactly
+    - not really
+    - not at all
+    - negative
+    - no way
+    - not a chance
+    - forget it
+    - skip it
+    - pass
+
+# Out of Scope & Fallbacks
 - intent: out_of_scope
   examples: |
     - what's the weather like
     - tell me a joke
-    - what time is it
-    - how old are you
     - what's your favorite color
-    - can you sing
-    - what's the meaning of life
-    - tell me about politics
-    - what's the best movie
-    - how to cook pasta
+    - how old are you
     - what's the capital of France
-    - solve this math problem
-    - translate this text
-    - what's the population of Tokyo
-    - how to fix a car
-    - what's the best restaurant
-    - how to lose weight
-    - what's the latest news
-    - how to play guitar
-    - what's the best book
-    - how to make money
-    - what's the best investment
-    - how to start a blog
-    - what's the best phone
-    - how to learn Spanish
-    - what's the best workout
-    - how to meditate
-    - what's the best diet
-    - how to sleep better
+    - what's 2+2
+    - what time is it
+    - what day is it
+    - what's the date
+    - what's your name
+    - where are you from
+    - what do you look like
+    - what's your favorite food
+    - what's your favorite movie
+    - what's your favorite song
+    - what's your favorite book
+    - what's your favorite sport
+    - what's your favorite hobby
+    - what's your favorite animal
+    - what's your favorite place
+
+- intent: nlu_fallback
+  examples: |
+    - asdf
+    - qwerty
+    - random text
+    - gibberish
+    - nonsense
+    - random words
+    - test message
+    - hello world
+    - testing
+    - test
+    - random
+    - whatever
+    - idk
+    - dunno
+    - maybe
+    - perhaps
+    - could be
+    - might be
+    - possibly
+    - potentially
