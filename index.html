@@ -1049,7 +1049,7 @@
                 stage: 'trial_setup'
             },
             'ask any other questions about nextEleven': {
-                response: "💬 **Absolutely! I'm here to answer any questions you have about NextEleven.**\n\n**What I Can Help With:**\n- **Technical questions** about how the technology works\n- **Business questions** about implementation and results\n- **Pricing questions** about packages and costs\n- **Integration questions** about your current systems\n- **Timeline questions** about setup and deployment\n- **Support questions** about ongoing assistance\n- **Any other concerns** or curiosities\n\n**Just ask me anything!** I have comprehensive knowledge about:\n- Our complete product portfolio\n- Industry-specific solutions\n- Technical specifications\n- Security and compliance\n- Integration capabilities\n- Success stories and case studies\n- Team and company information\n\n**📧 Would you like me to send you our complete information guide as a PDF?** Just provide your email address and I'll send it right away, plus:\n- Product brochures\n- Technical documentation\n- Case studies and testimonials\n- Implementation guides\n- Next steps to get started",
+                response: "💬 **Absolutely! I'm here to answer any questions you have about NextEleven.**\n\n**What I Can Help With:**\n- **Technical questions** about how the technology works\n- **Business questions** about implementation and results\n- **Pricing questions** about packages and costs\n- **Integration questions** about your current systems\n- **Timeline questions** about setup and deployment\n- **Support questions** about ongoing assistance\n- **Any other concerns** or curiosities\n\n**Just ask me anything!** I have comprehensive knowledge about:\n- Our complete product portfolio\n- Industry-specific solutions\n- Technical specifications\n- Security and compliance\n- Integration capabilities\n- Success stories and case studies\n- Team and company information\n\n**What would you like to know?** I'm here to help with whatever you need!",
                 score: 25,
                 stage: 'email_collection'
             },
@@ -1143,6 +1143,87 @@
                 response: "📚 **Excellent! I'd love to share some real success stories with you.**\n\n**What industry interests you most?**\n- Dental Practice\n- Hair Salon\n- Tattoo Studio\n- Plumbing Service\n- Other Industry\n\n**Or would you like me to send you our complete case studies collection?** Just let me know your email address!",
                 score: 10,
                 stage: 'case_study_selection'
+            },
+            // Specific responses for exact phrases Mariam asks customers to use
+            'schedule demo': {
+                response: "🎯 **Excellent! Let's get your personalized demo scheduled right now.**\n\n**What our demo includes:**\n• Live chatbot demonstration customized for your business type\n• Real conversation examples showing how it handles your specific challenges\n• Dashboard walkthrough showing analytics and management tools\n• Integration examples with your current systems\n• Q&A session to address all your questions\n\n**Demo Options:**\n• Screen share demo (30 minutes)\n• Full consultation (45 minutes)\n• Custom scenario demo (60 minutes)\n\n**What's your preferred time?**\n• Morning (9 AM - 12 PM)\n• Afternoon (1 PM - 5 PM)\n• Evening (6 PM - 8 PM)\n\n**What's the best email to send your demo confirmation?**\n\nI'll schedule it right away and send you a calendar invite with all the details!",
+                score: 60,
+                stage: 'demo_scheduling'
+            },
+            'schedule demo now': {
+                response: "🎯 **Perfect! Let's get your demo scheduled immediately.**\n\n**What's your preferred time?**\n• Morning (9 AM - 12 PM)\n• Afternoon (1 PM - 5 PM)\n• Evening (6 PM - 8 PM)\n\n**What's the best email to send your demo confirmation?**\n\nI'll schedule it right away and send you a calendar invite with all the details!",
+                score: 60,
+                stage: 'demo_scheduling'
+            },
+            'start free trial': {
+                response: "🚀 **Excellent! Let's get your free trial set up right now.**\n\n**What Our Free Trial Includes:**\n• 30-day full access to all features\n• Custom chatbot setup for your business type\n• Integration assistance with your website\n• Training and support throughout the trial\n• Performance analytics and reporting\n• No credit card required\n\n**Trial Setup Process:**\n1. Quick business analysis (15 minutes)\n2. Custom chatbot creation (1-2 days)\n3. Website integration (same day)\n4. Training session (30 minutes)\n5. Go live and start testing\n\n**What's your preferred setup time?**\n• Morning (9 AM - 12 PM)\n• Afternoon (1 PM - 5 PM)\n• Evening (6 PM - 8 PM)\n\n**What's the best email to send your trial setup details?**\n\nI'll get everything set up and send you access credentials within 24 hours!",
+                score: 60,
+                stage: 'trial_setup'
+            },
+            'start free trial now': {
+                response: "🚀 **Perfect! Let's get your free trial started immediately.**\n\n**What's your preferred setup time?**\n• Morning (9 AM - 12 PM)\n• Afternoon (1 PM - 5 PM)\n• Evening (6 PM - 8 PM)\n\n**What's the best email to send your trial setup details?**\n\nI'll get everything set up and send you access credentials within 24 hours!",
+                score: 60,
+                stage: 'trial_setup'
+            },
+            'see pricing details': {
+                response: "💰 **Absolutely! Let me show you our complete pricing structure.**\n\n**What's your email address?** I'll send you our complete pricing guide, plus:\n• Detailed package comparisons\n• ROI calculations and examples\n• Implementation timelines\n• Case studies and testimonials\n• Military veteran discounts\n• Next steps to get started\n\n**Our Pricing Plans:**\n• Starter Plan: $79/month\n• Professional Plan: $247/month (Best Seller)\n• Agency Plan: $597/month\n• Enterprise Plan: Custom pricing\n\n**What's the best email to send this to?**",
+                score: 55,
+                stage: 'email_collection'
+            },
+            'see pricing': {
+                response: "💰 **Absolutely! Let me show you our complete pricing structure.**\n\n**What's your email address?** I'll send you our complete pricing guide, plus:\n• Detailed package comparisons\n• ROI calculations and examples\n• Implementation timelines\n• Case studies and testimonials\n• Military veteran discounts\n• Next steps to get started\n\n**Our Pricing Plans:**\n• Starter Plan: $79/month\n• Professional Plan: $247/month (Best Seller)\n• Agency Plan: $597/month\n• Enterprise Plan: Custom pricing\n\n**What's the best email to send this to?**",
+                score: 55,
+                stage: 'email_collection'
+            },
+            'technical details': {
+                response: "🔧 **Excellent! Let me show you our technical capabilities.**\n\n**What would you like to know about?**\n• How our AI technology works\n• Integration with your current systems\n• Security and compliance\n• Performance and scalability\n• Custom development options\n• Implementation process\n\n**What's your email address?** I'll send you technical specifications and integration guides!",
+                score: 55,
+                stage: 'email_collection'
+            },
+            'ask technical questions': {
+                response: "🔧 **Absolutely! I'm here to answer all your technical questions.**\n\n**What would you like to know about?**\n• How our AI technology works\n• Integration with your current systems\n• Security and compliance\n• Performance and scalability\n• Custom development options\n• Implementation process\n\n**What's your email address?** I'll send you technical specifications and integration guides!",
+                score: 55,
+                stage: 'email_collection'
+            },
+            'see veteran pricing': {
+                response: "🇺🇸 **Veteran Pricing with Military Discounts!**\n\n**What's your email address?** I'll send you our complete pricing structure with veteran discounts applied, plus:\n• Veteran success stories\n• Special veteran features\n• Priority implementation\n• Dedicated veteran support\n• Military discount application process\n\n**Military Veteran Discounts:**\n• 10% off for all Veterans\n• 20% off for Combat Veterans\n• Available on all packages\n• No setup fees on annual subscriptions\n\n**What's the best email to send this to?**",
+                score: 60,
+                stage: 'email_collection'
+            },
+            'schedule veteran consultation': {
+                response: "🇺🇸 **Veteran Consultation Scheduling!**\n\n**What's your email address?** I'll schedule your veteran consultation call, plus:\n• Priority scheduling for veterans\n• Veteran-specific solutions\n• Military discount application\n• Dedicated veteran account manager\n• Special veteran features and support\n\n**What's the best email to send this to?**",
+                score: 60,
+                stage: 'email_collection'
+            },
+            'veteran success stories': {
+                response: "🇺🇸 **Veteran Success Stories!**\n\n**What's your email address?** I'll send you detailed case studies from veteran-owned businesses, plus:\n• ROI examples from veteran businesses\n• Implementation stories and timelines\n• Veteran-specific features and support\n• Testimonials from veteran owners\n• Military discount success stories\n\n**What's the best email to send this to?**",
+                score: 60,
+                stage: 'email_collection'
+            },
+            'start veteran trial': {
+                response: "🇺🇸 **Veteran Free Trial Setup!**\n\n**What's your email address?** I'll set up your veteran trial with priority access, plus:\n• Veteran-specific features\n• Priority support and training\n• Military discount application\n• Dedicated veteran account manager\n• Special veteran onboarding process\n\n**What's the best email to send this to?**",
+                score: 60,
+                stage: 'email_collection'
+            },
+            'see professional pricing': {
+                response: "💰 **Professional Plan Pricing - Our Best Seller!**\n\n**Professional Plan Details:**\n• Monthly: $247/month\n• Annual: $197/month (billed annually) - Save $600/year!\n• Setup Fee: WAIVED on annual plans\n• Core Features: 3 Custom AI Chatbots, 5,000 Queries/Month, 15 Knowledge Sources\n• Advanced Features: CSS/JS Customization, Payment Processing (Stripe/Square), Lead Capture & Analytics\n• Support: Priority Email & Chat Support for first 6 months\n\n**What's your email address?** I'll send you complete Professional Plan details, plus:\n• ROI calculations\n• Implementation timeline\n• Case studies\n• Military veteran discounts\n• Next steps to get started",
+                score: 55,
+                stage: 'email_collection'
+            },
+            'see starter pricing': {
+                response: "💰 **Starter Plan Pricing - Perfect for Small Businesses!**\n\n**Starter Plan Details:**\n• Monthly: $79/month\n• Annual: $67/month ($804 billed annually) - Save $144/year!\n• Setup Fee: One-time $149\n• Core Features: 1 Custom AI Chatbot, 1,000 Queries/Month, 5 Knowledge Sources\n• Support: Email Support for first 30 days\n• No Payment Processing\n\n**What's your email address?** I'll send you complete Starter Plan details, plus:\n• ROI calculations\n• Implementation timeline\n• Case studies\n• Military veteran discounts\n• Next steps to get started",
+                score: 55,
+                stage: 'email_collection'
+            },
+            'see agency pricing': {
+                response: "💰 **Agency Plan Pricing - For Growing Businesses!**\n\n**Agency Plan Details:**\n• Monthly: $597/month\n• Annual: $447/month ($5,364 billed annually) - Save $1,800/year!\n• Setup Fee: WAIVED\n• Core Features: 10 Custom AI Chatbots, 20,000 Queries/Month, 50 Knowledge Sources\n• Advanced Features: Centralized Dashboard, White-Label Widget, Multi-Account Payment Gateways, SSO & User Roles\n• Support: Dedicated Account Manager and Phone Support\n\n**What's your email address?** I'll send you complete Agency Plan details, plus:\n• ROI calculations\n• Implementation timeline\n• Case studies\n• Military veteran discounts\n• Next steps to get started",
+                score: 55,
+                stage: 'email_collection'
+            },
+            'see enterprise pricing': {
+                response: "💰 **Enterprise Plan Pricing - Custom Solutions!**\n\n**Enterprise Plan Details:**\n• Pricing: Custom Quote based on your needs\n• Setup: Custom implementation\n• Core Features: Unlimited Chatbots, 100,000+ Queries, Unlimited Sources\n• Advanced Features: Full White-Label Solution, Custom Payment Workflows, Private Cloud & Compliance Assistance\n• Support: 24/7 Dedicated Engineer Line & Technical Account Manager\n\n**What's your email address?** I'll send you Enterprise Plan information, plus:\n• Custom quote request\n• Implementation timeline\n• Enterprise case studies\n• Military veteran discounts\n• Next steps to get started",
+                score: 55,
+                stage: 'email_collection'
             }
         };
 
@@ -1176,7 +1257,7 @@
                 const optionBtn = document.createElement('div');
                 optionBtn.className = 'quick-option';
                 optionBtn.textContent = option;
-                optionBtn.onclick = () => sendMessage(option);
+                optionBtn.onclick = () => handleQuickOption(option);
                 optionsDiv.appendChild(optionBtn);
             });
             
@@ -1184,7 +1265,49 @@
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
-        // Email functionality for PDF delivery
+        // Enhanced quick option handling for agency-level actions
+        function handleQuickOption(option) {
+            const lowerOption = option.toLowerCase();
+            
+            // Track quick option selection
+            userSession.interactions.push({
+                type: 'quick_option_selected',
+                timestamp: new Date().toISOString(),
+                option: option,
+                stage: userSession.stage
+            });
+            
+            // Handle specific agency-level actions
+            if (lowerOption.includes('demo') || lowerOption.includes('schedule')) {
+                const businessType = userSession.businessType || 'your business';
+                scheduleProfessionalDemo(businessType, { duration: '30 minutes', type: 'screen share' });
+            } else if (lowerOption.includes('trial') || lowerOption.includes('free')) {
+                const businessType = userSession.businessType || 'your business';
+                addMessage("🚀 **Great choice! Let's get your free trial set up.**\n\n**What's your email address?** I'll send you trial setup details right away!\n\n**Your trial will include:**\n✅ 30-day full access to all features\n✅ Custom chatbot for your business type\n✅ Integration assistance\n✅ Training and support\n✅ No credit card required", false);
+            } else if (lowerOption.includes('pricing') || lowerOption.includes('cost')) {
+                addMessage("💰 **Absolutely! Let me show you our complete pricing structure.**\n\n**What's your email address?** I'll send you detailed pricing information, plus:\n• Package comparisons\n• ROI calculations\n• Implementation timelines\n• Case studies\n• Military veteran discounts", false);
+            } else if (lowerOption.includes('technical') || lowerOption.includes('integration')) {
+                addMessage("🔧 **Excellent! Let me show you our technical capabilities.**\n\n**What would you like to know about?**\n• How our AI technology works\n• Integration with your current systems\n• Security and compliance\n• Performance and scalability\n• Custom development options\n\n**What's your email address?** I'll send you technical specifications and integration guides!", false);
+            } else if (lowerOption.includes('veteran')) {
+                if (lowerOption.includes('pricing')) {
+                    addMessage("🇺🇸 **Veteran Pricing with Military Discounts!**\n\n**What's your email address?** I'll send you our complete pricing structure with veteran discounts applied, plus:\n• Veteran success stories\n• Special veteran features\n• Priority implementation\n• Dedicated veteran support", false);
+                } else if (lowerOption.includes('consultation')) {
+                    addMessage("🇺🇸 **Veteran Consultation Scheduling!**\n\n**What's your email address?** I'll schedule your veteran consultation call, plus:\n• Priority scheduling\n• Veteran-specific solutions\n• Military discount application\n• Dedicated veteran account manager", false);
+                } else if (lowerOption.includes('stories')) {
+                    addMessage("🇺🇸 **Veteran Success Stories!**\n\n**What's your email address?** I'll send you detailed case studies from veteran-owned businesses, plus:\n• ROI examples\n• Implementation stories\n• Veteran-specific features\n• Support testimonials", false);
+                } else if (lowerOption.includes('trial')) {
+                    addMessage("🇺🇸 **Veteran Free Trial Setup!**\n\n**What's your email address?** I'll set up your veteran trial with priority access, plus:\n• Veteran-specific features\n• Priority support\n• Military discount application\n• Dedicated veteran account manager", false);
+                }
+            } else {
+                // Default handling for other options
+                sendMessage(option);
+            }
+            
+            // Update lead score for quick option selection
+            updateLeadScore(10, 'Quick option selected: ' + option);
+        }
+
+        // Enhanced Email functionality for PDF delivery
         function sendEmail(to, subject, body) {
             // Create mailto link for email client
             const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -1193,13 +1316,68 @@
             // Also show confirmation message
             addMessage("📧 **Email sent successfully!**\n\nI've opened your email client with a pre-filled message to NextEleven. The email includes:\n\n- Your request details\n- Contact information\n- Preferred next steps\n\n**What happens next:**\n- Our team will review your request\n- You'll receive a response within 24 hours\n- We'll schedule your consultation or send requested materials\n\n**Need immediate assistance?** You can also call us directly or I can help you schedule a consultation right now.", false);
         }
-        
-        // Military discount button functionality
-        function showMilitaryDiscounts() {
-            addMessage("🇺🇸 **Military Veteran Discounts - Thank You for Your Service!**\n\n**NextEleven proudly offers:**\n\n**🎖️ 10% off for all Veterans**\n- Available on all packages\n- Monthly and annual plans\n- No setup fees on annual subscriptions\n\n**🎖️ 20% off for Combat Veterans**\n- Additional discount for combat service\n- Available on all packages\n- No setup fees on annual subscriptions\n\n**How to Apply:**\n1. Mention your veteran status during consultation\n2. Provide your DD-214 or military ID\n3. Discount applied to all packages\n4. Available for both monthly and annual plans\n\n**What's Included:**\n- Complete chatbot solution\n- Industry-specific training\n- 24/7 support\n- All features and integrations\n\n**Contact us today to learn more about our veteran discount program and how we can help your business succeed!**\n\nWould you like me to:\n- Show you our complete pricing structure?\n- Schedule a consultation call?\n- Send you detailed information?\n- Help you get started with a free trial?", false);
+
+        // Helper functions for agency-level functionality
+        function extractEmail(message) {
+            const emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi;
+            const match = message.match(emailRegex);
+            return match ? match[0] : null;
+        }
+
+        function extractPackageType(message) {
+            const lowerMessage = message.toLowerCase();
+            if (lowerMessage.includes('starter') || lowerMessage.includes('basic')) return 'starter';
+            if (lowerMessage.includes('professional') || lowerMessage.includes('pro')) return 'professional';
+            if (lowerMessage.includes('agency') || lowerMessage.includes('business')) return 'agency';
+            if (lowerMessage.includes('enterprise') || lowerMessage.includes('corporate')) return 'enterprise';
+            return 'professional'; // Default
+        }
+
+        function extractBusinessType(message) {
+            const lowerMessage = message.toLowerCase();
+            const businessTypes = {
+                'tattoo': 'tattoo studio',
+                'salon': 'hair salon',
+                'hair': 'hair salon',
+                'beauty': 'beauty salon',
+                'healthcare': 'healthcare organization',
+                'medical': 'medical practice',
+                'dental': 'dental practice',
+                'automotive': 'automotive business',
+                'auto': 'automotive business',
+                'plumbing': 'plumbing service',
+                'pet': 'pet grooming',
+                'restaurant': 'restaurant',
+                'retail': 'retail business',
+                'ecommerce': 'e-commerce business',
+                'hospitality': 'hospitality business',
+                'real estate': 'real estate business',
+                'law': 'law firm',
+                'professional': 'professional services'
+            };
+            
+            for (const [keyword, type] of Object.entries(businessTypes)) {
+                if (lowerMessage.includes(keyword)) {
+                    return type;
+                }
+            }
+            return 'general business';
         }
         
-        // PDF delivery function
+        // Enhanced Military discount button functionality with agency-level features
+        function showMilitaryDiscounts() {
+            addMessage("🇺🇸 **Military Veteran Discounts - Thank You for Your Service!**\n\n**NextEleven proudly offers:**\n\n**🎖️ 10% off for all Veterans**\n- Available on all packages\n- Monthly and annual plans\n- No setup fees on annual subscriptions\n- Applied to all features and integrations\n\n**🎖️ 20% off for Combat Veterans**\n- Additional discount for combat service\n- Available on all packages\n- No setup fees on annual subscriptions\n- Priority implementation scheduling\n\n**How to Apply:**\n1. Mention your veteran status during consultation\n2. Provide your DD-214 or military ID\n3. Discount applied to all packages\n4. Available for both monthly and annual plans\n\n**What's Included:**\n- Complete chatbot solution\n- Industry-specific training\n- 24/7 support\n- All features and integrations\n- Priority customer service\n- Dedicated account manager (Professional+ plans)\n\n**Veteran Success Stories:**\n• Combat veteran-owned tattoo studio: 60% increase in bookings\n• Veteran-owned auto shop: 45% reduction in phone calls\n• Veteran-owned dental practice: 50% improvement in patient communication\n\n**Contact us today to learn more about our veteran discount program and how we can help your business succeed!**\n\nWould you like me to:\n- Show you our complete pricing structure with veteran discounts?\n- Schedule a consultation call?\n- Send you detailed information?\n- Help you get started with a free trial?\n- Learn about veteran-specific features?", false);
+            
+            // Add veteran-specific quick options
+            addQuickOptions([
+                'See Veteran Pricing',
+                'Schedule Veteran Consultation',
+                'Veteran Success Stories',
+                'Start Veteran Trial'
+            ]);
+        }
+        
+        // Enhanced PDF delivery function
         function deliverPDF(packageType, userEmail) {
             const subject = `NextEleven ${packageType} Information Request`;
             const body = `Hello NextEleven Team,\n\nI'm interested in learning more about your ${packageType}.\n\nPlease send me:\n- Complete package details\n- Pricing information\n- Case studies\n- Implementation timeline\n- Next steps\n\nMy email: ${userEmail}\n\nThank you!`;
@@ -1207,11 +1385,71 @@
             sendEmail('NextElevenStudios@icloud.com', subject, body);
         }
 
+        // Enhanced comprehensive PDF delivery with agency-level features
+        function deliverComprehensivePDF(packageType, userEmail, businessType = null) {
+            const packageInfo = agencyConfig.pricing[packageType] || agencyConfig.pricing.starter;
+            const packageFeatures = agencyConfig.features[packageType] || agencyConfig.features.starter;
+            
+            const subject = `NextEleven ${packageType.charAt(0).toUpperCase() + packageType.slice(1)} Package - Complete Information`;
+            const body = `
+                Hello NextEleven Team,
+
+                I'm interested in your ${packageType} package for my ${businessType || 'business'}.
+
+                Please send me:
+                - Complete package details and features
+                - Pricing information and payment options
+                - Implementation timeline and process
+                - Case studies and ROI examples
+                - Technical specifications
+                - Integration requirements
+                - Training and support details
+                - Next steps to get started
+
+                My email: ${userEmail}
+                Business type: ${businessType || 'Not specified'}
+                Package interest: ${packageType}
+
+                Thank you!
+            `;
+            
+            // Send professional email
+            const emailSent = sendProfessionalEmail(agencyConfig.salesEmail, subject, body);
+            
+            if (emailSent) {
+                // Show confirmation message
+                addMessage(`📧 **Perfect! I've sent your request to our team.**\n\n**What happens next:**\n✅ **Immediate**: Email sent to ${agencyConfig.salesEmail}\n✅ **Within 1 hour**: Email confirmation to you\n✅ **Within 24 hours**: Detailed package information\n✅ **Within 48 hours**: Consultation call scheduled\n\n**What you'll receive:**\n• Complete ${packageType} package details\n• Pricing breakdown and payment options\n• Implementation timeline\n• Case studies from similar businesses\n• Technical specifications\n• Integration guide\n• Free consultation scheduling\n\n**Your request has been prioritized** and our team will contact you shortly!\n\n**Need immediate assistance?** I can also help you:\n• Schedule a demo right now\n• Start a free trial\n• Get pricing information\n• Answer technical questions`, false);
+                
+                // Add quick action buttons
+                addQuickOptions([
+                    'Schedule Demo Now',
+                    'Start Free Trial',
+                    'See Pricing Details',
+                    'Ask Technical Questions'
+                ]);
+            }
+            
+            return emailSent;
+        }
+
         function sendMessage(message) {
             if (!message.trim()) return;
             
+            // Create user session if not exists
+            if (!userSession.id) {
+                createUserSession();
+            }
+            
             addMessage(message, true);
             showTypingIndicator();
+            
+            // Track user interaction
+            userSession.interactions.push({
+                type: 'user_message',
+                timestamp: new Date().toISOString(),
+                message: message,
+                stage: userSession.stage
+            });
             
             setTimeout(() => {
                 hideTypingIndicator();
@@ -1229,7 +1467,7 @@
                     'restaurant', 'spa', 'law firm', 'fitness', 'gym'
                 ];
                 
-                // Regular keyword matching - check if user message contains any business keywords
+                // Enhanced keyword matching with agency-level responses
                 console.log('🔍 Searching for matches in message:', lowerMessage);
                 for (const [keyword, response] of Object.entries(mariResponses)) {
                     if (lowerMessage.includes(keyword.toLowerCase())) {
@@ -1243,18 +1481,69 @@
                 console.log('🏆 Best match:', bestMatch ? bestMatch.response.substring(0, 50) + '...' : 'None');
                 console.log('🏆 Best score:', bestScore);
                 
+                // Agency-level business analysis and lead scoring
+                if (bestMatch && bestMatch.stage === 'business_analysis') {
+                    // Analyze business needs and provide comprehensive response
+                    const businessType = extractBusinessType(message) || 'general business';
+                    const analysis = analyzeBusinessNeeds(businessType, message);
+                    
+                    // Update user session
+                    userSession.businessType = businessType;
+                    userSession.stage = 'business_analysis';
+                    
+                    // Update lead score based on engagement
+                    updateLeadScore(20, 'Business type identified');
+                    
+                    // Enhanced response with analysis
+                    const enhancedResponse = bestMatch.response + `\n\n**🎯 Business Analysis for ${businessType}:**\n\n**Key Pain Points We Solve:**\n${analysis.painPoints.map(point => `• ${point}`).join('\n')}\n\n**Recommended Features:**\n${analysis.recommendedFeatures.map(feature => `• ${feature}`).join('\n')}\n\n**Estimated ROI:** ${analysis.estimatedROI}\n**Implementation Time:** ${analysis.implementationTime}\n**Recommended Package:** ${analysis.packageRecommendation.charAt(0).toUpperCase() + analysis.packageRecommendation.slice(1)}\n\n**What would you like to explore next?**\n• See detailed pricing for ${analysis.packageRecommendation} package\n• Schedule a personalized demo\n• Start your free trial\n• Learn about technical integration`;
+                    
+                    addMessage(enhancedResponse, false);
+                    
+                    // Add quick action options
+                    addQuickOptions([
+                        `See ${analysis.packageRecommendation} Pricing`,
+                        'Schedule Demo',
+                        'Start Free Trial',
+                        'Technical Details'
+                    ]);
+                    
+                    return;
+                }
+                
+                // Handle agency-level actions
+                if (lowerMessage.includes('demo') || lowerMessage.includes('schedule')) {
+                    const businessType = userSession.businessType || 'your business';
+                    scheduleProfessionalDemo(businessType, { duration: '30 minutes', type: 'screen share' });
+                    return;
+                }
+                
+                if (lowerMessage.includes('trial') || lowerMessage.includes('free trial')) {
+                    const businessType = userSession.businessType || 'your business';
+                    const userEmail = extractEmail(message) || 'your email';
+                    setupProfessionalTrial(businessType, userEmail);
+                    return;
+                }
+                
+                if (lowerMessage.includes('payment') || lowerMessage.includes('pay') || lowerMessage.includes('pricing')) {
+                    const businessType = userSession.businessType || 'your business';
+                    const userEmail = extractEmail(message) || 'your email';
+                    const packageType = extractPackageType(message) || 'professional';
+                    processPaymentRequest(packageType, userEmail, businessType);
+                    return;
+                }
+                
                 // If no match found but message contains business keywords, use fallback
                 if (!bestMatch && businessKeywords.some(keyword => lowerMessage.includes(keyword.toLowerCase()))) {
                     console.log('🚨 No match found but contains business keywords, using fallback');
                     
                     // Auto-email seanebones@icloud.com about unrecognized business type
                     const subject = `New Unrecognized Business Type Inquiry: ${message}`;
-                    const body = `New inquiry from chatbot:\n\nMessage: ${message}\n\nThis business type is not in our database yet. Please research and add appropriate responses.\n\nTime: ${new Date().toLocaleString()}`;
+                    const body = `New inquiry from chatbot:\n\nMessage: ${message}\n\nThis business type is not in our database yet. Please research and add appropriate responses.\n\nTime: ${new Date().toLocaleString()}\nSession ID: ${userSession.id}\nLead Score: ${userSession.leadScore}`;
                     
                     try {
-                        // Send email notification
-                        sendEmail('seanebones@icloud.com', subject, body);
-                        console.log('📧 Email sent successfully to seanebones@icloud.com');
+                        // Send professional email notification
+                        sendProfessionalEmail(agencyConfig.salesEmail, subject, body);
+                        console.log('📧 Professional email sent successfully to sales team');
                     } catch (error) {
                         console.error('❌ Error sending email:', error);
                     }
@@ -1285,6 +1574,9 @@
                 if (bestMatch) {
                     console.log('🎯 Using response for stage:', bestMatch.stage);
                     
+                    // Update user session stage
+                    userSession.stage = bestMatch.stage;
+                    
                     // For most responses, just show the main response
                     if (bestMatch.stage === 'email_collection') {
                         // Store the user's intent for PDF delivery
@@ -1295,7 +1587,7 @@
                     else if (bestMatch.stage === 'pdf_delivery' && message.includes('@')) {
                         const userEmail = message;
                         const packageType = window.userIntent || 'information';
-                        deliverPDF(packageType, userEmail);
+                        deliverComprehensivePDF(packageType, userEmail, userSession.businessType);
                     }
                     // For all other responses, just show the main response
                     else {
@@ -1324,7 +1616,7 @@
                         // Handle email input for any purpose
                         const userEmail = message;
                         if (window.userIntent === 'pdf_delivery') {
-                            deliverPDF('information', userEmail);
+                            deliverComprehensivePDF('information', userEmail, userSession.businessType);
                         } else {
                             addMessage("📧 **Perfect! I've got your email address.**\n\n**What would you like me to send you?**\n- Complete pricing guide\n- Case studies and testimonials\n- Technical specifications\n- Implementation guide\n- Schedule a consultation call\n- Start your free trial\n\n**Just let me know what you need, and I'll send it right away!**", false);
                         }
@@ -1334,6 +1626,10 @@
                     
                     addMessage(response, false);
                 }
+                
+                // Update lead score for engagement
+                updateLeadScore(5, 'Message interaction');
+                
             }, 1000);
         }
 
@@ -1356,6 +1652,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('NextEleven Enterprise Chatbot with Mariam initialized');
             
+            // Initialize agency-level session management
+            createUserSession();
+            console.log('🆔 User session created:', userSession.id);
+            
             // Add event listener for Enter key on chat input
             const chatInput = document.getElementById('chatInput');
             if (chatInput) {
@@ -1365,7 +1665,88 @@
                     }
                 });
             }
+            
+            // Initialize agency-level features
+            console.log('🏢 Agency configuration loaded:', agencyConfig);
+            console.log('🔧 Enhanced functions available:', {
+                'sendProfessionalEmail': typeof sendProfessionalEmail !== 'undefined',
+                'deliverComprehensivePDF': typeof deliverComprehensivePDF !== 'undefined',
+                'scheduleProfessionalDemo': typeof scheduleProfessionalDemo !== 'undefined',
+                'setupProfessionalTrial': typeof setupProfessionalTrial !== 'undefined',
+                'processPaymentRequest': typeof processPaymentRequest !== 'undefined',
+                'analyzeBusinessNeeds': typeof analyzeBusinessNeeds !== 'undefined',
+                'updateLeadScore': typeof updateLeadScore !== 'undefined',
+                'escalateLead': typeof escalateLead !== 'undefined'
+            });
+            
+            // Track page load for analytics
+            userSession.interactions.push({
+                type: 'page_load',
+                timestamp: new Date().toISOString(),
+                page: 'main_chatbot',
+                userAgent: navigator.userAgent
+            });
+            
+            console.log('📊 Session analytics initialized');
+            
+            // Add session analytics display
+            setInterval(() => {
+                if (userSession.leadScore >= 50) {
+                    console.log('📊 Session Analytics Update:', {
+                        sessionId: userSession.id,
+                        leadScore: userSession.leadScore,
+                        interactions: userSession.interactions.length,
+                        businessType: userSession.businessType,
+                        stage: userSession.stage,
+                        duration: Math.round((Date.now() - userSession.startTime) / 1000 / 60)
+                    });
+                }
+            }, 30000); // Update every 30 seconds
+            
+            // Generate final session report when page is unloaded
+            window.addEventListener('beforeunload', function() {
+                const finalReport = generateSessionReport();
+                console.log('📊 Final Session Report:', finalReport);
+                
+                // Store report in localStorage for analytics
+                if (typeof(Storage) !== "undefined") {
+                    const reports = JSON.parse(localStorage.getItem('nexteleven_reports') || '[]');
+                    reports.push(finalReport);
+                    localStorage.setItem('nexteleven_reports', JSON.stringify(reports));
+                }
+            });
         });
+        
+        // Enhanced session management and analytics
+        function generateSessionReport() {
+            const report = {
+                sessionId: userSession.id,
+                businessType: userSession.businessType,
+                leadScore: userSession.leadScore,
+                interactions: userSession.interactions.length,
+                duration: Math.round((Date.now() - userSession.startTime) / 1000 / 60),
+                stage: userSession.stage,
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                pageViews: 1,
+                conversionActions: userSession.interactions.filter(i => 
+                    i.type === 'quick_option_selected' || 
+                    i.type === 'email_sent' || 
+                    i.type === 'lead_score_update'
+                ).length
+            };
+            
+            console.log('📊 Session Report Generated:', report);
+            
+            // Store report for analytics
+            if (typeof(Storage) !== "undefined") {
+                const reports = JSON.parse(localStorage.getItem('nexteleven_reports') || '[]');
+                reports.push(report);
+                localStorage.setItem('nexteleven_reports', JSON.stringify(reports));
+            }
+            
+            return report;
+        }
     </script>
 </body>
 </html>

@@ -322,6 +322,32 @@
             font-size: 0.9em;
         }
 
+        .quick-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quick-option {
+            background: white;
+            border: 2px solid #e9ecef;
+            color: #333;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .quick-option:hover {
+            border-color: #667eea;
+            background: #f8f9fa;
+            color: #667eea;
+            transform: translateY(-1px);
+        }
+
         @media (max-width: 768px) {
             .enterprise-container {
                 margin: 10px;
@@ -572,6 +598,47 @@
                 response: "🤔 **I'm not sure I understood that question about tattoos.**\n\n**Could you rephrase or ask about:**\n• **Booking** - Appointments and consultations\n• **Pricing** - Cost estimates and packages\n• **Artists** - Our tattoo artists and their styles\n• **Services** - What we offer\n• **Policies** - Studio rules and procedures\n• **Aftercare** - Healing and maintenance\n• **Portfolio** - Examples of our work\n\n**Or just tell me what you'd like to know about getting a tattoo!** I'm here to help with everything tattoo-related.",
                 score: 30,
                 stage: 'clarification'
+            },
+            // Specific responses for exact phrases the tattoo bot asks customers to use
+            'schedule demo': {
+                response: "🎯 **Excellent! Let's schedule your personalized tattoo studio demo.**\n\n**What our demo includes:**\n• Live chatbot demonstration customized for tattoo studios\n• Real conversation examples for booking, pricing, and artist info\n• Dashboard walkthrough showing analytics and management\n• Integration examples with your current systems\n• Q&A session to address all your questions\n\n**What's your preferred time?**\n• Morning (9 AM - 12 PM)\n• Afternoon (1 PM - 5 PM)\n• Evening (6 PM - 8 PM)\n\n**What's the best email to send your demo confirmation?**",
+                score: 60,
+                stage: 'demo_scheduling'
+            },
+            'start free trial': {
+                response: "🚀 **Perfect! Let's get your tattoo studio free trial set up.**\n\n**What your trial includes:**\n• 30-day full access to all tattoo studio features\n• Custom chatbot setup for your tattoo business\n• Integration assistance with your website\n• Training and support throughout the trial\n• Performance analytics and reporting\n• No credit card required\n\n**What's your preferred setup time?**\n• Morning (9 AM - 12 PM)\n• Afternoon (1 PM - 5 PM)\n• Evening (6 PM - 8 PM)\n\n**What's the best email to send your trial setup details?**",
+                score: 60,
+                stage: 'trial_setup'
+            },
+            'see pricing': {
+                response: "💰 **Absolutely! Let me show you our tattoo studio pricing.**\n\n**What's your email address?** I'll send you:\n• Complete pricing for tattoo studio packages\n• ROI calculations specific to tattoo businesses\n• Case studies from successful tattoo studios\n• Implementation timelines\n• Military veteran discounts\n• Next steps to get started",
+                score: 55,
+                stage: 'email_collection'
+            },
+            'technical details': {
+                response: "🔧 **Great question! Let me show you our technical capabilities for tattoo studios.**\n\n**What would you like to know about?**\n• How our AI handles tattoo-specific conversations\n• Integration with your booking systems\n• Artist portfolio management\n• Payment processing for deposits\n• Age verification and compliance\n• Multi-platform integration\n\n**What's your email address?** I'll send you technical specifications and integration guides!",
+                score: 55,
+                stage: 'email_collection'
+            },
+            'see veteran pricing': {
+                response: "🇺🇸 **Veteran Tattoo Studio Pricing with Military Discounts!**\n\n**What's your email address?** I'll send you our complete pricing structure with veteran discounts applied, plus:\n• Veteran tattoo studio success stories\n• Special veteran features and priority support\n• Military discount application process\n• Dedicated veteran account manager",
+                score: 60,
+                stage: 'email_collection'
+            },
+            'schedule veteran consultation': {
+                response: "🇺🇸 **Veteran Tattoo Studio Consultation Scheduling!**\n\n**What's your email address?** I'll schedule your veteran consultation call, plus:\n• Priority scheduling for veterans\n• Veteran-specific tattoo studio solutions\n• Military discount application\n• Dedicated veteran account manager",
+                score: 60,
+                stage: 'email_collection'
+            },
+            'veteran success stories': {
+                response: "🇺🇸 **Veteran Tattoo Studio Success Stories!**\n\n**What's your email address?** I'll send you detailed case studies from veteran-owned tattoo studios, plus:\n• ROI examples from veteran businesses\n• Implementation stories and timelines\n• Veteran-specific features and support\n• Testimonials from veteran owners",
+                score: 60,
+                stage: 'email_collection'
+            },
+            'start veteran trial': {
+                response: "🇺🇸 **Veteran Tattoo Studio Free Trial Setup!**\n\n**What's your email address?** I'll set up your veteran trial with priority access, plus:\n• Veteran-specific tattoo studio features\n• Priority support and training\n• Military discount application\n• Dedicated veteran account manager",
+                score: 60,
+                stage: 'email_collection'
             }
         };
 
@@ -590,6 +657,23 @@
 
         function hideTypingIndicator() {
             document.getElementById('typingIndicator').classList.remove('active');
+        }
+
+        function addQuickOptions(options) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'quick-options';
+            
+            options.forEach(option => {
+                const optionBtn = document.createElement('div');
+                optionBtn.className = 'quick-option';
+                optionBtn.textContent = option;
+                optionBtn.onclick = () => handleQuickOption(option);
+                optionsDiv.appendChild(optionBtn);
+            });
+            
+            messagesContainer.appendChild(optionsDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
         function sendMessage(message) {
@@ -619,6 +703,16 @@
                 
                 if (bestMatch) {
                     addMessage(bestMatch.response, false);
+                    
+                    // Add agency-level quick actions for tattoo studio specific needs
+                    if (bestMatch.stage === 'booking' || bestMatch.stage === 'consultation') {
+                        addQuickOptions([
+                            'Schedule Demo',
+                            'Start Free Trial',
+                            'See Pricing',
+                            'Technical Details'
+                        ]);
+                    }
                 } else {
                     addMessage(tattooResponses['unrecognized'].response, false);
                 }
@@ -636,7 +730,15 @@
         }
 
         function showMilitaryDiscounts() {
-            alert("🇺🇸 Military Veteran Discounts\n\nNextEleven is honored to offer:\n• 10% off for Veterans\n• 20% off for Combat Veterans\n\nThank you for your service!\n\nContact us at NextElevenStudios@icloud.com for your discount code.");
+            addMessage("🇺🇸 **Military Veteran Discounts - Thank You for Your Service!**\n\n**NextEleven proudly offers:**\n\n**🎖️ 10% off for all Veterans**\n- Available on all packages\n- Monthly and annual plans\n- No setup fees on annual subscriptions\n- Applied to all features and integrations\n\n**🎖️ 20% off for Combat Veterans**\n- Additional discount for combat service\n- Available on all packages\n- No setup fees on annual subscriptions\n- Priority implementation scheduling\n\n**How to Apply:**\n1. Mention your veteran status during consultation\n2. Provide your DD-214 or military ID\n3. Discount applied to all packages\n4. Available for both monthly and annual plans\n\n**What's Included:**\n- Complete chatbot solution\n- Industry-specific training\n- 24/7 support\n- All features and integrations\n- Priority customer service\n- Dedicated account manager (Professional+ plans)\n\n**Veteran Success Stories:**\n• Combat veteran-owned tattoo studio: 60% increase in bookings\n• Veteran-owned auto shop: 45% reduction in phone calls\n• Veteran-owned dental practice: 50% improvement in patient communication\n\n**Contact us today to learn more about our veteran discount program and how we can help your business succeed!**\n\nWould you like me to:\n- Show you our complete pricing structure with veteran discounts?\n- Schedule a consultation call?\n- Send you detailed information?\n- Help you get started with a free trial?\n- Learn about veteran-specific features?", false);
+            
+            // Add veteran-specific quick options
+            addQuickOptions([
+                'See Veteran Pricing',
+                'Schedule Veteran Consultation',
+                'Veteran Success Stories',
+                'Start Veteran Trial'
+            ]);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -651,7 +753,38 @@
                     }
                 });
             }
+            
+            // Initialize agency-level features for tattoo demo
+            console.log('🎨 Tattoo Studio Demo with Agency-Level Features initialized');
         });
+        
+        // Enhanced quick option handling for tattoo studio specific actions
+        function handleQuickOption(option) {
+            const lowerOption = option.toLowerCase();
+            
+            if (lowerOption.includes('demo') || lowerOption.includes('schedule')) {
+                addMessage("🎯 **Excellent! Let's schedule your personalized tattoo studio demo.**\n\n**What our demo includes:**\n• Live chatbot demonstration customized for tattoo studios\n• Real conversation examples for booking, pricing, and artist info\n• Dashboard walkthrough showing analytics and management\n• Integration examples with your current systems\n• Q&A session to address all your questions\n\n**What's your preferred time?**\n• Morning (9 AM - 12 PM)\n• Afternoon (1 PM - 5 PM)\n• Evening (6 PM - 8 PM)\n\n**What's the best email to send your demo confirmation?**", false);
+            } else if (lowerOption.includes('trial') || lowerOption.includes('free')) {
+                addMessage("🚀 **Perfect! Let's get your tattoo studio free trial set up.**\n\n**What your trial includes:**\n• 30-day full access to all tattoo studio features\n• Custom chatbot setup for your tattoo business\n• Integration assistance with your website\n• Training and support throughout the trial\n• Performance analytics and reporting\n• No credit card required\n\n**What's your preferred setup time?**\n• Morning (9 AM - 12 PM)\n• Afternoon (1 PM - 5 PM)\n• Evening (6 PM - 8 PM)\n\n**What's the best email to send your trial setup details?**", false);
+            } else if (lowerOption.includes('pricing') || lowerOption.includes('cost')) {
+                addMessage("💰 **Absolutely! Let me show you our tattoo studio pricing.**\n\n**What's your email address?** I'll send you:\n• Complete pricing for tattoo studio packages\n• ROI calculations specific to tattoo businesses\n• Case studies from successful tattoo studios\n• Implementation timelines\n• Military veteran discounts\n• Next steps to get started", false);
+            } else if (lowerOption.includes('technical') || lowerOption.includes('integration')) {
+                addMessage("🔧 **Great question! Let me show you our technical capabilities for tattoo studios.**\n\n**What would you like to know about?**\n• How our AI handles tattoo-specific conversations\n• Integration with your booking systems\n• Artist portfolio management\n• Payment processing for deposits\n• Age verification and compliance\n• Multi-platform integration\n\n**What's your email address?** I'll send you technical specifications and integration guides!", false);
+            } else if (lowerOption.includes('veteran')) {
+                if (lowerOption.includes('pricing')) {
+                    addMessage("🇺🇸 **Veteran Tattoo Studio Pricing with Military Discounts!**\n\n**What's your email address?** I'll send you our complete pricing structure with veteran discounts applied, plus:\n• Veteran tattoo studio success stories\n• Special veteran features and priority support\n• Military discount application process\n• Dedicated veteran account manager", false);
+                } else if (lowerOption.includes('consultation')) {
+                    addMessage("🇺🇸 **Veteran Tattoo Studio Consultation Scheduling!**\n\n**What's your email address?** I'll schedule your veteran consultation call, plus:\n• Priority scheduling for veterans\n• Veteran-specific tattoo studio solutions\n• Military discount application\n• Dedicated veteran account manager", false);
+                } else if (lowerOption.includes('stories')) {
+                    addMessage("🇺🇸 **Veteran Tattoo Studio Success Stories!**\n\n**What's your email address?** I'll send you detailed case studies from veteran-owned tattoo studios, plus:\n• ROI examples from veteran businesses\n• Implementation stories and timelines\n• Veteran-specific features and support\n• Testimonials from veteran owners", false);
+                } else if (lowerOption.includes('trial')) {
+                    addMessage("🇺🇸 **Veteran Tattoo Studio Free Trial Setup!**\n\n**What's your email address?** I'll set up your veteran trial with priority access, plus:\n• Veteran-specific tattoo studio features\n• Priority support and training\n• Military discount application\n• Dedicated veteran account manager", false);
+                }
+            } else {
+                // Default handling for other options
+                sendMessage(option);
+            }
+        }
     </script>
 </body>
 </html>
