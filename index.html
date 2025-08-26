@@ -819,9 +819,118 @@
                 stage: 'information_delivery'
             },
             'schedule demo': {
-                response: "Excellent! Let's get you scheduled for a personalized demo.\n\n🎯 **What Our Demo Includes:**\n\n✅ **Custom configuration** - Set up with your business branding\n✅ **Real scenarios** - Show exactly how it works for your industry\n✅ **Integration demo** - See how it connects with your systems\n✅ **ROI calculation** - Custom numbers for your business\n✅ **Q&A session** - Answer all your technical questions\n✅ **Implementation walkthrough** - Step-by-step process\n\n**Demo Details:**\n⏰ **Duration**: 45 minutes\n📱 **Format**: Video call (Zoom/Teams)\n👥 **Attendees**: You + our technical team\n📅 **Available**: Morning, afternoon, or evening slots\n\n**What's your preferred time?** I'll have our team reach out to schedule it!",
+                response: "Excellent! Let's get you scheduled for a personalized demo.\n\n🎯 **What Our Demo Includes:**\n\n✅ **Custom configuration** - Set up with your business branding\n✅ **Real scenarios** - Show exactly how it works for your industry\n✅ **Integration demo** - See how it connects with your systems\n✅ **Business impact analysis** - Custom numbers for your business\n✅ **Q&A session** - Answer all your technical questions\n✅ **Implementation walkthrough** - Step-by-step process\n\n**Demo Details:**\n⏰ **Duration**: 45 minutes\n📱 **Format**: Video call (Zoom/Teams)\n👥 **Attendees**: You + our technical team\n📅 **Available**: Morning, afternoon, or evening slots\n\n**What's your preferred time?** I'll have our team reach out to schedule it!",
                 score: 30,
                 stage: 'demo_scheduling'
+            },
+            // Quick Option Button Responses - Industry Pain Points
+            'phone interruptions': {
+                response: "Phone interruptions are a huge productivity killer! Here's exactly how we solve this:\n\n📱 **Our Solution:**\n\n✅ **Smart call routing** - Chatbot handles routine questions\n✅ **Priority filtering** - Urgent calls still reach you immediately\n✅ **After-hours capture** - Never miss a potential client\n✅ **Staff protection** - Artists/stylists can focus on their work\n✅ **Call analytics** - See which questions are most common\n\n**Real Example:**\nA tattoo studio owner told us: 'I used to get interrupted 15-20 times per day during sessions. Now it's maybe 2-3 times, and only for urgent matters.'\n\n**What's your current situation?**\n- How many phone interruptions do you get during busy periods?\n- What percentage are routine questions vs urgent matters?\n- How much time does your staff spend on the phone?",
+                score: 35,
+                stage: 'phone_interruption_analysis'
+            },
+            'after-hours inquiries': {
+                response: "After-hours inquiries are pure gold - and you're probably missing most of them!\n\n🌙 **The Problem:**\n- 60-70% of customer inquiries happen outside business hours\n- Most businesses lose these opportunities completely\n- Competitors who answer 24/7 get these clients\n\n🌙 **Our Solution:**\n✅ **24/7 automated responses** - Never miss a potential client\n✅ **Intelligent lead capture** - Collect contact info and preferences\n✅ **Priority scheduling** - Urgent requests get immediate attention\n✅ **Follow-up automation** - Your team gets notified of all leads\n✅ **Booking capture** - Clients can schedule appointments anytime\n\n**Real Results:**\nOur clients typically capture 3-5 additional appointments per week that they were missing before.\n\n**What's your current after-hours situation?**\n- Do you have any after-hours system?\n- How many inquiries do you think you're missing?\n- What's your average appointment value?",
+                score: 35,
+                stage: 'after_hours_analysis'
+            },
+            'no-shows': {
+                response: "No-shows are revenue killers! Here's how we dramatically reduce them:\n\n❌ **Current No-Show Reality:**\n- Industry average: 15-25% no-show rate\n- Each no-show = lost revenue + wasted time\n- Manual reminder systems are inconsistent\n\n✅ **Our No-Show Solution:**\n\n**Automated Reminder System:**\n- SMS reminders 24 hours before appointment\n- Email confirmations with calendar integration\n- Easy rescheduling options\n- Cancellation policy enforcement\n\n**Smart Follow-up:**\n- Multiple reminder touchpoints\n- Easy rescheduling process\n- Cancellation analysis and prevention\n- Customer preference tracking\n\n**Typical Results:**\n- 60-80% reduction in no-shows\n- 40% improvement in appointment confirmations\n- Better customer communication and satisfaction\n\n**What's your current no-show rate?** And how much revenue does that represent monthly?",
+                score: 35,
+                stage: 'no_show_analysis'
+            },
+            'peak time chaos': {
+                response: "Peak time chaos is the worst! Your staff is trying to serve customers while the phone is ringing off the hook.\n\n🔥 **The Peak Time Problem:**\n- Phone constantly ringing during busy periods\n- Staff torn between customers and calls\n- Customer experience suffers\n- Revenue opportunities missed\n- Staff stress and burnout\n\n🔥 **Our Peak Time Solution:**\n\n**Smart Call Management:**\n- Chatbot handles routine questions automatically\n- Urgent calls still reach staff immediately\n- Call volume analysis and optimization\n- Staff can focus on in-person customers\n\n**Customer Experience:**\n- Instant responses to common questions\n- No waiting on hold\n- Professional 24/7 presence\n- Better customer satisfaction\n\n**Staff Benefits:**\n- Less stress during busy periods\n- More time with paying customers\n- Better work environment\n- Increased productivity\n\n**How bad is your peak time chaos?** What's your busiest period and how does it affect your business?",
+                score: 35,
+                stage: 'peak_time_analysis'
+            },
+            'service confusion': {
+                response: "Service confusion is a major customer experience killer! Here's how we solve it:\n\n❓ **The Service Confusion Problem:**\n- Customers unsure about treatments and pricing\n- Staff spending time explaining basic services\n- Inconsistent information across team members\n- Lost sales due to confusion\n- Poor customer experience\n\n❓ **Our Service Clarity Solution:**\n\n**Comprehensive Service Information:**\n- Detailed service descriptions and pricing\n- Before/after photos and examples\n- Duration estimates and preparation tips\n- FAQ handling for common questions\n- Service comparison tools\n\n**Smart Recommendations:**\n- Service matching based on customer needs\n- Package suggestions and combinations\n- Upselling opportunities\n- Personalized service recommendations\n\n**Customer Benefits:**\n- Clear understanding of services\n- Better decision making\n- Increased confidence in booking\n- Higher satisfaction and referrals\n\n**What services do customers ask about most?** And how much time does your staff spend explaining them?",
+                score: 35,
+                stage: 'service_confusion_analysis'
+            },
+            'client retention': {
+                response: "Client retention is the key to sustainable growth! Here's how we help you keep customers coming back:\n\n🔄 **The Retention Challenge:**\n- 80% of revenue comes from 20% of customers\n- Acquiring new customers costs 5x more than retaining existing ones\n- Poor communication leads to customer churn\n- Missed follow-up opportunities\n\n🔄 **Our Retention Solution:**\n\n**Automated Follow-up System:**\n- Post-service satisfaction surveys\n- Appointment reminders and confirmations\n- Birthday and anniversary recognition\n- Rebooking suggestions\n- Loyalty program management\n\n**Personalized Communication:**\n- Customer preference tracking\n- Service history awareness\n- Personalized recommendations\n- Special offer targeting\n\n**Retention Results:**\n- 25-40% improvement in customer retention\n- 30% increase in repeat bookings\n- Higher customer lifetime value\n- Better word-of-mouth referrals\n\n**What's your current retention rate?** And how do you currently follow up with customers?",
+                score: 35,
+                stage: 'retention_analysis'
+            },
+            // More Quick Option Button Responses
+            'appointment scheduling': {
+                response: "Appointment scheduling is often the biggest bottleneck! Here's how we streamline it:\n\n📅 **The Scheduling Problem:**\n- Phone calls during busy periods\n- Staff juggling customers and calls\n- Inconsistent availability information\n- Double-booking and conflicts\n- Customer frustration and no-shows\n\n📅 **Our Scheduling Solution:**\n\n**Smart Booking System:**\n- Real-time availability display\n- Self-service appointment booking\n- Conflict prevention and management\n- Automated confirmations\n- Easy rescheduling options\n\n**Staff Benefits:**\n- No more scheduling phone calls\n- Focus on in-person customers\n- Reduced scheduling errors\n- Better time management\n\n**Customer Benefits:**\n- Book appointments 24/7\n- See real-time availability\n- Easy rescheduling\n- Professional experience\n\n**What's your current scheduling process?** And how much time does it take daily?",
+                score: 35,
+                stage: 'scheduling_analysis'
+            },
+            'insurance verification': {
+                response: "Insurance verification is a major time-sink for dental practices! Here's our solution:\n\n🏥 **The Insurance Problem:**\n- Staff spending hours on verification calls\n- Patients confused about coverage\n- Delayed treatment decisions\n- Revenue cycle delays\n- Patient frustration\n\n🏥 **Our Insurance Solution:**\n\n**Automated Verification:**\n- Real-time benefits checking\n- Coverage explanation for patients\n- Cost estimates and breakdowns\n- Pre-authorization assistance\n- Claims tracking and updates\n\n**Staff Benefits:**\n- 70-80% reduction in verification time\n- Focus on patient care\n- Faster treatment decisions\n- Better patient communication\n\n**Patient Benefits:**\n- Clear cost understanding\n- Faster treatment planning\n- Better financial planning\n- Reduced surprises\n\n**How much time does your team spend on insurance verification daily?**",
+                score: 35,
+                stage: 'insurance_analysis'
+            },
+            'patient communication': {
+                response: "Patient communication is the foundation of great dental care! Here's how we enhance it:\n\n💬 **The Communication Challenge:**\n- Patients have questions 24/7\n- Staff overwhelmed during busy periods\n- Inconsistent information delivery\n- Missed follow-up opportunities\n- Poor patient experience\n\n💬 **Our Communication Solution:**\n\n**24/7 Patient Support:**\n- Instant answers to common questions\n- Pre-appointment instructions\n- Post-treatment care guidance\n- Medication and prescription info\n- Emergency guidance and triage\n\n**Smart Follow-up:**\n- Automated appointment reminders\n- Treatment follow-up sequences\n- Birthday and anniversary recognition\n- Rebooking suggestions\n- Patient satisfaction surveys\n\n**Results:**\n- 60% reduction in routine phone calls\n- 40% improvement in appointment show rates\n- Better patient satisfaction scores\n- Increased treatment compliance\n\n**What's your biggest communication challenge with patients?**",
+                score: 35,
+                stage: 'patient_communication_analysis'
+            },
+            'emergency handling': {
+                response: "Emergency handling is critical for dental practices! Here's our 24/7 solution:\n\n🚨 **The Emergency Problem:**\n- Patients with urgent issues after hours\n- Staff unavailable for emergency guidance\n- Delayed emergency care\n- Patient safety concerns\n- Lost emergency patients\n\n🚨 **Our Emergency Solution:**\n\n**24/7 Emergency Triage:**\n- Immediate response to urgent inquiries\n- Symptom assessment and guidance\n- Emergency appointment scheduling\n- On-call dentist notification\n- Patient safety instructions\n\n**Smart Emergency Management:**\n- Priority-based response system\n- Location-based emergency routing\n- Follow-up and monitoring\n- Emergency patient tracking\n- Integration with on-call systems\n\n**Benefits:**\n- Never miss an emergency\n- Faster emergency response\n- Better patient safety\n- Increased emergency patient capture\n- Professional 24/7 presence\n\n**How do you currently handle after-hours emergencies?**",
+                score: 35,
+                stage: 'emergency_handling_analysis'
+            },
+            'seasonal demand': {
+                response: "Seasonal demand spikes can make or break pet grooming businesses! Here's our solution:\n\n🌞 **The Seasonal Challenge:**\n- Holiday rushes overwhelm your team\n- Summer demand creates booking chaos\n- Winter slowdown affects cash flow\n- Inconsistent staffing needs\n- Customer frustration during busy periods\n\n🌞 **Our Seasonal Solution:**\n\n**Smart Demand Management:**\n- Advanced booking for peak periods\n- Waitlist management for popular slots\n- Seasonal package promotions\n- Staff scheduling optimization\n- Customer communication automation\n\n**Peak Period Features:**\n- Early booking incentives\n- Package deals and bundles\n- Automated waitlist management\n- Customer preference tracking\n- Seasonal service recommendations\n\n**Results:**\n- 40% better peak period management\n- 30% increase in seasonal bookings\n- Reduced customer frustration\n- Better staff utilization\n- Improved cash flow consistency\n\n**What's your busiest season and how do you currently manage it?**",
+                score: 35,
+                stage: 'seasonal_demand_analysis'
+            },
+            // More Quick Option Button Responses
+            'see pricing': {
+                response: "Absolutely! Let me show you our transparent pricing structure:\n\n💰 **NextEleven Pricing - No Hidden Fees:**\n\n**Professional Package: $297 setup + $97/month**\n✅ Complete chatbot solution\n✅ Industry-specific customization\n✅ Unlimited conversations\n✅ 24/7 monitoring and support\n✅ Integration with your systems\n✅ Training and onboarding\n\n**Enterprise Package: $497 setup + $197/month**\n✅ Everything in Professional, plus:\n✅ Multi-location management\n✅ Advanced analytics and reporting\n✅ Dedicated account manager\n✅ Custom integrations\n✅ White-label options\n\n**Enterprise Plus: Custom pricing**\n✅ For 10+ locations\n✅ Volume discounts\n✅ Custom features\n✅ Dedicated support team\n\n**What's included in ALL packages:**\n- Setup and customization\n- Training and onboarding\n- 24/7 support\n- Regular updates\n- Performance analytics\n\n**What size business are you?** This helps me recommend the right package.",
+                score: 30,
+                stage: 'pricing_detailed'
+            },
+            'see case studies': {
+                response: "Excellent! I'd love to share some real success stories with you.\n\n📚 **Recent Case Studies by Industry:**\n\n🏥 **Dental Practice - SmileCare Dental**\n- 70% reduction in front desk phone time\n- 45% increase in appointment confirmations\n- 40% improvement in patient satisfaction\n- ROI achieved in 2 months\n\n💇‍♀️ **Hair Salon - Glamour Salon**\n- 25% boost in retail sales\n- 15 hours saved weekly on scheduling\n- 30% increase in online bookings\n- 20% improvement in client retention\n\n🎨 **Tattoo Studio - Ink & Iron**\n- 40% increase in bookings\n- 60% fewer no-shows\n- 70% reduction in phone interruptions\n- 10-15 hours saved weekly\n\n🔧 **Plumbing Service - Metro Plumbing**\n- 40% faster emergency response\n- 30% reduction in unnecessary dispatches\n- 24/7 emergency call capture\n- 25% increase in maintenance appointments\n\n**What industry are you in?** I can show you the full case study with specific details and results.",
+                score: 30,
+                stage: 'case_study_selection'
+            },
+            'get proposal': {
+                response: "Perfect! I'll create a custom proposal for your business.\n\n📋 **What Your Custom Proposal Includes:**\n\n✅ **Business Analysis** - Your specific challenges and opportunities\n✅ **Solution Mapping** - Exactly how NextEleven solves your problems\n✅ **Custom Pricing** - Tailored to your business size and needs\n✅ **Implementation Timeline** - Step-by-step process\n✅ **ROI Projection** - Custom calculations for your business\n✅ **Case Studies** - Results from businesses like yours\n✅ **Technical Specifications** - Integration and setup details\n✅ **Support Plan** - Ongoing assistance and optimization\n\n**To create your proposal, I need to know:**\n- Your business type and size\n- Current challenges and pain points\n- Timeline for implementation\n- Budget considerations\n- Decision-making process\n\n**What's the best email to send your custom proposal?**\n\n**You'll receive it within 24 hours, plus a follow-up call to discuss it.**",
+                score: 35,
+                stage: 'proposal_creation'
+            },
+            'talk to sales': {
+                response: "Absolutely! Let me connect you with our sales team for a personalized consultation.\n\n👥 **What Happens Next:**\n\n📞 **Sales Director Call** - Within 24 hours\n📧 **Custom Proposal** - Tailored to your business\n🎯 **Personalized Demo** - Show exactly how it works for you\n💰 **ROI Analysis** - Specific to your situation\n📅 **Implementation Timeline** - Clear next steps\n\n**Our Sales Process:**\n1. **Discovery Call** - Understand your specific needs\n2. **Solution Presentation** - Show how we solve your problems\n3. **Custom Proposal** - Tailored solution and pricing\n4. **Implementation Planning** - Get you up and running\n\n**What to Expect:**\n- No pressure sales tactics\n- Focus on your specific needs\n- Clear pricing and timeline\n- Ongoing support commitment\n\n**What's the best way to reach you?** Phone? Email? And what time works best?",
+                score: 35,
+                stage: 'sales_contact'
+            },
+            'start trial': {
+                response: "Excellent choice! Let's get you started with a risk-free trial.\n\n🎯 **30-Day Free Trial - What You Get:**\n\n✅ **Full chatbot setup** with your business branding\n✅ **Industry-specific training** and customization\n✅ **Integration** with your existing systems\n✅ **24/7 monitoring** and support\n✅ **Performance analytics** and reporting\n✅ **All features** - no limitations\n\n**Trial Requirements:**\n- 30-minute setup call\n- Access to your website/systems\n- Your team's availability for training\n- Commitment to test the system\n\n**What Happens After 30 Days:**\n- If you love it: Continue with regular pricing\n- If it's not for you: No charges, no commitment\n- We help you export any data collected\n\n**Ready to start?** What's the best time for your setup call?\n\n**Morning, afternoon, or evening works best for us.**",
+                score: 35,
+                stage: 'trial_setup'
+            },
+            'learn more': {
+                response: "Absolutely! Let me tell you more about NextEleven and how we can help your business.\n\n🏢 **About NextEleven:**\n\n**We're an enterprise AI company** that builds intelligent chatbots specifically for service businesses. We've helped 500+ companies across all industries improve their customer service and increase revenue.\n\n**What Makes Us Different:**\n\n⚡ **Industry Specialization** - Built specifically for service businesses\n⚡ **Fast Setup** - 2 weeks vs 6-8 weeks with competitors\n⚡ **Proven Results** - Track record of success across industries\n⚡ **Ongoing Support** - Dedicated account management\n⚡ **Continuous Improvement** - Regular updates based on feedback\n\n**Our Core Solutions:**\n\n🤖 **24/7 Customer Service** - Never miss a customer inquiry\n📅 **Smart Scheduling** - Streamline appointment booking\n💬 **Automated Communication** - Handle routine questions\n📊 **Performance Analytics** - Track and optimize results\n🔗 **System Integration** - Works with your existing tools\n\n**What aspect would you like to explore further?**\n- How it works technically?\n- Industry-specific features?\n- Implementation process?\n- Case studies and results?",
+                score: 25,
+                stage: 'detailed_information'
+            },
+            // Package Selection Responses
+            'professional package': {
+                response: "Excellent choice! The Professional Package is perfect for single-location businesses.\n\n💼 **Professional Package: $297 setup + $97/month**\n\n**What You Get:**\n✅ Complete chatbot solution with your branding\n✅ Industry-specific customization and training\n✅ Unlimited conversations and integrations\n✅ 24/7 monitoring and support\n✅ Integration with your existing systems\n✅ Training and onboarding for your team\n✅ Regular updates and improvements\n✅ Performance analytics and reporting\n\n**Perfect For:**\n- Single-location businesses\n- 1-10 staff members\n- Basic to moderate customer volume\n- Standard industry requirements\n\n**Implementation:**\n- 2-week setup and training\n- Full customization to your business\n- Integration with your systems\n- Team training and onboarding\n\n**Ready to get started?** What's the best time for your setup call?\n\n**Morning, afternoon, or evening works best for us.**",
+                score: 35,
+                stage: 'professional_package_setup'
+            },
+            'enterprise package': {
+                response: "Perfect! The Enterprise Package is ideal for growing businesses and multi-location operations.\n\n🏢 **Enterprise Package: $497 setup + $197/month**\n\n**What You Get:**\n✅ Everything in Professional, plus:\n✅ Multi-location management dashboard\n✅ Advanced analytics and reporting\n✅ Dedicated account manager\n✅ Custom integrations and features\n✅ White-label options\n✅ Priority support and monitoring\n✅ Advanced customization options\n✅ Performance optimization\n\n**Perfect For:**\n- Multi-location businesses\n- 10+ staff members\n- High customer volume\n- Advanced requirements\n- Growing businesses\n\n**Implementation:**\n- 2-week setup with advanced features\n- Multi-location configuration\n- Custom integrations\n- Dedicated support team\n\n**Ready to scale your business?** What's the best time for your setup call?\n\n**Morning, afternoon, or evening works best for us.**",
+                score: 35,
+                stage: 'enterprise_package_setup'
+            },
+            'send email': {
+                response: "Perfect! I'll send you everything right now.\n\n📧 **What You'll Receive:**\n\n📋 **Comprehensive Information Package:**\n- Detailed pricing breakdown\n- Industry-specific case studies\n- Technical specifications\n- Implementation timeline\n- ROI calculator\n- Demo video access\n- Client testimonials\n- Next steps guide\n\n📞 **Follow-up Call:**\n- Our team will call within 24 hours\n- Personalized consultation\n- Custom solution proposal\n- Implementation planning\n\n**What's the best email address to send this to?**\n\n**You'll receive everything within 5 minutes, plus:**\n- Access to our client portal\n- Additional resources and materials\n- Direct contact information for our team",
+                score: 25,
+                stage: 'email_collection'
+            },
+            'schedule call': {
+                response: "Excellent! Let's get you scheduled for a personalized consultation call.\n\n📞 **What Our Consultation Call Includes:**\n\n✅ **Business Analysis** - Understand your specific challenges\n✅ **Solution Mapping** - Show exactly how we can help\n✅ **Custom ROI Calculation** - Numbers specific to your business\n✅ **Implementation Planning** - Step-by-step process\n✅ **Q&A Session** - Answer all your questions\n✅ **Next Steps** - Clear path forward\n\n**Call Details:**\n⏰ **Duration**: 45 minutes\n📱 **Format**: Phone or video call (your preference)\n👥 **Attendees**: You + our business consultant\n📅 **Available**: Morning, afternoon, or evening slots\n\n**What's your preferred time?** I'll have our team reach out to schedule it!\n\n**Morning, afternoon, or evening works best for us.**",
+                score: 30,
+                stage: 'call_scheduling'
             },
             'tattoo studio': {
                 response: "Perfect! Tattoo studios are one of our specialties. Our industry-specific chatbot solutions address your biggest pain points:\n\n🎨 **Appointment booking & rescheduling** - No more phone interruptions during sessions\n🎨 **Artist availability checking** - Clients can see who's available and when\n🎨 **Pricing estimates** - Based on size, placement, and complexity\n🎨 **Aftercare support** - 24/7 guidance for clients post-tattoo\n🎨 **Portfolio showcase** - Artist-specific work examples\n🎨 **Consultation scheduling** - Streamlined initial meetings\n\n**Key Benefits for Tattoo Studios:**\n✅ Reduce interruptions during tattooing by 70%\n✅ Capture leads 24/7 when studio is closed\n✅ Increase booking conversion by 35-50%\n✅ Reduce no-shows through automated reminders\n✅ Save 10-15 hours per week on admin tasks\n\nWhat's your biggest challenge currently - phone interruptions, after-hours inquiries, or no-shows?",                   
@@ -1001,6 +1110,42 @@
                         addQuickOptions(['Morning', 'Afternoon', 'Evening', 'Send information']);
                     } else if (response.stage === 'information_delivery') {
                         addQuickOptions(['Send now', 'Schedule call', 'See pricing', 'Start trial']);
+                    } else if (response.stage === 'phone_interruption_analysis') {
+                        addQuickOptions(['Schedule demo', 'See pricing', 'Get proposal', 'Talk to sales']);
+                    } else if (response.stage === 'after_hours_analysis') {
+                        addQuickOptions(['Start trial', 'Schedule demo', 'See pricing', 'Get proposal']);
+                    } else if (response.stage === 'no_show_analysis') {
+                        addQuickOptions(['Schedule demo', 'See pricing', 'Start trial', 'Get proposal']);
+                    } else if (response.stage === 'peak_time_analysis') {
+                        addQuickOptions(['Schedule demo', 'See pricing', 'Start trial', 'Get proposal']);
+                    } else if (response.stage === 'service_confusion_analysis') {
+                        addQuickOptions(['Schedule demo', 'See pricing', 'Start trial', 'Get proposal']);
+                    } else if (response.stage === 'retention_analysis') {
+                        addQuickOptions(['Schedule demo', 'See pricing', 'Start trial', 'Get proposal']);
+                    } else if (response.stage === 'scheduling_analysis') {
+                        addQuickOptions(['Schedule demo', 'See pricing', 'Start trial', 'Get proposal']);
+                    } else if (response.stage === 'insurance_analysis') {
+                        addQuickOptions(['Schedule demo', 'See pricing', 'Start trial', 'Get proposal']);
+                    } else if (response.stage === 'patient_communication_analysis') {
+                        addQuickOptions(['Schedule demo', 'See pricing', 'Start trial', 'Get proposal']);
+                    } else if (response.stage === 'emergency_handling_analysis') {
+                        addQuickOptions(['Schedule demo', 'See pricing', 'Start trial', 'Get proposal']);
+                    } else if (response.stage === 'seasonal_demand_analysis') {
+                        addQuickOptions(['Schedule demo', 'See pricing', 'Start trial', 'Get proposal']);
+                    } else if (response.stage === 'pricing_detailed') {
+                        addQuickOptions(['Professional package', 'Enterprise package', 'Schedule demo', 'Start trial']);
+                    } else if (response.stage === 'case_study_selection') {
+                        addQuickOptions(['Dental Practice', 'Hair Salon', 'Tattoo Studio', 'Plumbing Service', 'Other Industry']);
+                    } else if (response.stage === 'proposal_creation') {
+                        addQuickOptions(['Send email', 'Schedule call', 'See pricing', 'Start trial']);
+                    } else if (response.stage === 'professional_package_setup') {
+                        addQuickOptions(['Morning setup', 'Afternoon setup', 'Evening setup', 'Get proposal']);
+                    } else if (response.stage === 'enterprise_package_setup') {
+                        addQuickOptions(['Morning setup', 'Afternoon setup', 'Evening setup', 'Get proposal']);
+                    } else if (response.stage === 'email_collection') {
+                        addQuickOptions(['Send now', 'Schedule call', 'See pricing', 'Start trial']);
+                    } else if (response.stage === 'call_scheduling') {
+                        addQuickOptions(['Morning', 'Afternoon', 'Evening', 'Send information']);
                     } else {
                         addQuickOptions(['Continue', 'More Information', 'Schedule Demo', 'See Pricing']);
                     }
