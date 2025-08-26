@@ -1,0 +1,68 @@
+language: en
+
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 150
+    learning_rate: 0.001
+    bert_model_name: "bert-base-uncased"
+    model_name: "mariam_diet_advanced"
+    weight_sparsity: 0.8
+    embedding_dimension: 20
+    hidden_layers_sizes:
+      text: [512, 256, 128]
+      label: [512, 256, 128]
+    number_of_transformer_layers: 4
+    transformer_size: 512
+    weight_decay: 0.001
+    drop_rate: 0.3
+    sparse_attention: true
+    use_masked_language_model: true
+    use_text_as_label: false
+    evaluate_every_number_of_epochs: 10
+    evaluate_on_number_of_examples: 0
+    batch_size: [64, 128, 256]
+    learning_rate: 0.001
+    optimizer_name: "Adam"
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 150
+    constrain_similarities: true
+
+policies:
+  - name: MemoizationPolicy
+    max_history: 10
+  - name: RulePolicy
+    core_fallback_threshold: 0.2
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: true
+  - name: UnexpecTEDIntentPolicy
+    max_history: 10
+    epochs: 150
+  - name: TEDPolicy
+    max_history: 10
+    epochs: 150
+    constrain_similarities: true
+    model_name: "mariam_ted_advanced"
+    learning_rate: 0.001
+    embedding_dimension: 20
+    hidden_layers_sizes:
+      dialogue: [512, 256, 128]
+      user: [512, 256, 128]
+      bot: [512, 256, 128]
+    number_of_transformer_layers: 4
+    transformer_size: 512
+    weight_decay: 0.001
+    drop_rate: 0.3
+    sparse_attention: true
+    use_masked_language_model: true
+    use_text_as_label: false
+    evaluate_every_number_of_epochs: 10
+    evaluate_on_number_of_examples: 0

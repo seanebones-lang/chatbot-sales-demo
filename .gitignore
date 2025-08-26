@@ -1,10 +1,10 @@
-# Virtual Environment
+# Virtual Environment - only exclude the actual venv, not bot files
 rasa-env/
 venv/
 env/
 .venv/
 
-# Python
+# Python cache files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -26,16 +26,11 @@ wheels/
 .installed.cfg
 *.egg
 
-# Rasa
-models/
-.rasa/
-*.tar.gz
-
 # IDE
 .vscode/
 .idea/
 *.swp
-*.swo
+*.swp
 *~
 
 # OS
