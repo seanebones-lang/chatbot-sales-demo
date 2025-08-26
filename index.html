@@ -1152,7 +1152,7 @@
                     'restaurant', 'spa', 'law firm', 'fitness', 'gym'
                 ];
                 
-                // Regular keyword matching
+                // Regular keyword matching - check if user message contains any business keywords
                 for (const [keyword, response] of Object.entries(mariResponses)) {
                     if (lowerMessage.includes(keyword.toLowerCase())) {
                         if (response.score > bestScore) {
@@ -1162,8 +1162,8 @@
                     }
                 }
                 
-                // If it's a business inquiry but no specific match found
-                if (businessKeywords.some(keyword => lowerMessage.includes(keyword.toLowerCase())) && !bestMatch) {
+                // If no match found but message contains business keywords, use fallback
+                if (!bestMatch && businessKeywords.some(keyword => lowerMessage.includes(keyword.toLowerCase()))) {
                     // Auto-email seanebones@icloud.com about unrecognized business type
                     const subject = `New Unrecognized Business Type Inquiry: ${message}`;
                     const body = `New inquiry from chatbot:\n\nMessage: ${message}\n\nThis business type is not in our database yet. Please research and add appropriate responses.\n\nTime: ${new Date().toLocaleString()}`;
@@ -1174,6 +1174,8 @@
                     // Use fallback response
                     bestMatch = mariResponses['unrecognized_business'];
                 }
+                
+
                 
                 if (bestMatch) {
                     addMessage(bestMatch.response, false);
