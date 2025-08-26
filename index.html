@@ -781,6 +781,33 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
             
             console.log('🧪 Mariam Functions Test Complete!');
         }
+
+        // Event listeners for Mariam
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('NextEleven Mariam AI Chatbot initialized');
+            
+            // Add event listener for Enter key on chat input
+            const chatInput = document.getElementById('messageInput');
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter') {
+                        sendUserMessage();
+                    }
+                });
+                console.log('✅ Enter key listener added to chat input');
+            } else {
+                console.log('❌ Chat input element not found');
+            }
+            
+            // Add event listener for send button
+            const sendButton = document.getElementById('sendButton');
+            if (sendButton) {
+                sendButton.addEventListener('click', sendUserMessage);
+                console.log('✅ Click listener added to send button');
+            } else {
+                console.log('❌ Send button element not found');
+            }
+        });
     </script>
 </body>
 </html>

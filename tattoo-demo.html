@@ -743,6 +743,18 @@
                         sendUserMessage();
                     }
                 });
+                console.log('✅ Enter key listener added to chat input');
+            } else {
+                console.log('❌ Chat input element not found');
+            }
+            
+            // Add event listener for send button
+            const sendButton = document.getElementById('sendButton');
+            if (sendButton) {
+                sendButton.addEventListener('click', sendUserMessage);
+                console.log('✅ Click listener added to send button');
+            } else {
+                console.log('❌ Send button element not found');
             }
             
             // Initialize agency-level features for tattoo demo
