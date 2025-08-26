@@ -67,25 +67,13 @@
                 0 0 15px #FF1493,
                 0 0 20px #FF1493,
                 0 0 25px #FF1493,
-                0 0 30px #FF1493,
-                0 0 35px #FF1493,
-                0 0 40px #FF1493,
-                0 0 45px #FF1493,
-                0 0 50px #FF1493,
-                0 0 55px #FF1493,
-                0 0 60px #FF1493,
-                0 0 65px #FF1493,
-                0 0 70px #FF1493,
-                0 0 75px #FF1493,
-                0 0 80px #FF1493,
-                0 0 85px #FF1493,
-                0 0 90px #FF1493,
-                0 0 95px #FF1493,
-                0 0 100px #FF1493;
+                0 0 30px #FF1493;
             animation: neonFlicker 3s infinite alternate;
             letter-spacing: 8px;
             text-transform: uppercase;
-            filter: drop-shadow(0 0 20px rgba(255, 20, 147, 0.8));
+            filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.6));
+            position: relative;
+            z-index: 2;
         }
 
         .neon-subtitle {
@@ -97,18 +85,14 @@
                 0 0 5px #00CED1,
                 0 0 10px #00CED1,
                 0 0 15px #00CED1,
-                0 0 20px #00CED1,
-                0 0 25px #00CED1,
-                0 0 30px #00CED1,
-                0 0 35px #00CED1,
-                0 0 40px #00CED1,
-                0 0 45px #00CED1,
-                0 0 50px #00CED1;
+                0 0 20px #00CED1;
             animation: neonFlicker 2.5s infinite alternate-reverse;
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-top: 10px;
-            filter: drop-shadow(0 0 15px rgba(0, 206, 209, 0.8));
+            filter: drop-shadow(0 0 10px rgba(0, 206, 209, 0.6));
+            position: relative;
+            z-index: 2;
         }
 
         .neon-glow {
@@ -118,33 +102,34 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(ellipse at center, 
-                rgba(255, 20, 147, 0.3) 0%, 
-                rgba(0, 206, 209, 0.2) 30%, 
+                rgba(255, 20, 147, 0.15) 0%, 
+                rgba(0, 206, 209, 0.1) 30%, 
                 transparent 70%);
             border-radius: 50%;
             animation: glowPulse 4s ease-in-out infinite;
             pointer-events: none;
+            z-index: 1;
         }
 
         @keyframes neonFlicker {
             0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
-                opacity: 0.99;
-                filter: drop-shadow(0 0 20px currentColor);
+                opacity: 1;
+                filter: drop-shadow(0 0 15px currentColor);
             }
             20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
-                opacity: 0.4;
-                filter: drop-shadow(0 0 10px currentColor);
+                opacity: 0.7;
+                filter: drop-shadow(0 0 8px currentColor);
             }
         }
 
         @keyframes glowPulse {
             0%, 100% {
-                opacity: 0.3;
+                opacity: 0.1;
                 transform: scale(1);
             }
             50% {
-                opacity: 0.6;
-                transform: scale(1.1);
+                opacity: 0.25;
+                transform: scale(1.05);
             }
         }
 
