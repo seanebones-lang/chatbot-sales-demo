@@ -13,20 +13,21 @@
 
         body {
             font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0f1419;
+            background: #000000;
             min-height: 100vh;
-            color: #1f2937;
+            color: #ffffff;
         }
 
         .enterprise-container {
             max-width: 1400px;
             margin: 20px auto;
-            background: #ffffff;
+            background: #000000;
             min-height: calc(100vh - 40px);
             display: flex;
             flex-direction: column;
             border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(255,255,255,0.1);
+            border: 1px solid #333333;
         }
 
         .corporate-header {
@@ -75,7 +76,7 @@
         }
 
         .info-panel {
-            background: #f8fafc;
+            background: #000000;
             padding: 40px;
             display: flex;
             flex-direction: column;
@@ -83,7 +84,7 @@
         }
 
         .info-panel h2 {
-            color: #1e40af;
+            color: #ffffff;
             font-size: 2.2em;
             font-weight: 700;
             margin-bottom: 20px;
@@ -100,7 +101,7 @@
             padding-left: 30px;
             position: relative;
             font-size: 1.1em;
-            color: #374151;
+            color: #ffffff;
             line-height: 1.5;
         }
 
@@ -121,29 +122,29 @@
         }
 
         .stat-item {
-            background: white;
+            background: #000000;
             padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(255,255,255,0.1);
             text-align: center;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #333333;
         }
 
         .stat-number {
             font-size: 2em;
             font-weight: 700;
-            color: #1e40af;
+            color: #ffffff;
         }
 
         .stat-label {
-            color: #6b7280;
+            color: #cccccc;
             font-size: 0.9em;
             margin-top: 5px;
         }
 
         .chat-interface {
-            background: #ffffff;
-            border-left: 1px solid #e5e7eb;
+            background: #000000;
+            border-left: 1px solid #333333;
             display: flex;
             flex-direction: column;
         }
@@ -184,7 +185,7 @@
             flex: 1;
             padding: 25px;
             overflow-y: auto;
-            background: #fafbfc;
+            background: #000000;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -224,8 +225,8 @@
 
         .chat-input-area {
             padding: 20px;
-            background: white;
-            border-top: 1px solid #e5e7eb;
+            background: #000000;
+            border-top: 1px solid #333333;
             display: flex;
             gap: 12px;
             align-items: center;
@@ -270,9 +271,9 @@
         }
 
         .quick-option {
-            background: white;
-            border: 2px solid #e5e7eb;
-            color: #374151;
+            background: #000000;
+            border: 2px solid #333333;
+            color: #ffffff;
             padding: 10px 18px;
             border-radius: 20px;
             cursor: pointer;
@@ -283,8 +284,8 @@
 
         .quick-option:hover {
             border-color: #3b82f6;
-            background: #eff6ff;
-            color: #1e40af;
+            background: #1e40af;
+            color: #ffffff;
             transform: translateY(-1px);
         }
 
@@ -310,8 +311,8 @@
         .typing-indicator {
             display: none;
             align-self: flex-start;
-            background: #f3f4f6;
-            color: #6b7280;
+            background: #333333;
+            color: #ffffff;
             padding: 12px 18px;
             border-radius: 18px;
             font-style: italic;
@@ -1385,10 +1386,184 @@
             sendEmail('NextElevenStudios@icloud.com', subject, body);
         }
 
+        // Professional demo scheduling function
+        function scheduleProfessionalDemo(businessType, options = {}) {
+            const duration = options.duration || '30 minutes';
+            const type = options.type || 'screen share';
+            
+            addMessage(`🎯 **Perfect! Let's schedule your personalized demo for ${businessType}.**\n\n**Demo Details:**\n• **Duration**: ${duration}\n• **Type**: ${type}\n• **Customized for**: ${businessType}\n\n**What's your email address?** I'll send you:\n✅ Demo confirmation with calendar invite\n✅ Pre-demo questionnaire\n✅ Customized demo agenda\n✅ Technical requirements checklist\n✅ Follow-up call scheduling\n\n**Demo will include:**\n• Live chatbot demonstration\n• Industry-specific examples\n• Real conversation flows\n• Dashboard walkthrough\n• Integration examples\n• Q&A session\n\n**What's the best email to send your demo details to?**`, false);
+            
+            // Track demo scheduling
+            userSession.interactions.push({
+                type: 'demo_scheduled',
+                timestamp: new Date().toISOString(),
+                businessType: businessType,
+                demoOptions: options
+            });
+            
+            updateLeadScore(15, 'Demo scheduled');
+        }
+
+        // Professional trial setup function
+        function setupProfessionalTrial(businessType, options = {}) {
+            const duration = options.duration || '30 days';
+            const features = options.features || 'all features';
+            
+            addMessage(`🚀 **Excellent! Let's get your ${duration} free trial set up for ${businessType}.**\n\n**Trial Includes:**\n• **Duration**: ${duration}\n• **Features**: ${features}\n• **Customized for**: ${businessType}\n\n**What's your email address?** I'll send you:\n✅ Trial setup confirmation\n✅ Access credentials\n✅ Custom chatbot creation\n✅ Integration instructions\n✅ Training schedule\n✅ Support contact information\n\n**Trial Process:**\n1. **Quick setup** (1-2 days)\n2. **Custom configuration** for your business\n3. **Website integration** (same day)\n4. **Training session** (30 minutes)\n5. **Go live** and start testing\n\n**What's the best email to send your trial setup to?**`, false);
+            
+            // Track trial setup
+            userSession.interactions.push({
+                type: 'trial_setup',
+                timestamp: new Date().toISOString(),
+                businessType: businessType,
+                trialOptions: options
+            });
+            
+            updateLeadScore(20, 'Trial setup initiated');
+        }
+
+        // Payment processing function
+        function processPaymentRequest(packageType, amount, options = {}) {
+            const paymentMethod = options.method || 'credit card';
+            const billingCycle = options.billing || 'monthly';
+            
+            addMessage(`💳 **Perfect! Let's process your payment for the ${packageType} package.**\n\n**Payment Details:**\n• **Package**: ${packageType}\n• **Amount**: $${amount}\n• **Billing**: ${billingCycle}\n• **Method**: ${paymentMethod}\n\n**What's your email address?** I'll send you:\n✅ Payment confirmation\n✅ Invoice and receipt\n✅ Account activation details\n✅ Welcome package\n✅ Next steps for setup\n\n**Payment Options:**\n• Credit card (Visa, MasterCard, AmEx)\n• PayPal\n• Bank transfer\n• Annual billing (save 15-20%)\n\n**What's the best email to send your payment confirmation to?**`, false);
+            
+            // Track payment request
+            userSession.interactions.push({
+                type: 'payment_requested',
+                timestamp: new Date().toISOString(),
+                packageType: packageType,
+                amount: amount,
+                paymentOptions: options
+            });
+            
+            updateLeadScore(25, 'Payment requested');
+        }
+
+        // Business needs analysis function
+        function analyzeBusinessNeeds(businessType, message) {
+            const analysis = {
+                painPoints: [],
+                features: [],
+                roi: '',
+                package: 'professional',
+                timeline: '2-3 weeks'
+            };
+            
+            // Analyze based on business type
+            if (businessType.includes('tattoo') || businessType.includes('salon') || businessType.includes('beauty')) {
+                analysis.painPoints = [
+                    'Peak time chaos and phone interruptions',
+                    'Appointment scheduling confusion',
+                    'Appointment scheduling confusion',
+                    'After-hours inquiries going unanswered',
+                    'Repetitive questions about services and pricing',
+                    'Customer wait times leading to lost sales'
+                ];
+                analysis.features = [
+                    '24/7 appointment scheduling',
+                    'Service and pricing information',
+                    'Portfolio and artist showcase',
+                    'Customer testimonials and reviews',
+                    'Promotional offers and packages'
+                ];
+                analysis.roi = '40-60% increase in bookings within 3 months';
+                analysis.package = 'professional';
+            } else if (businessType.includes('healthcare') || businessType.includes('medical') || businessType.includes('dental')) {
+                analysis.painPoints = [
+                    'Patient communication challenges',
+                    'Appointment scheduling inefficiencies',
+                    'After-hours patient inquiries',
+                    'Insurance and billing questions',
+                    'Medical information requests'
+                ];
+                analysis.features = [
+                    'HIPAA-compliant patient communication',
+                    'Appointment scheduling and reminders',
+                    'Insurance and billing information',
+                    'Medical FAQ and resources',
+                    'Patient portal integration'
+                ];
+                analysis.roi = '50-70% improvement in patient communication within 2 months';
+                analysis.package = 'agency';
+            } else if (businessType.includes('automotive') || businessType.includes('auto')) {
+                analysis.painPoints = [
+                    'Service appointment scheduling',
+                    'Parts and pricing inquiries',
+                    'Technical questions and support',
+                    'After-hours customer service',
+                    'Service history and maintenance reminders'
+                ];
+                analysis.features = [
+                    'Service appointment booking',
+                    'Parts catalog and pricing',
+                    'Service history tracking',
+                    'Maintenance reminders',
+                    'Customer support and FAQ'
+                ];
+                analysis.roi = '35-55% increase in service bookings within 2 months';
+                analysis.package = 'recommended';
+            } else {
+                // General business analysis
+                analysis.painPoints = [
+                    'Customer service interruptions',
+                    'After-hours inquiry handling',
+                    'Repetitive question management',
+                    'Lead capture and qualification',
+                    '24/7 availability requirements'
+                ];
+                analysis.features = [
+                    '24/7 customer service automation',
+                    'Lead capture and qualification',
+                    'FAQ and knowledge base',
+                    'Multi-platform integration',
+                    'Analytics and reporting'
+                ];
+                analysis.roi = '30-50% improvement in customer service efficiency within 3 months';
+                analysis.package = 'starter';
+            }
+            
+            return analysis;
+        }
+
+        // Lead escalation function
+        function escalateLead(userId, reason) {
+            console.log(`🚨 Lead escalated for user ${userId}: ${reason}`);
+            
+            // Update lead score for escalation
+            updateLeadScore(30, `Lead escalated: ${reason}`);
+            
+            // Add escalation to interactions
+            userSession.interactions.push({
+                type: 'lead_escalated',
+                timestamp: new Date().toISOString(),
+                reason: reason,
+                userId: userId
+            });
+            
+            // Show escalation message
+            addMessage(`🚨 **Your request has been escalated for immediate attention!**\n\n**What this means:**\n✅ **Priority handling** by senior team members\n✅ **Expedited response** within 2 hours\n✅ **Direct contact** from account manager\n✅ **Custom solution** development\n\n**Next steps:**\n1. **Immediate**: Senior team notification sent\n2. **Within 2 hours**: Account manager contact\n3. **Within 24 hours**: Custom solution proposal\n4. **Within 48 hours**: Implementation planning\n\n**Your request is now our top priority!** 🎯`, false);
+            
+            return true;
+        }
+
         // Enhanced comprehensive PDF delivery with agency-level features
         function deliverComprehensivePDF(packageType, userEmail, businessType = null) {
-            const packageInfo = agencyConfig.pricing[packageType] || agencyConfig.pricing.starter;
-            const packageFeatures = agencyConfig.features[packageType] || agencyConfig.features.starter;
+            // Define package information locally since agencyConfig doesn't exist
+            const packageInfo = {
+                starter: { monthly: 79, annual: 67, setup: 149 },
+                professional: { monthly: 247, annual: 197, setup: 0 },
+                agency: { monthly: 597, annual: 447, setup: 0 },
+                enterprise: { custom: true }
+            };
+            
+            const packageFeatures = {
+                starter: ['1 Custom AI Chatbot', '1,000 Queries/Month', '5 Knowledge Sources', 'Email Support'],
+                professional: ['3 Custom AI Chatbots', '5,000 Queries/Month', '15 Knowledge Sources', 'Payment Processing', 'Lead Capture', 'Analytics'],
+                agency: ['10 Custom AI Chatbots', '20,000 Queries/Month', '50 Knowledge Sources', 'White-Label Widget', 'Multi-Account Payment Gateways', 'SSO & User Roles'],
+                enterprise: ['Unlimited Chatbots', '100,000+ Queries', 'Unlimited Sources', 'Full White-Label Solution', 'Custom Payment Workflows', 'Private Cloud']
+            };
             
             const subject = `NextEleven ${packageType.charAt(0).toUpperCase() + packageType.slice(1)} Package - Complete Information`;
             const body = `
@@ -1413,12 +1588,12 @@
                 Thank you!
             `;
             
-            // Send professional email
-            const emailSent = sendProfessionalEmail(agencyConfig.salesEmail, subject, body);
+            // Send email using the working sendEmail function
+            const emailSent = sendEmail('NextElevenStudios@icloud.com', subject, body);
             
             if (emailSent) {
                 // Show confirmation message
-                addMessage(`📧 **Perfect! I've sent your request to our team.**\n\n**What happens next:**\n✅ **Immediate**: Email sent to ${agencyConfig.salesEmail}\n✅ **Within 1 hour**: Email confirmation to you\n✅ **Within 24 hours**: Detailed package information\n✅ **Within 48 hours**: Consultation call scheduled\n\n**What you'll receive:**\n• Complete ${packageType} package details\n• Pricing breakdown and payment options\n• Implementation timeline\n• Case studies from similar businesses\n• Technical specifications\n• Integration guide\n• Free consultation scheduling\n\n**Your request has been prioritized** and our team will contact you shortly!\n\n**Need immediate assistance?** I can also help you:\n• Schedule a demo right now\n• Start a free trial\n• Get pricing information\n• Answer technical questions`, false);
+                addMessage(`📧 **Perfect! I've sent your request to our team.**\n\n**What happens next:**\n✅ **Immediate**: Email sent to NextElevenStudios@icloud.com\n✅ **Within 1 hour**: Email confirmation to you\n✅ **Within 24 hours**: Detailed package information\n✅ **Within 48 hours**: Consultation call scheduled\n\n**What you'll receive:**\n• Complete ${packageType} package details\n• Pricing breakdown and payment options\n• Implementation timeline\n• Case studies from similar businesses\n• Technical specifications\n• Integration guide\n• Free consultation scheduling\n\n**Your request has been prioritized** and our team will contact you shortly!\n\n**Need immediate assistance?** I can also help you:\n• Schedule a demo right now\n• Start a free trial\n• Get pricing information\n• Answer technical questions`, false);
                 
                 // Add quick action buttons
                 addQuickOptions([
@@ -1541,9 +1716,9 @@
                     const body = `New inquiry from chatbot:\n\nMessage: ${message}\n\nThis business type is not in our database yet. Please research and add appropriate responses.\n\nTime: ${new Date().toLocaleString()}\nSession ID: ${userSession.id}\nLead Score: ${userSession.leadScore}`;
                     
                     try {
-                        // Send professional email notification
-                        sendProfessionalEmail(agencyConfig.salesEmail, subject, body);
-                        console.log('📧 Professional email sent successfully to sales team');
+                        // Send email notification using working function
+                        sendEmail('seanebones@icloud.com', subject, body);
+                        console.log('📧 Email sent successfully to sales team');
                     } catch (error) {
                         console.error('❌ Error sending email:', error);
                     }
@@ -1667,9 +1842,9 @@
             }
             
             // Initialize agency-level features
-            console.log('🏢 Agency configuration loaded:', agencyConfig);
+            console.log('🏢 Agency-level features initialized');
             console.log('🔧 Enhanced functions available:', {
-                'sendProfessionalEmail': typeof sendProfessionalEmail !== 'undefined',
+                'sendEmail': typeof sendEmail !== 'undefined',
                 'deliverComprehensivePDF': typeof deliverComprehensivePDF !== 'undefined',
                 'scheduleProfessionalDemo': typeof scheduleProfessionalDemo !== 'undefined',
                 'setupProfessionalTrial': typeof setupProfessionalTrial !== 'undefined',
