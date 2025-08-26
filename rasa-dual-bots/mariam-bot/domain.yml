@@ -11,19 +11,12 @@ intents:
   # Business Consultation
   - business_consultation
   - business_analysis
-  - business_type
-  - business_size
-  - business_challenges
-  - business_goals
   
   # Industry Specific
   - healthcare_business
   - retail_business
   - automotive_business
   - restaurant_business
-  - dental_business
-  - salon_business
-  - general_business
   
   # Solutions & Services
   - ai_solutions
@@ -72,6 +65,37 @@ intents:
   - consultation_scheduling
   - follow_up
   - urgent_request
+  
+  # Additional Intents from Stories
+  - ask_package_details
+  - ask_support_hours
+  - ask_compliance
+  - ask_pricing
+  - schedule_veteran_consultation
+  - ask_trial_setup
+  - start_free_trial
+  - ask_veteran_pricing
+  - ask_integration
+  - ask_about_pricing
+  - ask_menu_support
+  - ask_service_scheduling
+  - ask_implementation_timeline
+  - ask_demo_details
+  - ask_veteran_discounts
+  - ask_hipaa_compliance
+  - ask_patient_communication
+  - ask_inventory_management
+  - ask_customer_service
+  - ask_about_services
+  - ask_payment_options
+  - technical_details
+  - ask_follow_up
+  - ask_roi_calculation
+  - ask_parts_catalog
+  - ask_reservation_system
+  - ask_security
+  - ask_contact_info
+  - ask_veteran_verification
 
 entities:
   - business_type
@@ -176,6 +200,27 @@ responses:
 
   utter_out_of_scope:
     - text: "🤔 **I'm not sure I understood that request.**\n\n**Let me help you better. I can assist with:**\n• **Business solutions** and AI chatbots\n• **Pricing** and package options\n• **Demos** and consultations\n• **Free trials** and setup\n• **Technical details** and integration\n• **Veteran discounts** and special offers\n\n**Try asking about:**\n• 'Schedule a demo'\n• 'See pricing'\n• 'Start free trial'\n• 'Business analysis'\n• 'Technical details'\n\n**What would you like to know about?**"
+  
+  # Additional Utterances
+  utter_affirm:
+    - text: "👍 **Perfect! Let's continue.**"
+    - text: "✅ **Great! I'm glad that works for you.**"
+  
+  utter_deny:
+    - text: "👎 **No problem! Let me suggest something else.**"
+    - text: "🤔 **I understand. Let me offer a different approach.**"
+  
+  utter_ask_clarification:
+    - text: "🤔 **I want to make sure I understand correctly.**\n\n**Could you clarify:**\n• What specific aspect you're asking about?\n• What's your main concern or goal?\n• What would be most helpful for you right now?"
+  
+  utter_explain_services:
+    - text: "🔧 **Let me explain our comprehensive services:**\n\n**Core Solutions:**\n• **AI Chatbots** - Intelligent customer interaction\n• **Lead Generation** - Automated prospect capture\n• **Customer Service** - 24/7 support automation\n• **Sales Optimization** - Conversion improvement\n• **Process Automation** - Workflow streamlining\n\n**What specific service interests you most?**"
+  
+  utter_demo_details:
+    - text: "📋 **Here are the demo details:**\n\n**Demo Session Includes:**\n• **Live demonstration** of our platform\n• **Custom use case** analysis for your business\n• **ROI calculation** and cost-benefit analysis\n• **Implementation timeline** and roadmap\n• **Q&A session** with our experts\n\n**Duration:** 45-60 minutes\n**Format:** Video call or in-person\n**Cost:** Completely free\n\n**Ready to schedule your demo?**"
+  
+  utter_trial_setup:
+    - text: "🚀 **Let's get your trial set up!**\n\n**Trial Setup Process:**\n• **Day 1:** Account creation and basic setup\n• **Day 2-3:** Custom configuration for your business\n• **Day 4-7:** Training and optimization\n• **Day 8-14:** Full usage and testing\n\n**What I need from you:**\n• Business name and type\n• Primary use case\n• Expected user volume\n• Preferred start date\n\n**What's your business name?**"
 
 actions:
   - action_session_start
@@ -192,6 +237,31 @@ actions:
   - action_extract_business_info
   - action_generate_proposal
   - action_openai_knowledge
+  
+  # Additional Actions from Stories
+  - action_package_details
+  - action_hipaa_details
+  - action_patient_communication
+  - action_inventory_details
+  - action_customer_service
+  - action_service_scheduling
+  - action_parts_catalog
+  - action_reservation_system
+  - action_menu_support
+  - action_payment_options
+  - action_veteran_verification
+  - action_veteran_pricing
+  - action_follow_up
+  - action_retail_specialist
+  - action_automotive_specialist
+  - action_restaurant_specialist
+  - action_integration_details
+  - action_security_details
+  - action_compliance_details
+  - action_schedule_veteran_consultation
+  - action_implementation_timeline
+  - action_support_hours
+  - action_session_end
 
 session_config:
   session_expiration_time: 60

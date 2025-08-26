@@ -563,3 +563,288 @@ nlu:
     - might be
     - possibly
     - potentially
+
+- intent: ask_about_services
+  examples: |
+    - what services do you offer
+    - tell me about your services
+    - what can you do for me
+    - what services are available
+    - show me your services
+    - what do you offer
+    - services overview
+    - what solutions do you have
+    - what can you help with
+    - what are your capabilities
+
+- intent: ask_about_pricing
+  examples: |
+    - what are your prices
+    - how much do you charge
+    - cost details
+    - what's the cost
+    - what are the rates
+
+- intent: ask_roi_calculation
+  examples: |
+    - what's the ROI
+    - return on investment
+    - how much will I save
+    - what's the payback period
+    - ROI calculation
+    - cost benefit analysis
+    - how long to break even
+    - financial benefits
+    - savings calculation
+    - investment return
+
+- intent: ask_package_details
+  examples: |
+    - what's included in the package
+    - package details
+    - what's in the plan
+    - plan features
+    - what do I get
+    - package contents
+    - plan contents
+    - what's covered
+    - package breakdown
+    - plan breakdown
+
+- intent: ask_veteran_discounts
+  examples: |
+    - veteran discounts
+    - military discounts
+    - veteran special offers
+    - military special offers
+
+- intent: ask_demo_details
+  examples: |
+    - what's included in the demo
+    - demo details
+    - what happens in demo
+    - demo information
+    - demo overview
+    - what to expect in demo
+    - demo process
+    - demo steps
+    - demo agenda
+    - demo schedule
+
+- intent: ask_trial_setup
+  examples: |
+    - how do I set up trial
+    - trial setup process
+    - how to start trial
+    - trial setup steps
+    - trial setup guide
+    - trial setup instructions
+    - how to activate trial
+    - trial setup help
+    - trial setup assistance
+
+- intent: ask_veteran_pricing
+  examples: |
+    - veteran pricing
+    - military pricing
+    - veteran rates
+    - military rates
+    - veteran cost
+    - military cost
+    - veteran pricing structure
+    - military pricing structure
+    - veteran pricing plans
+    - military pricing plans
+
+- intent: ask_integration
+  examples: |
+    - what systems can you integrate with
+    - integration options
+    - what integrations do you have
+    - system integration
+    - integration capabilities
+    - what can you connect to
+    - integration support
+    - integration features
+    - integration options
+    - system compatibility
+
+- intent: ask_menu_support
+  examples: |
+    - menu support features
+    - menu management
+    - menu handling
+    - menu assistance
+    - menu features
+    - menu capabilities
+    - menu support
+    - menu help
+    - menu options
+    - menu functionality
+
+- intent: ask_service_scheduling
+  examples: |
+    - service scheduling features
+    - appointment scheduling
+    - scheduling capabilities
+    - scheduling system
+    - scheduling features
+    - appointment system
+    - scheduling options
+    - scheduling tools
+    - scheduling support
+    - scheduling help
+
+- intent: ask_parts_catalog
+  examples: |
+    - parts catalog features
+    - parts database
+    - parts lookup
+    - parts search
+    - parts catalog
+    - parts information
+    - parts details
+    - parts availability
+    - parts search
+    - parts lookup
+
+- intent: ask_reservation_system
+  examples: |
+    - reservation system features
+    - booking system
+    - reservation capabilities
+    - booking capabilities
+    - reservation system
+    - booking system
+    - reservation features
+    - booking features
+    - reservation options
+    - booking options
+
+- intent: ask_security
+  examples: |
+    - security features
+    - security measures
+    - security capabilities
+    - security protection
+    - security features
+    - security measures
+    - security options
+    - security tools
+    - security support
+    - security help
+
+- intent: ask_contact_info
+  examples: |
+    - how can I contact you
+    - contact information
+    - how to reach you
+    - contact details
+    - contact methods
+    - how to get in touch
+    - contact options
+    - contact support
+    - contact help
+    - contact assistance
+
+- intent: ask_veteran_verification
+  examples: |
+    - how do I verify veteran status
+    - veteran verification process
+    - how to prove veteran status
+    - veteran verification
+    - military verification
+    - veteran status proof
+    - military status proof
+    - veteran verification steps
+    - military verification steps
+    - veteran verification help
+
+- intent: ask_follow_up
+  examples: |
+    - what happens next
+    - follow up process
+    - next steps
+    - what's next
+    - follow up details
+    - follow up process
+    - follow up steps
+    - follow up information
+    - follow up help
+    - follow up assistance
+
+- intent: ask_hipaa_compliance
+  examples: |
+    - HIPAA compliance
+    - HIPAA features
+    - HIPAA capabilities
+    - HIPAA support
+    - HIPAA compliance
+    - HIPAA features
+    - HIPAA options
+    - HIPAA tools
+    - HIPAA help
+    - HIPAA assistance
+
+- intent: ask_patient_communication
+  examples: |
+    - patient communication features
+    - patient messaging
+    - patient support
+    - patient features
+    - patient options
+    - patient tools
+    - patient help
+    - patient assistance
+
+- intent: ask_inventory_management
+  examples: |
+    - inventory management features
+    - inventory system
+    - inventory capabilities
+    - inventory support
+    - inventory options
+    - inventory tools
+    - inventory help
+    - inventory assistance
+
+- intent: ask_customer_service
+  examples: |
+    - customer service features
+    - customer support
+    - customer assistance
+    - customer help
+    - customer features
+    - customer options
+    - customer tools
+
+- intent: ask_payment_options
+  examples: |
+    - payment options
+    - payment methods
+    - payment capabilities
+    - payment support
+    - payment features
+    - payment tools
+    - payment help
+    - payment assistance
+
+- intent: ask_implementation_timeline
+  examples: |
+    - implementation timeline
+    - how long to implement
+    - implementation duration
+    - implementation schedule
+    - implementation process
+    - implementation steps
+    - implementation help
+
+- intent: ask_support_hours
+  examples: |
+    - support hours
+    - when is support available
+    - support availability
+    - support schedule
+    - support times
+    - support options
+    - support help
