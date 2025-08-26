@@ -1,0 +1,190 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - out_of_scope
+  - nlu_fallback
+  
+  # Business Consultation
+  - business_consultation
+  - business_analysis
+  - business_type
+  - business_size
+  - business_challenges
+  - business_goals
+  
+  # Industry Specific
+  - healthcare_business
+  - retail_business
+  - automotive_business
+  - restaurant_business
+  - dental_business
+  - salon_business
+  - general_business
+  
+  # Solutions & Services
+  - ai_solutions
+  - chatbot_features
+  - automation_benefits
+  - lead_generation
+  - customer_service
+  - sales_optimization
+  
+  # Pricing & Packages
+  - pricing_inquiry
+  - package_details
+  - cost_analysis
+  - roi_calculation
+  - payment_options
+  - contract_terms
+  
+  # Demos & Trials
+  - schedule_demo
+  - demo_details
+  - free_trial
+  - trial_setup
+  - trial_features
+  
+  # Technical Details
+  - technical_specs
+  - integration_details
+  - security_features
+  - compliance_info
+  - api_documentation
+  
+  # Veteran & Military
+  - veteran_discounts
+  - military_benefits
+  - veteran_consultation
+  - military_support
+  
+  # Implementation
+  - implementation_timeline
+  - training_details
+  - support_levels
+  - onboarding_process
+  
+  # Contact & Next Steps
+  - contact_info
+  - consultation_scheduling
+  - follow_up
+  - urgent_request
+
+entities:
+  - business_type
+  - industry
+  - business_size
+  - budget_range
+  - timeline
+  - location
+  - contact_method
+  - use_case
+
+slots:
+  business_type:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: business_type
+  industry:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: industry
+  business_size:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: business_size
+  budget_range:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: budget_range
+  timeline:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: timeline
+  location:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: location
+  contact_method:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: contact_method
+  use_case:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: use_case
+
+responses:
+  utter_greet:
+    - text: "👋 **Hello! Welcome to NextEleven Studios!** I'm Mariam, your AI business consultant.\n\n**How can I help you today?**\n• Schedule a professional demo\n• Start your free trial\n• See pricing details\n• Get business analysis\n• Learn about our solutions\n• Discuss your specific needs"
+    - text: "👋 **Hi there! I'm Mariam from NextEleven Studios.**\n\n**I'm here to help you with:**\n• AI chatbot solutions for your business\n• Lead generation and customer service\n• Sales automation and optimization\n• Business process improvement\n• ROI analysis and implementation\n\n**What would you like to explore today?**"
+    - text: "👋 **Hey! Great to meet you!** I'm Mariam, your AI business consultant at NextEleven Studios.\n\n**I specialize in helping businesses like yours:**\n• Increase customer engagement\n• Automate repetitive tasks\n• Boost sales and conversions\n• Improve customer satisfaction\n• Scale operations efficiently\n\n**What's your biggest business challenge right now?**"
+
+  utter_goodbye:
+    - text: "👋 **Thank you for chatting with me today!**\n\n**Next steps:**\n• I'll follow up with the information we discussed\n• You can reach me anytime for questions\n• Let's schedule that demo when you're ready\n\n**Have a great day, and I look forward to helping your business grow!** 🚀"
+    - text: "👋 **It's been a pleasure helping you today!**\n\n**Remember:**\n• Your free trial is ready when you are\n• I'm here 24/7 for any questions\n• Let's get your business automated soon\n\n**Talk to you soon!** ✨"
+
+  utter_business_consultation:
+    - text: "🏢 **Tell me about your business!** I'm excited to learn how we can help you grow.\n\n**I'd love to know:**\n• **Business type** (retail, healthcare, automotive, etc.)\n• **Current size** and growth stage\n• **Primary challenges** you're facing\n• **Goals** for the next 6-12 months\n• **Customer service** needs and volume\n\n**This helps me:**\n• Customize our solution for your needs\n• Calculate potential ROI\n• Design the perfect implementation plan\n• Show you relevant features and benefits\n\n**What type of business do you run?**"
+
+  utter_pricing_inquiry:
+    - text: "💰 **Here's our transparent pricing structure:**\n\n**Starter Plan: $79/month**\n• 1 Custom AI Chatbot\n• 1,000 queries/month\n• Basic integrations\n• Email support\n\n**Professional Plan: $247/month**\n• 3 Custom AI Chatbots\n• 5,000 queries/month\n• Payment processing\n• Advanced analytics\n• Priority support\n\n**Agency Plan: $497/month**\n• 10 Custom AI Chatbots\n• 15,000 queries/month\n• White-label options\n• Multi-account management\n• Dedicated account manager\n\n**Enterprise Plan: Custom Pricing**\n• Unlimited chatbots\n• Unlimited queries\n• Full white-label solution\n• Custom payment workflows\n• Private cloud deployment\n\n**Which plan interests you most?**"
+
+  utter_schedule_demo:
+    - text: "📅 **Perfect! Let's get you scheduled for a professional demo.**\n\n**What works best for you?**\n• **This week** - I have openings Tuesday-Friday\n• **Next week** - Flexible scheduling available\n• **Evening slots** - After 6 PM options\n\n**What's your name and business type?** I'll get you scheduled right away!\n\n**Demo includes:**\n• Live solution demonstration\n• Custom use case analysis\n• ROI calculation for your business\n• Implementation timeline\n• Q&A session"
+
+  utter_free_trial:
+    - text: "🚀 **Excellent choice! Let's get your free trial started.**\n\n**Trial includes:**\n• Full access to our AI chatbot platform\n• Custom configuration for your business\n• 14-day unlimited usage\n• Performance analytics\n• Support from our team\n\n**To get started, I need:**\n• Your business name and type\n• Primary use case (sales, support, etc.)\n• Number of expected users\n• Preferred start date\n\n**What's your business name and type?**"
+
+  utter_veteran_discounts:
+    - text: "🇺🇸 **Thank you for your service! We offer special veteran discounts.**\n\n**Veteran Benefits:**\n• **10% off** for all veterans\n• **20% off** for combat veterans\n• **Priority implementation** scheduling\n• **Dedicated veteran support** team\n• **Flexible payment options**\n• **Extended trial period** (21 days)\n\n**Veteran Discounts Apply To:**\n• All subscription plans\n• Implementation services\n• Training and support\n• Custom development\n• Ongoing maintenance\n\n**To qualify, I'll need:**\n• Proof of service (DD-214 or similar)\n• Business verification\n• Service branch and dates\n\n**What branch did you serve in and when?**"
+
+  utter_technical_details:
+    - text: "⚙️ **Let me explain the technical details of our solution!**\n\n**Technical Architecture:**\n• **AI-Powered:** Advanced natural language processing\n• **Cloud-Based:** Secure, scalable infrastructure\n• **API Integration:** Connects with your existing systems\n• **Multi-Platform:** Web, mobile, and social media support\n• **Real-Time Analytics:** Live performance monitoring\n• **Security:** Enterprise-grade encryption and compliance\n\n**Integration Capabilities:**\n• **CRM Systems:** Salesforce, HubSpot, etc.\n• **Payment Processors:** Stripe, PayPal, etc.\n• **Communication Tools:** Slack, Teams, etc.\n• **Analytics Platforms:** Google Analytics, etc.\n• **Custom APIs:** Your proprietary systems\n\n**What systems do you currently use that we should integrate with?**"
+
+  utter_healthcare_business:
+    - text: "🏥 **Healthcare businesses are perfect for our AI solutions!**\n\n**Healthcare-Specific Features:**\n• **HIPAA compliance** and security\n• **Patient communication** automation\n• **Appointment scheduling** and reminders\n• **Medical FAQ handling**\n• **Insurance verification** assistance\n• **After-hours support** for patients\n\n**Benefits for Healthcare:**\n• **24/7 patient support** without staff costs\n• **Reduced call volume** to reception\n• **Improved patient satisfaction**\n• **Streamlined operations**\n• **Compliance and security**\n\n**What's your healthcare business name and how many patients do you serve monthly?**"
+
+  utter_retail_business:
+    - text: "🛍️ **Retail businesses love our AI solutions!**\n\n**Retail-Specific Features:**\n• **Product information** and recommendations\n• **Order tracking** and status updates\n• **Return and exchange** assistance\n• **Inventory checking** and availability\n• **Loyalty program** integration\n• **Multi-channel support** (web, mobile, social)\n\n**Benefits for Retail:**\n• **Increased sales** through better customer service\n• **Reduced support costs**\n• **Improved customer satisfaction**\n• **24/7 availability** for customers\n• **Scalable support** during peak periods\n\n**What's your retail business name and what products do you sell?**"
+
+  utter_automotive_business:
+    - text: "🚗 **Automotive businesses get amazing results with our AI!**\n\n**Automotive-Specific Features:**\n• **Service scheduling** and reminders\n• **Parts catalog** and availability\n• **Service history** tracking\n• **Maintenance reminders**\n• **Warranty information**\n• **Roadside assistance** coordination\n\n**Benefits for Automotive:**\n• **Increased service bookings**\n• **Better customer retention**\n• **Reduced phone calls** to service desk\n• **Improved customer experience**\n• **24/7 support** for customers\n\n**What's your automotive business name and what services do you offer?**"
+
+  utter_restaurant_business:
+    - text: "🍽️ **Restaurants see incredible results with our AI solutions!**\n\n**Restaurant-Specific Features:**\n• **Menu support** and recommendations\n• **Reservation management**\n• **Catering quotes** and planning\n• **Delivery tracking** and updates\n• **Allergy information** and dietary restrictions\n• **Special event** coordination\n\n**Benefits for Restaurants:**\n• **Increased reservations** and orders\n• **Better customer service**\n• **Reduced staff workload**\n• **Improved customer satisfaction**\n• **24/7 availability** for customers\n\n**What's your restaurant name and what type of cuisine do you serve?**"
+
+  utter_roi_calculation:
+    - text: "📊 **Let's calculate your potential ROI!**\n\n**Typical ROI Breakdown:**\n• **Month 1:** Setup and training (investment phase)\n• **Month 2:** Initial results and optimization (break-even approach)\n• **Month 3:** 300-500% ROI achieved (profit phase)\n\n**Cost Comparison:**\n• Traditional customer service: $3,000-8,000/month\n• Our AI solution: $79-497/month\n• **Savings:** 85-95% cost reduction\n\n**Revenue Impact:**\n• **Lead generation:** 35-55% increase\n• **Customer satisfaction:** 40-60% improvement\n• **Response time:** 90% faster\n• **24/7 availability:** Unlimited customer support\n\n**What's your current customer service budget and monthly customer volume?**"
+
+  utter_implementation_timeline:
+    - text: "⏰ **Here's your implementation timeline:**\n\n**Week 1-2: Discovery & Planning**\n• Business analysis and requirements gathering\n• Solution design and customization\n• Integration planning with existing systems\n\n**Week 3-4: Development & Setup**\n• AI chatbot configuration and training\n• Integration with your platforms\n• Staff training and onboarding\n\n**Week 5-6: Testing & Launch**\n• Comprehensive testing and validation\n• Go-live with monitoring\n• Performance optimization\n\n**Total Timeline: 4-6 weeks**\n\n**What's your preferred start date and any specific deadlines?**"
+
+  utter_contact_info:
+    - text: "📞 **Here's how to reach us:**\n\n**NextEleven Studios**\n• **Email:** NextElevenStudios@icloud.com\n• **Phone:** Available during consultation calls\n• **Website:** www.nexteleven.com\n• **Support:** 24/7 technical assistance\n\n**Consultation Scheduling:**\n• **Free consultation:** 45-60 minutes\n• **Video call or in-person**\n• **No obligation** or pressure\n• **Custom solution design**\n\n**What's the best way to reach you for our consultation call?**"
+
+  utter_out_of_scope:
+    - text: "🤔 **I'm not sure I understood that request.**\n\n**Let me help you better. I can assist with:**\n• **Business solutions** and AI chatbots\n• **Pricing** and package options\n• **Demos** and consultations\n• **Free trials** and setup\n• **Technical details** and integration\n• **Veteran discounts** and special offers\n\n**Try asking about:**\n• 'Schedule a demo'\n• 'See pricing'\n• 'Start free trial'\n• 'Business analysis'\n• 'Technical details'\n\n**What would you like to know about?**"
+
+actions:
+  - action_business_analysis
+  - action_roi_calculation
+  - action_schedule_consultation
+  - action_generate_proposal
+  - action_openai_knowledge
+  - action_extract_business_info
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
