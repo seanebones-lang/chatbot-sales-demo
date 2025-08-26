@@ -356,6 +356,35 @@
             font-size: 0.9em;
             border-radius: 0 0 12px 12px;
         }
+        
+        .military-discount-section {
+            text-align: center;
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+        
+        .military-discount-btn {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+        }
+        
+        .military-discount-btn:hover {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 175, 64, 0.4);
+        }
+        
+        .military-discount-btn:active {
+            transform: translateY(0);
+        }
 
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(15px); }
@@ -509,6 +538,13 @@
                 </span>
             </div>
         </footer>
+        
+        <!-- Military Discount Button -->
+        <div class="military-discount-section">
+            <button class="military-discount-btn" onclick="showMilitaryDiscounts()">
+                🇺🇸 Military Veteran Discounts
+            </button>
+        </div>
     </div>
 
     <script>
@@ -557,6 +593,47 @@
                 response: "No problem! We work with businesses across all industries. Our platform adapts to any business model:\n\n🏢 Custom workflow automation\n🏢 Industry-specific compliance requirements\n🏢 Integration with existing CRM/ERP systems\n🏢 Scalable architecture for any size business\n🏢 White-label solutions available\n\nWhat industry are you in specifically? This helps me provide more targeted information.",
                 score: 20,
                 stage: 'industry_specification'
+            },
+            // Additional Business Types - Comprehensive Coverage
+            'automotive': {
+                response: "🚗 **Excellent! Automotive businesses are perfect for NextEleven's chatbot solutions.**\n\n**Automotive Pain Points We Solve:**\n- **Service scheduling**: Endless calls about appointments and availability\n- **Parts inquiries**: Questions about inventory and pricing\n- **Service status**: Repetitive calls about repair progress\n- **Pricing questions**: Estimates and service costs\n- **Warranty information**: Coverage and claim questions\n- **After-hours inquiries**: Missing service opportunities when closed\n- **Vehicle information**: Specs, features, and comparisons\n\n**Our Automotive Chatbot Features:**\n- **Service appointment** scheduling and management\n- **Parts inventory** checking and pricing\n- **Service status** updates and tracking\n- **Pricing estimates** and service quotes\n- **Warranty information** and claim assistance\n- **Vehicle information** and specifications\n- **Service history** and maintenance records\n- **Promotional offers** and service specials\n- **Loyalty program** management\n- **After-hours service** inquiries and booking\n\n**Key Benefits for Automotive Businesses:**\n- **Streamline service scheduling** and management\n- **Reduce repetitive questions** about parts and pricing\n- **Improve customer communication** with automated updates\n- **Capture service opportunities** even when closed\n- **Professional image** that builds customer trust\n- **Free up staff time** for actual service work\n\n**Typical Results for Automotive Businesses:**\n- 45-65% reduction in service desk calls during peak hours\n- 35-55% increase in online service bookings\n- 30-50% improvement in customer communication efficiency\n- 25-35% increase in after-hours service inquiries\n- Save 15-25 hours per week on repetitive questions\n\n**What specific aspect of your automotive business would you like me to focus on?**\n- Service scheduling and management\n- Parts inventory and pricing\n- Customer communication and updates\n- Warranty and service information\n- Promotions and customer retention",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'auto shop': {
+                response: "🔧 **Excellent! Auto shops and repair businesses are perfect for NextEleven's chatbot solutions.**\n\n**Auto Shop Pain Points We Solve:**\n- **Service scheduling**: Endless calls about appointments and availability\n- **Parts inquiries**: Questions about inventory and pricing\n- **Service status**: Repetitive calls about repair progress\n- **Pricing questions**: Estimates and service costs\n- **Warranty information**: Coverage and claim questions\n- **After-hours inquiries**: Missing service opportunities when closed\n- **Vehicle information**: Specs, features, and comparisons\n\n**Our Auto Shop Chatbot Features:**\n- **Service appointment** scheduling and management\n- **Parts inventory** checking and pricing\n- **Service status** updates and tracking\n- **Pricing estimates** and service quotes\n- **Warranty information** and claim assistance\n- **Vehicle information** and specifications\n- **Service history** and maintenance records\n- **Promotional offers** and service specials\n- **Loyalty program** management\n- **After-hours service** inquiries and booking\n\n**Key Benefits for Auto Shops:**\n- **Streamline service scheduling** and management\n- **Reduce repetitive questions** about parts and pricing\n- **Improve customer communication** with automated updates\n- **Capture service opportunities** even when closed\n- **Professional image** that builds customer trust\n- **Free up staff time** for actual service work\n\n**Typical Results for Auto Shops:**\n- 45-65% reduction in service desk calls during peak hours\n- 35-55% increase in online service bookings\n- 30-50% improvement in customer communication efficiency\n- 25-35% increase in after-hours service inquiries\n- Save 15-25 hours per week on repetitive questions\n\n**What specific aspect of your auto shop would you like me to focus on?**\n- Service scheduling and management\n- Parts inventory and pricing\n- Customer communication and updates\n- Warranty and service information\n- Promotions and customer retention",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'plumbing': {
+                response: "🔧 **Excellent! Plumbing businesses are perfect for NextEleven's chatbot solutions.**\n\n**Plumbing Pain Points We Solve:**\n- **Emergency calls**: Constant urgent service requests\n- **Service scheduling**: Manual booking processes consuming staff time\n- **Pricing questions**: Estimates and service costs\n- **Service area**: Coverage and travel fee questions\n- **Emergency availability**: After-hours service inquiries\n- **Service history**: Previous work and warranty questions\n- **Parts and materials**: Inventory and pricing inquiries\n\n**Our Plumbing Chatbot Features:**\n- **Emergency service** requests and prioritization\n- **Service appointment** scheduling and management\n- **Pricing estimates** and service quotes\n- **Service area** coverage and travel fee information\n- **Emergency availability** and response times\n- **Service history** and warranty information\n- **Parts and materials** inventory and pricing\n- **Preventive maintenance** reminders and scheduling\n- **Promotional offers** and service specials\n- **After-hours emergency** service coordination\n\n**Key Benefits for Plumbing Businesses:**\n- **Streamline emergency service** requests and prioritization\n- **Reduce repetitive questions** about pricing and coverage\n- **Improve customer communication** with automated updates\n- **Capture service opportunities** even when closed\n- **Professional image** that builds customer trust\n- **Free up staff time** for actual service work\n\n**Typical Results for Plumbing Businesses:**\n- 40-60% reduction in non-emergency calls during peak hours\n- 35-55% increase in online service bookings\n- 30-50% improvement in customer communication efficiency\n- 25-35% increase in after-hours service inquiries\n- Save 15-25 hours per week on repetitive questions\n\n**What specific aspect of your plumbing business would you like me to focus on?**\n- Emergency service coordination\n- Service scheduling and management\n- Pricing and estimates\n- Customer communication and updates\n- Preventive maintenance and promotions",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'plumber': {
+                response: "🔧 **Excellent! Plumbing businesses are perfect for NextEleven's chatbot solutions.**\n\n**Plumbing Pain Points We Solve:**\n- **Emergency calls**: Constant urgent service requests\n- **Service scheduling**: Manual booking processes consuming staff time\n- **Pricing questions**: Estimates and service costs\n- **Service area**: Coverage and travel fee questions\n- **Emergency availability**: After-hours service inquiries\n- **Service history**: Previous work and warranty questions\n- **Parts and materials**: Inventory and pricing inquiries\n\n**Our Plumbing Chatbot Features:**\n- **Emergency service** requests and prioritization\n- **Service appointment** scheduling and management\n- **Pricing estimates** and service quotes\n- **Service area** coverage and travel fee information\n- **Emergency availability** and response times\n- **Service history** and warranty information\n- **Parts and materials** inventory and pricing\n- **Preventive maintenance** reminders and scheduling\n- **Promotional offers** and service specials\n- **After-hours emergency** service coordination\n\n**Key Benefits for Plumbing Businesses:**\n- **Streamline emergency service** requests and prioritization\n- **Reduce repetitive questions** about pricing and coverage\n- **Improve customer communication** with automated updates\n- **Capture service opportunities** even when closed\n- **Professional image** that builds customer trust\n- **Free up staff time** for actual service work\n\n**Typical Results for Plumbing Businesses:**\n- 40-60% reduction in non-emergency calls during peak hours\n- 35-55% increase in online service bookings\n- 30-50% improvement in customer communication efficiency\n- 25-35% increase in after-hours service inquiries\n- Save 15-25 hours per week on repetitive questions\n\n**What specific aspect of your plumbing business would you like me to focus on?**\n- Emergency service coordination\n- Service scheduling and management\n- Pricing and estimates\n- Customer communication and updates\n- Preventive maintenance and promotions",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'pet grooming': {
+                response: "🐕 **Excellent! Pet grooming businesses are perfect for NextEleven's chatbot solutions.**\n\n**Pet Grooming Pain Points We Solve:**\n- **Appointment scheduling**: Manual booking processes consuming staff time\n- **Service questions**: Endless calls about grooming packages and pricing\n- **Pet information**: Breed-specific grooming requirements\n- **Service duration**: How long grooming takes\n- **Special requests**: Custom grooming and accommodation needs\n- **After-hours bookings**: Missing opportunities when closed\n- **Grooming tips**: Basic care and maintenance advice\n\n**Our Pet Grooming Chatbot Features:**\n- **Appointment scheduling** and rescheduling\n- **Service menu** with detailed descriptions and pricing\n- **Pet information** and breed-specific grooming\n- **Service duration** estimates and scheduling\n- **Special requests** and accommodation\n- **Grooming tips** and care advice\n- **Loyalty program** management\n- **Promotional offers** and packages\n- **Gift certificate** sales and management\n- **After-hours booking** requests\n\n**Key Benefits for Pet Grooming Businesses:**\n- **Streamline appointment scheduling** and management\n- **Reduce repetitive questions** about services and pricing\n- **Improve customer communication** with automated updates\n- **Capture booking opportunities** even when closed\n- **Professional image** that builds customer trust\n- **Free up staff time** for actual grooming work\n\n**Typical Results for Pet Grooming Businesses:**\n- 45-65% reduction in phone calls during peak hours\n- 35-55% increase in online bookings\n- 30-50% improvement in appointment efficiency\n- 25-35% increase in after-hours bookings\n- Save 12-20 hours per week on repetitive questions\n\n**What specific aspect of your pet grooming business would you like me to focus on?**\n- Appointment scheduling and management\n- Service menu and pricing\n- Pet information and breed-specific services\n- Customer communication and updates\n- Promotions and customer retention",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'pet groomer': {
+                response: "🐕 **Excellent! Pet grooming businesses are perfect for NextEleven's chatbot solutions.**\n\n**Pet Grooming Pain Points We Solve:**\n- **Appointment scheduling**: Manual booking processes consuming staff time\n- **Service questions**: Endless calls about grooming packages and pricing\n- **Pet information**: Breed-specific grooming requirements\n- **Service duration**: How long grooming takes\n- **Special requests**: Custom grooming and accommodation needs\n- **After-hours bookings**: Missing opportunities when closed\n- **Grooming tips**: Basic care and maintenance advice\n\n**Our Pet Grooming Chatbot Features:**\n- **Appointment scheduling** and rescheduling\n- **Service menu** with detailed descriptions and pricing\n- **Pet information** and breed-specific grooming\n- **Pet information** and breed-specific grooming\n- **Service duration** estimates and scheduling\n- **Special requests** and accommodation\n- **Grooming tips** and care advice\n- **Loyalty program** management\n- **Promotional offers** and packages\n- **Gift certificate** sales and management\n- **After-hours booking** requests\n\n**Key Benefits for Pet Grooming Businesses:**\n- **Streamline appointment scheduling** and management\n- **Reduce repetitive questions** about services and pricing\n- **Improve customer communication** with automated updates\n- **Capture booking opportunities** even when closed\n- **Professional image** that builds customer trust\n- **Free up staff time** for actual grooming work\n\n**Typical Results for Pet Grooming Businesses:**\n- 45-65% reduction in phone calls during peak hours\n- 35-55% increase in online bookings\n- 30-50% improvement in appointment efficiency\n- 25-35% increase in after-hours bookings\n- Save 12-20 hours per week on repetitive questions\n\n**What specific aspect of your pet grooming business would you like me to focus on?**\n- Appointment scheduling and management\n- Service menu and pricing\n- Pet information and breed-specific services\n- Customer communication and updates\n- Promotions and customer retention",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'dentist': {
+                response: "🦷 **Excellent! Dental practices are perfect for NextEleven's chatbot solutions.**\n\n**Dental Practice Pain Points We Solve:**\n- **Appointment scheduling**: Manual booking processes consuming staff time\n- **Insurance questions**: Endless calls about coverage and billing\n- **Treatment questions**: Basic dental care and procedure information\n- **Office hours**: Constant inquiries about availability\n- **Emergency care**: Urgent dental needs and availability\n- **After-hours inquiries**: Missing patient needs when closed\n- **Dental education**: Basic oral health information\n\n**Our Dental Practice Chatbot Features:**\n- **Appointment scheduling** and rescheduling\n- **Insurance verification** and coverage information\n- **Treatment information** and procedure details\n- **Office hours** and availability information\n- **Emergency care** coordination and availability\n- **Dental education** and oral health tips\n- **Patient portal** access and information\n- **Payment processing** and billing inquiries\n- **Preventive care** reminders and scheduling\n- **After-hours patient** support and scheduling\n\n**Key Benefits for Dental Practices:**\n- **Streamline appointment scheduling** and management\n- **Reduce repetitive questions** about insurance and billing\n- **Improve patient communication** with automated updates\n- **Capture patient needs** even when closed\n- **Professional image** that builds patient trust\n- **Free up staff time** for patient care\n\n**Typical Results for Dental Practices:**\n- 40-60% reduction in non-clinical phone time\n- 35-55% increase in online appointment bookings\n- 30-50% improvement in patient communication efficiency\n- 25-35% increase in after-hours patient engagement\n- Save 15-25 hours per week on repetitive inquiries\n\n**What specific aspect of your dental practice would you like me to focus on?**\n- Appointment scheduling and management\n- Insurance verification and billing\n- Patient communication and updates\n- Treatment information and education\n- Preventive care and patient retention",
+                score: 45,
+                stage: 'business_analysis'
+            },
+            'dental': {
+                response: "🦷 **Excellent! Dental practices are perfect for NextEleven's chatbot solutions.**\n\n**Dental Practice Pain Points We Solve:**\n- **Appointment scheduling**: Manual booking processes consuming staff time\n- **Insurance questions**: Endless calls about coverage and billing\n- **Treatment questions**: Basic dental care and procedure information\n- **Office hours**: Constant inquiries about availability\n- **Emergency care**: Urgent dental needs and availability\n- **After-hours inquiries**: Missing patient needs when closed\n- **Dental education**: Basic oral health information\n\n**Our Dental Practice Chatbot Features:**\n- **Appointment scheduling** and rescheduling\n- **Insurance verification** and coverage information\n- **Treatment information** and procedure details\n- **Office hours** and availability information\n- **Emergency care** coordination and availability\n- **Dental education** and oral health tips\n- **Patient portal** access and information\n- **Payment processing** and billing inquiries\n- **Preventive care** reminders and scheduling\n- **After-hours patient** support and scheduling\n\n**Key Benefits for Dental Practices:**\n- **Streamline appointment scheduling** and management\n- **Reduce repetitive questions** about insurance and billing\n- **Improve patient communication** with automated updates\n- **Capture patient needs** even when closed\n- **Professional image** that builds patient trust\n- **Free up staff time** for patient care\n\n**Typical Results for Dental Practices:**\n- 40-60% reduction in non-clinical phone time\n- 35-55% increase in online appointment bookings\n- 30-50% improvement in patient communication efficiency\n- 25-35% increase in after-hours patient engagement\n- Save 15-25 hours per week on repetitive inquiries\n\n**What specific aspect of your dental practice would you like me to focus on?**\n- Appointment scheduling and management\n- Insurance verification and billing\n- Patient communication and updates\n- Treatment information and education\n- Preventive care and patient retention",
+                score: 45,
+                stage: 'business_analysis'
             },
             // Military Veteran Recognition and Discounts
             'military': {
@@ -905,6 +982,11 @@
             
             // Also show confirmation message
             addMessage("📧 **Email sent successfully!**\n\nI've opened your email client with a pre-filled message to NextEleven. The email includes:\n\n- Your request details\n- Contact information\n- Preferred next steps\n\n**What happens next:**\n- Our team will review your request\n- You'll receive a response within 24 hours\n- We'll schedule your consultation or send requested materials\n\n**Need immediate assistance?** You can also call us directly or I can help you schedule a consultation right now.", false);
+        }
+        
+        // Military discount button functionality
+        function showMilitaryDiscounts() {
+            addMessage("🇺🇸 **Military Veteran Discounts - Thank You for Your Service!**\n\n**NextEleven proudly offers:**\n\n**🎖️ 10% off for all Veterans**\n- Available on all packages\n- Monthly and annual plans\n- No setup fees on annual subscriptions\n\n**🎖️ 20% off for Combat Veterans**\n- Additional discount for combat service\n- Available on all packages\n- No setup fees on annual subscriptions\n\n**How to Apply:**\n1. Mention your veteran status during consultation\n2. Provide your DD-214 or military ID\n3. Discount applied to all packages\n4. Available for both monthly and annual plans\n\n**What's Included:**\n- Complete chatbot solution\n- Industry-specific training\n- 24/7 support\n- All features and integrations\n\n**Contact us today to learn more about our veteran discount program and how we can help your business succeed!**\n\nWould you like me to:\n- Show you our complete pricing structure?\n- Schedule a consultation call?\n- Send you detailed information?\n- Help you get started with a free trial?", false);
         }
         
         // PDF delivery function
