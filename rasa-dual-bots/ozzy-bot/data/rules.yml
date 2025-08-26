@@ -1,0 +1,370 @@
+version: "3.1"
+
+rules:
+# Immediate Response Rules
+- rule: Say hello anytime a user says hello
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Say goodbye anytime a user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Respond to affirmations
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- rule: Respond to denials
+  steps:
+  - intent: deny
+  - action: utter_deny
+
+# Core Tattoo Studio Rules
+- rule: Tattoo consultation flow
+  steps:
+  - intent: tattoo_consultation
+  - action: utter_tattoo_consultation
+
+- rule: Book appointment flow
+  steps:
+  - intent: book_appointment
+  - action: utter_book_appointment
+
+- rule: Schedule appointment flow
+  steps:
+  - intent: schedule_appointment
+  - action: utter_book_appointment
+
+- rule: Appointment inquiry handling
+  steps:
+  - intent: appointment_inquiry
+  - action: action_book_appointment
+
+- rule: Walk-in availability
+  steps:
+  - intent: walk_in_availability
+  - action: utter_walk_in_availability
+
+# Artist & Portfolio Rules
+- rule: Artist inquiry response
+  steps:
+  - intent: artist_inquiry
+  - action: utter_artist_inquiry
+
+- rule: Artist portfolio display
+  steps:
+  - intent: artist_portfolio
+  - action: utter_artist_portfolio
+
+- rule: Artist style recommendation
+  steps:
+  - intent: artist_style
+  - action: action_artist_recommendation
+
+- rule: Artist experience inquiry
+  steps:
+  - intent: artist_experience
+  - action: action_artist_recommendation
+
+- rule: Artist availability check
+  steps:
+  - intent: artist_availability
+  - action: action_artist_recommendation
+
+# Pricing & Payment Rules
+- rule: Pricing inquiry response
+  steps:
+  - intent: pricing_inquiry
+  - action: utter_pricing_inquiry
+
+- rule: Tattoo pricing details
+  steps:
+  - intent: tattoo_pricing
+  - action: action_pricing_estimate
+
+- rule: Payment options information
+  steps:
+  - intent: payment_options
+  - action: utter_payment_options
+
+# Design & Customization Rules
+- rule: Design consultation flow
+  steps:
+  - intent: design_consultation
+  - action: utter_design_consultation
+
+- rule: Custom design information
+  steps:
+  - intent: custom_design
+  - action: utter_custom_design
+
+- rule: Design process explanation
+  steps:
+  - intent: design_process
+  - action: action_design_consultation
+
+- rule: Design revisions policy
+  steps:
+  - intent: design_revisions
+  - action: utter_design_revisions
+
+# Services & Procedures Rules
+- rule: Tattoo services overview
+  steps:
+  - intent: tattoo_services
+  - action: action_tattoo_consultation
+
+- rule: Cover-up tattoo information
+  steps:
+  - intent: cover_up_tattoo
+  - action: utter_cover_up_tattoo
+
+- rule: Touch-up tattoo details
+  steps:
+  - intent: touch_up_tattoo
+  - action: utter_touch_up_tattoo
+
+- rule: Aftercare instructions
+  steps:
+  - intent: aftercare_instructions
+  - action: utter_aftercare_instructions
+
+# Studio Information Rules
+- rule: Studio hours information
+  steps:
+  - intent: studio_hours
+  - action: utter_studio_hours
+
+- rule: Studio location details
+  steps:
+  - intent: studio_location
+  - action: utter_studio_location
+
+- rule: Contact information
+  steps:
+  - intent: contact_information
+  - action: utter_contact_information
+
+- rule: Support hours
+  steps:
+  - intent: support_hours
+  - action: action_contact_information
+
+# Health & Safety Rules
+- rule: Health requirements
+  steps:
+  - intent: health_requirements
+  - action: utter_health_requirements
+
+- rule: Age restrictions
+  steps:
+  - intent: age_restrictions
+  - action: utter_health_requirements
+
+- rule: Sterilization process
+  steps:
+  - intent: sterilization_process
+  - action: utter_sterilization_process
+
+# Special Offers & Discounts Rules
+- rule: Special offers display
+  steps:
+  - intent: special_offers
+  - action: utter_special_offers
+
+- rule: Student discounts
+  steps:
+  - intent: student_discounts
+  - action: utter_special_offers
+
+# Aftercare & Healing Rules
+- rule: Healing timeline
+  steps:
+  - intent: healing_timeline
+  - action: utter_healing_timeline
+
+- rule: Aftercare products
+  steps:
+  - intent: aftercare_instructions
+  - action: utter_aftercare_instructions
+
+# Budget & Planning Rules
+- rule: Budget range discussion
+  steps:
+  - intent: budget_range
+  - action: utter_budget_range
+
+- rule: Urgency level assessment
+  steps:
+  - intent: urgency_level
+  - action: utter_urgency_level
+
+- rule: Design complexity explanation
+  steps:
+  - intent: design_complexity
+  - action: utter_design_complexity
+
+- rule: Session duration details
+  steps:
+  - intent: session_duration
+  - action: utter_session_duration
+
+# Fallback and Error Handling Rules
+- rule: Out of scope handling
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: NLU fallback handling
+  steps:
+  - intent: nlu_fallback
+  - action: utter_ask_clarification
+
+# Session Management Rules
+- rule: Session start
+  steps:
+  - action: action_session_start
+
+- rule: Default fallback
+  steps:
+  - action: action_default_fallback
+
+# Active Learning Rules
+- rule: Active learning for unclear intents
+  steps:
+  - intent: nlu_fallback
+  - action: utter_ask_clarification
+
+# Conversation Flow Control Rules
+- rule: Maintain context in multi-turn conversations
+  steps:
+  - intent: tattoo_consultation
+  - action: utter_tattoo_consultation
+  - intent: custom_design
+  - action: utter_custom_design
+
+- rule: Guide users to booking after consultation
+  steps:
+  - intent: design_consultation
+  - action: utter_design_consultation
+  - intent: affirm
+  - action: action_design_consultation
+
+# Customer Service Rules
+- rule: Provide comprehensive information
+  steps:
+  - intent: artist_portfolio
+  - action: utter_artist_portfolio
+  - intent: affirm
+  - action: action_artist_recommendation
+
+- rule: Offer next steps after information
+  steps:
+  - intent: pricing_inquiry
+  - action: utter_pricing_inquiry
+  - intent: affirm
+  - action: action_pricing_estimate
+
+# Technical Process Rules
+- rule: Explain processes clearly
+  steps:
+  - intent: sterilization_process
+  - action: utter_sterilization_process
+  - intent: affirm
+  - action: utter_sterilization_process
+
+- rule: Provide timeline information
+  steps:
+  - intent: design_process
+  - action: action_design_consultation
+  - intent: affirm
+  - action: action_design_consultation
+
+# Follow-up and Maintenance Rules
+- rule: Offer touch-up services
+  steps:
+  - intent: touch_up_tattoo
+  - action: utter_touch_up_tattoo
+  - intent: affirm
+  - action: utter_book_appointment
+
+- rule: Provide aftercare guidance
+  steps:
+  - intent: aftercare_instructions
+  - action: utter_aftercare_instructions
+  - intent: affirm
+  - action: utter_aftercare_instructions
+
+# Quality Assurance Rules
+- rule: Ensure customer satisfaction
+  steps:
+  - intent: custom_design
+  - action: utter_custom_design
+  - intent: affirm
+  - action: action_design_consultation
+
+- rule: Provide accurate pricing
+  steps:
+  - intent: tattoo_pricing
+  - action: action_pricing_estimate
+  - intent: affirm
+  - action: action_pricing_estimate
+
+# Emergency and Urgent Situations
+- rule: Handle urgent requests
+  steps:
+  - intent: urgency_level
+  - action: utter_urgency_level
+  - intent: affirm
+  - action: action_book_appointment
+
+# Special Accommodations
+- rule: Student discount information
+  steps:
+  - intent: student_discounts
+  - action: utter_special_offers
+  - intent: affirm
+  - action: utter_special_offers
+
+# Booking Confirmation Rules
+- rule: Confirm appointment details
+  steps:
+  - intent: book_appointment
+  - action: utter_book_appointment
+  - intent: affirm
+  - action: action_book_appointment
+
+# Information Gathering Rules
+- rule: Collect necessary information
+  steps:
+  - intent: tattoo_consultation
+  - action: utter_tattoo_consultation
+  - intent: affirm
+  - action: action_tattoo_consultation
+
+# Professional Standards Rules
+- rule: Maintain professional tone
+  steps:
+  - intent: health_requirements
+  - action: utter_health_requirements
+  - intent: affirm
+  - action: utter_health_requirements
+
+# Customer Education Rules
+- rule: Educate about tattoo process
+  steps:
+  - intent: design_process
+  - action: action_design_consultation
+  - intent: affirm
+  - action: action_design_consultation
+
+# Safety and Compliance Rules
+- rule: Emphasize safety procedures
+  steps:
+  - intent: sterilization_process
+  - action: utter_sterilization_process
+  - intent: affirm
+  - action: utter_sterilization_process

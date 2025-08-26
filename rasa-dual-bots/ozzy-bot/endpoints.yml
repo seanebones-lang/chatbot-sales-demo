@@ -1,0 +1,229 @@
+# This file contains the different endpoints your bot can use.
+# https://rasa.com/docs/rasa/messaging-and-voice-channels
+
+# Server where the models are pulled from.
+# https://rasa.com/docs/rasa/model-storage#fetching-models-from-a-server
+
+models:
+  # URL pointing to your model server
+  url: ${RASA_MODEL_SERVER_URL}
+  # Token your bot should use to authenticate to the model server
+  token: ${RASA_MODEL_SERVER_TOKEN}
+  # Wait time in seconds for Rasa Open Source to wait for the model server to load a particular model
+  wait_time_between_pulls: 10
+
+# Server which runs your custom actions.
+# https://rasa.com/docs/rasa/custom-actions
+
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# Tracker store which is used to store the conversations.
+# By default the conversations are stored in memory.
+# https://rasa.com/docs/rasa/tracker-stores
+
+tracker_store:
+  type: redis
+  url: ${REDIS_URL}
+  port: ${REDIS_PORT}
+  db: ${REDIS_DB}
+  password: ${REDIS_PASSWORD}
+  use_ssl: ${REDIS_USE_SSL}
+
+# Event broker which all conversation events are streamed to.
+# https://rasa.com/docs/rasa/event-brokers
+
+event_broker:
+  url: ${EVENT_BROKER_URL}
+  username: ${EVENT_BROKER_USERNAME}
+  password: ${EVENT_BROKER_PASSWORD}
+  queue: ${EVENT_BROKER_QUEUE}
+
+# NLG endpoint which determines the responses your bot should
+# respond with.
+# https://rasa.com/docs/rasa/connectors/your-own-website#rest-based-nlg
+
+nlg:
+  url: ${NLG_URL}
+
+# NLU endpoint which determines the intent and entities from user messages.
+# https://rasa.com/docs/rasa/connectors/your-own-website#rest-based-nlu
+
+nlu:
+  url: ${NLU_URL}
+
+# Model endpoint which pulls the latest model from the server.
+# https://rasa.com/docs/rasa/model-storage#fetching-models-from-a-server
+
+model:
+  url: ${MODEL_URL}
+  token: ${MODEL_TOKEN}
+
+# Webhooks for external integrations.
+# https://rasa.com/docs/rasa/connectors/your-own-website#rest-channels
+
+webhooks:
+  # Webhook for external integrations
+  external_webhook:
+    url: ${EXTERNAL_WEBHOOK_URL}
+    token: ${EXTERNAL_WEBHOOK_TOKEN}
+
+# Channels your bot can use to talk with your users.
+# This is the place where you define how your bot can be used.
+# https://rasa.com/docs/rasa/connectors/your-own-website
+
+channels:
+  # REST channel for web integration
+  rest:
+    # URL where your bot will be accessible
+    url: ${REST_CHANNEL_URL}
+    # Token for authentication
+    token: ${REST_CHANNEL_TOKEN}
+
+  # Telegram channel
+  telegram:
+    access_token: ${TELEGRAM_ACCESS_TOKEN}
+    verify: ${TELEGRAM_VERIFY}
+    webhook_url: ${TELEGRAM_WEBHOOK_URL}
+
+  # Slack channel
+  slack:
+    slack_token: ${SLACK_TOKEN}
+    slack_channel: ${SLACK_CHANNEL}
+    slack_signing_secret: ${SLACK_SIGNING_SECRET}
+
+  # Facebook Messenger
+  facebook:
+    page_access_token: ${FACEBOOK_PAGE_ACCESS_TOKEN}
+    verify: ${FACEBOOK_VERIFY}
+    secret: ${FACEBOOK_SECRET}
+
+  # Twilio
+  twilio:
+    account_sid: ${TWILIO_ACCOUNT_SID}
+    auth_token: ${TWILIO_AUTH_TOKEN}
+    twilio_number: ${TWILIO_NUMBER}
+
+  # Microsoft Bot Framework
+  botframework:
+    app_id: ${MICROSOFT_APP_ID}
+    app_password: ${MICROSOFT_APP_PASSWORD}
+
+  # Discord
+  discord:
+    discord_token: ${DISCORD_TOKEN}
+    discord_guild_id: ${DISCORD_GUILD_ID}
+
+  # Cisco Webex Teams
+  webexteams:
+    access_token: ${WEBEX_ACCESS_TOKEN}
+
+  # Rocket.Chat
+  rocketchat:
+    url: ${ROCKETCHAT_URL}
+    username: ${ROCKETCHAT_USERNAME}
+    password: ${ROCKETCHAT_PASSWORD}
+
+  # Mattermost
+  mattermost:
+    url: ${MATTERMOST_URL}
+    token: ${MATTERMOST_TOKEN}
+
+  # Cisco Webex
+  webex:
+    access_token: ${WEBEX_ACCESS_TOKEN}
+    room: ${WEBEX_ROOM}
+
+  # Google Hangouts
+  hangouts:
+    project_id: ${GOOGLE_PROJECT_ID}
+    key_file: ${GOOGLE_KEY_FILE}
+
+  # Line
+  line:
+    access_token: ${LINE_ACCESS_TOKEN}
+    channel_secret: ${LINE_CHANNEL_SECRET}
+    verify: ${LINE_VERIFY}
+
+  # Viber
+  viber:
+    auth_token: ${VIBER_AUTH_TOKEN}
+    name: ${VIBER_NAME}
+    avatar: ${VIBER_AVATAR}
+
+  # WhatsApp
+  whatsapp:
+    phone_number_id: ${WHATSAPP_PHONE_NUMBER_ID}
+    access_token: ${WHATSAPP_ACCESS_TOKEN}
+    verify_token: ${WHATSAPP_VERIFY_TOKEN}
+
+  # Instagram
+  instagram:
+    access_token: ${INSTAGRAM_ACCESS_TOKEN}
+    verify_token: ${INSTAGRAM_VERIFY_TOKEN}
+
+  # Twitter
+  twitter:
+    consumer_key: ${TWITTER_CONSUMER_KEY}
+    consumer_secret: ${TWITTER_CONSUMER_SECRET}
+    access_token: ${TWITTER_ACCESS_TOKEN}
+    access_token_secret: ${TWITTER_ACCESS_TOKEN_SECRET}
+
+  # LinkedIn
+  linkedin:
+    client_id: ${LINKEDIN_CLIENT_ID}
+    client_secret: ${LINKEDIN_CLIENT_SECRET}
+    access_token: ${LINKEDIN_ACCESS_TOKEN}
+
+  # YouTube
+  youtube:
+    api_key: ${YOUTUBE_API_KEY}
+    channel_id: ${YOUTUBE_CHANNEL_ID}
+
+  # TikTok
+  tiktok:
+    access_token: ${TIKTOK_ACCESS_TOKEN}
+    client_key: ${TIKTOK_CLIENT_KEY}
+
+  # Snapchat
+  snapchat:
+    access_token: ${SNAPCHAT_ACCESS_TOKEN}
+    client_id: ${SNAPCHAT_CLIENT_ID}
+
+  # Pinterest
+  pinterest:
+    access_token: ${PINTEREST_ACCESS_TOKEN}
+    app_id: ${PINTEREST_APP_ID}
+
+  # Reddit
+  reddit:
+    client_id: ${REDDIT_CLIENT_ID}
+    client_secret: ${REDDIT_CLIENT_SECRET}
+    username: ${REDDIT_USERNAME}
+    password: ${REDDIT_PASSWORD}
+
+  # Twitch
+  twitch:
+    client_id: ${TWITCH_CLIENT_ID}
+    client_secret: ${TWITCH_CLIENT_SECRET}
+    access_token: ${TWITCH_ACCESS_TOKEN}
+
+# Analytics and monitoring
+# https://rasa.com/docs/rasa/analytics
+
+analytics:
+  # URL for analytics service
+  url: ${ANALYTICS_URL}
+  # Token for authentication
+  token: ${ANALYTICS_TOKEN}
+
+# Monitoring and health checks
+# https://rasa.com/docs/rasa/monitoring
+
+monitoring:
+  # Enable monitoring
+  enabled: true
+  # Monitoring endpoint
+  endpoint: ${MONITORING_ENDPOINT}
+  # Health check interval
+  health_check_interval: 30

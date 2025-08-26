@@ -1,0 +1,356 @@
+version: "3.1"
+
+stories:
+# Basic Greeting & Goodbye
+- story: greet and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+
+# Tattoo Consultation Flow
+- story: tattoo consultation
+  steps:
+  - intent: tattoo_consultation
+  - action: utter_tattoo_consultation
+  - intent: affirm
+  - action: action_tattoo_consultation
+
+- story: tattoo consultation with design details
+  steps:
+  - intent: tattoo_consultation
+  - action: utter_tattoo_consultation
+  - intent: affirm
+  - action: action_tattoo_consultation
+  - intent: custom_design
+  - action: utter_custom_design
+
+# Booking & Appointment Flows
+- story: book appointment
+  steps:
+  - intent: book_appointment
+  - action: utter_book_appointment
+  - intent: affirm
+  - action: action_book_appointment
+
+- story: schedule appointment
+  steps:
+  - intent: schedule_appointment
+  - action: utter_book_appointment
+  - intent: affirm
+  - action: action_book_appointment
+
+- story: appointment inquiry
+  steps:
+  - intent: appointment_inquiry
+  - action: action_book_appointment
+
+- story: walk in availability
+  steps:
+  - intent: walk_in_availability
+  - action: utter_walk_in_availability
+
+# Artist & Portfolio Flows
+- story: artist inquiry
+  steps:
+  - intent: artist_inquiry
+  - action: utter_artist_inquiry
+
+- story: artist portfolio
+  steps:
+  - intent: artist_portfolio
+  - action: utter_artist_portfolio
+
+- story: artist style inquiry
+  steps:
+  - intent: artist_style
+  - action: action_artist_recommendation
+
+- story: artist experience inquiry
+  steps:
+  - intent: artist_experience
+  - action: action_artist_recommendation
+
+- story: artist availability
+  steps:
+  - intent: artist_availability
+  - action: action_artist_recommendation
+
+# Pricing & Payment Flows
+- story: pricing inquiry
+  steps:
+  - intent: pricing_inquiry
+  - action: utter_pricing_inquiry
+
+- story: tattoo pricing
+  steps:
+  - intent: tattoo_pricing
+  - action: action_pricing_estimate
+
+- story: payment options
+  steps:
+  - intent: payment_options
+  - action: utter_payment_options
+
+# Design & Customization Flows
+- story: design consultation
+  steps:
+  - intent: design_consultation
+  - action: utter_design_consultation
+
+- story: custom design
+  steps:
+  - intent: custom_design
+  - action: utter_custom_design
+
+- story: design process
+  steps:
+  - intent: design_process
+  - action: action_design_consultation
+
+- story: design revisions
+  steps:
+  - intent: design_revisions
+  - action: utter_design_revisions
+
+# Services & Procedures Flows
+- story: tattoo services
+  steps:
+  - intent: tattoo_services
+  - action: action_tattoo_consultation
+
+- story: cover up tattoo
+  steps:
+  - intent: cover_up_tattoo
+  - action: utter_cover_up_tattoo
+
+- story: touch up tattoo
+  steps:
+  - intent: touch_up_tattoo
+  - action: utter_touch_up_tattoo
+
+- story: aftercare instructions
+  steps:
+  - intent: aftercare_instructions
+  - action: utter_aftercare_instructions
+
+# Studio Information Flows
+- story: studio hours
+  steps:
+  - intent: studio_hours
+  - action: utter_studio_hours
+
+- story: studio location
+  steps:
+  - intent: studio_location
+  - action: utter_studio_location
+
+- story: contact information
+  steps:
+  - intent: contact_information
+  - action: utter_contact_information
+
+- story: support hours
+  steps:
+  - intent: support_hours
+  - action: action_contact_information
+
+# Health & Safety Flows
+- story: health requirements
+  steps:
+  - intent: health_requirements
+  - action: utter_health_requirements
+
+- story: age restrictions
+  steps:
+  - intent: age_restrictions
+  - action: utter_health_requirements
+
+- story: sterilization process
+  steps:
+  - intent: sterilization_process
+  - action: utter_sterilization_process
+
+# Special Offers & Discounts Flows
+- story: special offers
+  steps:
+  - intent: special_offers
+  - action: utter_special_offers
+
+- story: student discounts
+  steps:
+  - intent: student_discounts
+  - action: utter_special_offers
+
+# Aftercare & Healing Flows
+- story: healing timeline
+  steps:
+  - intent: healing_timeline
+  - action: utter_healing_timeline
+
+- story: aftercare products
+  steps:
+  - intent: aftercare_instructions
+  - action: utter_aftercare_instructions
+
+# Budget & Planning Flows
+- story: budget range
+  steps:
+  - intent: budget_range
+  - action: utter_budget_range
+
+- story: urgency level
+  steps:
+  - intent: urgency_level
+  - action: utter_urgency_level
+
+- story: design complexity
+  steps:
+  - intent: design_complexity
+  - action: utter_design_complexity
+
+- story: session duration
+  steps:
+  - intent: session_duration
+  - action: utter_session_duration
+
+# Complex Multi-Turn Conversations
+- story: comprehensive tattoo planning
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: tattoo_consultation
+  - action: utter_tattoo_consultation
+  - intent: custom_design
+  - action: utter_custom_design
+  - intent: pricing_inquiry
+  - action: utter_pricing_inquiry
+  - intent: book_appointment
+  - action: utter_book_appointment
+  - intent: affirm
+  - action: action_book_appointment
+
+- story: artist selection and booking
+  steps:
+  - intent: artist_inquiry
+  - action: utter_artist_inquiry
+  - intent: artist_portfolio
+  - action: utter_artist_portfolio
+  - intent: artist_style
+  - action: action_artist_recommendation
+  - intent: book_appointment
+  - action: utter_book_appointment
+  - intent: affirm
+  - action: action_book_appointment
+
+- story: pricing and payment planning
+  steps:
+  - intent: pricing_inquiry
+  - action: utter_pricing_inquiry
+  - intent: payment_options
+  - action: utter_payment_options
+  - intent: budget_range
+  - action: utter_budget_range
+  - intent: affirm
+  - action: action_pricing_estimate
+
+- story: design consultation to booking
+  steps:
+  - intent: design_consultation
+  - action: utter_design_consultation
+  - intent: custom_design
+  - action: utter_custom_design
+  - intent: design_process
+  - action: action_design_consultation
+  - intent: book_appointment
+  - action: utter_book_appointment
+  - intent: affirm
+  - action: action_book_appointment
+
+# Fallback and Error Handling
+- story: out of scope handling
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- story: nlu fallback handling
+  steps:
+  - intent: nlu_fallback
+  - action: utter_ask_clarification
+
+# Session Management
+- story: session start
+  steps:
+  - action: action_session_start
+
+- story: default fallback
+  steps:
+  - action: action_default_fallback
+
+# Quick Information Requests
+- story: quick studio info
+  steps:
+  - intent: studio_hours
+  - action: utter_studio_hours
+  - intent: studio_location
+  - action: utter_studio_location
+
+- story: quick artist info
+  steps:
+  - intent: artist_portfolio
+  - action: utter_artist_portfolio
+  - intent: artist_availability
+  - action: action_artist_recommendation
+
+- story: quick service info
+  steps:
+  - intent: tattoo_services
+  - action: action_tattoo_consultation
+  - intent: aftercare_instructions
+  - action: utter_aftercare_instructions
+
+# Customer Service Scenarios
+- story: customer support request
+  steps:
+  - intent: contact_information
+  - action: utter_contact_information
+  - intent: support_hours
+  - action: action_contact_information
+
+- story: special request handling
+  steps:
+  - intent: special_offers
+  - action: utter_special_offers
+  - intent: student_discounts
+  - action: utter_special_offers
+
+# Technical and Process Questions
+- story: technical process inquiry
+  steps:
+  - intent: sterilization_process
+  - action: utter_sterilization_process
+  - intent: health_requirements
+  - action: utter_health_requirements
+
+- story: process and timeline inquiry
+  steps:
+  - intent: design_process
+  - action: action_design_consultation
+  - intent: healing_timeline
+  - action: utter_healing_timeline
+
+# Follow-up and Maintenance
+- story: touch-up inquiry
+  steps:
+  - intent: touch_up_tattoo
+  - action: utter_touch_up_tattoo
+  - intent: book_appointment
+  - action: utter_book_appointment
+
+- story: aftercare follow-up
+  steps:
+  - intent: aftercare_instructions
+  - action: utter_aftercare_instructions
+  - intent: healing_timeline
+  - action: utter_healing_timeline

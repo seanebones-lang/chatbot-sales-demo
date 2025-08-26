@@ -1,0 +1,820 @@
+version: "3.1"
+
+nlu:
+# Greeting & Introduction
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+    - good morning
+    - good afternoon
+    - good evening
+    - howdy
+    - what's up
+    - yo
+    - hi there
+    - hello there
+    - hey there
+    - good day
+    - morning
+    - afternoon
+    - evening
+    - greetings
+    - hiya
+    - how are you
+    - what's going on
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you
+    - see ya
+    - later
+    - take care
+    - have a good day
+    - have a nice day
+    - talk to you later
+    - catch you later
+    - peace out
+    - signing off
+    - gotta go
+    - need to run
+    - talk soon
+    - until next time
+    - see you around
+    - have a good one
+    - cheers
+    - adios
+
+# Tattoo Studio Core
+- intent: tattoo_consultation
+  examples: |
+    - I want a tattoo
+    - I need a tattoo
+    - I'm thinking about getting a tattoo
+    - tattoo consultation
+    - tattoo advice
+    - tattoo help
+    - I want to get inked
+    - I need some ink
+    - I want to get tattooed
+    - tattoo idea
+    - tattoo design
+    - tattoo concept
+    - tattoo planning
+    - tattoo discussion
+    - tattoo talk
+    - tattoo guidance
+    - tattoo recommendation
+    - tattoo suggestion
+    - tattoo inspiration
+    - tattoo direction
+
+- intent: book_appointment
+  examples: |
+    - book appointment
+    - schedule appointment
+    - make appointment
+    - book tattoo
+    - schedule tattoo
+    - make tattoo appointment
+    - book session
+    - schedule session
+    - make session
+    - book time
+    - schedule time
+    - make time
+    - book slot
+    - schedule slot
+    - make slot
+    - book consultation
+    - schedule consultation
+    - make consultation
+    - book meeting
+    - schedule meeting
+
+- intent: appointment_inquiry
+  examples: |
+    - appointment availability
+    - when can I get in
+    - what times are available
+    - appointment times
+    - available times
+    - open slots
+    - free slots
+    - appointment slots
+    - available appointments
+    - open appointments
+    - free appointments
+    - appointment options
+    - time options
+    - slot options
+    - appointment schedule
+    - time schedule
+    - slot schedule
+    - appointment calendar
+    - time calendar
+    - slot calendar
+
+- intent: artist_inquiry
+  examples: |
+    - artist information
+    - tattoo artist
+    - who are your artists
+    - artist details
+    - artist info
+    - artist portfolio
+    - artist work
+    - artist style
+    - artist experience
+    - artist availability
+    - artist booking
+    - artist consultation
+    - artist recommendation
+    - artist suggestion
+    - artist choice
+    - artist selection
+    - artist options
+    - artist list
+    - artist roster
+    - artist team
+
+- intent: pricing_inquiry
+  examples: |
+    - how much does it cost
+    - what's the price
+    - pricing
+    - cost
+    - how much
+    - what do you charge
+    - pricing information
+    - cost breakdown
+    - pricing plans
+    - pricing options
+    - pricing structure
+    - tattoo cost
+    - tattoo price
+    - tattoo pricing
+    - tattoo rates
+    - tattoo fees
+    - tattoo charges
+    - tattoo estimates
+    - tattoo quotes
+    - tattoo costs
+
+- intent: design_consultation
+  examples: |
+    - design consultation
+    - design help
+    - design advice
+    - design guidance
+    - design planning
+    - design discussion
+    - design talk
+    - design ideas
+    - design concepts
+    - design inspiration
+    - design direction
+    - design recommendation
+    - design suggestion
+    - design options
+    - design choices
+    - design planning
+    - design process
+    - design work
+    - design creation
+    - design development
+
+# Artist & Portfolio
+- intent: artist_portfolio
+  examples: |
+    - artist portfolio
+    - artist work
+    - artist examples
+    - artist samples
+    - artist gallery
+    - artist pictures
+    - artist photos
+    - artist images
+    - artist designs
+    - artist tattoos
+    - artist artwork
+    - artist pieces
+    - artist creations
+    - artist style
+    - artist technique
+    - artist skills
+    - artist abilities
+    - artist experience
+    - artist background
+    - artist history
+
+- intent: artist_style
+  examples: |
+    - artist style
+    - tattoo style
+    - style of art
+    - artistic style
+    - style preference
+    - style choice
+    - style options
+    - style types
+    - style categories
+    - style examples
+    - style samples
+    - style gallery
+    - style portfolio
+    - style work
+    - style technique
+    - style approach
+    - style method
+    - style process
+    - style creation
+    - style development
+
+- intent: artist_experience
+  examples: |
+    - artist experience
+    - years of experience
+    - how long
+    - experience level
+    - skill level
+    - expertise level
+    - professional experience
+    - work experience
+    - tattoo experience
+    - industry experience
+    - background experience
+    - training experience
+    - education experience
+    - certification experience
+    - licensing experience
+    - artist background
+    - artist training
+    - artist education
+    - artist certification
+    - artist licensing
+
+- intent: artist_availability
+  examples: |
+    - artist availability
+    - when is artist available
+    - artist schedule
+    - artist calendar
+    - artist times
+    - artist slots
+    - artist appointments
+    - artist booking
+    - artist openings
+    - artist free time
+    - artist open slots
+    - artist availability
+    - artist schedule
+    - artist calendar
+    - artist times
+    - artist slots
+    - artist appointments
+    - artist booking
+    - artist openings
+    - artist free time
+
+# Services & Procedures
+- intent: tattoo_services
+  examples: |
+    - tattoo services
+    - what services do you offer
+    - what do you do
+    - services available
+    - service options
+    - service list
+    - service menu
+    - service catalog
+    - service offerings
+    - service types
+    - service categories
+    - service examples
+    - service details
+    - service information
+    - service description
+    - service overview
+    - service summary
+    - service breakdown
+    - service coverage
+    - service scope
+
+- intent: cover_up_tattoo
+  examples: |
+    - cover up tattoo
+    - tattoo cover up
+    - cover up
+    - cover up work
+    - cover up design
+    - cover up process
+    - cover up procedure
+    - cover up service
+    - cover up option
+    - cover up possibility
+    - cover up work
+    - cover up design
+    - cover up process
+    - cover up procedure
+    - cover up service
+    - cover up option
+    - cover up possibility
+    - cover up work
+    - cover up design
+    - cover up process
+
+- intent: touch_up_tattoo
+  examples: |
+    - touch up tattoo
+    - tattoo touch up
+    - touch up
+    - touch up work
+    - touch up service
+    - touch up option
+    - touch up process
+    - touch up procedure
+    - touch up work
+    - touch up service
+    - touch up option
+    - touch up process
+    - touch up procedure
+    - touch up work
+    - touch up service
+    - touch up option
+    - touch up process
+    - touch up procedure
+    - touch up work
+    - touch up service
+
+- intent: aftercare_instructions
+  examples: |
+    - aftercare instructions
+    - tattoo aftercare
+    - aftercare
+    - aftercare care
+    - aftercare tips
+    - aftercare advice
+    - aftercare guidance
+    - aftercare help
+    - aftercare information
+    - aftercare details
+    - aftercare process
+    - aftercare procedure
+    - aftercare steps
+    - aftercare routine
+    - aftercare schedule
+    - aftercare timeline
+    - aftercare duration
+    - aftercare period
+    - aftercare time
+    - aftercare length
+
+# Booking & Scheduling
+- intent: schedule_appointment
+  examples: |
+    - schedule appointment
+    - make appointment
+    - book appointment
+    - set appointment
+    - arrange appointment
+    - plan appointment
+    - organize appointment
+    - coordinate appointment
+    - fix appointment
+    - secure appointment
+    - reserve appointment
+    - hold appointment
+    - confirm appointment
+    - establish appointment
+    - create appointment
+    - setup appointment
+    - arrange time
+    - schedule time
+    - book time
+    - make time
+
+- intent: appointment_times
+  examples: |
+    - appointment times
+    - available times
+    - open times
+    - free times
+    - time slots
+    - time options
+    - time choices
+    - time availability
+    - time schedule
+    - time calendar
+    - time openings
+    - time slots
+    - time options
+    - time choices
+    - time availability
+    - time schedule
+    - time calendar
+    - time openings
+    - time slots
+    - time options
+
+- intent: walk_in_availability
+  examples: |
+    - walk in
+    - walk in availability
+    - walk in option
+    - walk in service
+    - walk in possibility
+    - walk in availability
+    - walk in option
+    - walk in service
+    - walk in possibility
+    - walk in availability
+    - walk in option
+    - walk in service
+    - walk in possibility
+    - walk in availability
+    - walk in option
+    - walk in service
+    - walk in possibility
+    - walk in availability
+    - walk in option
+    - walk in service
+
+# Pricing & Payment
+- intent: tattoo_pricing
+  examples: |
+    - tattoo pricing
+    - tattoo cost
+    - tattoo price
+    - tattoo rates
+    - tattoo fees
+    - tattoo charges
+    - tattoo estimates
+    - tattoo quotes
+    - tattoo costs
+    - tattoo prices
+    - pricing information
+    - cost information
+    - price information
+    - rate information
+    - fee information
+    - charge information
+    - estimate information
+    - quote information
+    - cost breakdown
+    - price breakdown
+
+- intent: payment_options
+  examples: |
+    - payment options
+    - how can I pay
+    - what payment methods
+    - payment methods
+    - payment types
+    - payment choices
+    - payment alternatives
+    - payment ways
+    - payment means
+    - payment forms
+    - payment options
+    - how can I pay
+    - what payment methods
+    - payment methods
+    - payment types
+    - payment choices
+    - payment alternatives
+    - payment ways
+    - payment means
+    - payment forms
+
+# Studio Information
+- intent: studio_hours
+  examples: |
+    - studio hours
+    - business hours
+    - operating hours
+    - open hours
+    - working hours
+    - available hours
+    - service hours
+    - appointment hours
+    - consultation hours
+    - walk in hours
+    - studio schedule
+    - business schedule
+    - operating schedule
+    - open schedule
+    - working schedule
+    - available schedule
+    - service schedule
+    - appointment schedule
+    - consultation schedule
+    - walk in schedule
+
+- intent: studio_location
+  examples: |
+    - studio location
+    - where are you located
+    - where is the studio
+    - studio address
+    - studio address
+    - studio location
+    - where are you located
+    - where is the studio
+    - studio address
+    - studio address
+    - studio location
+    - where are you located
+    - where is the studio
+    - studio address
+    - studio address
+    - studio location
+    - where are you located
+    - where is the studio
+    - studio address
+    - studio address
+
+# Health & Safety
+- intent: health_requirements
+  examples: |
+    - health requirements
+    - health considerations
+    - health concerns
+    - health issues
+    - health conditions
+    - health restrictions
+    - health limitations
+    - health guidelines
+    - health rules
+    - health policies
+    - health requirements
+    - health considerations
+    - health concerns
+    - health issues
+    - health conditions
+    - health restrictions
+    - health limitations
+    - health guidelines
+    - health rules
+    - health policies
+
+- intent: age_restrictions
+  examples: |
+    - age restrictions
+    - age requirements
+    - age limits
+    - age minimum
+    - age policy
+    - age rules
+    - age guidelines
+    - age considerations
+    - age concerns
+    - age issues
+    - age restrictions
+    - age requirements
+    - age limits
+    - age minimum
+    - age policy
+    - age rules
+    - age guidelines
+    - age considerations
+    - age concerns
+    - age issues
+
+# Design & Customization
+- intent: custom_design
+  examples: |
+    - custom design
+    - custom tattoo
+    - custom artwork
+    - custom piece
+    - custom creation
+    - custom work
+    - custom design
+    - custom tattoo
+    - custom artwork
+    - custom piece
+    - custom creation
+    - custom work
+    - custom design
+    - custom tattoo
+    - custom artwork
+    - custom piece
+    - custom creation
+    - custom work
+    - custom design
+    - custom tattoo
+
+- intent: design_process
+  examples: |
+    - design process
+    - design procedure
+    - design method
+    - design approach
+    - design technique
+    - design workflow
+    - design steps
+    - design stages
+    - design phases
+    - design timeline
+    - design process
+    - design procedure
+    - design method
+    - design approach
+    - design technique
+    - design workflow
+    - design steps
+    - design stages
+    - design phases
+    - design timeline
+
+# Special Offers & Packages
+- intent: special_offers
+  examples: |
+    - special offers
+    - special deals
+    - special promotions
+    - special discounts
+    - special rates
+    - special prices
+    - special offers
+    - special deals
+    - special promotions
+    - special discounts
+    - special rates
+    - special prices
+    - special offers
+    - special deals
+    - special promotions
+    - special discounts
+    - special rates
+    - special prices
+    - special offers
+    - special deals
+
+- intent: student_discounts
+  examples: |
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+    - student discount
+
+# Contact & Support
+- intent: contact_information
+  examples: |
+    - contact information
+    - contact details
+    - contact info
+    - contact data
+    - contact address
+    - contact phone
+    - contact email
+    - contact website
+    - contact number
+    - contact person
+    - contact method
+    - contact way
+    - contact means
+    - contact channel
+    - contact option
+    - contact choice
+    - contact preference
+    - contact availability
+    - contact hours
+    - contact time
+
+- intent: support_hours
+  examples: |
+    - support hours
+    - customer service hours
+    - help desk hours
+    - support availability
+    - customer service availability
+    - help desk availability
+    - support schedule
+    - customer service schedule
+    - help desk schedule
+    - support times
+    - customer service times
+    - help desk times
+    - support availability
+    - customer service availability
+    - help desk availability
+    - support schedule
+    - customer service schedule
+    - help desk schedule
+    - support times
+    - customer service times
+
+# Affirmations & Denials
+- intent: affirm
+  examples: |
+    - yes
+    - yeah
+    - yep
+    - sure
+    - absolutely
+    - definitely
+    - correct
+    - right
+    - that's right
+    - that's correct
+    - exactly
+    - indeed
+    - of course
+    - certainly
+    - positively
+    - affirmative
+    - ok
+    - okay
+    - fine
+    - good
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - nah
+    - not really
+    - not at all
+    - absolutely not
+    - definitely not
+    - incorrect
+    - wrong
+    - that's wrong
+    - that's incorrect
+    - not exactly
+    - not really
+    - not at all
+    - negative
+    - no way
+    - not a chance
+    - forget it
+    - skip it
+    - pass
+
+# Out of Scope & Fallbacks
+- intent: out_of_scope
+  examples: |
+    - what's the weather like
+    - tell me a joke
+    - what's your favorite color
+    - how old are you
+    - what's the capital of France
+    - what's 2+2
+    - what time is it
+    - what day is it
+    - what's the date
+    - what's your name
+    - where are you from
+    - what do you look like
+    - what's your favorite food
+    - what's your favorite movie
+    - what's your favorite song
+    - what's your favorite book
+    - what's your favorite sport
+    - what's your favorite hobby
+    - what's your favorite animal
+    - what's your favorite place
+
+- intent: nlu_fallback
+  examples: |
+    - asdf
+    - qwerty
+    - random text
+    - gibberish
+    - nonsense
+    - random words
+    - test message
+    - hello world
+    - testing
+    - test
+    - random
+    - whatever
+    - idk
+    - dunno
+    - maybe
+    - perhaps
+    - could be
+    - might be
+    - possibly
+    - potentially
