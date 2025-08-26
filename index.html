@@ -211,35 +211,7 @@
             box-shadow: 0 2px 6px rgba(30, 144, 255, 0.4);
         }
 
-        /* Scroll to bottom button */
-        .scroll-to-bottom {
-            position: absolute;
-            bottom: 80px;
-            right: 20px;
-            background: linear-gradient(135deg, #1E90FF, #004D61);
-            color: #FFFFFF;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 12px rgba(30, 144, 255, 0.4);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
 
-        .scroll-to-bottom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(30, 144, 255, 0.6);
-        }
-
-        .scroll-to-bottom.show {
-            display: flex;
-        }
 
         .send-button:hover {
             transform: translateY(-2px);
@@ -324,73 +296,9 @@
             font-size: 1.1rem;
         }
 
-        .quick-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 20px;
-            justify-content: center;
-        }
 
-        .quick-option {
-            background: linear-gradient(135deg, #444444, #333333);
-            color: #F0F0F0;
-            border: 1px solid #555555;
-            padding: 12px 18px;
-            border-radius: 20px;
-            cursor: pointer;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            white-space: nowrap;
-            min-width: 120px;
-        }
 
-        .quick-option:hover {
-            background: linear-gradient(135deg, #1E90FF, #004D61);
-            border-color: #1E90FF;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(30, 144, 255, 0.4);
-        }
 
-        .typing-indicator {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: #444444;
-            border-radius: 10px;
-            margin: 10px 0;
-        }
-
-        .typing-dots {
-            display: flex;
-            gap: 4px;
-        }
-
-        .typing-dots span {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #E0E0E0;
-            animation: typing 1.4s infinite ease-in-out;
-        }
-
-        .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
-
-        @keyframes typing {
-            0%, 80%, 100% {
-                transform: scale(0.8);
-                opacity: 0.5;
-            }
-            40% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
 
         /* Success and Error Messages */
         .success-message {
@@ -446,9 +354,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .quick-options {
-                grid-template-columns: 1fr;
-            }
+
         }
 
         @media (max-width: 480px) {
@@ -633,53 +539,12 @@
                 </div>
             </div>
             
-            <button class="scroll-to-bottom" id="scrollToBottom" title="Scroll to bottom">↓</button>
+
 
             <div class="chat-input-area">
                 <div class="input-group">
                     <input type="text" id="messageInput" class="message-input" placeholder="Ask me about NextEleven's AI solutions..." maxlength="500">
                     <button id="sendButton" class="send-button">Send</button>
-                </div>
-                
-                <div class="quick-options">
-                    <div class="quick-option" onclick="sendQuickMessage('Schedule Demo')">Schedule Demo</div>
-                    <div class="quick-option" onclick="sendQuickMessage('Start Free Trial')">Start Free Trial</div>
-                    <div class="quick-option" onclick="sendQuickMessage('See Pricing Details')">See Pricing Details</div>
-                    <div class="quick-option" onclick="sendQuickMessage('Technical Details')">Technical Details</div>
-                    <div class="quick-option" onclick="sendQuickMessage('See Veteran Pricing')">See Veteran Pricing</div>
-                    <div class="quick-option" onclick="sendQuickMessage('Schedule Veteran Consultation')">Schedule Veteran Consultation</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="info-panel">
-            <h2>🌟 Why Choose NextEleven?</h2>
-            
-            <ul class="value-props">
-                <li>🤖 Advanced AI with 99.9% accuracy</li>
-                <li>⚡ 24/7 customer service automation</li>
-                <li>💰 300% average ROI within 3 months</li>
-                <li>🔒 Enterprise-grade security & compliance</li>
-                <li>📱 Multi-platform integration</li>
-                <li>🎯 Industry-specific solutions</li>
-            </ul>
-
-            <div class="stats-section">
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Businesses Served</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">99.9%</div>
-                    <div class="stat-label">Uptime</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Support</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">300%</div>
-                    <div class="stat-label">Average ROI</div>
                 </div>
             </div>
         </div>
@@ -691,12 +556,8 @@
             // Add user message
             addMessage(message, true);
             
-            // Show typing indicator
-            showTypingIndicator();
-            
             // Simulate processing time
             setTimeout(() => {
-                hideTypingIndicator();
                 
                 // Find best response
                 const lowerMessage = message.toLowerCase();
@@ -715,29 +576,7 @@
                 if (bestMatch) {
                     addMessage(bestMatch.response, false);
                     
-                    // Add context-specific quick actions
-                    if (bestMatch.stage === 'pricing') {
-                        addQuickOptions([
-                            'Schedule Demo',
-                            'Start Free Trial',
-                            'See Veteran Pricing',
-                            'Technical Details'
-                        ]);
-                    } else if (bestMatch.stage === 'demo') {
-                        addQuickOptions([
-                            'Start Free Trial',
-                            'See Pricing Details',
-                            'Technical Details',
-                            'Business Analysis'
-                        ]);
-                    } else if (bestMatch.stage === 'trial') {
-                        addQuickOptions([
-                            'Schedule Demo',
-                            'See Pricing Details',
-                            'Technical Details',
-                            'Business Analysis'
-                        ]);
-                    }
+
                     
                     // Special handling for specific requests
                     if (lowerMessage.includes('pdf') || lowerMessage.includes('document')) {
@@ -971,53 +810,11 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
             }, 100);
         }
 
-        // Function to add quick options
-        function addQuickOptions(options) {
-            const messagesContainer = document.getElementById('chatMessages');
-            const optionsDiv = document.createElement('div');
-            optionsDiv.className = 'quick-options';
-            optionsDiv.style.marginTop = '15px';
-            
-            options.forEach(option => {
-                const optionBtn = document.createElement('div');
-                optionBtn.className = 'quick-option';
-                optionBtn.textContent = option;
-                optionBtn.onclick = () => sendQuickMessage(option);
-                optionsDiv.appendChild(optionBtn);
-            });
-            
-            messagesContainer.appendChild(optionsDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
 
-        // Function to show typing indicator
-        function showTypingIndicator() {
-            const messagesContainer = document.getElementById('chatMessages');
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'message bot-message';
-            typingDiv.id = 'typingIndicator';
-            
-            const contentDiv = document.createElement('div');
-            contentDiv.className = 'message-content';
-            contentDiv.innerHTML = '<div class="typing-indicator"><div class="typing-dots"><span></span><span></span><span></span></div></div>';
-            
-            typingDiv.appendChild(contentDiv);
-            messagesContainer.appendChild(typingDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
 
-        // Function to hide typing indicator
-        function hideTypingIndicator() {
-            const typingIndicator = document.getElementById('typingIndicator');
-            if (typingIndicator) {
-                typingIndicator.remove();
-            }
-        }
 
-        // Function to send quick messages
-        function sendQuickMessage(message) {
-            sendMessage(message);
-        }
+
+
 
         // Main function to send message and get bot response
         function sendMessage(message) {
@@ -1027,14 +824,9 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
             addMessage(message, true);
             console.log('✅ User message added to chat');
             
-            // Show typing indicator
-            showTypingIndicator();
-            console.log('⏳ Typing indicator shown');
-            
             // Simulate bot thinking
             setTimeout(() => {
-                hideTypingIndicator();
-                console.log('⏳ Typing indicator hidden');
+                console.log('⏳ Processing message');
                 
                 // Find best response from mariResponses
                 const lowerMessage = message.toLowerCase();
@@ -1059,32 +851,7 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
                     addMessage(bestMatch.response, false);
                     console.log('✅ Bot response added to chat');
                     
-                    // Add context-specific quick actions
-                    if (bestMatch.stage === 'pricing') {
-                        addQuickOptions([
-                            'Schedule Demo',
-                            'Start Free Trial',
-                            'See Veteran Pricing',
-                            'Technical Details'
-                        ]);
-                        console.log('✅ Quick options added for pricing stage');
-                    } else if (bestMatch.stage === 'demo') {
-                        addQuickOptions([
-                            'Start Free Trial',
-                            'See Pricing Details',
-                            'Technical Details',
-                            'Business Analysis'
-                        ]);
-                        console.log('✅ Quick options added for demo stage');
-                    } else if (bestMatch.stage === 'trial') {
-                        addQuickOptions([
-                            'Schedule Demo',
-                            'See Pricing Details',
-                            'Technical Details',
-                            'Business Analysis'
-                        ]);
-                        console.log('✅ Quick options added for trial stage');
-                    }
+
                     
                     // Special handling for specific requests
                     if (lowerMessage.includes('pdf') || lowerMessage.includes('document')) {
@@ -1282,25 +1049,7 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
                 console.log('❌ Send button element not found');
             }
             
-            // Add scroll detection for scroll-to-bottom button
-            const chatMessages = document.getElementById('chatMessages');
-            const scrollToBottomBtn = document.getElementById('scrollToBottom');
-            
-            if (chatMessages && scrollToBottomBtn) {
-                chatMessages.addEventListener('scroll', function() {
-                    const isScrolledUp = chatMessages.scrollTop < (chatMessages.scrollHeight - chatMessages.clientHeight - 100);
-                    scrollToBottomBtn.classList.toggle('show', isScrolledUp);
-                });
-                
-                scrollToBottomBtn.addEventListener('click', function() {
-                    chatMessages.scrollTo({
-                        top: chatMessages.scrollHeight,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                console.log('✅ Scroll detection and scroll-to-bottom button initialized');
-            }
+
         });
     </script>
 </body>
