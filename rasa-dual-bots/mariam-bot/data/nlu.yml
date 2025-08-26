@@ -84,7 +84,6 @@ nlu:
     - business health check
     - business performance review
     - business improvement
-    - business optimization
     - business efficiency analysis
     - business process review
     - business workflow analysis
@@ -346,12 +345,6 @@ nlu:
     - military offer
     - veteran deal
     - military deal
-    - veteran pricing
-    - military pricing
-    - veteran discount
-    - military discount
-    - veteran benefits
-    - military benefits
 
 - intent: schedule_veteran_consultation
   examples: |
@@ -376,29 +369,29 @@ nlu:
     - veteran meeting
     - military meeting
 
-# ROI & Business Value
-- intent: ask_roi_calculation
+# Customer Retention & Gain
+- intent: customer_retention
   examples: |
-    - ROI calculation
-    - return on investment
-    - ROI analysis
-    - investment return
-    - business value
-    - cost benefit analysis
-    - ROI projection
-    - investment analysis
-    - business case
-    - value proposition
-    - ROI estimate
-    - investment return
-    - business value
-    - cost benefit
-    - ROI analysis
-    - investment analysis
-    - business case
-    - value proposition
-    - ROI estimate
-    - investment return
+    - customer retention
+    - keep customers
+    - retain customers
+    - customer loyalty
+    - customer satisfaction
+    - customer experience
+    - customer success
+    - customer engagement
+    - customer relationships
+    - customer support
+    - customer service
+    - customer care
+    - customer maintenance
+    - customer growth
+    - customer expansion
+    - customer acquisition
+    - gain new customers
+    - attract customers
+    - customer attraction
+    - customer development
 
 - intent: ask_implementation_timeline
   examples: |
@@ -429,23 +422,14 @@ nlu:
     - contact information
     - contact details
     - contact info
-    - contact details
-    - contact information
-    - contact info
-    - contact details
-    - contact information
-    - contact info
-    - contact details
-    - contact information
-    - contact info
-    - contact details
-    - contact information
-    - contact info
-    - contact details
-    - contact information
-    - contact info
-    - contact details
-    - contact information
+    - how can I contact you
+    - how to reach you
+    - contact methods
+    - how to get in touch
+    - contact options
+    - contact support
+    - contact help
+    - contact assistance
 
 - intent: ask_support_hours
   examples: |
@@ -461,14 +445,6 @@ nlu:
     - support times
     - customer service times
     - help desk times
-    - support availability
-    - customer service availability
-    - help desk availability
-    - support schedule
-    - customer service schedule
-    - help desk schedule
-    - support times
-    - customer service times
 
 # Affirmations & Denials
 - intent: affirm
@@ -585,18 +561,7 @@ nlu:
     - what's the cost
     - what are the rates
 
-- intent: ask_roi_calculation
-  examples: |
-    - what's the ROI
-    - return on investment
-    - how much will I save
-    - what's the payback period
-    - ROI calculation
-    - cost benefit analysis
-    - how long to break even
-    - financial benefits
-    - savings calculation
-    - investment return
+
 
 - intent: ask_package_details
   examples: |
@@ -666,7 +631,6 @@ nlu:
     - what can you connect to
     - integration support
     - integration features
-    - integration options
     - system compatibility
 
 - intent: ask_menu_support
@@ -688,7 +652,6 @@ nlu:
     - appointment scheduling
     - scheduling capabilities
     - scheduling system
-    - scheduling features
     - appointment system
     - scheduling options
     - scheduling tools
@@ -701,12 +664,9 @@ nlu:
     - parts database
     - parts lookup
     - parts search
-    - parts catalog
     - parts information
     - parts details
     - parts availability
-    - parts search
-    - parts lookup
 
 - intent: ask_reservation_system
   examples: |
@@ -714,8 +674,6 @@ nlu:
     - booking system
     - reservation capabilities
     - booking capabilities
-    - reservation system
-    - booking system
     - reservation features
     - booking features
     - reservation options
@@ -727,8 +685,6 @@ nlu:
     - security measures
     - security capabilities
     - security protection
-    - security features
-    - security measures
     - security options
     - security tools
     - security support

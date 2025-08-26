@@ -102,10 +102,10 @@ rules:
       - intent: business_analysis
       - action: action_business_analysis
 
-  - rule: ROI calculation flow
+  - rule: Customer retention flow
     steps:
-      - intent: ask_roi_calculation
-      - action: action_roi_calculation
+      - intent: customer_retention
+      - action: action_customer_retention
 
   - rule: Implementation timeline flow
     steps:

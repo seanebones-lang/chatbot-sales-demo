@@ -86,7 +86,6 @@ intents:
   - design_process
   - design_revisions
   - reference_images
-  - design_consultation
   - design_copyright
   - design_ownership
   - design_modification
@@ -98,6 +97,10 @@ intents:
   - infection_prevention
   - scabbing_process
   - touch_up_timing
+  - budget_range
+  - urgency_level
+  - design_complexity
+  - session_duration
   - long_term_care
   - maintenance_tips
 

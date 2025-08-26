@@ -191,48 +191,57 @@ class ActionStartFreeTrial(Action):
         dispatcher.utter_message(text=response)
         return []
 
-class ActionROICalculation(Action):
+class ActionCustomerRetention(Action):
     def name(self) -> Text:
-        return "action_roi_calculation"
+        return "action_customer_retention"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        response = """📊 **ROI Calculation & Projections**
+        response = """🎯 **Customer Retention & Acquisition Strategy**
 
-**Investment Breakdown:**
-• Professional Plan: $247/month
-• Annual Investment: $2,964
-• Setup & Training: $500 (one-time)
-• Total First Year: $3,464
+**Customer Retention Strategies:**
+• **24/7 AI Support** - Keep customers engaged around the clock
+• **Personalized Experiences** - Build loyalty through customization
+• **Quick Response Times** - Improve satisfaction with instant help
+• **Proactive Communication** - Prevent churn with timely updates
+• **Customer Success Automation** - Drive retention through automation
+• **Loyalty Programs** - Reward repeat customers
+• **Feedback Loops** - Continuously improve based on customer input
 
-**Expected Returns (Industry Averages):**
+**Customer Acquisition Benefits:**
+• **Lead Generation** - Convert website visitors into prospects
+• **Qualified Prospects** - Intelligent conversations identify real opportunities
+• **Conversion Optimization** - Personalized offers increase sales
+• **Referral Programs** - Satisfied customers bring new business
+• **Multi-Channel Presence** - Reach prospects wherever they are
+• **Social Proof** - Showcase success stories and testimonials
+
+**Industry-Specific Retention Tactics:**
 
 **Healthcare:**
-• Month 1-2: Setup & training
-• Month 3-4: 200-300% ROI
-• Month 5-6: 400-600% ROI
-• Annual ROI: 800-1200%
+• Patient communication automation
+• Appointment reminders and follow-ups
+• Health education content delivery
+• Insurance verification assistance
 
 **Retail:**
-• Month 1-2: Setup & training
-• Month 3-4: 150-250% ROI
-• Month 5-6: 300-500% ROI
-• Annual ROI: 600-1000%
+• Product recommendations
+• Order tracking and updates
+• Loyalty program management
+• Personalized shopping experiences
 
 **Automotive:**
-• Month 1-2: Setup & training
-• Month 3-4: 200-350% ROI
-• Month 5-6: 350-550% ROI
-• Annual ROI: 700-1100%
+• Service scheduling and reminders
+• Maintenance notifications
+• Parts availability updates
+• Customer feedback collection
 
 **Restaurant:**
-• Month 1-2: Setup & training
-• Month 3-4: 100-200% ROI
-• Month 5-6: 250-450% ROI
-• Annual ROI: 500-900%
+• Reservation management
+• Menu recommendations
+• Special event coordination
+• Customer preference tracking
 
-**Break-even typically achieved in 2-3 months!**
-
-**Want me to calculate ROI for your specific business?** Just let me know your industry and current customer service costs."""
+**Want me to design a custom retention strategy for your business?** Just let me know your industry and current challenges."""
         
         dispatcher.utter_message(text=response)
         return []
