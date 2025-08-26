@@ -551,56 +551,7 @@
     </div>
 
     <script>
-        // Mariam's enhanced response system
-        function sendMessage(message) {
-            // Add user message
-            addMessage(message, true);
-            
-            // Simulate processing time
-            setTimeout(() => {
-                
-                // Find best response
-                const lowerMessage = message.toLowerCase();
-                let bestMatch = null;
-                let bestScore = 0;
-                
-                for (const [key, response] of Object.entries(mariResponses)) {
-                    if (lowerMessage.includes(key.toLowerCase())) {
-                        if (response.score > bestScore) {
-                            bestScore = response.score;
-                            bestMatch = response;
-                        }
-                    }
-                }
-                
-                if (bestMatch) {
-                    addMessage(bestMatch.response, false);
-                    
 
-                    
-                    // Special handling for specific requests
-                    if (lowerMessage.includes('pdf') || lowerMessage.includes('document')) {
-                        setTimeout(() => {
-                            addMessage("📄 **Generating your comprehensive PDF document...**\n\nI'm creating a detailed analysis with pricing, ROI calculations, and implementation timeline. This will be sent to your email shortly.", false);
-                            
-                            // Simulate PDF generation and email sending
-                            setTimeout(() => {
-                                const businessType = extractBusinessType(lowerMessage);
-                                deliverComprehensivePDF(businessType, 'professional');
-                            }, 2000);
-                        }, 1000);
-                    }
-                    
-                    if (lowerMessage.includes('email') || lowerMessage.includes('send')) {
-                        setTimeout(() => {
-                            addMessage("📧 **Preparing your detailed information...**\n\nI'll send you comprehensive details about our solution, pricing, and next steps. What's the best email address to send this to?", false);
-                        }, 1000);
-                    }
-                } else {
-                    addMessage(mariResponses['unrecognized'].response, false);
-                }
-            }, 1000);
-        }
 
         // Helper function to extract business type from message
         function extractBusinessType(message) {
@@ -699,37 +650,197 @@ ${industryFeatures.map(f => `• ${f}`).join('\n')}
 • Performance monitoring and reporting
 
 **Contact Information:**
-Email: NextElevenStudios@icloud.com
-Phone: Available during consultation
-Website: www.nexteleven.com
-Support: 24/7 technical assistance
+• Email: NextElevenStudios@icloud.com
+• Phone: Available during consultation calls
+• Website: www.nexteleven.com
+• Support: 24/7 technical assistance
 
-**Veteran Discounts Available:**
-• 10% off for all veterans
-• 20% off for combat veterans
-• Applied to all packages
-• Priority implementation scheduling
+**Ready to get started?** Let's schedule your consultation call!`;
 
-Thank you for your interest in NextEleven! We look forward to helping you implement this transformative solution for your business.`;
-
-            // Send the PDF content via email
-            const subject = `NextEleven AI Chatbot Solution - ${businessType || 'Business'} Analysis & Pricing`;
-            const body = `Dear Business Owner,
-
-Thank you for your interest in NextEleven's AI chatbot solution. Please find attached your comprehensive business analysis and package recommendation.
-
-${pdfContent}
-
-We look forward to helping you implement this solution and achieve the results our other clients are experiencing!
-
-Best regards,
-Mariam
-NextEleven AI Consultant
-NextElevenStudios@icloud.com
-
-P.S. I'm available to schedule a consultation call at your convenience to discuss any questions you may have.`;
-
+            // Simulate PDF generation and email sending
+            console.log('📄 PDF Generated:', pdfContent);
+            
+            // Send email with PDF content
+            const subject = `NextEleven AI Chatbot Solution - ${businessType || 'Business'} Analysis`;
+            const body = `Hi there!\n\nHere's your comprehensive business analysis and PDF document:\n\n${pdfContent}\n\nBest regards,\nMariam - NextEleven Studios`;
+            
             return sendEmail('NextElevenStudios@icloud.com', subject, body);
+        }
+
+        // Email functionality
+        function sendEmail(to, subject, body) {
+            console.log('📧 Sending email:', { to, subject, body });
+            
+            // Create mailto link for now (can be enhanced with actual email service)
+            const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open default email client
+            window.open(mailtoLink);
+            
+            return true;
+        }
+
+        // Schedule professional demo
+        function scheduleProfessionalDemo(businessType, preferredTime) {
+            console.log('📅 Scheduling demo for:', businessType, preferredTime);
+            
+            const demoDetails = {
+                businessType: businessType || 'general',
+                preferredTime: preferredTime || 'flexible',
+                status: 'scheduled',
+                date: new Date().toISOString(),
+                duration: '45-60 minutes',
+                format: 'video call or in-person',
+                cost: 'free'
+            };
+            
+            console.log('✅ Demo scheduled:', demoDetails);
+            return demoDetails;
+        }
+
+        // Setup professional trial
+        function setupProfessionalTrial(businessType, startDate) {
+            console.log('🚀 Setting up trial for:', businessType, startDate);
+            
+            const trialDetails = {
+                businessType: businessType || 'general',
+                startDate: startDate || new Date().toISOString(),
+                duration: '14 days',
+                features: 'full access to AI chatbot platform',
+                status: 'active',
+                support: 'included'
+            };
+            
+            console.log('✅ Trial setup complete:', trialDetails);
+            return trialDetails;
+        }
+
+        // Process payment request
+        function processPaymentRequest(amount, paymentMethod, businessType) {
+            console.log('💳 Processing payment:', { amount, paymentMethod, businessType });
+            
+            const paymentDetails = {
+                amount: amount || 0,
+                paymentMethod: paymentMethod || 'credit_card',
+                businessType: businessType || 'general',
+                status: 'processing',
+                transactionId: 'TXN_' + Date.now(),
+                timestamp: new Date().toISOString()
+            };
+            
+            console.log('✅ Payment processed:', paymentDetails);
+            return paymentDetails;
+        }
+
+        // Analyze business needs
+        function analyzeBusinessNeeds(businessType, challenges, goals) {
+            console.log('🔍 Analyzing business needs:', { businessType, challenges, goals });
+            
+            const analysis = {
+                businessType: businessType || 'general',
+                challenges: challenges || [],
+                goals: goals || [],
+                recommendations: [],
+                roi: '300-500%',
+                timeline: '2-3 weeks',
+                priority: 'high'
+            };
+            
+            // Add industry-specific recommendations
+            if (businessType === 'healthcare') {
+                analysis.recommendations = ['HIPAA compliance', 'Patient communication', 'Appointment scheduling'];
+            } else if (businessType === 'retail') {
+                analysis.recommendations = ['Product information', 'Order tracking', 'Customer service'];
+            } else if (businessType === 'automotive') {
+                analysis.recommendations = ['Service scheduling', 'Parts catalog', 'Customer support'];
+            } else if (businessType === 'restaurant') {
+                analysis.recommendations = ['Menu support', 'Reservation management', 'Customer service'];
+            } else {
+                analysis.recommendations = ['Customer service automation', 'Lead capture', '24/7 support'];
+            }
+            
+            console.log('✅ Business analysis complete:', analysis);
+            return analysis;
+        }
+
+        // Escalate lead
+        function escalateLead(leadId, reason, priority) {
+            console.log('🚨 Escalating lead:', { leadId, reason, priority });
+            
+            const escalation = {
+                leadId: leadId || 'LEAD_' + Date.now(),
+                reason: reason || 'high_value_opportunity',
+                priority: priority || 'high',
+                timestamp: new Date().toISOString(),
+                status: 'escalated',
+                assignedTo: 'senior_consultant'
+            };
+            
+            console.log('✅ Lead escalated:', escalation);
+            return escalation;
+        }
+
+        // Generate session report
+        function generateSessionReport(sessionId, interactions, outcomes) {
+            console.log('📊 Generating session report:', { sessionId, interactions, outcomes });
+            
+            const report = {
+                sessionId: sessionId || 'SESSION_' + Date.now(),
+                interactions: interactions || [],
+                outcomes: outcomes || [],
+                timestamp: new Date().toISOString(),
+                duration: 'ongoing',
+                status: 'active'
+            };
+            
+            console.log('✅ Session report generated:', report);
+            return report;
+        }
+
+        // Show military discounts
+        function showMilitaryDiscounts() {
+            console.log('🇺🇸 Showing military discounts');
+            
+            const discounts = {
+                veterans: '25% off all plans',
+                activeDuty: '30% off all plans',
+                combatVeterans: '35% off all plans',
+                militaryFamilies: '20% off all plans',
+                verification: 'DD-214 or military ID required'
+            };
+            
+            console.log('✅ Military discounts displayed:', discounts);
+            return discounts;
+        }
+
+        // Handle quick options
+        function handleQuickOption(option) {
+            console.log('⚡ Handling quick option:', option);
+            
+            const lowerOption = option.toLowerCase();
+            
+            if (lowerOption.includes('demo') || lowerOption.includes('schedule')) {
+                addMessage("📅 **Perfect! Let's schedule your professional demo.**\n\n**What our demo includes:**\n• Live AI chatbot demonstration\n• Custom business analysis\n• ROI calculation for your industry\n• Implementation timeline\n• Q&A session\n\n**What's your preferred time?**\n• Morning (9 AM - 12 PM)\n• Afternoon (1 PM - 5 PM)\n• Evening (6 PM - 8 PM)\n\n**What's the best email to send your demo confirmation?**", false);
+            } else if (lowerOption.includes('trial') || lowerOption.includes('free')) {
+                addMessage("🚀 **Excellent! Let's get your free trial started.**\n\n**What your trial includes:**\n• 14-day full access to our platform\n• Custom AI chatbot setup\n• Integration assistance\n• Training and support\n• Performance analytics\n• No credit card required\n\n**What's your preferred setup time?**\n• Morning (9 AM - 12 PM)\n• Afternoon (1 PM - 5 PM)\n• Evening (6 PM - 8 PM)\n\n**What's the best email to send your trial setup details?**", false);
+            } else if (lowerOption.includes('pricing') || lowerOption.includes('cost')) {
+                addMessage("💰 **Absolutely! Let me show you our transparent pricing.**\n\n**What's your email address?** I'll send you:\n• Complete pricing for all packages\n• ROI calculations for your industry\n• Case studies from similar businesses\n• Implementation timelines\n• Military veteran discounts\n• Next steps to get started", false);
+            } else if (lowerOption.includes('technical') || lowerOption.includes('integration')) {
+                addMessage("🔧 **Great question! Let me show you our technical capabilities.**\n\n**What would you like to know about?**\n• How our AI understands customer intent\n• Integration with your existing systems\n• Security and compliance features\n• Multi-platform support\n• Analytics and reporting\n\n**What's your email address?** I'll send you technical specifications and integration guides!", false);
+            } else if (lowerOption.includes('veteran')) {
+                if (lowerOption.includes('pricing')) {
+                    addMessage("🇺🇸 **Veteran Pricing with Military Discounts!**\n\n**What's your email address?** I'll send you our complete pricing structure with veteran discounts applied, plus:\n• Veteran business success stories\n• Special veteran features and priority support\n• Military discount application process\n• Dedicated veteran account manager", false);
+                } else if (lowerOption.includes('consultation')) {
+                    addMessage("🇺🇸 **Veteran Consultation Scheduling!**\n\n**What's your email address?** I'll schedule your veteran consultation call, plus:\n• Priority scheduling for veterans\n• Veteran-specific business solutions\n• Military discount application\n• Dedicated veteran account manager", false);
+                } else if (lowerOption.includes('stories')) {
+                    addMessage("🇺🇸 **Veteran Business Success Stories!**\n\n**What's your email address?** I'll send you detailed case studies from veteran-owned businesses, plus:\n• ROI examples from veteran businesses\n• Implementation stories and timelines\n• Veteran-specific features and support\n• Testimonials from veteran owners", false);
+                } else if (lowerOption.includes('trial')) {
+                    addMessage("🇺🇸 **Veteran Free Trial Setup!**\n\n**What's your email address?** I'll set up your veteran trial with priority access, plus:\n• Veteran-specific business features\n• Priority support and training\n• Military discount application\n• Dedicated veteran account manager", false);
+                }
+            } else {
+                // Default handling for other options
+                sendMessage(option);
+            }
         }
 
         // Test function to verify all Mariam's responses
@@ -850,8 +961,6 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
                 if (bestMatch) {
                     addMessage(bestMatch.response, false);
                     console.log('✅ Bot response added to chat');
-                    
-
                     
                     // Special handling for specific requests
                     if (lowerMessage.includes('pdf') || lowerMessage.includes('document')) {

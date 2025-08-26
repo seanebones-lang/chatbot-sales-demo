@@ -296,6 +296,9 @@ actions:
   - action_design_complexity
   - action_session_duration
   - action_studio_location
+  - action_placement_advice
+  - action_tattoo_style_recommendation
+  - action_studio_policies
 
 session_config:
   session_expiration_time: 60

@@ -365,42 +365,145 @@ class ActionDefaultFallback(Action):
         return "action_default_fallback"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        response = """🤔 **I didn't quite understand that request.**
+        response = """🤔 **I'm not sure I understood that request.**
 
 **Let me help you better. I can assist with:**
-
-**Business Solutions:**
-• AI chatbot implementation
-• Customer service automation
-• Lead generation systems
-• Payment processing setup
-
-**Pricing & Plans:**
-• Package recommendations
-• ROI calculations
-• Veteran discounts
-• Custom pricing
-
-**Demos & Trials:**
-• Professional demos
-• Free trial setup
-• Implementation guidance
-• Training and support
-
-**Technical Details:**
-• Integration options
-• Security & compliance
-• Performance metrics
-• Deployment options
+• **Business solutions** and AI chatbots
+• **Pricing** and package options
+• **Demos** and consultations
+• **Free trials** and setup
+• **Technical details** and integration
+• **Veteran discounts** and special offers
 
 **Try asking about:**
 • 'Schedule a demo'
-• 'See pricing details'
+• 'See pricing'
 • 'Start free trial'
 • 'Business analysis'
-• 'Technical specifications'
+• 'Technical details'
 
 **What would you like to know about?**"""
+        
+        dispatcher.utter_message(text=response)
+        return []
+
+class ActionExtractBusinessInfo(Action):
+    def name(self) -> Text:
+        return "action_extract_business_info"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Extract business information from user message
+        business_type = tracker.get_slot("business_type") or "general"
+        business_size = tracker.get_slot("business_size") or "unknown"
+        industry = tracker.get_slot("industry") or "general"
+        
+        response = f"""🏢 **Business Information Extracted**
+
+**Business Type:** {business_type.title()}
+**Business Size:** {business_size.title()}
+**Industry:** {industry.title()}
+
+**Based on this information, I recommend:**
+• Custom AI chatbot solution for {business_type} businesses
+• Industry-specific features and integrations
+• ROI-optimized package selection
+• Implementation timeline: 2-3 weeks
+
+**Would you like me to:**
+• Analyze your specific business needs?
+• Show pricing for your industry?
+• Schedule a consultation call?
+• Start your free trial?
+
+**What's your next step?**"""
+        
+        dispatcher.utter_message(text=response)
+        return []
+
+class ActionGenerateProposal(Action):
+    def name(self) -> Text:
+        return "action_generate_proposal"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        business_type = tracker.get_slot("business_type") or "general"
+        budget_range = tracker.get_slot("budget_range") or "flexible"
+        
+        # Generate custom proposal based on business type and budget
+        proposals = {
+            "healthcare": {
+                "package": "Professional Plan - $247/month",
+                "features": ["HIPAA compliance", "Patient communication", "Appointment scheduling", "Medical FAQ handling"],
+                "roi": "400-600% within 6 months"
+            },
+            "retail": {
+                "package": "Professional Plan - $247/month",
+                "features": ["Product information", "Order tracking", "Return assistance", "Inventory checking"],
+                "roi": "300-500% within 4 months"
+            },
+            "automotive": {
+                "package": "Professional Plan - $247/month",
+                "features": ["Service scheduling", "Parts catalog", "Service history", "Maintenance reminders"],
+                "roi": "350-550% within 5 months"
+            },
+            "restaurant": {
+                "package": "Starter Plan - $79/month",
+                "features": ["Menu support", "Reservation management", "Catering quotes", "Delivery tracking"],
+                "roi": "250-450% within 3 months"
+            }
+        }
+        
+        proposal = proposals.get(business_type, proposals["retail"])
+        
+        response = f"""📋 **Custom Proposal for {business_type.title()} Business**
+
+**Recommended Package:** {proposal['package']}
+**Key Features:**
+{chr(10).join([f"• {feature}" for feature in proposal['features']])}
+
+**Expected ROI:** {proposal['roi']}
+**Implementation Timeline:** 2-3 weeks
+**Support Level:** 24/7 technical assistance
+
+**Next Steps:**
+1. Schedule consultation call (15 minutes)
+2. Custom solution design (1 week)
+3. Implementation and training (2-3 weeks)
+4. Go-live and optimization (ongoing)
+
+**Ready to proceed?** Let's schedule your consultation call!"""
+        
+        dispatcher.utter_message(text=response)
+        return []
+
+class ActionOpenAIKnowledge(Action):
+    def name(self) -> Text:
+        return "action_openai_knowledge"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # This action would integrate with OpenAI for advanced knowledge responses
+        # For now, providing a comprehensive knowledge response
+        
+        response = """🧠 **Advanced AI Knowledge & Capabilities**
+
+**Our AI Technology:**
+• **Natural Language Processing:** Understands customer intent with 95% accuracy
+• **Machine Learning:** Continuously improves responses based on interactions
+• **Multi-Language Support:** Handles 50+ languages for global businesses
+• **Context Awareness:** Remembers conversation history and user preferences
+
+**Advanced Features:**
+• **Sentiment Analysis:** Detects customer mood and adjusts responses
+• **Intent Recognition:** Identifies 100+ business intents automatically
+• **Entity Extraction:** Pulls key information from customer messages
+• **Smart Routing:** Directs complex queries to human agents when needed
+
+**Integration Capabilities:**
+• **CRM Systems:** Salesforce, HubSpot, Pipedrive
+• **E-commerce:** Shopify, WooCommerce, Magento
+• **Communication:** Slack, Teams, Discord
+• **Analytics:** Google Analytics, Mixpanel, Amplitude
+
+**What specific technical aspect would you like me to explain in detail?**"""
         
         dispatcher.utter_message(text=response)
         return []

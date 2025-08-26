@@ -178,12 +178,20 @@ responses:
     - text: "🤔 **I'm not sure I understood that request.**\n\n**Let me help you better. I can assist with:**\n• **Business solutions** and AI chatbots\n• **Pricing** and package options\n• **Demos** and consultations\n• **Free trials** and setup\n• **Technical details** and integration\n• **Veteran discounts** and special offers\n\n**Try asking about:**\n• 'Schedule a demo'\n• 'See pricing'\n• 'Start free trial'\n• 'Business analysis'\n• 'Technical details'\n\n**What would you like to know about?**"
 
 actions:
+  - action_session_start
   - action_business_analysis
+  - action_pricing_inquiry
+  - action_veteran_discounts
+  - action_schedule_demo
+  - action_start_free_trial
   - action_roi_calculation
-  - action_schedule_consultation
+  - action_technical_details
+  - action_healthcare_specialist
+  - action_contact_info
+  - action_default_fallback
+  - action_extract_business_info
   - action_generate_proposal
   - action_openai_knowledge
-  - action_extract_business_info
 
 session_config:
   session_expiration_time: 60
