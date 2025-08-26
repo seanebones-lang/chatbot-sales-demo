@@ -470,8 +470,8 @@
 
                 <div class="enterprise-stats">
                     <div class="stat-item">
-                        <div class="stat-number">340%</div>
-                        <div class="stat-label">Average ROI Increase</div>
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Customers Engaged</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">87%</div>
@@ -508,7 +508,7 @@
                         <br><br>
                         We provide comprehensive chatbot services for all business types and individual professionals. Our solutions are trusted by Fortune 500 companies and growing businesses worldwide.
                         <br><br>
-                        To provide you with the most relevant information and ROI calculations, could you please tell me what type of business you're in?
+                        To provide you with the most relevant information and business solutions, could you please tell me what type of business you're in?
                     </div>
                     <div class="conversation-start">
                         <p>👋 <strong>Welcome to NextEleven!</strong> I'm Mariam, your AI consultant. I'm here to help you discover how our chatbot solutions can transform your business.</p>
@@ -521,7 +521,7 @@
                 </div>
 
                 <div class="chat-input-area">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message to Mari..." onkeypress="handleKeyPress(event)">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message to Mariam...">
                     <button class="send-button" onclick="sendUserMessage()">→</button>
                 </div>
             </div>
@@ -1058,10 +1058,10 @@
                 stage: 'detailed_information'
             },
             'what aspect would you like me to dive deeper into': {
-                response: "🔍 **Absolutely! Let me dive deeper into the specific areas that interest you most.**\n\n**What would you like me to explore in detail?**\n\n**🔧 Technical Deep Dives:**\n- How our AI technology works\n- Security and compliance details\n- Integration capabilities\n- Performance and scalability\n- Customization options\n\n**💰 Business Deep Dives:**\n- Pricing and package details\n- ROI calculations and examples\n- Implementation timelines\n- Training and support\n- Success stories and case studies\n\n**🎯 Industry-Specific Deep Dives:**\n- Solutions for your business type\n- Industry pain points we solve\n- Custom features for your industry\n- Integration with your systems\n- Real results from similar businesses\n\n**🚀 Getting Started Deep Dives:**\n- Demo scheduling and preparation\n- Free trial setup process\n- Consultation and planning\n- Project management and timeline\n- Team training and onboarding\n\n**What specific area would you like me to dive deeper into?** Just tell me what interests you most!",
+                response: "🔍 **Absolutely! Let me dive deeper into the specific areas that interest you most.**\n\n**What would you like me to explore in detail?**\n\n**🔧 Technical Deep Dives:**\n- How our AI technology works\n- Security and compliance details\n- Integration capabilities\n- Performance and scalability\n- Customization options\n\n**💰 Business Deep Dives:**\n- Pricing and package details\n- Customer retention strategies\n- Implementation timelines\n- Training and support\n- Success stories and case studies\n\n**🎯 Industry-Specific Deep Dives:**\n- Solutions for your business type\n- Industry pain points we solve\n- Custom features for your industry\n- Integration with your systems\n- Real results from similar businesses\n\n**🚀 Getting Started Deep Dives:**\n- Demo scheduling and preparation\n- Free trial setup process\n- Consultation and planning\n- Project management and timeline\n- Team training and onboarding\n\n**What specific area would you like me to dive deeper into?** Just tell me what interests you most!",
                 score: 30,
                 stage: 'detailed_information'
-            }
+            },
             // Comprehensive Business Type Recognition & Responses
             'cellphone': {
                 response: "📱 **Excellent! Cellphone and mobile device businesses are perfect for NextEleven's chatbot solutions.**\n\n**Cellphone Business Pain Points We Solve:**\n- **Peak time chaos**: Constant phone calls during busy periods\n- **Service confusion**: Customers unsure about plans, devices, and pricing\n- **Technical support**: Basic troubleshooting questions consuming staff time\n- **Appointment scheduling**: Device repairs and consultations\n- **Product information**: Endless questions about phones, plans, and accessories\n- **After-hours inquiries**: Missing sales opportunities when closed\n\n**Our Cellphone Business Chatbot Features:**\n- **Device recommendations** based on customer needs\n- **Plan comparison** and pricing information\n- **Appointment scheduling** for repairs and consultations\n- **Basic troubleshooting** for common device issues\n- **Accessory sales** and recommendations\n- **Trade-in value** estimates\n- **Warranty information** and claims processing\n- **Store hours** and location details\n- **Promotional offers** and deals\n- **Customer account** information\n\n**Key Benefits for Cellphone Businesses:**\n- **Reduce phone interruptions** during peak business hours\n- **Increase accessory sales** through smart recommendations\n- **Improve customer satisfaction** with instant responses\n- **Capture leads 24/7** when stores are closed\n- **Streamline appointment booking** for repairs and consultations\n- **Professional image** that builds trust with customers\n\n**Typical Results for Cellphone Businesses:**\n- 50-70% reduction in phone calls during peak hours\n- 25-40% increase in accessory sales\n- 30-50% improvement in appointment booking efficiency\n- 60% decrease in basic support questions\n- Save 15-20 hours per week on repetitive inquiries\n\n**What specific aspect of your cellphone business would you like me to focus on?**\n- Device sales and recommendations\n- Plan comparisons and pricing\n- Repair services and scheduling\n- Accessory sales and promotions\n- Technical support and troubleshooting",
@@ -1349,6 +1349,16 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             console.log('NextEleven Enterprise Chatbot with Mariam initialized');
+            
+            // Add event listener for Enter key on chat input
+            const chatInput = document.getElementById('chatInput');
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter') {
+                        sendUserMessage();
+                    }
+                });
+            }
         });
     </script>
 </body>
