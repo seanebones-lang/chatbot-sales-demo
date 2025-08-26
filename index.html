@@ -496,9 +496,191 @@
         let conversationStage = 'industry_identification';
         let enterpriseScore = 0;
 
-        const mariResponses = {
+                const mariResponses = {
+            // General conversation responses
+            'hello': {
+                response: "Hello! 👋 I'm Mari, your NextEleven AI consultant. I'm here to help you discover how our enterprise chatbot solutions can transform your business.\n\nWhat brings you here today? Are you looking to improve customer service, increase sales, or streamline operations?",
+                score: 5,
+                stage: 'greeting'
+            },
+            'hi': {
+                response: "Hi there! 👋 I'm Mari from NextEleven. We specialize in AI-powered chatbot solutions that help businesses like yours increase efficiency and customer satisfaction.\n\nWhat type of business are you in? I'd love to show you how we can help!",
+                score: 5,
+                stage: 'greeting'
+            },
+            'hey': {
+                response: "Hey! 👋 Great to meet you! I'm Mari, and I'm here to introduce you to NextEleven's enterprise chatbot solutions.\n\nWe help businesses automate customer service, increase bookings, and boost revenue. What industry are you in?",
+                score: 5,
+                stage: 'greeting'
+            },
+            'what is this site': {
+                response: "Great question! This is NextEleven's enterprise chatbot solutions platform. We're a leading provider of AI-powered chatbots that help businesses:\n\n🚀 **Automate customer service** 24/7\n🚀 **Increase sales and bookings** through intelligent conversations\n🚀 **Reduce operational costs** by up to 60%\n🚀 **Improve customer satisfaction** with instant responses\n\nI'm Mari, your AI consultant, and I'm here to show you exactly how our solutions can work for your business. What industry are you in?",
+                score: 10,
+                stage: 'site_explanation'
+            },
+            'what is this': {
+                response: "This is NextEleven - we're an enterprise AI company that builds intelligent chatbots for businesses. Our solutions help companies like yours:\n\n💡 **Save time** by automating routine customer inquiries\n💡 **Make money** by capturing leads and bookings 24/7\n💡 **Grow faster** with scalable customer communication\n💡 **Stay competitive** with cutting-edge AI technology\n\nI'm Mari, and I'd love to show you how this could work for your business. What type of company do you run?",
+                score: 10,
+                stage: 'site_explanation'
+            },
+            'what do you do': {
+                response: "I'm Mari, your NextEleven AI consultant! Here's what we do:\n\n🤖 **Build custom chatbots** for businesses of all sizes\n🤖 **Integrate with your existing systems** (website, CRM, booking software)\n🤖 **Automate customer conversations** 24/7 across all channels\n🤖 **Generate qualified leads** and increase bookings automatically\n🤖 **Provide enterprise-grade security** and compliance\n\nWe've helped 500+ companies increase their ROI by an average of 340%. What business are you in? I'd love to show you how we can help!",
+                score: 15,
+                stage: 'company_explanation'
+            },
+            'who are you': {
+                response: "I'm Mari! 👋 I'm an AI consultant for NextEleven, a company that builds intelligent chatbots for businesses.\n\nMy job is to understand your business needs and show you exactly how our AI solutions can:\n\n✅ **Solve your biggest customer service challenges**\n✅ **Increase your revenue and efficiency**\n✅ **Give you a competitive advantage**\n\nThink of me as your personal guide to the future of customer communication! What business are you in?",
+                score: 10,
+                stage: 'introduction'
+            },
+            'how does this work': {
+                response: "Great question! Here's how NextEleven works:\n\n🔧 **We build a custom chatbot** specifically for your business and industry\n🔧 **Integrate it with your existing systems** (website, social media, SMS)\n🔧 **Train it on your business knowledge** (services, pricing, policies)\n🔧 **Launch it 24/7** to handle customer inquiries automatically\n🔧 **Monitor and optimize** performance continuously\n\n**The result?** Your customers get instant answers while you focus on growing your business.\n\nWhat industry are you in? I can show you exactly how this would work for you!",
+                score: 15,
+                stage: 'how_it_works'
+            },
+            'tell me more': {
+                response: "Absolutely! Let me tell you more about NextEleven:\n\n🏢 **We're an enterprise AI company** trusted by Fortune 500 companies\n🏢 **Our chatbots handle 10,000+ conversations daily** across all industries\n🏢 **We've helped businesses increase ROI by 340%** on average\n🏢 **Our solutions are SOC 2 compliant** and enterprise-ready\n🏢 **We offer 24/7 support** and dedicated account management\n\n**What makes us different:**\n✨ Industry-specific customization\n✨ 2-week setup (vs 6-8 weeks with competitors)\n✨ Proven ROI with real case studies\n✨ Ongoing optimization and updates\n\nWhat aspect interests you most - the technology, ROI, or implementation process?",
+                score: 20,
+                stage: 'detailed_information'
+            },
+            'thanks': {
+                response: "You're very welcome! 😊 I'm here to help you discover how NextEleven can transform your business.\n\nIs there anything specific you'd like to know about our chatbot solutions? Or would you like me to show you how they work for your industry?",
+                score: 5,
+                stage: 'gratitude'
+            },
+            'thank you': {
+                response: "You're absolutely welcome! 😊 I'm excited to help you explore NextEleven's solutions.\n\nWhat would you like to learn about next? Our pricing, case studies, or how to get started?",
+                score: 5,
+                stage: 'gratitude'
+            },
+            'goodbye': {
+                response: "Goodbye! 👋 It was great chatting with you today.\n\nBefore you go, would you like me to send you our pricing guide or schedule a quick demo? I'm here whenever you're ready to take the next step!\n\nFeel free to come back anytime - I'm always here to help! 😊",
+                score: 5,
+                stage: 'farewell'
+            },
+            'bye': {
+                response: "Bye! 👋 Thanks for stopping by NextEleven today!\n\nIf you decide you'd like to explore our chatbot solutions further, I'm here 24/7. We'd love to show you how we can help your business grow!\n\nHave a wonderful day! 😊",
+                score: 5,
+                stage: 'farewell'
+            },
+            'help': {
+                response: "I'm here to help! 😊 Here's what I can assist you with:\n\n🔍 **Learn about NextEleven** - What we do and how we help businesses\n🔍 **Industry solutions** - See how our chatbots work for your specific business\n🔍 **ROI and benefits** - Understand the business impact and returns\n🔍 **Pricing and packages** - Explore our different solution tiers\n🔍 **Case studies** - Real examples of how we've helped other businesses\n🔍 **Get started** - Schedule a demo or get pricing information\n\nWhat would you like to know more about?",
+                score: 10,
+                stage: 'help_request'
+            },
+            'what can you do': {
+                response: "Great question! Here's what I can do for you:\n\n🎯 **Analyze your business needs** and recommend the perfect solution\n🎯 **Show you industry-specific examples** of how our chatbots work\n🎯 **Calculate potential ROI** for your business\n🎯 **Explain our technology** and how it integrates with your systems\n🎯 **Share case studies** from businesses like yours\n🎯 **Get you pricing information** and schedule demos\n🎯 **Answer any questions** about NextEleven's solutions\n\nThink of me as your personal AI consultant! What would you like to explore first?",
+                score: 15,
+                stage: 'capabilities_explanation'
+            },
+            'pricing': {
+                response: "I'd be happy to share our pricing! NextEleven offers several packages:\n\n💼 **Professional Package**: $2,997 setup + $197/month\n   - Complete chatbot solution for single-location businesses\n   - Unlimited conversations and integrations\n   - 24/7 monitoring and support\n\n🏢 **Enterprise Package**: $8,997 setup + $497/month\n   - Multi-location management dashboard\n   - Advanced analytics and reporting\n   - Dedicated account management\n\n🚀 **Enterprise Plus**: Custom pricing for 10+ locations\n   - Volume discounts and white-label options\n   - Custom integrations and features\n\n**All packages include:** Setup, training, ongoing support, and regular updates.\n\nWhat's the best email to send your detailed pricing guide?",
+                score: 25,
+                stage: 'pricing_inquiry'
+            },
+            'how much': {
+                response: "Great question about pricing! Our solutions start at $2,997 for setup and $197/month for the Professional package.\n\n**What you get:**\n✅ Complete chatbot solution\n✅ Unlimited conversations\n✅ Integration with your systems\n✅ 24/7 support and monitoring\n✅ Regular updates and optimization\n\n**ROI typically achieved in 60-90 days** through increased bookings and reduced support costs.\n\nWould you like me to send you our comprehensive pricing guide? Just let me know your email address!",
+                score: 20,
+                stage: 'pricing_inquiry'
+            },
+            'demo': {
+                response: "Absolutely! I'd love to arrange a personalized demo for you.\n\n**What our demo includes:**\n🎯 **Custom configuration** with your business branding\n🎯 **Real examples** from your industry\n🎯 **Integration demonstration** with your existing systems\n🎯 **ROI calculations** specific to your business\n🎯 **Q&A session** with our technical team\n\n**Demo duration:** 30 minutes\n**Available times:** Morning, afternoon, or evening slots\n\nWhat's your preferred time for a demo call? I'll have our team reach out to schedule it!",
+                score: 25,
+                stage: 'demo_request'
+            },
+            'case study': {
+                response: "Excellent! I'd love to share some real success stories with you.\n\n**Recent Case Studies:**\n\n🏥 **Healthcare Clinic**: 70% reduction in phone calls, 45% increase in appointments\n💇‍♀️ **Hair Salon**: 25% boost in retail sales, 15 hours saved weekly\n🎨 **Tattoo Studio**: 40% increase in bookings, 60% fewer no-shows\n🏢 **Law Firm**: 50% faster client intake, 35% increase in consultations\n\n**What makes these results possible:**\n✨ Industry-specific AI training\n✨ Seamless system integration\n✨ 24/7 availability\n✨ Continuous optimization\n\nWould you like to see the full case study for your industry? What business are you in?",
+                score: 20,
+                stage: 'case_study_request'
+            },
+            'case studies': {
+                response: "Excellent! I'd love to share some real success stories with you.\n\n**Recent Case Studies:**\n\n🏥 **Healthcare Clinic**: 70% reduction in phone calls, 45% increase in appointments\n💇‍♀️ **Hair Salon**: 25% boost in retail sales, 15 hours saved weekly\n🎨 **Tattoo Studio**: 40% increase in bookings, 60% fewer no-shows\n🏢 **Law Firm**: 50% faster client intake, 35% increase in consultations\n\n**What makes these results possible:**\n✨ Industry-specific AI training\n✨ Seamless system integration\n✨ 24/7 availability\n✨ Continuous optimization\n\nWould you like to see the full case study for your industry? What business are you in?",
+                score: 20,
+                stage: 'case_study_request'
+            },
+            'start': {
+                response: "Great! Let's get you started with NextEleven. Here are your next steps:\n\n🚀 **Step 1**: Schedule a free consultation call\n🚀 **Step 2**: Get your custom ROI analysis\n🚀 **Step 3**: See a personalized demo\n🚀 **Step 4**: Choose your package and get started\n\n**Implementation timeline**: Just 2 weeks from start to finish!\n\nWould you like to schedule your consultation call now? I can have our team reach out within 24 hours!",
+                score: 25,
+                stage: 'getting_started'
+            },
+            'get started': {
+                response: "Perfect! Let's get you started with NextEleven. Here's how we'll get you up and running:\n\n📅 **Week 1**: Consultation, customization, and setup\n📅 **Week 2**: Integration, testing, and launch\n📅 **Week 3**: Training and optimization\n📅 **Week 4**: Full deployment and ongoing support\n\n**What you need to do**: Just schedule a 30-minute consultation call!\n\nWould you like me to arrange that for you? Morning, afternoon, or evening works best?",
+                score: 25,
+                stage: 'getting_started'
+            },
+            'contact sales': {
+                response: "Absolutely! I'd be happy to connect you with our sales team.\n\n**What happens next:**\n📞 **Sales Director** will call you within 24 hours\n📧 **Custom proposal** sent to your email\n🎯 **Personalized demo** scheduled at your convenience\n💰 **ROI analysis** specific to your business\n\n**What to expect:**\n- No pressure sales tactics\n- Focus on your specific needs\n- Clear pricing and timeline\n- Ongoing support commitment\n\nWhat's the best phone number and time to reach you?",
+                score: 30,
+                stage: 'sales_contact'
+            },
+            'sales': {
+                response: "Perfect! Let me connect you with our sales team for a personalized consultation.\n\n**Our sales process:**\n🎯 **Discovery call** - Understand your business needs\n📊 **ROI analysis** - Calculate your potential returns\n🎨 **Custom demo** - Show exactly how it works for you\n💼 **Proposal** - Tailored solution and pricing\n🚀 **Implementation** - Get you up and running in 2 weeks\n\n**No pressure, just solutions!** What's the best way to reach you?",
+                score: 30,
+                stage: 'sales_contact'
+            },
+            'morning': {
+                response: "Perfect! Morning works great. I'll have our team reach out to schedule your demo call.\n\n**What to expect:**\n⏰ **Call duration**: 30 minutes\n📱 **Format**: Video call (Zoom/Teams)\n👥 **Attendees**: You + our technical team\n🎯 **Focus**: Your business needs and solution demo\n\n**You'll receive:**\n- Calendar invitation within 2 hours\n- Pre-call questionnaire\n- Demo agenda tailored to your business\n\nWhat's your email address so I can send you the scheduling details?",
+                score: 20,
+                stage: 'demo_scheduling'
+            },
+            'afternoon': {
+                response: "Excellent choice! Afternoon works perfectly. I'll have our team reach out to schedule your demo call.\n\n**What to expect:**\n⏰ **Call duration**: 30 minutes\n📱 **Format**: Video call (Zoom/Teams)\n👥 **Attendees**: You + our technical team\n🎯 **Focus**: Your business needs and solution demo\n\n**You'll receive:**\n- Calendar invitation within 2 hours\n- Pre-call questionnaire\n- Demo agenda tailored to your business\n\nWhat's your email address so I can send you the scheduling details?",
+                score: 20,
+                stage: 'demo_scheduling'
+            },
+            'evening': {
+                response: "Great! Evening works perfectly for us. I'll have our team reach out to schedule your demo call.\n\n**What to expect:**\n⏰ **Call duration**: 30 minutes\n📱 **Format**: Video call (Zoom/Teams)\n👥 **Attendees**: You + our technical team\n🎯 **Focus**: Your business needs and solution demo\n\n**You'll receive:**\n- Calendar invitation within 2 hours\n- Pre-call questionnaire\n- Demo agenda tailored to your business\n\nWhat's your email address so I can send you the scheduling details?",
+                score: 20,
+                stage: 'demo_scheduling'
+            },
+            // Common variations and misspellings
+            'hii': {
+                response: "Hi there! 👋 I'm Mari from NextEleven. We specialize in AI-powered chatbot solutions that help businesses like yours increase efficiency and customer satisfaction.\n\nWhat type of business are you in? I'd love to show you how we can help!",
+                score: 5,
+                stage: 'greeting'
+            },
+            'hiii': {
+                response: "Hey! 👋 Great to meet you! I'm Mari, and I'm here to introduce you to NextEleven's enterprise chatbot solutions.\n\nWe help businesses automate customer service, increase bookings, and boost revenue. What industry are you in?",
+                score: 5,
+                stage: 'greeting'
+            },
+            'sup': {
+                response: "Hey there! 👋 I'm Mari from NextEleven. We're all about helping businesses like yours get ahead with AI-powered chatbot solutions.\n\nWhat brings you here today? Looking to improve customer service or boost sales?",
+                score: 5,
+                stage: 'greeting'
+            },
+            'yo': {
+                response: "Yo! 👋 I'm Mari, your NextEleven AI consultant. We help businesses automate customer service and increase revenue with intelligent chatbots.\n\nWhat type of business are you running? I'd love to show you how we can help!",
+                score: 5,
+                stage: 'greeting'
+            },
+            'whats this': {
+                response: "Great question! This is NextEleven's enterprise chatbot solutions platform. We're a leading provider of AI-powered chatbots that help businesses:\n\n🚀 **Automate customer service** 24/7\n🚀 **Increase sales and bookings** through intelligent conversations\n🚀 **Reduce operational costs** by up to 60%\n🚀 **Improve customer satisfaction** with instant responses\n\nI'm Mari, your AI consultant, and I'm here to show you exactly how our solutions can work for your business. What industry are you in?",
+                score: 10,
+                stage: 'site_explanation'
+            },
+            'whats this site': {
+                response: "Great question! This is NextEleven's enterprise chatbot solutions platform. We're a leading provider of AI-powered chatbots that help businesses:\n\n🚀 **Automate customer service** 24/7\n🚀 **Increase sales and bookings** through intelligent conversations\n🚀 **Reduce operational costs** by up to 60%\n🚀 **Improve customer satisfaction** with instant responses\n\nI'm Mari, your AI consultant, and I'm here to show you exactly how our solutions can work for your business. What industry are you in?",
+                score: 10,
+                stage: 'site_explanation'
+            },
+            'how much does it cost': {
+                response: "Great question about pricing! Our solutions start at $2,997 for setup and $197/month for the Professional package.\n\n**What you get:**\n✅ Complete chatbot solution\n✅ Unlimited conversations\n✅ Integration with your systems\n✅ 24/7 support and monitoring\n✅ Regular updates and optimization\n\n**ROI typically achieved in 60-90 days** through increased bookings and reduced support costs.\n\nWould you like me to send you our comprehensive pricing guide? Just let me know your email address!",
+                score: 20,
+                stage: 'pricing_inquiry'
+            },
+            'cost': {
+                response: "Great question about pricing! Our solutions start at $2,997 for setup and $197/month for the Professional package.\n\n**What you get:**\n✅ Complete chatbot solution\n✅ Unlimited conversations\n✅ Integration with your systems\n✅ 24/7 support and monitoring\n✅ Regular updates and optimization\n\n**ROI typically achieved in 60-90 days** through increased bookings and reduced support costs.\n\nWould you like me to send you our comprehensive pricing guide? Just let me know your email address!",
+                score: 20,
+                stage: 'pricing_inquiry'
+            },
+            'price': {
+                response: "I'd be happy to share our pricing! NextEleven offers several packages:\n\n💼 **Professional Package**: $2,997 setup + $197/month\n   - Complete chatbot solution for single-location businesses\n   - Unlimited conversations and integrations\n   - 24/7 monitoring and support\n\n🏢 **Enterprise Package**: $8,997 setup + $497/month\n   - Multi-location management dashboard\n   - Advanced analytics and reporting\n   - Dedicated account management\n\n🚀 **Enterprise Plus**: Custom pricing for 10+ locations\n   - Volume discounts and white-label options\n   - Custom integrations and features\n\n**All packages include:** Setup, training, ongoing support, and regular updates.\n\nWhat's the best email to send your detailed pricing guide?",
+                score: 25,
+                stage: 'pricing_inquiry'
+            },
             'tattoo studio': {
-                response: "Perfect! Tattoo studios are one of our specialties. Our industry-specific chatbot solutions address your biggest pain points:\n\n🎨 **Appointment booking & rescheduling** - No more phone interruptions during sessions\n🎨 **Artist availability checking** - Clients can see who's available and when\n🎨 **Pricing estimates** - Based on size, placement, and complexity\n🎨 **Aftercare support** - 24/7 guidance for clients post-tattoo\n🎨 **Portfolio showcase** - Artist-specific work examples\n🎨 **Consultation scheduling** - Streamlined initial meetings\n\n**Key Benefits for Tattoo Studios:**\n✅ Reduce interruptions during tattooing by 70%\n✅ Capture leads 24/7 when studio is closed\n✅ Increase booking conversion by 35-50%\n✅ Reduce no-shows through automated reminders\n✅ Save 10-15 hours per week on admin tasks\n\nWhat's your biggest challenge currently - phone interruptions, after-hours inquiries, or no-shows?",
+                response: "Perfect! Tattoo studios are one of our specialties. Our industry-specific chatbot solutions address your biggest pain points:\n\n🎨 **Appointment booking & rescheduling** - No more phone interruptions during sessions\n🎨 **Artist availability checking** - Clients can see who's available and when\n🎨 **Pricing estimates** - Based on size, placement, and complexity\n🎨 **Aftercare support** - 24/7 guidance for clients post-tattoo\n🎨 **Portfolio showcase** - Artist-specific work examples\n🎨 **Consultation scheduling** - Streamlined initial meetings\n\n**Key Benefits for Tattoo Studios:**\n✅ Reduce interruptions during tattooing by 70%\n✅ Capture leads 24/7 when studio is closed\n✅ Increase booking conversion by 35-50%\n✅ Reduce no-shows through automated reminders\n✅ Save 10-15 hours per week on admin tasks\n\nWhat's your biggest challenge currently - phone interruptions, after-hours inquiries, or no-shows?",                   
                 score: 35,
                 stage: 'pain_point_analysis'
             },
@@ -593,12 +775,45 @@
                         addQuickOptions(['Phone Interruptions', 'After-Hours Inquiries', 'No-Shows', 'Peak Time Chaos', 'Service Confusion', 'Client Retention']);
                     } else if (response.stage === 'role_identification') {
                         addQuickOptions(['IT Leadership', 'Operations', 'Executive Leadership', 'Business Owner']);
+                    } else if (response.stage === 'greeting') {
+                        addQuickOptions(['What is this site?', 'How does this work?', 'Tell me more', 'See pricing']);
+                    } else if (response.stage === 'site_explanation') {
+                        addQuickOptions(['How does this work?', 'Tell me more', 'See pricing', 'Schedule demo']);
+                    } else if (response.stage === 'company_explanation') {
+                        addQuickOptions(['How does this work?', 'Tell me more', 'See pricing', 'Schedule demo']);
+                    } else if (response.stage === 'introduction') {
+                        addQuickOptions(['What do you do?', 'How does this work?', 'Tell me more', 'See pricing']);
+                    } else if (response.stage === 'how_it_works') {
+                        addQuickOptions(['Tell me more', 'See pricing', 'Schedule demo', 'Case studies']);
+                    } else if (response.stage === 'detailed_information') {
+                        addQuickOptions(['See pricing', 'Schedule demo', 'Case studies', 'Get started']);
+                    } else if (response.stage === 'gratitude') {
+                        addQuickOptions(['Tell me more', 'See pricing', 'Schedule demo', 'Case studies']);
+                    } else if (response.stage === 'farewell') {
+                        addQuickOptions(['Schedule demo', 'Get pricing guide', 'See case studies', 'Contact sales']);
+                    } else if (response.stage === 'help_request') {
+                        addQuickOptions(['Tell me more', 'See pricing', 'Schedule demo', 'Case studies']);
+                    } else if (response.stage === 'capabilities_explanation') {
+                        addQuickOptions(['Tell me more', 'See pricing', 'Schedule demo', 'Case studies']);
+                    } else if (response.stage === 'pricing_inquiry') {
+                        addQuickOptions(['Schedule demo', 'See case studies', 'Get started', 'Contact sales']);
+                    } else if (response.stage === 'demo_request') {
+                        addQuickOptions(['Morning', 'Afternoon', 'Evening', 'See pricing']);
+                    } else if (response.stage === 'case_study_request') {
+                        addQuickOptions(['Tattoo Studio', 'Hair Salon', 'Healthcare', 'Other Industry']);
+                    } else if (response.stage === 'getting_started') {
+                        addQuickOptions(['Schedule consultation', 'See pricing', 'Learn more', 'Contact sales']);
+                    } else if (response.stage === 'sales_contact') {
+                        addQuickOptions(['Phone call', 'Email', 'Schedule demo', 'Get pricing']);
+                    } else if (response.stage === 'demo_scheduling') {
+                        addQuickOptions(['Send email', 'Call me', 'See pricing', 'Learn more']);
                     } else {
                         addQuickOptions(['Continue', 'More Information', 'Schedule Demo', 'See Pricing']);
                     }
                 } else {
-                    addMessage("Thank you for your message! How can I help you further?", false);
-                    addQuickOptions(['Continue', 'More Information', 'Schedule Demo']);
+                    // Handle unrecognized messages with helpful suggestions
+                    addMessage("I understand you're interested in learning more! Let me help guide you to the right information. What would you like to know about NextEleven?", false);
+                    addQuickOptions(['What is this site?', 'How does this work?', 'Tell me more', 'See pricing']);
                 }
             }, 1500);
         }
@@ -625,4 +840,3 @@
     </script>
 </body>
 </html>
-<--break-system-packages Force refresh -->
