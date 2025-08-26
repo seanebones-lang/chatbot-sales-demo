@@ -840,23 +840,31 @@
         }
 
         function sendMessage(message) {
+            console.log('🔍 sendMessage called with:', message);
+            
             // Add user message
             addMessage(message, true);
+            console.log('✅ User message added to chat');
             
             // Show typing indicator
             showTypingIndicator();
+            console.log('⏳ Typing indicator shown');
             
             // Simulate processing time
             setTimeout(() => {
                 hideTypingIndicator();
+                console.log('⏳ Typing indicator hidden');
                 
                 // Find best response
                 const lowerMessage = message.toLowerCase();
+                console.log('🔍 Searching for response to:', lowerMessage);
                 let bestMatch = null;
                 let bestScore = 0;
                 
                 for (const [key, response] of Object.entries(tattooResponses)) {
+                    console.log(`🔍 Checking keyword: "${key}" against message: "${lowerMessage}"`);
                     if (lowerMessage.includes(key.toLowerCase())) {
+                        console.log(`✅ Match found! Keyword: "${key}", Score: ${response.score}`);
                         if (response.score > bestScore) {
                             bestScore = response.score;
                             bestMatch = response;
@@ -864,8 +872,11 @@
                     }
                 }
                 
+                console.log(`🎯 Best match:`, bestMatch);
+                
                 if (bestMatch) {
                     addMessage(bestMatch.response, false);
+                    console.log('✅ Bot response added to chat');
                     
                     // Add agency-level quick actions for tattoo studio specific needs
                     if (bestMatch.stage === 'booking' || bestMatch.stage === 'consultation') {
@@ -875,8 +886,10 @@
                             'See Pricing',
                             'Technical Details'
                         ]);
+                        console.log('✅ Quick options added');
                     }
                 } else {
+                    console.log('❌ No match found, using unrecognized response');
                     addMessage(tattooResponses['unrecognized'].response, false);
                 }
             }, 1000);

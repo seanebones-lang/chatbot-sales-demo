@@ -932,23 +932,31 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
 
         // Main function to send message and get bot response
         function sendMessage(message) {
+            console.log('🔍 Mariam sendMessage called with:', message);
+            
             // Add user message to chat
             addMessage(message, true);
+            console.log('✅ User message added to chat');
             
             // Show typing indicator
             showTypingIndicator();
+            console.log('⏳ Typing indicator shown');
             
             // Simulate bot thinking
             setTimeout(() => {
                 hideTypingIndicator();
+                console.log('⏳ Typing indicator hidden');
                 
                 // Find best response from mariResponses
                 const lowerMessage = message.toLowerCase();
+                console.log('🔍 Searching for response to:', lowerMessage);
                 let bestMatch = null;
                 let bestScore = 0;
                 
                 for (const [keyword, response] of Object.entries(mariResponses)) {
+                    console.log(`🔍 Checking keyword: "${keyword}" against message: "${lowerMessage}"`);
                     if (lowerMessage.includes(keyword)) {
+                        console.log(`✅ Match found! Keyword: "${keyword}", Score: ${response.score}`);
                         if (response.score > bestScore) {
                             bestScore = response.score;
                             bestMatch = response;
@@ -956,8 +964,11 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
                     }
                 }
                 
+                console.log(`🎯 Best match:`, bestMatch);
+                
                 if (bestMatch) {
                     addMessage(bestMatch.response, false);
+                    console.log('✅ Bot response added to chat');
                     
                     // Add context-specific quick actions
                     if (bestMatch.stage === 'pricing') {
@@ -967,6 +978,7 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
                             'See Veteran Pricing',
                             'Technical Details'
                         ]);
+                        console.log('✅ Quick options added for pricing stage');
                     } else if (bestMatch.stage === 'demo') {
                         addQuickOptions([
                             'Start Free Trial',
@@ -974,6 +986,7 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
                             'Technical Details',
                             'Business Analysis'
                         ]);
+                        console.log('✅ Quick options added for demo stage');
                     } else if (bestMatch.stage === 'trial') {
                         addQuickOptions([
                             'Schedule Demo',
@@ -981,6 +994,7 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
                             'Technical Details',
                             'Business Analysis'
                         ]);
+                        console.log('✅ Quick options added for trial stage');
                     }
                     
                     // Special handling for specific requests
@@ -1002,6 +1016,7 @@ P.S. I'm available to schedule a consultation call at your convenience to discus
                         }, 1000);
                     }
                 } else {
+                    console.log('❌ No match found, using unrecognized response');
                     addMessage(mariResponses['unrecognized'].response, false);
                 }
             }, 1000);
