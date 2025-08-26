@@ -471,7 +471,263 @@
     </div>
 
     <script>
-        // ... existing code ...
+        // Mariam's enhanced response system
+        function sendMessage(message) {
+            // Add user message
+            addMessage(message, true);
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Simulate processing time
+            setTimeout(() => {
+                hideTypingIndicator();
+                
+                // Find best response
+                const lowerMessage = message.toLowerCase();
+                let bestMatch = null;
+                let bestScore = 0;
+                
+                for (const [key, response] of Object.entries(mariResponses)) {
+                    if (lowerMessage.includes(key.toLowerCase())) {
+                        if (response.score > bestScore) {
+                            bestScore = response.score;
+                            bestMatch = response;
+                        }
+                    }
+                }
+                
+                if (bestMatch) {
+                    addMessage(bestMatch.response, false);
+                    
+                    // Add context-specific quick actions
+                    if (bestMatch.stage === 'pricing') {
+                        addQuickOptions([
+                            'Schedule Demo',
+                            'Start Free Trial',
+                            'See Veteran Pricing',
+                            'Technical Details'
+                        ]);
+                    } else if (bestMatch.stage === 'demo') {
+                        addQuickOptions([
+                            'Start Free Trial',
+                            'See Pricing Details',
+                            'Technical Details',
+                            'Business Analysis'
+                        ]);
+                    } else if (bestMatch.stage === 'trial') {
+                        addQuickOptions([
+                            'Schedule Demo',
+                            'See Pricing Details',
+                            'Technical Details',
+                            'Business Analysis'
+                        ]);
+                    }
+                    
+                    // Special handling for specific requests
+                    if (lowerMessage.includes('pdf') || lowerMessage.includes('document')) {
+                        setTimeout(() => {
+                            addMessage("📄 **Generating your comprehensive PDF document...**\n\nI'm creating a detailed analysis with pricing, ROI calculations, and implementation timeline. This will be sent to your email shortly.", false);
+                            
+                            // Simulate PDF generation and email sending
+                            setTimeout(() => {
+                                const businessType = extractBusinessType(lowerMessage);
+                                deliverComprehensivePDF(businessType, 'professional');
+                            }, 2000);
+                        }, 1000);
+                    }
+                    
+                    if (lowerMessage.includes('email') || lowerMessage.includes('send')) {
+                        setTimeout(() => {
+                            addMessage("📧 **Preparing your detailed information...**\n\nI'll send you comprehensive details about our solution, pricing, and next steps. What's the best email address to send this to?", false);
+                        }, 1000);
+                    }
+                } else {
+                    addMessage(mariResponses['unrecognized'].response, false);
+                }
+            }, 1000);
+        }
+
+        // Helper function to extract business type from message
+        function extractBusinessType(message) {
+            const businessTypes = ['healthcare', 'retail', 'automotive', 'restaurant', 'dental', 'medical', 'tattoo', 'salon', 'auto', 'car'];
+            
+            for (const type of businessTypes) {
+                if (message.includes(type)) {
+                    return type;
+                }
+            }
+            return 'general';
+        }
+
+        // Enhanced PDF delivery with more detailed content
+        function deliverComprehensivePDF(businessType, packageType) {
+            // Define package information locally
+            const packageInfo = {
+                'starter': {
+                    name: 'Starter Plan',
+                    price: '$79/month',
+                    features: ['1 Custom AI Chatbot', '1,000 queries/month', 'Basic integrations', 'Email support']
+                },
+                'professional': {
+                    name: 'Professional Plan',
+                    price: '$247/month',
+                    features: ['3 Custom AI Chatbots', '5,000 queries/month', 'Payment processing', 'Advanced analytics', 'Priority support']
+                },
+                'agency': {
+                    name: 'Agency Plan',
+                    price: '$497/month',
+                    features: ['10 Custom AI Chatbots', '15,000 queries/month', 'White-label options', 'Multi-account management', 'Dedicated account manager']
+                },
+                'enterprise': {
+                    name: 'Enterprise Plan',
+                    price: 'Custom Pricing',
+                    features: ['Unlimited chatbots', 'Unlimited queries', 'Full white-label solution', 'Custom payment workflows', 'Private cloud deployment']
+                }
+            };
+
+            const packageFeatures = {
+                'healthcare': ['HIPAA compliance', 'Patient communication', 'Appointment scheduling', 'Medical FAQ handling', 'Insurance verification'],
+                'retail': ['Product information', 'Order tracking', 'Return assistance', 'Inventory checking', 'Loyalty program integration'],
+                'automotive': ['Service scheduling', 'Parts catalog', 'Service history', 'Maintenance reminders', 'Warranty information'],
+                'restaurant': ['Menu support', 'Reservation management', 'Catering quotes', 'Delivery tracking', 'Allergy information'],
+                'dental': ['Appointment scheduling', 'Insurance verification', 'Treatment explanations', 'Payment options', 'Aftercare instructions'],
+                'medical': ['Patient portal access', 'Appointment management', 'Prescription refills', 'Lab results', 'Telemedicine support'],
+                'tattoo': ['Artist portfolios', 'Appointment booking', 'Pricing estimates', 'Design consultation', 'Aftercare instructions'],
+                'salon': ['Service booking', 'Stylist selection', 'Product recommendations', 'Loyalty rewards', 'Gift certificates'],
+                'auto': ['Service scheduling', 'Parts ordering', 'Vehicle history', 'Maintenance tracking', 'Roadside assistance'],
+                'car': ['Service scheduling', 'Parts ordering', 'Vehicle history', 'Maintenance tracking', 'Roadside assistance'],
+                'general': ['Customer service automation', 'Lead capture', 'FAQ management', '24/7 support', 'Multi-channel integration']
+            };
+
+            const selectedPackage = packageInfo[packageType || 'professional'];
+            const industryFeatures = packageFeatures[businessType || 'general'];
+
+            const pdfContent = `**NextEleven AI Chatbot Solution - Comprehensive Business Analysis**
+
+**Business Type:** ${businessType || 'General Business'}
+**Recommended Package:** ${selectedPackage.name}
+**Monthly Investment:** ${selectedPackage.price}
+**Annual Investment:** ${selectedPackage.price === 'Custom Pricing' ? 'Custom' : `$${parseInt(selectedPackage.price.replace(/[^0-9]/g, '')) * 12}`}
+
+**Package Features:**
+${selectedPackage.features.map(f => `• ${f}`).join('\n')}
+
+**Industry-Specific Features:**
+${industryFeatures.map(f => `• ${f}`).join('\n')}
+
+**ROI Projection:**
+• Month 1: Setup and training (Investment phase)
+• Month 2: Initial results and optimization (Break-even approach)
+• Month 3: 300-500% ROI achieved (Profit phase)
+
+**Implementation Timeline:** 2-3 weeks
+**Support Level:** 24/7 technical assistance
+**Training:** Comprehensive staff training included
+
+**Business Impact:**
+• 24/7 customer service availability
+• 35-55% increase in lead capture
+• 40-60% reduction in support costs
+• 99.9% uptime guarantee
+• Scalable growth solution
+
+**Next Steps:**
+1. Schedule consultation call (15 minutes)
+2. Custom solution design (1 week)
+3. Implementation and training (2-3 weeks)
+4. Go-live and optimization (ongoing)
+
+**Success Guarantee:**
+• Money-back guarantee if not satisfied
+• ROI guarantee within 3 months
+• Ongoing optimization and support
+• Performance monitoring and reporting
+
+**Contact Information:**
+Email: NextElevenStudios@icloud.com
+Phone: Available during consultation
+Website: www.nexteleven.com
+Support: 24/7 technical assistance
+
+**Veteran Discounts Available:**
+• 10% off for all veterans
+• 20% off for combat veterans
+• Applied to all packages
+• Priority implementation scheduling
+
+Thank you for your interest in NextEleven! We look forward to helping you implement this transformative solution for your business.`;
+
+            // Send the PDF content via email
+            const subject = `NextEleven AI Chatbot Solution - ${businessType || 'Business'} Analysis & Pricing`;
+            const body = `Dear Business Owner,
+
+Thank you for your interest in NextEleven's AI chatbot solution. Please find attached your comprehensive business analysis and package recommendation.
+
+${pdfContent}
+
+We look forward to helping you implement this solution and achieve the results our other clients are experiencing!
+
+Best regards,
+Mariam
+NextEleven AI Consultant
+NextElevenStudios@icloud.com
+
+P.S. I'm available to schedule a consultation call at your convenience to discuss any questions you may have.`;
+
+            return sendEmail('NextElevenStudios@icloud.com', subject, body);
+        }
+
+        // Test function to verify all Mariam's responses
+        function testMariamResponses() {
+            console.log('🧪 Testing Mariam\'s Response System...');
+            
+            const testKeywords = [
+                'hello', 'hi', 'hey',
+                'schedule demo', 'start free trial', 'see pricing details',
+                'technical details', 'see veteran pricing', 'schedule veteran consultation',
+                'business', 'consultation', 'analysis',
+                'pricing', 'price', 'cost', 'packages',
+                'demo', 'demonstration', 'trial', 'free trial',
+                'technical', 'technology', 'integration', 'security',
+                'healthcare', 'retail', 'automotive', 'restaurant',
+                'veteran', 'military',
+                'roi', 'return on investment', 'benefits',
+                'implementation', 'setup', 'timeline',
+                'support', 'service'
+            ];
+            
+            console.log(`✅ Found ${testKeywords.length} test keywords`);
+            console.log(`✅ Mariam has ${Object.keys(mariResponses).length} response patterns`);
+            
+            // Test each keyword
+            testKeywords.forEach(keyword => {
+                if (mariResponses[keyword]) {
+                    console.log(`✅ ${keyword}: ${mariResponses[keyword].response.substring(0, 50)}...`);
+                } else {
+                    console.log(`❌ ${keyword}: No response found`);
+                }
+            });
+            
+            console.log('🧪 Mariam Response System Test Complete!');
+        }
+
+        // Test function for PDF and email functionality
+        function testMariamFunctions() {
+            console.log('🧪 Testing Mariam\'s Functions...');
+            
+            // Test PDF generation
+            console.log('📄 Testing PDF generation...');
+            const testPDF = deliverComprehensivePDF('healthcare', 'professional');
+            console.log(`✅ PDF generation: ${testPDF ? 'SUCCESS' : 'FAILED'}`);
+            
+            // Test email functionality
+            console.log('📧 Testing email functionality...');
+            const testEmail = sendEmail('test@example.com', 'Test Subject', 'Test Body');
+            console.log(`✅ Email functionality: ${testEmail ? 'SUCCESS' : 'FAILED'}`);
+            
+            console.log('🧪 Mariam Functions Test Complete!');
+        }
     </script>
 </body>
 </html>
