@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24/7 AI Chatbot - Stop Losing Customers While You Sleep</title>
+    <title>NextEleven - Enterprise Chatbot Solutions</title>
     <style>
         * {
             margin: 0;
@@ -12,690 +12,615 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f1419;
             min-height: 100vh;
-            color: #f5f5f5;
-            line-height: 1.6;
+            color: #1f2937;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: #1e1e1e;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            border: 1px solid #333;
-            min-height: 100vh;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-            padding: 60px 40px;
-            text-align: center;
-            border-bottom: 2px solid #333;
-        }
-
-        .header h1 {
-            font-size: 3.2em;
-            margin-bottom: 20px;
-            font-weight: 300;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, #ffffff, #cccccc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header .tagline {
-            font-size: 1.4em;
-            color: #4A90E2;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.8;
-            color: #cccccc;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .main-section {
-            padding: 50px 40px;
-        }
-
-        .business-input-section {
-            background: #2a2a2a;
-            padding: 40px;
+        .enterprise-container {
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            min-height: calc(100vh - 40px);
+            display: flex;
+            flex-direction: column;
             border-radius: 12px;
-            margin-bottom: 40px;
-            border: 1px solid #404040;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
-        .business-input-section h2 {
-            color: #ffffff;
-            font-size: 1.8em;
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .input-group {
-            margin-bottom: 30px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 12px;
-            font-weight: 500;
-            color: #f5f5f5;
-            font-size: 1.2em;
-        }
-
-        .input-group input, .input-group select {
-            width: 100%;
-            padding: 18px;
-            border: 1px solid #555;
-            border-radius: 8px;
-            font-size: 1.1em;
-            background: #333;
-            color: #f5f5f5;
-            transition: all 0.3s ease;
-        }
-
-        .input-group input:focus, .input-group select:focus {
-            outline: none;
-            border-color: #4A90E2;
-            box-shadow: 0 0 0 3px rgba(74,144,226,0.2);
-        }
-
-        .analyze-btn {
-            background: linear-gradient(135deg, #4A90E2, #357ABD);
+        .corporate-header {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
             color: white;
-            border: none;
-            padding: 20px 50px;
-            border-radius: 8px;
-            font-size: 1.3em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            padding: 30px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 12px 12px 0 0;
         }
 
-        .analyze-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(74,144,226,0.4);
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .results-container {
-            display: none;
-        }
-
-        .loss-calculator {
-            background: linear-gradient(135deg, #1a2332, #1a1a1a);
-            padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            border: 2px solid #4A90E2;
-        }
-
-        .loss-calculator h3 {
-            color: #4A90E2;
-            font-size: 2em;
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-
-        .loss-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .loss-stat {
-            background: #333;
-            padding: 25px;
-            border-radius: 8px;
-            text-align: center;
-            border-left: 4px solid #4A90E2;
-        }
-
-        .loss-stat h4 {
-            color: #f5f5f5;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .loss-stat .number {
-            font-size: 2.2em;
-            color: #4A90E2;
-            font-weight: 700;
-        }
-
-        .demo-section {
-            background: #1a1a1a;
-            padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            border: 1px solid #444;
-        }
-
-        .demo-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .demo-header h3 {
-            color: #4CAF50;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-
-        .chat-demo {
-            background: #2a2a2a;
-            border-radius: 8px;
-            padding: 30px;
-            max-height: 500px;
-            overflow-y: auto;
-            border: 1px solid #555;
-        }
-
-        .chat-message {
-            margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 12px;
-            animation: slideIn 0.5s ease;
-        }
-
-        .chat-message.customer {
-            background: #444;
-            margin-left: 60px;
-            color: #f5f5f5;
-        }
-
-        .chat-message.bot {
-            background: linear-gradient(135deg, #4CAF50, #45a049);
-            margin-right: 60px;
-            color: white;
-        }
-
-        .chat-message .label {
-            font-weight: 600;
-            font-size: 0.9em;
-            margin-bottom: 8px;
-            opacity: 0.8;
-        }
-
-        .pricing-section {
-            background: #2a2a2a;
-            padding: 50px 40px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            border: 1px solid #404040;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .pricing-card {
-            background: #333;
-            padding: 35px 25px;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            border-color: #4A90E2;
-            box-shadow: 0 10px 30px rgba(74,144,226,0.2);
-        }
-
-        .pricing-card.featured {
-            border-color: #5C6BC0;
-            transform: scale(1.05);
-        }
-
-        .pricing-card.featured::before {
-            content: "MOST POPULAR";
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #5C6BC0;
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
-
-        .pricing-card h4 {
-            font-size: 1.4em;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .pricing-card .price {
+        .company-logo {
             font-size: 2.5em;
-            color: #5C6BC0;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-weight: 900;
+            color: #ffffff;
         }
 
-        .pricing-card .setup {
-            color: #4A90E2;
-            margin-bottom: 20px;
+        .company-tagline {
             font-size: 1.1em;
+            opacity: 0.9;
+            font-weight: 300;
         }
 
-        .pricing-card ul {
+        .enterprise-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .main-interface {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 600px;
+            gap: 0;
+            min-height: calc(100vh - 150px);
+        }
+
+        .info-panel {
+            background: #f8fafc;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-panel h2 {
+            color: #1e40af;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .value-props {
             list-style: none;
-            margin-bottom: 30px;
-            text-align: left;
+            margin: 30px 0;
         }
 
-        .pricing-card li {
-            padding: 8px 0;
-            color: #cccccc;
-            border-bottom: 1px solid #444;
+        .value-props li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1em;
+            color: #374151;
+            line-height: 1.5;
         }
 
-        .pricing-card li:before {
-            content: "✓ ";
-            color: #5C6BC0;
+        .value-props li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .enterprise-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #1e40af;
+        }
+
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .chat-interface {
+            background: #ffffff;
+            border-left: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #374151, #4b5563);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid #d1d5db;
+        }
+
+        .chat-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
             font-weight: bold;
         }
 
-        .cta-section {
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-            padding: 60px 40px;
-            text-align: center;
-            border-top: 2px solid #333;
+        .chat-info h3 {
+            font-size: 1.2em;
+            margin-bottom: 2px;
         }
 
-        .cta-btn {
-            background: linear-gradient(135deg, #5C6BC0, #4A90E2);
+        .chat-info p {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 25px;
+            overflow-y: auto;
+            background: #fafbfc;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-height: 500px;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 16px 20px;
+            border-radius: 18px;
+            word-wrap: break-word;
+            animation: slideIn 0.4s ease-out;
+            line-height: 1.5;
+            font-size: 1em;
+        }
+
+        .mari-message {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            color: #1e40af;
+            align-self: flex-start;
+            border: 1px solid #bfdbfe;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            align-self: flex-end;
+        }
+
+        .premium-message {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7) !important;
+            border: 2px solid #059669 !important;
+            color: #065f46 !important;
+            font-weight: 500;
+        }
+
+        .chat-input-area {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 14px 18px;
+            border: 2px solid #d1d5db;
+            border-radius: 25px;
+            outline: none;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .send-button {
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
             color: white;
             border: none;
-            padding: 20px 50px;
-            border-radius: 8px;
-            font-size: 1.4em;
-            font-weight: 600;
+            padding: 14px 18px;
+            border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 20px;
-            letter-spacing: 0.5px;
+            font-size: 1.1em;
         }
 
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(92,107,192,0.4);
+        .send-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .quick-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quick-option {
+            background: white;
+            border: 2px solid #e5e7eb;
+            color: #374151;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .quick-option:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+            color: #1e40af;
+            transform: translateY(-1px);
+        }
+
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background: #f3f4f6;
+            color: #6b7280;
+            padding: 12px 18px;
+            border-radius: 18px;
+            font-style: italic;
+            animation: pulse 1.5s infinite;
+        }
+
+        .typing-indicator.active {
+            display: block;
+        }
+
+        .pdf-offer {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: 2px solid #f59e0b;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .pdf-button {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-button:hover {
+            background: #d97706;
+            transform: translateY(-1px);
+        }
+
+        .enterprise-footer {
+            background: #1f2937;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 0.9em;
+            border-radius: 0 0 12px 12px;
         }
 
         @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 768px) {
-            .header h1 { font-size: 2.2em; }
-            .main-section { padding: 30px 20px; }
-            .pricing-card.featured { transform: none; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @media (max-width: 1024px) {
+            .main-interface {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+            }
+            
+            .info-panel {
+                padding: 30px;
+            }
+            
+            .chat-interface {
+                border-left: none;
+                border-top: 1px solid #e5e7eb;
+                min-height: 600px;
+            }
+        }
+
+        .professional-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .roi-highlight {
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-left: 4px solid #059669;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .roi-highlight h4 {
+            color: #059669;
+            margin-bottom: 10px;
+            font-size: 1.1em;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Stop Losing Customers While You Sleep</h1>
-            <div class="tagline">24/7 AI Chatbot That Never Calls In Sick</div>
-            <p>Every missed call, delayed response, and after-hours inquiry is money walking out your door. See exactly how much you're losing and how our AI chatbot can recover it.</p>
-        </div>
+    <div class="enterprise-container">
+        <header class="corporate-header">
+            <div class="logo-section">
+                <div class="company-logo">NextEleven</div>
+                <div>
+                    <div class="company-tagline">Enterprise Chatbot Solutions</div>
+                    <div style="font-size: 0.9em; opacity: 0.8;">Serving Fortune 500 Companies Worldwide</div>
+                </div>
+            </div>
+            <div class="enterprise-badge">Enterprise Demo</div>
+        </header>
 
-        <div class="main-section">
-            <div class="business-input-section">
-                <h2>What Type of Business Do You Own?</h2>
-                
-                <div class="input-group">
-                    <label for="businessType">Select Your Industry</label>
-                    <select id="businessType">
-                        <option value="">Choose your business type...</option>
-                        <option value="tattoo">Tattoo Shop / Artist</option>
-                        <option value="hair_salon">Hair Salon / Stylist</option>
-                        <option value="nail_salon">Nail Salon</option>
-                        <option value="dental">Dental Practice</option>
-                        <option value="massage">Massage Therapy</option>
-                        <option value="auto_repair">Auto Repair Shop</option>
-                        <option value="pet_grooming">Pet Grooming</option>
-                        <option value="restaurant">Restaurant</option>
-                        <option value="fitness">Fitness Training</option>
-                        <option value="contractor">Contractor / Handyman</option>
-                        <option value="real_estate">Real Estate Agent</option>
-                        <option value="medical">Medical Practice</option>
-                        <option value="legal">Legal Services</option>
-                        <option value="other">Other Service Business</option>
-                    </select>
+        <div class="main-interface">
+            <div class="info-panel">
+                <h2>Transform Your Customer Communication</h2>
+                <p style="font-size: 1.2em; color: #6b7280; margin-bottom: 30px; line-height: 1.6;">
+                    NextEleven provides enterprise-grade chatbot solutions that integrate seamlessly with your existing business operations, delivering measurable ROI from day one.
+                </p>
+
+                <ul class="value-props">
+                    <li>24/7 automated customer engagement across all channels</li>
+                    <li>Multi-platform integration (Web, SMS, WhatsApp, Social Media)</li>
+                    <li>Industry-specific customization for maximum relevance</li>
+                    <li>Advanced analytics and reporting dashboards</li>
+                    <li>Enterprise security and compliance standards</li>
+                    <li>Scalable architecture supporting millions of conversations</li>
+                </ul>
+
+                <div class="enterprise-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">340%</div>
+                        <div class="stat-label">Average ROI Increase</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">87%</div>
+                        <div class="stat-label">Customer Satisfaction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Coverage</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Uptime Guarantee</div>
+                    </div>
                 </div>
 
-                <div class="input-group">
-                    <label for="businessName">Your Business Name</label>
-                    <input type="text" id="businessName" placeholder="Enter your business name">
+                <div class="roi-highlight">
+                    <h4>🎯 Immediate Business Impact</h4>
+                    <p>Our clients typically see 40-60% reduction in support costs and 200-400% increase in lead conversion within the first 90 days of implementation.</p>
                 </div>
-
-                <div class="input-group">
-                    <label for="avgService">Average Service/Sale Value ($)</label>
-                    <input type="number" id="avgService" placeholder="150">
-                </div>
-
-                <div class="input-group">
-                    <label for="dailyCalls">Missed Calls/Inquiries Per Day</label>
-                    <input type="number" id="dailyCalls" placeholder="5">
-                </div>
-
-                <button class="analyze-btn" onclick="analyzeRevenueLoss()">
-                    📊 Show Me How Much I'm Losing
-                </button>
             </div>
 
-            <div class="results-container" id="resultsContainer">
-                <div class="loss-calculator" id="lossCalculator">
-                    <!-- Loss calculations will be populated here -->
-                </div>
-
-                <div class="demo-section">
-                    <div class="demo-header">
-                        <h3>🤖 Watch Your AI Chatbot In Action</h3>
-                        <p style="color: #cccccc;">This is exactly how your chatbot will interact with your customers 24/7:</p>
-                    </div>
-                    <div class="chat-demo" id="chatDemo">
-                        <!-- Chat simulation will appear here -->
+            <div class="chat-interface">
+                <div class="chat-header">
+                    <div class="chat-avatar">M</div>
+                    <div class="chat-info">
+                        <h3>Mari <span class="professional-badge">AI Consultant</span></h3>
+                        <p>NextEleven Enterprise Solutions Specialist</p>
                     </div>
                 </div>
 
-                <div class="pricing-section">
-                    <h3 style="text-align: center; color: #ffffff; margin-bottom: 40px; font-size: 2em;">Choose Your Chatbot Package</h3>
-                    <div class="pricing-grid">
-                        <div class="pricing-card">
-                            <h4>Basic Package</h4>
-                            <div class="price">$99<span style="font-size: 0.4em;">/month</span></div>
-                            <div class="setup">$200 setup fee</div>
-                            <ul>
-                                <li>Basic FAQ responses</li>
-                                <li>Simple callback scheduling</li>
-                                <li>3 PDF downloads</li>
-                                <li>Email notifications</li>
-                                <li>30-day service</li>
-                                <li>1 complete rework included</li>
-                                <li>Email support only</li>
-                            </ul>
-                        </div>
-
-                        <div class="pricing-card featured">
-                            <h4>Standard Package</h4>
-                            <div class="price">$149<span style="font-size: 0.4em;">/month</span></div>
-                            <div class="setup">$300 setup fee</div>
-                            <ul>
-                                <li>Advanced FAQ system</li>
-                                <li>Calendar appointment scheduling</li>
-                                <li>Customer info collection</li>
-                                <li>6 PDF downloads</li>
-                                <li>Basic follow-up sequences</li>
-                                <li>2 complete reworks</li>
-                                <li>Priority support</li>
-                            </ul>
-                        </div>
-
-                        <div class="pricing-card">
-                            <h4>Gold Package</h4>
-                            <div class="price">$199<span style="font-size: 0.4em;">/month</span></div>
-                            <div class="setup">$400 setup fee</div>
-                            <ul>
-                                <li><strong>💳 DEPOSIT COLLECTION</strong></li>
-                                <li>Smart scheduling system</li>
-                                <li>Unlimited PDFs</li>
-                                <li>Advanced follow-up automation</li>
-                                <li>Customer database</li>
-                                <li>Basic analytics dashboard</li>
-                                <li>3 complete reworks</li>
-                                <li>Phone support</li>
-                            </ul>
-                        </div>
-
-                        <div class="pricing-card">
-                            <h4>Platinum Package</h4>
-                            <div class="price">$299<span style="font-size: 0.4em;">/month</span></div>
-                            <div class="setup">$500 setup fee</div>
-                            <ul>
-                                <li><strong>🏢 MULTI-LOCATION SUPPORT</strong></li>
-                                <li><strong>📊 FULL CRM INTEGRATION</strong></li>
-                                <li><strong>📈 ADVANCED ANALYTICS</strong></li>
-                                <li>Payment processing integration</li>
-                                <li>Custom branding & white-label</li>
-                                <li>API access for integrations</li>
-                                <li>Unlimited reworks</li>
-                                <li>Dedicated account manager</li>
-                            </ul>
-                        </div>
-
-                        <div class="pricing-card">
-                            <h4>Platinum Plus</h4>
-                            <div class="price">$399<span style="font-size: 0.4em;">/month</span></div>
-                            <div class="setup">$700 setup fee</div>
-                            <ul>
-                                <li><strong>🏪 FRANCHISE/CHAIN SUPPORT</strong></li>
-                                <li><strong>🤖 ADVANCED AI TRAINING</strong></li>
-                                <li><strong>📊 REAL-TIME DASHBOARDS</strong></li>
-                                <li><strong>💼 FULL WHITE-LABEL RIGHTS</strong></li>
-                                <li>Custom integrations & APIs</li>
-                                <li>24/7 priority support</li>
-                                <li>Monthly strategy calls</li>
-                                <li>Revenue performance guarantees</li>
-                            </ul>
-                        </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message mari-message">
+                        Hello! I'm Mari, your NextEleven consultant. Welcome to our enterprise chatbot solutions platform.
+                        <br><br>
+                        We provide comprehensive chatbot services for all business types and individual professionals. Our solutions are trusted by Fortune 500 companies and growing businesses worldwide.
+                        <br><br>
+                        To provide you with the most relevant information and ROI calculations, could you please tell me what type of business you're in?
                     </div>
+                    <div class="quick-options">
+                        <div class="quick-option" onclick="sendMessage('Tattoo Studio')">🎨 Tattoo Studio</div>
+                        <div class="quick-option" onclick="sendMessage('Hair Salon')">💇‍♀️ Hair Salon</div>
+                        <div class="quick-option" onclick="sendMessage('Healthcare/Medical')">🏥 Healthcare/Medical</div>
+                        <div class="quick-option" onclick="sendMessage('Professional Services')">💼 Professional Services</div>
+                        <div class="quick-option" onclick="sendMessage('Retail/E-commerce')">🛍️ Retail/E-commerce</div>
+                        <div class="quick-option" onclick="sendMessage('Hospitality')">🏨 Hospitality</div>
+                        <div class="quick-option" onclick="sendMessage('Real Estate')">🏠 Real Estate</div>
+                        <div class="quick-option" onclick="sendMessage('Other Industry')">🏢 Other Industry</div>
+                    </div>
+                </div>
+
+                <div class="typing-indicator" id="typingIndicator">
+                    Mari is analyzing your requirements...
+                </div>
+
+                <div class="chat-input-area">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message to Mari..." onkeypress="handleKeyPress(event)">
+                    <button class="send-button" onclick="sendUserMessage()">→</button>
                 </div>
             </div>
         </div>
 
-        <div class="cta-section">
-            <h2 style="color: #ffffff; margin-bottom: 20px; font-size: 2.2em;">Ready to Stop Losing Money?</h2>
-            <p style="color: #cccccc; font-size: 1.3em; margin-bottom: 30px;">Join hundreds of businesses already using our AI chatbots to capture every opportunity.</p>
-            <button class="cta-btn" onclick="scheduleDemo()">
-                🚀 Get My Free Demo & Setup Call
-            </button>
-            <p style="color: #888; margin-top: 20px;">No commitment required • See it working in 15 minutes</p>
-        </div>
+        <footer class="enterprise-footer">
+            NextEleven Enterprise Solutions | Trusted by 500+ Companies Worldwide | Contact: enterprise@nexteleven.com
+        </footer>
     </div>
 
     <script>
-        const businessData = {
-            tattoo: {
-                avgValue: 200,
-                conversionRate: 85,
-                industryFacts: "73% of tattoo inquiries happen after hours",
-                depositAmount: 50,
-                chatExamples: [
-                    { type: 'customer', text: 'Hi, do you do cover-up tattoos? What would a sleeve cost?' },
-                    { type: 'bot', text: 'Absolutely! We specialize in cover-ups and custom sleeves. A full sleeve typically ranges from $1,500-$3,500 depending on detail and size. I can schedule you a free consultation with our artist to discuss your specific design. Would you prefer this week or next?' },
-                    { type: 'customer', text: 'This week would be great, what do you have available?' },
-                    { type: 'bot', text: '✅ Perfect! I have Thursday 2pm or Friday 11am for consultations.<br><br>📋 <strong>Let me collect your information:</strong><br>• Name: [Captured]<br>• Phone: [Captured]<br>• Email: [Captured]<br><br>💳 <strong>$50 consultation deposit</strong> secures your spot and is applied to your tattoo.<br><br>📄 <strong>Sending you:</strong><br>• Portfolio PDF<br>• Aftercare Guide<br>• Pricing Menu<br><br>Which time works - Thursday 2pm or Friday 11am?' },
-                    { type: 'customer', text: 'Thursday 2pm, and here\'s my card info...' },
-                    { type: 'bot', text: '🎉 <strong>APPOINTMENT CONFIRMED!</strong><br><br>📅 <strong>Thursday, Oct 26 at 2:00pm</strong><br>👤 <strong>Artist:</strong> Mike Rodriguez<br>💳 <strong>$50 deposit received</strong><br>📍 <strong>Location:</strong> Downtown Studio<br><br>📧 <strong>Confirmation sent to email</strong><br>📱 <strong>SMS reminder set for 24hrs before</strong><br><br>🔄 <strong>Follow-up sequence activated:</strong><br>• Day before: Appointment reminder<br>• Day of: Preparation checklist<br>• 1 week after: Aftercare check-in<br>• 1 month after: Touch-up availability' }
-                ]
+        let userIndustry = '';
+        let userName = '';
+        let conversationStage = 'industry_identification';
+        let enterpriseScore = 0;
+
+        const mariResponses = {
+            'tattoo studio': {
+                response: "Perfect! Tattoo studios are one of our specialties. Our industry-specific chatbot solutions address your biggest pain points:\n\n🎨 **Appointment booking & rescheduling** - No more phone interruptions during sessions\n🎨 **Artist availability checking** - Clients can see who's available and when\n🎨 **Pricing estimates** - Based on size, placement, and complexity\n🎨 **Aftercare support** - 24/7 guidance for clients post-tattoo\n🎨 **Portfolio showcase** - Artist-specific work examples\n🎨 **Consultation scheduling** - Streamlined initial meetings\n\n**Key Benefits for Tattoo Studios:**\n✅ Reduce interruptions during tattooing by 70%\n✅ Capture leads 24/7 when studio is closed\n✅ Increase booking conversion by 35-50%\n✅ Reduce no-shows through automated reminders\n✅ Save 10-15 hours per week on admin tasks\n\nWhat's your biggest challenge currently - phone interruptions, after-hours inquiries, or no-shows?",
+                score: 35,
+                stage: 'pain_point_analysis'
             },
-            hair_salon: {
-                avgValue: 120,
-                conversionRate: 78,
-                industryFacts: "68% of salon bookings happen outside business hours",
-                depositAmount: 25,
-                chatExamples: [
-                    { type: 'customer', text: 'Hi! I need a color correction and cut, how much would that cost?' },
-                    { type: 'bot', text: 'Hi there! Color corrections typically range from $180-$280 depending on your current color and desired result. With a cut, you\'re looking at $220-$320 total. I can schedule you a consultation where we\'ll assess your hair and give you an exact quote. Are you available this week?' },
-                    { type: 'customer', text: 'Yes, what about tomorrow afternoon?' },
-                    { type: 'bot', text: '✅ <strong>Available: Tomorrow 2:30pm with Sarah</strong><br><br>📋 <strong>Customer Profile Created:</strong><br>• Service: Color correction + cut<br>• Hair history: [Captured via questions]<br>• Allergies: [Checked]<br>• Preferred stylist: Sarah<br><br>💳 <strong>$25 booking deposit</strong><br>Applied to final service cost<br><br>📱 <strong>CRM Integration:</strong><br>• Added to client database<br>• Service history tracked<br>• Automatic rebooking reminders<br><br>📄 <strong>Sending:</strong> Portfolio, pricing menu, prep instructions' }
-                ]
+            'hair salon': {
+                response: "Excellent! Hair salons love our specialized solutions. We address your specific industry challenges:\n\n💇‍♀️ **Online booking with stylist selection** - Match clients to the right stylist\n💇‍♀️ **Service menu & pricing** - Clear information about treatments\n💇‍♀️ **Color consultation scheduling** - Streamlined booking process\n💇‍♀️ **Loyalty program integration** - Track rewards and points\n💇‍♀️ **Product recommendations** - Boost retail sales automatically\n💇‍♀️ **Promotional announcements** - Get word out about specials\n\n**Key Benefits for Hair Salons:**\n✅ Reduce front desk workload during peak hours\n✅ Never miss a booking opportunity\n✅ Increase retail sales by 20% through smart recommendations\n✅ Improve client retention with personalized service\n✅ Save 12-18 hours per week on scheduling\n\nWhat's your biggest challenge - peak time chaos, service confusion, or client retention?",
+                score: 35,
+                stage: 'pain_point_analysis'
             },
-            dental: {
-                avgValue: 300,
-                conversionRate: 65,
-                industryFacts: "81% of dental emergencies occur outside office hours",
-                depositAmount: 75,
-                chatExamples: [
-                    { type: 'customer', text: 'I have a terrible toothache, do you have any emergency appointments?' },
-                    { type: 'bot', text: 'I\'m so sorry you\'re in pain! We can see you for an emergency appointment. Dr. Smith has an opening at 3pm today or 9am tomorrow. For immediate relief, rinse with warm salt water and take ibuprofen as directed. Which appointment time works for you?' },
-                    { type: 'customer', text: 'Today at 3pm please!' },
-                    { type: 'bot', text: '🚨 <strong>EMERGENCY APPOINTMENT BOOKED</strong><br><br>📅 <strong>Today 3:00pm with Dr. Smith</strong><br>💳 <strong>$75 emergency deposit</strong> (applied to treatment)<br><br>📋 <strong>Pre-appointment completed:</strong><br>• Insurance verification: [Checked]<br>• Medical history: [Updated]<br>• Pain level assessment: [Recorded]<br><br>📱 <strong>Multi-channel notifications:</strong><br>• SMS confirmation sent<br>• Email with forms attached<br>• Calendar reminder set<br><br>🏥 <strong>Clinic preparation:</strong><br>• Chart prepared<br>• Emergency kit ready<br>• Dr. Smith notified' }
-                ]
+            'healthcare/medical': {
+                response: "Excellent! Healthcare organizations see tremendous value from our solutions. Our medical-grade chatbots help with:\n\n🏥 Patient scheduling and appointment management\n🏥 Insurance verification and pre-authorization\n🏥 Medication reminders and follow-up care\n🏥 HIPAA-compliant patient communication\n🏥 Telehealth integration\n\nHealthcare clients typically see 60-80% reduction in administrative overhead.\n\nWhat's your role in the organization? Are you in IT, Operations, or Executive leadership?",
+                score: 30,
+                stage: 'role_identification'
             },
-            auto_repair: {
-                avgValue: 400,
-                conversionRate: 72,
-                industryFacts: "89% of auto repair inquiries need immediate attention",
-                depositAmount: 100,
-                chatExamples: [
-                    { type: 'customer', text: 'My check engine light just came on, can you diagnose it today?' },
-                    { type: 'bot', text: 'Absolutely! A diagnostic typically takes 1 hour and costs $120 (applied toward repairs if you proceed). I can get you in today at 4pm or tomorrow at 10am. Most check engine lights are minor issues, but it\'s smart to address quickly. Which time works better?' },
-                    { type: 'customer', text: 'Today at 4pm sounds good' },
-                    { type: 'bot', text: '🔧 <strong>DIAGNOSTIC APPOINTMENT CONFIRMED</strong><br><br>📅 <strong>Today 4:00pm - Bay 3</strong><br>💳 <strong>$100 service deposit</strong> (covers diagnostic + applied to repairs)<br><br>🚗 <strong>Vehicle Information Captured:</strong><br>• Make/Model/Year: [Recorded]<br>• VIN: [Stored for parts lookup]<br>• Mileage: [Logged]<br>• Symptoms: [Detailed notes]<br><br>📊 <strong>Shop Management Integration:</strong><br>• Work order created: #WO-2847<br>• Technician assigned: Mike<br>• Parts availability pre-checked<br><br>📄 <strong>Customer packet sent:</strong><br>• Service process guide<br>• Warranty information<br>• Current promotions' }
-                ]
+            'professional services': {
+                response: "Perfect! Professional services firms are ideal for our enterprise solutions. We help with:\n\n💼 Client intake and qualification\n💼 Appointment scheduling across multiple professionals\n💼 Document collection and case management\n💼 Billing inquiries and payment processing\n💼 Multi-language client support\n\nLaw firms and consulting companies see average 45% increase in client acquisition.\n\nAre you looking at this for a single location or multiple offices?",
+                score: 25,
+                stage: 'scale_assessment'
+            },
+            'retail/e-commerce': {
+                response: "Fantastic! Retail businesses see incredible ROI from our omnichannel approach:\n\n🛍️ Inventory inquiries and product recommendations\n🛍️ Order tracking and customer service\n🛍️ Abandoned cart recovery automation\n🛍️ Multi-platform integration (web, SMS, social)\n🛍️ Personalized shopping experiences\n\nE-commerce clients report 200-300% increase in conversion rates.\n\nWhat's your current monthly customer interaction volume?",
+                score: 28,
+                stage: 'volume_assessment'
+            },
+            'hospitality': {
+                response: "Wonderful! Hospitality businesses benefit enormously from 24/7 guest services:\n\n🏨 Reservation management and modifications\n🏨 Concierge services and local recommendations\n🏨 Room service and amenity requests\n🏨 Guest feedback collection\n🏨 Multi-language guest support\n\nHotels and restaurants see 40-50% improvement in guest satisfaction scores.\n\nAre you managing a single property or a hotel chain?",
+                score: 26,
+                stage: 'scale_assessment'
+            },
+            'real estate': {
+                response: "Excellent choice! Real estate professionals love our lead qualification system:\n\n🏠 Property inquiry management\n🏠 Showing scheduling and coordination\n🏠 Mortgage pre-qualification assistance\n🏠 Market analysis and property valuations\n🏠 Client nurturing and follow-up sequences\n\nReal estate agents typically see 150-250% increase in qualified leads.\n\nAre you an individual agent, team, or brokerage?",
+                score: 24,
+                stage: 'scale_assessment'
+            },
+            'other industry': {
+                response: "No problem! We work with businesses across all industries. Our platform adapts to any business model:\n\n🏢 Custom workflow automation\n🏢 Industry-specific compliance requirements\n🏢 Integration with existing CRM/ERP systems\n🏢 Scalable architecture for any size business\n🏢 White-label solutions available\n\nWhat industry are you in specifically? This helps me provide more targeted information.",
+                score: 20,
+                stage: 'industry_specification'
             }
         };
 
-        function analyzeRevenueLoss() {
-            const businessType = document.getElementById('businessType').value;
-            const businessName = document.getElementById('businessName').value;
-            const avgService = parseInt(document.getElementById('avgService').value) || 150;
-            const dailyCalls = parseInt(document.getElementById('dailyCalls').value) || 5;
-
-            if (!businessType || !businessName) {
-                alert('Please fill in all fields to see your revenue analysis.');
-                return;
-            }
-
-            const data = businessData[businessType] || businessData.tattoo;
-            const dailyLoss = dailyCalls * avgService * (data.conversionRate / 100);
-            const monthlyLoss = dailyLoss * 30;
-            const yearlyLoss = dailyLoss * 365;
-
-            document.getElementById('lossCalculator').innerHTML = `
-                <h3>💸 ${businessName} - Revenue Loss Analysis</h3>
-                <div class="loss-stats">
-                    <div class="loss-stat">
-                        <h4>Daily Revenue Lost</h4>
-                        <div class="number">$${Math.round(dailyLoss).toLocaleString()}</div>
-                    </div>
-                    <div class="loss-stat">
-                        <h4>Monthly Revenue Lost</h4>
-                        <div class="number">$${Math.round(monthlyLoss).toLocaleString()}</div>
-                    </div>
-                    <div class="loss-stat">
-                        <h4>Annual Revenue Lost</h4>
-                        <div class="number">$${Math.round(yearlyLoss).toLocaleString()}</div>
-                    </div>
-                </div>
-                <div style="background: #333; padding: 20px; border-radius: 8px; text-align: center;">
-                    <h4 style="color: #4A90E2; margin-bottom: 10px;">Industry Fact:</h4>
-                    <p style="color: #cccccc; font-size: 1.1em;">${data.industryFacts}</p>
-                    <p style="color: #5C6BC0; font-size: 1.2em; margin-top: 15px; font-weight: 600;">
-                        Our AI chatbot captures ${data.conversionRate}% of these missed opportunities!
-                    </p>
-                </div>
-            `;
-
-            document.getElementById('resultsContainer').style.display = 'block';
-            document.querySelector('.business-input-section').style.display = 'none';
-
-            // Start chat simulation
-            setTimeout(() => simulateChat(businessType), 1000);
+        function addMessage(text, isUser = false, messageType = 'normal') {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            
+            let className = `message ${isUser ? 'user-message' : 'mari-message'}`;
+            if (messageType === 'premium') className += ' premium-message';
+            
+            messageDiv.className = className;
+            messageDiv.innerHTML = text.replace(/\n/g, '<br>');
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
-        function simulateChat(businessType) {
-            const data = businessData[businessType] || businessData.tattoo;
-            const chatContainer = document.getElementById('chatDemo');
-            const messages = data.chatExamples;
+        function showTypingIndicator() {
+            document.getElementById('typingIndicator').classList.add('active');
+        }
 
-            chatContainer.innerHTML = '';
+        function hideTypingIndicator() {
+            document.getElementById('typingIndicator').classList.remove('active');
+        }
 
-            messages.forEach((message, index) => {
-                setTimeout(() => {
-                    const messageDiv = document.createElement('div');
-                    messageDiv.className = `chat-message ${message.type}`;
-                    messageDiv.innerHTML = `
-                        <div class="label">${message.type === 'customer' ? 'Potential Customer' : 'Your AI Chatbot'}</div>
-                        ${message.text}
-                    `;
-                    chatContainer.appendChild(messageDiv);
-                    chatContainer.scrollTop = chatContainer.scrollHeight;
-                }, index * 2000);
+        function addQuickOptions(options) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'quick-options';
+            
+            options.forEach(option => {
+                const optionBtn = document.createElement('div');
+                optionBtn.className = 'quick-option';
+                optionBtn.textContent = option;
+                optionBtn.onclick = () => sendMessage(option);
+                optionsDiv.appendChild(optionBtn);
             });
-
-            // Add final comprehensive summary with analytics dashboard
-            setTimeout(() => {
-                const analyticsDiv = document.createElement('div');
-                analyticsDiv.className = 'chat-message bot';
-                analyticsDiv.innerHTML = `
-                    <div class="label">📊 PLATINUM ANALYTICS DASHBOARD</div>
-                    <strong>🎯 Real-time Business Intelligence:</strong><br><br>
-                    
-                    📈 <strong>Today's Performance:</strong><br>
-                    • 12 conversations handled<br>
-                    • 9 appointments booked<br>
-                    • $1,850 in deposits collected<br>
-                    • 75% conversion rate<br><br>
-                    
-                    🔄 <strong>Follow-up Pipeline:</strong><br>
-                    • 23 customers in nurture sequence<br>
-                    • 8 ready for rebooking<br>
-                    • 15 pending consultation responses<br><br>
-                    
-                    📱 <strong>Multi-Location Sync:</strong><br>
-                    • Downtown: 4 bookings<br>
-                    • Westside: 3 bookings<br>
-                    • Mall location: 2 bookings<br><br>
-                    
-                    💼 <strong>CRM Integration Active:</strong><br>
-                    • Customer profiles auto-updated<br>
-                    • Service history tracked<br>
-                    • Preference learning enabled<br><br>
-                    
-                    <strong>🚀 This level of automation runs 24/7 while you sleep!</strong>
-                `;
-                chatContainer.appendChild(analyticsDiv);
-                chatContainer.scrollTop = chatContainer.scrollHeight;
-            }, messages.length * 2000 + 2000);
+            
+            messagesContainer.appendChild(optionsDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
-        function scheduleDemo() {
-            alert(`🎉 Demo Request Submitted!
-
-We'll contact you within 24 hours to:
-
-✅ Show you a live demo customized for your business
-✅ Set up your AI chatbot in 15 minutes  
-✅ Provide 1 week free trial
-✅ No contracts or long-term commitments
-
-Check your email for confirmation and next steps!`);
+        function sendMessage(message) {
+            addMessage(message, true);
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                hideTypingIndicator();
+                
+                const response = mariResponses[message.toLowerCase()];
+                if (response) {
+                    addMessage(response.response, false);
+                    
+                    // Add contextual quick options based on stage
+                    if (response.stage === 'pain_point_analysis') {
+                        addQuickOptions(['Phone Interruptions', 'After-Hours Inquiries', 'No-Shows', 'Peak Time Chaos', 'Service Confusion', 'Client Retention']);
+                    } else if (response.stage === 'role_identification') {
+                        addQuickOptions(['IT Leadership', 'Operations', 'Executive Leadership', 'Business Owner']);
+                    } else {
+                        addQuickOptions(['Continue', 'More Information', 'Schedule Demo', 'See Pricing']);
+                    }
+                } else {
+                    addMessage("Thank you for your message! How can I help you further?", false);
+                    addQuickOptions(['Continue', 'More Information', 'Schedule Demo']);
+                }
+            }, 1500);
         }
 
-        // Smooth scrolling for better UX
-        document.querySelector('.analyze-btn').addEventListener('click', () => {
-            setTimeout(() => {
-                document.getElementById('resultsContainer').scrollIntoView({ 
-                    behavior: 'smooth' 
-                });
-            }, 500);
+        function sendUserMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                sendMessage(message);
+                input.value = '';
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendUserMessage();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('NextEleven Enterprise Chatbot initialized');
         });
     </script>
 </body>
