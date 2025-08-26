@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextEleven - Tattoo Studio Chatbot Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .enterprise-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .enterprise-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .enterprise-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .enterprise-header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .enterprise-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .roi-highlight {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.3);
+        }
+
+        .roi-highlight h4 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .roi-highlight p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .chat-interface {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .chat-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: white;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .chat-info h3 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .chat-info p {
+            color: #666;
+            font-size: 1em;
+        }
+
+        .professional-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .chat-messages {
+            max-height: 500px;
+            overflow-y: auto;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .mari-message {
+            background: #f1f3f4;
+            color: #333;
+            border-left: 4px solid #667eea;
+        }
+
+        .conversation-start {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .conversation-start p {
+            margin-bottom: 10px;
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 15px 20px;
+            background: #f1f3f4;
+            border-radius: 12px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .typing-indicator.active {
+            display: block;
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input:focus {
+            border-color: #667eea;
+        }
+
+        .send-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .send-button:hover {
+            transform: scale(1.05);
+        }
+
+        .enterprise-footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-top: 40px;
+            color: #ffffff;
+        }
+
+        .military-discount-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .military-discount-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .military-discount-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .back-to-main {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .back-to-main:hover {
+            transform: scale(1.05);
+        }
+
+        .tattoo-specific-features {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            color: white;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tattoo-specific-features h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .tattoo-specific-features ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .tattoo-specific-features li {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .enterprise-container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .enterprise-header h1 {
+                font-size: 2em;
+            }
+            
+            .stat-item {
+                padding: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2em;
+            }
+            
+            .chat-interface {
+                padding: 20px;
+            }
+            
+            .chat-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="enterprise-container">
+        <a href="index.html" class="back-to-main">← Back to Main Site</a>
+        
+        <div class="enterprise-header">
+            <h1>🎨 Tattoo Studio Chatbot Demo</h1>
+            <p>Experience NextEleven's Agency-level chatbot solution specifically designed for tattoo studios and artists</p>
+        </div>
+
+        <div class="tattoo-specific-features">
+            <h3>🎯 Tattoo Studio Features Included</h3>
+            <ul>
+                <li>Artist Portfolio Showcase</li>
+                <li>Appointment Booking & Rescheduling</li>
+                <li>Pricing Estimates by Size/Complexity</li>
+                <li>Aftercare Instructions</li>
+                <li>Deposit Collection</li>
+                <li>Age Verification</li>
+                <li>Consultation Scheduling</li>
+                <li>24/7 Customer Support</li>
+            </ul>
+        </div>
+
+        <div class="enterprise-stats">
+            <div class="stat-item">
+                <div class="stat-number">70%</div>
+                <div class="stat-label">Reduction in Phone Interruptions</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">35-50%</div>
+                <div class="stat-label">Increase in Bookings</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Lead Capture</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10-15hrs</div>
+                <div class="stat-label">Weekly Time Saved</div>
+            </div>
+        </div>
+
+        <div class="roi-highlight">
+            <h4>🎨 Tattoo Studio Success Story</h4>
+            <p>"Ink & Iron Tattoo increased bookings by 45% and reduced phone interruptions by 70% within their first month. The owner now focuses on artistry instead of answering repetitive pricing questions."</p>
+        </div>
+
+        <div class="chat-interface">
+            <div class="chat-header">
+                <div class="chat-avatar">T</div>
+                <div class="chat-info">
+                    <h3>Tattoo Studio Bot <span class="professional-badge">Agency Level</span></h3>
+                    <p>NextEleven Tattoo Industry Specialist</p>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="message mari-message">
+                    🎨 **Welcome to Ink & Iron Tattoo Studio!** I'm your AI assistant, ready to help with everything from booking appointments to answering questions about our artists and services.
+                    <br><br>
+                    **What can I help you with today?**
+                    <br><br>
+                    • Book a consultation or appointment<br>
+                    • See artist portfolios and specialties<br>
+                    • Get pricing estimates<br>
+                    • Learn about our services<br>
+                    • Check availability<br>
+                    • Get aftercare instructions<br>
+                    • Ask about policies and procedures
+                </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator">
+                Tattoo Studio Bot is analyzing your request...
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your message to the Tattoo Studio Bot...">
+                <button class="send-button" onclick="sendUserMessage()">→</button>
+            </div>
+        </div>
+
+        <footer class="enterprise-footer">
+            NextEleven Tattoo Studio Solutions | Trusted by 200+ Tattoo Studios Nationwide | Contact: NextElevenStudios@icloud.com
+            <br><br>
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-top: 10px;">
+                <strong>🇺🇸 Military Veteran Discounts</strong><br>
+                <span style="font-size: 0.9em;">
+                    10% off for Veterans | 20% off for Combat Veterans<br>
+                    Thank you for your service.
+                </span>
+            </div>
+        </footer>
+        
+        <div class="military-discount-section">
+            <button class="military-discount-btn" onclick="showMilitaryDiscounts()">
+                🇺🇸 Military Veteran Discounts
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let conversationStage = 'welcome';
+        let userIntent = '';
+
+        const tattooResponses = {
+            'hello': {
+                response: "🎨 **Hello! Welcome to Ink & Iron Tattoo Studio!** I'm here to help you with everything you need.\n\n**How can I assist you today?**\n• Book an appointment\n• See artist portfolios\n• Get pricing information\n• Learn about our services\n• Check availability\n• Get aftercare help",
+                score: 50,
+                stage: 'greeting'
+            },
+            'hi': {
+                response: "🎨 **Hi there! Welcome to Ink & Iron Tattoo Studio!** I'm your AI assistant, ready to help with all your tattoo needs.\n\n**What would you like to know about?**\n• Our artists and their styles\n• Appointment booking\n• Pricing and estimates\n• Services we offer\n• Studio policies\n• Aftercare information",
+                score: 50,
+                stage: 'greeting'
+            },
+            'book': {
+                response: "📅 **Great! Let's get you booked for your tattoo!**\n\n**What type of appointment do you need?**\n• **Consultation** - Discuss your design and get a quote\n• **Tattoo Session** - Book your actual tattoo appointment\n• **Touch-up** - Schedule a touch-up session\n• **Cover-up** - Discuss cover-up options\n\n**What's your preferred date and time?** (We're available Tuesday-Saturday, 11 AM - 8 PM)\n\n**Also, what's your name and phone number?** I'll get you scheduled right away!",
+                score: 60,
+                stage: 'booking'
+            },
+            'appointment': {
+                response: "📅 **Perfect! Let's schedule your appointment!**\n\n**What type of tattoo are you looking for?**\n• **Small tattoo** (1-2 hours)\n• **Medium tattoo** (2-4 hours)\n• **Large tattoo** (4+ hours, multiple sessions)\n• **Cover-up tattoo**\n• **Touch-up session**\n\n**What's your preferred time?**\n• Morning (11 AM - 2 PM)\n• Afternoon (2 PM - 5 PM)\n• Evening (5 PM - 8 PM)\n\n**What's your name and contact number?** I'll check availability and get you scheduled!",
+                score: 60,
+                stage: 'booking'
+            },
+            'consultation': {
+                response: "💬 **Excellent choice! A consultation is perfect for discussing your design and getting a detailed quote.**\n\n**Consultations are free and take about 30 minutes.**\n\n**What would you like to discuss?**\n• Design concept and placement\n• Size and complexity\n• Artist recommendations\n• Pricing estimates\n• Timeline and scheduling\n• Aftercare preparation\n\n**What's your preferred consultation time?**\n• Tuesday-Thursday: 11 AM - 6 PM\n• Friday-Saturday: 11 AM - 7 PM\n\n**What's your name and phone number?** I'll schedule your consultation right away!",
+                score: 65,
+                stage: 'consultation'
+            },
+            'price': {
+                response: "💰 **Great question about pricing! Our rates vary based on size, complexity, and artist experience.**\n\n**General Pricing Guide:**\n• **Small tattoos** (1-2 hours): $150 - $300\n• **Medium tattoos** (2-4 hours): $300 - $600\n• **Large tattoos** (4+ hours): $600+ (hourly rate)\n• **Cover-ups**: Additional complexity fee\n• **Touch-ups**: $50 - $100\n\n**What type of tattoo are you thinking about?**\n• Size and placement\n• Design complexity\n• Color vs. black & gray\n• Artist preference\n\n**For a precise quote, I can schedule a free consultation with one of our artists!**",
+                score: 55,
+                stage: 'pricing'
+            },
+            'pricing': {
+                response: "💰 **Here's our detailed pricing structure:**\n\n**Hourly Rates by Artist:**\n• **Junior Artists**: $150/hour\n• **Experienced Artists**: $200/hour\n• **Master Artists**: $250/hour\n\n**Package Deals:**\n• **Small tattoos** (under 2 hours): Flat rate pricing\n• **Medium tattoos** (2-4 hours): 10% discount on hourly rate\n• **Large pieces** (4+ hours): 15% discount on hourly rate\n\n**Additional Services:**\n• **Design consultation**: FREE\n• **Touch-ups** (within 6 months): $50\n• **Cover-up consultation**: $75\n\n**What size and style are you considering?** I can give you a more specific estimate!",
+                score: 55,
+                stage: 'pricing'
+            },
+            'artist': {
+                response: "👨‍🎨 **We have amazing artists with different specialties!**\n\n**Our Current Artists:**\n\n**🎨 Mike (Master Artist)**\n• Specializes in: Realistic portraits, Japanese traditional\n• Experience: 15+ years\n• Rate: $250/hour\n• Available: Tuesday-Saturday\n\n**🎨 Sarah (Experienced Artist)**\n• Specializes in: Watercolor, geometric designs\n• Experience: 8 years\n• Rate: $200/hour\n• Available: Wednesday-Saturday\n\n**🎨 Jake (Junior Artist)**\n• Specializes in: Minimalist, line work, small tattoos\n• Experience: 3 years\n• Rate: $150/hour\n• Available: Tuesday-Friday\n\n**Who would you like to work with?** I can show you their portfolios and check their availability!",
+                score: 60,
+                stage: 'artist_info'
+            },
+            'portfolio': {
+                response: "🖼️ **Absolutely! I'd love to show you our artists' work!**\n\n**Portfolio Categories:**\n• **Realistic portraits** - Mike's specialty\n• **Japanese traditional** - Mike's expertise\n• **Watercolor tattoos** - Sarah's signature style\n• **Geometric designs** - Sarah's clean aesthetic\n• **Minimalist tattoos** - Jake's modern approach\n• **Line work** - Jake's precision\n\n**What style interests you most?**\n• Traditional/Classic\n• Realistic/Portraits\n• Watercolor/Abstract\n• Geometric/Minimalist\n• Black & Gray\n• Color work\n\n**I can also show you specific examples of:**\n• Tattoos similar to what you want\n• Work by a specific artist\n• Different placement options\n\n**What would you like to see?**",
+                score: 55,
+                stage: 'portfolio'
+            },
+            'availability': {
+                response: "📅 **Let me check our current availability!**\n\n**This Week's Openings:**\n• **Tuesday**: 2 PM, 4 PM, 6 PM\n• **Wednesday**: 11 AM, 1 PM, 3 PM, 7 PM\n• **Thursday**: 12 PM, 2 PM, 5 PM\n• **Friday**: 11 AM, 3 PM, 6 PM\n• **Saturday**: 1 PM, 4 PM\n\n**Next Week's Openings:**\n• **Monday**: Closed (Artist day off)\n• **Tuesday**: 11 AM, 3 PM, 5 PM, 7 PM\n• **Wednesday**: 12 PM, 2 PM, 4 PM, 6 PM\n\n**What works best for you?**\n• Morning appointments (11 AM - 2 PM)\n• Afternoon appointments (2 PM - 5 PM)\n• Evening appointments (5 PM - 8 PM)\n\n**I can also check specific artist availability if you have a preference!**",
+                score: 55,
+                stage: 'availability'
+            },
+            'aftercare': {
+                response: "🩹 **Great question! Proper aftercare is crucial for a beautiful tattoo.**\n\n**Immediate Aftercare (First 24 hours):**\n• Keep bandage on for 2-4 hours\n• Wash gently with mild soap and warm water\n• Pat dry with clean paper towel\n• Apply thin layer of healing ointment\n\n**First Week:**\n• Wash 2-3 times daily\n• Apply healing ointment 2-3 times daily\n• Avoid swimming, hot tubs, sun exposure\n• Don't pick or scratch\n\n**Healing Timeline:**\n• **Days 1-3**: Redness, swelling, slight oozing (normal)\n• **Days 4-7**: Scabbing begins, itching starts\n• **Weeks 2-3**: Scabs fall off, color settles\n• **Month 1**: Fully healed\n\n**What specific aftercare question do you have?** I can provide detailed instructions!",
+                score: 60,
+                stage: 'aftercare'
+            },
+            'deposit': {
+                response: "💳 **Yes, we require deposits to secure your appointment!**\n\n**Deposit Requirements:**\n• **Small tattoos** (1-2 hours): $50 deposit\n• **Medium tattoos** (2-4 hours): $100 deposit\n• **Large tattoos** (4+ hours): $200 deposit\n• **Cover-ups**: $150 deposit\n\n**Deposit Policy:**\n• Deposits are non-refundable but transferable\n• Applied to your final tattoo cost\n• Required within 48 hours of booking\n• Can be paid via cash, card, or digital payment\n\n**How would you like to pay your deposit?**\n• **Cash** - Pay in person\n• **Card** - Over the phone\n• **Digital payment** - Venmo, PayPal, or Cash App\n\n**I'll send you payment instructions once we confirm your appointment!**",
+                score: 55,
+                stage: 'deposit'
+            },
+            'policy': {
+                response: "📋 **Here are our studio policies and procedures:**\n\n**Booking Policies:**\n• 48-hour notice required for cancellations\n• Deposits are non-refundable but transferable\n• Late arrivals may result in rescheduling\n• No-shows forfeit deposit\n\n**Health & Safety:**\n• Must be 18+ with valid ID\n• No alcohol or drugs before appointment\n• Eat a good meal before your session\n• Bring comfortable clothing\n• No guests during COVID restrictions\n\n**Payment:**\n• Cash preferred, cards accepted\n• Payment due at completion\n• No payment plans available\n• Tips appreciated but not required\n\n**What specific policy would you like me to explain further?**",
+                score: 50,
+                stage: 'policies'
+            },
+            'size': {
+                response: "📏 **Great question! Tattoo size affects both pricing and session length.**\n\n**Size Categories & Estimates:**\n\n**Small Tattoos (1-2 hours):**\n• **Coin-sized**: $150-200\n• **Credit card**: $200-300\n• **Palm-sized**: $250-350\n\n**Medium Tattoos (2-4 hours):**\n• **Hand-sized**: $400-600\n• **Forearm length**: $500-700\n• **Calf piece**: $600-800\n\n**Large Tattoos (4+ hours):**\n• **Full sleeve**: $800-1500\n• **Full back**: $1000-2000\n• **Full leg**: $1200-2500\n\n**What size are you thinking?** I can give you a more precise estimate based on:\n• Exact dimensions\n• Placement on body\n• Design complexity\n• Artist preference",
+                score: 55,
+                stage: 'sizing'
+            },
+            'placement': {
+                response: "📍 **Placement is crucial for both aesthetics and pain level!**\n\n**Popular Placement Options:**\n\n**Low Pain Areas:**\n• Upper arm/forearm\n• Shoulder blade\n• Calf\n• Thigh\n\n**Medium Pain Areas:**\n• Ribs\n• Stomach\n• Lower back\n• Ankle\n\n**Higher Pain Areas:**\n• Foot\n• Hand\n• Neck\n• Face\n\n**Placement Considerations:**\n• **Visibility** - Work requirements, personal preference\n• **Pain tolerance** - Some areas are more sensitive\n• **Healing** - Some placements take longer\n• **Future plans** - Weight changes, pregnancy, etc.\n\n**Where are you thinking of placing your tattoo?** I can give you specific advice for that area!",
+                score: 55,
+                stage: 'placement'
+            },
+            'style': {
+                response: "🎨 **We offer all major tattoo styles!**\n\n**Traditional Styles:**\n• **American Traditional** - Bold lines, bright colors\n• **Japanese Traditional** - Irezumi, detailed designs\n• **Tribal** - Cultural and modern interpretations\n• **Old School** - Classic sailor and biker styles\n\n**Modern Styles:**\n• **Realistic** - Photo-like portraits and nature\n• **Watercolor** - Paint-like, flowing designs\n• **Geometric** - Clean lines, mathematical precision\n• **Minimalist** - Simple, elegant designs\n• **Neo-traditional** - Traditional with modern twists\n\n**Specialty Styles:**\n• **Black & Gray** - Shading and depth\n• **Color work** - Vibrant, full-color designs\n• **Dotwork** - Pointillism technique\n• **Line work** - Clean, precise lines\n\n**What style interests you?** I can show you examples and recommend artists!",
+                score: 55,
+                stage: 'style_info'
+            },
+            'healing': {
+                response: "⏰ **Healing time varies by size, placement, and individual factors.**\n\n**Typical Healing Timeline:**\n\n**Small Tattoos (1-2 hours):**\n• **Initial healing**: 7-10 days\n• **Full healing**: 3-4 weeks\n\n**Medium Tattoos (2-4 hours):**\n• **Initial healing**: 10-14 days\n• **Full healing**: 4-6 weeks\n\n**Large Tattoos (4+ hours):**\n• **Initial healing**: 14-21 days\n• **Full healing**: 6-8 weeks\n\n**Healing Factors:**\n• **Placement** - Some areas heal faster\n• **Size** - Larger tattoos take longer\n• **Aftercare** - Proper care speeds healing\n• **Individual health** - Age, diet, lifestyle\n\n**What size tattoo are you planning?** I can give you a more specific timeline!",
+                score: 55,
+                stage: 'healing_info'
+            },
+            'touch up': {
+                response: "🔧 **Touch-ups are common and help maintain your tattoo's beauty!**\n\n**Touch-up Policy:**\n• **Free touch-ups** within 6 months of original tattoo\n• **Paid touch-ups** after 6 months ($50-100)\n• **Cover-up touch-ups** may have different pricing\n\n**When Touch-ups Are Needed:**\n• **Normal fading** - Colors lose vibrancy over time\n• **Patchy healing** - Some areas didn't heal evenly\n• **Color adjustments** - Want to enhance or change colors\n• **Line refinement** - Clean up any fuzzy lines\n\n**Touch-up Process:**\n• Quick 30-60 minute session\n• Minimal discomfort\n• Faster healing than original tattoo\n• Can be done by original artist or any available artist\n\n**When was your original tattoo done?** I can check if you qualify for a free touch-up!",
+                score: 55,
+                stage: 'touch_up'
+            },
+            'cover up': {
+                response: "🔄 **Cover-ups are definitely possible!** We specialize in transforming unwanted tattoos.\n\n**Cover-up Considerations:**\n• **Size** - New design must be larger than original\n• **Color** - Darker colors work best for covering\n• **Placement** - Some areas are easier to cover\n• **Design** - Must work with existing tattoo\n\n**Cover-up Process:**\n• **Consultation required** - Discuss design options\n• **Design phase** - Create cover-up design\n• **Multiple sessions** - Usually 2-3 sessions needed\n• **Healing time** - Allow healing between sessions\n\n**Cover-up Pricing:**\n• **Small cover-ups**: $300-500\n• **Medium cover-ups**: $500-800\n• **Large cover-ups**: $800-1500\n\n**What type of tattoo do you want to cover?** I can schedule a consultation to discuss your options!",
+                score: 60,
+                stage: 'cover_up'
+            },
+            'age': {
+                response: "🆔 **Age verification is required by law for all tattoos.**\n\n**Age Requirements:**\n• **Must be 18+ years old**\n• **Valid government ID required** (Driver's license, passport, state ID)\n• **No exceptions** - Even with parent permission\n• **ID must be current** - Not expired\n\n**What to Bring:**\n• **Driver's license** (preferred)\n• **State ID card**\n• **Passport**\n• **Military ID**\n• **Other government-issued photo ID**\n\n**We cannot accept:**\n• School IDs\n• Work IDs\n• Expired IDs\n• Photocopies\n\n**Are you 18 or older?** If so, make sure to bring your ID to your appointment!\n\n**Note**: We take age verification very seriously to comply with state and local laws.",
+                score: 50,
+                stage: 'age_verification'
+            },
+            'payment': {
+                response: "💳 **We accept multiple payment methods for your convenience!**\n\n**Accepted Payment Methods:**\n• **Cash** - Preferred method\n• **Credit Cards** - Visa, MasterCard, American Express\n• **Debit Cards** - All major banks\n• **Digital Payments** - Venmo, PayPal, Cash App\n\n**Payment Schedule:**\n• **Deposits** - Required when booking (cash, card, or digital)\n• **Final Payment** - Due at completion of tattoo\n• **No payment plans** - Full payment required\n• **No financing** - We don't offer payment plans\n\n**Payment Tips:**\n• **Bring extra cash** for tips (15-20% is standard)\n• **Have backup payment** method ready\n• **Plan for total cost** including deposit\n\n**How would you prefer to pay?** I can explain the process for any payment method!",
+                score: 50,
+                stage: 'payment_info'
+            },
+            'tip': {
+                response: "💝 **Tipping is appreciated but not required!**\n\n**Standard Tipping Guidelines:**\n• **15-20%** of total tattoo cost\n• **$20-50** for small tattoos\n• **$50-100** for medium tattoos\n• **$100+** for large pieces\n\n**When to Tip:**\n• **After completion** of your tattoo\n• **In cash** (preferred by artists)\n• **Based on service quality** and experience\n\n**Tipping Considerations:**\n• **Artist experience** - More experienced artists may warrant higher tips\n• **Service quality** - Exceptional work deserves recognition\n• **Session length** - Longer sessions may warrant higher tips\n• **Personal budget** - Tip what you can afford\n\n**Remember**: Tipping shows appreciation for your artist's skill and time!\n\n**What size tattoo are you planning?** I can give you a tipping estimate!",
+                score: 45,
+                stage: 'tipping_info'
+            },
+            'unrecognized': {
+                response: "🤔 **I'm not sure I understood that question about tattoos.**\n\n**Could you rephrase or ask about:**\n• **Booking** - Appointments and consultations\n• **Pricing** - Cost estimates and packages\n• **Artists** - Our tattoo artists and their styles\n• **Services** - What we offer\n• **Policies** - Studio rules and procedures\n• **Aftercare** - Healing and maintenance\n• **Portfolio** - Examples of our work\n\n**Or just tell me what you'd like to know about getting a tattoo!** I'm here to help with everything tattoo-related.",
+                score: 30,
+                stage: 'clarification'
+            }
+        };
+
+        function addMessage(text, isUser = false) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'mari-message'}`;
+            messageDiv.innerHTML = text.replace(/\n/g, '<br>');
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            document.getElementById('typingIndicator').classList.add('active');
+        }
+
+        function hideTypingIndicator() {
+            document.getElementById('typingIndicator').classList.remove('active');
+        }
+
+        function sendMessage(message) {
+            // Add user message
+            addMessage(message, true);
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Simulate processing time
+            setTimeout(() => {
+                hideTypingIndicator();
+                
+                // Find best response
+                const lowerMessage = message.toLowerCase();
+                let bestMatch = null;
+                let bestScore = 0;
+                
+                for (const [key, response] of Object.entries(tattooResponses)) {
+                    if (lowerMessage.includes(key.toLowerCase())) {
+                        if (response.score > bestScore) {
+                            bestScore = response.score;
+                            bestMatch = response;
+                        }
+                    }
+                }
+                
+                if (bestMatch) {
+                    addMessage(bestMatch.response, false);
+                } else {
+                    addMessage(tattooResponses['unrecognized'].response, false);
+                }
+            }, 1000);
+        }
+
+        function sendUserMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                sendMessage(message);
+                input.value = '';
+            }
+        }
+
+        function showMilitaryDiscounts() {
+            alert("🇺🇸 Military Veteran Discounts\n\nNextEleven is honored to offer:\n• 10% off for Veterans\n• 20% off for Combat Veterans\n\nThank you for your service!\n\nContact us at NextElevenStudios@icloud.com for your discount code.");
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('NextEleven Tattoo Studio Chatbot Demo initialized');
+            
+            // Add event listener for Enter key on chat input
+            const chatInput = document.getElementById('chatInput');
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter') {
+                        sendUserMessage();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
