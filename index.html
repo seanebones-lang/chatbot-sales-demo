@@ -1899,6 +1899,220 @@
                 response: "Absolutely! Let me connect you with our sales team for a personalized consultation.\n\n👥 **What Happens Next:**\n\n📞 **Sales Director Call** - Within 24 hours\n📧 **Custom Proposal** - Tailored to your business\n🎯 **Personalized Demo** - Show exactly how it works for you\n💰 **Business Impact Analysis** - Specific to your situation\n📅 **Implementation Timeline** - Clear next steps\n\n**Our Sales Process:**\n1. **Discovery Call** - Understand your specific needs\n2. **Solution Presentation** - Show how we solve your problems\n3. **Custom Proposal** - Tailored solution and pricing\n4. **Implementation Planning** - Get you up and running\n\n**What to Expect:**\n- No pressure sales tactics\n- Focus on your specific needs\n- Clear pricing and timeline\n- Ongoing support commitment\n\n**What's the best way to reach you?** Phone? Email? And what time works best?",
                 score: 30,
                 stage: 'sales_contact'
+            },
+            // Adding comprehensive natural language understanding
+            'what can you do': {
+                response: "I'm Mariam, your NextEleven AI consultant! Here's what I can help you with:\n\n🤖 **AI Chatbot Solutions:**\n- Custom chatbots for any business type\n- Industry-specific training and customization\n- Multi-platform integration (website, social media, SMS)\n- 24/7 automated customer engagement\n\n💼 **Business Analysis:**\n- Identify your specific pain points\n- Calculate business impact and ROI\n- Show relevant case studies\n- Create custom proposals\n\n📊 **Technical Details:**\n- Explain how AI and chatbots work\n- Show integration capabilities\n- Discuss security and compliance\n- Explain implementation process\n\n🎯 **Sales & Support:**\n- Schedule demos and consultations\n- Provide pricing information\n- Send detailed materials\n- Connect you with our team\n\n**What would you like to explore first?** I can guide you through any aspect of our solutions.",
+                score: 25,
+                stage: 'capabilities_explanation'
+            },
+            'help me': {
+                response: "Of course! I'm here to help you navigate everything about NextEleven.\n\n🔍 **What would you like to know?**\n\n**Getting Started:**\n- What is NextEleven and how does it work?\n- What business problems do we solve?\n- How much does it cost?\n- How do I get started?\n\n**Business Solutions:**\n- What industries do we serve?\n- What are the benefits for my business?\n- How do I calculate ROI?\n- What case studies are relevant?\n\n**Technical Information:**\n- How does the AI technology work?\n- What integrations are available?\n- How secure and compliant is it?\n- What's the implementation process?\n\n**Next Steps:**\n- Schedule a demo\n- Get a custom proposal\n- Start a free trial\n- Talk to sales\n\n**Just tell me what you're looking for, and I'll guide you through it step by step!**",
+                score: 20,
+                stage: 'help_request'
+            },
+            'i need help': {
+                response: "I'm here to help! Let me guide you through everything about NextEleven.\n\n🎯 **What specific help do you need?**\n\n**If you're new here:**\n- I can explain what NextEleven is and how it works\n- Show you how it can help your business\n- Walk you through pricing and options\n- Help you get started\n\n**If you're evaluating solutions:**\n- I can show you relevant case studies\n- Calculate business impact for your situation\n- Explain technical details and integrations\n- Schedule a personalized demo\n\n**If you're ready to move forward:**\n- I can create a custom proposal\n- Set up a free trial\n- Connect you with our team\n- Get you started with implementation\n\n**What's your biggest question or concern right now?** I'll make sure you get the information you need.",
+                score: 20,
+                stage: 'help_request'
+            },
+            'guide me': {
+                response: "Perfect! I'll be your personal guide through everything NextEleven.\n\n🗺️ **Let me show you the way:**\n\n**Step 1: Understanding Your Needs**\n- What type of business are you in?\n- What challenges are you facing?\n- What are your goals?\n\n**Step 2: Exploring Solutions**\n- How NextEleven can help your specific business\n- Industry-specific features and benefits\n- Real case studies and results\n\n**Step 3: Understanding the Investment**\n- Transparent pricing structure\n- ROI calculations for your business\n- Implementation timeline and process\n\n**Step 4: Taking Action**\n- Schedule a personalized demo\n- Start a free trial\n- Get a custom proposal\n\n**Let's start with the basics: What type of business do you run?** This will help me show you the most relevant information.",
+                score: 25,
+                stage: 'guidance_request'
+            },
+            'walk me through': {
+                response: "Absolutely! I'll walk you through everything step by step.\n\n👣 **Let's take this journey together:**\n\n**First, let's understand your business:**\n- What industry are you in?\n- What size is your business?\n- What challenges are you facing?\n\n**Then, I'll show you:**\n- How NextEleven specifically solves your problems\n- What the implementation looks like\n- How much it costs and what you get\n- Real results from businesses like yours\n\n**Finally, we'll plan your next steps:**\n- Schedule a demo to see it in action\n- Get a custom proposal\n- Start your free trial\n\n**This is a no-pressure exploration - I'm here to educate and help you make the best decision for your business.**\n\n**Let's start: What type of business do you run?**",
+                score: 25,
+                stage: 'guidance_request'
+            },
+            'explain': {
+                response: "I'd be happy to explain anything about NextEleven!\n\n📚 **What would you like me to explain?**\n\n**About NextEleven:**\n- What we do and how we help businesses\n- Our technology and AI capabilities\n- Our company and team\n- Our approach and philosophy\n\n**About Our Solutions:**\n- How chatbots work and what they can do\n- Industry-specific features and benefits\n- Integration capabilities and technical details\n- Security and compliance features\n\n**About Working With Us:**\n- Our pricing and packages\n- Implementation process and timeline\n- Support and ongoing services\n- Case studies and results\n\n**About Your Business:**\n- How we can help your specific industry\n- What problems we solve for businesses like yours\n- ROI and business impact calculations\n- Next steps and getting started\n\n**What would you like me to explain first?** I'm here to make everything clear!",
+                score: 20,
+                stage: 'explanation_request'
+            },
+            'i want to know': {
+                response: "Great! I want to tell you everything you need to know about NextEleven.\n\n🔍 **What would you like to know?**\n\n**Business Information:**\n- What problems do we solve?\n- How do we help businesses grow?\n- What industries do we serve?\n- What results do our clients see?\n\n**Technical Information:**\n- How does the AI technology work?\n- What integrations are available?\n- How secure and reliable is it?\n- What's the implementation process?\n\n**Pricing & Packages:**\n- How much does it cost?\n- What's included in each package?\n- Are there setup fees?\n- What payment options are available?\n\n**Getting Started:**\n- How do I get started?\n- Can I try it first?\n- How long does setup take?\n- What support do I get?\n\n**Just tell me what you're curious about, and I'll give you all the details!**",
+                score: 20,
+                stage: 'information_request'
+            },
+            'tell me about': {
+                response: "I'd love to tell you about NextEleven! What specific aspect interests you most?\n\n📖 **Here's what I can tell you about:**\n\n**Our Company:**\n- Who we are and our mission\n- Our team and expertise\n- Our company history and growth\n- Our values and approach\n\n**Our Technology:**\n- How our AI chatbots work\n- What makes our technology special\n- Our security and compliance features\n- Our integration capabilities\n\n**Our Solutions:**\n- What problems we solve\n- How we customize for different industries\n- What features and benefits we offer\n- How we implement and support\n\n**Our Results:**\n- Case studies and success stories\n- Client testimonials and feedback\n- Business impact and ROI data\n- Industry-specific results\n\n**What would you like me to tell you about?** I'm excited to share everything!",
+                score: 20,
+                stage: 'information_request'
+            },
+            'i have questions': {
+                response: "Perfect! I love questions - they help me understand exactly what you need to know.\n\n❓ **What questions do you have?**\n\n**Common Questions I Can Answer:**\n- How does NextEleven work?\n- What does it cost?\n- How long does setup take?\n- What kind of support do you provide?\n- How do I know if it's right for my business?\n- What results can I expect?\n- How does the technology work?\n- What integrations are available?\n\n**I can also answer questions about:**\n- Your specific industry and business type\n- Technical requirements and capabilities\n- Implementation process and timeline\n- ROI calculations and business impact\n- Case studies and client results\n\n**Ask me anything!** I'm here to make sure you have all the information you need to make the best decision for your business.",
+                score: 20,
+                stage: 'question_request'
+            },
+            'i need information': {
+                response: "Absolutely! I have all the information you need about NextEleven.\n\n📋 **What specific information are you looking for?**\n\n**I can provide information about:**\n\n**Business Solutions:**\n- How we solve specific business problems\n- Industry-specific features and benefits\n- Case studies and success stories\n- ROI calculations and business impact\n\n**Technical Details:**\n- How our AI technology works\n- Integration capabilities and requirements\n- Security and compliance features\n- Implementation process and timeline\n\n**Pricing & Packages:**\n- Complete pricing structure\n- Package comparisons and features\n- Payment options and terms\n- Setup costs and ongoing fees\n\n**Getting Started:**\n- Free trial information\n- Demo scheduling and process\n- Custom proposal creation\n- Implementation planning\n\n**What information would be most helpful for you right now?**",
+                score: 20,
+                stage: 'information_request'
+            },
+            // Adding more comprehensive conversational responses
+            'i run a business': {
+                response: "Excellent! Running a business means you understand the importance of efficiency and customer satisfaction.\n\n💼 **Let me show you how NextEleven can help your business:**\n\n**Common Business Challenges We Solve:**\n✅ **Phone interruptions** - Constant calls disrupting your team\n✅ **After-hours inquiries** - Missing potential customers when closed\n✅ **Repetitive questions** - Same inquiries about services and pricing\n✅ **No-shows** - Customers not confirming appointments\n✅ **Peak time chaos** - Overwhelmed during busy periods\n✅ **Customer communication** - Inconsistent responses and delays\n\n**What type of business do you run?** This helps me show you industry-specific solutions and case studies.\n\n**I can also help you calculate the specific ROI for your business size and industry.**",
+                score: 30,
+                stage: 'business_identification'
+            },
+            'i own a business': {
+                response: "Perfect! As a business owner, you know that every minute and every customer interaction matters.\n\n🏢 **Let me show you how NextEleven can transform your business:**\n\n**Business Owner Benefits:**\n✅ **24/7 customer engagement** - Never miss a lead or inquiry\n✅ **Staff efficiency** - Your team focuses on high-value tasks\n✅ **Revenue growth** - Capture opportunities you're currently missing\n✅ **Cost reduction** - Reduce operational expenses\n✅ **Competitive advantage** - Superior customer service\n✅ **Scalable growth** - Handle more customers without proportional staff increases\n\n**What industry is your business in?** I'll show you exactly how we've helped similar businesses improve their operations and profitability.\n\n**Most of our clients see ROI within 2-3 months.**",
+                score: 30,
+                stage: 'business_identification'
+            },
+            'i have a company': {
+                response: "Great! Having a company means you understand the value of professional solutions and business growth.\n\n🏢 **Let me show you how NextEleven can help your company:**\n\n**Company Growth Solutions:**\n✅ **Customer service automation** - Professional 24/7 support\n✅ **Lead generation** - Capture and qualify prospects automatically\n✅ **Process optimization** - Streamline customer workflows\n✅ **Brand consistency** - Professional customer interactions\n✅ **Data insights** - Understand customer needs and behavior\n✅ **Scalable operations** - Handle growth without proportional costs\n\n**What type of company do you have?** I can show you industry-specific solutions and how we've helped similar companies grow.\n\n**We work with companies of all sizes, from startups to enterprise.**",
+                score: 30,
+                stage: 'business_identification'
+            },
+            'i work for': {
+                response: "Excellent! Understanding your role helps me provide the most relevant information.\n\n👔 **Let me show you how NextEleven can help your organization:**\n\n**For Different Roles:**\n\n**Business Owners/Executives:**\n- ROI calculations and business impact\n- Strategic growth opportunities\n- Competitive advantages\n- Cost reduction strategies\n\n**Operations Managers:**\n- Process efficiency improvements\n- Staff productivity gains\n- Customer satisfaction metrics\n- Operational cost savings\n\n**IT/Technical Teams:**\n- Integration capabilities\n- Security and compliance\n- Technical specifications\n- Implementation process\n\n**What's your role in the organization?** This helps me tailor the information to your specific needs and decision-making process.",
+                score: 25,
+                stage: 'role_identification'
+            },
+            'i manage': {
+                response: "Perfect! As a manager, you understand the importance of efficiency and team productivity.\n\n👥 **Let me show you how NextEleven can help you manage better:**\n\n**Management Benefits:**\n✅ **Team efficiency** - Reduce repetitive tasks for your staff\n✅ **Process optimization** - Streamline customer workflows\n✅ **Performance metrics** - Track customer satisfaction and response times\n✅ **Resource allocation** - Focus your team on high-value activities\n✅ **Customer experience** - Consistent, professional service delivery\n✅ **Scalable operations** - Handle growth without proportional staff increases\n\n**What do you manage?** Operations, customer service, sales, or another area? This helps me show you the most relevant solutions and benefits.\n\n**Most managers see 30-50% improvement in team efficiency within the first month.**",
+                score: 25,
+                stage: 'role_identification'
+            },
+            'i am looking for': {
+                response: "Great! I'm here to help you find exactly what you're looking for.\n\n🔍 **What are you looking for?**\n\n**Common Searches I Can Help With:**\n\n**Business Solutions:**\n- Customer service automation\n- Lead generation tools\n- Process optimization\n- Cost reduction solutions\n- Growth strategies\n\n**Technology:**\n- AI chatbots\n- Customer engagement platforms\n- Integration solutions\n- Security and compliance\n- Mobile and web solutions\n\n**Business Support:**\n- 24/7 customer service\n- Appointment scheduling\n- Customer communication\n- Lead qualification\n- Analytics and reporting\n\n**Just tell me what you're looking for, and I'll show you how NextEleven can provide exactly what you need.**",
+                score: 20,
+                stage: 'search_assistance'
+            },
+            'i am interested in': {
+                response: "Excellent! I'm excited to show you what interests you about NextEleven.\n\n🎯 **What interests you most?**\n\n**Popular Areas of Interest:**\n\n**Business Impact:**\n- How to increase revenue\n- How to reduce costs\n- How to improve customer satisfaction\n- How to scale operations\n\n**Technology:**\n- How AI chatbots work\n- Integration capabilities\n- Security features\n- Implementation process\n\n**Results:**\n- Case studies and success stories\n- ROI calculations\n- Business impact metrics\n- Client testimonials\n\n**Getting Started:**\n- Free trial options\n- Demo scheduling\n- Custom proposals\n- Implementation timeline\n\n**Tell me what interests you, and I'll dive deep into that specific area!**",
+                score: 20,
+                stage: 'interest_exploration'
+            },
+            'i want to improve': {
+                response: "Excellent! Improving your business is exactly what NextEleven is designed for.\n\n🚀 **What would you like to improve?**\n\n**Common Business Improvements:**\n\n**Customer Service:**\n- Response times and availability\n- Service quality and consistency\n- Customer satisfaction scores\n- Support efficiency\n\n**Operations:**\n- Staff productivity\n- Process efficiency\n- Cost management\n- Resource utilization\n\n**Revenue:**\n- Lead generation\n- Customer conversion\n- Appointment bookings\n- Sales processes\n\n**Growth:**\n- Scalability\n- Market reach\n- Competitive advantage\n- Business expansion\n\n**Tell me what you want to improve, and I'll show you exactly how NextEleven can help you achieve those improvements.**",
+                score: 25,
+                stage: 'improvement_planning'
+            },
+            'i want to grow': {
+                response: "Perfect! Growth is exactly what NextEleven helps businesses achieve.\n\n📈 **Let me show you how we can help you grow:**\n\n**Growth Strategies We Support:**\n\n**Customer Acquisition:**\n- 24/7 lead capture\n- Automated qualification\n- Appointment scheduling\n- Follow-up automation\n\n**Operational Scaling:**\n- Handle more customers without proportional staff increases\n- Automated customer service\n- Process optimization\n- Resource efficiency\n\n**Revenue Expansion:**\n- Capture after-hours opportunities\n- Reduce no-shows and cancellations\n- Improve customer retention\n- Increase average transaction value\n\n**Market Expansion:**\n- Multi-location management\n- Multi-language support\n- Multi-platform deployment\n- Scalable infrastructure\n\n**What type of growth are you looking for?** Customer base, revenue, efficiency, or market reach?",
+                score: 25,
+                stage: 'growth_planning'
+            },
+            'i have problems': {
+                response: "I understand! Every business has challenges, and that's exactly what I'm here to help solve.\n\n🔧 **What problems are you experiencing?**\n\n**Common Business Problems We Solve:**\n\n**Customer Service Issues:**\n- Phone constantly ringing and disrupting work\n- Missing customer inquiries after hours\n- Inconsistent service quality\n- Long response times\n\n**Operational Challenges:**\n- Staff overwhelmed during peak times\n- Repetitive administrative tasks\n- No-show appointments\n- Inefficient scheduling processes\n\n**Business Growth Barriers:**\n- Limited customer engagement hours\n- Missed sales opportunities\n- Poor lead follow-up\n- Inconsistent customer communication\n\n**Tell me about your specific problems, and I'll show you exactly how NextEleven can solve them.**\n\n**Most of our clients see significant improvements within the first 30 days.**",
+                score: 25,
+                stage: 'problem_identification'
+            },
+            'i have challenges': {
+                response: "I understand! Business challenges are opportunities for improvement, and I'm here to help you overcome them.\n\n🎯 **What challenges are you facing?**\n\n**Common Business Challenges:**\n\n**Customer Engagement:**\n- Limited availability hours\n- Inconsistent service quality\n- Slow response times\n- Poor customer experience\n\n**Operational Efficiency:**\n- Staff productivity issues\n- Process bottlenecks\n- Resource waste\n- Scalability limitations\n\n**Revenue Growth:**\n- Missed opportunities\n- Poor lead management\n- Customer retention issues\n- Competitive disadvantages\n\n**Tell me about your specific challenges, and I'll show you how NextEleven can help you overcome them.**\n\n**We've helped 500+ businesses turn their challenges into competitive advantages.**",
+                score: 25,
+                stage: 'problem_identification'
+            },
+            // Adding more conversational and natural language responses
+            'i dont know': {
+                response: "No worries at all! That's exactly why I'm here - to help you figure out what you need.\n\n🤔 **Let me help you explore:**\n\n**Start with the basics:**\n- What type of business do you have?\n- What problems are you trying to solve?\n- What are your goals?\n\n**Or let me guide you through our most popular topics:**\n- How NextEleven works\n- What problems we solve\n- How much it costs\n- How to get started\n\n**You don't need to know everything right now.** I'm here to educate and guide you step by step.\n\n**What feels most confusing or overwhelming to you?** I'll break it down into simple, understandable pieces.",
+                score: 15,
+                stage: 'guidance_request'
+            },
+            'i am confused': {
+                response: "I completely understand! Technology solutions can be confusing, and I'm here to make everything crystal clear.\n\n🧠 **Let me simplify this for you:**\n\n**Think of NextEleven like this:**\n- We build a smart assistant for your business\n- It works 24/7 to help your customers\n- It learns your business and answers questions automatically\n- It frees up your team to focus on important work\n\n**The bottom line:**\n- Better customer service\n- More sales and appointments\n- Less stress for your team\n- More profit for your business\n\n**Let's start simple:** What type of business do you have? I'll show you exactly how this works for your specific situation.\n\n**No tech jargon, just clear explanations.**",
+                score: 15,
+                stage: 'guidance_request'
+            },
+            'i am overwhelmed': {
+                response: "I totally get it! There's a lot of information here, and I want to make this simple and stress-free for you.\n\n😌 **Let me break this down into manageable pieces:**\n\n**We'll take this one step at a time:**\n1. **First** - Understand your business needs\n2. **Then** - Show you how we can help\n3. **Finally** - Plan your next steps\n\n**No pressure, no rush.** This is just an exploration to see if we can help your business.\n\n**Let's start with something simple:** What type of business do you run? That's it - just one question to get us started.\n\n**I'm here to guide you through this, not overwhelm you.** We'll go at your pace.",
+                score: 15,
+                stage: 'guidance_request'
+            },
+            'i need to think about it': {
+                response: "Absolutely! Taking time to think about important business decisions is smart and responsible.\n\n🤔 **While you're thinking, here are some helpful resources:**\n\n**To help you evaluate:**\n- Our case studies with real results\n- ROI calculator for your business\n- Free consultation to answer questions\n- 30-day free trial to test it out\n\n**Key questions to consider:**\n- What's the cost of NOT improving your customer service?\n- How much time does your team waste on repetitive tasks?\n- What opportunities are you missing when you're closed?\n- How does your customer service compare to competitors?\n\n**Take your time!** I'm here when you're ready to continue the conversation.\n\n**What would be most helpful for your decision-making process?**",
+                score: 20,
+                stage: 'thinking_support'
+            },
+            'i need time': {
+                response: "Of course! Business decisions like this deserve careful consideration.\n\n⏰ **Take all the time you need.**\n\n**While you're thinking, here are some ways I can help:**\n- Send you detailed information to review\n- Provide case studies and testimonials\n- Calculate ROI for your specific business\n- Answer any questions that come up\n\n**No pressure, no deadlines.** I'm here to support your decision-making process, not rush you.\n\n**When you're ready to continue, just let me know.** I'll be here to help you move forward at your own pace.\n\n**What would be most helpful for you during this decision-making time?**",
+                score: 20,
+                stage: 'thinking_support'
+            },
+            'maybe': {
+                response: "I appreciate your openness! 'Maybe' is a great place to start - it means you're curious and considering the possibilities.\n\n🤔 **Let me help you explore what's making you uncertain:**\n\n**Common concerns:**\n- Is this the right solution for my business?\n- Can I afford this investment?\n- Will my team be able to use this?\n- How long will it take to see results?\n\n**Let's address your specific concerns:**\n- What's making you hesitant?\n- What would help you feel more confident?\n- What information do you still need?\n\n**Remember:** This is just an exploration. No commitment, no pressure.\n\n**What's your biggest concern or question right now?** I want to make sure you have all the information you need.",
+                score: 20,
+                stage: 'uncertainty_exploration'
+            },
+            'possibly': {
+                response: "Great! 'Possibly' shows you're open to learning more, and that's exactly what I'm here for.\n\n🔍 **Let me help you explore the possibilities:**\n\n**What makes you say 'possibly'?**\n- Are you interested but have questions?\n- Do you need to see more evidence?\n- Are you concerned about specific aspects?\n- Do you need to involve other decision makers?\n\n**Let's dig deeper into what you're thinking:**\n- What aspects seem promising to you?\n- What concerns do you have?\n- What would make this a 'definitely' for you?\n\n**I'm here to help you move from 'possibly' to 'definitely'** by answering all your questions and addressing all your concerns.\n\n**What would help you feel more certain about this?**",
+                score: 20,
+                stage: 'uncertainty_exploration'
+            },
+            'i am not sure': {
+                response: "That's completely normal! Making business decisions can be overwhelming, and I'm here to help you feel confident.\n\n🤷‍♀️ **Let me help you get clear on what you need to know:**\n\n**What are you unsure about?**\n- How the technology works?\n- Whether it's right for your business?\n- How much it will cost?\n- How long it will take?\n- What results you can expect?\n\n**Let's break this down:**\n- Start with your biggest question\n- I'll explain it clearly\n- Then move to the next concern\n- We'll go at your pace\n\n**You don't need to know everything right now.** Let's focus on what matters most to you.\n\n**What's your biggest question or concern?** I'll make sure you understand it completely.",
+                score: 20,
+                stage: 'uncertainty_exploration'
+            },
+            'i am skeptical': {
+                response: "I appreciate your skepticism! It shows you're a smart business person who doesn't just believe everything you hear.\n\n🧐 **Your skepticism is healthy and welcome here.**\n\n**Let me address your concerns:**\n- Ask me the tough questions\n- Challenge my claims\n- Request proof and evidence\n- Compare us to alternatives\n\n**I'm confident in our solutions because:**\n- We have real case studies with measurable results\n- We can show you exactly how it works\n- We offer a risk-free trial period\n- We have 500+ satisfied clients\n\n**What specifically makes you skeptical?** I want to address your real concerns, not just give you marketing speak.\n\n**Let's have an honest conversation about your doubts.**",
+                score: 25,
+                stage: 'skepticism_handling'
+            },
+            'i dont believe you': {
+                response: "I respect that! You shouldn't believe me just because I say so.\n\n🤝 **Let me prove it to you instead:**\n\n**Here's what I can show you:**\n- Real case studies with actual client names and results\n- Live demo of the technology working\n- Client testimonials and references\n- ROI calculations for your specific business\n- Free trial to test it yourself\n\n**I'm not asking you to take my word for it.** I'm asking you to see the evidence and test it yourself.\n\n**What would it take to convince you?**\n- Speaking with current clients?\n- Seeing it work in real-time?\n- Testing it with your own business?\n- Independent verification?\n\n**Let's focus on proof, not promises.** What evidence would be most convincing for you?",
+                score: 25,
+                stage: 'skepticism_handling'
+            },
+            'prove it': {
+                response: "Absolutely! I'm ready to prove everything I've said.\n\n✅ **Here's the proof:**\n\n**Real Results from Real Clients:**\n- Case studies with actual business names and numbers\n- Before/after metrics and improvements\n- Client testimonials and video interviews\n- ROI calculations and business impact data\n\n**Live Demonstrations:**\n- See the technology working in real-time\n- Watch it handle actual customer scenarios\n- Test it with your own business questions\n- Experience the user interface\n\n**Risk-Free Testing:**\n- 30-day free trial with your business\n- No commitment, no pressure\n- Test with real customers\n- See actual results\n\n**What type of proof would be most convincing for you?** I'm ready to provide whatever evidence you need to feel confident.",
+                score: 30,
+                stage: 'proof_delivery'
+            },
+            'show me': {
+                response: "Perfect! I love showing rather than just telling.\n\n👀 **Here's what I can show you:**\n\n**Live Demonstrations:**\n- How the chatbot works in real-time\n- How it handles customer questions\n- How it integrates with your systems\n- How it learns and improves\n\n**Real Examples:**\n- Case studies with actual results\n- Client testimonials and feedback\n- ROI calculations for your business\n- Implementation timelines and processes\n\n**Interactive Experience:**\n- Test the chatbot yourself\n- Ask it questions about your business\n- See how it responds\n- Experience the user interface\n\n**What would you like me to show you first?** I can demonstrate any aspect of our solution that interests you most.\n\n**Seeing is believing - let me show you how this works!**",
+                score: 25,
+                stage: 'demonstration_request'
+            },
+            // Adding final comprehensive conversational responses
+            'i want to learn more': {
+                response: "Excellent! I love your curiosity and desire to learn.\n\n📚 **Let me teach you everything about NextEleven:**\n\n**What would you like to learn about?**\n\n**Technology & How It Works:**\n- AI and machine learning basics\n- How chatbots understand and respond\n- Integration capabilities and requirements\n- Security and compliance features\n\n**Business Applications:**\n- Industry-specific use cases\n- ROI calculations and business impact\n- Implementation process and timeline\n- Ongoing optimization and support\n\n**Real-World Examples:**\n- Case studies with actual results\n- Client success stories\n- Before/after comparisons\n- Industry benchmarks\n\n**Getting Started:**\n- Free trial process\n- Demo scheduling\n- Custom proposal creation\n- Implementation planning\n\n**What interests you most?** I'll dive deep into that area and make sure you understand it completely.",
+                score: 25,
+                stage: 'learning_request'
+            },
+            'i want to understand': {
+                response: "Perfect! Understanding is the foundation of good decision-making.\n\n🧠 **Let me help you understand everything clearly:**\n\n**What would you like to understand?**\n\n**The Basics:**\n- What NextEleven is and how it works\n- How it can help your specific business\n- What problems it solves\n- What results you can expect\n\n**The Details:**\n- How the technology works\n- What's included in each package\n- How implementation works\n- What support you receive\n\n**The Business Case:**\n- ROI calculations for your business\n- Cost-benefit analysis\n- Implementation timeline\n- Risk assessment\n\n**The Process:**\n- How to get started\n- What happens during setup\n- How to train your team\n- How to optimize results\n\n**What's most unclear to you right now?** I'll explain it in simple terms until you completely understand.",
+                score: 25,
+                stage: 'understanding_request'
+            },
+            'i want to explore': {
+                response: "Great! Exploration is the best way to discover what's right for your business.\n\n🔍 **Let's explore together!**\n\n**What would you like to explore?**\n\n**Our Solutions:**\n- Different package options\n- Industry-specific features\n- Integration capabilities\n- Customization options\n\n**Our Results:**\n- Case studies and success stories\n- Client testimonials\n- ROI examples\n- Business impact metrics\n\n**Our Process:**\n- Implementation timeline\n- Training and support\n- Ongoing optimization\n- Success metrics\n\n**Your Options:**\n- Free trial experience\n- Demo demonstration\n- Custom proposal\n- Consultation call\n\n**What area would you like to explore first?** I'll guide you through each aspect step by step.\n\n**This is your journey of discovery - let's make it comprehensive and valuable.**",
+                score: 25,
+                stage: 'exploration_request'
+            },
+            'i want to see': {
+                response: "Perfect! Seeing is believing, and I'm ready to show you everything.\n\n👀 **Here's what I can show you:**\n\n**Live Demonstrations:**\n- How the chatbot works in real-time\n- How it handles customer questions\n- How it integrates with your systems\n- How it learns and improves\n\n**Real Examples:**\n- Case studies with actual results\n- Client testimonials and feedback\n- ROI calculations for your business\n- Implementation timelines and processes\n\n**Interactive Experience:**\n- Test the chatbot yourself\n- Ask it questions about your business\n- See how it responds\n- Experience the user interface\n\n**What would you like to see first?** I can demonstrate any aspect of our solution that interests you most.\n\n**Seeing is believing - let me show you how this works!**",
+                score: 25,
+                stage: 'demonstration_request'
+            },
+            'i want to try': {
+                response: "Excellent! Trying it out is the best way to see if it's right for you.\n\n🎯 **Here are your trial options:**\n\n**30-Day Free Trial:**\n- Full chatbot setup with your branding\n- Industry-specific training and customization\n- Integration with your existing systems\n- 24/7 monitoring and support\n- Performance analytics and reporting\n- Full feature access - no limitations\n\n**What Happens After 30 Days:**\n- If you love it: Continue with regular pricing\n- If it's not for you: No charges, no commitment\n- We help you export any data you've collected\n- No pressure to continue\n\n**Trial Requirements:**\n- 30-minute setup call\n- Access to your website/systems\n- Your team's availability for training\n- Basic business information\n\n**Ready to start your free trial?** What's the best time for your setup call?\n\n**No risk, no obligation - just results!**",
+                score: 30,
+                stage: 'trial_request'
+            },
+            'i want to start': {
+                response: "Perfect! Let's get you started with NextEleven.\n\n🚀 **Here's your path to getting started:**\n\n**Step 1: Discovery & Planning**\n- Schedule a consultation call\n- Business analysis and needs assessment\n- Solution mapping for your industry\n- Custom proposal creation\n\n**Step 2: Setup & Configuration**\n- 2-week implementation timeline\n- Industry-specific customization\n- Integration with your systems\n- Team training and onboarding\n\n**Step 3: Launch & Optimization**\n- Go-live with 24/7 support\n- Performance monitoring\n- Continuous optimization\n- Ongoing support and updates\n\n**What's your preferred way to start?**\n- Schedule a consultation call\n- Start with a free trial\n- Get a custom proposal\n- See a live demo\n\n**Let's get you moving forward today!**",
+                score: 30,
+                stage: 'getting_started'
+            },
+            'i am ready': {
+                response: "Excellent! Being ready means you're serious about improving your business.\n\n🎯 **Let's get you moving forward right now:**\n\n**What are you ready to do?**\n\n**Immediate Actions:**\n- Schedule a consultation call\n- Start a free trial\n- Get a custom proposal\n- See a live demo\n\n**Next Steps:**\n- Business analysis and planning\n- Solution customization\n- Implementation timeline\n- Team training schedule\n\n**Your Success Path:**\n- We'll analyze your specific needs\n- Create a custom solution\n- Implement it quickly\n- Optimize for maximum results\n\n**What's your first step?** I'm ready to help you get started immediately.\n\n**Let's turn your readiness into results!**",
+                score: 30,
+                stage: 'readiness_to_act'
+            },
+            'lets do this': {
+                response: "YES! I love your enthusiasm and readiness to take action.\n\n🔥 **Let's make this happen right now!**\n\n**Here's your action plan:**\n\n**Immediate (Today):**\n- Schedule your consultation call\n- Get your custom proposal\n- Plan your implementation\n- Set your launch date\n\n**This Week:**\n- Business analysis and planning\n- Solution customization\n- Team preparation\n- Integration planning\n\n**Next 2 Weeks:**\n- Implementation and setup\n- Team training\n- Testing and optimization\n- Go-live preparation\n\n**What's your first action?**\n- Schedule consultation call\n- Start free trial\n- Get proposal\n- See demo\n\n**I'm excited to help you transform your business! Let's get started right now.**",
+                score: 35,
+                stage: 'action_ready'
+            },
+            'i am convinced': {
+                response: "Fantastic! Being convinced means you see the value and are ready to move forward.\n\n🎉 **Let's turn that conviction into action:**\n\n**Your Next Steps:**\n\n**Immediate Actions:**\n- Schedule your consultation call\n- Get your custom proposal\n- Plan your implementation\n- Set your launch timeline\n\n**What Happens Next:**\n- We'll analyze your specific business needs\n- Create a tailored solution\n- Implement it quickly and efficiently\n- Optimize for maximum results\n\n**Your Success Path:**\n- 2-week implementation\n- Immediate business improvements\n- Ongoing optimization\n- Dedicated support\n\n**What would you like to do first?**\n- Schedule consultation\n- Get proposal\n- Start implementation\n- Begin trial\n\n**I'm excited to help you achieve the results you're convinced are possible!**",
+                score: 35,
+                stage: 'convinced_ready_to_act'
             }
         };
 
@@ -2116,8 +2330,28 @@
                         addQuickOptions(['Continue', 'More Information', 'Schedule Demo', 'See Pricing']);
                     }
                 } else {
-                    // Handle unrecognized messages with helpful suggestions
-                    addMessage("I understand you're interested in learning more! Let me help guide you to the right information. What would you like to know about NextEleven?", false);
+                    // Enhanced natural language handling for unrecognized messages
+                    const messageLower = message.toLowerCase();
+                    let response = '';
+                    
+                    // Check for partial matches and intent recognition
+                    if (messageLower.includes('business') || messageLower.includes('company') || messageLower.includes('work')) {
+                        response = "I'd love to help you with your business! To give you the most relevant information, could you tell me what type of business you're in? I can then show you exactly how NextEleven can help solve your specific challenges and improve your operations.";
+                    } else if (messageLower.includes('cost') || messageLower.includes('price') || messageLower.includes('money') || messageLower.includes('expensive')) {
+                        response = "Great question about cost! Our pricing is designed to be accessible for businesses of all sizes. We offer different packages starting at $79/month, and most clients see ROI within 2-3 months. Would you like me to show you our complete pricing structure and calculate the specific ROI for your business?";
+                    } else if (messageLower.includes('how') || messageLower.includes('what') || messageLower.includes('why')) {
+                        response = "I'd be happy to explain that! To give you the most helpful answer, could you tell me a bit more about what you're looking for? Are you interested in how the technology works, what problems we solve, how to get started, or something else specific?";
+                    } else if (messageLower.includes('demo') || messageLower.includes('show') || messageLower.includes('see')) {
+                        response = "Absolutely! I'd love to show you how NextEleven works. I can schedule a personalized demo where you'll see the technology in action, customized for your business type. What would work better for you - morning, afternoon, or evening?";
+                    } else if (messageLower.includes('start') || messageLower.includes('begin') || messageLower.includes('try')) {
+                        response = "Excellent! I'm excited to help you get started. We offer a 30-day free trial so you can test everything risk-free. To get you started, I'll need to know what type of business you have so I can customize the solution for you. What industry are you in?";
+                    } else if (messageLower.includes('help') || messageLower.includes('support') || messageLower.includes('assist')) {
+                        response = "I'm here to help! I can guide you through everything about NextEleven - from understanding how it works to getting started with implementation. What would be most helpful for you right now? Are you looking for information, pricing, a demo, or help with something specific?";
+                    } else {
+                        response = "I understand you're interested in learning more! Let me help guide you to the right information. To give you the most relevant help, could you tell me what you'd like to know about NextEleven? I can explain how it works, show you pricing, schedule a demo, or answer any specific questions you have.";
+                    }
+                    
+                    addMessage(response, false);
                     addQuickOptions(['What is this site?', 'How does this work?', 'Tell me more', 'See pricing']);
                 }
             }, 1500);
