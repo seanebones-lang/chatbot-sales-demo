@@ -46,6 +46,131 @@
             color: #E0E0E0;
             max-width: 600px;
             margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        /* Neon Sign Styles */
+        .neon-sign {
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .neon-text {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #FF1493;
+            text-shadow: 
+                0 0 5px #FF1493,
+                0 0 10px #FF1493,
+                0 0 15px #FF1493,
+                0 0 20px #FF1493,
+                0 0 25px #FF1493,
+                0 0 30px #FF1493,
+                0 0 35px #FF1493,
+                0 0 40px #FF1493,
+                0 0 45px #FF1493,
+                0 0 50px #FF1493,
+                0 0 55px #FF1493,
+                0 0 60px #FF1493,
+                0 0 65px #FF1493,
+                0 0 70px #FF1493,
+                0 0 75px #FF1493,
+                0 0 80px #FF1493,
+                0 0 85px #FF1493,
+                0 0 90px #FF1493,
+                0 0 95px #FF1493,
+                0 0 100px #FF1493;
+            animation: neonFlicker 3s infinite alternate;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            filter: drop-shadow(0 0 20px rgba(255, 20, 147, 0.8));
+        }
+
+        .neon-subtitle {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #00CED1;
+            text-shadow: 
+                0 0 5px #00CED1,
+                0 0 10px #00CED1,
+                0 0 15px #00CED1,
+                0 0 20px #00CED1,
+                0 0 25px #00CED1,
+                0 0 30px #00CED1,
+                0 0 35px #00CED1,
+                0 0 40px #00CED1,
+                0 0 45px #00CED1,
+                0 0 50px #00CED1;
+            animation: neonFlicker 2.5s infinite alternate-reverse;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            filter: drop-shadow(0 0 15px rgba(0, 206, 209, 0.8));
+        }
+
+        .neon-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, 
+                rgba(255, 20, 147, 0.3) 0%, 
+                rgba(0, 206, 209, 0.2) 30%, 
+                transparent 70%);
+            border-radius: 50%;
+            animation: glowPulse 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes neonFlicker {
+            0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+                opacity: 0.99;
+                filter: drop-shadow(0 0 20px currentColor);
+            }
+            20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+                opacity: 0.4;
+                filter: drop-shadow(0 0 10px currentColor);
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Add some extra neon effects */
+        .neon-text::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 20, 147, 0.1) 50%, 
+                transparent 70%);
+            animation: neonScan 6s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes neonScan {
+            0% {
+                transform: translateX(-100%) translateY(-100%);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%);
+            }
         }
 
         .chat-interface {
@@ -57,11 +182,14 @@
         }
 
         .chat-header {
-            background: linear-gradient(135deg, #1E90FF, #004D61);
+            background: linear-gradient(135deg, #FF1493, #00CED1);
             color: #FFFFFF;
             padding: 25px;
             text-align: center;
             border-bottom: 1px solid #444444;
+            box-shadow: 
+                0 0 20px rgba(255, 20, 147, 0.4),
+                0 0 40px rgba(0, 206, 209, 0.3);
         }
 
         .chat-header h2 {
@@ -155,7 +283,7 @@
         }
 
         .send-button {
-            background: linear-gradient(135deg, #1E90FF, #004D61);
+            background: linear-gradient(135deg, #FF1493, #00CED1);
             color: #FFFFFF;
             border: none;
             padding: 15px 25px;
@@ -165,11 +293,18 @@
             font-weight: 600;
             transition: all 0.3s ease;
             min-width: 100px;
+            box-shadow: 
+                0 0 10px rgba(255, 20, 147, 0.5),
+                0 0 20px rgba(0, 206, 209, 0.3);
         }
 
         .send-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
+            box-shadow: 
+                0 5px 15px rgba(255, 20, 147, 0.6),
+                0 0 25px rgba(0, 206, 209, 0.4),
+                0 0 35px rgba(255, 20, 147, 0.3);
+            background: linear-gradient(135deg, #FF69B4, #20E6E6);
         }
 
         .send-button:disabled {
@@ -214,7 +349,10 @@
 
         .value-props li:hover {
             transform: translateY(-5px);
-            border-color: #1E90FF;
+            border-color: #FF1493;
+            box-shadow: 
+                0 5px 15px rgba(255, 20, 147, 0.3),
+                0 0 20px rgba(0, 206, 209, 0.2);
         }
 
         .stats-section {
@@ -235,14 +373,20 @@
 
         .stat-item:hover {
             transform: translateY(-3px);
-            border-color: #1E90FF;
+            border-color: #FF1493;
+            box-shadow: 
+                0 5px 15px rgba(255, 20, 147, 0.3),
+                0 0 20px rgba(0, 206, 209, 0.2);
         }
 
         .stat-number {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #1E90FF;
+            color: #FF1493;
             margin-bottom: 10px;
+            text-shadow: 
+                0 0 10px rgba(255, 20, 147, 0.8),
+                0 0 20px rgba(255, 20, 147, 0.6);
         }
 
         .stat-label {
@@ -270,9 +414,14 @@
         }
 
         .quick-option:hover {
-            background-color: #1E90FF;
-            border-color: #1E90FF;
+            background: linear-gradient(135deg, #FF1493, #00CED1);
+            border-color: #FF1493;
             transform: translateY(-2px);
+            box-shadow: 
+                0 5px 15px rgba(255, 20, 147, 0.4),
+                0 0 20px rgba(0, 206, 209, 0.4);
+            color: #FFFFFF;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
 
         .typing-indicator {
@@ -401,7 +550,11 @@
 <body>
     <div class="enterprise-container">
         <div class="header-section">
-            <h1>🎨 Tattoo Studio AI Chatbot</h1>
+            <div class="neon-sign">
+                <div class="neon-text">INK & IRON</div>
+                <div class="neon-subtitle">TATTOO STUDIO</div>
+                <div class="neon-glow"></div>
+            </div>
             <p>NextEleven AI Solutions for Tattoo Studios - Appointment Booking, Design Consultation, and Customer Service</p>
         </div>
 
