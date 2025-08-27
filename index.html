@@ -12,17 +12,452 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #E0E0E0;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+            color: #E5E5E5;
+            line-height: 1.4;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Glass morphism base styles */
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .enterprise-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0;
             background-color: #121212;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px 16px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 4px 0 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 30px;
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+        }
+
+
+
+        .sidebar-nav {
+            margin: 40px 0;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin-bottom: 8px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 14px 18px;
+            color: #B0B0B0;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: #1E90FF;
+            color: #FFFFFF;
+        }
+
+        .sidebar-cta {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #333333;
+        }
+
+        .sidebar-cta-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            background: #1E90FF;
+            color: #FFFFFF;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-cta-btn:hover {
+            background: #1976D2;
+        }
+
+        .sidebar-cta-btn.secondary {
+            background: transparent;
+            border: 1px solid #1E90FF;
+            color: #1E90FF;
+        }
+
+        .sidebar-cta-btn.secondary:hover {
+            background: #1E90FF;
+            color: #FFFFFF;
+        }
+
+
+
+
+
+        .mariam-interface {
+            width: 400px;
+            flex-shrink: 0;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            height: fit-content;
+            position: sticky;
+            top: 30px;
+        }
+
+        .enterprise-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .mariam-interface .chat-header {
+            background: linear-gradient(135deg, #1E90FF, #004D61);
+            color: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin: -24px -24px 24px -24px;
+        }
+
+        .mariam-interface .chat-header h3 {
+            font-size: 1.25rem;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .mariam-interface .chat-header p {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .mariam-interface .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 0;
+            background: transparent;
+            margin-bottom: 20px;
+        }
+
+        .mariam-interface .message {
+            margin-bottom: 20px;
+        }
+
+        .mariam-interface .message-content {
+            background: rgba(68, 68, 68, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 20px;
+            border-radius: 12px;
+            max-width: 100%;
+        }
+
+        .mariam-interface .user-message .message-content {
+            background: linear-gradient(135deg, #1E90FF, #004D61);
+            color: #FFFFFF;
+            border-bottom-right-radius: 8px;
+        }
+
+        .mariam-interface .bot-message .message-content {
+            background: rgba(68, 68, 68, 0.6);
+            color: #F0F0F0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom-left-radius: 8px;
+        }
+
+        .mariam-interface .form-group {
+            margin-bottom: 16px;
+        }
+
+        .mariam-interface .form-group label {
+            display: block;
+            color: #E0E0E0;
+            margin-bottom: 6px;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .mariam-interface .form-group input, 
+        .mariam-interface .form-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid #444444;
+            border-radius: 8px;
+            background-color: #1E1E1E;
+            color: #F0F0F0;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .mariam-interface .form-submit-btn {
+            background: linear-gradient(135deg, #1E90FF, #004D61);
+            color: #FFFFFF;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .mariam-interface .chat-input-area {
+            margin-top: 20px;
+        }
+
+        .mariam-interface .quick-reply-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .mariam-interface .quick-reply-btn {
+            background: rgba(68, 68, 68, 0.6);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .mariam-interface .quick-reply-btn:hover {
+            background: rgba(30, 144, 255, 0.8);
+            border-color: #1E90FF;
+        }
+
+        .mariam-interface .input-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .mariam-interface .message-input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 2px solid #444444;
+            border-radius: 8px;
+            background-color: #1E1E1E;
+            color: #F0F0F0;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .mariam-interface .message-input:focus {
+            border-color: #1E90FF;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.1);
+        }
+
+        .mariam-interface .send-button {
+            background: linear-gradient(135deg, #1E90FF, #004D61);
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .mariam-interface .send-button:hover {
+            background: linear-gradient(135deg, #1976D2, #003D4F);
+        }
+
+        .hero-section {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .hero-content p {
+            font-size: 0.875rem;
+            color: #B0B0B0;
+            margin-bottom: 24px;
+            max-width: 500px;
+            line-height: 1.4;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(15px);
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1E90FF;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #B0B0B0;
+            font-weight: 500;
+        }
+
+        .solutions-section, .industries-section {
+            margin-bottom: 48px;
+        }
+
+        .solutions-section h2, .industries-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 32px;
+            color: #FFFFFF;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .solution-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .solution-card h3 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .solution-card p {
+            font-size: 0.8rem;
+            color: #B0B0B0;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .solution-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .solution-card li {
+            font-size: 0.875rem;
+            color: #B0B0B0;
+            margin-bottom: 8px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .solution-card li:before {
+            content: "•";
+            color: #1E90FF;
+            position: absolute;
+            left: 0;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .industry-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .industry-card h3 {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .industry-card p {
+            font-size: 0.75rem;
+            color: #B0B0B0;
+            line-height: 1.3;
         }
 
         .header-section {
@@ -35,17 +470,63 @@
         }
 
         .header-section h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #F0F0F0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
         .header-section p {
-            font-size: 1.2rem;
-            color: #E0E0E0;
+            font-size: 0.875rem;
+            color: #B0B0B0;
             max-width: 600px;
             margin: 0 auto;
+            margin-bottom: 32px;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+        .cta-button {
+            background: #1E90FF;
+            color: #FFFFFF;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+            min-width: 160px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            background: #1976D2;
+            transform: none;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 1px solid #1E90FF;
+            color: #1E90FF;
+        }
+
+        .cta-button.secondary:hover {
+            background: #1E90FF;
+            color: #FFFFFF;
         }
 
         .chat-interface {
@@ -155,6 +636,254 @@
             padding: 20px;
             background-color: #181818;
             border-top: 1px solid #444444;
+        }
+
+        .quick-reply-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        .quick-reply-btn {
+            background: #2A2A2A;
+            color: #E0E0E0;
+            border: 1px solid #444444;
+            padding: 8px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            font-weight: 400;
+        }
+
+        .quick-reply-btn:hover {
+            background: #1E90FF;
+            border-color: #1E90FF;
+            color: #FFFFFF;
+            transform: none;
+        }
+
+        .proactive-message {
+            background: #1E90FF;
+            color: #FFFFFF;
+            padding: 12px 20px;
+            border-radius: 3px;
+            margin: 15px 0;
+            text-align: center;
+            animation: proactiveSlideIn 0.3s ease-out;
+            font-size: 0.9rem;
+        }
+
+        .lead-capture-form {
+            background: linear-gradient(135deg, #1E1E1E, #181818);
+            border: 1px solid #444444;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .lead-capture-form h3 {
+            color: #F0F0F0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #E0E0E0;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #444444;
+            border-radius: 8px;
+            background-color: #1E1E1E;
+            color: #F0F0F0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #1E90FF;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.1);
+        }
+
+        .form-submit-btn {
+            background: linear-gradient(135deg, #1E90FF, #004D61);
+            color: #FFFFFF;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.4);
+        }
+
+        .trust-signals {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .trust-signals h3 {
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .trust-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .trust-badge-icon {
+            font-size: 1.5rem;
+            color: #1E90FF;
+            font-weight: 600;
+        }
+
+        .trust-badge-text {
+            color: #B0B0B0;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .human-escalation {
+            background: rgba(30, 144, 255, 0.8);
+            backdrop-filter: blur(15px);
+            color: #FFFFFF;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            text-align: center;
+            display: none;
+            box-shadow: 0 4px 16px rgba(30, 144, 255, 0.3);
+        }
+
+        .human-escalation h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .human-escalation p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .human-contact-btn {
+            background: #FFFFFF;
+            color: #1E90FF;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .human-contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .chatbot-showcase {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .chatbot-example {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .chatbot-example:hover {
+            border-color: #1E90FF;
+            box-shadow: 0 6px 24px rgba(30, 144, 255, 0.1);
+        }
+
+        .chatbot-example h3 {
+            color: #1E90FF;
+            margin-bottom: 16px;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .chatbot-features p {
+            margin-bottom: 10px;
+            color: #B0B0B0;
+            line-height: 1.4;
+            font-size: 0.8rem;
+        }
+
+        .chatbot-features strong {
+            color: #E0E0E0;
+            font-weight: 600;
+        }
+
+        .chatbot-result {
+            margin-top: 16px;
+            padding: 12px;
+            background: rgba(30, 144, 255, 0.1);
+            border-radius: 4px;
+            border-left: 3px solid #1E90FF;
+        }
+
+        .chatbot-result strong {
+            color: #1E90FF;
+            font-weight: 600;
+        }
+
+        @keyframes proactiveSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .input-group {
@@ -354,7 +1083,20 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-
+            .chatbot-showcase {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .main-content {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            .mariam-interface {
+                width: 100%;
+                position: static;
+            }
         }
 
         @media (max-width: 480px) {
@@ -374,12 +1116,40 @@
                 grid-template-columns: 1fr;
             }
             
+            .chatbot-showcase {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .mariam-interface {
+                padding: 16px;
+            }
+            
             .input-group {
                 flex-direction: column;
             }
             
             .send-button {
                 width: 100%;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .main-content {
+                max-width: 1400px;
+                margin: 0 auto 0 280px;
+            }
+            
+            .enterprise-content {
+                max-width: 900px;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .industries-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
@@ -459,7 +1229,7 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background-color: #E0E0E0;
+            background-color: #1E90FF;
             animation: typing 1.4s infinite ease-in-out;
         }
 
@@ -470,11 +1240,18 @@
             0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
             40% { transform: scale(1); opacity: 1; }
         }
+
+        .typing-indicator .message-content {
+            background: rgba(68, 68, 68, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 20px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
-    <div class="enterprise-container">
-        <div class="header-section">
+        <div class="sidebar">
             <div class="logo-container">
                 <svg class="next-eleven-logo" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
                     <!-- Robot Icon -->
@@ -521,30 +1298,352 @@
                     </defs>
                 </svg>
             </div>
-            <p class="tagline">Enterprise-Grade AI Chatbot Solutions for Business Automation, Customer Service, and Sales Optimization</p>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li><a href="#overview" class="nav-link active">Overview</a></li>
+                    <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                    <li><a href="#industries" class="nav-link">Industries</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#resources" class="nav-link">Resources</a></li>
+                    <li><a href="#company" class="nav-link">Company</a></li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-cta">
+                <a href="#demo" class="sidebar-cta-btn">Schedule Demo</a>
+                <a href="#trial" class="sidebar-cta-btn secondary">Free Trial</a>
+            </div>
         </div>
 
-        <div class="chat-interface">
-            <div class="chat-header">
-                <h2>💬 Mariam - Your AI Consultant</h2>
-                <p>Ask me about our AI solutions, pricing, demos, or business analysis</p>
+        <div class="main-content">
+            <div class="header-section">
+                <h1>Enterprise AI Chatbot Solutions</h1>
+                <p>Transform your business operations with intelligent automation, enhanced customer service, and optimized sales processes through our enterprise-grade AI chatbot platform.</p>
             </div>
 
-            <div class="chat-messages" id="chatMessages">
-                <div class="message bot-message">
-                    <div class="message-content">
-                        Hello! I'm Mariam, your AI consultant for NextEleven. I help businesses like yours implement enterprise-grade AI chatbot solutions. How can I assist you today?
-                        <div class="message-time">Just now</div>
+            <!-- Mariam Interface on the left -->
+            <div class="mariam-interface">
+                <div class="chat-header">
+                    <h3>Have a question? Ask Mariam!</h3>
+                    <p>AI Business Consultant</p>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-content">
+                            Hello! I'm Mariam, your AI consultant. How can I help you today?
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lead-capture-form" id="leadCaptureForm">
+                    <h4>Get Started</h4>
+                    <div class="form-group">
+                        <label for="leadName">Name *</label>
+                        <input type="text" id="leadName" placeholder="Full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="leadEmail">Email *</label>
+                        <input type="email" id="leadEmail" placeholder="Business email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="leadBusiness">Industry</label>
+                        <select id="leadBusiness">
+                            <option value="">Select industry</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="retail">Retail</option>
+                            <option value="automotive">Automotive</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button class="form-submit-btn" onclick="submitLeadForm()">Get Started</button>
+                </div>
+                
+                <div class="chat-input-area">
+                    <div class="quick-reply-buttons">
+                        <button class="quick-reply-btn" onclick="sendQuickReply('Schedule Demo')">Demo</button>
+                        <button class="quick-reply-btn" onclick="sendQuickReply('Start Free Trial')">Trial</button>
+                        <button class="quick-reply-btn" onclick="sendQuickReply('See Pricing')">Pricing</button>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="text" id="messageInput" class="message-input" placeholder="Ask about our solutions..." maxlength="300">
+                        <button id="sendButton" class="send-button">Send</button>
                     </div>
                 </div>
             </div>
-            
 
+            <!-- Enterprise content moved to the right -->
+            <div class="enterprise-content">
+                <section class="hero-section">
+                    <div class="hero-content">
+                        <h2>Transform Your Business Operations</h2>
+                        <p>Our enterprise AI chatbot platform delivers measurable results across customer service, sales automation, and operational efficiency.</p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">85%</div>
+                                <div class="stat-label">Cost Reduction</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Availability</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">85%</div>
+                                <div class="stat-label">Customer Retention</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-            <div class="chat-input-area">
-                <div class="input-group">
-                    <input type="text" id="messageInput" class="message-input" placeholder="Ask me about NextEleven's AI solutions..." maxlength="500">
-                    <button id="sendButton" class="send-button">Send</button>
+                <section class="solutions-section">
+                    <h2>Enterprise Solutions</h2>
+                    <div class="solutions-grid">
+                        <div class="solution-card">
+                            <h3>Customer Service Automation</h3>
+                            <p>Handle customer inquiries, support tickets, and common questions automatically with intelligent responses.</p>
+                            <ul>
+                                <li>Multi-language support</li>
+                                <li>Integration with existing systems</li>
+                                <li>Escalation to human agents</li>
+                            </ul>
+                        </div>
+                        <div class="solution-card">
+                            <h3>Sales & Lead Generation</h3>
+                            <p>Convert website visitors into qualified leads with intelligent conversation flows and qualification.</p>
+                            <ul>
+                                <li>Lead scoring and qualification</li>
+                                <li>Appointment scheduling</li>
+                                <li>Product recommendations</li>
+                            </ul>
+                        </div>
+                        <div class="solution-card">
+                            <h3>Process Automation</h3>
+                            <p>Streamline internal operations with automated workflows and intelligent task routing.</p>
+                            <ul>
+                                <li>Workflow automation</li>
+                                <li>Document processing</li>
+                                <li>Task assignment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="industries-section">
+                    <h2>Industry Solutions</h2>
+                    <div class="industries-grid">
+                        <div class="industry-card">
+                            <h3>Healthcare</h3>
+                            <p>HIPAA-compliant patient communication, appointment scheduling, and medical information support.</p>
+                        </div>
+                        <div class="industry-card">
+                            <h3>Retail & E-commerce</h3>
+                            <p>Product support, order tracking, and customer service automation for online and brick-and-mortar stores.</p>
+                        </div>
+                        <div class="industry-card">
+                            <h3>Financial Services</h3>
+                            <p>Secure banking support, account information, and transaction assistance with compliance.</p>
+                        </div>
+                        <div class="industry-card">
+                            <h3>Manufacturing</h3>
+                            <p>Supply chain support, technical documentation, and maintenance scheduling automation.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <div class="trust-signals">
+            <h3>Trusted by Businesses Worldwide</h3>
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">Security</div>
+                    <div class="trust-badge-text">HIPAA Compliant</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">Performance</div>
+                    <div class="trust-badge-text">99.9% Uptime</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">Compliance</div>
+                    <div class="trust-badge-text">SOC2 Certified</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">Support</div>
+                    <div class="trust-badge-text">Global Support</div>
+                </div>
+            </div>
+            <p style="color: #B0B0B0; font-size: 0.875rem; opacity: 0.8;">
+                Enterprise-grade security and compliance for your peace of mind
+            </p>
+        </div>
+        
+        <div class="human-escalation" id="humanEscalation">
+            <h4>Need Human Assistance?</h4>
+            <p>Sometimes you need to talk to a real person. Our team is here to help with complex questions or detailed consultations.</p>
+            <button class="human-contact-btn" onclick="contactHuman()">Contact Human Team</button>
+        </div>
+        
+        <div class="info-panel">
+            <h2>Specialized Chatbot Solutions</h2>
+            <div class="chatbot-showcase">
+                <div class="chatbot-example">
+                    <h3>Tattoo Studio Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Appointment Booking:</strong> "Schedule consultation for sleeve tattoo"</p>
+                        <p><strong>Design Consultation:</strong> "Show Japanese-style examples"</p>
+                        <p><strong>Pricing:</strong> "Cost for full back piece?"</p>
+                        <p><strong>Aftercare:</strong> "How to care for new tattoo?"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> 24/7 booking, design consultations, support
+                    </div>
+                </div>
+                
+                <div class="chatbot-example">
+                    <h3>Hair Salon Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Service Booking:</strong> "Haircut and color this Friday"</p>
+                        <p><strong>Stylist Selection:</strong> "Who does blonde highlights?"</p>
+                        <p><strong>Products:</strong> "Best shampoo for color-treated hair?"</p>
+                        <p><strong>Maintenance:</strong> "How often to trim?"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> Automated booking, stylist matching
+                    </div>
+                </div>
+                
+                <div class="chatbot-example">
+                    <h3>Restaurant Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Reservations:</strong> "Table for 4 tonight at 7pm"</p>
+                        <p><strong>Menu Support:</strong> "What's in the house salad?"</p>
+                        <p><strong>Allergies:</strong> "Gluten-free options available?"</p>
+                        <p><strong>Delivery:</strong> "Do you deliver to downtown?"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> Reservation management, menu guidance
+                    </div>
+                </div>
+                
+                <div class="chatbot-example">
+                    <h3>Healthcare Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Appointments:</strong> "Schedule annual checkup"</p>
+                        <p><strong>Insurance:</strong> "Do you accept Blue Cross?"</p>
+                        <p><strong>Prescriptions:</strong> "Refill my medication"</p>
+                        <p><strong>Urgent Care:</strong> "Symptoms of chest pain?"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> HIPAA-compliant patient support
+                    </div>
+                </div>
+                
+                <div class="chatbot-example">
+                    <h3>Real Estate Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Property Search:</strong> "3-bedroom homes under $500k"</p>
+                        <p><strong>Viewing Schedule:</strong> "Tour this property tomorrow"</p>
+                        <p><strong>Financing:</strong> "Mortgage calculator help"</p>
+                        <p><strong>Market Info:</strong> "Current home values in area"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> Property search, viewing coordination
+                    </div>
+                </div>
+                
+                <div class="chatbot-example">
+                    <h3>Legal Services Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Consultation:</strong> "Free initial consultation"</p>
+                        <p><strong>Case Types:</strong> "Do you handle DUI cases?"</p>
+                        <p><strong>Fees:</strong> "Payment plan options?"</p>
+                        <p><strong>Document Review:</strong> "Review my contract"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> Case evaluation, consultation booking
+                    </div>
+                </div>
+                
+                <div class="chatbot-example">
+                    <h3>Fitness Center Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Membership:</strong> "Join with no initiation fee"</p>
+                        <p><strong>Class Schedule:</strong> "Yoga classes this week"</p>
+                        <p><strong>Personal Training:</strong> "Book session with trainer"</p>
+                        <p><strong>Equipment:</strong> "How to use Smith machine?"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> Membership sales, class scheduling
+                    </div>
+                </div>
+                
+                <div class="chatbot-example">
+                    <h3>Automotive Service Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Service Booking:</strong> "Oil change and tire rotation"</p>
+                        <p><strong>Parts Lookup:</strong> "Brake pads for 2020 Honda"</p>
+                        <p><strong>Maintenance:</strong> "When is next service due?"</p>
+                        <p><strong>Emergency:</strong> "Car won't start, what to check?"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> Service scheduling & maintenance tracking
+                    </div>
+                </div>
+                
+                <div class="chatbot-example">
+                    <h3>E-commerce Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Product Search:</strong> "Find wireless headphones"</p>
+                        <p><strong>Order Tracking:</strong> "Where is my package?"</p>
+                        <p><strong>Returns:</strong> "Return policy for shoes?"</p>
+                        <p><strong>Support:</strong> "Size chart for this brand?"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> Product discovery, order management
+                    </div>
+                </div>
+
+                <div class="chatbot-example">
+                    <h3>Dental Practice Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Appointments:</strong> "Schedule cleaning next week"</p>
+                        <p><strong>Insurance:</strong> "Do you accept Delta Dental?"</p>
+                        <p><strong>Treatments:</strong> "Cost for root canal?"</p>
+                        <p><strong>Emergency:</strong> "Tooth pain after filling"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> Patient scheduling, insurance verification
+                    </div>
+                </div>
+
+                <div class="chatbot-example">
+                    <h3>Pet Grooming Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Booking:</strong> "Grooming for golden retriever"</p>
+                        <p><strong>Services:</strong> "What's included in full groom?"</p>
+                        <p><strong>Pricing:</strong> "Cost for small dog bath?"</p>
+                        <p><strong>Reminders:</strong> "When is next appointment due?"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> Service booking, customer reminders
+                    </div>
+                </div>
+
+                <div class="chatbot-example">
+                    <h3>Home Services Chatbot</h3>
+                    <div class="chatbot-features">
+                        <p><strong>Estimates:</strong> "Quote for kitchen remodel"</p>
+                        <p><strong>Scheduling:</strong> "Available for plumbing work?"</p>
+                        <p><strong>Services:</strong> "Do you do electrical repairs?"</p>
+                        <p><strong>Emergency:</strong> "Burst pipe, need help now"</p>
+                    </div>
+                    <div class="chatbot-result">
+                        <strong>Result:</strong> Quote generation, emergency dispatch
+                    </div>
                 </div>
             </div>
         </div>
@@ -621,10 +1720,10 @@ ${selectedPackage.features.map(f => `• ${f}`).join('\n')}
 **Industry-Specific Features:**
 ${industryFeatures.map(f => `• ${f}`).join('\n')}
 
-**ROI Projection:**
-• Month 1: Setup and training (Investment phase)
-• Month 2: Initial results and optimization (Break-even approach)
-• Month 3: 300-500% ROI achieved (Profit phase)
+                **Customer Growth Projection:**
+                • Month 1: Setup and training (Foundation phase)
+                • Month 2: Initial customer acquisition and engagement
+                • Month 3: 40-60% increase in customer retention (Growth phase)
 
 **Implementation Timeline:** 2-3 weeks
 **Support Level:** 24/7 technical assistance
@@ -645,7 +1744,7 @@ ${industryFeatures.map(f => `• ${f}`).join('\n')}
 
 **Success Guarantee:**
 • Money-back guarantee if not satisfied
-• ROI guarantee within 3 months
+                • Customer retention guarantee within 3 months
 • Ongoing optimization and support
 • Performance monitoring and reporting
 
@@ -993,7 +2092,8 @@ ${industryFeatures.map(f => `• ${f}`).join('\n')}
             const message = input.value.trim();
             
             if (message) {
-                sendMessage(message);
+                // Use enhanced message handling
+                handleUserMessage(message);
                 input.value = ''; // Clear the input field
             }
         }
@@ -1132,9 +2232,196 @@ ${industryFeatures.map(f => `• ${f}`).join('\n')}
             }
         };
 
+        // Analytics tracking
+        let analytics = {
+            chatOpens: 0,
+            buttonClicks: 0,
+            leadSubmissions: 0,
+            proactiveTriggers: 0,
+            humanEscalations: 0,
+            sessionStart: Date.now()
+        };
+
+        // Track analytics event
+        function trackEvent(eventType, details = {}) {
+            analytics[eventType]++;
+            console.log(`📊 Analytics: ${eventType}`, details);
+            
+            // Send to analytics service (replace with your actual analytics endpoint)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventType, details);
+            }
+        }
+
+        // Proactive message trigger
+        function triggerProactiveMessage() {
+            setTimeout(() => {
+                const proactiveMsg = document.getElementById('proactiveMessage');
+                if (proactiveMsg && analytics.chatOpens === 0) {
+                    proactiveMsg.style.display = 'block';
+                    trackEvent('proactiveTriggers');
+                }
+            }, 20000); // 20 seconds
+        }
+
+        // Auto-script functionality for Mariam
+        function startAutoScript() {
+            setTimeout(() => {
+                const chatMessages = document.getElementById('chatMessages');
+                if (chatMessages) {
+                    // Add typing indicator
+                    const typingIndicator = document.createElement('div');
+                    typingIndicator.className = 'message bot-message typing-indicator';
+                    typingIndicator.innerHTML = `
+                        <div class="message-content">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    `;
+                    chatMessages.appendChild(typingIndicator);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                    // Start typing the auto-script
+                    setTimeout(() => {
+                        typeAutoScript();
+                    }, 1000);
+                }
+            }, 30000); // 30 seconds
+        }
+
+        // Type out the auto-script character by character
+        function typeAutoScript() {
+            const script = `Hello! I'm Mariam, your AI business consultant at NextEleven Studios. 
+
+I help businesses like yours implement specialized AI chatbots that generate new customers and retain existing ones.
+
+Our chatbots handle:
+• 24/7 customer service and support
+• Appointment booking and scheduling
+• Lead qualification and sales automation
+• Product recommendations and guidance
+• Multi-language customer support
+
+We've built chatbots for tattoo studios, hair salons, automotive services, healthcare clinics, restaurants, and many other industries.
+
+Each chatbot is customized to your specific business needs and integrates seamlessly with your existing systems.
+
+Would you like me to show you how we can help your business grow?`;
+
+            const chatMessages = document.getElementById('chatMessages');
+            const typingIndicator = chatMessages.querySelector('.typing-indicator');
+            
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot-message';
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <div id="autoScriptText"></div>
+                    <div class="message-time">Just now</div>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            const textElement = document.getElementById('autoScriptText');
+            let currentIndex = 0;
+
+            function typeNextChar() {
+                if (currentIndex < script.length) {
+                    textElement.textContent += script[currentIndex];
+                    currentIndex++;
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    setTimeout(typeNextChar, 30); // Type speed: 30ms per character
+                }
+            }
+
+            typeNextChar();
+            trackEvent('autoScriptStarted');
+        }
+
+        // Quick reply functionality
+        function sendQuickReply(text) {
+            trackEvent('buttonClicks', { button: text });
+            document.getElementById('messageInput').value = text;
+            sendUserMessage();
+        }
+
+        // Lead form submission
+        function submitLeadForm() {
+            const name = document.getElementById('leadName').value;
+            const email = document.getElementById('leadEmail').value;
+            const business = document.getElementById('leadBusiness').value;
+            const interest = document.getElementById('leadInterest').value;
+            
+            if (!name || !email) {
+                alert('Please fill in the required fields.');
+                return;
+            }
+            
+            // Track lead submission
+            trackEvent('leadSubmissions', { business, interest });
+            
+            // Send lead data (replace with your actual endpoint)
+            const leadData = { name, email, business, interest, timestamp: Date.now() };
+            console.log('📧 Lead captured:', leadData);
+            
+            // Hide form and show success message
+            document.getElementById('leadCaptureForm').style.display = 'none';
+            addBotMessage(`🎉 **Thank you, ${name}!** I've captured your information and will send you personalized details about our ${interest} solution. Check your email for next steps!`);
+            
+            // Show human escalation option
+            document.getElementById('humanEscalation').style.display = 'block';
+        }
+
+        // Human escalation
+        function contactHuman() {
+            trackEvent('humanEscalations');
+            addBotMessage(`🤝 **Perfect!** I'm connecting you with our human team. They'll reach out within 15 minutes to discuss your specific needs in detail.`);
+        }
+
+        // Enhanced message handling with lead capture
+        function handleUserMessage(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            // Check if we should show lead capture form
+            if (lowerMessage.includes('demo') || lowerMessage.includes('trial') || lowerMessage.includes('pricing') || lowerMessage.includes('consultation')) {
+                setTimeout(() => {
+                    document.getElementById('leadCaptureForm').style.display = 'block';
+                }, 1000);
+            }
+            
+            // Check if user needs human assistance
+            if (lowerMessage.includes('human') || lowerMessage.includes('speak to') || lowerMessage.includes('real person')) {
+                document.getElementById('humanEscalation').style.display = 'block';
+            }
+            
+            // Process with existing Mariam logic
+            sendMessage(message);
+        }
+
+        // Helper function to add bot messages
+        function addBotMessage(message) {
+            addMessage(message, false);
+        }
+
         // Event listeners for Mariam
         document.addEventListener('DOMContentLoaded', function() {
             console.log('NextEleven Mariam AI Chatbot initialized');
+            
+            // Track chat open
+            trackEvent('chatOpens');
+            
+            // Trigger proactive message
+            triggerProactiveMessage();
+            
+            // Start auto-script after 30 seconds
+            startAutoScript();
             
             // Add event listener for Enter key on chat input
             const chatInput = document.getElementById('messageInput');
@@ -1157,8 +2444,6 @@ ${industryFeatures.map(f => `• ${f}`).join('\n')}
             } else {
                 console.log('❌ Send button element not found');
             }
-            
-
         });
     </script>
 </body>
