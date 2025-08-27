@@ -226,20 +226,200 @@
             color: #00CED1;
             transform: translateX(-5px);
         }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            animation: logoFloat 3.75s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .next-eleven-logo {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            filter: 
+                drop-shadow(0 0 20px rgba(30, 144, 255, 0.4))
+                drop-shadow(0 0 40px rgba(30, 144, 255, 0.2))
+                drop-shadow(0 0 60px rgba(30, 144, 255, 0.1));
+            transition: all 0.3s ease;
+        }
+
+        .next-eleven-logo:hover {
+            filter: 
+                drop-shadow(0 0 25px rgba(30, 144, 255, 0.6))
+                drop-shadow(0 0 50px rgba(30, 144, 255, 0.3))
+                drop-shadow(0 0 75px rgba(30, 144, 255, 0.2));
+            transform: scale(1.02);
+        }
+
+        .logo-text-main {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 42px;
+            letter-spacing: 2px;
+            text-anchor: start;
+            filter: url(#glow);
+            text-shadow: 
+                0 0 10px rgba(30, 144, 255, 0.8),
+                0 0 20px rgba(30, 144, 255, 0.6),
+                0 0 30px rgba(30, 144, 255, 0.4),
+                2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .robot-icon {
+            filter: url(#glow);
+            filter: 
+                drop-shadow(0 0 8px rgba(30, 144, 255, 0.8))
+                drop-shadow(0 0 16px rgba(30, 144, 255, 0.6))
+                drop-shadow(0 0 24px rgba(30, 144, 255, 0.4));
+        }
+
+        .industry-cta {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .industry-link {
+            color: #1E90FF;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 2px solid #1E90FF;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .industry-link:hover {
+            background: #1E90FF;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .industries-cta {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .industries-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #1E90FF, #00CED1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .industries-cta p {
+            font-size: 1.2rem;
+            color: #B0B0B0;
+            margin-bottom: 30px;
+        }
+
+        .industries-cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .industries-cta-btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .industries-cta-btn.primary {
+            background: linear-gradient(135deg, #1E90FF, #00CED1);
+            color: #FFFFFF;
+        }
+
+        .industries-cta-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(30, 144, 255, 0.4);
+        }
+
+        .industries-cta-btn.secondary {
+            background: transparent;
+            color: #1E90FF;
+            border-color: #1E90FF;
+        }
+
+        .industries-cta-btn.secondary:hover {
+            background: #1E90FF;
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 <body>
     <div class="enterprise-container">
         <!-- Sidebar -->
         <div class="sidebar">
-            <div class="sidebar-header">
-                <h3>NextEleven</h3>
-                <p>AI Chatbot Solutions</p>
+            <div class="logo-container">
+                <svg class="next-eleven-logo" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Robot Icon -->
+                    <g class="robot-icon">
+                        <!-- Robot Head with speech bubble pointing down-right -->
+                        <path d="M 30 40 Q 30 30 40 30 L 70 30 Q 80 30 80 40 L 80 70 Q 80 80 70 80 L 40 80 Q 30 80 30 70 Z M 70 80 L 75 90 L 65 90 Z" 
+                              fill="url(#robotGradient)" stroke="#1E90FF" stroke-width="2"/>
+                        <!-- Antenna -->
+                        <line x1="50" y1="30" x2="50" y2="20" stroke="#1E90FF" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="50" cy="18" r="3" fill="#1E90FF"/>
+                        <!-- Eyes -->
+                        <circle cx="40" cy="45" r="4" fill="#1E90FF"/>
+                        <circle cx="60" cy="45" r="4" fill="#1E90FF"/>
+                        <!-- Ears/Sensors -->
+                        <circle cx="35" cy="50" r="3" fill="#1E90FF"/>
+                        <circle cx="65" cy="50" r="3" fill="#1E90FF"/>
+                        <!-- Typing indicator lines in speech bubble -->
+                        <line x1="45" y1="85" x2="55" y2="85" stroke="#004D61" stroke-width="2"/>
+                        <line x1="47" y1="88" x2="53" y2="88" stroke="#004D61" stroke-width="2"/>
+                        <line x1="48" y1="91" x2="52" y2="91" stroke="#004D61" stroke-width="2"/>
+                    </g>
+                    
+                    <!-- Text: NextEleven Studios on one line -->
+                    <text x="120" y="65" class="logo-text-main" fill="#1E1E1E">NextEleven Studios</text>
+                    
+                    <!-- Gradients -->
+                    <defs>
+                        <linearGradient id="robotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1E90FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#004D61;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1E90FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00BFFF;stop-opacity:1" />
+                        </linearGradient>
+                        <!-- Glow effect -->
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge> 
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                </svg>
             </div>
             
             <nav class="sidebar-nav">
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">← Back to Home</a></li>
                     <li><a href="overview.html" class="nav-link">Overview</a></li>
                     <li><a href="solutions.html" class="nav-link">Solutions</a></li>
                     <li><a href="industries.html" class="nav-link active">Industries</a></li>
@@ -276,73 +456,106 @@
                     <div class="industry-card">
                         <span class="industry-icon">🏥</span>
                         <h3>Healthcare</h3>
-                        <p>Patient appointment scheduling, medical information, and HIPAA-compliant communication systems.</p>
+                        <p>Patient appointment scheduling, medical information, and HIPAA-compliant communication systems. Streamline patient care and reduce administrative burden.</p>
                         <ul class="industry-features">
-                            <li>Appointment booking & reminders</li>
+                            <li>HIPAA-compliant appointment booking</li>
                             <li>Medical FAQ responses</li>
-                            <li>Insurance verification</li>
+                            <li>Insurance verification & claims</li>
                             <li>Emergency contact routing</li>
+                            <li>Prescription refill requests</li>
                         </ul>
+                        <div class="industry-cta">
+                            <a href="solutions.html" class="industry-link">View Healthcare Solutions</a>
+                        </div>
                     </div>
 
                     <div class="industry-card">
                         <span class="industry-icon">🛍️</span>
                         <h3>Retail & E-commerce</h3>
-                        <p>Customer service, product recommendations, and seamless shopping experiences.</p>
+                        <p>Customer service, product recommendations, and seamless shopping experiences. Boost sales and customer satisfaction with AI-powered support.</p>
                         <ul class="industry-features">
-                            <li>Product search & recommendations</li>
-                            <li>Order tracking & support</li>
-                            <li>Inventory inquiries</li>
-                            <li>Returns & exchanges</li>
+                            <li>AI-powered product search</li>
+                            <li>Real-time order tracking</li>
+                            <li>Inventory availability checks</li>
+                            <li>Returns & exchange processing</li>
+                            <li>Personalized recommendations</li>
                         </ul>
+                        <div class="industry-cta">
+                            <a href="pricing.html" class="industry-link">Get Retail Pricing</a>
+                        </div>
                     </div>
 
                     <div class="industry-card">
                         <span class="industry-icon">🚗</span>
                         <h3>Automotive</h3>
-                        <p>Service scheduling, vehicle information, and dealership support automation.</p>
+                        <p>Service scheduling, vehicle information, and dealership support automation. Enhance customer experience and increase service bookings.</p>
                         <ul class="industry-features">
-                            <li>Service appointment booking</li>
+                            <li>Service appointment scheduling</li>
                             <li>Vehicle maintenance reminders</li>
-                            <li>Parts & service inquiries</li>
+                            <li>Parts availability & pricing</li>
                             <li>Test drive scheduling</li>
+                            <li>Warranty information</li>
                         </ul>
+                        <div class="industry-cta">
+                            <a href="solutions.html" class="industry-link">Explore Auto Solutions</a>
+                        </div>
                     </div>
 
                     <div class="industry-card">
                         <span class="industry-icon">🍽️</span>
                         <h3>Restaurant & Hospitality</h3>
-                        <p>Reservation management, menu information, and guest service automation.</p>
+                        <p>Reservation management, menu information, and guest service automation. Improve guest experience and increase table utilization.</p>
                         <ul class="industry-features">
-                            <li>Table reservations</li>
-                            <li>Menu & pricing info</li>
-                            <li>Special dietary requests</li>
-                            <li>Event booking</li>
+                            <li>Smart table reservations</li>
+                            <li>Dynamic menu & pricing</li>
+                            <li>Special dietary accommodations</li>
+                            <li>Event & party booking</li>
+                            <li>Guest feedback collection</li>
                         </ul>
+                        <div class="industry-cta">
+                            <a href="tattoo-demo.html" class="industry-link">See Demo in Action</a>
+                        </div>
                     </div>
 
                     <div class="industry-card">
                         <span class="industry-icon">🎨</span>
                         <h3>Creative Services</h3>
-                        <p>Portfolio showcases, appointment booking, and client consultation scheduling.</p>
+                        <p>Portfolio showcases, appointment booking, and client consultation scheduling. Streamline client management and showcase your work.</p>
                         <ul class="industry-features">
-                            <li>Portfolio & pricing display</li>
-                            <li>Consultation booking</li>
+                            <li>Interactive portfolio display</li>
+                            <li>Consultation scheduling</li>
                             <li>Project status updates</li>
                             <li>Client feedback collection</li>
+                            <li>Payment processing</li>
                         </ul>
+                        <div class="industry-cta">
+                            <a href="resources.html" class="industry-link">Get Creative Guide</a>
+                        </div>
                     </div>
 
                     <div class="industry-card">
                         <span class="industry-icon">🏢</span>
                         <h3>Professional Services</h3>
-                        <p>Client intake, appointment scheduling, and service information automation.</p>
+                        <p>Client intake, appointment scheduling, and service information automation. Optimize client management and increase efficiency.</p>
                         <ul class="industry-features">
                             <li>Client consultation booking</li>
-                            <li>Service information</li>
-                            <li>Document collection</li>
-                            <li>Billing inquiries</li>
+                            <li>Service information & pricing</li>
+                            <li>Document collection & review</li>
+                            <li>Billing & payment inquiries</li>
+                            <li>Case status updates</li>
                         </ul>
+                        <div class="industry-cta">
+                            <a href="company.html" class="industry-link">Contact Our Team</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="industries-cta">
+                    <h2>Need a Custom Solution?</h2>
+                    <p>We specialize in creating tailored chatbot solutions for any industry. Let us build the perfect solution for your unique needs.</p>
+                    <div class="industries-cta-buttons">
+                        <a href="company.html" class="industries-cta-btn primary">Schedule Consultation</a>
+                        <a href="pricing.html" class="industries-cta-btn secondary">View Enterprise Plans</a>
                     </div>
                 </div>
             </div>

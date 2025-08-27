@@ -233,20 +233,257 @@
             color: #00CED1;
             transform: translateX(-5px);
         }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            animation: logoFloat 3.75s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .next-eleven-logo {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            filter: 
+                drop-shadow(0 0 20px rgba(30, 144, 255, 0.4))
+                drop-shadow(0 0 40px rgba(30, 144, 255, 0.2))
+                drop-shadow(0 0 60px rgba(30, 144, 255, 0.1));
+            transition: all 0.3s ease;
+        }
+
+        .next-eleven-logo:hover {
+            filter: 
+                drop-shadow(0 0 25px rgba(30, 144, 255, 0.6))
+                drop-shadow(0 0 50px rgba(30, 144, 255, 0.3))
+                drop-shadow(0 0 75px rgba(30, 144, 255, 0.2));
+            transform: scale(1.02);
+        }
+
+        .logo-text-main {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 42px;
+            letter-spacing: 2px;
+            text-anchor: start;
+            filter: url(#glow);
+            text-shadow: 
+                0 0 10px rgba(30, 144, 255, 0.8),
+                0 0 20px rgba(30, 144, 255, 0.6),
+                0 0 30px rgba(30, 144, 255, 0.4),
+                2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .robot-icon {
+            filter: url(#glow);
+            filter: 
+                drop-shadow(0 0 8px rgba(30, 144, 255, 0.8))
+                drop-shadow(0 0 16px rgba(30, 144, 255, 0.6))
+                drop-shadow(0 0 24px rgba(30, 144, 255, 0.4));
+        }
+
+        .company-card-cta {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .company-card-link {
+            color: #1E90FF;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 2px solid #1E90FF;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .company-card-link:hover {
+            background: #1E90FF;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .company-cta {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .company-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #1E90FF, #00CED1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .company-cta p {
+            font-size: 1.2rem;
+            color: #B0B0B0;
+            margin-bottom: 30px;
+        }
+
+        .company-cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .company-cta-btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .company-cta-btn.primary {
+            background: linear-gradient(135deg, #1E90FF, #00CED1);
+            color: #FFFFFF;
+        }
+
+        .company-cta-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(30, 144, 255, 0.4);
+        }
+
+        .company-cta-btn.secondary {
+            background: transparent;
+            color: #1E90FF;
+            border-color: #1E90FF;
+        }
+
+        .company-cta-btn.secondary:hover {
+            background: #1E90FF;
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        .company-testimonials {
+            margin-top: 60px;
+        }
+
+        .company-testimonials h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #1E90FF, #00CED1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: #1E90FF;
+        }
+
+        .testimonial-content p {
+            color: #B0B0B0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            text-align: right;
+        }
+
+        .testimonial-author strong {
+            color: #FFFFFF;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author span {
+            color: #1E90FF;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
     <div class="enterprise-container">
         <!-- Sidebar -->
         <div class="sidebar">
-            <div class="sidebar-header">
-                <h3>NextEleven</h3>
-                <p>AI Chatbot Solutions</p>
+            <div class="logo-container">
+                <svg class="next-eleven-logo" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Robot Icon -->
+                    <g class="robot-icon">
+                        <!-- Robot Head with speech bubble pointing down-right -->
+                        <path d="M 30 40 Q 30 30 40 30 L 70 30 Q 80 30 80 40 L 80 70 Q 80 80 70 80 L 40 80 Q 30 80 30 70 Z M 70 80 L 75 90 L 65 90 Z" 
+                              fill="url(#robotGradient)" stroke="#1E90FF" stroke-width="2"/>
+                        <!-- Antenna -->
+                        <line x1="50" y1="30" x2="50" y2="20" stroke="#1E90FF" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="50" cy="18" r="3" fill="#1E90FF"/>
+                        <!-- Eyes -->
+                        <circle cx="40" cy="45" r="4" fill="#1E90FF"/>
+                        <circle cx="60" cy="45" r="4" fill="#1E90FF"/>
+                        <!-- Ears/Sensors -->
+                        <circle cx="35" cy="50" r="3" fill="#1E90FF"/>
+                        <circle cx="65" cy="50" r="3" fill="#1E90FF"/>
+                        <!-- Typing indicator lines in speech bubble -->
+                        <line x1="45" y1="85" x2="55" y2="85" stroke="#004D61" stroke-width="2"/>
+                        <line x1="47" y1="88" x2="53" y2="88" stroke="#004D61" stroke-width="2"/>
+                        <line x1="48" y1="91" x2="52" y2="91" stroke="#004D61" stroke-width="2"/>
+                    </g>
+                    
+                    <!-- Text: NextEleven Studios on one line -->
+                    <text x="120" y="65" class="logo-text-main" fill="#1E1E1E">NextEleven Studios</text>
+                    
+                    <!-- Gradients -->
+                    <defs>
+                        <linearGradient id="robotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1E90FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#004D61;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1E90FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00BFFF;stop-opacity:1" />
+                        </linearGradient>
+                        <!-- Glow effect -->
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge> 
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                </svg>
             </div>
             
             <nav class="sidebar-nav">
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">← Back to Home</a></li>
                     <li><a href="overview.html" class="nav-link">Overview</a></li>
                     <li><a href="solutions.html" class="nav-link">Solutions</a></li>
                     <li><a href="industries.html" class="nav-link">Industries</a></li>
@@ -302,37 +539,97 @@
                     <div class="company-card">
                         <span class="company-icon">🎯</span>
                         <h3>Our Mission</h3>
-                        <p>To democratize AI technology by providing enterprise-grade chatbot solutions that are accessible, affordable, and effective for businesses worldwide.</p>
+                        <p>To democratize AI technology by providing enterprise-grade chatbot solutions that are accessible, affordable, and effective for businesses worldwide. We believe every business deserves access to cutting-edge AI technology.</p>
+                        <div class="company-card-cta">
+                            <a href="overview.html" class="company-card-link">Learn About Our Vision →</a>
+                        </div>
                     </div>
 
                     <div class="company-card">
                         <span class="company-icon">👥</span>
                         <h3>Our Team</h3>
-                        <p>Comprised of AI researchers, software engineers, UX designers, and business strategists with decades of combined experience in conversational AI.</p>
+                        <p>Comprised of AI researchers, software engineers, UX designers, and business strategists with decades of combined experience in conversational AI. We're passionate about making AI work for you.</p>
+                        <div class="company-card-cta">
+                            <a href="solutions.html" class="company-card-link">See Our Solutions →</a>
+                        </div>
                     </div>
 
                     <div class="company-card">
                         <span class="company-icon">🌍</span>
                         <h3>Global Reach</h3>
-                        <p>Serving clients across North America, Europe, Asia, and Australia with localized support and multi-language capabilities.</p>
+                        <p>Serving clients across North America, Europe, Asia, and Australia with localized support and multi-language capabilities. Wherever you are, we're here to help.</p>
+                        <div class="company-card-cta">
+                            <a href="industries.html" class="company-card-link">View Global Solutions →</a>
+                        </div>
                     </div>
 
                     <div class="company-card">
                         <span class="company-icon">🔬</span>
                         <h3>Innovation</h3>
-                        <p>Continuously researching and implementing the latest advances in natural language processing and machine learning technologies.</p>
+                        <p>Continuously researching and implementing the latest advances in natural language processing and machine learning technologies. We stay ahead of the curve so you don't have to.</p>
+                        <div class="company-card-cta">
+                            <a href="resources.html" class="company-card-link">Explore Our Research →</a>
+                        </div>
                     </div>
 
                     <div class="company-card">
                         <span class="company-icon">🤝</span>
                         <h3>Partnerships</h3>
-                        <p>Collaborating with leading technology providers and industry experts to deliver cutting-edge solutions and best practices.</p>
+                        <p>Collaborating with leading technology providers and industry experts to deliver cutting-edge solutions and best practices. Together, we're stronger.</p>
+                        <div class="company-card-cta">
+                            <a href="pricing.html" class="company-card-link">View Partnership Plans →</a>
+                        </div>
                     </div>
 
                     <div class="company-card">
                         <span class="company-icon">💼</span>
                         <h3>Customer Success</h3>
-                        <p>Dedicated to ensuring every client achieves their goals with comprehensive onboarding, training, and ongoing support.</p>
+                        <p>Dedicated to ensuring every client achieves their goals with comprehensive onboarding, training, and ongoing support. Your success is our success.</p>
+                        <div class="company-card-cta">
+                            <a href="tattoo-demo.html" class="company-card-link">See Success Stories →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="company-cta">
+                    <h2>Ready to Work With Us?</h2>
+                    <p>Let's discuss how we can help transform your business with AI chatbot technology.</p>
+                    <div class="company-cta-buttons">
+                        <a href="pricing.html" class="company-cta-btn primary">Get Started Today</a>
+                        <a href="tattoo-demo.html" class="company-cta-btn secondary">Try Our Demo</a>
+                    </div>
+                </div>
+
+                <div class="company-testimonials">
+                    <h2>What Our Clients Say</h2>
+                    <div class="testimonials-grid">
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p>"NextEleven transformed our customer service. Response times dropped by 90% and customer satisfaction increased dramatically."</p>
+                                <div class="testimonial-author">
+                                    <strong>Sarah Johnson</strong>
+                                    <span>CEO, TechStart Inc.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p>"The AI chatbot solution exceeded our expectations. It's like having a 24/7 customer service team that never sleeps."</p>
+                                <div class="testimonial-author">
+                                    <strong>Mike Chen</strong>
+                                    <span>CTO, Retail Solutions</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p>"Implementation was smooth and the results were immediate. Our sales increased by 35% within the first month."</p>
+                                <div class="testimonial-author">
+                                    <strong>Emily Rodriguez</strong>
+                                    <span>Marketing Director, E-commerce Plus</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

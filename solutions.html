@@ -298,20 +298,200 @@
             color: #00CED1;
             transform: translateX(-5px);
         }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            animation: logoFloat 3.75s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .next-eleven-logo {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            filter: 
+                drop-shadow(0 0 20px rgba(30, 144, 255, 0.4))
+                drop-shadow(0 0 40px rgba(30, 144, 255, 0.2))
+                drop-shadow(0 0 60px rgba(30, 144, 255, 0.1));
+            transition: all 0.3s ease;
+        }
+
+        .next-eleven-logo:hover {
+            filter: 
+                drop-shadow(0 0 25px rgba(30, 144, 255, 0.6))
+                drop-shadow(0 0 50px rgba(30, 144, 255, 0.3))
+                drop-shadow(0 0 75px rgba(30, 144, 255, 0.2));
+            transform: scale(1.02);
+        }
+
+        .logo-text-main {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 42px;
+            letter-spacing: 2px;
+            text-anchor: start;
+            filter: url(#glow);
+            text-shadow: 
+                0 0 10px rgba(30, 144, 255, 0.8),
+                0 0 20px rgba(30, 144, 255, 0.6),
+                0 0 30px rgba(30, 144, 255, 0.4),
+                2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .robot-icon {
+            filter: url(#glow);
+            filter: 
+                drop-shadow(0 0 8px rgba(30, 144, 255, 0.8))
+                drop-shadow(0 0 16px rgba(30, 144, 255, 0.6))
+                drop-shadow(0 0 24px rgba(30, 144, 255, 0.4));
+        }
+
+        .solution-cta {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .solution-link {
+            color: #1E90FF;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 2px solid #1E90FF;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .solution-link:hover {
+            background: #1E90FF;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .solutions-cta {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .solutions-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #1E90FF, #00CED1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .solutions-cta p {
+            font-size: 1.2rem;
+            color: #B0B0B0;
+            margin-bottom: 30px;
+        }
+
+        .solutions-cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .solutions-cta-btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .solutions-cta-btn.primary {
+            background: linear-gradient(135deg, #1E90FF, #00CED1);
+            color: #FFFFFF;
+        }
+
+        .solutions-cta-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(30, 144, 255, 0.4);
+        }
+
+        .solutions-cta-btn.secondary {
+            background: transparent;
+            color: #1E90FF;
+            border-color: #1E90FF;
+        }
+
+        .solutions-cta-btn.secondary:hover {
+            background: #1E90FF;
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 <body>
     <div class="enterprise-container">
         <!-- Sidebar -->
         <div class="sidebar">
-            <div class="sidebar-header">
-                <h3>NextEleven</h3>
-                <p>AI Chatbot Solutions</p>
+            <div class="logo-container">
+                <svg class="next-eleven-logo" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Robot Icon -->
+                    <g class="robot-icon">
+                        <!-- Robot Head with speech bubble pointing down-right -->
+                        <path d="M 30 40 Q 30 30 40 30 L 70 30 Q 80 30 80 40 L 80 70 Q 80 80 70 80 L 40 80 Q 30 80 30 70 Z M 70 80 L 75 90 L 65 90 Z" 
+                              fill="url(#robotGradient)" stroke="#1E90FF" stroke-width="2"/>
+                        <!-- Antenna -->
+                        <line x1="50" y1="30" x2="50" y2="20" stroke="#1E90FF" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="50" cy="18" r="3" fill="#1E90FF"/>
+                        <!-- Eyes -->
+                        <circle cx="40" cy="45" r="4" fill="#1E90FF"/>
+                        <circle cx="60" cy="45" r="4" fill="#1E90FF"/>
+                        <!-- Ears/Sensors -->
+                        <circle cx="35" cy="50" r="3" fill="#1E90FF"/>
+                        <circle cx="65" cy="50" r="3" fill="#1E90FF"/>
+                        <!-- Typing indicator lines in speech bubble -->
+                        <line x1="45" y1="85" x2="55" y2="85" stroke="#004D61" stroke-width="2"/>
+                        <line x1="47" y1="88" x2="53" y2="88" stroke="#004D61" stroke-width="2"/>
+                        <line x1="48" y1="91" x2="52" y2="91" stroke="#004D61" stroke-width="2"/>
+                    </g>
+                    
+                    <!-- Text: NextEleven Studios on one line -->
+                    <text x="120" y="65" class="logo-text-main" fill="#1E1E1E">NextEleven Studios</text>
+                    
+                    <!-- Gradients -->
+                    <defs>
+                        <linearGradient id="robotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1E90FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#004D61;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1E90FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00BFFF;stop-opacity:1" />
+                        </linearGradient>
+                        <!-- Glow effect -->
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge> 
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                </svg>
             </div>
             
             <nav class="sidebar-nav">
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">← Back to Home</a></li>
                     <li><a href="overview.html" class="nav-link">Overview</a></li>
                     <li><a href="solutions.html" class="nav-link active">Solutions</a></li>
                     <li><a href="industries.html" class="nav-link">Industries</a></li>
@@ -348,73 +528,106 @@
                     <div class="solution-card">
                         <span class="solution-icon">💬</span>
                         <h3>Customer Service Bot</h3>
-                        <p>24/7 customer support with intelligent routing, instant responses, and seamless human handoff capabilities.</p>
+                        <p>24/7 customer support with intelligent routing, instant responses, and seamless human handoff capabilities. Reduce response times by 90% and increase customer satisfaction.</p>
                         <ul class="solution-features">
-                            <li>Multi-language support</li>
-                            <li>Sentiment analysis</li>
-                            <li>Escalation management</li>
-                            <li>Knowledge base integration</li>
+                            <li>Multi-language support (50+ languages)</li>
+                            <li>Advanced sentiment analysis</li>
+                            <li>Smart escalation management</li>
+                            <li>Comprehensive knowledge base integration</li>
+                            <li>Real-time chat handoff to agents</li>
                         </ul>
+                        <div class="solution-cta">
+                            <a href="industries.html" class="solution-link">Learn More →</a>
+                        </div>
                     </div>
 
                     <div class="solution-card">
                         <span class="solution-icon">🛒</span>
                         <h3>Sales & E-commerce Bot</h3>
-                        <p>Convert visitors into customers with personalized product recommendations and streamlined checkout processes.</p>
+                        <p>Convert visitors into customers with personalized product recommendations and streamlined checkout processes. Increase conversion rates by up to 35%.</p>
                         <ul class="solution-features">
-                            <li>Product recommendations</li>
-                            <li>Cart management</li>
-                            <li>Payment processing</li>
-                            <li>Order tracking</li>
+                            <li>AI-powered product recommendations</li>
+                            <li>Intelligent cart management</li>
+                            <li>Secure payment processing</li>
+                            <li>Real-time order tracking</li>
+                            <li>Abandoned cart recovery</li>
                         </ul>
+                        <div class="solution-cta">
+                            <a href="pricing.html" class="solution-link">View Pricing →</a>
+                        </div>
                     </div>
 
                     <div class="solution-card">
                         <span class="solution-icon">📱</span>
                         <h3>Appointment Booking Bot</h3>
-                        <p>Streamline scheduling with intelligent calendar management and automated confirmation systems.</p>
+                        <p>Streamline scheduling with intelligent calendar management and automated confirmation systems. Reduce no-shows by 60%.</p>
                         <ul class="solution-features">
-                            <li>Calendar integration</li>
-                            <li>Automated reminders</li>
-                            <li>Rescheduling options</li>
-                            <li>Payment collection</li>
+                            <li>Multi-calendar integration</li>
+                            <li>Smart automated reminders</li>
+                            <li>Easy rescheduling options</li>
+                            <li>Secure payment collection</li>
+                            <li>Waitlist management</li>
                         </ul>
+                        <div class="solution-cta">
+                            <a href="tattoo-demo.html" class="solution-link">Try Demo →</a>
+                        </div>
                     </div>
 
                     <div class="solution-card">
                         <span class="solution-icon">🎯</span>
                         <h3>Lead Generation Bot</h3>
-                        <p>Capture and qualify leads automatically with intelligent forms and follow-up sequences.</p>
+                        <p>Capture and qualify leads automatically with intelligent forms and follow-up sequences. Generate 3x more qualified leads.</p>
                         <ul class="solution-features">
-                            <li>Smart form filling</li>
-                            <li>Lead scoring</li>
-                            <li>CRM integration</li>
-                            <li>Follow-up automation</li>
+                            <li>Smart conversational forms</li>
+                            <li>Advanced lead scoring</li>
+                            <li>Seamless CRM integration</li>
+                            <li>Automated follow-up sequences</li>
+                            <li>Lead nurturing workflows</li>
                         </ul>
+                        <div class="solution-cta">
+                            <a href="resources.html" class="solution-link">Get Guide →</a>
+                        </div>
                     </div>
 
                     <div class="solution-card">
                         <span class="solution-icon">📊</span>
                         <h3>Analytics & Reporting Bot</h3>
-                        <p>Gain insights into customer behavior and bot performance with comprehensive analytics.</p>
+                        <p>Gain insights into customer behavior and bot performance with comprehensive analytics. Make data-driven decisions.</p>
                         <ul class="solution-features">
-                            <li>Real-time metrics</li>
-                            <li>Conversation analysis</li>
-                            <li>Performance tracking</li>
-                            <li>Custom dashboards</li>
+                            <li>Real-time performance metrics</li>
+                            <li>Advanced conversation analysis</li>
+                            <li>Custom performance tracking</li>
+                            <li>Interactive dashboards</li>
+                            <li>Predictive analytics</li>
                         </ul>
+                        <div class="solution-cta">
+                            <a href="company.html" class="solution-link">Contact Us →</a>
+                        </div>
                     </div>
 
                     <div class="solution-card">
                         <span class="solution-icon">🔗</span>
                         <h3>Integration Bot</h3>
-                        <p>Seamlessly connect with your existing business systems and third-party applications.</p>
+                        <p>Seamlessly connect with your existing business systems and third-party applications. No more data silos.</p>
                         <ul class="solution-features">
-                            <li>API integration</li>
+                            <li>RESTful API integration</li>
                             <li>Webhook support</li>
                             <li>Database connectivity</li>
-                            <li>Custom connectors</li>
+                            <li>Custom connector development</li>
+                            <li>Real-time data sync</li>
                         </ul>
+                        <div class="solution-cta">
+                            <a href="overview.html" class="solution-link">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="solutions-cta">
+                    <h2>Ready to Implement Your Solution?</h2>
+                    <p>Our team of experts will help you choose and implement the perfect chatbot solution for your business.</p>
+                    <div class="solutions-cta-buttons">
+                        <a href="pricing.html" class="solutions-cta-btn primary">Get Started Today</a>
+                        <a href="company.html" class="solutions-cta-btn secondary">Schedule Consultation</a>
                     </div>
                 </div>
             </div>
