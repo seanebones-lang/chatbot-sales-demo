@@ -17,7 +17,7 @@ class ActionSessionStart(Action):
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         """Run the action."""
-        dispatcher.utter_message(text="🎨 **Welcome to Alternative Tattoo Studio!** I'm Ozzy, your AI tattoo assistant. How can I help you today?")
+        dispatcher.utter_message(text="🎨 **Hello! Welcome to our Tattoo Studio!** I'm Ozzy, your AI tattoo assistant. How can I help you today?")
         return [SessionStarted(), ActionExecuted("action_listen")]
 
 class ActionTattooConsultation(Action):
@@ -168,10 +168,10 @@ class ActionContactInfo(Action):
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         """Run the action."""
-        response = "📞 **Alternative Tattoo Studio Contact Information:**\n\n"
-        response += "**Phone:** (555) 987-6543\n**Text:** (555) 987-6543\n**Email:** hello@alternativetattoo.com\n\n"
+        response = "📞 **Our Studio Contact Information:**\n\n"
+        response += "**Phone:** (555) 987-6543\n**Text:** (555) 987-6543\n**Email:** hello@ourstudio.com\n\n"
         response += "**Address:** 456 Ink Street, Art District, AD 54321\n\n"
-        response += "**Social Media:**\n• Instagram: @AlternativeTattoo\n• Facebook: Alternative Tattoo Studio\n• TikTok: @AlternativeTattoo\n\n"
+        response += "**Social Media:**\n• Instagram: @OurStudio\n• Facebook: Our Tattoo Studio\n• TikTok: @OurStudio\n\n"
         response += "**Support Hours:**\n• Tuesday-Thursday: 11 AM - 8 PM\n• Friday-Saturday: 11 AM - 9 PM\n• Sunday-Monday: Closed\n\n"
         response += "**Emergency Contact:** For urgent matters, text us directly!\n\n"
         response += "**Need to reach us quickly?** Text is usually fastest! 📱💬"
@@ -316,7 +316,7 @@ class ActionContactInformation(Action):
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         """Run the action."""
-        response = "📞 **Alternative Tattoo Studio Contact Info**\n\n**Primary Contact:**\n• **Phone:** (555) 987-6543\n• **Text:** (555) 987-6543 (fastest response)\n• **Email:** hello@alternativetattoo.com\n\n**Studio Address:**\n• 456 Ink Street, Art District\n• AD 54321\n• Free parking in back lot\n• Wheelchair accessible\n\n**Social Media:**\n• Instagram: @AlternativeTattoo\n• Facebook: Alternative Tattoo Studio\n• TikTok: @AlternativeTattoo\n• Twitter: @AltTattooStudio\n\n**Best Ways to Reach Us:**\n• **Text:** Usually responds within minutes\n• **Instagram DM:** Great for sharing design ideas\n• **Phone:** Best for urgent questions\n• **Email:** Perfect for detailed inquiries\n\n**Need to reach us quickly?** Text is usually fastest! 📱💬"
+        response = "📞 **Our Studio Contact Info**\n\n**Primary Contact:**\n• **Phone:** (555) 987-6543\n• **Text:** (555) 987-6543 (fastest response)\n• **Email:** hello@ourstudio.com\n\n**Studio Address:**\n• 456 Ink Street, Art District\n• AD 54321\n• Free parking in back lot\n• Wheelchair accessible\n\n**Social Media:**\n• Instagram: @OurStudio\n• Facebook: Our Tattoo Studio\n• TikTok: @OurStudio\n• Twitter: @OurStudio\n\n**Best Ways to Reach Us:**\n• **Text:** Usually responds within minutes\n• **Instagram DM:** Great for sharing design ideas\n• **Phone:** Best for urgent questions\n• **Email:** Perfect for detailed inquiries\n\n**Need to reach us quickly?** Text is usually fastest! 📱💬"
         
         dispatcher.utter_message(text=response)
         return []
@@ -446,7 +446,7 @@ class ActionStudioInformation(Action):
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         """Run the action."""
-        response = "🏢 **Alternative Tattoo Studio Information**\n\n**Studio Hours:**\n• Tuesday - Thursday: 11 AM - 8 PM\n• Friday - Saturday: 11 AM - 9 PM\n• Sunday - Monday: Closed\n• Walk-ins welcome during business hours\n\n**Studio Features:**\n• Private tattoo rooms\n• Sterile equipment\n• Licensed artists\n• Professional atmosphere\n• Music and entertainment\n• Refreshments available\n\n**Services Offered:**\n• Custom tattoo designs\n• Cover-up tattoos\n• Touch-up work\n• Consultations\n• Design services\n• Aftercare products\n\n**Studio Policies:**\n• 18+ only with valid ID\n• No smoking inside\n• One guest per client\n• Children must be supervised\n• Professional conduct required\n\n**Need more studio info?** I'm here to help! 🏢✨"
+        response = "🏢 **Our Studio Information**\n\n**Studio Hours:**\n• Tuesday - Thursday: 11 AM - 8 PM\n• Friday - Saturday: 11 AM - 9 PM\n• Sunday - Monday: Closed\n• Walk-ins welcome during business hours\n\n**Studio Features:**\n• Private tattoo rooms\n• Sterile equipment\n• Licensed artists\n• Professional atmosphere\n• Music and entertainment\n• Refreshments available\n\n**Services Offered:**\n• Custom tattoo designs\n• Cover-up tattoos\n• Touch-up work\n• Consultations\n• Design services\n• Aftercare products\n\n**Studio Policies:**\n• 18+ only with valid ID\n• No smoking inside\n• One guest per client\n• Children must be supervised\n• Professional conduct required\n\n**Need more studio info?** I'm here to help! 🏢✨"
         
         dispatcher.utter_message(text=response)
         return []

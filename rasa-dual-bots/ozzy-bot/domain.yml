@@ -182,7 +182,7 @@ slots:
 
 responses:
   utter_greet:
-    - text: "🎨 **Hello! Welcome to Alternative Tattoo Studio!** I'm Ozzy, your AI tattoo assistant.\n\n**How can I help you today?**\n• Book an appointment\n• See artist portfolios\n• Get pricing information\n• Learn about our services\n• Check availability\n• Get aftercare help\n\n**What would you like to know about?**"
+    - text: "🎨 **Hello! Welcome to our Tattoo Studio!** I'm Ozzy, your AI tattoo assistant.\n\n**How can I help you today?**\n• Book an appointment\n• See artist portfolios\n• Get pricing information\n• Learn about our services\n• Check availability\n• Get aftercare help\n\n**What would you like to know about?**"
 
   utter_goodbye:
     - text: "👋 **Thanks for chatting with me!** I'm here whenever you need tattoo advice, booking help, or just want to chat about ink.\n\n**Remember:**\n• Book online anytime\n• Check our Instagram for fresh designs\n• Call us for urgent questions\n\n**See you in the chair!** 🪑✨"
@@ -216,13 +216,13 @@ responses:
     - text: "🎨 **Design consultation is where the magic happens!**\n\n**What we'll discuss:**\n• Your design concept and inspiration\n• Placement and sizing options\n• Style and technique choices\n• Color vs. black & grey\n• Custom vs. flash designs\n• Timeline and sessions needed\n\n**Consultations are free and take about 30 minutes.**\n\n**What's your design idea?** I'm excited to hear about it! ✨"
 
   utter_studio_hours:
-    - text: "🕐 **Alternative Tattoo Studio Hours:**\n\n**Tuesday - Thursday:** 11 AM - 8 PM\n**Friday - Saturday:** 11 AM - 9 PM\n**Sunday - Monday:** Closed\n\n**Walk-ins welcome** during business hours (subject to artist availability)\n\n**Appointments available** outside regular hours for special cases\n\n**Need a specific time?** I can check availability for you! 📅"
+    - text: "🕐 **Our Studio Hours:**\n\n**Tuesday - Thursday:** 11 AM - 8 PM\n**Friday - Saturday:** 11 AM - 9 PM\n**Sunday - Monday:** Closed\n\n**Walk-ins welcome** during business hours (subject to artist availability)\n\n**Appointments available** outside regular hours for special cases\n\n**Need a specific time?** I can check availability for you! 📅"
 
   utter_aftercare_instructions:
     - text: "🩹 **Aftercare is crucial for a great tattoo!** Here's what you need to know:\n\n**First 24-48 Hours:**\n• Keep bandage on for 2-4 hours\n• Wash gently with mild soap\n• Pat dry, don't rub\n• Apply thin layer of ointment\n\n**First Week:**\n• Wash 2-3 times daily\n• Apply ointment 2-3 times daily\n• Avoid swimming, sun, tight clothes\n• Don't pick or scratch\n\n**Healing Timeline:**\n• Scabbing: Days 3-7\n• Peeling: Days 7-14\n• Full healing: 2-4 weeks\n\n**Questions about aftercare?** I'm here to help! 🧴✨"
 
   utter_contact_information:
-    - text: "📞 **Alternative Tattoo Studio Contact Info:**\n\n**Phone:** (555) 987-6543\n**Text:** (555) 987-6543\n**Email:** hello@alternativetattoo.com\n**Address:** 456 Ink Street, Art District, AD 54321\n\n**Social Media:**\n• Instagram: @AlternativeTattoo\n• Facebook: Alternative Tattoo Studio\n• TikTok: @AlternativeTattoo\n\n**Need to reach us quickly?** Text is usually fastest! 📱💬"
+    - text: "📞 **Our Studio Contact Info:**\n\n**Phone:** (555) 987-6543\n**Text:** (555) 987-6543\n**Email:** hello@ourstudio.com\n**Address:** 456 Ink Street, Art District, AD 54321\n\n**Social Media:**\n• Instagram: @OurStudio\n• Facebook: Our Tattoo Studio\n• TikTok: @OurStudio\n\n**Need to reach us quickly?** Text is usually fastest! 📱💬"
 
   utter_special_offers:
     - text: "🎉 **Current Special Offers:**\n\n**Student Discount:** 15% off with valid ID\n**Military/Veteran:** 20% off all services\n**Referral Reward:** $25 credit for each friend\n**First Timer:** 10% off first tattoo\n**Birthday Month:** 15% off any service\n**Flash Friday:** $50 off select designs\n\n**Seasonal Promotions:**\n• Spring Cleaning: 20% off cover-ups\n• Summer Vibes: 15% off watercolor\n• Fall Colors: 10% off color tattoos\n\n**Want to know more about any offer?** Just ask! 🎁✨"
@@ -270,7 +270,7 @@ responses:
     - text: "⏱️ **Session duration depends on your design!** Here's the breakdown:\n\n**Short Sessions (1-2 hours):**\n• Small simple designs\n• Basic linework\n• Minimal color\n• Good for first tattoos\n• Less expensive\n\n**Medium Sessions (2-4 hours):**\n• Detailed designs\n• Color work\n• Moderate complexity\n• Most popular choice\n• Good value\n\n**Long Sessions (4-6 hours):**\n• Complex designs\n• Full color work\n• Large pieces\n• Multiple techniques\n• Professional results\n\n**Extended Sessions (6+ hours):**\n• Sleeve work\n• Full back pieces\n• Masterpiece level\n• Multiple sessions recommended\n• Premium pricing\n\n**Session Factors:**\n• Design complexity\n• Artist speed\n• Your pain tolerance\n• Studio scheduling\n\n**How long can you sit?** This helps determine your options! 🪑⏰"
 
   utter_studio_location:
-    - text: "📍 **Alternative Tattoo Studio Location:**\n\n**Address:** 456 Ink Street, Art District, AD 54321\n\n**Getting Here:**\n• **By Car:** Free parking in back lot\n• **By Bus:** Routes 15, 22, 33 stop nearby\n• **By Train:** Art District Station (5 min walk)\n• **By Bike:** Bike racks available\n\n**Nearby Landmarks:**\n• Art District Gallery (2 blocks)\n• Coffee Corner (next door)\n• Art Supply Store (across street)\n• Public Parking Garage (1 block)\n\n**Studio Features:**\n• Street-level access\n• Wheelchair accessible\n• Well-lit entrance\n• Security cameras\n• Easy to find\n\n**Need directions?** I can give you turn-by-turn! 🗺️✨"
+    - text: "📍 **Our Studio Location:**\n\n**Address:** 456 Ink Street, Art District, AD 54321\n\n**Getting Here:**\n• **By Car:** Free parking in back lot\n• **By Bus:** Routes 15, 22, 33 stop nearby\n• **By Train:** Art District Station (5 min walk)\n• **By Bike:** Bike racks available\n\n**Nearby Landmarks:**\n• Art District Gallery (2 blocks)\n• Coffee Corner (next door)\n• Art Supply Store (across street)\n• Public Parking Garage (1 block)\n\n**Studio Features:**\n• Street-level access\n• Wheelchair accessible\n• Well-lit entrance\n• Security cameras\n• Easy to find\n\n**Need directions?** I can give you turn-by-turn! 🗺️✨"
 
 actions:
   - action_session_start
