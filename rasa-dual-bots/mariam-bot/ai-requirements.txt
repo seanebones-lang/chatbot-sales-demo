@@ -1,0 +1,24 @@
+# AI Integration Requirements for Mariam Bot
+# Install with: pip install -r ai-requirements.txt
+
+# OpenAI API client
+openai>=0.28.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Enhanced logging
+colorlog>=6.7.0
+
+# Rate limiting (optional)
+ratelimit>=2.2.1
+
+# Async support (optional)
+aiohttp>=3.8.0
+asyncio>=3.4.3
+
+# Data validation
+pydantic>=1.10.0
+
+# Enhanced error handling
+tenacity>=8.2.0

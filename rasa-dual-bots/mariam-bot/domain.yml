@@ -39,6 +39,7 @@ intents:
   - generate_pricing_pdf
   - generate_proposal_pdf
   - send_follow_up_materials
+  - provide_email
 
 entities:
   - business_type
@@ -49,6 +50,7 @@ entities:
   - location
   - contact_method
   - use_case
+  - email
 
 slots:
   business_type:
@@ -91,6 +93,11 @@ slots:
     mappings:
     - type: from_entity
       entity: use_case
+  email:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: email
 
 responses:
   utter_greet:
@@ -186,6 +193,8 @@ actions:
   - action_session_start
   - action_business_analysis
   - action_pricing_inquiry
+  - action_offer_pricing_pdf
+  - action_capture_email
   - action_veteran_discounts
   - action_schedule_demo
   - action_start_free_trial
@@ -199,6 +208,7 @@ actions:
   - action_implementation_timeline
   - action_default_fallback
   - action_generate_sales_materials
+  - action_generate_pricing_pdf
   - action_send_follow_up_materials
   - action_session_end
 

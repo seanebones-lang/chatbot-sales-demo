@@ -40,11 +40,17 @@ stories:
     steps:
       - intent: pricing_inquiry
       - action: action_pricing_inquiry
-      # - intent: ask_package_details  # REMOVED - not in domain
-      # - action: action_package_details  # REMOVED - not in domain
-      # - intent: ask_veteran_discounts  # REMOVED - not in domain
-      # - action: action_veteran_discounts  # REMOVED - not in domain
-      - intent: schedule_demo
+      - action: action_offer_pricing_pdf
+      - intent: generate_pricing_pdf
+      - action: action_generate_pricing_pdf
+      - action: action_schedule_demo
+
+  # Email Capture for Pricing PDF
+  - story: email capture for pricing
+    steps:
+      - intent: provide_email
+      - action: action_capture_email
+      - action: action_generate_pricing_pdf
       - action: action_schedule_demo
 
   # Demo and Trial Flow

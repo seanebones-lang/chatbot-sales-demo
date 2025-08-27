@@ -77,6 +77,47 @@ class ActionPricingInquiry(Action):
         dispatcher.utter_message(text=response)
         return []
 
+class ActionOfferPricingPdf(Action):
+    def name(self) -> Text:
+        return "action_offer_pricing_pdf"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        response = """📄 **Get Your Complete Pricing Guide!**
+
+I'd love to send you a detailed pricing PDF with:
+• Complete plan breakdowns
+• Feature comparisons
+• ROI calculations for your industry
+• Custom pricing options
+• Veteran discount details
+• Implementation timeline
+
+**To get your personalized pricing guide, I'll need your email address.**
+
+**Would you like me to generate and email you the pricing PDF?** Just say "yes" or "send me the pricing guide" and I'll capture your email to send it right over!"""
+        
+        dispatcher.utter_message(text=response)
+        return []
+
+class ActionCaptureEmail(Action):
+    def name(self) -> Text:
+        return "action_capture_email"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Extract email from the latest message
+        email = None
+        for entity in tracker.latest_message.get('entities', []):
+            if entity['entity'] == 'email':
+                email = entity['value']
+                break
+        
+        if email:
+            # Store email in slot
+            return [SlotSet("email", email)]
+        else:
+            dispatcher.utter_message(text="I didn't catch your email address. Could you please provide it again?")
+            return []
+
 class ActionVeteranDiscounts(Action):
     def name(self) -> Text:
         return "action_veteran_discounts"

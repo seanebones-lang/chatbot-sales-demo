@@ -44,10 +44,10 @@ rules:
       - intent: business_consultation
       - action: utter_business_consultation
 
-  - rule: Pricing inquiry flow
-    steps:
-      - intent: pricing_inquiry
-      - action: action_pricing_inquiry
+  # - rule: Pricing inquiry flow  # REMOVED - conflicting with story
+  #   steps:
+  #     - intent: pricing_inquiry
+  #     - action: action_pricing_inquiry
 
   - rule: Schedule demo flow
     steps:
@@ -151,15 +151,15 @@ rules:
   #     - action: utter_ask_clarification
 
   # Sales Material Generation Rules
-  - rule: Generate pricing PDF flow
-    steps:
-      - intent: generate_pricing_pdf
-      - action: action_generate_sales_materials
+  # - rule: Generate pricing PDF flow  # REMOVED - conflicting with story
+  #   steps:
+  #     - intent: generate_pricing_pdf
+  #     - action: action_generate_sales_materials
 
-  - rule: Generate proposal PDF flow
-    steps:
-      - intent: generate_proposal_pdf
-      - action: action_generate_sales_materials
+  # - rule: Generate proposal PDF flow  # REMOVED - conflicting with story
+  #   steps:
+  #     - intent: generate_proposal_pdf
+  #     - action: action_generate_sales_materials
 
   - rule: Send follow up materials flow
     steps:

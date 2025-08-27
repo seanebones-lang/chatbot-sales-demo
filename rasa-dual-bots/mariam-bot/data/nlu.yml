@@ -489,6 +489,21 @@ nlu:
       - pricing pdf materials
       - pricing pdf information
       - pricing pdf details
+      - yes
+      - send me the pricing guide
+      - i want the pricing pdf
+      - please send the pricing guide
+      - can you send me the pricing pdf
+      - i'd like the pricing guide
+      - send pricing guide
+      - pricing guide please
+      - yes send it
+      - sure send the pdf
+      - absolutely send the pricing guide
+      - i need the pricing pdf
+      - get me the pricing guide
+      - pricing pdf now
+      - send pricing now
 
   - intent: generate_proposal_pdf
     examples: |
