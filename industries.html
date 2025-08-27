@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries - NextEleven AI Chatbot Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+            color: #E5E5E5;
+            line-height: 1.4;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .enterprise-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: #121212;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px 16px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 4px 0 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 14px 18px;
+            color: #B0B0B0;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: #1E90FF;
+            color: #FFFFFF;
+        }
+
+        .sidebar-cta-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            background: #1E90FF;
+            color: #FFFFFF;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-cta-btn:hover {
+            background: #1976D2;
+        }
+
+        .sidebar-cta-btn.secondary {
+            background: transparent;
+            border: 1px solid #1E90FF;
+            color: #1E90FF;
+        }
+
+        .sidebar-cta-btn.secondary:hover {
+            background: #1E90FF;
+            color: #FFFFFF;
+        }
+
+        .demo-link {
+            display: block;
+            padding: 12px 16px;
+            color: #B0B0B0;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .demo-link:hover {
+            background: rgba(30, 144, 255, 0.2);
+            border-color: #1E90FF;
+            color: #FFFFFF;
+            transform: translateX(4px);
+        }
+
+        .content-section {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #1E90FF, #00CED1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: #B0B0B0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .industry-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            border-color: #1E90FF;
+        }
+
+        .industry-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .industry-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+        }
+
+        .industry-card p {
+            color: #B0B0B0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .industry-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .industry-features li {
+            color: #B0B0B0;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .industry-features li::before {
+            content: '🎯';
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #1E90FF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #00CED1;
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="enterprise-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>NextEleven</h3>
+                <p>AI Chatbot Solutions</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">← Back to Home</a></li>
+                    <li><a href="overview.html" class="nav-link">Overview</a></li>
+                    <li><a href="solutions.html" class="nav-link">Solutions</a></li>
+                    <li><a href="industries.html" class="nav-link active">Industries</a></li>
+                    <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="company.html" class="nav-link">Company</a></li>
+                </ul>
+            </nav>
+            
+            <div class="demo-links">
+                <h4>Live Demos</h4>
+                <ul class="demo-menu">
+                    <li><a href="tattoo-demo.html" class="demo-link">🎨 Tattoo Studio Bot</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-cta">
+                <a href="#demo" class="sidebar-cta-btn">Schedule Demo</a>
+                <a href="#trial" class="sidebar-cta-btn secondary">Free Trial</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            
+            <div class="content-section">
+                <div class="hero-section">
+                    <h1>Industry Solutions</h1>
+                    <p>Tailored AI chatbot solutions designed specifically for your industry's unique challenges and requirements.</p>
+                </div>
+
+                <div class="industries-grid">
+                    <div class="industry-card">
+                        <span class="industry-icon">🏥</span>
+                        <h3>Healthcare</h3>
+                        <p>Patient appointment scheduling, medical information, and HIPAA-compliant communication systems.</p>
+                        <ul class="industry-features">
+                            <li>Appointment booking & reminders</li>
+                            <li>Medical FAQ responses</li>
+                            <li>Insurance verification</li>
+                            <li>Emergency contact routing</li>
+                        </ul>
+                    </div>
+
+                    <div class="industry-card">
+                        <span class="industry-icon">🛍️</span>
+                        <h3>Retail & E-commerce</h3>
+                        <p>Customer service, product recommendations, and seamless shopping experiences.</p>
+                        <ul class="industry-features">
+                            <li>Product search & recommendations</li>
+                            <li>Order tracking & support</li>
+                            <li>Inventory inquiries</li>
+                            <li>Returns & exchanges</li>
+                        </ul>
+                    </div>
+
+                    <div class="industry-card">
+                        <span class="industry-icon">🚗</span>
+                        <h3>Automotive</h3>
+                        <p>Service scheduling, vehicle information, and dealership support automation.</p>
+                        <ul class="industry-features">
+                            <li>Service appointment booking</li>
+                            <li>Vehicle maintenance reminders</li>
+                            <li>Parts & service inquiries</li>
+                            <li>Test drive scheduling</li>
+                        </ul>
+                    </div>
+
+                    <div class="industry-card">
+                        <span class="industry-icon">🍽️</span>
+                        <h3>Restaurant & Hospitality</h3>
+                        <p>Reservation management, menu information, and guest service automation.</p>
+                        <ul class="industry-features">
+                            <li>Table reservations</li>
+                            <li>Menu & pricing info</li>
+                            <li>Special dietary requests</li>
+                            <li>Event booking</li>
+                        </ul>
+                    </div>
+
+                    <div class="industry-card">
+                        <span class="industry-icon">🎨</span>
+                        <h3>Creative Services</h3>
+                        <p>Portfolio showcases, appointment booking, and client consultation scheduling.</p>
+                        <ul class="industry-features">
+                            <li>Portfolio & pricing display</li>
+                            <li>Consultation booking</li>
+                            <li>Project status updates</li>
+                            <li>Client feedback collection</li>
+                        </ul>
+                    </div>
+
+                    <div class="industry-card">
+                        <span class="industry-icon">🏢</span>
+                        <h3>Professional Services</h3>
+                        <p>Client intake, appointment scheduling, and service information automation.</p>
+                        <ul class="industry-features">
+                            <li>Client consultation booking</li>
+                            <li>Service information</li>
+                            <li>Document collection</li>
+                            <li>Billing inquiries</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
