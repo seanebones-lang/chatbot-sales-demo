@@ -1,0 +1,11 @@
+# Simple endpoints file for local development - no environment variables
+
+# Action server endpoint
+action_endpoint:
+  url: "http://localhost:5059/webhook"
+
+# Tracker store (in-memory for local development)
+tracker_store:
+  type: InMemoryTrackerStore
+
+# No external services - everything local

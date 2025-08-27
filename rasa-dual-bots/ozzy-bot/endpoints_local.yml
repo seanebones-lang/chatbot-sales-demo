@@ -1,0 +1,13 @@
+# Local development endpoints for Ozzy Tattoo Bot
+
+# Action server endpoint
+action_endpoint:
+  url: "http://localhost:5059/webhook"
+
+# Tracker store (in-memory for local development)
+tracker_store:
+  type: InMemoryTrackerStore
+
+# Event broker (disabled for local development)
+# event_broker:
+#   url: ${EVENT_BROKER_URL}

@@ -19,10 +19,140 @@
         }
 
         .enterprise-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
             background-color: #121212;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .sidebar {
+            background-color: #181818;
+            border-radius: 15px;
+            border: 1px solid #444444;
+            padding: 25px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar h3 {
+            color: #F0F0F0;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #FF1493;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-section h4 {
+            color: #00CED1;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-left: 3px solid #00CED1;
+            padding-left: 10px;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar-list li {
+            color: #E0E0E0;
+            padding: 8px 0;
+            border-bottom: 1px solid #333333;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-list li:hover {
+            color: #FF1493;
+            padding-left: 10px;
+            border-bottom-color: #FF1493;
+        }
+
+        .sidebar-stats {
+            background: linear-gradient(135deg, #1E1E1E, #2A2A2A);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #444444;
+        }
+
+        .sidebar-stats h4 {
+            color: #FF1493;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .stat-item-sidebar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #333333;
+        }
+
+        .stat-item-sidebar:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label-sidebar {
+            color: #E0E0E0;
+            font-size: 0.9rem;
+        }
+
+        .stat-value-sidebar {
+            color: #00CED1;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .chat-section {
+            background-color: #181818;
+            border-radius: 15px;
+            border: 1px solid #444444;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .return-link-section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #444444;
+        }
+
+        .return-link {
+            display: block;
+            background: linear-gradient(135deg, #FF1493, #00CED1);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 0 10px rgba(255, 20, 147, 0.3),
+                0 0 20px rgba(0, 206, 209, 0.2);
+        }
+
+        .return-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 5px 15px rgba(255, 20, 147, 0.5),
+                0 0 25px rgba(0, 206, 209, 0.4);
+            background: linear-gradient(135deg, #FF69B4, #20E6E6);
         }
 
         .header-section {
@@ -597,25 +727,107 @@
 </head>
 <body>
     <div class="enterprise-container">
-        <div class="chat-interface">
-            <div class="chat-header">
-                <h2>💬 Ozzy - Your Tattoo Studio Assistant</h2>
-                <p>Ask me about appointments, designs, pricing, or studio services</p>
+        <!-- Neon Header Section -->
+        <div class="header-section">
+            <div class="neon-sign">
+                <div class="neon-text">ALTERNATIVE</div>
+                <div class="neon-subtitle">TATTOO STUDIO</div>
+                <div class="neon-glow"></div>
             </div>
+            <h1>AI-Powered Tattoo Studio Assistant</h1>
+            <p>Experience the future of tattoo studio customer service with our intelligent AI chatbot. Get instant answers about appointments, artist portfolios, pricing, and more.</p>
+        </div>
 
-            <div class="chat-messages" id="chatMessages">
-                <div class="message bot-message">
-                    <div class="message-content">
-                        Hi there! I'm Ozzy, your AI assistant for tattoo studio services. I can help you book appointments, discuss designs, check pricing, and answer any questions about our studio. What would you like to know?
-                        <div class="message-time">Just now</div>
+        <div class="main-layout">
+            <!-- Left Sidebar -->
+            <div class="sidebar">
+                <div class="return-link-section">
+                    <a href="index.html" class="return-link">← Back to Landing Page</a>
+                </div>
+                
+                <h3>🎨 Studio Info</h3>
+                
+                <div class="sidebar-section">
+                    <h4>📍 Location</h4>
+                    <ul class="sidebar-list">
+                        <li>123 Tattoo Street</li>
+                        <li>Downtown District</li>
+                        <li>Easy parking available</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4>🕒 Hours</h4>
+                    <ul class="sidebar-list">
+                        <li>Tuesday - Thursday: 11 AM - 8 PM</li>
+                        <li>Friday - Saturday: 11 AM - 9 PM</li>
+                        <li>Sunday - Monday: Closed</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4>👨‍🎨 Artists</h4>
+                    <ul class="sidebar-list">
+                        <li>Mike - Traditional & Japanese</li>
+                        <li>Sarah - Fine Line & Minimalist</li>
+                        <li>Jake - Black & Grey Realism</li>
+                        <li>Emma - Watercolor & Abstract</li>
+                        <li>Alex - Geometric & Tribal</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4>💰 Pricing</h4>
+                    <ul class="sidebar-list">
+                        <li>Small: $100 - $200</li>
+                        <li>Medium: $200 - $400</li>
+                        <li>Large: $400+</li>
+                        <li>Custom Design: +$50-100</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-stats">
+                    <h4>📊 Studio Stats</h4>
+                    <div class="stat-item-sidebar">
+                        <span class="stat-label-sidebar">Years Experience</span>
+                        <span class="stat-value-sidebar">15+</span>
+                    </div>
+                    <div class="stat-item-sidebar">
+                        <span class="stat-label-sidebar">Happy Clients</span>
+                        <span class="stat-value-sidebar">2000+</span>
+                    </div>
+                    <div class="stat-item-sidebar">
+                        <span class="stat-label-sidebar">Tattoos Done</span>
+                        <span class="stat-value-sidebar">5000+</span>
+                    </div>
+                    <div class="stat-item-sidebar">
+                        <span class="stat-label-sidebar">Rating</span>
+                        <span class="stat-value-sidebar">4.9/5</span>
                     </div>
                 </div>
             </div>
 
-            <div class="chat-input-area">
-                <div class="input-group">
-                    <input type="text" id="messageInput" class="message-input" placeholder="Ask me about tattoo appointments, designs, or pricing..." maxlength="500">
-                    <button id="sendButton" class="send-button">Send</button>
+            <!-- Right Chat Section -->
+            <div class="chat-section">
+                <div class="chat-header">
+                    <h2>💬 Ozzy - Your Tattoo Studio Assistant</h2>
+                    <p>Ask me about appointments, designs, pricing, or studio services</p>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-content">
+                            Hi there! I'm Ozzy, your AI assistant for tattoo studio services. I can help you book appointments, discuss designs, check pricing, and answer any questions about our studio. What would you like to know?
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <div class="input-group">
+                        <input type="text" id="messageInput" class="message-input" placeholder="Ask me about tattoo appointments, designs, or pricing..." maxlength="500">
+                        <button id="sendButton" class="send-button">Send</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -829,49 +1041,78 @@
             showTypingIndicator();
             console.log('⏳ Typing indicator shown');
             
-            // Simulate processing time
-            setTimeout(() => {
+            // Send message to Rasa backend (tattoo bot)
+            fetch('http://localhost:5006/webhooks/rest/webhook', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    sender: 'user_' + Date.now(),
+                    message: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('✅ Rasa tattoo bot response received:', data);
+                
+                // Hide typing indicator
                 hideTypingIndicator();
                 console.log('⏳ Typing indicator hidden');
                 
-                // Find best response
+                // Add bot responses
+                if (data && data.length > 0) {
+                    data.forEach(response => {
+                        if (response.text) {
+                            addMessage(response.text, false);
+                        }
+                    });
+                } else {
+                    addMessage("I'm sorry, I didn't understand that. Could you please rephrase your question about tattoos?", false);
+                }
+                
+                // Add tattoo studio specific quick options for certain intents
                 const lowerMessage = message.toLowerCase();
-                console.log('🔍 Searching for response to:', lowerMessage);
-                let bestMatch = null;
-                let bestScore = 0;
+                if (lowerMessage.includes('book') || lowerMessage.includes('appointment') || lowerMessage.includes('consultation')) {
+                    addQuickOptions([
+                        'Book Consultation',
+                        'See Artist Portfolios',
+                        'Get Pricing Estimate',
+                        'Check Availability'
+                    ]);
+                    console.log('✅ Tattoo studio quick options added');
+                }
+            })
+            .catch(error => {
+                console.error('❌ Error connecting to Rasa tattoo bot:', error);
+                
+                // Hide typing indicator
+                hideTypingIndicator();
+                
+                // Fallback to local responses if Rasa is unavailable
+                addMessage("I'm having trouble connecting to my AI brain right now. Let me try to help you with what I know locally about tattoos.", false);
+                
+                // Try to find a local response as fallback
+                const lowerMessage = message.toLowerCase();
+                let fallbackResponse = null;
                 
                 for (const [key, response] of Object.entries(tattooResponses)) {
-                    console.log(`🔍 Checking keyword: "${key}" against message: "${lowerMessage}"`);
                     if (lowerMessage.includes(key.toLowerCase())) {
-                        console.log(`✅ Match found! Keyword: "${key}", Score: ${response.score}`);
-                        if (response.score > bestScore) {
-                            bestScore = response.score;
-                            bestMatch = response;
-                        }
+                        fallbackResponse = response.response;
+                        break;
                     }
                 }
                 
-                console.log(`🎯 Best match:`, bestMatch);
-                
-                if (bestMatch) {
-                    addMessage(bestMatch.response, false);
-                    console.log('✅ Bot response added to chat');
-                    
-                    // Add agency-level quick actions for tattoo studio specific needs
-                    if (bestMatch.stage === 'booking' || bestMatch.stage === 'consultation') {
-                        addQuickOptions([
-                            'Schedule Demo',
-                            'Start Free Trial',
-                            'See Pricing',
-                            'Technical Details'
-                        ]);
-                        console.log('✅ Quick options added');
-                    }
+                if (fallbackResponse) {
+                    setTimeout(() => {
+                        addMessage(fallbackResponse, false);
+                    }, 1000);
                 } else {
-                    console.log('❌ No match found, using unrecognized response');
-                    addMessage(tattooResponses['unrecognized'].response, false);
+                    setTimeout(() => {
+                        addMessage("I can help you with tattoo consultations, booking appointments, artist portfolios, pricing, and aftercare. What would you like to know about?", false);
+                    }, 1000);
                 }
-            }, 1000);
+            });
         }
 
         function sendUserMessage() {
