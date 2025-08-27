@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tattoo Studio AI Chatbot - NextEleven Demo</title>
+    <title>Tattoo Studio AI Chatbot Demo - NextEleven</title>
     <style>
         * {
             margin: 0;
@@ -491,6 +491,12 @@
             transform: none;
         }
 
+        .message-input:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background-color: #2A2A2A;
+        }
+
         .info-panel {
             background-color: #181818;
             border-radius: 15px;
@@ -673,12 +679,36 @@
                 padding: 10px;
             }
             
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .sidebar {
+                position: static;
+                order: 2;
+            }
+            
+            .chat-section {
+                order: 1;
+            }
+            
             .header-section h1 {
                 font-size: 2rem;
             }
             
             .header-section p {
                 font-size: 1rem;
+            }
+            
+            .neon-text {
+                font-size: 3rem;
+                letter-spacing: 4px;
+            }
+            
+            .neon-subtitle {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
             }
             
             .chat-messages {
@@ -730,8 +760,8 @@
         <!-- Neon Header Section -->
         <div class="header-section">
             <div class="neon-sign">
-                <div class="neon-text">ALTERNATIVE</div>
-                <div class="neon-subtitle">TATTOO STUDIO</div>
+                <div class="neon-text">TATTOO STUDIO</div>
+                <div class="neon-subtitle">AI ASSISTANT</div>
                 <div class="neon-glow"></div>
             </div>
             <h1>AI-Powered Tattoo Studio Assistant</h1>
@@ -745,64 +775,65 @@
                     <a href="index.html" class="return-link">← Back to Landing Page</a>
                 </div>
                 
-                <h3>🎨 Studio Info</h3>
+                <h3>🎨 Demo Features</h3>
                 
                 <div class="sidebar-section">
-                    <h4>📍 Location</h4>
+                    <h4>🤖 AI Capabilities</h4>
                     <ul class="sidebar-list">
-                        <li>123 Tattoo Street</li>
-                        <li>Downtown District</li>
-                        <li>Easy parking available</li>
+                        <li>Appointment booking</li>
+                        <li>Artist recommendations</li>
+                        <li>Pricing estimates</li>
+                        <li>Design consultations</li>
                     </ul>
                 </div>
 
                 <div class="sidebar-section">
-                    <h4>🕒 Hours</h4>
+                    <h4>💬 Conversation Types</h4>
                     <ul class="sidebar-list">
-                        <li>Tuesday - Thursday: 11 AM - 8 PM</li>
-                        <li>Friday - Saturday: 11 AM - 9 PM</li>
-                        <li>Sunday - Monday: Closed</li>
+                        <li>Greetings & introductions</li>
+                        <li>Service inquiries</li>
+                        <li>Pricing questions</li>
+                        <li>Aftercare information</li>
                     </ul>
                 </div>
 
                 <div class="sidebar-section">
-                    <h4>👨‍🎨 Artists</h4>
+                    <h4>🎯 Quick Actions</h4>
                     <ul class="sidebar-list">
-                        <li>Mike - Traditional & Japanese</li>
-                        <li>Sarah - Fine Line & Minimalist</li>
-                        <li>Jake - Black & Grey Realism</li>
-                        <li>Emma - Watercolor & Abstract</li>
-                        <li>Alex - Geometric & Tribal</li>
+                        <li>Book consultation</li>
+                        <li>See portfolios</li>
+                        <li>Get pricing</li>
+                        <li>Check availability</li>
                     </ul>
                 </div>
 
                 <div class="sidebar-section">
-                    <h4>💰 Pricing</h4>
+                    <h4>📱 Integration</h4>
                     <ul class="sidebar-list">
-                        <li>Small: $100 - $200</li>
-                        <li>Medium: $200 - $400</li>
-                        <li>Large: $400+</li>
-                        <li>Custom Design: +$50-100</li>
+                        <li>Website integration</li>
+                        <li>Mobile responsive</li>
+                        <li>Multi-platform</li>
+                        <li>Custom branding</li>
                     </ul>
                 </div>
 
                 <div class="sidebar-stats">
-                    <h4>📊 Studio Stats</h4>
+                    <h4>📊 Demo Stats</h4>
                     <div class="stat-item-sidebar">
-                        <span class="stat-label-sidebar">Years Experience</span>
-                        <span class="stat-value-sidebar">15+</span>
+                        <span class="stat-label-sidebar">Response Time</span>
+                        <span class="stat-value-sidebar">< 1s</span>
                     </div>
                     <div class="stat-item-sidebar">
-                        <span class="stat-label-sidebar">Happy Clients</span>
-                        <span class="stat-value-sidebar">2000+</span>
+                        <span class="stat-label-sidebar">Accuracy</span>
+                        <span class="stat-value-sidebar">95%+</span>
                     </div>
                     <div class="stat-item-sidebar">
-                        <span class="stat-label-sidebar">Tattoos Done</span>
-                        <span class="stat-value-sidebar">5000+</span>
+                        <span class="stat-label-sidebar">Languages</span>
+                        <span class="stat-value-sidebar">Multi</span>
                     </div>
                     <div class="stat-item-sidebar">
-                        <span class="stat-label-sidebar">Rating</span>
-                        <span class="stat-value-sidebar">4.9/5</span>
+                        <span class="stat-label-sidebar">Uptime</span>
+                        <span class="stat-value-sidebar">99.9%</span>
                     </div>
                 </div>
             </div>
@@ -839,12 +870,12 @@
 
         const tattooResponses = {
             'hello': {
-                response: "🎨 **Hello! Welcome to Ink & Iron Tattoo Studio!** I'm here to help you with everything you need.\n\n**How can I assist you today?**\n• Book an appointment\n• See artist portfolios\n• Get pricing information\n• Learn about our services\n• Check availability\n• Get aftercare help",
+                response: "🎨 **Hello! Welcome to our Tattoo Studio!** I'm here to help you with everything you need.\n\n**How can I assist you today?**\n• Book an appointment\n• See artist portfolios\n• Get pricing information\n• Learn about our services\n• Check availability\n• Get aftercare help",
                 score: 50,
                 stage: 'greeting'
             },
             'hi': {
-                response: "🎨 **Hi there! Welcome to Ink & Iron Tattoo Studio!** I'm your AI assistant, ready to help with all your tattoo needs.\n\n**What would you like to know about?**\n• Our artists and their styles\n• Appointment booking\n• Pricing and estimates\n• Services we offer\n• Studio policies\n• Aftercare information",
+                response: "🎨 **Hi there! Welcome to our Tattoo Studio!** I'm your AI assistant, ready to help with all your tattoo needs.\n\n**What would you like to know about?**\n• Our artists and their styles\n• Appointment booking\n• Pricing and estimates\n• Services we offer\n• Studio policies\n• Aftercare information",
                 score: 50,
                 stage: 'greeting'
             },
@@ -1064,6 +1095,12 @@
                 return;
             }
             
+            // Disable input and button during processing
+            const input = document.getElementById('messageInput');
+            const sendBtn = document.getElementById('sendButton');
+            if (input) input.disabled = true;
+            if (sendBtn) sendBtn.disabled = true;
+            
             // Add user message
             addMessage(message, true);
             console.log('✅ User message added to chat');
@@ -1090,6 +1127,10 @@
                 // Hide typing indicator
                 hideTypingIndicator();
                 console.log('⏳ Typing indicator hidden');
+                
+                // Re-enable input and button
+                if (input) input.disabled = false;
+                if (sendBtn) sendBtn.disabled = false;
                 
                 // Add bot responses
                 if (data && data.length > 0) {
@@ -1119,6 +1160,10 @@
                 
                 // Hide typing indicator
                 hideTypingIndicator();
+                
+                // Re-enable input and button
+                if (input) input.disabled = false;
+                if (sendBtn) sendBtn.disabled = false;
                 
                 // Fallback to local responses if Rasa is unavailable
                 addMessage("I'm having trouble connecting to my AI brain right now. Let me try to help you with what I know locally about tattoos.", false);
