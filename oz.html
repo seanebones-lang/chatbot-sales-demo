@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tattoos & Body Piercing By Ozzy - NextEleven Studios</title>
+    <title>Oz - Tattoo & Body Piercing Chatbot | NextEleven Chatbots</title>
     <style>
         /* Reset and base styles */
         * {
@@ -430,6 +430,20 @@
             text-decoration: underline;
         }
 
+        /* NextEleven attribution */
+        .next-eleven-attribution {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #666;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 10px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -453,8 +467,8 @@
     <!-- Mobile Navigation Bar -->
     <div class="nav-bar">
         <div class="nav-logo">
-            <div class="nav-logo-icon">N</div>
-            <div class="nav-logo-text">NextEleven</div>
+            <div class="nav-logo-icon">O</div>
+            <div class="nav-logo-text">Ozzy Fox</div>
         </div>
         <button class="nav-menu-btn" onclick="toggleMobileNav()">☰ Menu</button>
     </div>
@@ -463,8 +477,8 @@
     <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-header">
             <div class="nav-logo">
-                <div class="nav-logo-icon">N</div>
-                <div class="nav-logo-text">NextEleven</div>
+                <div class="nav-logo-icon">O</div>
+                <div class="nav-logo-text">Ozzy Fox</div>
             </div>
             <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
         </div>
@@ -486,7 +500,7 @@
             <h3>Live Demos</h3>
             <ul class="mobile-demo-links">
                 <li><a href="tattoo-demo.html">🎨 Tattoo Bot Demo</a></li>
-                <li><a href="blank-page.html">📄 This Page</a></li>
+                <li><a href="oz.html">🎯 Oz Chatbot</a></li>
             </ul>
         </div>
 
@@ -500,8 +514,8 @@
     <div class="main-content">
         <div class="container">
             <div class="page-header">
-                <h1 class="page-title">Tattoos & Body Piercing By Ozzy</h1>
-                <p class="page-subtitle">Your premier tattoo and piercing studio - where art meets skin and metal meets style!</p>
+                <h1 class="page-title">Oz</h1>
+                <p class="page-subtitle">Tattoo & Body Piercing Chatbot - Your premier tattoo and piercing studio - where art meets skin and metal meets style!</p>
             </div>
 
             <div class="content-section">
@@ -570,9 +584,9 @@
                             <button onclick="quickAction('consultation')" class="quick-btn">📞 Consultation</button>
                             <button onclick="quickAction('aftercare')" class="quick-btn">📋 Aftercare</button>
                             <button onclick="quickAction('portfolio')" class="quick-btn">🎨 Portfolio</button>
+                            <button onclick="quickAction('instagram')" class="quick-btn">📸 Instagram</button>
                             <button onclick="quickAction('location')" class="quick-btn">📍 Location</button>
                             <button onclick="quickAction('payment')" class="quick-btn">💳 Payment</button>
-                            <button onclick="quickAction('why')" class="quick-btn">🌟 Why Choose Ozzy</button>
                         </div>
                     </div>
                 </div>
@@ -585,8 +599,14 @@
                     <p><strong>💬 Text:</strong> Available 24/7</p>
                     <p><strong>📍 Location:</strong> Private studio - address provided upon booking</p>
                     <p><strong>⏰ Hours:</strong> Very flexible schedule available</p>
+                    <p><strong>📸 Instagram:</strong> <a href="https://instagram.com/ozzinks" target="_blank" class="contact-link">@ozzinks</a></p>
                 </div>
             </div>
+        </div>
+        
+        <!-- NextEleven Chatbots attribution -->
+        <div class="next-eleven-attribution">
+            <small>NextEleven Chatbots</small>
         </div>
     </div>
 
@@ -822,7 +842,8 @@
                     <li>Ring tattoos and finger designs</li>
                     <li>Large pieces and full sleeves</li>
                 </ul>
-                <p><strong>Portfolio Access:</strong> Examples will be sent via email or text after consultation.</p>`;
+                <p><strong>Portfolio Access:</strong> Examples will be sent via email or text after consultation.</p>
+                <p><strong>📸 Instagram:</strong> Check out my latest work at <a href="https://instagram.com/ozzinks" target="_blank" style="color: #00b4d8;">@ozzinks</a></p>`;
             }
             
             // Follow-up and support
@@ -854,6 +875,22 @@
                 <p><strong>Deposit:</strong> $100 non-refundable deposit required to book any appointment.</p>
                 <p><strong>Cancellation Policy:</strong> While any notice is appreciated, deposits are non-refundable without exception. This secures the time I have reserved exclusively for you.</p>
                 <p><strong>Final Payment:</strong> Due at the completion of your tattoo session.</p>`;
+            }
+            
+            // Instagram and social media
+            if (lowerMessage.includes('instagram') || lowerMessage.includes('social media') || lowerMessage.includes('social') || 
+                lowerMessage.includes('online') || lowerMessage.includes('ozzinks') || lowerMessage.includes('@ozzinks')) {
+                return `<p>📸 <strong>Instagram & Social Media:</strong></p>
+                <p><strong>Instagram:</strong> <a href="https://instagram.com/ozzinks" target="_blank" style="color: #00b4d8;">@ozzinks</a></p>
+                <p><strong>What you'll find:</strong></p>
+                <ul>
+                    <li>Latest tattoo work and designs</li>
+                    <li>Before and after photos</li>
+                    <li>Studio updates and availability</li>
+                    <li>Client testimonials and reviews</li>
+                    <li>Behind-the-scenes content</li>
+                </ul>
+                <p><strong>Follow @ozzinks</strong> to see my latest work and stay updated!</p>`;
             }
             
             // Why choose Ozzy
@@ -914,6 +951,9 @@
                     break;
                 case 'payment':
                     message = 'What payment methods do you accept?';
+                    break;
+                case 'instagram':
+                    message = 'What is your Instagram?';
                     break;
                 case 'why':
                     message = 'Why should I choose Ozzy Fox?';
