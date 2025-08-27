@@ -6,10 +6,22 @@ stories:
     steps:
       - intent: greet
       - action: utter_greet
-      - intent: ask_about_services
-      - action: utter_explain_services
-      - intent: ask_about_pricing
-      - action: action_pricing_inquiry
+
+  # Bot Self-Awareness Flows
+  - story: bot capabilities inquiry
+    steps:
+      - intent: bot_capabilities
+      - action: utter_bot_capabilities
+
+  - story: about me inquiry
+    steps:
+      - intent: about_me
+      - action: utter_about_me
+
+  - story: chatbot sales inquiry
+    steps:
+      - intent: chatbot_sales
+      - action: utter_chatbot_sales
 
   # Business Analysis Flow
   - story: business analysis consultation
@@ -28,10 +40,10 @@ stories:
     steps:
       - intent: pricing_inquiry
       - action: action_pricing_inquiry
-      - intent: ask_package_details
-      - action: action_package_details
-      - intent: ask_veteran_discounts
-      - action: action_veteran_discounts
+      # - intent: ask_package_details  # REMOVED - not in domain
+      # - action: action_package_details  # REMOVED - not in domain
+      # - intent: ask_veteran_discounts  # REMOVED - not in domain
+      # - action: action_veteran_discounts  # REMOVED - not in domain
       - intent: schedule_demo
       - action: action_schedule_demo
 
@@ -40,34 +52,34 @@ stories:
     steps:
       - intent: schedule_demo
       - action: action_schedule_demo
-      - intent: ask_demo_details
-      - action: utter_demo_details
-      - intent: start_free_trial
-      - action: action_start_free_trial
-      - intent: ask_trial_setup
-      - action: utter_trial_setup
+      # - intent: ask_demo_details  # REMOVED - not in domain
+      # - action: utter_demo_details  # REMOVED - not in domain
+      # - intent: start_free_trial  # REMOVED - not in domain
+      # - action: action_start_free_trial  # REMOVED - not in domain
+      # - intent: ask_trial_setup  # REMOVED - not in domain
+      # - action: utter_trial_setup  # REMOVED - not in domain
 
   # Technical Details Flow
   - story: technical consultation
     steps:
       - intent: technical_details
       - action: action_technical_details
-      - intent: ask_integration
-      - action: action_integration_details
-      - intent: ask_security
-      - action: action_security_details
-      - intent: ask_compliance
-      - action: action_compliance_details
+      # - intent: ask_integration  # REMOVED - not in domain
+      # - action: action_integration_details  # REMOVED - not in domain
+      # - intent: ask_security  # REMOVED - not in domain
+      # - action: action_security_details  # REMOVED - not in domain
+      # - intent: ask_compliance  # REMOVED - not in domain
+      # - action: action_compliance_details  # REMOVED - not in domain
 
   # Industry-Specific Flows
   - story: healthcare business consultation
     steps:
       - intent: healthcare_business
       - action: action_healthcare_specialist
-      - intent: ask_hipaa_compliance
-      - action: action_hipaa_details
-      - intent: ask_patient_communication
-      - action: action_patient_communication
+      # - intent: ask_hipaa_compliance  # REMOVED - not in domain
+      # - action: action_hipaa_details  # REMOVED - not in domain
+      # - intent: ask_patient_communication  # REMOVED - not in domain
+      # - action: action_patient_communication  # REMOVED - not in domain
       - intent: schedule_demo
       - action: action_schedule_demo
 
@@ -75,21 +87,21 @@ stories:
     steps:
       - intent: retail_business
       - action: action_retail_specialist
-      - intent: ask_inventory_management
-      - action: action_inventory_details
-      - intent: ask_customer_service
-      - action: action_customer_service
-      - intent: ask_pricing
-      - action: action_pricing_inquiry
+      # - intent: ask_inventory_management  # REMOVED - not in domain
+      # - action: action_inventory_details  # REMOVED - not in domain
+      # - intent: ask_customer_service  # REMOVED - not in domain
+      # - action: action_customer_service  # REMOVED - not in domain
+      # - intent: ask_pricing  # REMOVED - not in domain
+      # - action: action_pricing_inquiry  # REMOVED - not in domain
 
   - story: automotive business consultation
     steps:
       - intent: automotive_business
       - action: action_automotive_specialist
-      - intent: ask_service_scheduling
-      - action: action_service_scheduling
-      - intent: ask_parts_catalog
-      - action: action_parts_catalog
+      # - intent: ask_service_scheduling  # REMOVED - not in domain
+      # - action: action_service_scheduling  # REMOVED - not in domain
+      # - intent: ask_parts_catalog  # REMOVED - not in domain
+      # - action: action_parts_catalog  # REMOVED - not in domain
       - intent: schedule_demo
       - action: action_schedule_demo
 
@@ -97,22 +109,22 @@ stories:
     steps:
       - intent: restaurant_business
       - action: action_restaurant_specialist
-      - intent: ask_reservation_system
-      - action: action_reservation_system
-      - intent: ask_menu_support
-      - action: action_menu_support
-      - intent: ask_pricing
-      - action: action_pricing_inquiry
+      # - intent: ask_reservation_system  # REMOVED - not in domain
+      # - action: action_reservation_system  # REMOVED - not in domain
+      # - intent: ask_menu_support  # REMOVED - not in domain
+      # - action: action_menu_support  # REMOVED - not in domain
+      # - intent: ask_pricing  # REMOVED - not in domain
+      # - action: action_pricing_inquiry  # REMOVED - not in domain
 
   # Payment and Customer Retention Flow
   - story: payment and customer retention discussion
     steps:
-      - intent: ask_payment_options
-      - action: action_payment_options
+      # - intent: ask_payment_options  # REMOVED - not in domain
+      # - action: action_payment_options  # REMOVED - not in domain
       - intent: customer_retention
       - action: action_customer_retention
-      - intent: ask_implementation_timeline
-      - action: action_implementation_timeline
+      # - intent: ask_implementation_timeline  # REMOVED - not in domain
+      # - action: action_implementation_timeline  # REMOVED - not in domain
       - intent: schedule_demo
       - action: action_schedule_demo
 
@@ -121,36 +133,52 @@ stories:
     steps:
       - intent: veteran_discounts
       - action: action_veteran_discounts
-      - intent: ask_veteran_verification
-      - action: action_veteran_verification
-      - intent: ask_veteran_pricing
-      - action: action_veteran_pricing
-      - intent: schedule_veteran_consultation
-      - action: action_schedule_veteran_consultation
+      # - intent: ask_veteran_verification  # REMOVED - not in domain
+      # - action: action_veteran_verification  # REMOVED - not in domain
+      # - intent: ask_veteran_pricing  # REMOVED - not in domain
+      # - action: action_veteran_pricing  # REMOVED - not in domain
+      # - intent: schedule_veteran_consultation  # REMOVED - not in domain
+      # - action: action_schedule_veteran_consultation  # REMOVED - not in domain
 
   # Contact and Follow-up Flow
   - story: contact information and follow-up
     steps:
-      - intent: ask_contact_info
-      - action: action_contact_info
-      - intent: ask_follow_up
-      - action: action_follow_up
-      - intent: ask_support_hours
-      - action: action_support_hours
+      # - intent: ask_contact_info  # REMOVED - not in domain
+      # - action: action_contact_info  # REMOVED - not in domain
+      # - intent: ask_follow_up  # REMOVED - not in domain
+      # - action: action_follow_up  # REMOVED - not in domain
+      # - intent: ask_support_hours  # REMOVED - not in domain
+      # - action: action_support_hours  # REMOVED - not in domain
       - intent: goodbye
       - action: utter_goodbye
+
+  # Sales Material Generation Stories
+  - story: generate pricing pdf
+    steps:
+      - intent: generate_pricing_pdf
+      - action: action_generate_sales_materials
+
+  - story: generate proposal pdf
+    steps:
+      - intent: generate_proposal_pdf
+      - action: action_generate_sales_materials
+
+  - story: send follow up materials
+    steps:
+      - intent: send_follow_up_materials
+      - action: action_send_follow_up_materials
 
   # Fallback and Clarification
   - story: fallback and clarification
     steps:
-      - intent: nlu_fallback
-      - action: utter_ask_clarification
+      # - intent: nlu_fallback  # REMOVED - not in domain
+      # - action: utter_ask_clarification  # REMOVED - not in domain
       - intent: out_of_scope
       - action: utter_out_of_scope
-      - intent: deny
-      - action: utter_deny
-      - intent: affirm
-      - action: utter_affirm
+      # - intent: deny  # REMOVED - not in domain
+      # - action: utter_deny  # REMOVED - not in domain
+      # - intent: affirm  # REMOVED - not in domain
+      # - action: utter_affirm  # REMOVED - not in domain
 
   # Complex Multi-turn Conversations
   - story: comprehensive business consultation
@@ -163,11 +191,11 @@ stories:
       - action: action_business_analysis
       - intent: customer_retention
       - action: action_customer_retention
-      - intent: ask_pricing
-      - action: action_pricing_inquiry
+      # - intent: ask_pricing  # REMOVED - not in domain
+      # - action: action_pricing_inquiry  # REMOVED - not in domain
       - intent: schedule_demo
       - action: action_schedule_demo
-      - intent: ask_demo_details
-      - action: utter_demo_details
+      # - intent: ask_demo_details  # REMOVED - not in domain
+      # - action: utter_demo_details  # REMOVED - not in domain
       - intent: goodbye
       - action: utter_goodbye

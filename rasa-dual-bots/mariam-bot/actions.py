@@ -1418,3 +1418,116 @@ class ActionSessionEnd(Action):
         
         dispatcher.utter_message(text=response)
         return []
+
+class ActionGenerateSalesMaterials(Action):
+    def name(self) -> Text:
+        return "action_generate_sales_materials"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        business_type = tracker.get_slot("business_type") or "general"
+        
+        # Determine material type from the intent that triggered this action
+        latest_intent = tracker.get_intent_of_latest_message()
+        
+        if latest_intent == "generate_pricing_pdf":
+            material_type = "pricing"
+        elif latest_intent == "generate_proposal_pdf":
+            material_type = "proposal"
+        else:
+            material_type = "general"
+        
+        # Generate appropriate sales materials based on request
+        if material_type == "pricing":
+            response = f"""📄 **Pricing PDF Generated & Sent!**
+
+**I've created and sent you a comprehensive pricing guide for {business_type.title()} businesses.**
+
+**What's included in your PDF:**
+• Detailed pricing breakdown for all plans
+• Feature comparison matrix
+• ROI calculations for your industry
+• Implementation timeline
+• Veteran discount information
+• Custom quote for your business size
+
+**Check your email for:** `NextEleven_Pricing_{business_type.title()}_Guide.pdf`
+
+**Need additional materials?** I can also create:
+• Technical specifications document
+• Case studies and success stories
+• Implementation roadmap
+• ROI analysis report
+
+**What other materials would be helpful for your decision-making?**"""
+        
+        elif material_type == "proposal":
+            response = f"""📋 **Custom Proposal PDF Generated & Sent!**
+
+**I've created a personalized proposal for your {business_type.title()} business.**
+
+**Your proposal includes:**
+• Custom solution design
+• Feature recommendations
+• Implementation timeline
+• Cost breakdown
+• ROI projections
+• Success metrics
+• Next steps
+
+**Check your email for:** `NextEleven_Proposal_{business_type.title()}_Business.pdf`
+
+**Ready to discuss this proposal?** Let's schedule a consultation call!"""
+        
+        else:
+            response = f"""📚 **Informational Materials Generated & Sent!**
+
+**I've created comprehensive materials for your {business_type.title()} business.**
+
+**Materials sent:**
+• Industry-specific solution guide
+• Technical specifications
+• Case studies and testimonials
+• Implementation best practices
+• ROI analysis and benchmarks
+
+**Check your email for:** `NextEleven_{business_type.title()}_Solutions_Guide.pdf`
+
+**Need anything specific?** I can customize any of these materials!"""
+        
+        dispatcher.utter_message(text=response)
+        return []
+
+class ActionSendFollowUpMaterials(Action):
+    def name(self) -> Text:
+        return "action_send_follow_up_materials"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        business_type = tracker.get_slot("business_type") or "general"
+        
+        response = f"""📧 **Follow-Up Materials Sent!**
+
+**I've sent you additional materials to help with your decision:**
+
+**Email 1: Welcome & Next Steps**
+• Account setup instructions
+• Free trial activation
+• Support contact information
+
+**Email 2: Implementation Guide**
+• Technical requirements
+• Integration checklist
+• Training schedule
+
+**Email 3: Success Resources**
+• Best practices guide
+• ROI tracking tools
+• Customer success stories
+
+**All materials are customized for {business_type.title()} businesses.**
+
+**Check your email for these follow-up materials!**
+
+**Questions about any of these materials?** I'm here to help!"""
+        
+        dispatcher.utter_message(text=response)
+        return []

@@ -1,0 +1,526 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+    - good morning
+    - good afternoon
+    - good evening
+    - howdy
+    - greetings
+    - what's up
+    - sup
+    - yo
+    - hi there
+    - hello there
+    - hey there
+    - good day
+    - morning
+    - afternoon
+    - evening
+
+  - intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you
+    - see ya
+    - later
+    - talk to you later
+    - catch you later
+    - have a good day
+    - have a nice day
+    - take care
+    - cheers
+    - thanks bye
+    - thank you bye
+    - that's all
+    - that's it
+    - end chat
+    - stop
+    - exit
+
+  - intent: business_consultation
+  examples: |
+    - I need business help
+    - help with my business
+    - business consultation
+    - business advice
+    - business consultation
+    - business advice
+    - business strategy
+    - business planning
+    - business growth
+    - business strategy
+    - business planning
+    - business growth
+    - improve my business
+    - optimize my business
+    - business automation
+    - business solutions
+    - business consulting
+    - business support
+    - business guidance
+    - business coaching
+
+  - intent: business_analysis
+    examples: |
+      - analyze my business
+      - business analysis
+      - review my business
+      - assess my business
+      - evaluate my business
+      - business review
+      - business assessment
+      - business evaluation
+      - business audit
+      - business diagnosis
+      - business health check
+      - business performance review
+      - business improvement analysis
+      - business optimization analysis
+      - business growth analysis
+      - business efficiency analysis
+      - business productivity analysis
+      - business cost analysis
+      - business revenue analysis
+      - business market analysis
+
+  - intent: pricing_inquiry
+    examples: |
+      - how much does it cost
+      - what's the price
+      - pricing information
+      - cost details
+      - price list
+      - pricing structure
+      - how much is it
+      - what do you charge
+      - pricing plans
+      - cost breakdown
+      - price breakdown
+      - monthly cost
+      - annual cost
+      - subscription cost
+      - package pricing
+      - pricing options
+      - cost comparison
+      - price comparison
+      - affordable options
+      - budget friendly
+      - cost effective
+      - pricing tiers
+      - pricing levels
+      - cost per month
+      - price per month
+
+  - intent: schedule_demo
+    examples: |
+      - schedule a demo
+      - book a demo
+      - demo appointment
+      - schedule demonstration
+      - book demonstration
+      - demo booking
+      - schedule presentation
+      - book presentation
+      - demo scheduling
+      - demonstration scheduling
+      - presentation scheduling
+      - demo time
+      - demonstration time
+      - presentation time
+      - demo slot
+      - demonstration slot
+      - presentation slot
+      - demo availability
+      - demonstration availability
+      - presentation availability
+      - when can I see a demo
+      - when is the next demo
+      - demo schedule
+      - demonstration schedule
+      - presentation schedule
+
+  - intent: free_trial
+    examples: |
+      - free trial
+      - start free trial
+      - begin free trial
+      - sign up for free trial
+      - register for free trial
+      - free trial signup
+      - free trial registration
+      - free trial account
+      - free trial access
+      - free trial period
+      - free trial offer
+      - free trial version
+      - free trial software
+      - free trial platform
+      - free trial service
+      - free trial solution
+      - free trial chatbot
+      - free trial ai
+      - free trial automation
+      - free trial bot
+      - try for free
+      - test for free
+      - sample for free
+      - demo for free
+      - free sample
+
+  - intent: veteran_discounts
+    examples: |
+      - veteran discount
+      - military discount
+      - veteran benefits
+      - military benefits
+      - veteran pricing
+      - military pricing
+      - veteran rates
+      - military rates
+      - veteran special
+      - military special
+      - veteran offer
+      - military offer
+      - veteran deal
+      - military deal
+      - veteran savings
+      - military savings
+      - veteran pricing
+      - military pricing
+      - veteran program
+      - military program
+      - veteran support
+      - military support
+      - veteran assistance
+      - military assistance
+      - veteran help
+      - military help
+      - I'm a veteran
+      - I served in the military
+      - military service
+      - veteran status
+      - military status
+
+  - intent: technical_details
+    examples: |
+      - technical details
+      - technical specifications
+      - technical specs
+      - technical information
+      - technical data
+      - technical requirements
+      - technical features
+      - technical capabilities
+      - technical architecture
+      - technical design
+      - technical implementation
+      - technical setup
+      - technical configuration
+      - technical integration
+      - technical support
+      - technical documentation
+      - technical manual
+      - technical guide
+      - technical help
+      - technical assistance
+      - how does it work
+      - how is it built
+      - what technology
+      - what platform
+      - what systems
+      - integration details
+      - api information
+      - security features
+      - compliance details
+      - performance specs
+
+  - intent: healthcare_business
+    examples: |
+      - healthcare business
+      - medical practice
+      - medical office
+      - medical clinic
+      - medical center
+      - hospital
+      - healthcare practice
+      - healthcare office
+      - healthcare clinic
+      - healthcare center
+      - dental practice
+      - dental office
+      - dental clinic
+      - dental center
+      - veterinary practice
+      - veterinary office
+      - veterinary clinic
+      - veterinary center
+      - pharmacy
+      - medical supply
+      - healthcare supply
+      - medical equipment
+      - healthcare equipment
+      - medical services
+      - healthcare services
+      - patient care
+      - medical care
+      - healthcare care
+      - medical support
+      - healthcare support
+
+  - intent: retail_business
+    examples: |
+      - retail business
+      - retail store
+      - retail shop
+      - retail outlet
+      - retail location
+      - retail company
+      - retail operation
+      - retail enterprise
+      - retail establishment
+      - retail facility
+      - retail center
+      - retail mall
+      - retail plaza
+      - retail market
+      - retail vendor
+      - retail seller
+      - retail merchant
+      - retail trader
+      - retail dealer
+      - retail distributor
+      - retail supplier
+      - retail provider
+      - retail service
+      - retail solution
+      - retail platform
+      - retail system
+      - retail software
+      - retail technology
+      - retail automation
+      - retail optimization
+
+  - intent: automotive_business
+    examples: |
+      - automotive business
+      - auto business
+      - car business
+      - vehicle business
+      - auto repair
+      - car repair
+      - vehicle repair
+      - auto service
+      - car service
+      - vehicle service
+      - auto shop
+      - car shop
+      - vehicle shop
+      - auto center
+      - car center
+      - vehicle center
+      - auto dealership
+      - car dealership
+      - vehicle dealership
+      - auto parts
+      - car parts
+      - vehicle parts
+      - auto maintenance
+      - car maintenance
+      - vehicle maintenance
+      - auto sales
+      - car sales
+      - vehicle sales
+      - auto body
+      - car body
+      - vehicle body
+
+  - intent: restaurant_business
+    examples: |
+      - restaurant business
+      - restaurant
+      - cafe
+      - diner
+      - eatery
+      - food service
+      - food business
+      - dining business
+      - culinary business
+      - food establishment
+      - dining establishment
+      - culinary establishment
+      - food service business
+      - dining service business
+      - culinary service business
+      - food operation
+      - dining operation
+      - culinary operation
+      - food company
+      - dining company
+      - culinary company
+      - food enterprise
+      - dining enterprise
+      - culinary enterprise
+      - food facility
+      - dining facility
+      - culinary facility
+      - food center
+      - dining center
+      - culinary center
+
+  - intent: generate_pricing_pdf
+    examples: |
+      - generate pricing pdf
+      - create pricing pdf
+      - send pricing pdf
+      - pricing pdf
+      - pricing document
+      - pricing guide
+      - pricing brochure
+      - pricing materials
+      - pricing information pdf
+      - pricing breakdown pdf
+      - pricing comparison pdf
+      - pricing quote pdf
+      - pricing proposal pdf
+      - pricing sheet pdf
+      - pricing catalog pdf
+
+  - intent: generate_proposal_pdf
+    examples: |
+      - generate proposal pdf
+      - create proposal pdf
+      - send proposal pdf
+      - proposal pdf
+      - proposal document
+      - proposal guide
+      - custom proposal pdf
+      - business proposal pdf
+      - solution proposal pdf
+      - implementation proposal pdf
+      - project proposal pdf
+      - service proposal pdf
+      - quote proposal pdf
+      - detailed proposal pdf
+      - comprehensive proposal pdf
+
+  - intent: send_follow_up_materials
+    examples: |
+      - send follow up materials
+      - follow up materials
+      - additional materials
+      - more information
+      - send more materials
+      - follow up documents
+      - implementation guide
+      - setup instructions
+      - training materials
+      - success resources
+      - technical guide
+      - user manual
+      - best practices guide
+      - roi tracking tools
+      - customer success stories
+
+  - intent: implementation_timeline
+  examples: |
+    - implementation timeline
+    - implementation schedule
+    - implementation plan
+    - implementation roadmap
+    - implementation process
+    - implementation steps
+    - implementation phases
+    - implementation stages
+    - implementation duration
+    - implementation time
+    - implementation period
+    - implementation length
+    - implementation schedule
+    - implementation calendar
+    - implementation dates
+    - implementation deadlines
+    - implementation milestones
+    - implementation checkpoints
+    - implementation progress
+    - implementation status
+    - when will it be ready
+    - how long does it take
+    - what's the timeline
+    - what's the schedule
+    - what's the plan
+    - what's the process
+    - how many weeks
+    - how many months
+    - start date
+    - completion date
+
+  - intent: contact_info
+  examples: |
+    - contact information
+    - contact details
+    - contact info
+    - contact data
+    - contact address
+    - contact phone
+    - contact email
+    - contact website
+    - contact number
+    - contact person
+    - contact method
+    - contact way
+    - contact means
+    - contact channel
+    - contact option
+    - contact choice
+    - contact preference
+    - contact availability
+    - contact hours
+    - contact time
+    - how to contact
+    - how to reach
+    - how to get in touch
+    - how to reach out
+    - how to connect
+    - how to communicate
+    - how to message
+    - how to call
+    - how to email
+    - how to visit
+
+  - intent: out_of_scope
+  examples: |
+    - what's the weather like
+    - tell me a joke
+    - what time is it
+    - how old are you
+    - what's your favorite color
+    - can you sing
+    - what's the meaning of life
+    - tell me about politics
+    - what's the best movie
+    - how to cook pasta
+    - what's the capital of France
+    - solve this math problem
+    - translate this text
+    - what's the population of Tokyo
+    - how to fix a car
+    - what's the best restaurant
+    - how to lose weight
+    - what's the latest news
+    - how to play guitar
+    - what's the best book
+    - how to make money
+    - what's the best investment
+    - how to start a blog
+    - what's the best phone
+    - how to learn Spanish
+    - what's the best workout
+    - how to meditate
+    - what's the best diet
+    - how to sleep better

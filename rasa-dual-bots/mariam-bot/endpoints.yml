@@ -4,7 +4,7 @@
 # This is the server that runs your custom actions.
 # https://rasa.com/docs/rasa/custom-actions
 action_endpoint:
-  url: "http://localhost:5055/webhook"
+  url: "http://localhost:5058/webhook"
 
 # This is the server that runs your bot.
 # https://rasa.com/docs/rasa/deployment
@@ -15,60 +15,14 @@ server:
 
 # This is the server that runs your tracker store.
 # https://rasa.com/docs/rasa/tracker-stores
-tracker_store:
-  type: "redis"
-  url: "localhost"
-  port: 6379
-  db: 0
-  password: ""
-  use_ssl: false
+# Using in-memory tracker store for local development
+# tracker_store:
+#   type: "redis"
+#   url: "localhost"
+#   port: 6379
+#   db: 0
+#   password: ""
+#   use_ssl: false
 
-# This is the server that runs your NLG.
-# https://rasa.com/docs/rasa/nlg
-nlg:
-  url: "http://localhost:5056/nlg"
-
-# This is the server that runs your NLU.
-# https://rasa.com/docs/rasa/nlu
-nlu:
-  url: "http://localhost:5005/model/parse"
-
-# This is the server that runs your model.
-# https://rasa.com/docs/rasa/model-storage
-model:
-  url: "http://localhost:5005/model"
-  token: "mariam_token_2024"
-
-# This is the server that runs your webhooks.
-# https://rasa.com/docs/rasa/webhooks
-webhooks:
-  - name: "mariam_webhook"
-    url: "http://localhost:5005/webhooks/rest/webhook"
-    token: "mariam_webhook_token_2024"
-
-# This is the server that runs your channels.
-# https://rasa.com/docs/rasa/messaging-and-custom-channels
-channels:
-  - name: "rest"
-    url: "http://localhost:5005/webhooks/rest/webhook"
-    token: "mariam_rest_token_2024"
-  
-  - name: "telegram"
-    url: "http://localhost:5005/webhooks/telegram/webhook"
-    token: "mariam_telegram_token_2024"
-  
-  - name: "slack"
-    url: "http://localhost:5005/webhooks/slack/webhook"
-    token: "mariam_slack_token_2024"
-
-# This is the server that runs your analytics.
-# https://rasa.com/docs/rasa/analytics
-analytics:
-  url: "http://localhost:5005/analytics"
-  token: "mariam_analytics_token_2024"
-
-# This is the server that runs your monitoring.
-# https://rasa.com/docs/rasa/monitoring
-monitoring:
-  url: "http://localhost:5005/monitoring"
-  token: "mariam_monitoring_token_2024"
+# Simplified endpoints for local development
+# Remove complex configurations that might cause startup issues
