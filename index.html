@@ -2556,31 +2556,71 @@ Would you like me to show you how we can help your business grow?`;
             
             console.log('📧 Lead captured:', leadData);
             
-            // Simulate sending to backend (replace with your actual endpoint)
-            // sendLeadToBackend(leadData);
-            
-            // Show success message
-            document.getElementById('formSuccess').style.display = 'block';
-            
-            // Create personalized response based on interest
-            let personalizedResponse = `🎉 **Thank you, ${name}!** I've captured your information and will send you personalized details about our ${getInterestDisplayName(interest)} solution.`;
-            
-            if (message) {
-                personalizedResponse += `\n\nI've noted your specific needs: "${message}"`;
+            // Send lead to email service
+            sendLeadToEmailService(leadData);
+        }
+        
+        // Send lead to email service
+        async function sendLeadToEmailService(leadData) {
+            try {
+                // Show loading state
+                const submitBtn = document.querySelector('.form-submit-btn');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                
+                // Send to email API
+                const response = await fetch('http://localhost:5001/api/send-lead', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(leadData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Show success message
+                    document.getElementById('formSuccess').style.display = 'block';
+                    
+                    // Create personalized response
+                    let personalizedResponse = `🎉 **Thank you, ${leadData.name}!** I've captured your information and will send you personalized details about our ${getInterestDisplayName(leadData.interest)} solution.`;
+                    
+                    if (leadData.message) {
+                        personalizedResponse += `\n\nI've noted your specific needs: "${leadData.message}"`;
+                    }
+                    
+                    personalizedResponse += `\n\n**Next Steps:**\n• Check your email for detailed information\n• Schedule a free consultation call\n• Get access to our demo environment`;
+                    
+                    addBotMessage(personalizedResponse);
+                    
+                    // Show human escalation option
+                    document.getElementById('humanEscalation').style.display = 'block';
+                    
+                    console.log('✅ Lead sent successfully:', result);
+                    
+                } else {
+                    // Show error message
+                    alert(`Failed to send lead: ${result.error}`);
+                    console.error('❌ Lead sending failed:', result);
+                }
+                
+            } catch (error) {
+                console.error('❌ Error sending lead:', error);
+                alert('Failed to send lead. Please try again or contact us directly.');
+            } finally {
+                // Reset button state
+                const submitBtn = document.querySelector('.form-submit-btn');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Hide success message and reset form after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('formSuccess').style.display = 'none';
+                    document.getElementById('leadCaptureForm').reset();
+                }, 5000);
             }
-            
-            personalizedResponse += `\n\n**Next Steps:**\n• Check your email for detailed information\n• Schedule a free consultation call\n• Get access to our demo environment`;
-            
-            addBotMessage(personalizedResponse);
-            
-            // Show human escalation option
-            document.getElementById('humanEscalation').style.display = 'block';
-            
-            // Hide success message and reset form after 5 seconds
-            setTimeout(() => {
-                document.getElementById('formSuccess').style.display = 'none';
-                document.getElementById('leadCaptureForm').reset();
-            }, 5000);
         }
         
         // Helper function to get display names for interests
