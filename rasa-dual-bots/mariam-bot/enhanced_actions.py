@@ -354,3 +354,4 @@ class ActionEnhancedPricingInquiry(Action):
             'current_intent': 'pricing_inquiry',
             'entities': [entity.get('entity') for entity in tracker.latest_message.get('entities', [])]
         }
+

@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tattoos & Body Piercing By Ozzy - NextEleven Studios</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Mobile-first design */
+        .container {
+            padding: 1rem;
+            max-width: 100%;
+        }
+
+        /* Header styles */
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 50%, #023e8a 100%);
+            border-radius: 20px;
+            margin: 1rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 180, 216, 0.8);
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: #e0f2fe;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Navigation bar */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid #00b4d8;
+            padding: 1rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, #00b4d8, #0077b6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: white;
+        }
+
+        .nav-logo-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #00b4d8;
+        }
+
+        .nav-menu-btn {
+            background: none;
+            border: 2px solid #00b4d8;
+            color: #00b4d8;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu-btn:hover {
+            background: #00b4d8;
+            color: #000000;
+        }
+
+        /* Content sections */
+        .content-section {
+            background: linear-gradient(135deg, #001233 0%, #001845 100%);
+            border: 2px solid #00b4d8;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin: 1rem;
+            box-shadow: 0 0 30px rgba(0, 180, 216, 0.3);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #00b4d8;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(0, 180, 216, 0.6);
+        }
+
+        .section-content {
+            color: #ffffff;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+
+        .section-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+            color: #e0f2fe;
+        }
+
+        /* Mobile navigation menu */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            padding: 2rem 1rem;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.open {
+            display: flex;
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #00b4d8;
+        }
+
+        .mobile-nav-close {
+            background: none;
+            border: 2px solid #00b4d8;
+            color: #00b4d8;
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 1rem;
+        }
+
+        .mobile-nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1rem;
+            display: block;
+            background: rgba(0, 180, 216, 0.1);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .mobile-nav-links a:hover {
+            background: rgba(0, 180, 216, 0.2);
+            border-color: #00b4d8;
+            transform: translateX(10px);
+        }
+
+        .mobile-nav-section h3 {
+            color: #00b4d8;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .mobile-demo-links {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-demo-links li {
+            margin-bottom: 1rem;
+        }
+
+        .mobile-demo-links a {
+            color: #00b4d8;
+            text-decoration: none;
+            padding: 1rem;
+            display: block;
+            background: rgba(0, 180, 216, 0.1);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .mobile-demo-links a:hover {
+            background: rgba(0, 180, 216, 0.2);
+            border-color: #00b4d8;
+            transform: translateX(10px);
+        }
+
+        .mobile-cta-buttons {
+            margin-top: auto;
+        }
+
+        .mobile-cta-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00b4d8, #0077b6);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 180, 216, 0.4);
+        }
+
+        .mobile-cta-btn.secondary {
+            background: rgba(0, 180, 216, 0.1);
+            border: 2px solid #00b4d8;
+            color: #00b4d8;
+        }
+
+        .mobile-cta-btn.secondary:hover {
+            background: rgba(0, 180, 216, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 180, 216, 0.2);
+        }
+
+        /* Main content spacing for fixed nav */
+        .main-content {
+            margin-top: 80px;
+            padding-bottom: 2rem;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .page-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Chat Interface Styles */
+        .chat-container {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid #00b4d8;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .chat-messages {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bot-message {
+            align-items: flex-start;
+        }
+
+        .user-message {
+            align-items: flex-end;
+        }
+
+        .message-content {
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
+            color: white;
+            padding: 1rem;
+            border-radius: 15px;
+            max-width: 80%;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+        }
+
+        .user-message .message-content {
+            background: linear-gradient(135deg, #0077b6, #023e8a);
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid #00b4d8;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: #0077b6;
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
+        }
+
+        .chat-send-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, #00b4d8, #0077b6);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chat-send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.4);
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .quick-btn {
+            padding: 0.75rem;
+            background: rgba(0, 180, 216, 0.1);
+            border: 2px solid #00b4d8;
+            color: #00b4d8;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .quick-btn:hover {
+            background: rgba(0, 180, 216, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-link {
+            color: #00b4d8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #001233;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00b4d8;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0077b6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Navigation Bar -->
+    <div class="nav-bar">
+        <div class="nav-logo">
+            <div class="nav-logo-icon">N</div>
+            <div class="nav-logo-text">NextEleven</div>
+        </div>
+        <button class="nav-menu-btn" onclick="toggleMobileNav()">☰ Menu</button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <div class="nav-logo">
+                <div class="nav-logo-icon">N</div>
+                <div class="nav-logo-text">NextEleven</div>
+            </div>
+            <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
+        </div>
+
+        <div class="mobile-nav-section">
+            <h3>Navigation</h3>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="overview.html">📋 Overview</a></li>
+                <li><a href="solutions.html">💡 Solutions</a></li>
+                <li><a href="industries.html">🏭 Industries</a></li>
+                <li><a href="pricing.html">💰 Pricing</a></li>
+                <li><a href="resources.html">📚 Resources</a></li>
+                <li><a href="company.html">🏢 Company</a></li>
+            </ul>
+        </div>
+
+        <div class="mobile-nav-section">
+            <h3>Live Demos</h3>
+            <ul class="mobile-demo-links">
+                <li><a href="tattoo-demo.html">🎨 Tattoo Bot Demo</a></li>
+                <li><a href="blank-page.html">📄 This Page</a></li>
+            </ul>
+        </div>
+
+        <div class="mobile-cta-buttons">
+            <a href="index.html#get-started" class="mobile-cta-btn">🚀 Get Started</a>
+            <a href="pricing.html" class="mobile-cta-btn secondary">💰 View Pricing</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Tattoos & Body Piercing By Ozzy</h1>
+                <p class="page-subtitle">Your premier tattoo and piercing studio - where art meets skin and metal meets style!</p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">About Ozzy Fox Tattoo</h2>
+                <div class="section-content">
+                    <p>Welcome to Ozzy Fox Tattoo, where creativity meets craftsmanship. I'm a private studio artist specializing in:</p>
+                    <ul>
+                        <li>🎨 <strong>Custom Designs:</strong> Unique artwork tailored to your vision</li>
+                        <li>⚡ <strong>Traditional & Modern:</strong> Classic and contemporary styles</li>
+                        <li>🌟 <strong>Cover-up Work:</strong> Transform existing tattoos into masterpieces</li>
+                        <li>💎 <strong>Fine Line Art:</strong> Detailed and precise work</li>
+                        <li>🎭 <strong>Portrait Tattoos:</strong> Lifelike representations</li>
+                        <li>💍 <strong>Ring Tattoos:</strong> Including finger and ring designs</li>
+                    </ul>
+                    <p>Every piece tells a story - let me help you tell yours.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">Pricing & Services</h2>
+                <div class="section-content">
+                    <p><strong>Transparent pricing for quality work:</strong></p>
+                    <ul>
+                        <li>💰 <strong>Small Tattoos:</strong> Starting at $60</li>
+                        <li>💎 <strong>Medium Tattoos:</strong> $120 - $250</li>
+                        <li>🎨 <strong>Large Pieces:</strong> Starting at $250</li>
+                        <li>⚡ <strong>Full Sleeves:</strong> $1000 and up (depends on complexity)</li>
+                        <li>⏰ <strong>Hourly Rate:</strong> $100/hour</li>
+                    </ul>
+                    <p><strong>All forms of payment accepted:</strong> Cash, Credit/Debit Cards, Venmo, etc.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">Chat with Ozzy's Bot</h2>
+                <div class="section-content">
+                    <p>Get instant answers about pricing, book appointments, and more!</p>
+                    
+                    <!-- Chat Interface -->
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message bot-message">
+                                <div class="message-content">
+                                    <p>👋 Hi! I'm Ozzy's assistant. I can help you with:</p>
+                                    <ul>
+                                        <li>💰 Pricing information</li>
+                                        <li>📅 Booking appointments</li>
+                                        <li>💳 Taking deposits</li>
+                                        <li>📞 Scheduling consultations</li>
+                                        <li>📋 Aftercare instructions</li>
+                                        <li>🎨 Portfolio examples</li>
+                                    </ul>
+                                    <p>What would you like to know?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input-container">
+                            <input type="text" id="chatInput" placeholder="Type your message here..." class="chat-input">
+                            <button onclick="sendMessage()" class="chat-send-btn">Send</button>
+                        </div>
+                        
+                        <div class="quick-actions">
+                            <button onclick="quickAction('pricing')" class="quick-btn">💰 Pricing</button>
+                            <button onclick="quickAction('book')" class="quick-btn">📅 Book Now</button>
+                            <button onclick="quickAction('consultation')" class="quick-btn">📞 Consultation</button>
+                            <button onclick="quickAction('aftercare')" class="quick-btn">📋 Aftercare</button>
+                            <button onclick="quickAction('portfolio')" class="quick-btn">🎨 Portfolio</button>
+                            <button onclick="quickAction('location')" class="quick-btn">📍 Location</button>
+                            <button onclick="quickAction('payment')" class="quick-btn">💳 Payment</button>
+                            <button onclick="quickAction('why')" class="quick-btn">🌟 Why Choose Ozzy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="section-content">
+                    <p><strong>📱 Phone:</strong> <a href="tel:214-636-6092" class="contact-link">214-636-6092</a></p>
+                    <p><strong>💬 Text:</strong> Available 24/7</p>
+                    <p><strong>📍 Location:</strong> Private studio - address provided upon booking</p>
+                    <p><strong>⏰ Hours:</strong> Very flexible schedule available</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile navigation toggle
+        function toggleMobileNav() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('open');
+        }
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const navMenuBtn = document.querySelector('.nav-menu-btn');
+            
+            if (!mobileNav.contains(event.target) && !navMenuBtn.contains(event.target)) {
+                mobileNav.classList.remove('open');
+            }
+        });
+
+        // Close mobile nav when clicking on a link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileNav').classList.remove('open');
+            });
+        });
+
+        // Prevent body scroll when mobile nav is open
+        function toggleBodyScroll() {
+            const mobileNav = document.getElementById('mobileNav');
+            if (mobileNav.classList.contains('open')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Update body scroll when nav toggles
+        document.querySelector('.nav-menu-btn').addEventListener('click', toggleBodyScroll);
+        document.querySelector('.mobile-nav-close').addEventListener('click', toggleBodyScroll);
+
+        // Chatbot functionality
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+            
+            // Process message and get bot response
+            setTimeout(() => {
+                const response = processMessage(message);
+                addMessage(response, 'bot');
+            }, 500);
+        }
+
+        function addMessage(text, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            
+            if (sender === 'user') {
+                contentDiv.textContent = text;
+            } else {
+                contentDiv.innerHTML = text;
+            }
+            
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function processMessage(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            // Pricing questions - Comprehensive coverage
+            if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much') || 
+                lowerMessage.includes('small tattoo') || lowerMessage.includes('medium tattoo') || 
+                lowerMessage.includes('large tattoo') || lowerMessage.includes('sleeve') || 
+                lowerMessage.includes('hourly rate') || lowerMessage.includes('full sleeve')) {
+                return `<p>💰 <strong>Pricing Information:</strong></p>
+                <ul>
+                    <li><strong>Small Tattoos:</strong> Starting at $60</li>
+                    <li><strong>Medium Tattoos:</strong> $120 - $250</li>
+                    <li><strong>Large Pieces:</strong> Starting at $250</li>
+                    <li><strong>Full Sleeves:</strong> $1000 and up (depends on complexity and sessions)</li>
+                    <li><strong>Hourly Rate:</strong> $100/hour</li>
+                </ul>
+                <p><strong>Payment Methods:</strong> All forms accepted - Cash, Credit/Debit Cards, Venmo, etc.</p>
+                <p><strong>Deposit:</strong> $100 non-refundable deposit required to book any appointment.</p>`;
+            }
+            
+            // Availability and scheduling
+            if (lowerMessage.includes('available') || lowerMessage.includes('schedule') || lowerMessage.includes('when') || 
+                lowerMessage.includes('hours') || lowerMessage.includes('24/7') || lowerMessage.includes('flexible')) {
+                return `<p>⏰ <strong>Availability & Scheduling:</strong></p>
+                <p>I have a <strong>very flexible schedule available 24/7</strong>.</p>
+                <p>Contact me to find a time that works for you!</p>
+                <p><strong>Booking Process:</strong></p>
+                <ol>
+                    <li>Call or text <strong>214-636-6092</strong></li>
+                    <li>Check my availability</li>
+                    <li>Secure your date with a $100 deposit</li>
+                    <li>Receive preparation instructions</li>
+                </ol>`;
+            }
+            
+            // Sleeve specific questions
+            if (lowerMessage.includes('sleeve') || lowerMessage.includes('full sleeve') || lowerMessage.includes('arm sleeve')) {
+                return `<p>🎨 <strong>Full Sleeve Information:</strong></p>
+                <p>Sleeves are large, custom projects that typically cost <strong>$1000 and up</strong>.</p>
+                <p><strong>Final price depends on:</strong></p>
+                <ul>
+                    <li>Design complexity and detail</li>
+                    <li>Number of sessions required</li>
+                    <li>Size and coverage area</li>
+                    <li>Custom design elements</li>
+                </ul>
+                <p><strong>Process:</strong> We'll discuss your vision during consultation and provide a detailed quote.</p>`;
+            }
+            
+            // Consultation questions
+            if (lowerMessage.includes('consultation') || lowerMessage.includes('consult') || lowerMessage.includes('talk') || 
+                lowerMessage.includes('discuss') || lowerMessage.includes('quote') || lowerMessage.includes('estimate')) {
+                return `<p>📞 <strong>Consultations:</strong></p>
+                <p>Consultations are <strong>FREE</strong> and can be scheduled by calling or texting <strong>214-636-6092</strong>.</p>
+                <p><strong>During consultation we'll:</strong></p>
+                <ul>
+                    <li>Discuss your design idea and vision</li>
+                    <li>Review portfolio examples similar to your concept</li>
+                    <li>Get you a detailed price estimate</li>
+                    <li>Answer all your questions about the process</li>
+                    <li>Plan the best approach for your tattoo</li>
+                </ul>
+                <p><strong>No obligation</strong> - consultations are completely free!</p>`;
+            }
+            
+            // Finger/ring tattoos
+            if (lowerMessage.includes('finger') || lowerMessage.includes('ring tattoo') || lowerMessage.includes('ring finger')) {
+                return `<p>💍 <strong>Finger & Ring Tattoos:</strong></p>
+                <p><strong>Yes, I do ring tattoos!</strong> Including finger and ring finger designs.</p>
+                <p><strong>Important Notes:</strong></p>
+                <ul>
+                    <li>Finger tattoos require special care and attention</li>
+                    <li>Healing process may take longer</li>
+                    <li>Touch-ups may be needed more frequently</li>
+                    <li>I'll provide specific aftercare instructions</li>
+                </ul>
+                <p>Let's discuss your ring tattoo idea during consultation!</p>`;
+            }
+            
+            // Aftercare questions
+            if (lowerMessage.includes('aftercare') || lowerMessage.includes('care') || lowerMessage.includes('heal') || 
+                lowerMessage.includes('healing') || lowerMessage.includes('instructions') || lowerMessage.includes('pdf')) {
+                return `<p>📋 <strong>Aftercare Instructions:</strong></p>
+                <p>I will provide you with a <strong>detailed aftercare PDF guide</strong> after your appointment to ensure your tattoo heals perfectly.</p>
+                <p><strong>Key aftercare tips:</strong></p>
+                <ul>
+                    <li>Keep it clean and properly moisturized</li>
+                    <li>Avoid sun exposure and swimming</li>
+                    <li>Don't pick or scratch the healing area</li>
+                    <li>Follow the specific instructions provided in the PDF</li>
+                    <li>Contact me if you have any healing concerns</li>
+                </ul>
+                <p><strong>Follow-up:</strong> I'll check in to see how your healing is progressing!</p>`;
+            }
+            
+            // Preparation questions
+            if (lowerMessage.includes('prepare') || lowerMessage.includes('preparation') || lowerMessage.includes('before') || 
+                lowerMessage.includes('large tattoo') || lowerMessage.includes('ready')) {
+                return `<p>📝 <strong>Preparation Instructions:</strong></p>
+                <p>I will send you <strong>specific preparation instructions</strong> before your appointment, especially for large tattoos.</p>
+                <p><strong>General preparation tips:</strong></p>
+                <ul>
+                    <li>Stay well hydrated in the days leading up</li>
+                    <li>Eat a good meal before your appointment</li>
+                    <li>Wear comfortable clothing that allows access to the tattoo area</li>
+                    <li>Avoid alcohol 24 hours before</li>
+                    <li>Get a good night's sleep</li>
+                </ul>
+                <p>Detailed instructions will be sent to you after booking!</p>`;
+            }
+            
+            // Location questions
+            if (lowerMessage.includes('where') || lowerMessage.includes('location') || lowerMessage.includes('address') || 
+                lowerMessage.includes('studio') || lowerMessage.includes('private')) {
+                return `<p>📍 <strong>Location:</strong></p>
+                <p>I am a <strong>private studio artist</strong>. The physical address will be provided upon booking your appointment.</p>
+                <p><strong>Why private studio?</strong></p>
+                <ul>
+                    <li>Ensures privacy and security for all clients</li>
+                    <li>Personalized, focused experience</li>
+                    <li>Flexible scheduling without shop restrictions</li>
+                    <li>Comfortable, private environment</li>
+                </ul>
+                <p>Address details provided after deposit and booking confirmation.</p>`;
+            }
+            
+            // Booking and deposits
+            if (lowerMessage.includes('book') || lowerMessage.includes('appointment') || lowerMessage.includes('deposit') || 
+                lowerMessage.includes('secure') || lowerMessage.includes('reserve') || lowerMessage.includes('pay')) {
+                return `<p>📅 <strong>Booking & Deposits:</strong></p>
+                <p><strong>How to book your appointment:</strong></p>
+                <ol>
+                    <li>Call or text <strong>214-636-6092</strong></li>
+                    <li>We'll discuss your design idea and check availability</li>
+                    <li>Secure your date with a <strong>$100 non-refundable deposit</strong></li>
+                    <li>Receive preparation instructions and studio address</li>
+                    <li>Get appointment reminders and support</li>
+                </ol>
+                <p><strong>Deposit Policy:</strong> $100 non-refundable deposit secures your reserved time and is applied to your final cost.</p>
+                <p><strong>Payment Methods:</strong> All forms accepted - Cash, Credit/Debit Cards, Venmo, etc.</p>`;
+            }
+            
+            // Portfolio and examples
+            if (lowerMessage.includes('portfolio') || lowerMessage.includes('examples') || lowerMessage.includes('work') || 
+                lowerMessage.includes('pictures') || lowerMessage.includes('see') || lowerMessage.includes('show')) {
+                return `<p>🎨 <strong>Portfolio & Examples:</strong></p>
+                <p>I'll send you <strong>portfolio examples similar to your design idea</strong> during our consultation.</p>
+                <p><strong>My work includes:</strong></p>
+                <ul>
+                    <li>Custom designs tailored to your vision</li>
+                    <li>Traditional & modern styles</li>
+                    <li>Cover-up work and transformations</li>
+                    <li>Fine line art and detailed work</li>
+                    <li>Portrait tattoos and realistic pieces</li>
+                    <li>Ring tattoos and finger designs</li>
+                    <li>Large pieces and full sleeves</li>
+                </ul>
+                <p><strong>Portfolio Access:</strong> Examples will be sent via email or text after consultation.</p>`;
+            }
+            
+            // Follow-up and support
+            if (lowerMessage.includes('follow up') || lowerMessage.includes('support') || lowerMessage.includes('check in') || 
+                lowerMessage.includes('reminder') || lowerMessage.includes('review') || lowerMessage.includes('after')) {
+                return `<p>🔄 <strong>Follow-Up & Support:</strong></p>
+                <p>My service doesn't end when the tattoo is done:</p>
+                <ul>
+                    <li><strong>Appointment Reminders:</strong> I'll send a call or text to remind you of your upcoming appointment</li>
+                    <li><strong>Aftercare Check-Ins:</strong> I'll follow up to see how your healing is progressing</li>
+                    <li><strong>Question Support:</strong> Available to answer any healing or aftercare questions</li>
+                    <li><strong>Review Requests:</strong> I may kindly ask for a review if you're happy with your experience</li>
+                    <li><strong>Touch-up Support:</strong> Available for any needed adjustments</li>
+                </ul>
+                <p>I'm here to support you through the entire process!</p>`;
+            }
+            
+            // Payment and policies
+            if (lowerMessage.includes('payment') || lowerMessage.includes('cash') || lowerMessage.includes('card') || 
+                lowerMessage.includes('venmo') || lowerMessage.includes('policy') || lowerMessage.includes('cancellation')) {
+                return `<p>💳 <strong>Payment & Policies:</strong></p>
+                <p><strong>Payment Methods Accepted:</strong> All forms of payment are accepted:</p>
+                <ul>
+                    <li>Cash</li>
+                    <li>Credit/Debit Cards</li>
+                    <li>Venmo</li>
+                    <li>Other digital payment methods</li>
+                </ul>
+                <p><strong>Deposit:</strong> $100 non-refundable deposit required to book any appointment.</p>
+                <p><strong>Cancellation Policy:</strong> While any notice is appreciated, deposits are non-refundable without exception. This secures the time I have reserved exclusively for you.</p>
+                <p><strong>Final Payment:</strong> Due at the completion of your tattoo session.</p>`;
+            }
+            
+            // Why choose Ozzy
+            if (lowerMessage.includes('why choose') || lowerMessage.includes('difference') || lowerMessage.includes('special') || 
+                lowerMessage.includes('commitment') || lowerMessage.includes('goal') || lowerMessage.includes('trust')) {
+                return `<p>🌟 <strong>Why Choose Ozzy Fox?</strong></p>
+                <p>It's a competitive market, and I am genuinely grateful to every client who trusts me with their tattoo.</p>
+                <p><strong>My commitment to you:</strong></p>
+                <ul>
+                    <li><strong>Listen to your idea</strong> and work with you to create a design you'll love</li>
+                    <li>Provide a <strong>flexible, professional, and comfortable</strong> experience</li>
+                    <li>Offer <strong>clear communication</strong> and support throughout the entire process</li>
+                    <li>Deliver <strong>excellent art</strong> and outstanding customer care</li>
+                    <li>Be available <strong>24/7</strong> for scheduling and support</li>
+                </ul>
+                <p><strong>My goal:</strong> Earn your business by providing excellent art and outstanding customer care.</p>
+                <p><strong>Ready to get started?</strong> Contact me at <strong>214-636-6092</strong>!</p>`;
+            }
+            
+            // Default response with comprehensive help
+            return `<p>🤔 I'm not sure I understood that. I can help you with:</p>
+            <ul>
+                <li>💰 <strong>Pricing:</strong> Small ($60+) to full sleeves ($1000+)</li>
+                <li>📅 <strong>Booking:</strong> Appointments, deposits, scheduling</li>
+                <li>📞 <strong>Consultations:</strong> Free design discussions and quotes</li>
+                <li>📋 <strong>Aftercare:</strong> Healing instructions and PDF guides</li>
+                <li>🎨 <strong>Portfolio:</strong> Work examples and style options</li>
+                <li>📍 <strong>Location:</strong> Private studio details</li>
+                <li>⏰ <strong>Hours:</strong> 24/7 flexible scheduling</li>
+                <li>💳 <strong>Payment:</strong> All methods accepted</li>
+                <li>💍 <strong>Ring Tattoos:</strong> Including finger designs</li>
+            </ul>
+            <p><strong>Try asking about:</strong> pricing, booking, consultations, aftercare, or portfolio examples!</p>
+            <p><strong>Or call/text:</strong> <strong>214-636-6092</strong> for immediate assistance.</p>`;
+        }
+
+        function quickAction(action) {
+            let message = '';
+            
+            switch(action) {
+                case 'pricing':
+                    message = 'How much do tattoos cost?';
+                    break;
+                case 'book':
+                    message = 'How do I book an appointment?';
+                    break;
+                case 'consultation':
+                    message = 'I want to schedule a consultation';
+                    break;
+                case 'aftercare':
+                    message = 'What are the aftercare instructions?';
+                    break;
+                case 'portfolio':
+                    message = 'Can I see your portfolio examples?';
+                    break;
+                case 'location':
+                    message = 'Where are you located?';
+                    break;
+                case 'payment':
+                    message = 'What payment methods do you accept?';
+                    break;
+                case 'why':
+                    message = 'Why should I choose Ozzy Fox?';
+                    break;
+            }
+            
+            if (message) {
+                addMessage(message, 'user');
+                setTimeout(() => {
+                    const response = processMessage(message);
+                    addMessage(response, 'bot');
+                }, 500);
+            }
+        }
+
+        // Enter key to send message
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

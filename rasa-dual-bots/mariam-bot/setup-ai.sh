@@ -94,3 +94,4 @@ echo "🔧 To activate the environment in the future:"
 echo "   source ai-env/bin/activate"
 echo ""
 echo "📚 For more information, check the AI integration documentation"
+

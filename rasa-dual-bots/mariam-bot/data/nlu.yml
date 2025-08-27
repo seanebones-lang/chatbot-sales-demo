@@ -540,7 +540,6 @@ nlu:
       - setup instructions
       - training materials
       - success resources
-      - technical guide
       - user manual
       - best practices guide
       - roi tracking tools
@@ -574,6 +573,24 @@ nlu:
       - help team contact
       - assistance contact
       - contact assistance team
+
+  - intent: provide_email
+    examples: |
+      - my email is john@example.com
+      - email me at jane@company.com
+      - send to mike@business.org
+      - contact me at sarah@startup.co
+      - my email address is bob@enterprise.net
+      - reach me at lisa@corporation.com
+      - send the pdf to tom@agency.biz
+      - email address is david@consulting.com
+      - contact email is amy@partners.org
+      - my email is chris@ventures.co
+      - send to alex@innovations.net
+      - email me at rachel@solutions.com
+      - my email address is kevin@strategies.biz
+      - contact me at emma@growth.org
+      - send the guide to mark@scaling.co
 
   - intent: out_of_scope
     examples: |

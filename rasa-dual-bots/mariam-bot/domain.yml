@@ -27,7 +27,7 @@ intents:
   - technical_details
   
   # Contact
-  # - contact_info  # REMOVED - not used in stories
+  - contact_info
   
   # Veteran Benefits
   - veteran_discounts
@@ -40,6 +40,10 @@ intents:
   - generate_proposal_pdf
   - send_follow_up_materials
   - provide_email
+  
+  # Additional Intents
+  - free_trial
+  - implementation_timeline
 
 entities:
   - business_type
@@ -111,6 +115,9 @@ responses:
 
   utter_business_consultation:
     - text: "🏢 **Tell me about your business!** I'm excited to learn how we can help you grow.\n\n**I'd love to know:**\n• **Business type** (retail, healthcare, automotive, etc.)\n• **Current size** and growth stage\n• **Primary challenges** you're facing\n• **Goals** for the next 6-12 months\n• **Customer service** needs and volume\n\n**This helps me:**\n• Customize our solution for your needs\n• Design customer retention strategies\n• Design the perfect implementation plan\n• Show you relevant features and benefits\n\n**What type of business do you run?**"
+  
+  utter_business_analysis:
+    - text: "📊 **Let me analyze your business needs!**\n\n**Based on what you've shared, here's my analysis:**\n• **Growth opportunities** in your industry\n• **Customer service optimization** strategies\n• **Automation potential** for your processes\n• **ROI projections** for our solutions\n• **Implementation priorities** for your business\n\n**Next steps:**\n• Schedule a detailed consultation\n• Get your custom solution design\n• Start with a free trial\n• Receive your personalized proposal\n\n**What aspect would you like to explore first?**"
 
   utter_bot_capabilities:
     - text: "🚀 **I'm Mariam, your AI business consultant at NextEleven Studios!**\n\n**Here's what I can do for you:**\n• **Business Analysis** - Assess your current operations and identify growth opportunities\n• **AI Chatbot Solutions** - Design custom conversational AI for your business\n• **Sales Material Generation** - Create pricing PDFs, proposals, and informational materials\n• **Industry Specialization** - Healthcare, retail, automotive, and restaurant solutions\n• **Customer Retention** - Strategies to keep and grow your customer base\n• **Implementation Planning** - Complete setup and training for your team\n\n**What would you like to explore first?**"
@@ -179,38 +186,34 @@ responses:
   utter_ask_clarification:
     - text: "🤔 **I want to make sure I understand correctly.**\n\n**Could you clarify:**\n• What specific aspect you're asking about?\n• What's your main concern or goal?\n• What would be most helpful for you right now?"
   
-  # utter_explain_services:  # REMOVED - duplicate
-  # - text: "🔧 **Let me explain our comprehensive services:**\n\n**Core Solutions:**\n• **AI Chatbots** - Intelligent customer interaction\n• **Lead Generation** - Automated prospect capture\n• **Customer Service** - 24/7 support automation\n• **Sales Optimization** - Conversion improvement\n• **Process Automation** - Workflow streamlining\n\n**What specific service interests you most?**"
-  
   utter_demo_details:
     - text: "📋 **Here are the demo details:**\n\n**Demo Session Includes:**\n• **Live demonstration** of our platform\n• **Custom use case** analysis for your business\n• **Customer retention strategy** and growth analysis\n• **Implementation timeline** and roadmap\n• **Q&A session** with our experts\n\n**Duration:** 45-60 minutes\n**Format:** Video call or in-person\n**Cost:** Completely free\n\n**Ready to schedule your demo?**"
   
   utter_trial_setup:
     - text: "🚀 **Let's get your trial set up!**\n\n**Trial Setup Process:**\n• **Day 1:** Account creation and basic setup\n• **Day 2-3:** Custom configuration for your business\n• **Day 4-7:** Training and optimization\n• **Day 8-14:** Full usage and testing\n\n**What I need from you:**\n• Business name and type\n• Primary use case\n• Expected user volume\n• Preferred start date\n\n**What's your business name?**"
+  
+  utter_free_trial:
+    - text: "🚀 **Let's get your free trial started!**\n\n**What you'll get:**\n• **14-day free trial** with full access\n• **Custom configuration** for your business\n• **Training and support** included\n• **No credit card required**\n• **Easy setup** in under 30 minutes\n\n**To get started:**\n• Tell me your business name\n• What industry you're in\n• Your primary use case\n\n**What's your business name?**"
+  
+  # Add missing responses for intents
+  utter_pricing_inquiry:
+    - text: "💰 **Let me tell you about our pricing!**\n\n**Our Plans:**\n• **Starter:** $99/month - Perfect for small businesses\n• **Professional:** $299/month - Growing businesses with advanced needs\n• **Enterprise:** Custom pricing - Large organizations\n\n**What's included:**\n• AI chatbot setup and training\n• 24/7 customer support\n• Integration assistance\n• Analytics and reporting\n• Veteran discounts available\n\n**Would you like me to generate a detailed pricing PDF for you?**"
+    - text: "💵 **Here's our transparent pricing structure:**\n\n**Monthly Plans:**\n• **Basic:** $99 - Up to 1,000 conversations/month\n• **Standard:** $199 - Up to 5,000 conversations/month\n• **Premium:** $299 - Up to 15,000 conversations/month\n• **Enterprise:** Custom - Unlimited conversations\n\n**All plans include:**\n• Full AI chatbot functionality\n• Multi-channel support\n• Analytics dashboard\n• 24/7 technical support\n• Veteran pricing available\n\n**What's your business size and expected usage?**"
+  
+  utter_schedule_demo:
+    - text: "📅 **I'd love to schedule a demo for you!**\n\n**Demo Details:**\n• **Duration:** 45-60 minutes\n• **Format:** Video call or in-person\n• **Cost:** Completely free\n• **What you'll see:** Live platform demonstration\n\n**Available Times:**\n• Weekdays: 9 AM - 6 PM\n• Weekends: By appointment\n• Evening slots available\n\n**What's your preferred day and time?**"
+    - text: "🎯 **Perfect! Let's get that demo scheduled.**\n\n**What you'll experience:**\n• Live platform walkthrough\n• Custom use case analysis\n• ROI calculations for your business\n• Implementation timeline\n• Q&A with our experts\n\n**Scheduling Options:**\n• **Morning:** 9 AM - 12 PM\n• **Afternoon:** 1 PM - 5 PM\n• **Evening:** 6 PM - 8 PM\n\n**What works best for your schedule?**"
+  
+  utter_veteran_discounts:
+    - text: "🇺🇸 **Thank you for your service! We offer special veteran pricing.**\n\n**Veteran Benefits:**\n• **20% discount** on all plans\n• **Priority support** and assistance\n• **Extended trial period** (30 days)\n• **Dedicated veteran liaison**\n• **Special payment terms** available\n\n**To qualify:**\n• Valid military ID or DD-214\n• Honorable discharge status\n• Business ownership verification\n\n**Would you like to apply for veteran pricing?**"
+    - text: "🎖️ **We're proud to support our veterans with special pricing!**\n\n**Veteran Discounts:**\n• **25% off** monthly plans\n• **Free setup** and training\n• **Extended support** hours\n• **Flexible payment** options\n• **Priority implementation**\n\n**Eligibility:**\n• Active duty, veteran, or military spouse\n• Business owner or decision maker\n• Valid military identification\n\n**Ready to get your veteran discount applied?**"
+  
+  utter_technical_details:
+    - text: "⚙️ **Let me explain the technical details of our solution!**\n\n**Technical Architecture:**\n• **AI-Powered:** Advanced natural language processing\n• **Cloud-Based:** Secure, scalable infrastructure\n• **API Integration:** Connects with your existing systems\n• **Multi-Platform:** Web, mobile, and social media support\n• **Real-Time Analytics:** Live performance monitoring\n• **Security:** Enterprise-grade encryption and compliance\n\n**Integration Capabilities:**\n• **CRM Systems:** Salesforce, HubSpot, etc.\n• **Payment Processors:** Stripe, PayPal, etc.\n• **Communication Tools:** Slack, Teams, etc.\n• **Analytics Platforms:** Google Analytics, etc.\n• **Custom APIs:** Your proprietary systems\n\n**What systems do you currently use that we should integrate with?**"
 
 actions:
-  # Core Actions
+  # Basic actions only
   - action_session_start
-  - action_business_analysis
-  - action_pricing_inquiry
-  - action_offer_pricing_pdf
-  - action_capture_email
-  - action_veteran_discounts
-  - action_schedule_demo
-  - action_start_free_trial
-  - action_customer_retention
-  - action_technical_details
-  - action_healthcare_specialist
-  - action_retail_specialist
-  - action_automotive_specialist
-  - action_restaurant_specialist
-  - action_contact_info
-  - action_implementation_timeline
-  - action_default_fallback
-  - action_generate_sales_materials
-  - action_generate_pricing_pdf
-  - action_send_follow_up_materials
-  - action_session_end
 
 session_config:
   session_expiration_time: 60
