@@ -1006,11 +1006,37 @@
         }
 
         function showTypingIndicator() {
-            document.getElementById('typingIndicator').classList.add('active');
+            const chatMessages = document.getElementById('chatMessages');
+            const existingIndicator = chatMessages.querySelector('.typing-indicator');
+            
+            if (existingIndicator) {
+                existingIndicator.remove();
+            }
+            
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'message bot-message typing-indicator';
+            typingIndicator.innerHTML = `
+                <div class="message-content">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="message-time">Typing...</div>
+                </div>
+            `;
+            
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
         function hideTypingIndicator() {
-            document.getElementById('typingIndicator').classList.remove('active');
+            const chatMessages = document.getElementById('chatMessages');
+            const typingIndicator = chatMessages.querySelector('.typing-indicator');
+            
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
         }
 
         function addQuickOptions(options) {
@@ -1032,6 +1058,11 @@
 
         function sendMessage(message) {
             console.log('🔍 sendMessage called with:', message);
+            
+            if (!message || message.trim() === '') {
+                console.log('❌ Empty message, not sending');
+                return;
+            }
             
             // Add user message
             addMessage(message, true);
@@ -1145,6 +1176,7 @@
             if (chatInput) {
                 chatInput.addEventListener('keypress', function(event) {
                     if (event.key === 'Enter') {
+                        console.log('🔍 Enter key pressed, calling sendUserMessage');
                         sendUserMessage();
                     }
                 });
@@ -1156,7 +1188,10 @@
             // Add event listener for send button
             const sendButton = document.getElementById('sendButton');
             if (sendButton) {
-                sendButton.addEventListener('click', sendUserMessage);
+                sendButton.addEventListener('click', function() {
+                    console.log('🔍 Send button clicked, calling sendUserMessage');
+                    sendUserMessage();
+                });
                 console.log('✅ Click listener added to send button');
             } else {
                 console.log('❌ Send button element not found');
