@@ -273,7 +273,8 @@
         }
 
         .mariam-interface .form-group input, 
-        .mariam-interface .form-group select {
+        .mariam-interface .form-group select,
+        .mariam-interface .form-group textarea {
             width: 100%;
             padding: 10px 14px;
             border: 2px solid #444444;
@@ -282,6 +283,20 @@
             color: #F0F0F0;
             font-size: 0.875rem;
             transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .mariam-interface .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .mariam-interface .form-group input:focus,
+        .mariam-interface .form-group select:focus,
+        .mariam-interface .form-group textarea:focus {
+            outline: none;
+            border-color: #1E90FF;
+            box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.1);
         }
 
         .mariam-interface .form-submit-btn {
@@ -295,6 +310,37 @@
             font-weight: 600;
             width: 100%;
             transition: all 0.3s ease;
+        }
+        
+        .mariam-interface .form-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+        }
+        
+        .mariam-interface .form-success {
+            text-align: center;
+            padding: 20px;
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .mariam-interface .success-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .mariam-interface .form-success h4 {
+            color: #4CAF50;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        .mariam-interface .form-success p {
+            color: #B0B0B0;
+            margin: 0;
+            font-size: 0.9rem;
         }
 
         .mariam-interface .chat-input-area {
@@ -1409,10 +1455,34 @@
                             <option value="retail">Retail</option>
                             <option value="automotive">Automotive</option>
                             <option value="restaurant">Restaurant</option>
+                            <option value="creative">Creative Services</option>
+                            <option value="professional">Professional Services</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="leadInterest">Primary Interest *</label>
+                        <select id="leadInterest" required>
+                            <option value="">Select your interest</option>
+                            <option value="customer-service">Customer Service Bot</option>
+                            <option value="sales-ecommerce">Sales & E-commerce</option>
+                            <option value="appointment-booking">Appointment Booking</option>
+                            <option value="lead-generation">Lead Generation</option>
+                            <option value="analytics-reporting">Analytics & Reporting</option>
+                            <option value="custom-integration">Custom Integration</option>
+                            <option value="consultation">General Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="leadMessage">Additional Details (Optional)</label>
+                        <textarea id="leadMessage" placeholder="Tell us about your specific needs..." rows="3"></textarea>
+                    </div>
                     <button class="form-submit-btn" onclick="submitLeadForm()">Get Started</button>
+                    <div class="form-success" id="formSuccess" style="display: none;">
+                        <div class="success-icon">✅</div>
+                        <h4>Thank You!</h4>
+                        <p>Your information has been submitted successfully. We'll be in touch soon!</p>
+                    </div>
                 </div>
                 
                 <div class="chat-input-area">
@@ -2451,29 +2521,80 @@ Would you like me to show you how we can help your business grow?`;
 
         // Lead form submission
         function submitLeadForm() {
-            const name = document.getElementById('leadName').value;
-            const email = document.getElementById('leadEmail').value;
+            const name = document.getElementById('leadName').value.trim();
+            const email = document.getElementById('leadEmail').value.trim();
             const business = document.getElementById('leadBusiness').value;
             const interest = document.getElementById('leadInterest').value;
+            const message = document.getElementById('leadMessage').value.trim();
             
-            if (!name || !email) {
-                alert('Please fill in the required fields.');
+            // Validate required fields
+            if (!name || !email || !interest) {
+                alert('Please fill in all required fields (Name, Email, and Primary Interest).');
+                return;
+            }
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
                 return;
             }
             
             // Track lead submission
             trackEvent('leadSubmissions', { business, interest });
             
-            // Send lead data (replace with your actual endpoint)
-            const leadData = { name, email, business, interest, timestamp: Date.now() };
+            // Prepare lead data
+            const leadData = { 
+                name, 
+                email, 
+                business, 
+                interest, 
+                message,
+                timestamp: Date.now(),
+                source: 'landing-page-form'
+            };
+            
             console.log('📧 Lead captured:', leadData);
             
-            // Hide form and show success message
-            document.getElementById('leadCaptureForm').style.display = 'none';
-            addBotMessage(`🎉 **Thank you, ${name}!** I've captured your information and will send you personalized details about our ${interest} solution. Check your email for next steps!`);
+            // Simulate sending to backend (replace with your actual endpoint)
+            // sendLeadToBackend(leadData);
+            
+            // Show success message
+            document.getElementById('formSuccess').style.display = 'block';
+            
+            // Create personalized response based on interest
+            let personalizedResponse = `🎉 **Thank you, ${name}!** I've captured your information and will send you personalized details about our ${getInterestDisplayName(interest)} solution.`;
+            
+            if (message) {
+                personalizedResponse += `\n\nI've noted your specific needs: "${message}"`;
+            }
+            
+            personalizedResponse += `\n\n**Next Steps:**\n• Check your email for detailed information\n• Schedule a free consultation call\n• Get access to our demo environment`;
+            
+            addBotMessage(personalizedResponse);
             
             // Show human escalation option
             document.getElementById('humanEscalation').style.display = 'block';
+            
+            // Hide success message and reset form after 5 seconds
+            setTimeout(() => {
+                document.getElementById('formSuccess').style.display = 'none';
+                document.getElementById('leadCaptureForm').reset();
+            }, 5000);
+        }
+        
+        // Helper function to get display names for interests
+        function getInterestDisplayName(interest) {
+            const interestMap = {
+                'customer-service': 'Customer Service Bot',
+                'sales-ecommerce': 'Sales & E-commerce',
+                'appointment-booking': 'Appointment Booking',
+                'lead-generation': 'Lead Generation',
+                'analytics-reporting': 'Analytics & Reporting',
+                'custom-integration': 'Custom Integration',
+                'consultation': 'AI Chatbot Consultation'
+            };
+            return interestMap[interest] || interest;
         }
 
         // Human escalation
