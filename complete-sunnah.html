@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Sunnah - Comprehensive Guide to Prophet Muhammad's (PBUH) Way of Life</title>
+    <meta name="description" content="Complete guide to the Sunnah of Prophet Muhammad (PBUH) - comprehensive teachings, actions, and way of life covering all aspects of daily living.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #E0E0E0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 20px;
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header h1 {
+            color: #FFD700;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+        }
+        
+        .header p {
+            color: #87CEEB;
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+        }
+        
+        .sunnah-category {
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .sunnah-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(30, 144, 255, 0.2);
+            border-color: rgba(30, 144, 255, 0.5);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(68, 68, 68, 0.5);
+        }
+        
+        .category-icon {
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .category-title {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .category-subtitle {
+            color: #87CEEB;
+            font-size: 1.1rem;
+        }
+        
+        .sunnah-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .sunnah-item {
+            background: rgba(30, 30, 30, 0.6);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(68, 68, 68, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .sunnah-item:hover {
+            background: rgba(30, 30, 30, 0.8);
+            border-color: rgba(30, 144, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .sunnah-item h4 {
+            color: #1E90FF;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .sunnah-item p {
+            color: #E0E0E0;
+            font-size: 0.95rem;
+        }
+        
+        .hadith-quote {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .hadith-quote h4 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .hadith-text {
+            color: #E0E0E0;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        .hadith-reference {
+            color: #87CEEB;
+            font-size: 0.9rem;
+            text-align: right;
+        }
+        
+        .benefits-section {
+            background: rgba(30, 144, 255, 0.1);
+            border: 1px solid rgba(30, 144, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .benefits-section h4 {
+            color: #1E90FF;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefits-list li {
+            color: #E0E0E0;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .benefits-list li:before {
+            content: "✓";
+            color: #1E90FF;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .search-section {
+            background: rgba(18, 18, 18, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(68, 68, 68, 0.5);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            background: rgba(30, 30, 30, 0.8);
+            color: #E0E0E0;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #1E90FF;
+        }
+        
+        .search-button {
+            padding: 15px 30px;
+            background: #1E90FF;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background: #0066CC;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .sunnah-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="goBack()">← Back to Sunnah</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Complete Sunnah Guide</h1>
+            <p>Comprehensive collection of Prophet Muhammad's (PBUH) teachings, actions, and way of life covering every aspect of daily living, worship, and human interaction.</p>
+        </div>
+        
+        <div class="search-section">
+            <input type="text" class="search-input" id="sunnahSearch" placeholder="Search for specific Sunnah topics..." onkeyup="searchSunnah()">
+            <button class="search-button" onclick="searchSunnah()">Search Sunnah</button>
+        </div>
+        
+        <!-- Daily Life Sunnah -->
+        <div class="sunnah-category">
+            <div class="category-header">
+                <div class="category-icon">🌅</div>
+                <div>
+                    <div class="category-title">Daily Life Sunnah</div>
+                    <div class="category-subtitle">Morning to Evening Routines</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-grid">
+                <div class="sunnah-item">
+                    <h4>Morning Sunnah</h4>
+                    <p>Wake up early, say morning dhikr, pray Fajr, make dua for the day</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Eating Sunnah</h4>
+                    <p>Start with Bismillah, eat with right hand, eat from your side of the plate</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Sleeping Sunnah</h4>
+                    <p>Sleep on right side, recite Ayat al-Kursi, make dua before sleeping</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Bathroom Etiquette</h4>
+                    <p>Enter with left foot, exit with right foot, avoid speaking, make dua</p>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"Whoever says 'Subhan Allah' thirty-three times, 'Alhamdulillah' thirty-three times, and 'Allahu Akbar' thirty-four times in the morning, and does the same in the evening, will have a complete reward."</div>
+                <div class="hadith-reference">Sahih Bukhari</div>
+            </div>
+        </div>
+        
+        <!-- Worship Sunnah -->
+        <div class="sunnah-category">
+            <div class="category-header">
+                <div class="category-icon">🕌</div>
+                <div>
+                    <div class="category-title">Worship Sunnah</div>
+                    <div class="category-subtitle">Prayer, Dhikr, and Spiritual Practices</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-grid">
+                <div class="sunnah-item">
+                    <h4>Prayer Sunnah</h4>
+                    <p>Adhan, Iqamah, Sunnah prayers, Qunut, proper prayer positions</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Dhikr Practices</h4>
+                    <p>Morning/evening dhikr, after prayer dhikr, Tasbih, Istighfar</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Quran Recitation</h4>
+                    <p>Recite with tajweed, reflect on meanings, complete recitation regularly</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Dua Practices</h4>
+                    <p>Make dua in prostration, after prayer, during travel, for others</p>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"The closest a servant can be to his Lord is when he is in prostration, so make abundant supplication in that position."</div>
+                <div class="hadith-reference">Sahih Muslim</div>
+            </div>
+        </div>
+        
+        <!-- Social Sunnah -->
+        <div class="sunnah-category">
+            <div class="category-header">
+                <div class="category-icon">🤝</div>
+                <div>
+                    <div class="category-title">Social Sunnah</div>
+                    <div class="category-subtitle">Interpersonal Relationships and Community</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-grid">
+                <div class="sunnah-item">
+                    <h4>Greeting Sunnah</h4>
+                    <p>Assalamu alaikum, respond with longer greeting, greet first, smile</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Visiting Sunnah</h4>
+                    <p>Ask permission to enter, greet household, accept hospitality, don't overstay</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Neighbor Rights</h4>
+                    <p>Help neighbors, share food, visit when sick, respect their privacy</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Family Sunnah</h4>
+                    <p>Be kind to family, spend time together, teach children, maintain ties</p>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"He who believes in Allah and the Last Day should either speak good or keep silent, and he who believes in Allah and the Last Day should be generous to his neighbor."</div>
+                <div class="hadith-reference">Sahih Muslim</div>
+            </div>
+        </div>
+        
+        <!-- Business & Work Sunnah -->
+        <div class="sunnah-category">
+            <div class="category-header">
+                <div class="category-icon">💼</div>
+                <div>
+                    <div class="category-title">Business & Work Sunnah</div>
+                    <div class="category-subtitle">Professional Ethics and Trade</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-grid">
+                <div class="sunnah-item">
+                    <h4>Honesty in Trade</h4>
+                    <p>Always be truthful about products, prices, and quality</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Fair Treatment</h4>
+                    <p>Treat employees and customers fairly, pay wages promptly</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Quality Work</h4>
+                    <p>Do your best work as if Allah is watching you</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Business Contracts</h4>
+                    <p>Write down agreements, be clear about terms, fulfill promises</p>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"The truthful and trustworthy merchant will be with the prophets, the truthful, and the martyrs on the Day of Resurrection."</div>
+                <div class="hadith-reference">Sunan At-Tirmidhi</div>
+            </div>
+        </div>
+        
+        <!-- Health & Hygiene Sunnah -->
+        <div class="sunnah-category">
+            <div class="category-header">
+                <div class="category-icon">🏥</div>
+                <div>
+                    <div class="category-title">Health & Hygiene Sunnah</div>
+                    <div class="category-subtitle">Physical and Spiritual Cleanliness</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-grid">
+                <div class="sunnah-item">
+                    <h4>Personal Hygiene</h4>
+                    <p>Wudu, brushing teeth with miswak, trimming nails, keeping clean</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Moderation in Eating</h4>
+                    <p>Eat when hungry, stop before full, avoid overeating</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Exercise & Activity</h4>
+                    <p>Walking, swimming, archery, physical activities for health</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Medical Treatment</h4>
+                    <p>Seek medical help when needed, use natural remedies, trust in Allah</p>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"There is no disease that Allah has created, except that He also has created its treatment."</div>
+                <div class="hadith-reference">Sahih Bukhari</div>
+            </div>
+        </div>
+        
+        <!-- Travel Sunnah -->
+        <div class="sunnah-category">
+            <div class="category-header">
+                <div class="category-icon">✈️</div>
+                <div>
+                    <div class="category-title">Travel Sunnah</div>
+                    <div class="category-subtitle">Journey Etiquette and Safety</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-grid">
+                <div class="sunnah-item">
+                    <h4>Travel Preparation</h4>
+                    <p>Make dua before leaving, travel in groups, take provisions</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Travel Prayer</h4>
+                    <p>Pray while traveling, shorten prayers, combine when necessary</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Return Home</h4>
+                    <p>Make dua upon return, visit family first, share travel experiences</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Safety Measures</h4>
+                    <p>Trust in Allah, take precautions, help fellow travelers</p>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"Traveling is a piece of torment, for it deprives a person of his sleep, food, and drink. When one of you has accomplished his purpose, he should hasten back to his family."</div>
+                <div class="hadith-reference">Sahih Bukhari</div>
+            </div>
+        </div>
+        
+        <!-- Knowledge & Learning Sunnah -->
+        <div class="sunnah-category">
+            <div class="category-header">
+                <div class="category-icon">📚</div>
+                <div>
+                    <div class="category-title">Knowledge & Learning Sunnah</div>
+                    <div class="category-subtitle">Education and Wisdom</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-grid">
+                <div class="sunnah-item">
+                    <h4>Seeking Knowledge</h4>
+                    <p>Learn from cradle to grave, seek knowledge even in China</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Teaching Others</h4>
+                    <p>Share knowledge, teach children, help others learn</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Respect for Scholars</h4>
+                    <p>Respect teachers, learn from experts, value wisdom</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Practical Application</h4>
+                    <p>Apply what you learn, practice knowledge, live by teachings</p>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"Seeking knowledge is obligatory upon every Muslim, and he who imparts knowledge to those who do not deserve it is like one who puts a necklace of jewels, pearls, and gold around the neck of swine."</div>
+                <div class="hadith-reference">Ibn Majah</div>
+            </div>
+        </div>
+        
+        <!-- Character & Morals Sunnah -->
+        <div class="sunnah-category">
+            <div class="category-header">
+                <div class="category-icon">🌟</div>
+                <div>
+                    <div class="category-title">Character & Morals Sunnah</div>
+                    <div class="category-subtitle">Personal Development and Ethics</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-grid">
+                <div class="sunnah-item">
+                    <h4>Truthfulness</h4>
+                    <p>Always speak the truth, avoid lies, be honest in all matters</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Patience</h4>
+                    <p>Be patient in difficulties, control anger, endure hardships</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Forgiveness</h4>
+                    <p>Forgive others, pardon mistakes, let go of grudges</p>
+                </div>
+                <div class="sunnah-item">
+                    <h4>Humility</h4>
+                    <p>Be humble, avoid arrogance, treat all with respect</p>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"The most complete of the believers in faith is the one with the best character, and the best of you are the best to their families."</div>
+                <div class="hadith-reference">Sunan At-Tirmidhi</div>
+            </div>
+        </div>
+        
+        <div class="benefits-section">
+            <h4>Benefits of Following the Sunnah</h4>
+            <ul class="benefits-list">
+                <li>Follows the perfect example of Prophet Muhammad (PBUH)</li>
+                <li>Brings blessings and rewards from Allah</li>
+                <li>Improves character and moral conduct</li>
+                <li>Strengthens faith and spiritual connection</li>
+                <li>Creates harmony in family and community</li>
+                <li>Leads to success in this life and the hereafter</li>
+                <li>Provides guidance for every situation</li>
+                <li>Builds strong Islamic identity and values</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function goBack() {
+            window.location.href = 'sunnah.html';
+        }
+        
+        function searchSunnah() {
+            const searchTerm = document.getElementById('sunnahSearch').value.toLowerCase();
+            const categories = document.querySelectorAll('.sunnah-category');
+            
+            categories.forEach(category => {
+                const title = category.querySelector('.category-title').textContent.toLowerCase();
+                const subtitle = category.querySelector('.category-subtitle').textContent.toLowerCase();
+                const items = category.querySelectorAll('.sunnah-item h4');
+                
+                let hasMatch = false;
+                items.forEach(item => {
+                    if (item.textContent.toLowerCase().includes(searchTerm)) {
+                        hasMatch = true;
+                    }
+                });
+                
+                if (title.includes(searchTerm) || subtitle.includes(searchTerm) || hasMatch) {
+                    category.style.display = 'block';
+                } else {
+                    category.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

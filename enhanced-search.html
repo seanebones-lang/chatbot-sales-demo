@@ -65,6 +65,25 @@
             transform: translateY(-2px);
         }
 
+        .fiqh-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 215, 0, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .fiqh-button:hover {
+            background: rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
         .search-section {
             background: rgba(18, 18, 18, 0.8);
             border: 2px solid rgba(68, 68, 68, 0.5);
@@ -421,6 +440,7 @@
     <div class="container">
         <div class="header">
             <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
+        <button class="fiqh-button" onclick="window.location.href='authentic-fiqh.html'">⚖️ Islamic Jurisprudence</button>
             <h1>Enhanced Islamic Knowledge Search</h1>
             <p>Comprehensive search across Quran, Hadith, Fiqh, Sunnah, and Islamic guidance with PDF generation</p>
             
