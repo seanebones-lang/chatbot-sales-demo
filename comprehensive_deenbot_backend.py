@@ -2445,12 +2445,21 @@ These pillars form the foundation of Islamic practice and are essential for spir
         # Check priority keywords first
         for keyword, key in priority_keywords.items():
             if keyword in message_lower:
-                data = self.islamic_knowledge[key]
-                return {
-                    "response": data["answer"],
-                    "references": data["references"],
-                    "source": "Comprehensive Islamic Knowledge Base"
-                }
+                # Check if the key exists in islamic_knowledge first
+                if key in self.islamic_knowledge:
+                    data = self.islamic_knowledge[key]
+                    return {
+                        "response": data["answer"],
+                        "references": data["references"],
+                        "source": "Comprehensive Islamic Knowledge Base"
+                    }
+                # If not in islamic_knowledge, check enhanced_knowledge
+                elif key in self.enhanced_knowledge:
+                    return {
+                        "response": self.enhanced_knowledge[key],
+                        "references": ["Islamic Knowledge Base"],
+                        "source": "Enhanced Local Knowledge"
+                    }
         
         # Check enhanced knowledge
         for topic, info in self.enhanced_knowledge.items():
