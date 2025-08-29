@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Surahs for New Muslims - Complete Guide with Tafsir</title>
+    <meta name="description" content="Complete guide to recommended surahs for new Muslims: Al-Fatiha, Al-Ikhlas, Al-Falaq, An-Nas, Al-Kawthar, Al-Ma'un. Arabic text, transliteration, English translation, and tafsir.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #E0E0E0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: rgba(18, 18, 18, 0.9);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .header h1 {
+            color: #FFD700;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+        }
+        
+        .header p {
+            color: #87CEEB;
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.4);
+        }
+        
+        .surah-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .surah-card {
+            background: rgba(18, 18, 18, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .surah-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+        }
+        
+        .surah-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(68, 68, 68, 0.5);
+        }
+        
+        .surah-name {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .surah-info {
+            color: #87CEEB;
+            font-size: 1.1rem;
+        }
+        
+        .surah-content {
+            margin-bottom: 25px;
+        }
+        
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.8rem;
+            text-align: right;
+            margin-bottom: 20px;
+            line-height: 2.5;
+            color: #E0E0E0;
+            direction: rtl;
+        }
+        
+        .transliteration {
+            font-size: 1.1rem;
+            color: #98FB98;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+        
+        .english-translation {
+            font-size: 1rem;
+            color: #E0E0E0;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .tafsir {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #FFD700;
+        }
+        
+        .tafsir h4 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .tafsir p {
+            color: #D0D0D0;
+            line-height: 1.6;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(68, 68, 68, 0.5);
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-content {
+            background: rgba(18, 18, 18, 0.95);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #FFD700;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #FFD700;
+            font-weight: bold;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 8px;
+            background: rgba(18, 18, 18, 0.8);
+            color: #E0E0E0;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #FFD700;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+        }
+        
+        .success-message {
+            background: rgba(40, 167, 69, 0.2);
+            color: #98FB98;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid rgba(40, 167, 69, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .surah-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .arabic-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Back to Main</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Recommended Surahs for New Muslims</h1>
+            <p>Essential chapters of the Quran perfect for beginners. Each surah is presented with Arabic text, transliteration, English translation, and detailed tafsir (explanation). Click on any surah to download a PDF version.</p>
+        </div>
+        
+        <div class="surah-grid">
+            <!-- Al-Fatiha -->
+            <div class="surah-card" onclick="openModal('fatiha')">
+                <div class="surah-header">
+                    <div class="surah-name">Al-Fatiha</div>
+                    <div class="surah-info">The Opening • 7 verses • Makki</div>
+                </div>
+                <div class="surah-content">
+                    <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴿١﴾ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ﴿٢﴾ الرَّحْمَٰنِ الرَّحِيمِ ﴿٣﴾ مَالِكِ يَوْمِ الدِّينِ ﴿٤﴾ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ﴿٦﴾ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ ﴿٧﴾</div>
+                    <div class="transliteration">Bismillahi ar-rahmani ar-raheem. Al-hamdu lillahi rabbi al-'alameen. Ar-rahmani ar-raheem. Maliki yawmi ad-deen. Iyyaka na'budu wa iyyaka nasta'een. Ihdina as-sirata al-mustaqeem. Sirata alladheena an'amta 'alayhim ghayri al-maghdoobi 'alayhim wa la ad-dalleen.</div>
+                    <div class="english-translation">In the name of Allah, the Entirely Merciful, the Especially Merciful. [All] praise is [due] to Allah, Lord of the worlds. The Entirely Merciful, the Especially Merciful. Sovereign of the Day of Recompense. It is You we worship and You we ask for help. Guide us to the straight path. The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.</div>
+                    <div class="tafsir">
+                        <h4>Meaning & Significance</h4>
+                        <p>Al-Fatiha is the opening chapter of the Quran and is recited in every prayer. It teaches us to praise Allah, acknowledge His mercy, seek His guidance, and ask for the straight path. This surah establishes the foundation of our relationship with Allah - worship, seeking help, and guidance.</p>
+                    </div>
+                </div>
+                <div class="download-section">
+                    <button class="download-btn" onclick="event.stopPropagation(); openModal('fatiha')">Download PDF</button>
+                </div>
+            </div>
+            
+            <!-- Al-Ikhlas -->
+            <div class="surah-card" onclick="openModal('ikhlas')">
+                <div class="surah-header">
+                    <div class="surah-name">Al-Ikhlas</div>
+                    <div class="surah-info">The Sincerity • 4 verses • Makki</div>
+                </div>
+                <div class="surah-content">
+                    <div class="arabic-text">قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾</div>
+                    <div class="transliteration">Qul huwa Allahu ahad. Allahu as-samad. Lam yalid wa lam yoolad. Wa lam yakun lahu kufuwan ahad.</div>
+                    <div class="english-translation">Say, "He is Allah, [who is] One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent."</div>
+                    <div class="tafsir">
+                        <h4>Meaning & Significance</h4>
+                        <p>Al-Ikhlas is one of the most important surahs as it defines the pure monotheistic belief in Islam. It teaches us that Allah is One, unique, eternal, and incomparable. This surah is often called "one-third of the Quran" due to its importance in establishing the core Islamic belief in the oneness of Allah.</p>
+                    </div>
+                </div>
+                <div class="download-section">
+                    <button class="download-btn" onclick="event.stopPropagation(); openModal('ikhlas')">Download PDF</button>
+                </div>
+            </div>
+            
+            <!-- Al-Falaq -->
+            <div class="surah-card" onclick="openModal('falaq')">
+                <div class="surah-header">
+                    <div class="surah-name">Al-Falaq</div>
+                    <div class="surah-info">The Daybreak • 5 verses • Makki</div>
+                </div>
+                <div class="surah-content">
+                    <div class="arabic-text">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ﴿١﴾ مِن شَرِّ مَا خَلَقَ ﴿٢﴾ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ﴿٣﴾ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ﴿٤﴾ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ ﴿٥﴾</div>
+                    <div class="transliteration">Qul a'udhu bi rabbi al-falaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharri an-naffathati fi al-'uqad. Wa min sharri hasidin idha hasad.</div>
+                    <div class="english-translation">Say, "I seek refuge in the Lord of daybreak. From the evil of that which He created. And from the evil of darkness when it settles. And from the evil of the blowers in knots. And from the evil of an envier when he envies."</div>
+                    <div class="tafsir">
+                        <h4>Meaning & Significance</h4>
+                        <p>Al-Falaq is one of the "Mu'awwidhatayn" (two surahs of refuge). It teaches us to seek Allah's protection from various types of harm - the darkness of night, evil creatures, witchcraft, and the evil eye of envy. This surah reminds us that Allah is our ultimate protector and refuge.</p>
+                    </div>
+                </div>
+                <div class="download-section">
+                    <button class="download-btn" onclick="event.stopPropagation(); openModal('falaq')">Download PDF</button>
+                </div>
+            </div>
+            
+            <!-- An-Nas -->
+            <div class="surah-card" onclick="openModal('nas')">
+                <div class="surah-header">
+                    <div class="surah-name">An-Nas</div>
+                    <div class="surah-info">The Mankind • 6 verses • Makki</div>
+                </div>
+                <div class="surah-content">
+                    <div class="arabic-text">قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿١﴾ مَلِكِ النَّاسِ ﴿٢﴾ إِلَٰهِ النَّاسِ ﴿٣﴾ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿٥﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾</div>
+                    <div class="transliteration">Qul a'udhu bi rabbi an-nas. Maliki an-nas. Ilahi an-nas. Min sharri al-waswasi al-khannas. Alladhi yuwaswisu fee sudoori an-nas. Mina al-jinnati wa an-nas.</div>
+                    <div class="english-translation">Say, "I seek refuge in the Lord of mankind. The Sovereign of mankind. The God of mankind. From the evil of the retreating whisperer. Who whispers [evil] into the breasts of mankind. From among the jinn and mankind."</div>
+                    <div class="tafsir">
+                        <h4>Meaning & Significance</h4>
+                        <p>An-Nas is the second of the "Mu'awwidhatayn" and the final surah of the Quran. It teaches us to seek Allah's protection from the whisperings of Satan and evil jinn who try to mislead people. This surah emphasizes that Allah is the Lord, King, and God of all mankind, and we should seek His protection from all forms of evil.</p>
+                    </div>
+                </div>
+                <div class="download-section">
+                    <button class="download-btn" onclick="event.stopPropagation(); openModal('nas')">Download PDF</button>
+                </div>
+            </div>
+            
+            <!-- Al-Kawthar -->
+            <div class="surah-card" onclick="openModal('kawthar')">
+                <div class="surah-header">
+                    <div class="surah-name">Al-Kawthar</div>
+                    <div class="surah-info">The Abundance • 3 verses • Makki</div>
+                </div>
+                <div class="surah-content">
+                    <div class="arabic-text">إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ ﴿١﴾ فَصَلِّ لِرَبِّكَ وَانْحَرْ ﴿٢﴾ إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ ﴿٣﴾</div>
+                    <div class="transliteration">Inna a'taynaaka al-kawthar. Fa salli li rabbika wanhar. Inna shani'aka huwal abtar.</div>
+                    <div class="english-translation">Indeed, We have granted you, [O Muhammad], al-Kawthar. So pray to your Lord and sacrifice [to Him alone]. Indeed, your enemy is the one cut off.</div>
+                    <div class="tafsir">
+                        <h4>Meaning & Significance</h4>
+                        <p>Al-Kawthar is the shortest surah in the Quran with only 3 verses. It was revealed to comfort Prophet Muhammad (PBUH) and assure him of Allah's abundant blessings. The surah teaches us to be grateful for Allah's blessings, maintain our prayers, and not worry about those who oppose us, as they will be the ones who are cut off from good.</p>
+                    </div>
+                </div>
+                <div class="download-section">
+                    <button class="download-btn" onclick="event.stopPropagation(); openModal('kawthar')">Download PDF</button>
+                </div>
+            </div>
+            
+            <!-- Al-Ma'un -->
+            <div class="surah-card" onclick="openModal('maun')">
+                <div class="surah-header">
+                    <div class="surah-name">Al-Ma'un</div>
+                    <div class="surah-info">The Small Kindnesses • 7 verses • Makki</div>
+                </div>
+                <div class="surah-content">
+                    <div class="arabic-text">أَرَأَيْتَ الَّذِي يُكَذِّبُ بِالدِّينِ ﴿١﴾ فَذَٰلِكَ الَّذِي يَدُعُّ الْيَتِيمَ ﴿٢﴾ وَلَا يَحُضُّ عَلَىٰ طَعَامِ الْمِسْكِينِ ﴿٣﴾ فَوَيْلٌ لِّلْمُصَلِّينَ ﴿٤﴾ الَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ ﴿٥﴾ الَّذِينَ هُمْ يُرَاءُونَ ﴿٦﴾ وَيَمْنَعُونَ الْمَاعُونَ ﴿٧﴾</div>
+                    <div class="transliteration">Ara'ayta alladhi yukadhdhibu bi ad-deen. Fa dhalika alladhi yadu''u al-yateem. Wa la yahuddu 'ala ta'ami al-miskeen. Fa waylun li al-musalleen. Alladheena hum 'an salatihim sahoon. Alladheena hum yura'oon. Wa yamna'oona al-ma'oon.</div>
+                    <div class="english-translation">Have you seen the one who denies the Recompense? For that is the one who drives away the orphan. And does not encourage the feeding of the poor. So woe to those who pray. [But] are heedless of their prayer. Those who make show [of their deeds]. And withhold [simple] assistance.</div>
+                    <div class="tafsir">
+                        <h4>Meaning & Significance</h4>
+                        <p>Al-Ma'un addresses the importance of sincerity in worship and kindness to others. It warns against those who pray but are heedless, who show off their good deeds, and who refuse to help others with simple acts of kindness. This surah teaches us that true faith must be reflected in our treatment of the vulnerable and our sincerity in worship.</p>
+                    </div>
+                </div>
+                <div class="download-section">
+                    <button class="download-btn" onclick="event.stopPropagation(); openModal('maun')">Download PDF</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Local Mosque Finder Section -->
+        <div class="mosque-finder-section" style="margin-top: 50px; padding: 40px; background: rgba(18, 18, 18, 0.9); border-radius: 25px; border: 2px solid rgba(68, 68, 68, 0.5); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2 style="color: #FFD700; font-size: 2.5rem; margin-bottom: 15px;">🕌 Find Local Masjids</h2>
+                <p style="color: #87CEEB; font-size: 1.2rem;">Discover Islamic centers, mosques, and prayer spaces near you</p>
+            </div>
+            
+            <div class="mosque-search-form">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                    <div class="form-group">
+                        <label for="city">City *</label>
+                        <input type="text" id="city" name="city" placeholder="Enter your city" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="state">State/Province *</label>
+                        <input type="text" id="state" name="state" placeholder="Enter your state or province" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="zipcode">ZIP/Postal Code</label>
+                        <input type="text" id="zipcode" name="zipcode" placeholder="Enter ZIP code (optional)">
+                    </div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <button onclick="findLocalMosques()" class="submit-btn" style="background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%); color: white; margin-right: 15px;">🔍 Find Masjids</button>
+                    <button onclick="openMosqueModal()" class="submit-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white;">📋 Request Mosque Directory PDF</button>
+                </div>
+            </div>
+            
+            <div id="mosqueResults" style="margin-top: 30px;"></div>
+        </div>
+    </div>
+    
+    <!-- Modal for PDF Download -->
+    <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle" style="color: #FFD700; margin-bottom: 20px;">Download Surah PDF</h2>
+            
+            <div class="contact-form">
+                <p style="color: #E0E0E0; margin-bottom: 20px;">Enter your contact information to receive the PDF version of this surah:</p>
+                
+                <form id="downloadForm" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="delivery">Delivery Method *</label>
+                        <select id="delivery" name="delivery" required>
+                            <option value="">Select delivery method</option>
+                            <option value="email">Email PDF</option>
+                            <option value="text">Text Message Link</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Notes (Optional)</label>
+                        <input type="text" id="message" name="message" placeholder="Any specific requests or questions">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Request</button>
+                </form>
+                
+                <div id="successMessage" class="success-message" style="display: none;">
+                    Thank you! Your request has been submitted. You will receive the PDF within 24 hours.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for Mosque Directory PDF -->
+    <div id="mosqueModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeMosqueModal()">&times;</span>
+            <h2 style="color: #FFD700; margin-bottom: 20px;">📋 Request Mosque Directory PDF</h2>
+            
+            <div class="contact-form">
+                <p style="color: #E0E0E0; margin-bottom: 20px;">Enter your contact information to receive a comprehensive mosque directory PDF:</p>
+                
+                <form id="mosqueForm" onsubmit="submitMosqueForm(event)">
+                    <div class="form-group">
+                        <label for="mosqueName">Full Name *</label>
+                        <input type="text" id="mosqueName" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mosqueEmail">Email Address *</label>
+                        <input type="email" id="mosqueEmail" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mosquePhone">Phone Number (Optional)</label>
+                        <input type="tel" id="mosquePhone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mosqueLocation">Your Location *</label>
+                        <input type="text" id="mosqueLocation" name="location" placeholder="City, State, ZIP" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mosqueDelivery">Delivery Method *</label>
+                        <select id="mosqueDelivery" name="delivery" required>
+                            <option value="">Select delivery method</option>
+                            <option value="email">Email PDF</option>
+                            <option value="text">Text Message Link</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mosqueNotes">Additional Notes (Optional)</label>
+                        <input type="text" id="mosqueNotes" name="notes" placeholder="Any specific requests or questions">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Request</button>
+                </form>
+                
+                <div id="mosqueSuccessMessage" class="success-message" style="display: none;">
+                    Thank you! Your mosque directory request has been submitted. You will receive the PDF within 24 hours.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentSurah = '';
+        
+        function openModal(surahName) {
+            currentSurah = surahName;
+            const modal = document.getElementById('downloadModal');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            // Set modal title based on surah
+            const surahTitles = {
+                'fatiha': 'Al-Fatiha - The Opening',
+                'ikhlas': 'Al-Ikhlas - The Sincerity',
+                'falaq': 'Al-Falaq - The Daybreak',
+                'nas': 'An-Nas - The Mankind',
+                'kawthar': 'Al-Kawthar - The Abundance',
+                'maun': 'Al-Ma\'un - The Small Kindnesses'
+            };
+            
+            modalTitle.textContent = `Download ${surahTitles[surahName]} PDF`;
+            modal.style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('downloadModal').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('downloadForm').reset();
+        }
+        
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                surah: currentSurah,
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                delivery: formData.get('delivery'),
+                message: formData.get('message')
+            };
+            
+            // Here you would typically send this data to your backend
+            // For now, we'll just show a success message
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Hide form
+            event.target.style.display = 'none';
+            
+            // Close modal after 3 seconds
+            setTimeout(() => {
+                closeModal();
+            }, 3000);
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('downloadModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+        
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mosque Finder Functions
+        function findLocalMosques() {
+            const city = document.getElementById('city').value.trim();
+            const state = document.getElementById('state').value.trim();
+            const zipcode = document.getElementById('zipcode').value.trim();
+            
+            if (!city || !state) {
+                alert('Please enter at least city and state.');
+                return;
+            }
+            
+            // Show loading state
+            const resultsDiv = document.getElementById('mosqueResults');
+            resultsDiv.innerHTML = `
+                <div style="text-align: center; padding: 30px;">
+                    <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #FFD700; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                    <p style="color: #87CEEB; margin-top: 15px;">Searching for masjids in ${city}, ${state}...</p>
+                </div>
+            `;
+            
+            // Simulate API call to find mosques
+            setTimeout(() => {
+                displayMosqueResults(city, state, zipcode);
+            }, 2000);
+        }
+        
+        function displayMosqueResults(city, state, zipcode) {
+            const resultsDiv = document.getElementById('mosqueResults');
+            
+            // Sample mosque data - in a real app, this would come from an API
+            const sampleMosques = [
+                {
+                    name: "Islamic Center of " + city,
+                    address: "123 Main Street, " + city + ", " + state + " " + (zipcode || ""),
+                    phone: "(555) 123-4567",
+                    services: ["Daily Prayers", "Friday Prayer", "Islamic Classes", "Community Events"],
+                    distance: "0.5 miles"
+                },
+                {
+                    name: "Masjid " + city + " Al-Noor",
+                    address: "456 Oak Avenue, " + city + ", " + state + " " + (zipcode || ""),
+                    phone: "(555) 987-6543",
+                    services: ["Daily Prayers", "Weekend School", "Youth Programs", "Interfaith Dialogue"],
+                    distance: "1.2 miles"
+                },
+                {
+                    name: city + " Islamic Society",
+                    address: "789 Pine Road, " + city + ", " + state + " " + (zipcode || ""),
+                    phone: "(555) 456-7890",
+                    services: ["Daily Prayers", "Islamic Education", "Social Services", "Cultural Events"],
+                    distance: "2.1 miles"
+                }
+            ];
+            
+            let resultsHTML = `
+                <div style="background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 15px; border-left: 4px solid #FFD700;">
+                    <h3 style="color: #FFD700; margin-bottom: 20px;">🕌 Masjids Found in ${city}, ${state}</h3>
+                    <p style="color: #87CEEB; margin-bottom: 20px;">Found ${sampleMosques.length} Islamic centers near you:</p>
+                </div>
+            `;
+            
+            sampleMosques.forEach((mosque, index) => {
+                resultsHTML += `
+                    <div style="background: rgba(18, 18, 18, 0.8); padding: 25px; border-radius: 15px; margin: 20px 0; border: 1px solid rgba(68, 68, 68, 0.5);">
+                        <h4 style="color: #FFD700; margin-bottom: 10px; font-size: 1.3rem;">${mosque.name}</h4>
+                        <p style="color: #E0E0E0; margin-bottom: 8px;"><strong>📍 Address:</strong> ${mosque.address}</p>
+                        <p style="color: #E0E0E0; margin-bottom: 8px;"><strong>📞 Phone:</strong> ${mosque.phone}</p>
+                        <p style="color: #E0E0E0; margin-bottom: 8px;"><strong>📏 Distance:</strong> ${mosque.distance}</p>
+                        <div style="margin-top: 15px;">
+                            <p style="color: #87CEEB; margin-bottom: 8px;"><strong>🕌 Services:</strong></p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                ${mosque.services.map(service => `<span style="background: rgba(255, 215, 0, 0.2); color: #FFD700; padding: 4px 12px; border-radius: 15px; font-size: 0.9rem;">${service}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <button onclick="getDirections('${mosque.address}')" class="download-btn" style="margin-right: 10px;">🗺️ Get Directions</button>
+                            <button onclick="callMosque('${mosque.phone}')" class="download-btn">📞 Call Now</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            resultsHTML += `
+                <div style="text-align: center; margin-top: 30px;">
+                    <p style="color: #87CEEB; margin-bottom: 15px;">Need more detailed information or a complete directory?</p>
+                    <button onclick="openMosqueModal()" class="submit-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white;">📋 Request Complete Mosque Directory PDF</button>
+                </div>
+            `;
+            
+            resultsDiv.innerHTML = resultsHTML;
+        }
+        
+        function getDirections(address) {
+            const encodedAddress = encodeURIComponent(address);
+            window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank');
+        }
+        
+        function callMosque(phone) {
+            window.open(`tel:${phone}`, '_self');
+        }
+        
+        function openMosqueModal() {
+            document.getElementById('mosqueModal').style.display = 'block';
+        }
+        
+        function closeMosqueModal() {
+            document.getElementById('mosqueModal').style.display = 'none';
+            document.getElementById('mosqueSuccessMessage').style.display = 'none';
+            document.getElementById('mosqueForm').reset();
+        }
+        
+        function submitMosqueForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                location: formData.get('location'),
+                delivery: formData.get('delivery'),
+                notes: formData.get('notes')
+            };
+            
+            // Here you would typically send this data to your backend
+            // For now, we'll just show a success message
+            console.log('Mosque form submitted:', data);
+            
+            // Show success message
+            document.getElementById('mosqueSuccessMessage').style.display = 'block';
+            
+            // Hide form
+            event.target.style.display = 'none';
+            
+            // Close modal after 3 seconds
+            setTimeout(() => {
+                closeMosqueModal();
+            }, 3000);
+        }
+        
+        // Close mosque modal when clicking outside
+        window.onclick = function(event) {
+            const downloadModal = document.getElementById('downloadModal');
+            const mosqueModal = document.getElementById('mosqueModal');
+            
+            if (event.target === downloadModal) {
+                closeModal();
+            }
+            if (event.target === mosqueModal) {
+                closeMosqueModal();
+            }
+        }
+        
+        // Add CSS animation for loading spinner
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

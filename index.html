@@ -686,6 +686,12 @@
                         <p>Essential guidance for new Muslims</p>
                     </div>
                     
+                    <div class="menu-item" onclick="goToPage('recommended-surahs')">
+                        <div class="menu-icon">📖</div>
+                        <h3>Recommended Surahs</h3>
+                        <p>Essential Quran chapters for beginners with tafsir</p>
+                    </div>
+                    
                     <div class="menu-item" onclick="goToPage('dedication')">
                         <div class="menu-icon">Dedication</div>
                         <h3>Dedication</h3>
@@ -2154,8 +2160,11 @@
                     window.location.href = 'dedication.html';
                     break;
                             case 'hadith-collections-hub':
-                window.location.href = 'hadith-collections-hub.html';
-                break;
+                    window.location.href = 'hadith-collections-hub.html';
+                    break;
+                case 'recommended-surahs':
+                    window.location.href = 'recommended-surahs.html';
+                    break;
                 default:
                     console.log('Page not found');
             }

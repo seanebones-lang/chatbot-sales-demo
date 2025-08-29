@@ -239,6 +239,46 @@
         <div class="header">
             <h1>Daily Islamic Message</h1>
             <p>Your daily dose of Islamic wisdom and inspiration</p>
+            
+            <!-- Date Display Section -->
+            <div class="date-section" style="margin-top: 20px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(68, 68, 68, 0.3);">
+                <div class="gregorian-date" id="gregorianDate" style="color: #87CEEB; font-size: 1.1rem; margin-bottom: 10px;"></div>
+                <div class="islamic-date" id="islamicDate" style="color: #FFD700; font-size: 1.2rem; font-weight: bold; margin-bottom: 10px;"></div>
+                <div class="juma-greeting" id="jumaGreeting" style="color: #98FB98; font-size: 1.3rem; font-weight: bold; display: none;"></div>
+                
+                <!-- Friday Exclusive: Surah Al-Kahf Reminder -->
+                <div class="friday-kahf-reminder" id="fridayKahfReminder" style="display: none; margin-top: 20px; padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 15px; border: 2px solid rgba(255, 215, 0, 0.3);">
+                    <h3 style="color: #FFD700; font-size: 1.4rem; margin-bottom: 15px; text-align: center;">📖 Friday Reminder: Read Surah Al-Kahf</h3>
+                    
+                    <div class="kahf-benefits" style="margin-bottom: 20px;">
+                        <h4 style="color: #98FB98; font-size: 1.2rem; margin-bottom: 10px;">🌟 Benefits of Reading Surah Al-Kahf on Friday:</h4>
+                        <ul style="color: #E0E0E0; line-height: 1.6; text-align: left; padding-left: 20px;">
+                            <li><strong>Light for the next Friday:</strong> Provides spiritual illumination for the entire week</li>
+                            <li><strong>Protection from trials:</strong> Shields from the trials of Dajjal (Antichrist)</li>
+                            <li><strong>Forgiveness of sins:</strong> Minor sins committed between two Fridays are forgiven</li>
+                            <li><strong>Increased blessings:</strong> Brings abundant barakah to your life</li>
+                            <li><strong>Spiritual elevation:</strong> Raises your spiritual status and connection with Allah</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="kahf-sources" style="margin-bottom: 20px;">
+                        <h4 style="color: #87CEEB; font-size: 1.2rem; margin-bottom: 10px;">📚 Authentic Sources:</h4>
+                        <div style="background: rgba(30, 144, 255, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #1E90FF;">
+                            <p style="color: #E0E0E0; margin-bottom: 8px;"><strong>Hadith:</strong> "Whoever recites Surah Al-Kahf on Friday, a light will shine for him between the two Fridays."</p>
+                            <p style="color: #87CEEB; font-size: 0.9rem;"><em>Source: Sahih al-Jami' (6470), authenticated by Al-Albani</em></p>
+                        </div>
+                        <div style="background: rgba(152, 251, 152, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #98FB98; margin-top: 10px;">
+                            <p style="color: #E0E0E0; margin-bottom: 8px;"><strong>Hadith:</strong> "Whoever reads Surah Al-Kahf on the day of Jumu'ah, a light will shine for him from under his feet to the clouds of the sky, which will shine with him on the Day of Resurrection."</p>
+                            <p style="color: #98FB98; font-size: 0.9rem;"><em>Source: Al-Hakim (2/399), authenticated by Al-Albani</em></p>
+                        </div>
+                    </div>
+                    
+                    <div class="kahf-actions" style="text-align: center;">
+                        <button onclick="openKahfModal()" class="action-btn" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000; margin-right: 10px;">📖 Read Surah Al-Kahf</button>
+                        <button onclick="openKahfPdfModal()" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white;">📄 Get PDF with Tafsir</button>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div class="daily-message" id="dailyMessage">
@@ -265,7 +305,168 @@
             
             <div class="action-buttons">
                 <button class="action-btn refresh-btn" onclick="refreshMessage()">New Message</button>
-                <button class="action-btn share-btn" onclick="shareMessage()">Share Wisdom</button>
+                <button class="action-btn share-btn" onclick="openShareModal()">Share Wisdom</button>
+            </div>
+        </div>
+        
+        <!-- Share Wisdom Modal -->
+        <div id="shareModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
+            <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 500px; border: 2px solid rgba(255, 215, 0, 0.3);">
+                <span class="close" onclick="closeShareModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                <h2 style="color: #FFD700; margin-bottom: 20px;">Share Islamic Wisdom</h2>
+                
+                <div class="share-options">
+                    <div class="share-option" style="margin-bottom: 20px;">
+                        <h3 style="color: #87CEEB; margin-bottom: 10px;">📱 Send via Text Message</h3>
+                        <p style="color: #E0E0E0; margin-bottom: 15px;">Share this wisdom with friends and family via SMS</p>
+                        <button onclick="shareViaText()" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; width: 100%;">📱 Send Text Message</button>
+                    </div>
+                    
+                    <div class="share-option" style="margin-bottom: 20px;">
+                        <h3 style="color: #87CEEB; margin-bottom: 10px;">📄 Download PDF</h3>
+                        <p style="color: #E0E0E0; margin-bottom: 15px;">Get a beautiful PDF version of today's message</p>
+                        <button onclick="openPdfModal()" class="action-btn" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000; width: 100%;">📄 Request PDF</button>
+                    </div>
+                    
+                    <div class="share-option" style="margin-bottom: 20px;">
+                        <h3 style="color: #87CEEB; margin-bottom: 10px;">🔗 Copy Link</h3>
+                        <p style="color: #E0E0E0; margin-bottom: 15px;">Copy a link to share on social media</p>
+                        <button onclick="copyShareLink()" class="action-btn" style="background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%); color: white; width: 100%;">🔗 Copy Link</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PDF Request Modal -->
+        <div id="pdfModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
+            <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 500px; border: 2px solid rgba(255, 215, 0, 0.3);">
+                <span class="close" onclick="closePdfModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                <h2 style="color: #FFD700; margin-bottom: 20px;">📄 Request PDF of Today's Message</h2>
+                
+                <form id="pdfForm" onsubmit="submitPdfRequest(event)">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="pdfName" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Full Name *</label>
+                        <input type="text" id="pdfName" name="name" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="pdfEmail" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Email Address *</label>
+                        <input type="email" id="pdfEmail" name="email" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="pdfPhone" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Phone Number (Optional)</label>
+                        <input type="tel" id="pdfPhone" name="phone" style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="pdfDelivery" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Delivery Method *</label>
+                        <select id="pdfDelivery" name="delivery" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
+                            <option value="">Select delivery method</option>
+                            <option value="email">Email PDF</option>
+                            <option value="text">Text Message Link</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; width: 100%; padding: 15px;">📄 Send PDF Request</button>
+                </form>
+                
+                <div id="pdfSuccessMessage" class="success-message" style="display: none; background: rgba(40, 167, 69, 0.2); color: #98FB98; padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center; border: 1px solid rgba(40, 167, 69, 0.5);">
+                    Thank you! Your PDF request has been submitted. You will receive it within 24 hours.
+                </div>
+                            </div>
+            </div>
+        </div>
+        
+        <!-- Surah Al-Kahf Reading Modal -->
+        <div id="kahfModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
+            <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 2% auto; padding: 30px; border-radius: 20px; width: 95%; max-width: 800px; border: 2px solid rgba(255, 215, 0, 0.3); max-height: 90vh; overflow-y: auto;">
+                <span class="close" onclick="closeKahfModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                <h2 style="color: #FFD700; margin-bottom: 20px; text-align: center;">📖 Surah Al-Kahf - The Cave</h2>
+                
+                <div class="kahf-intro" style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 4px solid #FFD700;">
+                    <h3 style="color: #FFD700; margin-bottom: 15px;">🌟 Why Read This Surah on Friday?</h3>
+                    <p style="color: #E0E0E0; line-height: 1.6;">Surah Al-Kahf contains powerful stories and lessons that provide spiritual protection and blessings. Reading it on Friday brings light to your entire week and protection from trials.</p>
+                </div>
+                
+                <div class="kahf-content" style="margin-bottom: 25px;">
+                    <h3 style="color: #98FB98; margin-bottom: 15px;">📚 Key Stories in Surah Al-Kahf:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div style="background: rgba(30, 144, 255, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #1E90FF;">
+                            <h4 style="color: #1E90FF; margin-bottom: 10px;">🏰 The People of the Cave</h4>
+                            <p style="color: #E0E0E0; font-size: 0.9rem;">Young believers who sought refuge in a cave, protected by Allah for 300+ years.</p>
+                        </div>
+                        <div style="background: rgba(152, 251, 152, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #98FB98;">
+                            <h4 style="color: #98FB98; margin-bottom: 10px;">🌳 The Two Gardens</h4>
+                            <p style="color: #E0E0E0; font-size: 0.9rem;">Story of wealth and gratitude, teaching us to be thankful for Allah's blessings.</p>
+                        </div>
+                        <div style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #FFD700;">
+                            <h4 style="color: #FFD700; margin-bottom: 10px;">🧭 Musa and Khidr</h4>
+                            <p style="color: #E0E0E0; font-size: 0.9rem;">Journey of knowledge and wisdom, showing that Allah's wisdom is beyond our understanding.</p>
+                        </div>
+                        <div style="background: rgba(255, 69, 0, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #FF4500;">
+                            <h4 style="color: #FF4500; margin-bottom: 10px;">👑 Dhul-Qarnayn</h4>
+                            <p style="color: #E0E0E0; font-size: 0.9rem;">Righteous ruler who used his power to help people and spread justice.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="kahf-actions" style="text-align: center;">
+                    <button onclick="closeKahfModal()" class="action-btn" style="background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%); color: white; margin-right: 10px;">Close</button>
+                    <button onclick="openKahfPdfModal()" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white;">📄 Get Complete PDF with Tafsir</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Surah Al-Kahf PDF Request Modal -->
+        <div id="kahfPdfModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
+            <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 500px; border: 2px solid rgba(255, 215, 0, 0.3);">
+                <span class="close" onclick="closeKahfPdfModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                <h2 style="color: #FFD700; margin-bottom: 20px;">📄 Get Surah Al-Kahf PDF with Tafsir</h2>
+                
+                <div class="kahf-pdf-info" style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 4px solid #FFD700;">
+                    <h3 style="color: #FFD700; margin-bottom: 15px;">📖 What's Included:</h3>
+                    <ul style="color: #E0E0E0; line-height: 1.6; padding-left: 20px;">
+                        <li>Complete Arabic text with verse numbers</li>
+                        <li>English translation (Sahih International)</li>
+                        <li>Detailed tafsir (explanation) for each story</li>
+                        <li>Benefits and virtues of reading on Friday</li>
+                        <li>Authentic Hadith references</li>
+                        <li>Beautiful Islamic design and formatting</li>
+                    </ul>
+                </div>
+                
+                <form id="kahfPdfForm" onsubmit="submitKahfPdfRequest(event)">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="kahfPdfName" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Full Name *</label>
+                        <input type="text" id="kahfPdfName" name="name" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="kahfPdfEmail" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Email Address *</label>
+                        <input type="email" id="kahfPdfEmail" name="email" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="kahfPdfPhone" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Phone Number (Optional)</label>
+                        <input type="tel" id="kahfPdfPhone" name="phone" style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="kahfPdfDelivery" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Delivery Method *</label>
+                        <select id="kahfPdfDelivery" name="delivery" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
+                            <option value="">Select delivery method</option>
+                            <option value="email">Email PDF</option>
+                            <option value="text">Text Message Link</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; width: 100%; padding: 15px;">📄 Send Surah Al-Kahf PDF Request</button>
+                </form>
+                
+                <div id="kahfPdfSuccessMessage" class="success-message" style="display: none; background: rgba(40, 167, 69, 0.2); color: #98FB98; padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center; border: 1px solid rgba(40, 167, 69, 0.5);">
+                    Thank you! Your Surah Al-Kahf PDF request has been submitted. You will receive it within 24 hours.
+                </div>
             </div>
         </div>
     </div>
@@ -389,11 +590,217 @@
         // Initialize with first message
         displayMessage();
         
+        // Update dates and check for Juma
+        updateDates();
+        
         // Change message every 24 hours
         setInterval(() => {
             currentMessageIndex = (currentMessageIndex + 1) % dailyMessages.length;
             displayMessage();
         }, 24 * 60 * 60 * 1000);
+        
+        // Update dates every minute to keep Islamic date current
+        setInterval(updateDates, 60 * 1000);
+        
+        // Function to update dates and check for Juma
+        function updateDates() {
+            const today = new Date();
+            
+            // Update Gregorian date
+            const gregorianDate = today.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            document.getElementById('gregorianDate').textContent = gregorianDate;
+            
+            // Calculate Islamic date (Hijri)
+            const islamicDate = getIslamicDate(today);
+            document.getElementById('islamicDate').textContent = islamicDate;
+            
+            // Check if it's Friday and show Juma Mubarak + Surah Al-Kahf reminder
+            const jumaGreeting = document.getElementById('jumaGreeting');
+            const fridayKahfReminder = document.getElementById('fridayKahfReminder');
+            
+            if (today.getDay() === 5) { // Friday is day 5 (0 = Sunday)
+                jumaGreeting.textContent = "🕌 Juma Mubarak! Blessed Friday! 🕌";
+                jumaGreeting.style.display = 'block';
+                fridayKahfReminder.style.display = 'block';
+            } else {
+                jumaGreeting.style.display = 'none';
+                fridayKahfReminder.style.display = 'none';
+            }
+        }
+        
+        // Function to convert Gregorian date to Islamic date
+        function getIslamicDate(gregorianDate) {
+            // Simple approximation - for accurate dates, you'd use a proper Hijri calendar library
+            const year = gregorianDate.getFullYear();
+            const month = gregorianDate.getMonth() + 1;
+            const day = gregorianDate.getDate();
+            
+            // Approximate conversion (this is a simplified version)
+            const hijriYear = Math.floor((year - 622) * 1.0307);
+            const hijriMonth = month;
+            const hijriDay = day;
+            
+            const islamicMonths = [
+                'Muharram', 'Safar', 'Rabi al-Awwal', 'Rabi al-Thani',
+                'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Shaban',
+                'Ramadan', 'Shawwal', 'Dhu al-Qadah', 'Dhu al-Hijjah'
+            ];
+            
+            return `${islamicMonths[hijriMonth - 1]} ${hijriDay}, ${hijriYear} AH`;
+        }
+        
+        // Share Wisdom Modal Functions
+        function openShareModal() {
+            document.getElementById('shareModal').style.display = 'block';
+        }
+        
+        function closeShareModal() {
+            document.getElementById('shareModal').style.display = 'none';
+        }
+        
+        function openPdfModal() {
+            document.getElementById('shareModal').style.display = 'none';
+            document.getElementById('pdfModal').style.display = 'block';
+        }
+        
+        function closePdfModal() {
+            document.getElementById('pdfModal').style.display = 'none';
+            document.getElementById('pdfSuccessMessage').style.display = 'none';
+            document.getElementById('pdfForm').reset();
+        }
+        
+        // Share via Text Message
+        function shareViaText() {
+            const message = dailyMessages[currentMessageIndex];
+            const shareText = `Daily Islamic Wisdom: ${message.title}\n\nQuran: ${message.quran.translation}\n\nHadith: ${message.hadith.text}\n\nWisdom: ${message.wisdom}`;
+            
+            // Create SMS link
+            const smsLink = `sms:?body=${encodeURIComponent(shareText)}`;
+            window.open(smsLink, '_self');
+        }
+        
+        // Copy Share Link
+        function copyShareLink() {
+            const currentUrl = window.location.href;
+            navigator.clipboard.writeText(currentUrl).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = currentUrl;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Link copied to clipboard!');
+            });
+        }
+        
+        // Submit PDF Request
+        function submitPdfRequest(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                delivery: formData.get('delivery'),
+                message: dailyMessages[currentMessageIndex],
+                date: new Date().toLocaleDateString()
+            };
+            
+            // Here you would typically send this data to your backend
+            // For now, we'll just show a success message
+            console.log('PDF request submitted:', data);
+            
+            // Show success message
+            document.getElementById('pdfSuccessMessage').style.display = 'block';
+            
+            // Hide form
+            event.target.style.display = 'none';
+            
+            // Close modal after 3 seconds
+            setTimeout(() => {
+                closePdfModal();
+            }, 3000);
+        }
+        
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const shareModal = document.getElementById('shareModal');
+            const pdfModal = document.getElementById('pdfModal');
+            const kahfModal = document.getElementById('kahfModal');
+            const kahfPdfModal = document.getElementById('kahfPdfModal');
+            
+            if (event.target === shareModal) {
+                closeShareModal();
+            }
+            if (event.target === pdfModal) {
+                closePdfModal();
+            }
+            if (event.target === kahfModal) {
+                closeKahfModal();
+            }
+            if (event.target === kahfPdfModal) {
+                closeKahfPdfModal();
+            }
+        }
+        
+        // Surah Al-Kahf Modal Functions
+        function openKahfModal() {
+            document.getElementById('kahfModal').style.display = 'block';
+        }
+        
+        function closeKahfModal() {
+            document.getElementById('kahfModal').style.display = 'none';
+        }
+        
+        function openKahfPdfModal() {
+            document.getElementById('kahfModal').style.display = 'none';
+            document.getElementById('kahfPdfModal').style.display = 'block';
+        }
+        
+        function closeKahfPdfModal() {
+            document.getElementById('kahfPdfModal').style.display = 'none';
+            document.getElementById('kahfPdfSuccessMessage').style.display = 'none';
+            document.getElementById('kahfPdfForm').reset();
+        }
+        
+        function submitKahfPdfRequest(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                delivery: formData.get('delivery'),
+                request: 'Surah Al-Kahf PDF with Tafsir',
+                date: new Date().toLocaleDateString(),
+                day: 'Friday'
+            };
+            
+            // Here you would typically send this data to your backend
+            // For now, we'll just show a success message
+            console.log('Surah Al-Kahf PDF request submitted:', data);
+            
+            // Show success message
+            document.getElementById('kahfPdfSuccessMessage').style.display = 'block';
+            
+            // Hide form
+            event.target.style.display = 'none';
+            
+            // Close modal after 3 seconds
+            setTimeout(() => {
+                closeKahfPdfModal();
+            }, 3000);
+        }
     </script>
 </body>
 </html>
