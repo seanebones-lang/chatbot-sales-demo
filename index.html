@@ -87,6 +87,14 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
         
         .menu-item:hover {
@@ -94,6 +102,12 @@
             border-color: #1E90FF;
             box-shadow: 0 20px 40px rgba(30, 144, 255, 0.3);
             background: rgba(18, 18, 18, 0.95);
+        }
+        
+        .menu-item:active {
+            transform: scale(0.95);
+            border-color: #FFD700;
+            background: rgba(18, 18, 18, 0.98);
         }
         
         .menu-item::before {
@@ -524,6 +538,44 @@
             
             .container {
                 padding: 15px;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .menu-item {
+                padding: 25px;
+                min-height: 120px;
+                min-width: 280px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                touch-action: manipulation;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            
+            .menu-item h3 {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+            
+            .menu-item p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+            
+            .menu-icon {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
             }
             
             .search-input {
@@ -1647,6 +1699,41 @@
             document.getElementById('searchInput').addEventListener('focus', function() {
                 clearTimeout(welcomeTimer);
                 document.getElementById('searchSection').classList.add('show');
+            });
+            
+            // Add touch event handling for mobile devices
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                // Get the page name from the onclick attribute
+                const onclick = item.getAttribute('onclick');
+                const pageMatch = onclick.match(/goToPage\('([^']+)'\)/);
+                const pageName = pageMatch ? pageMatch[1] : null;
+                
+                if (pageName) {
+                    // Add touch events for mobile
+                    item.addEventListener('touchstart', function(e) {
+                        e.preventDefault();
+                        this.style.transform = 'scale(0.95)';
+                        this.style.opacity = '0.8';
+                    });
+                    
+                    item.addEventListener('touchend', function(e) {
+                        e.preventDefault();
+                        this.style.transform = 'scale(1)';
+                        this.style.opacity = '1';
+                        // Navigate to the page
+                        goToPage(pageName);
+                    });
+                    
+                    // Ensure click events work on mobile
+                    item.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        goToPage(pageName);
+                    });
+                    
+                    // Add debugging for mobile
+                    console.log('Menu item configured for:', pageName);
+                }
             });
         });
         
