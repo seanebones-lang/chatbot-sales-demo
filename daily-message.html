@@ -364,6 +364,7 @@
             }
         }
     </style>
+    <script src="universal-pdf-delivery.js"></script>
 </head>
 <body>
     <button class="back-btn" onclick="goBack()">Back to Main</button>
@@ -1334,6 +1335,15 @@
             setTimeout(() => {
                 closeKahfPdfModal();
             }, 3000);
+        }
+
+        // Full Surah Al-Kahf Modal Functions
+        function openFullKahfModal() {
+            document.getElementById('fullKahfModal').style.display = 'block';
+        }
+        
+        function closeFullKahfModal() {
+            document.getElementById('fullKahfModal').style.display = 'none';
         }
     </script>
 </body>
