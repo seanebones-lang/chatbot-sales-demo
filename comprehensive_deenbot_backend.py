@@ -98,6 +98,129 @@ Taqwa is the foundation of a strong relationship with Allah and the key to succe
                 "references": ["Quran 2:2", "Quran 8:29", "Quran 10:62", "Quran 49:13", "Quran 65:4", "Quran 3:102"]
             },
             
+            "quranic_verses": {
+                "question": "What are some important Quranic verses?",
+                "answer": """**Essential Quranic Verses for Daily Life**
+
+**1. Opening Verse (Al-Fatiha 1:1-7)**
+"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
+"In the name of Allah, the Entirely Merciful, the Especially Merciful"
+- The most important verse, recited in every prayer
+
+**2. Verse of Light (24:35)**
+"اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ"
+"Allah is the Light of the heavens and the earth"
+- Describes Allah's guidance illuminating the world
+
+**3. Verse of Mercy (2:186)**
+"وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ"
+"And when My servants ask you concerning Me, indeed I am near"
+- Allah is always close and listening to our prayers
+
+**4. Verse of Patience (2:155)**
+"وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ وَالْجُوعِ"
+"And We will surely test you with something of fear and hunger"
+- Life's tests are opportunities for growth
+
+**5. Verse of Justice (4:135)**
+"كُونُوا قَوَّامِينَ بِالْقِسْطِ"
+"Be persistently standing firm in justice"
+- Justice is fundamental to Islamic society
+
+**6. Verse of Unity (3:103)**
+"وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا"
+"And hold firmly to the rope of Allah all together"
+- Unity among Muslims is essential
+
+**7. Verse of Knowledge (96:1-5)**
+"اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ"
+"Read in the name of your Lord who created"
+- Emphasizes the importance of education
+
+**8. Verse of Gratitude (14:7)**
+"لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ"
+"If you are grateful, I will surely increase you"
+- Gratitude brings more blessings
+
+**9. Verse of Forgiveness (39:53)**
+"قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ"
+"Say, 'O My servants who have transgressed against themselves'"
+- Allah's mercy is always available
+
+**10. Verse of Hope (94:5-6)**
+"فَإِنَّ مَعَ الْعُسْرِ يُسْرًا"
+"For indeed, with hardship [will be] ease"
+- Every difficulty is followed by ease
+
+These verses provide guidance for all aspects of life and should be memorized and reflected upon regularly.""",
+                "references": ["Quran 1:1-7", "Quran 24:35", "Quran 2:186", "Quran 2:155", "Quran 4:135", "Quran 3:103", "Quran 96:1-5", "Quran 14:7", "Quran 39:53", "Quran 94:5-6"]
+            },
+            
+            "hadith_collection": {
+                "question": "What are some important Hadith?",
+                "answer": """**Essential Hadith Collections and Teachings**
+
+**1. Bukhari - Most Authentic Collection**
+- **Volume 1**: Faith and Belief
+- **Volume 2**: Prayer and Worship
+- **Volume 3**: Knowledge and Education
+- **Volume 4**: Business and Transactions
+- **Volume 5**: Family and Relationships
+
+**2. Muslim - Second Most Authentic**
+- **Book of Faith**: Core beliefs and principles
+- **Book of Prayer**: Detailed prayer guidance
+- **Book of Fasting**: Ramadan and voluntary fasting
+- **Book of Hajj**: Pilgrimage requirements
+- **Book of Marriage**: Family life and relationships
+
+**3. Abu Dawud - Legal Traditions**
+- **Purification**: Wudu and cleanliness
+- **Prayer**: Detailed prayer instructions
+- **Business**: Islamic business practices
+- **Family**: Marriage, divorce, inheritance
+- **Social**: Community and neighbor relations
+
+**4. Tirmidhi - Comprehensive Collection**
+- **Faith and Belief**: Core Islamic concepts
+- **Worship**: All forms of worship
+- **Character**: Good manners and ethics
+- **Social**: Community and relationships
+- **End Times**: Signs of the Day of Judgment
+
+**5. Nasai - Detailed Traditions**
+- **Prayer Times**: Exact timing for prayers
+- **Prayer Actions**: Specific movements and words
+- **Fasting**: Detailed fasting rules
+- **Charity**: Zakat and voluntary giving
+- **Pilgrimage**: Hajj and Umrah details
+
+**6. Ibn Majah - Additional Traditions**
+- **Introduction**: Faith and knowledge
+- **Purification**: Cleanliness and hygiene
+- **Prayer**: Prayer details and etiquette
+- **Business**: Trade and financial matters
+- **Medicine**: Health and treatment
+
+**Key Hadith Categories:**
+- **Aqeedah**: Beliefs and theology
+- **Ibadah**: Worship and rituals
+- **Muamalat**: Social interactions
+- **Akhlaq**: Character and ethics
+- **Tafsir**: Quran interpretation
+- **Seerah**: Prophet's life and teachings
+
+**Memorization Priority:**
+1. **Essential Hadith**: Core beliefs and practices
+2. **Daily Hadith**: Regular worship and behavior
+3. **Weekly Hadith**: Community and social matters
+4. **Monthly Hadith**: Special occasions and events
+5. **Yearly Hadith**: Annual rituals and celebrations
+
+These collections provide comprehensive guidance for implementing Islamic teachings in daily life.""",
+                "references": ["Bukhari", "Muslim", "Abu Dawud", "Tirmidhi", "Nasai", "Ibn Majah", "Ahmad", "Malik"]
+            },
+            
             "five_pillars": {
                 "question": "What are the five pillars of Islam?",
                 "answer": """The Five Pillars of Islam are the fundamental acts of worship that every Muslim must fulfill:
@@ -2010,6 +2133,7 @@ These pillars form the foundation of Islamic practice and are essential for spir
         
         # Enhanced local knowledge with more topics
         self.enhanced_knowledge = {
+            # Core Islamic concepts
             "ramadan": "Ramadan is the ninth month of the Islamic calendar and the month of fasting. Reference: Quran 2:185 - 'The month of Ramadan [is that] in which was revealed the Quran'",
             "hajj": "Hajj is the annual pilgrimage to Mecca, obligatory once in a lifetime for those who are able. Reference: Quran 3:97 - 'And [due] to Allah from the people is a pilgrimage to the House'",
             "zakat": "Zakat is the annual giving of 2.5% of wealth to the poor and needy. Reference: Quran 2:267 - 'O you who have believed, spend from the good things which you have earned'",
@@ -2019,15 +2143,89 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "jannah": "Jannah (Paradise) is the eternal reward for righteous believers. Reference: Quran 3:133 - 'And hasten to forgiveness from your Lord and a garden as wide as the heavens and earth'",
             "akhirah": "Akhirah refers to the Hereafter or life after death. Reference: Quran 2:4 - 'And who believe in what has been revealed to you and what was revealed before you, and of the Hereafter they are certain'",
             
-            # Additional topics for better coverage
-            "fasting_ramadan": "Fasting during Ramadan is one of the Five Pillars of Islam. Muslims fast from dawn to sunset, abstaining from food, drink, and other physical needs. Reference: Quran 2:183 - 'O you who have believed, decreed upon you is fasting as it was decreed upon those before you'",
-            "zakat_charity": "Zakat is the annual giving of 2.5% of wealth to the poor and needy. It's one of the Five Pillars and a form of worship that purifies wealth. Reference: Quran 2:267 - 'O you who have believed, spend from the good things which you have earned'",
-            "hajj_pilgrimage": "Hajj is the annual pilgrimage to Mecca, obligatory once in a lifetime for those who are able. It's one of the Five Pillars and a profound spiritual journey. Reference: Quran 3:97 - 'And [due] to Allah from the people is a pilgrimage to the House'",
-            "prayer_guidance": "Prayer (Salah) is the second pillar of Islam. Muslims pray five times daily: Fajr (dawn), Dhuhr (noon), Asr (afternoon), Maghrib (sunset), and Isha (night). Reference: Quran 4:103 - 'Indeed, prayer has been decreed upon the believers a [decreed] portion of time'",
-            "halal_haram": "Halal means permissible and Haram means forbidden in Islam. These terms apply to food, business practices, relationships, and all aspects of life. Reference: Quran 5:5 - 'This day are [all] good foods made lawful for you'",
-            "sunnah_importance": "Sunnah refers to the teachings and practices of Prophet Muhammad (PBUH). Following the Sunnah is essential for Muslims as it provides practical guidance for implementing Islamic principles. Reference: Quran 33:21 - 'There has certainly been for you in the Messenger of Allah an excellent pattern'",
-            "hadith_importance": "Hadith are the recorded sayings and actions of Prophet Muhammad (PBUH). They provide detailed guidance on how to implement Islamic teachings in daily life. Reference: Quran 33:21 - 'There has certainly been for you in the Messenger of Allah an excellent pattern'",
-            "quran_importance": "The Quran is the holy book of Islam, revealed to Prophet Muhammad (PBUH) over 23 years. It's the primary source of Islamic guidance and contains Allah's direct message to humanity. Reference: Quran 2:2 - 'This is the Book about which there is no doubt, a guidance for those conscious of Allah'"
+            # Prayer and worship
+            "prayer": "Prayer (Salah) is the second pillar of Islam. Muslims pray five times daily: Fajr (dawn), Dhuhr (noon), Asr (afternoon), Maghrib (sunset), and Isha (night). Reference: Quran 4:103 - 'Indeed, prayer has been decreed upon the believers a [decreed] portion of time'",
+            
+            # Advanced Islamic topics
+            "aqeedah": "Aqeedah refers to Islamic beliefs and theology. It includes belief in Allah, His angels, His books, His messengers, the Day of Judgment, and divine decree. Reference: Quran 2:285 - 'The Messenger has believed in what was revealed to him from his Lord, and [so have] the believers'",
+            "fiqh": "Fiqh is Islamic jurisprudence - the understanding and application of Islamic law. It covers worship, business, family, and social matters. Reference: Quran 4:59 - 'O you who have believed, obey Allah and obey the Messenger and those in authority among you'",
+            "seerah": "Seerah is the biography of Prophet Muhammad (PBUH). It provides guidance on how to live according to Islamic principles. Reference: Quran 33:21 - 'There has certainly been for you in the Messenger of Allah an excellent pattern'",
+            "sufism": "Sufism is the spiritual dimension of Islam focusing on inner purification and closeness to Allah. It emphasizes love, devotion, and spiritual practices. Reference: Quran 2:186 - 'And when My servants ask you concerning Me, indeed I am near'",
+            
+            # Islamic history and civilization
+            "islamic_history": "Islamic history spans over 1400 years, from the revelation of the Quran to the present day. It includes the Golden Age of Islam, scientific discoveries, and cultural achievements. Reference: Quran 3:140 - 'And if you have been afflicted, [know that] those [before you] were afflicted similarly'",
+            "golden_age": "The Islamic Golden Age (8th-14th centuries) saw remarkable advances in science, medicine, mathematics, astronomy, and philosophy. Muslim scholars preserved and expanded knowledge from ancient civilizations. Reference: Quran 96:1-5 - 'Read in the name of your Lord who created'",
+            "andalusia": "Islamic Spain (Al-Andalus) was a center of learning and culture for over 700 years. It fostered religious tolerance and intellectual exchange between Muslims, Christians, and Jews. Reference: Quran 49:13 - 'Indeed, the most noble of you in the sight of Allah is the most righteous of you'",
+            "ottoman_empire": "The Ottoman Empire (1299-1922) was one of the largest and longest-lasting empires in history. It preserved Islamic culture and spread Islamic values across three continents. Reference: Quran 3:103 - 'And hold firmly to the rope of Allah all together'",
+            
+            # Contemporary Islamic issues
+            "modern_challenges": "Modern Muslims face unique challenges including technology, globalization, and changing social norms. Islam provides timeless principles that can be applied to contemporary situations. Reference: Quran 5:3 - 'This day I have perfected for you your religion'",
+            "interfaith_dialogue": "Interfaith dialogue promotes understanding between different religions. Islam encourages respectful discussion and cooperation for the common good. Reference: Quran 3:64 - 'Say, 'O People of the Scripture, come to a word that is equitable between us'",
+            "islamic_finance": "Islamic finance operates without interest (riba) and promotes ethical business practices. It includes Islamic banking, insurance (takaful), and investment funds. Reference: Quran 2:275 - 'Allah has permitted trade and has forbidden interest'",
+            "environmental_islam": "Environmental protection is important in Islam. The Earth is a trust from Allah and should be cared for responsibly. Reference: Quran 7:56 - 'And do not cause corruption on the earth after its reformation'",
+            
+            # Personal development and psychology
+            "islamic_psychology": "Islamic psychology integrates Islamic principles with psychological understanding. It emphasizes the soul, character development, and spiritual well-being. Reference: Quran 13:28 - 'Unquestionably, by the remembrance of Allah hearts are assured'",
+            "emotional_intelligence": "Emotional intelligence in Islam involves managing emotions according to Islamic principles. It includes patience, gratitude, and controlling anger. Reference: Quran 3:134 - 'Who spend [in the cause of Allah] during ease and hardship and who restrain anger'",
+            "stress_management": "Islamic stress management techniques include prayer, dhikr, patience, and trust in Allah's plan. Reference: Quran 2:286 - 'Allah does not burden a soul beyond that it can bear'",
+            "goal_setting": "Setting and achieving goals in Islam should align with Islamic values. Goals should benefit oneself and others while pleasing Allah. Reference: Quran 59:18 - 'O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow'",
+            
+            # Advanced worship practices
+            "tahajjud": "Tahajjud is the night prayer performed after sleeping. It's a highly recommended voluntary prayer that brings great spiritual benefits. Reference: Quran 17:79 - 'And from [part of] the night, pray with it as additional [worship] for you'",
+            "dhikr_advanced": "Advanced dhikr includes specific phrases and methods for remembering Allah. It can be done silently or aloud, individually or in groups. Reference: Quran 33:41 - 'O you who have believed, remember Allah with much remembrance'",
+            "dua_collections": "Collections of authentic duas for various situations including morning, evening, entering/exiting places, and specific needs. Reference: Quran 2:186 - 'And when My servants ask you concerning Me, indeed I am near'",
+            "quran_memorization": "Memorizing the Quran (Hifz) is a highly rewarded practice. It preserves the divine text and brings spiritual benefits. Reference: Quran 2:2 - 'This is the Book about which there is no doubt'",
+            
+            # Islamic art and culture
+            "islamic_art": "Islamic art includes calligraphy, geometric patterns, and arabesque designs. It avoids depicting living beings and focuses on abstract beauty. Reference: Quran 59:24 - 'He is Allah, the Creator, the Inventor, the Fashioner'",
+            "islamic_architecture": "Islamic architecture features domes, minarets, courtyards, and geometric patterns. It creates spaces for worship and community gathering. Reference: Quran 2:127 - 'And [mention] when Abraham was raising the foundations of the House'",
+            "islamic_literature": "Islamic literature includes poetry, prose, and scholarly works. It covers religious, philosophical, and cultural topics. Reference: Quran 26:224 - 'And the poets - [only] the deviators follow them'",
+            "islamic_music": "Islamic music includes nasheeds (religious songs), Quran recitation, and traditional instruments. It avoids inappropriate content and promotes spiritual upliftment.",
+            "wudu": "Wudu (ablution) is the ritual washing before prayer. It includes washing hands, face, arms, head, and feet. Reference: Quran 5:6 - 'O you who have believed, when you rise to [perform] prayer, wash your faces and your forearms to the elbows'",
+            "dua": "Dua (supplication) is the act of calling upon Allah. It's a direct communication with the Creator and a powerful form of worship. Reference: Quran 2:186 - 'And when My servants ask you concerning Me, indeed I am near. I respond to the invocation of the supplicant'",
+            "dhikr": "Dhikr is the remembrance of Allah through words, phrases, or prayers. It's a way to maintain constant awareness of Allah's presence. Reference: Quran 33:41 - 'O you who have believed, remember Allah with much remembrance'",
+            
+            # Islamic ethics and character
+            "patience": "Patience (Sabr) is highly valued in Islam. It's the ability to endure difficulties with faith and trust in Allah's plan. Reference: Quran 2:155 - 'And We will surely test you with something of fear and hunger and a loss of wealth and lives and fruits, but give good tidings to the patient'",
+            "gratitude": "Gratitude (Shukr) is showing thankfulness to Allah for His blessings. It's essential for spiritual growth and receiving more blessings. Reference: Quran 14:7 - 'If you are grateful, I will surely increase you [in favor]'",
+            "humility": "Humility (Tawadu) is being modest and not arrogant. It's a key characteristic of true believers. Reference: Quran 25:63 - 'And the servants of the Most Merciful are those who walk upon the earth easily, and when the ignorant address them [harshly], they say [words of] peace'",
+            "honesty": "Honesty (Sidq) is truthfulness in speech and action. It's fundamental to Islamic character. Reference: Quran 33:24 - 'That Allah may reward the truthful for their truth'",
+            
+            # Family and relationships
+            "parents": "Respecting and honoring parents is extremely important in Islam. It's considered one of the greatest acts of worship. Reference: Quran 17:23 - 'And your Lord has decreed that you not worship except Him, and to parents, good treatment'",
+            "marriage": "Marriage is a sacred bond in Islam that provides companionship, love, and a foundation for family life. Reference: Quran 30:21 - 'And of His signs is that He created for you from yourselves mates that you may find tranquility in them'",
+            "children": "Raising children with Islamic values is a great responsibility and source of reward. Reference: Quran 66:6 - 'O you who have believed, protect yourselves and your families from a Fire whose fuel is people and stones'",
+            "family": "Family is the foundation of Islamic society. Strong family bonds create a stable and harmonious community. Reference: Quran 4:1 - 'O mankind, fear your Lord, who created you from one soul and created from it its mate'",
+            
+            # Business and finance
+            "business": "Islamic business practices emphasize honesty, fairness, and avoiding interest (riba). Reference: Quran 2:275 - 'Allah has permitted trade and has forbidden interest'",
+            "interest": "Interest (riba) is strictly forbidden in Islam as it exploits the poor and creates economic injustice. Reference: Quran 2:275 - 'Those who consume interest cannot stand [on the Day of Resurrection] except as one stands who is being beaten by Satan'",
+            "charity": "Charity (Sadaqah) is voluntary giving beyond the obligatory zakat. It purifies wealth and brings blessings. Reference: Quran 2:261 - 'The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes'",
+            "wealth": "Wealth is a trust from Allah and should be used responsibly for the benefit of oneself and others. Reference: Quran 63:9 - 'O you who have believed, let not your wealth and your children divert you from remembrance of Allah'",
+            
+            # Health and wellness
+            "health": "Maintaining good health is important in Islam. The body is a trust from Allah and should be cared for properly. Reference: Quran 2:195 - 'And spend in the way of Allah and do not throw [yourselves] with your [own] hands into destruction'",
+            "medicine": "Seeking medical treatment is encouraged in Islam. The Prophet (PBUH) said: 'Seek treatment, for Allah has not created a disease without creating a cure for it.'",
+            "hygiene": "Cleanliness is emphasized in Islam. The Prophet (PBUH) said: 'Cleanliness is half of faith.'",
+            "exercise": "Physical fitness is valued in Islam as it helps maintain the body's health and strength for worship and daily activities.",
+            
+            # Education and knowledge
+            "education": "Seeking knowledge is obligatory for every Muslim. Education opens doors to understanding and personal growth. Reference: Quran 96:1-5 - 'Read in the name of your Lord who created'",
+            "learning": "Continuous learning is encouraged in Islam. The Prophet (PBUH) said: 'Seek knowledge from the cradle to the grave.'",
+            "wisdom": "Wisdom (Hikmah) is a great blessing from Allah that helps in making good decisions and understanding life. Reference: Quran 2:269 - 'He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good'",
+            "understanding": "Understanding (Fiqh) of Islamic teachings is essential for proper practice and application of Islamic principles.",
+            
+            # Social justice and community
+            "justice": "Justice (Adl) is a fundamental principle in Islam. All people should be treated fairly regardless of race, ethnicity, or social status. Reference: Quran 4:135 - 'O you who have believed, be persistently standing firm in justice'",
+            "equality": "All humans are equal in the sight of Allah. The only distinction is in piety and good deeds. Reference: Quran 49:13 - 'Indeed, the most noble of you in the sight of Allah is the most righteous of you'",
+            "community": "Building strong communities is important in Islam. Muslims are encouraged to support and help each other. Reference: Quran 3:103 - 'And hold firmly to the rope of Allah all together and do not become divided'",
+            "service": "Serving others is a form of worship in Islam. Helping those in need brings great rewards and blessings.",
+            
+            # Contemporary issues
+            "technology": "Technology should be used responsibly and for beneficial purposes. It can help spread Islamic knowledge and connect Muslims worldwide.",
+            "environment": "Protecting the environment is important in Islam. The Earth is a trust from Allah and should be cared for responsibly.",
+            "social media": "Social media should be used wisely to share beneficial information and maintain Islamic values online.",
+            "modern life": "Islam provides guidance for all aspects of modern life while maintaining core Islamic principles and values."
         }
 
     def get_comprehensive_response(self, user_message):
@@ -2079,11 +2277,83 @@ These pillars form the foundation of Islamic practice and are essential for spir
             # Islamic concepts
             "mercy": "mercy",
             "quran on mercy": "mercy",
-            "halal": "halal_haram",
-            "haram": "halal_haram",
-            "sunnah": "sunnah_importance",
-            "hadith": "hadith_importance",
-            "quran": "quran_importance",
+            "halal": "halal",
+            "haram": "haram",
+            "sunnah": "sunnah",
+            "hadith": "hadith",
+            "quran": "quran",
+            
+            # Advanced Islamic topics
+            "aqeedah": "aqeedah",
+            "beliefs": "aqeedah",
+            "theology": "aqeedah",
+            "fiqh": "fiqh",
+            "jurisprudence": "fiqh",
+            "islamic law": "fiqh",
+            "seerah": "seerah",
+            "prophet biography": "seerah",
+            "prophet life": "seerah",
+            "sufism": "sufism",
+            "spirituality": "sufism",
+            "tasawwuf": "sufism",
+            
+            # Islamic history
+            "islamic history": "islamic_history",
+            "muslim history": "islamic_history",
+            "golden age": "golden_age",
+            "islamic civilization": "golden_age",
+            "andalusia": "andalusia",
+            "al andalus": "andalusia",
+            "ottoman": "ottoman_empire",
+            "ottoman empire": "ottoman_empire",
+            
+            # Contemporary issues
+            "modern challenges": "modern_challenges",
+            "contemporary islam": "modern_challenges",
+            "interfaith": "interfaith_dialogue",
+            "dialogue": "interfaith_dialogue",
+            "islamic finance": "islamic_finance",
+            "halal banking": "islamic_finance",
+            "environment": "environmental_islam",
+            "environmental protection": "environmental_islam",
+            
+            # Personal development
+            "islamic psychology": "islamic_psychology",
+            "mental health islam": "islamic_psychology",
+            "emotional intelligence": "emotional_intelligence",
+            "emotions": "emotional_intelligence",
+            "stress management": "stress_management",
+            "coping": "stress_management",
+            "goal setting": "goal_setting",
+            "objectives": "goal_setting",
+            
+            # Advanced worship
+            "tahajjud": "tahajjud",
+            "night prayer": "tahajjud",
+            "advanced dhikr": "dhikr_advanced",
+            "dhikr methods": "dhikr_advanced",
+            "dua collections": "dua_collections",
+            "supplications": "dua_collections",
+            "quran memorization": "quran_memorization",
+            "hifz": "quran_memorization",
+            
+            # Islamic culture
+            "islamic art": "islamic_art",
+            "muslim art": "islamic_art",
+            "islamic architecture": "islamic_architecture",
+            "mosque design": "islamic_architecture",
+            "islamic literature": "islamic_literature",
+            "muslim literature": "islamic_literature",
+            "islamic music": "islamic_music",
+            "nasheeds": "islamic_music",
+            
+            # Quranic knowledge
+            "quranic verses": "quranic_verses",
+            "important verses": "quranic_verses",
+            "essential verses": "quranic_verses",
+            "hadith collections": "hadith_collection",
+            "hadith books": "hadith_collection",
+            "authentic hadith": "hadith_collection",
             
             # Conversion and faith
             "how to become muslim": "becoming_muslim",
