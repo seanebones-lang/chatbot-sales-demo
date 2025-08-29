@@ -497,6 +497,7 @@
                 <button class="source-btn" onclick="setSource('quran')">📖 Quran Only</button>
                 <button class="source-btn" onclick="setSource('hadith')">📜 Hadith Only</button>
                 <button class="source-btn" onclick="setSource('fiqh')">⚖️ Fiqh (Islamic Law)</button>
+                <button class="source-btn" onclick="setSource('new-muslim')">🌟 New Muslim Guide</button>
             </div>
         </div>
 
@@ -735,6 +736,120 @@
             }
         ];
         
+        // New Muslim Database - Comprehensive Guidance
+        const newMuslimDatabase = [
+            {
+                reference: "Shahada - Declaration of Faith",
+                arabic: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+                translation: "I bear witness that there is no deity except Allah, and I bear witness that Muhammad is the Messenger of Allah.",
+                context: "The first step for new Muslims - declaring faith in Allah and His Messenger. This is your entry into Islam.",
+                topic: "Shahada",
+                source: "New Muslim",
+                category: "Basic Faith",
+                keywords: ["shahada", "declaration", "faith", "allah", "muhammad", "messenger", "new muslim", "first step"]
+            },
+            {
+                reference: "Five Pillars - Foundation of Islam",
+                arabic: "بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ",
+                translation: "Islam is built upon five [pillars]",
+                context: "Essential foundation: 1) Shahada (faith declaration), 2) Salah (prayer), 3) Zakat (charity), 4) Sawm (fasting), 5) Hajj (pilgrimage). Start with Shahada and Salah - the others come later.",
+                topic: "Five Pillars",
+                source: "New Muslim",
+                category: "Basic Faith",
+                keywords: ["five pillars", "foundation", "islam", "basic", "essential", "new muslim", "shahada", "salah"]
+            },
+            {
+                reference: "Wudu Guide - Complete Ablution",
+                arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قُمْتُمْ إِلَى الصَّلَاةِ فَاغْسِلُوا وُجُوهَكُمْ",
+                translation: "O you who have believed, when you rise to [perform] prayer, wash your faces",
+                context: "Step-by-step wudu: 1) Say 'Bismillah' and wash hands 3x, 2) Rinse mouth 3x, 3) Rinse nose 3x, 4) Wash face 3x, 5) Wash arms to elbows 3x, 6) Wipe head once, 7) Wash feet to ankles 3x. Each step with intention.",
+                topic: "Wudu Guide",
+                source: "New Muslim",
+                category: "Worship",
+                keywords: ["wudu", "ablution", "cleanliness", "prayer", "new muslim", "step by step", "how to"]
+            },
+            {
+                reference: "Daily Prayers - Names & Times",
+                arabic: "أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ",
+                translation: "Establish prayer from the decline of the sun until the darkness of the night",
+                context: "5 Daily Prayers: 1) Fajr (Dawn) - 2 rakats, 2) Dhuhr (Noon) - 4 rakats, 3) Asr (Afternoon) - 4 rakats, 4) Maghrib (Sunset) - 3 rakats, 5) Isha (Night) - 4 rakats. Start with Fajr - it's the shortest and easiest to learn.",
+                topic: "Daily Prayers",
+                source: "New Muslim",
+                category: "Worship",
+                keywords: ["prayers", "fajr", "dhuhr", "asr", "maghrib", "isha", "rakats", "times", "new muslim", "names"]
+            },
+            {
+                reference: "Prayer Structure - What is a Rakat?",
+                arabic: "الرَّكْعَةُ أَصْلُ الصَّلَاةِ",
+                translation: "The rakat is the foundation of prayer",
+                context: "A rakat consists of: 1) Standing (Qiyam) - recite Al-Fatiha + short surah, 2) Bowing (Ruku) - say 'Subhanallah' 3x, 3) Standing up, 4) Prostration (Sujood) - say 'Subhanallah' 3x, 5) Sitting between prostrations, 6) Second prostration. This completes one rakat.",
+                topic: "Prayer Structure",
+                source: "New Muslim",
+                category: "Worship",
+                keywords: ["rakat", "prayer structure", "qiyam", "ruku", "sujood", "new muslim", "how to pray", "steps"]
+            },
+            {
+                reference: "Easy Surahs to Memorize - Start Simple",
+                arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
+                translation: "Read in the name of your Lord who created",
+                context: "Start with these short, easy surahs: 1) Al-Fatiha (7 verses) - essential for every prayer, 2) Al-Ikhlas (4 verses) - about Allah's oneness, 3) Al-Falaq (5 verses) - seeking protection, 4) An-Nas (6 verses) - seeking refuge, 5) Al-Kawthar (3 verses) - shortest surah. Learn one at a time.",
+                topic: "Easy Surahs",
+                source: "New Muslim",
+                category: "Education",
+                keywords: ["surahs", "memorize", "easy", "short", "fatiha", "ikhlas", "falaq", "nas", "kawthar", "new muslim", "start simple"]
+            },
+            {
+                reference: "First Prayer Steps - Don't Feel Lost",
+                arabic: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+                translation: "Indeed, Allah is with the patient",
+                context: "It's natural to feel a little lost at first! Start with Fajr prayer (2 rakats): 1) Make wudu, 2) Face Qibla (direction of Kaaba), 3) Make intention, 4) Say 'Allahu Akbar', 5) Recite Al-Fatiha, 6) Recite Al-Ikhlas, 7) Bow, 8) Prostrate twice, 9) Repeat for second rakat. Take it step by step - Allah sees your effort.",
+                topic: "First Prayer Steps",
+                source: "New Muslim",
+                category: "Worship",
+                keywords: ["first prayer", "steps", "fajr", "don't feel lost", "step by step", "new muslim", "guidance", "encouragement"]
+            },
+            {
+                reference: "Common Prayer Phrases - Essential Arabic",
+                arabic: "سُبْحَانَ اللَّهِ، الْحَمْدُ لِلَّهِ، اللَّهُ أَكْبَرُ",
+                translation: "Glory be to Allah, All praise is for Allah, Allah is the Greatest",
+                context: "Essential phrases: 'Allahu Akbar' (Allah is Greatest) - start prayer, 'Subhanallah' (Glory be to Allah) - during bowing/prostration, 'Alhamdulillah' (All praise is for Allah) - standing up, 'Sami Allahu liman hamidah' (Allah hears those who praise Him) - after bowing, 'Rabbana wa lakal hamd' (Our Lord, to You is all praise).",
+                topic: "Prayer Phrases",
+                source: "New Muslim",
+                category: "Education",
+                keywords: ["prayer phrases", "arabic", "essential", "allahu akbar", "subhanallah", "alhamdulillah", "new muslim", "language"]
+            },
+            {
+                reference: "Prayer Times - When to Pray",
+                arabic: "إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا",
+                translation: "Indeed, prayer has been decreed upon the believers a decree of specified times",
+                context: "Prayer times vary by location and season. Use a prayer app or check local mosque. General times: Fajr (before sunrise), Dhuhr (after sun passes highest point), Asr (mid-afternoon), Maghrib (after sunset), Isha (night). Don't worry about exact times initially - focus on learning the prayer first.",
+                topic: "Prayer Times",
+                source: "New Muslim",
+                category: "Worship",
+                keywords: ["prayer times", "when to pray", "fajr", "dhuhr", "asr", "maghrib", "isha", "new muslim", "guidance", "apps"]
+            },
+            {
+                reference: "It's Okay to Make Mistakes - Allah is Merciful",
+                arabic: "إِنَّ اللَّهَ غَفُورٌ رَّحِيمٌ",
+                translation: "Indeed, Allah is Forgiving and Merciful",
+                context: "New Muslims often worry about making mistakes in prayer. Remember: Allah sees your intention and effort. It's better to pray imperfectly than not to pray at all. The Prophet (ﷺ) said: 'Actions are judged by intentions.' Start simple, learn gradually, and don't be hard on yourself.",
+                topic: "Making Mistakes",
+                source: "New Muslim",
+                category: "Character",
+                keywords: ["mistakes", "forgiveness", "mercy", "intention", "effort", "new muslim", "encouragement", "don't worry"]
+            },
+            {
+                reference: "Finding Support - You're Not Alone",
+                arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",
+                translation: "And cooperate in righteousness and piety",
+                context: "Connect with your local Muslim community: visit the mosque, join new Muslim groups, find a mentor. Many Muslims love helping new converts. Online resources: Islamic apps, YouTube channels, websites. Remember: every Muslim was once new to Islam. You're part of a global family of 2 billion Muslims.",
+                topic: "Finding Support",
+                source: "New Muslim",
+                category: "Social",
+                keywords: ["support", "community", "mosque", "mentor", "not alone", "global family", "new muslim", "encouragement", "resources"]
+            }
+        ];
+        
         // Enhanced Auto Wisdom with Categories
         const autoWisdom = [
             {
@@ -858,6 +973,16 @@
                     });
                 }
                 
+                // Search in New Muslim database
+                if (source === 'all' || source === 'new-muslim') {
+                    newMuslimDatabase.forEach(item => {
+                        const relevance = this.calculateRelevance(item, tokens);
+                        if (relevance > 0) {
+                            results.push({ ...item, relevance, matchedTerms: this.findMatchedTerms(item, tokens) });
+                        }
+                    });
+                }
+                
                 // Sort by relevance and return top results
                 return results.sort((a, b) => b.relevance - a.relevance).slice(0, 20);
             }
@@ -880,7 +1005,17 @@
                     'knowledge': ['learn', 'learning', 'educated'],
                     'family': ['familial', 'families'],
                     'inheritance': ['inherit', 'inherited'],
-                    'business': ['commercial', 'trade', 'trading']
+                    'business': ['commercial', 'trade', 'trading'],
+                    'wudu': ['ablution', 'clean', 'cleanliness'],
+                    'rakat': ['rakats', 'rakaat', 'prayer unit'],
+                    'surah': ['surahs', 'chapter', 'quran chapter'],
+                    'shahada': ['declaration', 'faith', 'testimony'],
+                    'fajr': ['dawn', 'morning prayer'],
+                    'dhuhr': ['noon', 'midday prayer'],
+                    'asr': ['afternoon', 'late afternoon prayer'],
+                    'maghrib': ['sunset', 'evening prayer'],
+                    'isha': ['night', 'night prayer'],
+                    'new muslim': ['convert', 'revert', 'beginner', 'learning']
                 };
                 
                 for (const [stem, variations] of Object.entries(stems)) {
