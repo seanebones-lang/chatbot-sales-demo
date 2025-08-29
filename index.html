@@ -600,7 +600,7 @@
         </div>
 
         <div class="bot-message" id="botMessage" style="display: none;">
-            <h3>🤖 May I help you learn about Islam Insha Allah?</h3>
+            <h3>May I help you learn about Islam Insha Allah?</h3>
             <div class="quran-quote" id="quranQuote">
                 Loading beautiful Quranic wisdom...
             </div>
@@ -609,7 +609,7 @@
         <div class="search-section" id="searchSection">
             <div class="search-input">
                 <input type="text" id="searchInput" placeholder="Ask any Islamic question (e.g., 'What does Islam say about mercy?', 'How to pray?', 'Inheritance laws?', 'Quran verses about patience?')" onkeypress="handleSearch(event)">
-                <button onclick="performSearch()">🔍 Search</button>
+                <button onclick="performSearch()">Search</button>
             </div>
             
             <div class="source-toggle">
@@ -2062,13 +2062,13 @@
                 
                 verseResults.innerHTML = `
                     <div class="no-results">
-                        <h3>🔍 No Results Found</h3>
+                        <h3>No Results Found</h3>
                         <p>I couldn't find specific information about "${query}", but here are some related topics:</p>
                         <div class="ai-summary">
-                            <h3>🤖 AI Assistant Summary</h3>
+                            <h3>AI Assistant Summary</h3>
                             <p>${aiResponse.summary}</p>
                             <div class="suggestions">
-                                <h4>💡 Suggested Topics:</h4>
+                                <h4>Suggested Topics:</h4>
                                 <div class="suggestion-buttons">
                                     ${aiResponse.suggestions.map(suggestion => 
                                         `<button class="suggestion-btn" onclick="searchSuggestion('${suggestion}')">${suggestion}</button>`
@@ -2076,7 +2076,7 @@
                                 </div>
                             </div>
                             <div class="suggestions">
-                                <h4>🔗 Related Topics:</h4>
+                                <h4>Related Topics:</h4>
                                 <div class="suggestion-buttons">
                                     ${aiResponse.relatedTopics.map(topic => 
                                         `<button class="suggestion-btn" onclick="searchSuggestion('${topic}')">${topic}</button>`
@@ -2095,10 +2095,10 @@
             const aiResponse = islamicAI.generateResponse(query, results);
             let resultsHTML = `
                 <div class="ai-summary">
-                    <h3>🤖 AI Assistant Summary</h3>
+                    <h3>AI Assistant Summary</h3>
                     <p>${aiResponse.summary}</p>
                     <div class="suggestions">
-                        <h4>💡 Suggested Topics:</h4>
+                        <h4>Suggested Topics:</h4>
                         <div class="suggestion-buttons">
                             ${aiResponse.suggestions.map(suggestion => 
                                 `<button class="suggestion-btn" onclick="searchSuggestion('${suggestion}')">${suggestion}</button>`
@@ -2117,8 +2117,8 @@
         }
         
         function createResultItem(result) {
-            const sourceBadge = result.source === 'Quran' ? '📖 Quran' : 
-                               result.source === 'Hadith' ? '📜 Hadith' : '⚖️ Fiqh';
+            const sourceBadge = result.source === 'Quran' ? 'Quran' : 
+                               result.source === 'Hadith' ? 'Hadith' : 'Fiqh';
             
             let authenticationHTML = '';
             if (result.authentication) {
@@ -2150,7 +2150,7 @@
                     </div>
                     
                     <div class="verse-context">
-                        <h4>📚 Context & Explanation</h4>
+                        <h4>Context & Explanation</h4>
                         <p>${result.context}</p>
                     </div>
                     
