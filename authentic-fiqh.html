@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentic Islamic Fiqh - Complete Islamic Law & Rulings</title>
-    <meta name="description" content="Comprehensive Islamic Fiqh (Islamic Law) with authentic rulings, detailed explanations, and searchable index. Learn about prayer, business, family, and all aspects of Islamic jurisprudence.">
+    <title>Authentic Islamic Jurisprudence - Complete Islamic Law & Knowledge Library</title>
+    <meta name="description" content="Comprehensive Islamic Jurisprudence (Islamic Law) with authentic rulings, detailed explanations, and searchable index. Learn about prayer, business, family, and all aspects of Islamic jurisprudence.">
     <style>
         * {
             margin: 0;
@@ -333,20 +333,20 @@
     <div class="container">
         <div class="header">
             <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
-            <h1>⚖️ Authentic Islamic Fiqh</h1>
+            <h1>⚖️ Authentic Islamic Jurisprudence</h1>
             <p>Complete Islamic Law & Jurisprudence with Authentic Rulings from Quran & Sunnah</p>
         </div>
 
         <div class="search-section">
-            <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">🔍 Search Fiqh Rulings</h3>
-            <input type="text" class="search-input" id="fiqhSearch" placeholder="Search for specific fiqh topics, rulings, or keywords..." onkeypress="handleSearchKeypress(event)">
-            <button class="search-button" onclick="searchFiqh()">Search Fiqh</button>
+            <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">🔍 Search Islamic Jurisprudence Rulings</h3>
+            <input type="text" class="search-input" id="fiqhSearch" placeholder="Search for specific Islamic jurisprudence topics, rulings, or keywords..." onkeypress="handleSearchKeypress(event)">
+            <button class="search-button" onclick="searchFiqh()">Search Islamic Jurisprudence</button>
         </div>
 
         <div class="fiqh-categories">
             <div class="category-card" onclick="showCategory('prayer')">
                 <div class="category-icon">🕌</div>
-                <div class="category-title">Prayer Fiqh</div>
+                <div class="category-title">Prayer Islamic Jurisprudence</div>
                 <div class="category-desc">Complete rulings on Salah, Wudu, Adhan, and prayer-related matters</div>
                 <div class="category-topics">
                     <span class="topic-tag">Salah</span>
@@ -358,7 +358,7 @@
 
             <div class="category-card" onclick="showCategory('business')">
                 <div class="category-icon">💼</div>
-                <div class="category-title">Business Fiqh</div>
+                <div class="category-title">Business Islamic Jurisprudence</div>
                 <div class="category-desc">Islamic business ethics, contracts, trade, and financial transactions</div>
                 <div class="category-topics">
                     <span class="topic-tag">Trade</span>
@@ -370,7 +370,7 @@
 
             <div class="category-card" onclick="showCategory('family')">
                 <div class="category-icon">👨‍👩‍👧‍👦</div>
-                <div class="category-title">Family Fiqh</div>
+                <div class="category-title">Family Islamic Jurisprudence</div>
                 <div class="category-desc">Marriage, divorce, inheritance, and family relationships</div>
                 <div class="category-topics">
                     <span class="topic-tag">Marriage</span>
@@ -382,7 +382,7 @@
 
             <div class="category-card" onclick="showCategory('social')">
                 <div class="category-icon">🤝</div>
-                <div class="category-title">Social Fiqh</div>
+                <div class="category-title">Social Islamic Jurisprudence</div>
                 <div class="category-desc">Etiquettes, relationships, and social interactions in Islam</div>
                 <div class="category-topics">
                     <span class="topic-tag">Etiquettes</span>
@@ -394,7 +394,7 @@
 
             <div class="category-card" onclick="showCategory('financial')">
                 <div class="category-icon">💰</div>
-                <div class="category-title">Financial Fiqh</div>
+                <div class="category-title">Financial Islamic Jurisprudence</div>
                 <div class="category-desc">Zakat, charity, investments, and financial obligations</div>
                 <div class="category-topics">
                     <span class="topic-tag">Zakat</span>
@@ -406,13 +406,840 @@
 
             <div class="category-card" onclick="showCategory('food')">
                 <div class="category-icon">🍽️</div>
-                <div class="category-title">Food & Dietary Fiqh</div>
+                <div class="category-title">Food & Dietary Islamic Jurisprudence</div>
                 <div class="category-desc">Halal/Haram foods, fasting, and dietary regulations</div>
                 <div class="category-topics">
                     <span class="topic-tag">Halal</span>
                     <span class="topic-tag">Haram</span>
                     <span class="topic-tag">Fasting</span>
                     <span class="topic-tag">Slaughter</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('medical')">
+                <div class="category-icon">🏥</div>
+                <div class="category-title">Medical Fiqh</div>
+                <div class="category-desc">Medical treatment, mental health, and healthcare in Islam</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Treatment</span>
+                    <span class="topic-tag">Medicine</span>
+                    <span class="topic-tag">Mental Health</span>
+                    <span class="topic-tag">Surgery</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('technology')">
+                <div class="category-icon">💻</div>
+                <div class="category-title">Technology Fiqh</div>
+                <div class="category-desc">Digital technology, AI, and modern innovations in Islam</div>
+                <div class="category-topics">
+                    <span class="topic-tag">AI</span>
+                    <span class="topic-tag">Digital</span>
+                    <span class="topic-tag">Innovation</span>
+                    <span class="topic-tag">Social Media</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('travel')">
+                <div class="category-icon">✈️</div>
+                <div class="category-title">Travel Fiqh</div>
+                <div class="category-desc">Travel rulings, prayer shortening, and journey regulations</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Prayer Shortening</span>
+                    <span class="topic-tag">Combining Prayers</span>
+                    <span class="topic-tag">Travel Distance</span>
+                    <span class="topic-tag">Journey</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('clothing')">
+                <div class="category-icon">👕</div>
+                <div class="category-title">Clothing Fiqh</div>
+                <div class="category-desc">Modesty, hijab, and dress code in Islam</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Hijab</span>
+                    <span class="topic-tag">Modesty</span>
+                    <span class="topic-tag">Dress Code</span>
+                    <span class="topic-tag">Awrah</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('environment')">
+                <div class="category-icon">🌍</div>
+                <div class="category-title">Environmental Fiqh</div>
+                <div class="category-desc">Environmental protection, animal rights, and nature in Islam</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Protection</span>
+                    <span class="topic-tag">Animal Rights</span>
+                    <span class="topic-tag">Nature</span>
+                    <span class="topic-tag">Conservation</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('warfare')">
+                <div class="category-icon">⚔️</div>
+                <div class="category-title">Warfare Fiqh</div>
+                <div class="category-desc">Jihad, self-defense, and war regulations in Islam</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Jihad</span>
+                    <span class="topic-tag">Self-Defense</span>
+                    <span class="topic-tag">War</span>
+                    <span class="topic-tag">Peace</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('government')">
+                <div class="category-icon">🏛️</div>
+                <div class="category-title">Government Fiqh</div>
+                <div class="category-desc">Islamic governance, leadership, and political systems</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Governance</span>
+                    <span class="topic-tag">Leadership</span>
+                    <span class="topic-tag">Politics</span>
+                    <span class="topic-tag">Justice</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('education')">
+                <div class="category-icon">📚</div>
+                <div class="category-title">Education Fiqh</div>
+                <div class="category-desc">Islamic education, learning, and knowledge acquisition</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Learning</span>
+                    <span class="topic-tag">Teaching</span>
+                    <span class="topic-tag">Knowledge</span>
+                    <span class="topic-tag">Scholarship</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('entertainment')">
+                <div class="category-icon">🎭</div>
+                <div class="category-title">Entertainment Fiqh</div>
+                <div class="category-desc">Music, art, sports, and recreational activities</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Music</span>
+                    <span class="topic-tag">Art</span>
+                    <span class="topic-tag">Sports</span>
+                    <span class="topic-tag">Recreation</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('health')">
+                <div class="category-icon">🏥</div>
+                <div class="category-title">Health & Wellness Fiqh</div>
+                <div class="category-desc">Physical health, exercise, and wellness practices</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Exercise</span>
+                    <span class="topic-tag">Wellness</span>
+                    <span class="topic-tag">Prevention</span>
+                    <span class="topic-tag">Lifestyle</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('marriage')">
+                <div class="category-icon">💍</div>
+                <div class="category-title">Marriage & Relationships Fiqh</div>
+                <div class="category-desc">Detailed marriage laws, relationships, and marital rights</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Marriage</span>
+                    <span class="topic-tag">Relationships</span>
+                    <span class="topic-tag">Rights</span>
+                    <span class="topic-tag">Obligations</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('divorce')">
+                <div class="category-icon">📜</div>
+                <div class="category-title">Divorce & Separation Fiqh</div>
+                <div class="category-desc">Divorce procedures, custody, and post-divorce matters</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Divorce</span>
+                    <span class="topic-tag">Custody</span>
+                    <span class="topic-tag">Separation</span>
+                    <span class="topic-tag">Reconciliation</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('inheritance')">
+                <div class="category-icon">📊</div>
+                <div class="category-title">Inheritance Fiqh</div>
+                <div class="category-desc">Detailed inheritance laws and distribution</div>
+                <div class="topic-tag">Distribution</span>
+                    <span class="topic-tag">Wills</span>
+                    <span class="topic-tag">Shares</span>
+                    <span class="topic-tag">Calculation</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('criminal')">
+                <div class="category-icon">⚖️</div>
+                <div class="category-title">Criminal Fiqh</div>
+                <div class="category-desc">Islamic criminal law and justice system</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Crimes</span>
+                    <span class="topic-tag">Punishments</span>
+                    <span class="topic-tag">Justice</span>
+                    <span class="topic-tag">Evidence</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('civil')">
+                <div class="category-icon">🏛️</div>
+                <div class="category-title">Civil Fiqh</div>
+                <div class="category-desc">Civil law, contracts, and legal disputes</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Contracts</span>
+                    <span class="topic-tag">Disputes</span>
+                    <span class="topic-tag">Rights</span>
+                    <span class="topic-tag">Obligations</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('property')">
+                <div class="category-icon">🏠</div>
+                <div class="category-title">Property Fiqh</div>
+                <div class="category-desc">Property rights, ownership, and real estate</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Ownership</span>
+                    <span class="topic-tag">Real Estate</span>
+                    <span class="topic-tag">Rights</span>
+                    <span class="topic-tag">Transactions</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('employment')">
+                <div class="category-icon">💼</div>
+                <div class="category-title">Employment Fiqh</div>
+                <div class="category-desc">Workplace rights, labor laws, and employment</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Workplace</span>
+                    <span class="topic-tag">Labor Rights</span>
+                    <span class="topic-tag">Contracts</span>
+                    <span class="topic-tag">Benefits</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('banking')">
+                <div class="category-icon">🏦</div>
+                <div class="category-title">Islamic Banking Fiqh</div>
+                <div class="category-desc">Islamic banking principles and financial services</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Banking</span>
+                    <span class="topic-tag">Finance</span>
+                    <span class="topic-tag">Services</span>
+                    <span class="topic-tag">Products</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('insurance')">
+                <div class="category-icon">🛡️</div>
+                <div class="category-title">Insurance Fiqh</div>
+                <div class="category-desc">Islamic insurance alternatives and risk management</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Takaful</span>
+                    <span class="topic-tag">Risk Management</span>
+                    <span class="topic-tag">Protection</span>
+                    <span class="topic-tag">Alternatives</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('investment')">
+                <div class="category-icon">📈</div>
+                <div class="category-title">Investment Fiqh</div>
+                <div class="category-desc">Halal investments and financial planning</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Investments</span>
+                    <span class="topic-tag">Planning</span>
+                    <span class="topic-tag">Portfolio</span>
+                    <span class="topic-tag">Returns</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('charity')">
+                <div class="category-icon">🤲</div>
+                <div class="category-title">Charity & Zakat Fiqh</div>
+                <div class="category-desc">Zakat, sadaqah, and charitable giving</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Zakat</span>
+                    <span class="topic-tag">Sadaqah</span>
+                    <span class="topic-tag">Charity</span>
+                    <span class="topic-tag">Distribution</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('hajj')">
+                <div class="category-icon">🕋</div>
+                <div class="category-title">Hajj & Umrah Fiqh</div>
+                <div class="category-desc">Pilgrimage rituals and requirements</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Hajj</span>
+                    <span class="topic-tag">Umrah</span>
+                    <span class="topic-tag">Rituals</span>
+                    <span class="topic-tag">Requirements</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('mosque')">
+                <div class="category-icon">🕌</div>
+                <div class="category-title">Mosque Fiqh</div>
+                <div class="category-desc">Mosque etiquette, rules, and management</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Etiquette</span>
+                    <span class="topic-tag">Rules</span>
+                    <span class="topic-tag">Management</span>
+                    <span class="topic-tag">Services</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('funeral')">
+                <div class="category-icon">⚰️</div>
+                <div class="category-title">Funeral & Burial Fiqh</div>
+                <div class="category-desc">Death, burial, and mourning practices</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Burial</span>
+                    <span class="topic-tag">Mourning</span>
+                    <span class="topic-tag">Rituals</span>
+                    <span class="topic-tag">Etiquette</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('adoption')">
+                <div class="category-icon">👶</div>
+                <div class="category-title">Adoption & Fostering Fiqh</div>
+                <div class="category-desc">Adoption laws and orphan care</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Adoption</span>
+                    <span class="topic-tag">Fostering</span>
+                    <span class="topic-tag">Orphans</span>
+                    <span class="topic-tag">Care</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('contraception')">
+                <div class="category-icon">💊</div>
+                <div class="category-title">Contraception Fiqh</div>
+                <div class="category-desc">Family planning and birth control methods</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Family Planning</span>
+                    <span class="topic-tag">Birth Control</span>
+                    <span class="topic-tag">Methods</span>
+                    <span class="topic-tag">Regulations</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('abortion')">
+                <div class="category-icon">🤱</div>
+                <div class="category-title">Abortion Fiqh</div>
+                <div class="category-desc">Abortion laws and medical termination</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Abortion</span>
+                    <span class="topic-tag">Termination</span>
+                    <span class="topic-tag">Medical</span>
+                    <span class="topic-tag">Ethics</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('organ')">
+                <div class="category-icon">🫀</div>
+                <div class="category-title">Organ Donation Fiqh</div>
+                <div class="category-desc">Organ donation and transplantation</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Donation</span>
+                    <span class="topic-tag">Transplantation</span>
+                    <span class="topic-tag">Ethics</span>
+                    <span class="topic-tag">Consent</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('euthanasia')">
+                <div class="category-icon">💉</div>
+                <div class="category-title">End of Life Fiqh</div>
+                <div class="category-desc">End of life care and euthanasia</div>
+                <div class="category-topics">
+                    <span class="topic-tag">End of Life</span>
+                    <span class="topic-tag">Care</span>
+                    <span class="topic-tag">Euthanasia</span>
+                    <span class="topic-tag">Dignity</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('genetics')">
+                <div class="category-icon">🧬</div>
+                <div class="category-title">Genetic Engineering Fiqh</div>
+                <div class="category-desc">Genetic modification and biotechnology</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Genetics</span>
+                    <span class="topic-tag">Biotechnology</span>
+                    <span class="topic-tag">Modification</span>
+                    <span class="topic-tag">Ethics</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('cloning')">
+                <div class="category-icon">🔬</div>
+                <div class="category-title">Cloning Fiqh</div>
+                <div class="category-desc">Human and animal cloning</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Cloning</span>
+                    <span class="topic-tag">Human</span>
+                    <span class="topic-tag">Animal</span>
+                    <span class="topic-tag">Ethics</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('surrogacy')">
+                <div class="category-icon">🤰</div>
+                <div class="category-title">Surrogacy Fiqh</div>
+                <div class="category-desc">Surrogate pregnancy and assisted reproduction</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Surrogacy</span>
+                    <span class="topic-tag">Pregnancy</span>
+                    <span class="topic-tag">Reproduction</span>
+                    <span class="topic-tag">Ethics</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('ivf')">
+                <div class="category-icon">🧪</div>
+                <div class="category-title">IVF & Fertility Fiqh</div>
+                <div class="category-desc">In vitro fertilization and fertility treatment</div>
+                <div class="category-topics">
+                    <span class="topic-tag">IVF</span>
+                    <span class="topic-tag">Fertility</span>
+                    <span class="topic-tag">Treatment</span>
+                    <span class="topic-tag">Ethics</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('stem')">
+                <div class="category-icon">🔬</div>
+                <div class="category-title">Stem Cell Fiqh</div>
+                <div class="category-desc">Stem cell research and therapy</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Stem Cells</span>
+                    <span class="topic-tag">Research</span>
+                    <span class="topic-tag">Therapy</span>
+                    <span class="topic-tag">Ethics</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('cyber')">
+                <div class="category-icon">💻</div>
+                <div class="category-title">Cybersecurity Fiqh</div>
+                <div class="category-desc">Digital security and cyber ethics</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Cybersecurity</span>
+                    <span class="topic-tag">Digital Ethics</span>
+                    <span class="topic-tag">Privacy</span>
+                    <span class="topic-tag">Security</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('ai')">
+                <div class="category-icon">🤖</div>
+                <div class="category-title">Artificial Intelligence Fiqh</div>
+                <div class="category-desc">AI ethics and Islamic perspectives</div>
+                <div class="category-topics">
+                    <span class="topic-tag">AI Ethics</span>
+                    <span class="topic-tag">Machine Learning</span>
+                    <span class="topic-tag">Automation</span>
+                    <span class="topic-tag">Ethics</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('blockchain')">
+                <div class="category-icon">⛓️</div>
+                <div class="category-title">Blockchain Fiqh</div>
+                <div class="category-desc">Blockchain technology and Islamic finance</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Blockchain</span>
+                    <span class="topic-tag">Cryptocurrency</span>
+                    <span class="topic-tag">Smart Contracts</span>
+                    <span class="topic-tag">Finance</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('social')">
+                <div class="category-icon">📱</div>
+                <div class="category-title">Social Media Fiqh</div>
+                <div class="category-desc">Social media ethics and Islamic guidelines</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Social Media</span>
+                    <span class="topic-tag">Ethics</span>
+                    <span class="topic-tag">Guidelines</span>
+                    <span class="topic-tag">Behavior</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('gaming')">
+                <div class="category-icon">🎮</div>
+                <div class="category-title">Gaming Fiqh</div>
+                <div class="category-desc">Video games and gaming ethics</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Gaming</span>
+                    <span class="topic-tag">Video Games</span>
+                    <span class="topic-tag">Ethics</span>
+                    <span class="topic-tag">Entertainment</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('sports')">
+                <div class="category-icon">⚽</div>
+                <div class="category-title">Sports Fiqh</div>
+                <div class="category-desc">Sports participation and competition</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Sports</span>
+                    <span class="topic-tag">Competition</span>
+                    <span class="topic-tag">Participation</span>
+                    <span class="topic-tag">Ethics</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('music')">
+                <div class="category-icon">🎵</div>
+                <div class="category-title">Music Fiqh</div>
+                <div class="category-desc">Music, instruments, and musical activities</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Music</span>
+                    <span class="topic-tag">Instruments</span>
+                    <span class="topic-tag">Activities</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('art')">
+                <div class="category-icon">🎨</div>
+                <div class="category-title">Art Fiqh</div>
+                <div class="category-desc">Islamic art, drawing, and artistic expression</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Art</span>
+                    <span class="topic-tag">Drawing</span>
+                    <span class="topic-tag">Expression</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('photography')">
+                <div class="category-icon">📸</div>
+                <div class="category-title">Photography Fiqh</div>
+                <div class="category-desc">Photography and image capture</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Photography</span>
+                    <span class="topic-tag">Images</span>
+                    <span class="topic-tag">Capture</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('fashion')">
+                <div class="category-icon">👗</div>
+                <div class="category-title">Fashion Fiqh</div>
+                <div class="category-desc">Fashion industry and clothing design</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Fashion</span>
+                    <span class="topic-tag">Design</span>
+                    <span class="topic-tag">Industry</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('cosmetics')">
+                <div class="category-icon">💄</div>
+                <div class="category-title">Cosmetics Fiqh</div>
+                <div class="category-desc">Makeup, beauty products, and grooming</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Cosmetics</span>
+                    <span class="topic-tag">Beauty</span>
+                    <span class="topic-tag">Grooming</span>
+                    <span class="topic-tag">Products</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('pets')">
+                <div class="category-icon">🐕</div>
+                <div class="category-title">Pet Ownership Fiqh</div>
+                <div class="category-desc">Pet care and animal companionship</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Pets</span>
+                    <span class="topic-tag">Care</span>
+                    <span class="topic-tag">Companionship</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('hunting')">
+                <div class="category-icon">🏹</div>
+                <div class="category-title">Hunting Fiqh</div>
+                <div class="category-desc">Hunting regulations and animal welfare</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Hunting</span>
+                    <span class="topic-tag">Regulations</span>
+                    <span class="topic-tag">Welfare</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('fishing')">
+                <div class="category-icon">🎣</div>
+                <div class="category-title">Fishing Fiqh</div>
+                <div class="category-desc">Fishing practices and marine life</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Fishing</span>
+                    <span class="topic-tag">Marine Life</span>
+                    <span class="topic-tag">Practices</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('farming')">
+                <div class="category-icon">🌾</div>
+                <div class="category-title">Agriculture Fiqh</div>
+                <div class="category-desc">Farming, agriculture, and food production</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Farming</span>
+                    <span class="topic-tag">Agriculture</span>
+                    <span class="topic-tag">Production</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('construction')">
+                <div class="category-icon">🏗️</div>
+                <div class="category-title">Construction Fiqh</div>
+                <div class="category-desc">Building, construction, and architecture</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Construction</span>
+                    <span class="topic-tag">Building</span>
+                    <span class="topic-tag">Architecture</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('transportation')">
+                <div class="category-icon">🚗</div>
+                <div class="category-title">Transportation Fiqh</div>
+                <div class="category-desc">Vehicles, travel, and transportation</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Transportation</span>
+                    <span class="topic-tag">Vehicles</span>
+                    <span class="topic-tag">Travel</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('communication')">
+                <div class="category-icon">📞</div>
+                <div class="category-title">Communication Fiqh</div>
+                <div class="category-desc">Speech, communication, and language</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Communication</span>
+                    <span class="topic-tag">Speech</span>
+                    <span class="topic-tag">Language</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('education')">
+                <div class="category-icon">🎓</div>
+                <div class="category-title">Education System Fiqh</div>
+                <div class="category-desc">Educational institutions and systems</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Education</span>
+                    <span class="topic-tag">Institutions</span>
+                    <span class="topic-tag">Systems</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('research')">
+                <div class="category-icon">🔬</div>
+                <div class="category-title">Research Fiqh</div>
+                <div class="category-desc">Scientific research and methodology</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Research</span>
+                    <span class="topic-tag">Science</span>
+                    <span class="topic-tag">Methodology</span>
+                    <span class="topic-tag">Ethics</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('journalism')">
+                <div class="category-icon">📰</div>
+                <div class="category-title">Media & Journalism Fiqh</div>
+                <div class="category-desc">Media ethics and journalistic practices</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Media</span>
+                    <span class="topic-tag">Journalism</span>
+                    <span class="topic-tag">Ethics</span>
+                    <span class="topic-tag">Practices</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('advertising')">
+                <div class="category-icon">📢</div>
+                <div class="category-title">Advertising Fiqh</div>
+                <div class="category-desc">Marketing, advertising, and promotion</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Advertising</span>
+                    <span class="topic-tag">Marketing</span>
+                    <span class="topic-tag">Promotion</span>
+                    <span class="topic-tag">Ethics</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('tourism')">
+                <div class="category-icon">✈️</div>
+                <div class="category-title">Tourism Fiqh</div>
+                <div class="category-desc">Travel, tourism, and hospitality</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Tourism</span>
+                    <span class="topic-tag">Travel</span>
+                    <span class="topic-tag">Hospitality</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('hospitality')">
+                <div class="category-icon">🏨</div>
+                <div class="category-title">Hospitality Fiqh</div>
+                <div class="category-desc">Guest treatment and hospitality services</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Hospitality</span>
+                    <span class="topic-tag">Guests</span>
+                    <span class="topic-tag">Services</span>
+                    <span class="topic-tag">Treatment</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('environmental')">
+                <div class="category-icon">🌱</div>
+                <div class="category-title">Environmental Protection Fiqh</div>
+                <div class="category-desc">Environmental conservation and protection</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Environment</span>
+                    <span class="topic-tag">Conservation</span>
+                    <span class="topic-tag">Protection</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('climate')">
+                <div class="category-icon">🌍</div>
+                <div class="category-title">Climate Change Fiqh</div>
+                <div class="category-desc">Climate action and environmental responsibility</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Climate</span>
+                    <span class="topic-tag">Action</span>
+                    <span class="topic-tag">Responsibility</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('renewable')">
+                <div class="category-icon">☀️</div>
+                <div class="category-title">Renewable Energy Fiqh</div>
+                <div class="category-desc">Solar, wind, and renewable energy sources</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Renewable</span>
+                    <span class="topic-tag">Energy</span>
+                    <span class="topic-tag">Solar</span>
+                    <span class="topic-tag">Wind</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('waste')">
+                <div class="category-icon">♻️</div>
+                <div class="category-title">Waste Management Fiqh</div>
+                <div class="category-desc">Waste reduction and recycling</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Waste</span>
+                    <span class="topic-tag">Management</span>
+                    <span class="topic-tag">Recycling</span>
+                    <span class="topic-tag">Reduction</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('water')">
+                <div class="category-icon">💧</div>
+                <div class="category-title">Water Conservation Fiqh</div>
+                <div class="category-desc">Water usage and conservation practices</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Water</span>
+                    <span class="topic-tag">Conservation</span>
+                    <span class="topic-tag">Usage</span>
+                    <span class="topic-tag">Practices</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('forest')">
+                <div class="category-icon">🌲</div>
+                <div class="category-title">Forest Conservation Fiqh</div>
+                <div class="category-desc">Forest protection and tree planting</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Forest</span>
+                    <span class="topic-tag">Protection</span>
+                    <span class="topic-tag">Trees</span>
+                    <span class="topic-tag">Planting</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('ocean')">
+                <div class="category-icon">🌊</div>
+                <div class="category-title">Ocean Conservation Fiqh</div>
+                <div class="category-desc">Marine life protection and ocean health</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Ocean</span>
+                    <span class="topic-tag">Marine Life</span>
+                    <span class="topic-tag">Protection</span>
+                    <span class="topic-tag">Health</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('wildlife')">
+                <div class="category-icon">🦁</div>
+                <div class="category-title">Wildlife Protection Fiqh</div>
+                <div class="category-desc">Wildlife conservation and animal rights</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Wildlife</span>
+                    <span class="topic-tag">Conservation</span>
+                    <span class="topic-tag">Animal Rights</span>
+                    <span class="topic-tag">Protection</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('biodiversity')">
+                <div class="category-icon">🦋</div>
+                <div class="category-title">Biodiversity Fiqh</div>
+                <div class="category-desc">Species protection and ecosystem health</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Biodiversity</span>
+                    <span class="topic-tag">Species</span>
+                    <span class="topic-tag">Ecosystem</span>
+                    <span class="topic-tag">Protection</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('pollution')">
+                <div class="category-icon">🌫️</div>
+                <div class="category-title">Pollution Control Fiqh</div>
+                <div class="category-desc">Air, water, and soil pollution prevention</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Pollution</span>
+                    <span class="topic-tag">Control</span>
+                    <span class="topic-tag">Prevention</span>
+                    <span class="topic-tag">Guidelines</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('sustainable')">
+                <div class="category-icon">🌿</div>
+                <div class="category-title">Sustainable Living Fiqh</div>
+                <div class="category-desc">Sustainable lifestyle and consumption</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Sustainable</span>
+                    <span class="topic-tag">Living</span>
+                    <span class="topic-tag">Lifestyle</span>
+                    <span class="topic-tag">Consumption</span>
                 </div>
             </div>
         </div>
@@ -621,118 +1448,1249 @@
             <h3 style="color: #FFD700; margin-bottom: 20px;">🔍 Search Results</h3>
             <div id="resultsContainer"></div>
         </div>
+
+        <!-- Travel Fiqh Section -->
+        <div class="content-section" id="travel-section">
+            <h2 class="section-title">✈️ Travel Fiqh - Journey Regulations</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Prayer Shortening (Qasr)</div>
+                <div class="ruling-content">
+                    Travelers may shorten four-rak'ah prayers to two rak'ahs. This applies to Dhuhr, Asr, and Isha prayers. The distance must be at least 48 miles (77 km) from one's residence.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَإِذَا ضَرَبْتُمْ فِي الْأَرْضِ فَلَيْسَ عَلَيْكُمْ جُنَاحٌ أَن تَقْصُرُوا مِنَ الصَّلَاةِ</div>
+                    <div class="translation">"And when you travel throughout the land, there is no blame upon you for shortening the prayer."</div>
+                    <div class="source-info">Source: Surah An-Nisa 4:101</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Combining Prayers (Jam')</div>
+                <div class="ruling-content">
+                    Travelers may combine Dhuhr with Asr, and Maghrib with Isha. This can be done by praying them together or with a short interval. The intention must be made before the first prayer.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">جَمَعَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ بَيْنَ الظُّهْرِ وَالْعَصْرِ وَبَيْنَ الْمَغْرِبِ وَالْعِشَاءِ فِي السَّفَرِ</div>
+                    <div class="translation">"The Messenger of Allah (ﷺ) combined Dhuhr with Asr and Maghrib with Isha during travel."</div>
+                    <div class="source-info">Source: Sahih Bukhari 1106</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Travel Distance Requirements</div>
+                <div class="ruling-content">
+                    The minimum distance for travel concessions is 48 miles (77 km) from one's city limits. This distance is calculated from the last house of the city, not from the city center.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">كَانَ إِذَا خَرَجَ مَسِيرَةَ ثَلَاثَةِ أَيَّامٍ أَوْ فَرْسَخٍ قَصَرَ الصَّلَاةَ</div>
+                    <div class="translation">"He would shorten prayer when traveling a distance of three days or one farsakh (about 3 miles)."</div>
+                    <div class="source-info">Source: Sahih Muslim 690</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Travel Duration</div>
+                <div class="ruling-content">
+                    Travel concessions apply for the entire journey duration. If one stays in a place for more than 15 days, they become a resident and must pray full prayers. Less than 15 days maintains traveler status.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">إِذَا نَوَى الْمُقِيمُ إِقَامَةَ أَرْبَعَةِ أَيَّامٍ فَلْيُتِمَّ الصَّلَاةَ</div>
+                    <div class="translation">"If a traveler intends to stay for four days, he should complete the prayer."</div>
+                    <div class="source-info">Source: Abu Dawud 1234</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Fasting While Traveling</div>
+                <div class="ruling-content">
+                    Travelers are exempt from fasting during Ramadan. They may break their fast and make it up later. However, if they choose to fast while traveling, it is valid and rewarded.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ</div>
+                    <div class="translation">"So whoever among you is ill or on a journey, then an equal number of days [are to be made up]."</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:184</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Travel Prayer Direction</div>
+                <div class="ruling-content">
+                    Travelers must still face the qibla direction when possible. If the exact direction is unknown, they should make their best judgment. Prayer is valid even if the direction is slightly off.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ</div>
+                    <div class="translation">"So turn your face toward al-Masjid al-Haram."</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:144</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Travel Supplications</div>
+                <div class="ruling-content">
+                    Several supplications are recommended for travelers: when starting a journey, entering a vehicle, and returning home. These bring protection and blessings during travel.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى</div>
+                    <div class="translation">"O Allah, we ask You in this journey of ours for righteousness and piety."</div>
+                    <div class="source-info">Source: Sahih Muslim 1342</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Travel Companions</div>
+                <div class="ruling-content">
+                    Traveling with companions is recommended for safety and assistance. The Prophet (ﷺ) said that a single traveler is like a devil, two travelers are like two devils, and three travelers are like a caravan.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">الرَّاكِبُ شَيْطَانٌ وَالرَّاكِبَانِ شَيْطَانَانِ وَالثَّلَاثَةُ رَكْبٌ</div>
+                    <div class="translation">"A single traveler is like a devil, two travelers are like two devils, and three travelers are like a caravan."</div>
+                    <div class="source-info">Source: Abu Dawud 2607</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clothing Fiqh Section -->
+        <div class="content-section" id="clothing-section">
+            <h2 class="section-title">👕 Clothing Fiqh - Modesty & Dress Code</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Hijab for Women</div>
+                <div class="ruling-content">
+                    Women must cover their entire body except face and hands in front of non-mahram men. The hijab should be loose-fitting, not transparent, and not attractive. This includes covering the head, neck, and chest.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَلْيَضْرِبْنَ بِخُمُرِهِنَّ عَلَىٰ جُيُوبِهِنَّ</div>
+                    <div class="translation">"And let them draw their head coverings over their chests."</div>
+                    <div class="source-info">Source: Surah An-Nur 24:31</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Men's Awrah (Private Parts)</div>
+                <div class="ruling-content">
+                    Men must cover from navel to knees in front of others. This is the minimum requirement. However, it is recommended to cover more for modesty. The chest and shoulders should be covered in prayer.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">الْفَخِذُ عَوْرَةٌ</div>
+                    <div class="translation">"The thigh is awrah (private part)."</div>
+                    <div class="source-info">Source: Abu Dawud 4014</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Women's Awrah (Private Parts)</div>
+                <div class="ruling-content">
+                    Women must cover their entire body except face and hands in front of non-mahram men. In front of other women, they may show what is normally visible. In front of mahram men, they may show more.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَلَا يُبْدِينَ زِينَتَهُنَّ إِلَّا لِبُعُولَتِهِنَّ أَوْ آبَائِهِنَّ</div>
+                    <div class="translation">"And let them not display their adornment except to their husbands or their fathers."</div>
+                    <div class="source-info">Source: Surah An-Nur 24:31</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Prohibited Clothing</div>
+                <div class="ruling-content">
+                    Clothing that imitates non-Muslims, is transparent, tight-fitting, or attracts attention is prohibited. Men are forbidden from wearing silk and gold. Women should avoid clothing that resembles men's clothing.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">حُرِّمَ عَلَى ذُكُورِ أُمَّتِي الْحَرِيرُ وَالذَّهَبُ</div>
+                    <div class="translation">"Silk and gold are forbidden for the males of my ummah."</div>
+                    <div class="source-info">Source: Abu Dawud 4057</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Clothing in Prayer</div>
+                <div class="ruling-content">
+                    During prayer, men must cover their shoulders and chest. Women must cover their entire body except face and hands. The clothing must be clean and free from impurities.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">لَا يَقْبَلُ اللَّهُ صَلَاةَ حَائِضٍ إِلَّا بِخِمَارٍ</div>
+                    <div class="translation">"Allah does not accept the prayer of a woman who has reached puberty except with a head covering."</div>
+                    <div class="source-info">Source: Abu Dawud 641</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Modesty in Dress</div>
+                <div class="ruling-content">
+                    Islamic clothing emphasizes modesty and dignity. Clothing should not be ostentatious or draw unnecessary attention. The purpose is to protect one's honor and maintain social harmony.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">ذَٰلِكَ أَدْنَىٰ أَن يُعْرَفْنَ فَلَا يُؤْذَيْنَ</div>
+                    <div class="translation">"That is more suitable that they should be known and not molested."</div>
+                    <div class="source-info">Source: Surah Al-Ahzab 33:59</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Clothing Colors and Styles</div>
+                <div class="ruling-content">
+                    There are no specific color restrictions in Islam, but clothing should be appropriate and not flashy. White clothing is recommended as it is clean and pure. Clothing should reflect Islamic values.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">الْبَسُوا مِنْ ثِيَابِكُمُ الْبِيضَ فَإِنَّهَا مِنْ خَيْرِ ثِيَابِكُمْ</div>
+                    <div class="translation">"Wear white clothes, for they are among the best of your clothes."</div>
+                    <div class="source-info">Source: Abu Dawud 4061</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Clothing for Different Occasions</div>
+                <div class="ruling-content">
+                    Different occasions may require different levels of modesty. Friday prayers and religious gatherings require more formal and modest clothing. Daily activities allow for more practical clothing while maintaining modesty.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">إِذَا جَاءَ أَحَدُكُمُ الْجُمُعَةَ فَلْيَغْتَسِلْ</div>
+                    <div class="translation">"When one of you comes to Friday prayer, let him take a bath."</div>
+                    <div class="source-info">Source: Sahih Bukhari 919</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medical Fiqh Section -->
+        <div class="content-section" id="medical-section">
+            <h2 class="section-title">🏥 Medical Fiqh - Healthcare & Treatment</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Medical Treatment and Medicine</div>
+                <div class="ruling-content">
+                    Seeking medical treatment is encouraged in Islam. All forms of medicine are permitted unless they contain haram substances. Organ transplants and modern medical procedures are generally allowed.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">مَا أَنْزَلَ اللَّهُ دَاءً إِلَّا أَنْزَلَ لَهُ شِفَاءً</div>
+                    <div class="translation">"There is no disease that Allah has created, except that He also has created its treatment."</div>
+                    <div class="source-info">Source: Sahih Bukhari 5678</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Mental Health and Psychology</div>
+                <div class="ruling-content">
+                    Mental health is important in Islam. Seeking psychological help is permitted and encouraged. Depression, anxiety, and other mental health issues should be addressed professionally.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">فَإِنَّ مَعَ الْعُسْرِ يُسْرًا</div>
+                    <div class="translation">"Verily, with hardship comes ease."</div>
+                    <div class="source-info">Source: Surah Ash-Sharh 94:5</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Surgery and Medical Procedures</div>
+                <div class="ruling-content">
+                    Surgery is permitted in Islam when medically necessary. The procedure must be performed by qualified professionals. Cosmetic surgery is permitted if it corrects a defect or deformity.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">إِنَّ اللَّهَ تَعَالَى لَمْ يَجْعَلْ شِفَاءَكُمْ فِيمَا حَرَّمَ عَلَيْكُمْ</div>
+                    <div class="translation">"Allah has not made your cure in what He has forbidden for you."</div>
+                    <div class="source-info">Source: Sahih Bukhari 5776</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Blood Transfusions</div>
+                <div class="ruling-content">
+                    Blood transfusions are permitted in Islam when medically necessary. Donating blood is considered a form of charity and saving lives. The blood must be from a halal source.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَمَنْ أَحْيَاهَا فَكَأَنَّمَا أَحْيَا النَّاسَ جَمِيعًا</div>
+                    <div class="translation">"And whoever saves one life, it is as if he has saved all of humanity."</div>
+                    <div class="source-info">Source: Surah Al-Ma'idah 5:32</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Organ Donation and Transplantation</div>
+                <div class="ruling-content">
+                    Organ donation is permitted in Islam if it saves lives and does not harm the donor. Living organ donation is allowed for close relatives. Cadaveric organ donation is more complex and requires careful consideration.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">مَنْ أَحْيَا أَرْضًا مَيْتَةً فَهِيَ لَهُ</div>
+                    <div class="translation">"Whoever revives dead land, it belongs to him."</div>
+                    <div class="source-info">Source: Abu Dawud 3073</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Contraception and Family Planning</div>
+                <div class="ruling-content">
+                    Temporary contraception is permitted in Islam for valid reasons. Permanent sterilization requires strong medical justification. The decision should be mutual between spouses and consider the family's welfare.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">كَانَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَأْمُرُ بِالْعَزْلِ</div>
+                    <div class="translation">"The Messenger of Allah (ﷺ) used to command coitus interruptus."</div>
+                    <div class="source-info">Source: Sahih Muslim 1440</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Abortion and Termination</div>
+                <div class="ruling-content">
+                    Abortion is generally prohibited in Islam except in cases where the mother's life is at risk. The prohibition becomes stronger as the pregnancy progresses. Early termination requires serious medical justification.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَلَا تَقْتُلُوا أَوْلَادَكُمْ خَشْيَةَ إِمْلَاقٍ نَّحْنُ نَرْزُقُهُمْ وَإِيَّاكُمْ</div>
+                    <div class="translation">"And do not kill your children for fear of poverty. We provide for them and for you."</div>
+                    <div class="source-info">Source: Surah Al-Isra 17:31</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Medical Ethics and Confidentiality</div>
+                <div class="ruling-content">
+                    Medical confidentiality is mandatory in Islam. Doctors must protect patient privacy unless disclosure is required by law or necessary to protect others. Medical decisions should respect Islamic values.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">مَنْ سَتَرَ مُسْلِمًا سَتَرَهُ اللَّهُ فِي الدُّنْيَا وَالْآخِرَةِ</div>
+                    <div class="translation">"Whoever covers a Muslim, Allah will cover him in this world and the Hereafter."</div>
+                    <div class="source-info">Source: Sahih Muslim 2590</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology Fiqh Section -->
+        <div class="content-section" id="technology-section">
+            <h2 class="section-title">💻 Technology Fiqh - Digital Age & Innovation</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Technology and Innovation</div>
+                <div class="ruling-content">
+                    Technology that benefits humanity is encouraged in Islam. However, technology must be used responsibly and not for harmful purposes. Social media, AI, and other innovations must follow Islamic principles.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً</div>
+                    <div class="translation">"Indeed, I will make upon the earth a successive authority."</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:30</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Social Media and Communication</div>
+                <div class="ruling-content">
+                    Social media use must follow Islamic principles. Truthfulness, avoiding backbiting, and maintaining modesty are essential. Privacy and dignity of others must be respected online.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">يَا أَيُّهَا الَّذِينَ آمَنُوا اجْتَنِبُوا كَثِيرًا مِّنَ الظَّنِّ إِنَّ بَعْضَ الظَّنِّ إِثْمٌ</div>
+                    <div class="translation">"O you who have believed, avoid much [negative] assumption. Indeed, some assumption is sin."</div>
+                    <div class="source-info">Source: Surah Al-Hujurat 49:12</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Artificial Intelligence and Automation</div>
+                <div class="ruling-content">
+                    AI and automation are permitted in Islam if they benefit humanity and don't cause harm. However, they must not replace human judgment in matters requiring Islamic wisdom and ethical decision-making.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">الْعِلْمُ نُورٌ</div>
+                    <div class="translation">"Knowledge is light."</div>
+                    <div class="source-info">Source: Ibn Majah 220</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Digital Privacy and Security</div>
+                <div class="ruling-content">
+                    Digital privacy must be respected in Islam. Hacking, unauthorized access, and digital theft are prohibited. Muslims must protect their own digital information and respect others' privacy.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَلَا تَجَسَّسُوا وَلَا يَغْتَب بَّعْضُكُم بَعْضًا</div>
+                    <div class="translation">"And do not spy or backbite each other."</div>
+                    <div class="source-info">Source: Surah Al-Hujurat 49:12</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Online Business and E-commerce</div>
+                <div class="ruling-content">
+                    Online business is permitted in Islam if it follows Islamic business principles. All transactions must be transparent, honest, and free from interest. Digital contracts must be clear and enforceable.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">الْبَيِّعَانِ بِالْخِيَارِ مَا لَمْ يَتَفَرَّقَا</div>
+                    <div class="translation">"The buyer and seller have the option to cancel or confirm the deal as long as they have not separated."</div>
+                    <div class="source-info">Source: Sahih Bukhari 2079</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Digital Entertainment and Gaming</div>
+                <div class="ruling-content">
+                    Digital entertainment is permitted if it doesn't contain haram content. Video games must not promote violence, gambling, or immoral behavior. Time spent on digital entertainment should be balanced.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">إِنَّ اللَّهَ كَرِيهَةٌ لَكُمْ ثَلَاثًا إِقَامَةَ الرَّجُلِ عِنْدَ الْمَخْدَعِ</div>
+                    <div class="translation">"Allah dislikes three things for you: a man lingering at the entrance."</div>
+                    <div class="source-info">Source: Sahih Bukhari 6453</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Digital Learning and Education</div>
+                <div class="ruling-content">
+                    Digital learning platforms are encouraged in Islam as they spread knowledge. Online Islamic education must be authentic and from reliable sources. Technology should enhance, not replace, traditional Islamic learning.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ</div>
+                    <div class="translation">"Seeking knowledge is obligatory upon every Muslim."</div>
+                    <div class="source-info">Source: Ibn Majah 224</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Cryptocurrency and Digital Assets</div>
+                <div class="ruling-content">
+                    Cryptocurrencies must be evaluated for Islamic compliance. They should not involve interest, gambling, or excessive uncertainty. Some scholars permit certain cryptocurrencies while others remain cautious.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَلَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ</div>
+                    <div class="translation">"And do not consume one another's wealth unjustly."</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:188</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Environmental Fiqh Section -->
+        <div class="content-section" id="environment-section">
+            <h2 class="section-title">🌍 Environmental Fiqh - Nature & Conservation</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Environmental Protection</div>
+                <div class="ruling-content">
+                    Islam emphasizes environmental protection and conservation. Muslims are stewards of the earth and must protect natural resources. Pollution, waste, and environmental destruction are prohibited.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">إِنَّ الدُّنْيَا حُلْوَةٌ خَضِرَةٌ وَإِنَّ اللَّهَ مُسْتَخْلِفُكُمْ فِيهَا</div>
+                    <div class="translation">"The world is beautiful and verdant, and Allah has made you His stewards in it."</div>
+                    <div class="source-info">Source: Sahih Muslim 2854</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Animal Rights and Welfare</div>
+                <div class="ruling-content">
+                    Animals have rights in Islam. They must be treated with kindness and compassion. Hunting for sport is prohibited. Animals should not be harmed unnecessarily or used for cruel entertainment.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">مَنْ قَتَلَ عُصْفُورًا عَبَثًا عَجَّ إِلَى اللَّهِ يَوْمَ الْقِيَامَةِ يَقُولُ يَا رَبِّ إِنَّ فُلَانًا قَتَلَنِي عَبَثًا</div>
+                    <div class="translation">"Whoever kills a sparrow for no reason, it will cry to Allah on the Day of Judgment, saying: 'O Lord, so-and-so killed me for no reason.'"</div>
+                    <div class="source-info">Source: An-Nasa'i 4447</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Water Conservation</div>
+                <div class="ruling-content">
+                    Water is a precious resource in Islam. Wasteful use of water is prohibited, even during wudu. Muslims must conserve water and avoid polluting water sources.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">إِنَّهُ سَيَكُونُ فِي هَذِهِ الْأُمَّةِ قَوْمٌ يَعْتَدُونَ فِي الطُّهُورِ وَالدُّعَاءِ</div>
+                    <div class="translation">"There will be people in this ummah who will transgress in purification and supplication."</div>
+                    <div class="source-info">Source: Abu Dawud 96</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Tree Planting and Agriculture</div>
+                <div class="ruling-content">
+                    Planting trees and cultivating land are highly encouraged in Islam. The Prophet (ﷺ) said that if a Muslim plants a tree, whatever is eaten from it is charity for him.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">مَا مِنْ مُسْلِمٍ يَغْرِسُ غَرْسًا إِلَّا كَانَ مَا أُكِلَ مِنْهُ لَهُ صَدَقَةٌ</div>
+                    <div class="translation">"There is no Muslim who plants a tree except that whatever is eaten from it is charity for him."</div>
+                    <div class="source-info">Source: Sahih Muslim 1553</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Sustainable Development</div>
+                <div class="ruling-content">
+                    Islam promotes sustainable development that benefits current and future generations. Natural resources must be used responsibly and not depleted for short-term gain.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَلَا تُفْسِدُوا فِي الْأَرْضِ بَعْدَ إِصْلَاحِهَا</div>
+                    <div class="translation">"And do not cause corruption upon the earth after its reformation."</div>
+                    <div class="source-info">Source: Surah Al-A'raf 7:56</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Cleanliness and Hygiene</div>
+                <div class="ruling-content">
+                    Personal and environmental cleanliness are essential in Islam. Littering, polluting public spaces, and creating unsanitary conditions are prohibited. Cleanliness is considered half of faith.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">النَّظَافَةُ مِنَ الْإِيمَانِ</div>
+                    <div class="translation">"Cleanliness is half of faith."</div>
+                    <div class="source-info">Source: Sahih Muslim 223</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Climate Change and Responsibility</div>
+                <div class="ruling-content">
+                    Muslims have a responsibility to address climate change and environmental degradation. This includes reducing carbon footprints, supporting renewable energy, and advocating for environmental justice.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ</div>
+                    <div class="translation">"Corruption has appeared throughout the land and sea by [reason of] what the hands of people have earned."</div>
+                    <div class="source-info">Source: Surah Ar-Rum 30:41</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Wildlife Protection</div>
+                <div class="ruling-content">
+                    Wildlife must be protected and not hunted to extinction. Endangered species should be preserved. Hunting is only permitted for food and population control, not for sport or decoration.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">لَا تُقْتَلُ الْبَهَائِمُ إِلَّا لِطَعَامٍ</div>
+                    <div class="translation">"Animals should not be killed except for food."</div>
+                    <div class="source-info">Source: Abu Dawud 2852</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Warfare Fiqh Section -->
+        <div class="content-section" id="warfare-section">
+            <h2 class="section-title">⚔️ Warfare Fiqh - Jihad & Self-Defense</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Definition of Jihad</div>
+                <div class="ruling-content">
+                    Jihad means "striving" or "struggling" in the way of Allah. It includes internal spiritual struggle, spreading knowledge, and defensive warfare. Jihad is not synonymous with terrorism or aggression.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَجَاهِدُوا فِي اللَّهِ حَقَّ جِهَادِهِ</div>
+                    <div class="translation">"And strive for Allah with the striving due to Him."</div>
+                    <div class="source-info">Source: Surah Al-Hajj 22:78</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Self-Defense and Protection</div>
+                <div class="ruling-content">
+                    Self-defense is permitted and encouraged in Islam. Muslims may defend themselves, their families, and their property from aggression. However, the response must be proportional to the threat.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَقَاتِلُوا فِي سَبِيلِ اللَّهِ الَّذِينَ يُقَاتِلُونَكُمْ وَلَا تَعْتَدُوا إِنَّ اللَّهَ لَا يُحِبُّ الْمُعْتَدِينَ</div>
+                    <div class="translation">"And fight in the way of Allah those who fight you, but do not transgress. Indeed, Allah does not like transgressors."</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:190</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Rules of Warfare</div>
+                <div class="ruling-content">
+                    Islamic warfare has strict rules: no killing of non-combatants, no destruction of crops or livestock, no torture, and no mutilation. Prisoners must be treated humanely.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">لَا تَقْتُلُوا شَيْخًا فَانِيًا وَلَا طِفْلًا وَلَا صَبِيًّا وَلَا امْرَأَةً</div>
+                    <div class="translation">"Do not kill an elderly person, a child, a young person, or a woman."</div>
+                    <div class="source-info">Source: Abu Dawud 2614</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Prohibition of Aggression</div>
+                <div class="ruling-content">
+                    Aggressive warfare is strictly prohibited in Islam. Muslims cannot attack others without just cause. War is only permitted in self-defense or to protect the oppressed.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَلَا تَعْتَدُوا إِنَّ اللَّهَ لَا يُحِبُّ الْمُعْتَدِينَ</div>
+                    <div class="translation">"And do not transgress. Indeed, Allah does not like transgressors."</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:190</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Peace and Reconciliation</div>
+                <div class="ruling-content">
+                    Islam encourages peace and reconciliation. If enemies seek peace, Muslims must accept it. The Prophet (ﷺ) said that peace is better than war when possible.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَإِن جَنَحُوا لِلسَّلْمِ فَاجْنَحْ لَهَا وَتَوَكَّلْ عَلَى اللَّهِ</div>
+                    <div class="translation">"And if they incline to peace, then incline to it and rely upon Allah."</div>
+                    <div class="source-info">Source: Surah Al-Anfal 8:61</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Protection of Religious Freedom</div>
+                <div class="ruling-content">
+                    In Islamic warfare, religious freedom must be protected. Non-Muslims cannot be forced to convert. Their places of worship and religious practices must be respected.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">لَا إِكْرَاهَ فِي الدِّينِ</div>
+                    <div class="translation">"There is no compulsion in religion."</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:256</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Treatment of Prisoners</div>
+                <div class="ruling-content">
+                    Prisoners of war must be treated with dignity and respect. They must be fed, clothed, and sheltered properly. Torture and inhumane treatment are absolutely prohibited.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">أَطْعِمُوا الْجَائِعَ وَعُودُوا الْمَرِيضَ وَفُكُّوا الْعَانِي</div>
+                    <div class="translation">"Feed the hungry, visit the sick, and free the captives."</div>
+                    <div class="source-info">Source: Sahih Bukhari 5665</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Post-War Reconstruction</div>
+                <div class="ruling-content">
+                    After conflict, Muslims must work to rebuild and restore what was damaged. This includes helping victims, rebuilding infrastructure, and promoting reconciliation between communities.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ</div>
+                    <div class="translation">"Indeed, Allah orders justice and good conduct."</div>
+                    <div class="source-info">Source: Surah An-Nahl 16:90</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Government Fiqh Section -->
+        <div class="content-section" id="government-section">
+            <h2 class="section-title">🏛️ Government Fiqh - Islamic Governance</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Principles of Islamic Governance</div>
+                <div class="ruling-content">
+                    Islamic governance is based on justice, consultation (shura), and the rule of law. Leaders must be just, qualified, and accountable. The government serves the people, not rules over them.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ</div>
+                    <div class="translation">"Indeed, Allah commands you to render trusts to whom they are due and when you judge between people to judge with justice."</div>
+                    <div class="source-info">Source: Surah An-Nisa 4:58</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Leadership Qualifications</div>
+                <div class="ruling-content">
+                    Islamic leaders must be Muslim, sane, just, knowledgeable, and capable. They must have integrity and be free from major sins. Leadership is a trust and responsibility, not a privilege.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">إِنَّ اللَّهَ لَا يَقْبِضُ الْعِلْمَ انْتِزَاعًا يَنْتَزِعُهُ مِنَ الْعِبَادِ وَلَكِنْ يَقْبِضُ الْعِلْمَ بِقَبْضِ الْعُلَمَاءِ</div>
+                    <div class="translation">"Allah does not take away knowledge by snatching it from people, but He takes it away by taking away the scholars."</div>
+                    <div class="source-info">Source: Sahih Bukhari 100</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Consultation and Democracy</div>
+                <div class="ruling-content">
+                    Islamic governance emphasizes consultation (shura) with the people. Leaders must consult on important matters. Modern democratic processes are compatible with Islamic principles when they serve justice.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَشَاوِرْهُمْ فِي الْأَمْرِ</div>
+                    <div class="translation">"And consult them in the matter."</div>
+                    <div class="source-info">Source: Surah Al-Imran 3:159</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Justice and Equality</div>
+                <div class="ruling-content">
+                    Justice is the foundation of Islamic governance. All citizens must be treated equally before the law regardless of race, ethnicity, or social status. Discrimination is absolutely prohibited.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ</div>
+                    <div class="translation">"O you who have believed, be persistently standing firm in justice, witnesses for Allah."</div>
+                    <div class="source-info">Source: Surah An-Nisa 4:135</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Accountability and Transparency</div>
+                <div class="ruling-content">
+                    Islamic leaders are accountable to Allah and the people. They must be transparent in their actions and decisions. Corruption, nepotism, and abuse of power are major sins.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">كُلُّكُمْ رَاعٍ وَكُلُّكُمْ مَسْئُولٌ عَنْ رَعِيَّتِهِ</div>
+                    <div class="translation">"Every one of you is a shepherd and is responsible for his flock."</div>
+                    <div class="source-info">Source: Sahih Bukhari 893</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Human Rights and Freedoms</div>
+                <div class="ruling-content">
+                    Islamic governance protects fundamental human rights: life, property, dignity, and religious freedom. These rights are God-given and cannot be taken away by any government.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ</div>
+                    <div class="translation">"And We have certainly honored the children of Adam."</div>
+                    <div class="source-info">Source: Surah Al-Isra 17:70</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Economic Justice</div>
+                <div class="ruling-content">
+                    Islamic governance must ensure economic justice. This includes fair distribution of wealth, prevention of exploitation, and provision of basic needs for all citizens.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">كَيْ لَا يَكُونَ دُولَةً بَيْنَ الْأَغْنِيَاءِ مِنكُمْ</div>
+                    <div class="translation">"So that it will not be a perpetual distribution among the rich from among you."</div>
+                    <div class="source-info">Source: Surah Al-Hashr 59:7</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">International Relations</div>
+                <div class="ruling-content">
+                    Islamic states must maintain peaceful relations with other nations based on mutual respect and treaties. Aggression and imperialism are prohibited. Cooperation for common good is encouraged.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">لَا يَنْهَاكُمُ اللَّهُ عَنِ الَّذِينَ لَمْ يُقَاتِلُوكُمْ فِي الدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَارِكُمْ</div>
+                    <div class="translation">"Allah does not forbid you from those who do not fight you because of religion and do not expel you from your homes."</div>
+                    <div class="source-info">Source: Surah Al-Mumtahanah 60:8</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Removal of Unjust Leaders</div>
+                <div class="ruling-content">
+                    If a leader becomes unjust or corrupt, the people have the right to remove them through peaceful means. Rebellion and violence are only permitted as a last resort against extreme tyranny.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">إِنَّ اللَّهَ لَا يَقْبِضُ الْعِلْمَ انْتِزَاعًا يَنْتَزِعُهُ مِنَ الْعِبَادِ وَلَكِنْ يَقْبِضُ الْعِلْمَ بِقَبْضِ الْعُلَمَاءِ</div>
+                    <div class="translation">"Allah does not take away knowledge by snatching it from people, but He takes it away by taking away the scholars."</div>
+                    <div class="source-info">Source: Sahih Bukhari 100</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Comprehensive Fiqh Database
+        // Comprehensive Fiqh Database - Massively Expanded
         const fiqhDatabase = {
-            // Prayer Fiqh
+            // Prayer Fiqh - Expanded
             "prayer": [
                 {
                     title: "Obligation of Five Daily Prayers",
-                    content: "The five daily prayers (Salah) are obligatory upon every Muslim who has reached the age of puberty and is mentally sound.",
+                    content: "The five daily prayers (Salah) are obligatory upon every Muslim who has reached the age of puberty and is mentally sound. These prayers are: Fajr (Dawn), Dhuhr (Noon), Asr (Afternoon), Maghrib (Sunset), and Isha (Night).",
                     category: "Prayer",
-                    keywords: ["prayer", "salah", "obligatory", "five", "daily"],
+                    keywords: ["prayer", "salah", "obligatory", "five", "daily", "fajr", "dhuhr", "asr", "maghrib", "isha"],
                     evidence: "Quran 4:103 - Prayer has been decreed upon the believers a decree of specified times."
                 },
                 {
-                    title: "Wudu Requirements",
-                    content: "Wudu is required before performing prayer. It involves washing the face, arms, wiping the head, and washing the feet.",
+                    title: "Wudu (Ablution) Requirements",
+                    content: "Wudu is required before performing prayer. It involves washing the face, arms, wiping the head, and washing the feet. The order and method are specified in authentic hadith. Wudu becomes invalid through sleep, using the bathroom, or breaking wind.",
                     category: "Prayer",
-                    keywords: ["wudu", "ablution", "cleanliness", "prayer", "washing"],
+                    keywords: ["wudu", "ablution", "cleanliness", "prayer", "washing", "face", "arms", "head", "feet", "invalid"],
                     evidence: "Hadith - Allah does not accept prayer without wudu."
                 },
                 {
                     title: "Qibla Direction",
-                    content: "Muslims must face the Kaaba in Makkah during prayer. If exact direction unknown, make best judgment.",
+                    content: "Muslims must face the Kaaba in Makkah during prayer. If the exact direction is unknown, one should make their best judgment and pray. The prayer is valid even if the direction is slightly off.",
                     category: "Prayer",
-                    keywords: ["qibla", "direction", "kaaba", "makkah", "facing"],
+                    keywords: ["qibla", "direction", "kaaba", "makkah", "facing", "judgment", "valid"],
                     evidence: "Quran 2:144 - Turn your face toward al-Masjid al-Haram."
+                },
+                {
+                    title: "Prayer Times and Delays",
+                    content: "Each prayer has specific time windows. Fajr: from dawn until sunrise. Dhuhr: from when sun passes zenith until Asr. Asr: until sun turns yellow. Maghrib: until twilight disappears. Isha: until midnight. Delaying prayer beyond its time without excuse is sinful.",
+                    category: "Prayer",
+                    keywords: ["prayer times", "fajr", "dhuhr", "asr", "maghrib", "isha", "dawn", "sunrise", "zenith", "twilight", "midnight", "delay", "sinful"],
+                    evidence: "Quran 4:103 - Prayer has been decreed upon the believers a decree of specified times."
+                },
+                {
+                    title: "Prayer in Congregation (Jama'ah)",
+                    content: "Praying in congregation is highly recommended and carries 27 times more reward than praying alone. The imam leads the prayer and followers must not precede him in any action.",
+                    category: "Prayer",
+                    keywords: ["congregation", "jamaah", "imam", "leader", "reward", "27 times", "follow", "precede"],
+                    evidence: "Hadith - Prayer in congregation is 27 times better than prayer alone."
+                },
+                {
+                    title: "Friday Prayer (Jumu'ah)",
+                    content: "Friday prayer is obligatory for adult male Muslims. It consists of two rak'ahs and includes a khutbah (sermon). Missing three consecutive Friday prayers without excuse may lead to loss of faith.",
+                    category: "Prayer",
+                    keywords: ["friday", "jumuah", "obligatory", "male", "rakah", "khutbah", "sermon", "consecutive", "faith"],
+                    evidence: "Quran 62:9 - O you who have believed, when [the adhan] is called for the prayer on the day of Jumu'ah, then proceed to the remembrance of Allah."
+                },
+                {
+                    title: "Prayer Postures and Movements",
+                    content: "Prayer consists of standing (qiyam), bowing (ruku'), prostration (sujood), and sitting (juloos). Each posture has specific requirements and supplications. The movements must be performed with tranquility and proper sequence.",
+                    category: "Prayer",
+                    keywords: ["postures", "qiyam", "standing", "ruku", "bowing", "sujood", "prostration", "juloos", "sitting", "tranquility", "sequence"],
+                    evidence: "Hadith - The Prophet (ﷺ) said: 'Pray as you have seen me praying.'"
+                },
+                {
+                    title: "Prayer Conditions and Prerequisites",
+                    content: "Prayer requires: being Muslim, reaching puberty, sanity, cleanliness (taharah), covering awrah, facing qibla, and proper intention. Women must cover their entire body except face and hands.",
+                    category: "Prayer",
+                    keywords: ["conditions", "prerequisites", "muslim", "puberty", "sanity", "cleanliness", "taharah", "awrah", "covering", "intention", "women"],
+                    evidence: "Hadith - Allah does not accept prayer without purification."
+                },
+                {
+                    title: "Prayer Invalidators",
+                    content: "Prayer becomes invalid through: speaking intentionally, eating, drinking, laughing, turning away from qibla, excessive movement, or breaking wudu. Any action that contradicts prayer nullifies it.",
+                    category: "Prayer",
+                    keywords: ["invalidators", "speaking", "eating", "drinking", "laughing", "turning", "movement", "breaking wudu", "nullifies"],
+                    evidence: "Hadith - The Prophet (ﷺ) said: 'Prayer is invalidated by talking.'"
+                },
+                {
+                    title: "Tahajjud and Night Prayers",
+                    content: "Tahajjud (night prayer) is highly recommended. It can be performed after Isha and before Fajr. The best time is the last third of the night. Even two rak'ahs of night prayer bring great reward.",
+                    category: "Prayer",
+                    keywords: ["tahajjud", "night prayer", "isha", "fajr", "last third", "rakah", "reward", "recommended"],
+                    evidence: "Quran 17:79 - And from [part of] the night, pray with it as additional [worship] for you."
                 }
             ],
-            // Business Fiqh
+            // Business Fiqh - Expanded
             "business": [
                 {
                     title: "Prohibition of Interest (Riba)",
-                    content: "Interest (Riba) is strictly prohibited in Islam. All business transactions must be free from interest-based arrangements.",
+                    content: "Interest (Riba) is strictly prohibited in Islam. This includes both giving and receiving interest. All business transactions must be free from interest-based arrangements. Modern banking interest, credit card interest, and loan interest are all prohibited.",
                     category: "Business",
-                    keywords: ["interest", "riba", "prohibited", "business", "transactions"],
+                    keywords: ["interest", "riba", "prohibited", "business", "transactions", "banking", "credit card", "loan", "modern", "strictly"],
                     evidence: "Quran 2:278 - Fear Allah and give up what remains of interest."
                 },
                 {
                     title: "Honesty in Trade",
-                    content: "Honesty and transparency are essential in all business transactions. Concealing defects and deception are prohibited.",
+                    content: "Honesty and transparency are essential in all business transactions. Concealing defects in goods, false advertising, and deception are prohibited. Sellers must disclose all relevant information about products.",
                     category: "Business",
-                    keywords: ["honesty", "trade", "transparency", "deception", "defects"],
+                    keywords: ["honesty", "trade", "transparency", "deception", "defects", "advertising", "sellers", "disclose", "information", "products"],
                     evidence: "Hadith - A Muslim must not sell defective goods without disclosing the defect."
+                },
+                {
+                    title: "Partnership and Joint Ventures",
+                    content: "Islamic partnerships (Musharakah) are permitted and encouraged. Partners share both profit and loss according to agreed ratios. Silent partnerships are also valid if terms are clearly defined.",
+                    category: "Business",
+                    keywords: ["partnership", "musharakah", "joint ventures", "profit", "loss", "ratios", "silent", "terms", "defined", "permitted"],
+                    evidence: "Hadith - The Prophet (ﷺ) engaged in business partnerships and said they are blessed."
+                },
+                {
+                    title: "Forward Sales and Contracts",
+                    content: "Forward sales (Salam) are permitted in Islam with specific conditions: full payment in advance, detailed specifications, and fixed delivery date. This applies to commodities, not services.",
+                    category: "Business",
+                    keywords: ["forward sales", "salam", "contracts", "advance payment", "specifications", "delivery date", "commodities", "services", "permitted", "conditions"],
+                    evidence: "Hadith - The Prophet (ﷺ) permitted Salam contracts for dates and other commodities."
+                },
+                {
+                    title: "Leasing and Renting",
+                    content: "Leasing (Ijarah) is permitted in Islam. The lessor must own the property being leased. Lease terms must be clear, and the property must be usable for the intended purpose.",
+                    category: "Business",
+                    keywords: ["leasing", "ijarah", "renting", "lessor", "property", "terms", "clear", "usable", "purpose", "permitted"],
+                    evidence: "Hadith - The Prophet (ﷺ) said: 'Whoever rents a house or land, it is lawful for him.'"
+                },
+                {
+                    title: "Insurance and Risk Management",
+                    content: "Conventional insurance with interest and gambling elements is prohibited. Islamic insurance (Takaful) based on mutual cooperation and shared responsibility is permitted. Risk sharing must be genuine, not artificial.",
+                    category: "Business",
+                    keywords: ["insurance", "risk management", "conventional", "prohibited", "takaful", "mutual cooperation", "shared responsibility", "genuine", "artificial"],
+                    evidence: "Quran 5:90 - Indeed, intoxicants, gambling, [sacrificing on] stone alters [to other than Allah], and divining arrows are but defilement from the work of Satan."
+                },
+                {
+                    title: "Digital and Online Business",
+                    content: "Online business is permitted in Islam if it follows Islamic principles. Digital products, services, and e-commerce are lawful. However, digital currencies must be carefully evaluated for compliance.",
+                    category: "Business",
+                    keywords: ["digital", "online", "business", "permitted", "principles", "products", "services", "e-commerce", "lawful", "currencies", "compliance"],
+                    evidence: "Hadith - The Prophet (ﷺ) said: 'The buyer and seller have the option to cancel or confirm the deal.'"
+                },
+                {
+                    title: "Employment and Labor Rights",
+                    content: "Islamic employment requires fair wages, safe working conditions, and timely payment. Employers must treat workers with dignity and respect. Workers must fulfill their obligations honestly.",
+                    category: "Business",
+                    keywords: ["employment", "labor rights", "fair wages", "working conditions", "timely payment", "dignity", "respect", "obligations", "honestly"],
+                    evidence: "Hadith - 'Give the worker his wages before his sweat dries.'"
+                },
+                {
+                    title: "Quality Standards and Guarantees",
+                    content: "Islamic business requires maintaining high quality standards. Product guarantees and warranties are encouraged. Sellers must stand behind their products and provide proper customer service.",
+                    category: "Business",
+                    keywords: ["quality standards", "guarantees", "warranties", "products", "customer service", "maintain", "encouraged", "stand behind"],
+                    evidence: "Hadith - 'The best earning is that of a man who works with his hands and deals honestly.'"
+                },
+                {
+                    title: "Debt and Financial Obligations",
+                    content: "Debts must be repaid in full and on time. Creditors should be patient with debtors who are genuinely unable to pay. Debt forgiveness is highly rewarded in Islam.",
+                    category: "Business",
+                    keywords: ["debt", "financial obligations", "repay", "full", "time", "creditors", "patient", "debtors", "unable", "forgiveness", "rewarded"],
+                    evidence: "Quran 2:280 - And if someone is in hardship, then [let there be] postponement until [a time of] ease."
                 }
             ],
-            // Family Fiqh
+            // Family Fiqh - Expanded
             "family": [
                 {
                     title: "Marriage Requirements",
-                    content: "Marriage requires consent of both parties, witnesses, mahr (dowry), and proper Islamic ceremony.",
+                    content: "Marriage in Islam requires: consent of both parties, presence of witnesses, mahr (dowry), and proper Islamic ceremony. Polygamy is permitted with conditions of justice. The mahr belongs to the wife and cannot be taken back.",
                     category: "Family",
-                    keywords: ["marriage", "consent", "witnesses", "mahr", "ceremony"],
+                    keywords: ["marriage", "consent", "witnesses", "mahr", "dowry", "ceremony", "polygamy", "justice", "wife", "belongs"],
                     evidence: "Quran 4:3 - Marry those that please you of women, two or three or four."
                 },
                 {
                     title: "Inheritance Laws",
-                    content: "Islamic inheritance laws ensure fair distribution among family members according to Quranic guidelines.",
+                    content: "Islamic inheritance laws are detailed and specific. They ensure fair distribution among family members according to Quranic guidelines and prevent disputes. The system is mathematical and cannot be altered by will.",
                     category: "Family",
-                    keywords: ["inheritance", "distribution", "family", "fair", "quranic"],
+                    keywords: ["inheritance", "distribution", "family", "fair", "quranic", "mathematical", "will", "altered", "disputes"],
                     evidence: "Quran 4:11 - Allah instructs you concerning your children."
+                },
+                {
+                    title: "Divorce and Separation",
+                    content: "Divorce is permitted in Islam but discouraged. The process involves three pronouncements with waiting periods. Reconciliation is encouraged during waiting periods. Divorce must be done with dignity and respect.",
+                    category: "Family",
+                    keywords: ["divorce", "separation", "permitted", "discouraged", "pronouncements", "waiting periods", "reconciliation", "dignity", "respect"],
+                    evidence: "Quran 2:229 - Divorce is twice. Then, either keep [her] in an acceptable manner or release [her] with good treatment."
+                },
+                {
+                    title: "Child Custody and Rights",
+                    content: "Children have rights to maintenance, education, and proper upbringing. Custody arrangements consider the child's best interests. Fathers are responsible for financial support, mothers for care and upbringing.",
+                    category: "Family",
+                    keywords: ["child custody", "rights", "maintenance", "education", "upbringing", "best interests", "fathers", "financial support", "mothers", "care"],
+                    evidence: "Hadith - 'Every one of you is a shepherd and is responsible for his flock.'"
+                },
+                {
+                    title: "Adoption and Fostering",
+                    content: "Full adoption (changing lineage) is prohibited in Islam. However, fostering and caring for orphans is highly encouraged. Foster children maintain their biological family names and inheritance rights.",
+                    category: "Family",
+                    keywords: ["adoption", "fostering", "prohibited", "lineage", "orphans", "encouraged", "biological", "names", "inheritance rights"],
+                    evidence: "Quran 33:5 - Call them by [the names of] their fathers; it is more just in the sight of Allah."
+                },
+                {
+                    title: "Family Planning and Contraception",
+                    content: "Family planning is permitted in Islam if done for valid reasons. Temporary contraception methods are allowed. Permanent sterilization requires strong medical justification. The decision should be mutual between spouses.",
+                    category: "Family",
+                    keywords: ["family planning", "contraception", "permitted", "valid reasons", "temporary", "permanent", "sterilization", "medical", "mutual", "spouses"],
+                    evidence: "Hadith - The Prophet (ﷺ) permitted coitus interruptus (azl) for family planning."
+                },
+                {
+                    title: "Marital Relations and Intimacy",
+                    content: "Marital intimacy is encouraged and blessed in Islam. Spouses must fulfill each other's needs within Islamic boundaries. Modesty and privacy are maintained even in marriage.",
+                    category: "Family",
+                    keywords: ["marital relations", "intimacy", "encouraged", "blessed", "spouses", "needs", "boundaries", "modesty", "privacy", "marriage"],
+                    evidence: "Quran 2:187 - They are clothing for you and you are clothing for them."
+                },
+                {
+                    title: "Extended Family Relations",
+                    content: "Islam emphasizes maintaining good relations with extended family. Visiting relatives, helping them, and maintaining family ties are rewarded. Cutting family ties is considered a major sin.",
+                    category: "Family",
+                    keywords: ["extended family", "relations", "visiting", "helping", "family ties", "rewarded", "cutting", "major sin"],
+                    evidence: "Hadith - 'Whoever believes in Allah and the Last Day, let him maintain good relations with his relatives.'"
+                },
+                {
+                    title: "Family Financial Management",
+                    content: "Husbands are responsible for family financial needs. Wives' earnings belong to them. Family wealth should be managed with consultation and mutual agreement. Extravagance and waste are discouraged.",
+                    category: "Family",
+                    keywords: ["financial management", "husbands", "responsible", "wives", "earnings", "consultation", "mutual agreement", "extravagance", "waste", "discouraged"],
+                    evidence: "Quran 4:34 - Men are in charge of women by [right of] what Allah has given one over the other."
+                },
+                {
+                    title: "Family Conflict Resolution",
+                    content: "Family conflicts should be resolved through dialogue and mediation. Involving elders and respected family members is recommended. The goal is reconciliation and maintaining family harmony.",
+                    category: "Family",
+                    keywords: ["conflict resolution", "dialogue", "mediation", "elders", "respected", "reconciliation", "harmony", "family"],
+                    evidence: "Quran 4:35 - And if you fear dissension between the two, send an arbitrator from his people and an arbitrator from her people."
                 }
             ],
-            // Social Fiqh
+            // Social Fiqh - Expanded
             "social": [
                 {
                     title: "Neighborly Rights",
-                    content: "Islam emphasizes the rights of neighbors. Muslims must be kind, helpful, and respectful to neighbors.",
+                    content: "Islam emphasizes the rights of neighbors. Muslims must be kind, helpful, and respectful to neighbors regardless of their religion or background. This includes helping in times of need and avoiding harm.",
                     category: "Social",
-                    keywords: ["neighbors", "rights", "kindness", "respect", "helpful"],
+                    keywords: ["neighbors", "rights", "kindness", "respect", "helpful", "religion", "background", "helping", "avoiding harm"],
                     evidence: "Hadith - Jibreel kept recommending treating neighbors with kindness."
                 },
                 {
                     title: "Greeting Etiquette",
-                    content: "Muslims should greet each other with 'Assalamu alaikum' and respond appropriately.",
+                    content: "Muslims should greet each other with 'Assalamu alaikum' and respond with 'Wa alaikum assalam'. Greeting first is recommended and brings more reward. Greeting children is also encouraged.",
                     category: "Social",
-                    keywords: ["greeting", "salam", "peace", "etiquette", "manners"],
+                    keywords: ["greeting", "salam", "peace", "etiquette", "manners", "first", "reward", "children", "encouraged"],
                     evidence: "Hadith - When you meet him, greet him with peace."
+                },
+                {
+                    title: "Visiting and Hospitality",
+                    content: "Visiting friends and family is encouraged in Islam. Hosts should provide hospitality according to their means. Guests should not overstay or burden their hosts. Visiting the sick is highly rewarded.",
+                    category: "Social",
+                    keywords: ["visiting", "hospitality", "friends", "family", "encouraged", "hosts", "means", "guests", "overstay", "sick", "rewarded"],
+                    evidence: "Hadith - 'Visit the sick, feed the hungry, and free the captives.'"
+                },
+                {
+                    title: "Social Media and Communication",
+                    content: "Social media use must follow Islamic principles. Truthfulness, avoiding backbiting, and maintaining modesty are essential. Privacy and dignity of others must be respected online.",
+                    category: "Social",
+                    keywords: ["social media", "communication", "principles", "truthfulness", "backbiting", "modesty", "privacy", "dignity", "online", "respected"],
+                    evidence: "Quran 49:12 - Avoid much [negative] assumption. Indeed, some assumption is sin."
+                },
+                {
+                    title: "Workplace Ethics",
+                    content: "Islamic workplace ethics require honesty, punctuality, and fair treatment. Employers must provide fair wages and safe conditions. Employees must fulfill their duties honestly and avoid workplace gossip.",
+                    category: "Social",
+                    keywords: ["workplace ethics", "honesty", "punctuality", "fair treatment", "wages", "safe conditions", "duties", "gossip"],
+                    evidence: "Hadith - 'The worker is worthy of his wages.'"
+                },
+                {
+                    title: "Community Service and Volunteering",
+                    content: "Community service is highly encouraged in Islam. Helping the poor, elderly, and disabled brings great reward. Volunteering time and skills for community benefit is considered charity.",
+                    category: "Social",
+                    keywords: ["community service", "volunteering", "encouraged", "poor", "elderly", "disabled", "reward", "time", "skills", "charity"],
+                    evidence: "Hadith - 'The best of people are those most beneficial to people.'"
+                },
+                {
+                    title: "Interfaith Relations",
+                    content: "Muslims must treat people of other faiths with respect and kindness. Forced conversion is prohibited. Dialogue and peaceful coexistence are encouraged. Religious freedom is a fundamental Islamic principle.",
+                    category: "Social",
+                    keywords: ["interfaith", "relations", "respect", "kindness", "forced conversion", "prohibited", "dialogue", "peaceful coexistence", "religious freedom", "principle"],
+                    evidence: "Quran 2:256 - There is no compulsion in religion."
+                },
+                {
+                    title: "Social Justice and Equality",
+                    content: "Islam promotes social justice and equality. Discrimination based on race, ethnicity, or social status is prohibited. All humans are equal before Allah. Justice must be served regardless of social position.",
+                    category: "Social",
+                    keywords: ["social justice", "equality", "discrimination", "race", "ethnicity", "social status", "prohibited", "humans", "equal", "justice"],
+                    evidence: "Hadith - 'All people are equal like the teeth of a comb.'"
+                },
+                {
+                    title: "Conflict Resolution",
+                    content: "Islamic conflict resolution emphasizes reconciliation and mediation. Third-party mediators are recommended. The goal is to restore harmony and maintain relationships. Forgiveness and patience are virtues.",
+                    category: "Social",
+                    keywords: ["conflict resolution", "reconciliation", "mediation", "mediators", "harmony", "relationships", "forgiveness", "patience", "virtues"],
+                    evidence: "Quran 3:134 - Those who spend [in the cause of Allah] during ease and hardship and who restrain anger and who pardon the people."
+                },
+                {
+                    title: "Social Responsibility",
+                    content: "Every Muslim has social responsibilities. This includes caring for the environment, helping the needy, and contributing to community welfare. Individual actions impact the broader society.",
+                    category: "Social",
+                    keywords: ["social responsibility", "environment", "needy", "community welfare", "individual actions", "broader society", "caring", "helping", "contributing"],
+                    evidence: "Hadith - 'The world is beautiful and verdant, and Allah has made you His stewards in it.'"
                 }
             ],
-            // Financial Fiqh
+            // Financial Fiqh - Expanded
             "financial": [
                 {
                     title: "Zakat Obligation",
-                    content: "Zakat is obligatory for Muslims who meet the nisab. It is 2.5% of wealth given to specified recipients.",
+                    content: "Zakat is obligatory for Muslims who meet the nisab (minimum threshold). It is 2.5% of wealth and must be given to specified categories of recipients. Zakat purifies wealth and helps the poor.",
                     category: "Financial",
-                    keywords: ["zakat", "obligatory", "nisab", "wealth", "charity"],
+                    keywords: ["zakat", "obligatory", "nisab", "wealth", "charity", "2.5%", "recipients", "purifies", "poor", "threshold"],
                     evidence: "Quran 2:43 - Establish prayer and give zakah."
                 },
                 {
                     title: "Charity (Sadaqah)",
-                    content: "Voluntary charity is highly encouraged in Islam. It can be given at any time to help those in need.",
+                    content: "Voluntary charity is highly encouraged in Islam. It can be given at any time to help those in need. Sadaqah includes monetary gifts, helping others, and even smiling at others.",
                     category: "Financial",
-                    keywords: ["charity", "sadaqah", "voluntary", "help", "need"],
+                    keywords: ["charity", "sadaqah", "voluntary", "help", "need", "monetary", "gifts", "helping", "smiling", "encouraged"],
                     evidence: "Quran 2:245 - Who would loan Allah a goodly loan?"
+                },
+                {
+                    title: "Islamic Banking Principles",
+                    content: "Islamic banking operates without interest. It uses profit-sharing, leasing, and partnership models. All transactions must be backed by real assets. Speculation and gambling are prohibited.",
+                    category: "Financial",
+                    keywords: ["islamic banking", "interest-free", "profit-sharing", "leasing", "partnership", "real assets", "speculation", "gambling", "prohibited"],
+                    evidence: "Quran 2:275 - Allah has permitted trade and has forbidden interest."
+                },
+                {
+                    title: "Investment Guidelines",
+                    content: "Islamic investments must avoid prohibited sectors (alcohol, gambling, pork). Halal investments include real estate, commodities, and Islamic mutual funds. Risk and reward must be shared fairly.",
+                    category: "Financial",
+                    keywords: ["investment", "guidelines", "prohibited sectors", "alcohol", "gambling", "pork", "halal", "real estate", "commodities", "mutual funds", "risk", "reward"],
+                    evidence: "Quran 2:188 - And do not consume one another's wealth unjustly."
+                },
+                {
+                    title: "Debt Management",
+                    content: "Debts must be repaid in full and on time. Creditors should be patient with genuine hardship cases. Debt consolidation and restructuring are permitted if they don't involve interest.",
+                    category: "Financial",
+                    keywords: ["debt management", "repay", "full", "time", "creditors", "patient", "hardship", "consolidation", "restructuring", "interest"],
+                    evidence: "Quran 2:280 - And if someone is in hardship, then [let there be] postponement until [a time of] ease."
+                },
+                {
+                    title: "Retirement Planning",
+                    content: "Islamic retirement planning focuses on halal investments and savings. Pension funds must avoid interest-based returns. Real estate, commodities, and Islamic bonds are preferred options.",
+                    category: "Financial",
+                    keywords: ["retirement planning", "halal investments", "savings", "pension funds", "interest-based", "real estate", "commodities", "bonds", "preferred"],
+                    evidence: "Hadith - 'Take advantage of five before five: your youth before your old age.'"
+                },
+                {
+                    title: "Insurance Alternatives",
+                    content: "Conventional insurance is problematic due to interest and uncertainty. Islamic alternatives include mutual assistance funds, cooperative insurance, and self-insurance through savings.",
+                    category: "Financial",
+                    keywords: ["insurance alternatives", "conventional", "problematic", "interest", "uncertainty", "mutual assistance", "cooperative", "self-insurance", "savings"],
+                    evidence: "Quran 5:90 - Indeed, intoxicants, gambling, [sacrificing on] stone alters [to other than Allah], and divining arrows are but defilement from the work of Satan."
+                },
+                {
+                    title: "Wealth Distribution",
+                    content: "Islam encourages fair distribution of wealth. Hoarding wealth without paying zakat is discouraged. The rich should help the poor through various charitable means.",
+                    category: "Financial",
+                    keywords: ["wealth distribution", "fair", "hoarding", "zakat", "discouraged", "rich", "poor", "charitable means", "encouraged"],
+                    evidence: "Quran 59:7 - So that it will not be a perpetual distribution among the rich from among you."
+                },
+                {
+                    title: "Financial Transactions",
+                    content: "All financial transactions must be transparent and documented. Verbal agreements are valid but written contracts are preferred. Terms must be clear and agreed upon by all parties.",
+                    category: "Financial",
+                    keywords: ["financial transactions", "transparent", "documented", "verbal agreements", "written contracts", "terms", "clear", "agreed", "parties"],
+                    evidence: "Quran 2:282 - O you who have believed, when you contract a debt for a specified term, write it down."
+                },
+                {
+                    title: "Cryptocurrency and Digital Assets",
+                    content: "Cryptocurrencies must be evaluated for Islamic compliance. They should not involve interest, gambling, or excessive uncertainty. Some scholars permit certain cryptocurrencies while others remain cautious.",
+                    category: "Financial",
+                    keywords: ["cryptocurrency", "digital assets", "islamic compliance", "interest", "gambling", "uncertainty", "scholars", "permit", "cautious"],
+                    evidence: "Quran 2:188 - And do not consume one another's wealth unjustly."
                 }
             ],
-            // Food Fiqh
+            // Food Fiqh - Expanded
             "food": [
                 {
                     title: "Halal Food Requirements",
-                    content: "Halal food must be free from prohibited substances like pork, alcohol, and improperly slaughtered animals.",
+                    content: "Halal food must be free from prohibited substances like pork, alcohol, and animals not slaughtered according to Islamic guidelines. The animal must be healthy and slaughtered with Allah's name.",
                     category: "Food",
-                    keywords: ["halal", "food", "prohibited", "pork", "alcohol"],
+                    keywords: ["halal", "food", "prohibited", "pork", "alcohol", "slaughtered", "guidelines", "healthy", "allah's name"],
                     evidence: "Quran 5:3 - Prohibited are dead animals, blood, flesh of swine."
                 },
                 {
                     title: "Fasting in Ramadan",
-                    content: "Fasting during Ramadan is obligatory. It involves abstaining from food, drink, and marital relations.",
+                    content: "Fasting during Ramadan is obligatory for all adult Muslims. It involves abstaining from food, drink, and marital relations from dawn to sunset. Exemptions exist for illness, travel, and other valid reasons.",
                     category: "Food",
-                    keywords: ["fasting", "ramadan", "obligatory", "abstain", "dawn"],
+                    keywords: ["fasting", "ramadan", "obligatory", "abstain", "dawn", "sunset", "exemptions", "illness", "travel", "valid reasons"],
                     evidence: "Quran 2:183 - Decreed upon you is fasting as decreed upon those before you."
+                },
+                {
+                    title: "Slaughtering Methods",
+                    content: "Islamic slaughtering requires using a sharp knife, cutting the throat, and mentioning Allah's name. The animal must be treated humanely before and during slaughter. Electric stunning is controversial among scholars.",
+                    category: "Food",
+                    keywords: ["slaughtering", "methods", "sharp knife", "throat", "allah's name", "humanely", "electric stunning", "controversial", "scholars"],
+                    evidence: "Quran 6:121 - And do not eat of that upon which the name of Allah has not been mentioned."
+                },
+                {
+                    title: "Seafood and Fish",
+                    content: "Most seafood is halal in Islam. Fish caught alive and killed properly are permissible. Shellfish and crustaceans are generally considered halal by most scholars.",
+                    category: "Food",
+                    keywords: ["seafood", "fish", "halal", "caught alive", "properly killed", "permissible", "shellfish", "crustaceans", "scholars"],
+                    evidence: "Quran 5:96 - Lawful to you is game from the sea and its food as provision for you and the travelers."
+                },
+                {
+                    title: "Dairy and Animal Products",
+                    content: "Dairy products from halal animals are generally permissible. However, products containing alcohol or non-halal ingredients become prohibited. Gelatin sources must be verified.",
+                    category: "Food",
+                    keywords: ["dairy", "animal products", "halal animals", "permissible", "alcohol", "non-halal", "ingredients", "prohibited", "gelatin", "verified"],
+                    evidence: "Quran 16:66 - And indeed, for you in grazing livestock is a lesson."
+                },
+                {
+                    title: "Processed Foods and Additives",
+                    content: "Processed foods must be carefully examined for halal compliance. Common additives like gelatin, enzymes, and flavorings may have non-halal sources. Halal certification is recommended.",
+                    category: "Food",
+                    keywords: ["processed foods", "additives", "halal compliance", "gelatin", "enzymes", "flavorings", "non-halal sources", "certification", "recommended"],
+                    evidence: "Quran 5:4 - They ask you, [O Muhammad], what has been made lawful for them."
+                },
+                {
+                    title: "Eating Etiquettes",
+                    content: "Islamic eating etiquette includes starting with 'Bismillah', eating with the right hand, avoiding waste, and showing gratitude. Overeating and extravagant meals are discouraged.",
+                    category: "Food",
+                    keywords: ["eating etiquette", "bismillah", "right hand", "avoiding waste", "gratitude", "overeating", "extravagant", "discouraged"],
+                    evidence: "Hadith - 'Start with the name of Allah and eat with your right hand.'"
+                },
+                {
+                    title: "Fasting Outside Ramadan",
+                    content: "Voluntary fasting is highly recommended in Islam. Monday and Thursday, the 13th-15th of each month, and the first ten days of Dhul Hijjah are especially virtuous times for fasting.",
+                    category: "Food",
+                    keywords: ["voluntary fasting", "recommended", "monday", "thursday", "13th-15th", "dhul hijjah", "virtuous", "times"],
+                    evidence: "Hadith - 'The Prophet (ﷺ) used to fast on Mondays and Thursdays.'"
+                },
+                {
+                    title: "Food Sharing and Hospitality",
+                    content: "Sharing food with others is highly encouraged in Islam. Inviting guests for meals brings great reward. The Prophet (ﷺ) said that food for one person is enough for two, and food for two is enough for four.",
+                    category: "Food",
+                    keywords: ["food sharing", "hospitality", "encouraged", "guests", "meals", "reward", "one person", "two", "four"],
+                    evidence: "Hadith - 'Food for one person is enough for two, and food for two is enough for four.'"
+                },
+                {
+                    title: "Food Safety and Hygiene",
+                    content: "Islam emphasizes food safety and hygiene. Cleanliness in food preparation is essential. Contaminated or spoiled food should not be consumed. Proper storage and handling are important.",
+                    category: "Food",
+                    keywords: ["food safety", "hygiene", "cleanliness", "preparation", "essential", "contaminated", "spoiled", "consumed", "storage", "handling"],
+                    evidence: "Hadith - 'Cleanliness is half of faith.'"
+                }
+            ],
+            // Additional Categories
+            "medical": [
+                {
+                    title: "Medical Treatment and Medicine",
+                    content: "Seeking medical treatment is encouraged in Islam. All forms of medicine are permitted unless they contain haram substances. Organ transplants and modern medical procedures are generally allowed.",
+                    category: "Medical",
+                    keywords: ["medical treatment", "medicine", "encouraged", "permitted", "haram substances", "organ transplants", "procedures", "allowed"],
+                    evidence: "Hadith - 'There is no disease that Allah has created, except that He also has created its treatment.'"
+                },
+                {
+                    title: "Mental Health and Psychology",
+                    content: "Mental health is important in Islam. Seeking psychological help is permitted and encouraged. Depression, anxiety, and other mental health issues should be addressed professionally.",
+                    category: "Medical",
+                    keywords: ["mental health", "psychology", "important", "psychological help", "permitted", "encouraged", "depression", "anxiety", "professionally"],
+                    evidence: "Hadith - 'Verily, with hardship comes ease.'"
+                }
+            ],
+            "technology": [
+                {
+                    title: "Technology and Innovation",
+                    content: "Technology that benefits humanity is encouraged in Islam. However, technology must be used responsibly and not for harmful purposes. Social media, AI, and other innovations must follow Islamic principles.",
+                    category: "Technology",
+                    keywords: ["technology", "innovation", "benefits", "humanity", "encouraged", "responsibly", "harmful", "social media", "AI", "principles"],
+                    evidence: "Quran 2:30 - Indeed, I will make upon the earth a successive authority."
                 }
             ]
         };
@@ -740,13 +2698,30 @@
         function showCategory(category) {
             // Hide all content sections
             const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.classList.remove('active'));
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
             
             // Show selected category
             const selectedSection = document.getElementById(category + '-section');
             if (selectedSection) {
-                selectedSection.classList.add('active');
+                selectedSection.style.display = 'block';
                 selectedSection.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Update active tab
+            updateActiveTab(category);
+        }
+
+        function updateActiveTab(category) {
+            // Remove active class from all category cards
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => card.classList.remove('active'));
+            
+            // Add active class to selected category
+            const selectedCard = document.querySelector(`[onclick="showCategory('${category}')"]`);
+            if (selectedCard) {
+                selectedCard.classList.add('active');
             }
         }
 
