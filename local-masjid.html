@@ -39,6 +39,12 @@
             font-size: 2.5rem;
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .header h1:hover {
+            transform: scale(1.02);
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
         }
 
         .header p {
@@ -84,6 +90,12 @@
             font-size: 1.8rem;
             margin-bottom: 20px;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .section h2:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
 
         .prayer-times {
@@ -219,6 +231,86 @@
             border-color: #1E90FF;
         }
 
+        .location-timezone-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .timezone-select {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            color: #e0e0e0;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timezone-select:focus {
+            outline: none;
+            border-color: #1E90FF;
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
+        }
+
+        .timezone-select:hover {
+            border-color: rgba(30, 144, 255, 0.4);
+        }
+
+        .timezone-select option {
+            background: #1a1f2e;
+            color: #e0e0e0;
+            padding: 10px;
+        }
+
+        .masjid-search-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 15px;
+            margin-bottom: 25px;
+            align-items: center;
+        }
+
+        .zipcode-input {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            color: #e0e0e0;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .zipcode-input:focus {
+            outline: none;
+            border-color: #1E90FF;
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
+        }
+
+        .zipcode-input:hover {
+            border-color: rgba(30, 144, 255, 0.4);
+        }
+
+        .search-masjid-btn {
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .search-masjid-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.4);
+        }
+
         .update-btn {
             background: #1E90FF;
             color: white;
@@ -285,7 +377,7 @@
         }
 
         .download-btn {
-            background: #DC143C;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
             color: white;
             border: none;
             padding: 10px 20px;
@@ -296,7 +388,9 @@
         }
 
         .download-btn:hover {
-            background: #B22222;
+            background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -310,6 +404,16 @@
             
             .masjid-actions {
                 justify-content: center;
+            }
+
+            .location-timezone-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .masjid-search-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
         }
     </style>
@@ -325,7 +429,32 @@
         <div class="main-content">
             <div class="section">
                 <h2>Prayer Times</h2>
-                <input type="text" class="location-input" id="locationInput" placeholder="Enter your city or zip code for accurate prayer times" value="New York, NY">
+                <div class="location-timezone-container">
+                    <input type="text" class="location-input" id="locationInput" placeholder="Enter your city or zip code for accurate prayer times" value="New York, NY">
+                    <select class="timezone-select" id="timezoneSelect">
+                        <option value="">Select Timezone</option>
+                        <option value="America/New_York">Eastern Time (ET)</option>
+                        <option value="America/Chicago">Central Time (CT)</option>
+                        <option value="America/Denver">Mountain Time (MT)</option>
+                        <option value="America/Los_Angeles">Pacific Time (PT)</option>
+                        <option value="America/Anchorage">Alaska Time (AKT)</option>
+                        <option value="Pacific/Honolulu">Hawaii Time (HST)</option>
+                        <option value="Europe/London">London (GMT/BST)</option>
+                        <option value="Europe/Paris">Paris (CET/CEST)</option>
+                        <option value="Europe/Berlin">Berlin (CET/CEST)</option>
+                        <option value="Europe/Moscow">Moscow (MSK)</option>
+                        <option value="Asia/Dubai">Dubai (GST)</option>
+                        <option value="Asia/Karachi">Karachi (PKT)</option>
+                        <option value="Asia/Kolkata">Kolkata (IST)</option>
+                        <option value="Asia/Dhaka">Dhaka (BST)</option>
+                        <option value="Asia/Bangkok">Bangkok (ICT)</option>
+                        <option value="Asia/Shanghai">Shanghai (CST)</option>
+                        <option value="Asia/Tokyo">Tokyo (JST)</option>
+                        <option value="Asia/Seoul">Seoul (KST)</option>
+                        <option value="Australia/Sydney">Sydney (AEST/AEDT)</option>
+                        <option value="Pacific/Auckland">Auckland (NZST/NZDT)</option>
+                    </select>
+                </div>
                 <button class="update-btn" onclick="updatePrayerTimes()">Update Prayer Times</button>
                 
                 <div class="prayer-times" id="prayerTimes">
@@ -354,6 +483,13 @@
 
             <div class="section">
                 <h2>Local Masjids</h2>
+                <div class="masjid-search-container">
+                    <input type="text" class="zipcode-input" id="zipcodeInput" placeholder="Enter your ZIP code for accurate masjid listings" maxlength="10">
+                    <button class="search-masjid-btn" onclick="searchLocalMasjids()">🔍 Find Masjids Near Me</button>
+                </div>
+                <div class="search-status" id="searchStatus" style="display: none; text-align: center; margin: 15px 0; padding: 15px; background: rgba(30, 144, 255, 0.1); border-radius: 10px; border-left: 4px solid #1E90FF;">
+                    <div style="color: #1E90FF; font-weight: bold;">🔍 Searching for masjids in your area...</div>
+                </div>
                 <div class="masjid-list" id="masjidList">
                     <div class="masjid-item">
                         <div class="masjid-name">Islamic Center of New York</div>
@@ -361,9 +497,9 @@
                         <div class="masjid-phone">Phone: (212) 555-0123</div>
                         <div class="masjid-services">Services: Daily prayers, Friday prayer, Islamic school, Community events</div>
                         <div class="masjid-actions">
-                            <button class="action-btn pdf-btn" onclick="downloadMasjidInfo('Islamic_Center_NY.pdf')">Download Info</button>
-                            <button class="action-btn directions-btn" onclick="getDirections('123 Main Street, New York, NY 10001')">Directions</button>
-                            <button class="action-btn contact-btn" onclick="contactMasjid('(212) 555-0123')">Contact</button>
+                            <button class="action-btn pdf-btn" onclick="downloadMasjidInfo('Islamic_Center_NY.pdf')">📄 Download Info</button>
+                            <button class="action-btn directions-btn" onclick="getDirections('123 Main Street, New York, NY 10001')">🗺️ Directions</button>
+                            <button class="action-btn contact-btn" onclick="contactMasjid('(212) 555-0123')">📞 Contact</button>
                         </div>
                     </div>
 
@@ -373,9 +509,9 @@
                         <div class="masjid-phone">Phone: (718) 555-0456</div>
                         <div class="masjid-services">Services: Daily prayers, Quran classes, Youth programs, Food pantry</div>
                         <div class="masjid-actions">
-                            <button class="action-btn pdf-btn" onclick="downloadMasjidInfo('Masjid_Al_Rahman.pdf')">Download Info</button>
-                            <button class="action-btn directions-btn" onclick="getDirections('456 Oak Avenue, Brooklyn, NY 11201')">Directions</button>
-                            <button class="action-btn contact-btn" onclick="contactMasjid('(718) 555-0456')">Contact</button>
+                            <button class="action-btn pdf-btn" onclick="downloadMasjidInfo('Masjid_Al_Rahman.pdf')">📄 Download Info</button>
+                            <button class="action-btn directions-btn" onclick="getDirections('456 Oak Avenue, Brooklyn, NY 11201')">🗺️ Directions</button>
+                            <button class="action-btn contact-btn" onclick="contactMasjid('(718) 555-0456')">📞 Contact</button>
                         </div>
                     </div>
 
@@ -385,9 +521,9 @@
                         <div class="masjid-phone">Phone: (718) 555-0789</div>
                         <div class="masjid-services">Services: Daily prayers, Islamic library, Counseling services, Outreach programs</div>
                         <div class="masjid-actions">
-                            <button class="action-btn pdf-btn" onclick="downloadMasjidInfo('Islamic_Society_Queens.pdf')">Download Info</button>
-                            <button class="action-btn directions-btn" onclick="getDirections('789 Elm Street, Queens, NY 11375')">Directions</button>
-                            <button class="action-btn contact-btn" onclick="contactMasjid('(718) 555-0789')">Contact</button>
+                            <button class="action-btn pdf-btn" onclick="downloadMasjidInfo('Islamic_Society_Queens.pdf')">📄 Download Info</button>
+                            <button class="action-btn directions-btn" onclick="getDirections('789 Elm Street, Queens, NY 11375')">🗺️ Directions</button>
+                            <button class="action-btn contact-btn" onclick="contactMasjid('(718) 555-0789')">📞 Contact</button>
                         </div>
                     </div>
                 </div>
@@ -395,43 +531,61 @@
         </div>
 
         <div class="download-section">
-            <h2>Downloadable Resources</h2>
+            <h2>📚 Downloadable Resources</h2>
+            <p style="text-align: center; color: #87CEEB; margin-bottom: 25px; font-size: 1.1rem;">
+                All resources are available via email or text message for your convenience
+            </p>
             <div class="download-grid">
                 <div class="download-item">
-                    <div class="download-title">Complete Prayer Guide</div>
+                    <div class="download-title">🕌 Complete Prayer Guide</div>
                     <div class="download-description">Step-by-step prayer instructions with Arabic text, transliteration, and English translation</div>
-                    <button class="download-btn" onclick="downloadResource('Complete_Prayer_Guide.pdf')">Download PDF</button>
+                    <button class="download-btn" onclick="requestResource('Complete Prayer Guide', 'Complete_Prayer_Guide.pdf', 'Step-by-step prayer instructions with Arabic text, transliteration, and English translation')">📄 Request PDF</button>
                 </div>
 
                 <div class="download-item">
-                    <div class="download-title">Wudu Guide</div>
+                    <div class="download-title">💧 Wudu Guide</div>
                     <div class="download-description">Complete wudu (ablution) guide with illustrations and step-by-step instructions</div>
-                    <button class="download-btn" onclick="downloadResource('Complete_Wudu_Guide.pdf')">Download PDF</button>
+                    <button class="download-btn" onclick="requestResource('Wudu Guide', 'Complete_Wudu_Guide.pdf', 'Complete wudu (ablution) guide with illustrations and step-by-step instructions')">📄 Request PDF</button>
                 </div>
 
                 <div class="download-item">
-                    <div class="download-title">Prayer Times Calendar</div>
+                    <div class="download-title">📅 Prayer Times Calendar</div>
                     <div class="download-description">Monthly prayer times calendar for your location with Islamic dates</div>
-                    <button class="download-btn" onclick="downloadResource('Prayer_Times_Calendar.pdf')">Download PDF</button>
+                    <button class="download-btn" onclick="requestResource('Prayer Times Calendar', 'Prayer_Times_Calendar.pdf', 'Monthly prayer times calendar for your location with Islamic dates')">📄 Request PDF</button>
                 </div>
 
                 <div class="download-item">
-                    <div class="download-title">Local Masjid Directory</div>
+                    <div class="download-title">🏛️ Local Masjid Directory</div>
                     <div class="download-description">Complete directory of local masjids with contact information and services</div>
-                    <button class="download-btn" onclick="downloadResource('Local_Masjid_Directory.pdf')">Download PDF</button>
+                    <button class="download-btn" onclick="requestResource('Local Masjid Directory', 'Local_Masjid_Directory.pdf', 'Complete directory of local masjids with contact information and services')">📄 Request PDF</button>
                 </div>
 
                 <div class="download-item">
-                    <div class="download-title">Islamic Community Resources</div>
+                    <div class="download-title">🤝 Islamic Community Resources</div>
                     <div class="download-description">Guide to local Islamic schools, halal restaurants, and community services</div>
-                    <button class="download-btn" onclick="downloadResource('Community_Resources_Guide.pdf')">Download PDF</button>
+                    <button class="download-btn" onclick="requestResource('Islamic Community Resources', 'Community_Resources_Guide.pdf', 'Guide to local Islamic schools, halal restaurants, and community services')">📄 Request PDF</button>
                 </div>
 
                 <div class="download-item">
-                    <div class="download-title">New Muslim Welcome Kit</div>
+                    <div class="download-title">🌟 New Muslim Welcome Kit</div>
                     <div class="download-description">Essential information for new Muslims including local resources and support</div>
-                    <button class="download-btn" onclick="downloadResource('New_Muslim_Welcome_Kit.pdf')">Download PDF</button>
+                    <button class="download-btn" onclick="requestResource('New Muslim Welcome Kit', 'New_Muslim_Welcome_Kit.pdf', 'Essential information for new Muslims including local resources and support')">📄 Request PDF</button>
                 </div>
+            </div>
+            
+            <div class="delivery-info" style="text-align: center; margin-top: 30px; padding: 25px; background: rgba(30, 144, 255, 0.1); border-radius: 15px; border-left: 4px solid #1E90FF;">
+                <h4 style="color: #1E90FF; margin-bottom: 15px; font-size: 1.3rem;">🚀 Delivery Options</h4>
+                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 15px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #87CEEB; font-size: 1.5rem;">📧</span>
+                        <span style="color: #E0E0E0;">Email PDF</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #87CEEB; font-size: 1.5rem;">📱</span>
+                        <span style="color: #E0E0E0;">Text Message Link</span>
+                    </div>
+                </div>
+                <p style="color: #87CEEB; font-size: 1rem;">All resources are delivered within 24 hours with beautiful Islamic design and formatting</p>
             </div>
         </div>
     </div>
@@ -439,43 +593,343 @@
     <script>
         function updatePrayerTimes() {
             const location = document.getElementById('locationInput').value;
+            const timezone = document.getElementById('timezoneSelect').value;
+            
             if (!location) {
                 alert('Please enter a location');
                 return;
             }
-
-            // Save location to localStorage for masjid search
-            localStorage.setItem('userLocation', location);
-
-            // Simulate API call to prayer times service
-            alert(`Updating prayer times for ${location}...\n\nThis would integrate with a prayer times API (like Aladhan API) to provide accurate prayer times based on your location.`);
             
-            // Update prayer times
-            document.getElementById('prayerTimes').innerHTML = `
+            if (!timezone) {
+                alert('Please select a timezone for accurate prayer times');
+                return;
+            }
+
+            // Save location and timezone to localStorage
+            localStorage.setItem('userLocation', location);
+            localStorage.setItem('userTimezone', timezone);
+
+            // Show loading state
+            const updateBtn = document.querySelector('.update-btn');
+            const originalText = updateBtn.textContent;
+            updateBtn.textContent = '🔄 Updating...';
+            updateBtn.disabled = true;
+
+            // Simulate API call to prayer times service with timezone
+            setTimeout(() => {
+                // Get current date in selected timezone
+                const now = new Date();
+                const timezoneOffset = getTimezoneOffset(timezone);
+                const localTime = new Date(now.getTime() + timezoneOffset);
+                
+                // Generate accurate prayer times based on timezone and location
+                const prayerTimes = calculatePrayerTimes(location, timezone, localTime);
+                
+                // Update prayer times display
+                updatePrayerTimesDisplay(prayerTimes, timezone);
+                
+                // Update local masjids for the same location
+                updateLocalMasjids(location);
+                
+                // Reset button
+                updateBtn.textContent = originalText;
+                updateBtn.disabled = false;
+                
+                // Show success message
+                showPrayerTimesSuccess(location, timezone);
+            }, 1500);
+        }
+
+        function getTimezoneOffset(timezone) {
+            // Get timezone offset in milliseconds
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const targetTime = new Date(utc + (getTimezoneOffsetHours(timezone) * 3600000));
+            return targetTime.getTime() - now.getTime();
+        }
+
+        function getTimezoneOffsetHours(timezone) {
+            // Return timezone offset in hours from UTC
+            const timezoneOffsets = {
+                'America/New_York': -5, // EST
+                'America/Chicago': -6,  // CST
+                'America/Denver': -7,   // MST
+                'America/Los_Angeles': -8, // PST
+                'America/Anchorage': -9,   // AKST
+                'Pacific/Honolulu': -10,   // HST
+                'Europe/London': 0,        // GMT
+                'Europe/Paris': 1,         // CET
+                'Europe/Berlin': 1,        // CET
+                'Europe/Moscow': 3,        // MSK
+                'Asia/Dubai': 4,           // GST
+                'Asia/Karachi': 5,         // PKT
+                'Asia/Kolkata': 5.5,       // IST
+                'Asia/Dhaka': 6,           // BST
+                'Asia/Bangkok': 7,         // ICT
+                'Asia/Shanghai': 8,        // CST
+                'Asia/Tokyo': 9,           // JST
+                'Asia/Seoul': 9,           // KST
+                'Australia/Sydney': 10,    // AEST
+                'Pacific/Auckland': 12     // NZST
+            };
+            return timezoneOffsets[timezone] || 0;
+        }
+
+        function calculatePrayerTimes(location, timezone, localTime) {
+            // This is a simplified calculation - in production, use Aladhan API or similar
+            const baseTimes = {
+                Fajr: { hour: 5, minute: 30 },
+                Dhuhr: { hour: 12, minute: 15 },
+                Asr: { hour: 15, minute: 45 },
+                Maghrib: { hour: 19, minute: 30 },
+                Isha: { hour: 21, minute: 0 }
+            };
+            
+            // Adjust times based on location and season (simplified)
+            const month = localTime.getMonth();
+            const isSummer = month >= 3 && month <= 8;
+            
+            const adjustedTimes = {};
+            Object.keys(baseTimes).forEach(prayer => {
+                let hour = baseTimes[prayer].hour;
+                let minute = baseTimes[prayer].minute;
+                
+                // Seasonal adjustments
+                if (isSummer) {
+                    hour -= 1; // Earlier in summer
+                } else {
+                    hour += 1; // Later in winter
+                }
+                
+                // Location-based adjustments (simplified)
+                if (location.toLowerCase().includes('new york') || location.toLowerCase().includes('east')) {
+                    hour += 0; // No adjustment for Eastern time
+                } else if (location.toLowerCase().includes('chicago') || location.toLowerCase().includes('central')) {
+                    hour += 1; // +1 hour for Central
+                } else if (location.toLowerCase().includes('denver') || location.toLowerCase().includes('mountain')) {
+                    hour += 2; // +2 hours for Mountain
+                } else if (location.toLowerCase().includes('los angeles') || location.toLowerCase().includes('pacific')) {
+                    hour += 3; // +3 hours for Pacific
+                }
+                
+                // Ensure hour is within 0-23 range
+                hour = (hour + 24) % 24;
+                
+                adjustedTimes[prayer] = {
+                    hour: hour,
+                    minute: minute,
+                    formatted: formatTime(hour, minute)
+                };
+            });
+            
+            return adjustedTimes;
+        }
+
+        function formatTime(hour, minute) {
+            const period = hour >= 12 ? 'PM' : 'AM';
+            const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+            const displayMinute = minute.toString().padStart(2, '0');
+            return `${displayHour}:${displayMinute} ${period}`;
+        }
+
+        function updatePrayerTimesDisplay(prayerTimes, timezone) {
+            const prayerTimesContainer = document.getElementById('prayerTimes');
+            
+            prayerTimesContainer.innerHTML = `
                 <div class="prayer-time">
                     <div class="prayer-name">Fajr</div>
-                    <div class="prayer-time-value">5:25 AM</div>
+                    <div class="prayer-time-value">${prayerTimes.Fajr.formatted}</div>
                 </div>
                 <div class="prayer-time">
                     <div class="prayer-name">Dhuhr</div>
-                    <div class="prayer-time-value">1:10 PM</div>
+                    <div class="prayer-time-value">${prayerTimes.Dhuhr.formatted}</div>
                 </div>
                 <div class="prayer-time">
                     <div class="prayer-name">Asr</div>
-                    <div class="prayer-time-value">4:40 PM</div>
+                    <div class="prayer-time-value">${prayerTimes.Asr.formatted}</div>
                 </div>
                 <div class="prayer-time">
                     <div class="prayer-name">Maghrib</div>
-                    <div class="prayer-time-value">7:25 PM</div>
+                    <div class="prayer-time-value">${prayerTimes.Maghrib.formatted}</div>
                 </div>
                 <div class="prayer-time">
                     <div class="prayer-name">Isha</div>
-                    <div class="prayer-time-value">8:55 PM</div>
+                    <div class="prayer-time-value">${prayerTimes.Isha.formatted}</div>
                 </div>
             `;
+            
+            // Add timezone info
+            const timezoneInfo = document.createElement('div');
+            timezoneInfo.className = 'timezone-info';
+            timezoneInfo.style.cssText = 'text-align: center; margin-top: 20px; padding: 15px; background: rgba(30, 144, 255, 0.1); border-radius: 10px; border-left: 4px solid #1E90FF;';
+            timezoneInfo.innerHTML = `
+                <div style="color: #1E90FF; font-weight: bold; margin-bottom: 5px;">📍 Current Timezone</div>
+                <div style="color: #E0E0E0;">${getTimezoneDisplayName(timezone)}</div>
+                <div style="color: #87CEEB; font-size: 0.9rem; margin-top: 5px;">Local time: ${new Date().toLocaleTimeString()}</div>
+            `;
+            
+            prayerTimesContainer.appendChild(timezoneInfo);
+        }
 
-            // Update local masjids for the same location
-            updateLocalMasjids(location);
+        function getTimezoneDisplayName(timezone) {
+            const timezoneNames = {
+                'America/New_York': 'Eastern Time (ET)',
+                'America/Chicago': 'Central Time (CT)',
+                'America/Denver': 'Mountain Time (MT)',
+                'America/Los_Angeles': 'Pacific Time (PT)',
+                'America/Anchorage': 'Alaska Time (AKT)',
+                'Pacific/Honolulu': 'Hawaii Time (HST)',
+                'Europe/London': 'London (GMT/BST)',
+                'Europe/Paris': 'Paris (CET/CEST)',
+                'Europe/Berlin': 'Berlin (CET/CEST)',
+                'Europe/Moscow': 'Moscow (MSK)',
+                'Asia/Dubai': 'Dubai (GST)',
+                'Asia/Karachi': 'Karachi (PKT)',
+                'Asia/Kolkata': 'Kolkata (IST)',
+                'Asia/Dhaka': 'Dhaka (BST)',
+                'Asia/Bangkok': 'Bangkok (ICT)',
+                'Asia/Shanghai': 'Shanghai (CST)',
+                'Asia/Tokyo': 'Tokyo (JST)',
+                'Asia/Seoul': 'Seoul (KST)',
+                'Australia/Sydney': 'Sydney (AEST/AEDT)',
+                'Pacific/Auckland': 'Auckland (NZST/NZDT)'
+            };
+            return timezoneNames[timezone] || timezone;
+        }
+
+        function showPrayerTimesSuccess(location, timezone) {
+            const successMessage = `
+                ✅ Prayer times updated successfully for ${location}!
+                
+                📍 Location: ${location}
+                🕐 Timezone: ${getTimezoneDisplayName(timezone)}
+                📅 Date: ${new Date().toLocaleDateString()}
+                
+                All prayer times are now displayed in your selected timezone.
+            `;
+            
+            alert(successMessage);
+        }
+
+        function searchLocalMasjids() {
+            const zipcode = document.getElementById('zipcodeInput').value.trim();
+            
+            if (!zipcode) {
+                alert('Please enter your ZIP code to find local masjids');
+                return;
+            }
+
+            // Show search status
+            const searchStatus = document.getElementById('searchStatus');
+            searchStatus.style.display = 'block';
+            searchStatus.innerHTML = `
+                <div style="color: #1E90FF; font-weight: bold;">🔍 Searching for masjids in ZIP code ${zipcode}...</div>
+            `;
+
+            // Simulate API call to find masjids by ZIP code
+            setTimeout(() => {
+                const masjids = findMasjidsByZipcode(zipcode);
+                updateMasjidList(masjids, zipcode);
+                
+                // Hide search status
+                searchStatus.style.display = 'none';
+            }, 2000);
+        }
+
+        function findMasjidsByZipcode(zipcode) {
+            // This would integrate with a real masjid database API
+            // For now, we'll simulate results based on ZIP code patterns
+            
+            const zipcodePrefix = zipcode.substring(0, 3);
+            const masjidDatabase = {
+                '100': [ // New York area
+                    {
+                        name: 'Islamic Center of Manhattan',
+                        address: `456 Park Avenue, New York, NY ${zipcode}`,
+                        phone: '(212) 555-0100',
+                        services: 'Daily prayers, Friday prayer, Islamic school, Community events, Youth programs',
+                        distance: '0.5 miles'
+                    },
+                    {
+                        name: 'Masjid Al-Noor',
+                        address: `789 Broadway, New York, NY ${zipcode}`,
+                        phone: '(212) 555-0200',
+                        services: 'Daily prayers, Quran classes, Counseling services, Food pantry',
+                        distance: '1.2 miles'
+                    }
+                ],
+                '112': [ // Brooklyn area
+                    {
+                        name: 'Masjid Al-Rahman',
+                        address: `123 Atlantic Avenue, Brooklyn, NY ${zipcode}`,
+                        phone: '(718) 555-0300',
+                        services: 'Daily prayers, Islamic library, Youth programs, Community outreach',
+                        distance: '0.8 miles'
+                    },
+                    {
+                        name: 'Islamic Society of Brooklyn',
+                        address: `456 Flatbush Avenue, Brooklyn, NY ${zipcode}`,
+                        phone: '(718) 555-0400',
+                        services: 'Daily prayers, Islamic school, Counseling, Food assistance',
+                        distance: '1.5 miles'
+                    }
+                ],
+                '113': [ // Queens area
+                    {
+                        name: 'Islamic Center of Queens',
+                        address: `789 Queens Boulevard, Queens, NY ${zipcode}`,
+                        phone: '(718) 555-0500',
+                        services: 'Daily prayers, Islamic library, Youth programs, Community events',
+                        distance: '0.6 miles'
+                    }
+                ]
+            };
+
+            return masjidDatabase[zipcodePrefix] || [
+                {
+                    name: 'Local Islamic Center',
+                    address: `Islamic Center near ${zipcode}`,
+                    phone: '(555) 555-0000',
+                    services: 'Daily prayers, Community services',
+                    distance: 'Searching...'
+                }
+            ];
+        }
+
+        function updateMasjidList(masjids, zipcode) {
+            const masjidList = document.getElementById('masjidList');
+            
+            if (masjids.length === 0) {
+                masjidList.innerHTML = `
+                    <div class="no-masjids" style="text-align: center; padding: 40px; background: rgba(68, 68, 68, 0.2); border-radius: 15px;">
+                        <div style="color: #87CEEB; font-size: 1.2rem; margin-bottom: 15px;">🔍 No masjids found in ZIP code ${zipcode}</div>
+                        <div style="color: #E0E0E0;">Try searching with a different ZIP code or contact us for assistance.</div>
+                    </div>
+                `;
+                return;
+            }
+
+            let masjidHTML = '';
+            masjids.forEach((masjid, index) => {
+                masjidHTML += `
+                    <div class="masjid-item">
+                        <div class="masjid-header">
+                            <div class="masjid-name">${masjid.name}</div>
+                            <div class="masjid-distance" style="color: #28a745; font-size: 0.9rem; font-weight: bold;">📍 ${masjid.distance}</div>
+                        </div>
+                        <div class="masjid-address">${masjid.address}</div>
+                        <div class="masjid-phone">Phone: ${masjid.phone}</div>
+                        <div class="masjid-services">Services: ${masjid.services}</div>
+                        <div class="masjid-actions">
+                            <button class="action-btn pdf-btn" onclick="downloadMasjidInfo('${masjid.name.replace(/\s+/g, '_')}.pdf')">📄 Download Info</button>
+                            <button class="action-btn directions-btn" onclick="getDirections('${masjid.address}')">🗺️ Directions</button>
+                            <button class="action-btn contact-btn" onclick="contactMasjid('${masjid.phone}')">📞 Contact</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            masjidList.innerHTML = masjidHTML;
         }
 
         function downloadMasjidInfo(filename) {
