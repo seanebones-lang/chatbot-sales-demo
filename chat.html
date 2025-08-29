@@ -400,6 +400,7 @@
             <div class="search-input">
                 <input type="text" id="searchInput" placeholder="Ask any Islamic question (e.g., 'What does Islam say about mercy?', 'How to pray?', 'Inheritance laws?', 'Quran verses about patience?', 'Family relationships?', 'Daily life guidance?')" onkeypress="handleSearch(event)">
                 <button onclick="performSearch()">Search</button>
+                <button onclick="testChatbot()" style="background: #28a745; margin-left: 10px;">Test Chatbot</button>
             </div>
             
             <div class="source-toggle">
@@ -912,6 +913,47 @@
         function goBack() {
             window.location.href = 'index.html';
         }
+        
+        function testChatbot() {
+            // Test the chatbot functionality
+            document.getElementById('resultsSection').classList.add('show');
+            document.getElementById('resultsCount').innerHTML = 'Testing chatbot functionality...';
+            
+            // Test search
+            const testQuery = 'family';
+            const testResults = islamicAI.searchWithSemantics(testQuery, 'all');
+            
+            if (testResults && testResults.length > 0) {
+                document.getElementById('resultsCount').innerHTML = `Test successful! Found ${testResults.length} results for "${testQuery}"`;
+                displayResults(testQuery, testResults);
+            } else {
+                document.getElementById('resultsCount').innerHTML = 'Test failed: No results found';
+                document.getElementById('verseResults').innerHTML = '<div class="no-results">Chatbot test failed. Please check console for errors.</div>';
+            }
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Chat page loaded successfully');
+            console.log('IslamicAI instance:', islamicAI);
+            console.log('Current source:', currentSource);
+            
+            // Show a welcome message
+            document.getElementById('resultsSection').classList.add('show');
+            document.getElementById('resultsCount').innerHTML = 'Welcome to Islamic Knowledge Chat! Ask any question about Islam, Quran, Hadith, Fiqh, and more.';
+            document.getElementById('verseResults').innerHTML = `
+                <div class="ai-summary">
+                    <h3>May I help you learn about Islam Insha Allah?</h3>
+                    <p>Try asking about:</p>
+                    <div class="suggestion-buttons">
+                        <button class="suggestion-btn" onclick="searchSuggestion('family')">Family relationships</button>
+                        <button class="suggestion-btn" onclick="searchSuggestion('prayer')">Prayer guidance</button>
+                        <button class="suggestion-btn" onclick="searchSuggestion('inheritance')">Inheritance laws</button>
+                        <button class="suggestion-btn" onclick="searchSuggestion('daily life')">Daily life guidance</button>
+                    </div>
+                </div>
+            `;
+        });
     </script>
 </body>
 </html>
