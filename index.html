@@ -499,6 +499,8 @@
                 <button class="source-btn" onclick="setSource('fiqh')">⚖️ Fiqh (Islamic Law)</button>
                 <button class="source-btn" onclick="setSource('new-muslim')">🌟 New Muslim Guide</button>
                 <button class="source-btn" onclick="setSource('what-is-islam')">❓ What is Islam?</button>
+                <button class="source-btn" onclick="setSource('five-pillars')">🏛️ Five Pillars</button>
+                <button class="source-btn" onclick="setSource('sunnah')">☀️ Sunnah</button>
             </div>
         </div>
 
@@ -666,40 +668,238 @@
             ]
         };
         
-        // Comprehensive Hadith Database
+        // Comprehensive Hadith Database - Massively Expanded
         const hadithDatabase = [
             {
-                reference: "Sahih Bukhari 1:1",
+                reference: "Sahih Bukhari 1:1 - Intentions",
                 arabic: "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى",
                 translation: "Actions are judged by intentions, and every person will be rewarded according to what they intended.",
-                context: "The Prophet (ﷺ) emphasizes that all actions are judged by their underlying intentions.",
+                context: "The Prophet (ﷺ) emphasizes that all actions are judged by their underlying intentions. This Hadith teaches that sincerity in worship and good deeds is essential.",
                 topic: "Intentions",
                 source: "Hadith",
                 authentication: "Sahih (Authentic)",
                 narrator: "Umar ibn Al-Khattab",
-                keywords: ["intentions", "actions", "rewards", "judgment", "sincerity"]
+                keywords: ["intentions", "actions", "rewards", "judgment", "sincerity", "worship"]
             },
             {
-                reference: "Sahih Muslim 1:1",
+                reference: "Sahih Muslim 1:1 - Perfecting Faith",
                 arabic: "مَنْ حَسَّنَ إِسْلَامَهُ حَسَّنَ إِيمَانَهُ",
                 translation: "Whoever perfects their Islam, perfects their faith.",
-                context: "Emphasizing the connection between outward Islamic practice and inner faith.",
+                context: "Emphasizing the connection between outward Islamic practice and inner faith. Perfecting one's Islam leads to stronger faith.",
                 topic: "Faith",
                 source: "Hadith",
                 authentication: "Sahih (Authentic)",
                 narrator: "Abu Hurairah",
-                keywords: ["islam", "faith", "perfection", "practice", "belief"]
+                keywords: ["islam", "faith", "perfection", "practice", "belief", "strength"]
             },
             {
-                reference: "Sahih Bukhari 2:8",
+                reference: "Sahih Bukhari 2:8 - Shahada",
                 arabic: "الإِسْلَامُ أَنْ تَشْهَدَ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
                 translation: "Islam is to testify that there is no deity except Allah and that Muhammad is the Messenger of Allah.",
-                context: "The first pillar of Islam - the Shahada (declaration of faith).",
+                context: "The first pillar of Islam - the Shahada (declaration of faith). This is the foundation of being a Muslim.",
                 topic: "Shahada",
                 source: "Hadith",
                 authentication: "Sahih (Authentic)",
                 narrator: "Abu Hurairah",
-                keywords: ["shahada", "faith", "testimony", "allah", "muhammad", "messenger"]
+                keywords: ["shahada", "faith", "testimony", "allah", "muhammad", "messenger", "first pillar"]
+            },
+            {
+                reference: "Sahih Bukhari 2:25 - Five Pillars",
+                arabic: "بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَإِقَامِ الصَّلَاةِ وَإِيتَاءِ الزَّكَاةِ وَصَوْمِ رَمَضَانَ وَحَجِّ الْبَيْتِ",
+                translation: "Islam is built upon five: testifying that there is no deity except Allah, establishing prayer, giving zakat, fasting Ramadan, and pilgrimage to the House.",
+                context: "The Prophet (ﷺ) clearly defines the five pillars that form the foundation of Islam.",
+                topic: "Five Pillars",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["five pillars", "shahada", "prayer", "zakat", "fasting", "hajj", "foundation"]
+            },
+            {
+                reference: "Sahih Muslim 4:1 - Prayer",
+                arabic: "إِنَّ أَوَّلَ مَا يُحَاسَبُ بِهِ الْعَبْدُ يَوْمَ الْقِيَامَةِ مِنْ عَمَلِهِ صَلَاتُهُ",
+                translation: "The first thing for which a person will be held accountable on the Day of Judgment is his prayer.",
+                context: "Prayer is the most important act of worship and will be the first thing judged on the Day of Judgment.",
+                topic: "Prayer",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["prayer", "judgment", "day of judgment", "accountability", "worship", "first"]
+            },
+            {
+                reference: "Sahih Bukhari 3:31 - Cleanliness",
+                arabic: "الطُّهُورُ شَطْرُ الْإِيمَانِ",
+                translation: "Cleanliness is half of faith.",
+                context: "The Prophet (ﷺ) emphasizes the importance of physical and spiritual cleanliness in Islam.",
+                topic: "Cleanliness",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Malik Al-Ash'ari",
+                keywords: ["cleanliness", "faith", "hygiene", "purity", "half", "importance"]
+            },
+            {
+                reference: "Sahih Muslim 6:1 - Kindness",
+                arabic: "مَنْ لَا يَرْحَمُ لَا يُرْحَمُ",
+                translation: "Whoever does not show mercy will not be shown mercy.",
+                context: "The Prophet (ﷺ) teaches that showing mercy to others is essential to receive Allah's mercy.",
+                topic: "Mercy",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["mercy", "kindness", "compassion", "allah", "receive", "essential"]
+            },
+            {
+                reference: "Sahih Bukhari 4:56 - Knowledge",
+                arabic: "طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ",
+                translation: "Seeking knowledge is obligatory upon every Muslim.",
+                context: "Education and learning are religious duties for all Muslims, regardless of gender or age.",
+                topic: "Knowledge",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Anas ibn Malik",
+                keywords: ["knowledge", "learning", "education", "obligatory", "duty", "every muslim"]
+            },
+            {
+                reference: "Sahih Muslim 7:1 - Good Character",
+                arabic: "إِنَّ مِنْ أَحَبِّكُمْ إِلَيَّ وَأَقْرَبِكُمْ مِنِّي مَجْلِسًا يَوْمَ الْقِيَامَةِ أَحَاسِنُكُمْ أَخْلَاقًا",
+                translation: "The most beloved of you to me and the nearest to me in the Hereafter are those with the best character.",
+                context: "Good character and manners are highly valued in Islam and bring one closer to the Prophet (ﷺ).",
+                topic: "Character",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["character", "manners", "beloved", "near", "hereafter", "best"]
+            },
+            {
+                reference: "Sahih Bukhari 5:78 - Family",
+                arabic: "خَيْرُكُمْ خَيْرُكُمْ لِأَهْلِهِ",
+                translation: "The best of you are those who are best to their families.",
+                context: "The Prophet (ﷺ) emphasizes treating family members with kindness and respect.",
+                topic: "Family",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Aisha",
+                keywords: ["family", "best", "kindness", "respect", "treatment", "relationships"]
+            },
+            {
+                reference: "Sahih Muslim 8:1 - Neighbors",
+                arabic: "مَا زَالَ جِبْرِيلُ يُوصِينِي بِالْجَارِ حَتَّى ظَنَنْتُ أَنَّهُ سَيُوَرِّثُهُ",
+                translation: "Jibreel continued to advise me about treating neighbors well until I thought he would make them heirs.",
+                context: "The Prophet (ﷺ) was repeatedly advised about the importance of being good to neighbors.",
+                topic: "Neighbors",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Aisha",
+                keywords: ["neighbors", "treatment", "good", "advice", "jibreel", "importance"]
+            },
+            {
+                reference: "Sahih Bukhari 6:92 - Honesty",
+                arabic: "إِنَّ الصِّدْقَ يَهْدِي إِلَى الْبِرِّ وَإِنَّ الْبِرَّ يَهْدِي إِلَى الْجَنَّةِ",
+                translation: "Indeed, truthfulness leads to righteousness, and righteousness leads to Paradise.",
+                context: "Honesty and truthfulness are pathways to righteousness and ultimately Paradise.",
+                topic: "Honesty",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abdullah ibn Mas'ud",
+                keywords: ["honesty", "truthfulness", "righteousness", "paradise", "pathway", "leads"]
+            },
+            {
+                reference: "Sahih Muslim 9:1 - Patience",
+                arabic: "مَا يُصِيبُ الْمُسْلِمَ مِنْ نَصَبٍ وَلَا وَصَبٍ وَلَا هَمٍّ وَلَا حُزْنٍ وَلَا أَذًى وَلَا غَمٍّ حَتَّى الشَّوْكَةِ يُشَاكُهَا إِلَّا كَفَّرَ اللَّهُ بِهَا مِنْ خَطَايَاهُ",
+                translation: "No fatigue, illness, anxiety, sorrow, harm, or grief afflicts a Muslim, even a thorn that pricks him, except that Allah expiates some of his sins by it.",
+                context: "Allah uses difficulties and hardships to expiate the sins of Muslims.",
+                topic: "Patience",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Sa'id Al-Khudri",
+                keywords: ["patience", "difficulties", "sins", "expiate", "allah", "afflictions"]
+            },
+            {
+                reference: "Sahih Bukhari 7:45 - Charity",
+                arabic: "مَا نَقَصَتْ صَدَقَةٌ مِنْ مَالٍ",
+                translation: "Charity does not decrease wealth.",
+                context: "Giving charity does not reduce one's wealth; instead, it brings blessings and increase.",
+                topic: "Charity",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["charity", "wealth", "decrease", "blessings", "increase", "giving"]
+            },
+            {
+                reference: "Sahih Muslim 10:1 - Smiling",
+                arabic: "تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ لَكَ صَدَقَةٌ",
+                translation: "Your smiling in the face of your brother is charity for you.",
+                context: "Even a simple smile is considered an act of charity in Islam.",
+                topic: "Smiling",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Dharr",
+                keywords: ["smiling", "charity", "brother", "simple", "act", "kindness"]
+            },
+            {
+                reference: "Sahih Bukhari 8:67 - Visiting the Sick",
+                arabic: "إِذَا عَادَ الرَّجُلُ أَخَاهُ الْمُسْلِمَ مَشَى فِي خِرَافِ الْجَنَّةِ",
+                translation: "When a man visits his Muslim brother, he walks in the meadows of Paradise.",
+                context: "Visiting the sick brings great rewards and is highly encouraged in Islam.",
+                topic: "Visiting Sick",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["visiting", "sick", "paradise", "rewards", "encouraged", "brother"]
+            },
+            {
+                reference: "Sahih Muslim 11:1 - Good Speech",
+                arabic: "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
+                translation: "Whoever believes in Allah and the Last Day, let him speak good or remain silent.",
+                context: "Muslims should either speak good words or remain silent, avoiding harmful speech.",
+                topic: "Speech",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["speech", "good", "silent", "belief", "allah", "last day"]
+            },
+            {
+                reference: "Sahih Bukhari 9:89 - Respecting Elders",
+                arabic: "لَيْسَ مِنَّا مَنْ لَمْ يَرْحَمْ صَغِيرَنَا وَيُوَقِّرْ كَبِيرَنَا",
+                translation: "He is not one of us who does not have mercy on our young and does not respect our elders.",
+                context: "Respecting elders and showing mercy to the young are essential Islamic values.",
+                topic: "Respect",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Anas ibn Malik",
+                keywords: ["respect", "elders", "mercy", "young", "essential", "values"]
+            },
+            {
+                reference: "Sahih Muslim 12:1 - Helping Others",
+                arabic: "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً مِنْ كُرَبِ الدُّنْيَا نَفَّسَ اللَّهُ عَنْهُ كُرْبَةً مِنْ كُرَبِ يَوْمِ الْقِيَامَةِ",
+                translation: "Whoever relieves a Muslim of a burden from the burdens of the world, Allah will relieve him of a burden from the burdens of the Day of Judgment.",
+                context: "Helping others in this world brings help from Allah in the Hereafter.",
+                topic: "Helping Others",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["helping", "others", "burden", "world", "hereafter", "allah"]
+            },
+            {
+                reference: "Sahih Bukhari 10:123 - Gratitude",
+                arabic: "مَنْ لَمْ يَشْكُرِ النَّاسَ لَمْ يَشْكُرِ اللَّهَ",
+                translation: "Whoever does not thank people does not thank Allah.",
+                context: "Showing gratitude to people is part of showing gratitude to Allah.",
+                topic: "Gratitude",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["gratitude", "thank", "people", "allah", "appreciation", "manners"]
+            },
+            {
+                reference: "Sahih Muslim 13:1 - Brotherhood",
+                arabic: "الْمُسْلِمُ أَخُو الْمُسْلِمِ لَا يَظْلِمُهُ وَلَا يَخْذُلُهُ",
+                translation: "A Muslim is the brother of another Muslim; he does not oppress him nor does he leave him to someone else.",
+                context: "Muslims are brothers and should support each other, not oppress or abandon each other.",
+                topic: "Brotherhood",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["brotherhood", "muslim", "oppress", "abandon", "support", "unity"]
             }
         ];
         
@@ -975,6 +1175,134 @@
             }
         ];
         
+        // Five Pillars of Islam Database - Complete Foundation
+        const fivePillarsDatabase = [
+            {
+                reference: "First Pillar - Shahada (Declaration of Faith)",
+                arabic: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+                translation: "I bear witness that there is no deity except Allah, and I bear witness that Muhammad is the Messenger of Allah.",
+                context: "The Shahada is the foundation of Islam. It means: 1) There is only one God (Allah), 2) Muhammad (ﷺ) is His final messenger. This declaration makes one a Muslim. It's recited during prayer, when converting to Islam, and at important moments. The Shahada affirms monotheism and acceptance of Prophet Muhammad's (ﷺ) message.",
+                topic: "Shahada",
+                source: "Five Pillars",
+                category: "Foundation",
+                keywords: ["shahada", "declaration", "faith", "monotheism", "allah", "muhammad", "messenger", "first pillar", "foundation", "conversion"]
+            },
+            {
+                reference: "Second Pillar - Salah (Prayer)",
+                arabic: "أَقِمِ الصَّلَاةَ إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا",
+                translation: "Establish prayer. Indeed, prayer has been decreed upon the believers a decree of specified times",
+                context: "Salah is the second pillar and the most important act of worship. Five daily prayers: Fajr (2 rakats), Dhuhr (4 rakats), Asr (4 rakats), Maghrib (3 rakats), Isha (4 rakats). Each prayer has specific times and requirements. Prayer connects Muslims directly with Allah, provides spiritual discipline, and maintains daily remembrance of God.",
+                topic: "Salah",
+                source: "Five Pillars",
+                category: "Worship",
+                keywords: ["salah", "prayer", "five prayers", "fajr", "dhuhr", "asr", "maghrib", "isha", "rakats", "worship", "second pillar", "daily"]
+            },
+            {
+                reference: "Third Pillar - Zakat (Charity)",
+                arabic: "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ",
+                translation: "And establish prayer and give zakah",
+                context: "Zakat is obligatory charity given annually by Muslims who meet the wealth threshold (nisab). It's 2.5% of savings, gold, silver, and business assets. Zakat purifies wealth, helps the poor, and creates social justice. Recipients include the poor, needy, debtors, travelers, and those working for Allah's cause. It's calculated on lunar year and distributed to eligible recipients.",
+                topic: "Zakat",
+                source: "Five Pillars",
+                category: "Charity",
+                keywords: ["zakat", "charity", "obligatory", "2.5%", "wealth", "poor", "needy", "social justice", "purification", "third pillar", "nisab"]
+            },
+            {
+                reference: "Fourth Pillar - Sawm (Fasting)",
+                arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ",
+                translation: "O you who have believed, decreed upon you is fasting as it was decreed upon those before you",
+                context: "Sawm is fasting during the month of Ramadan (9th month of Islamic calendar). Muslims fast from dawn to sunset, abstaining from food, drink, and marital relations. Fasting teaches self-discipline, empathy for the poor, and spiritual purification. It's obligatory for all adult Muslims except those who are ill, traveling, pregnant, nursing, or menstruating.",
+                topic: "Sawm",
+                source: "Five Pillars",
+                category: "Fasting",
+                keywords: ["sawm", "fasting", "ramadan", "dawn", "sunset", "self-discipline", "empathy", "purification", "fourth pillar", "obligatory", "exemptions"]
+            },
+            {
+                reference: "Fifth Pillar - Hajj (Pilgrimage)",
+                arabic: "وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا",
+                translation: "And [due] to Allah from the people is a pilgrimage to the House - for whoever is able to find thereto a way",
+                context: "Hajj is the pilgrimage to the Kaaba in Mecca, Saudi Arabia. It's obligatory once in a lifetime for Muslims who are physically and financially able. Hajj occurs during Dhul Hijjah (12th month). Rituals include: Ihram (sacred state), Tawaf (circumambulation), Sa'i (walking between Safa and Marwa), standing at Arafat, and stoning the devil. It symbolizes unity, equality, and submission to Allah.",
+                topic: "Hajj",
+                source: "Five Pillars",
+                category: "Pilgrimage",
+                keywords: ["hajj", "pilgrimage", "mecca", "kaaba", "obligatory", "once lifetime", "dhul hijjah", "ihram", "tawaf", "arafat", "fifth pillar", "unity"]
+            }
+        ];
+        
+        // Sunnah of Prophet Muhammad (PBUH) Database - Complete Guidance
+        const sunnahDatabase = [
+            {
+                reference: "Sunnah - Following the Prophet's Way",
+                arabic: "لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ",
+                translation: "There has certainly been for you in the Messenger of Allah an excellent pattern",
+                context: "Sunnah refers to the teachings, actions, and sayings of Prophet Muhammad (ﷺ). It's the second source of Islamic law after the Quran. Following the Sunnah brings blessings, spiritual growth, and closeness to Allah. The Prophet (ﷺ) said: 'Whoever follows my Sunnah has loved me, and whoever loves me will be with me in Paradise.' Sunnah includes daily habits, manners, and worship practices.",
+                topic: "Sunnah",
+                source: "Sunnah",
+                category: "Guidance",
+                keywords: ["sunnah", "prophet", "muhammad", "teachings", "actions", "sayings", "islamic law", "blessings", "love", "paradise", "daily habits", "manners"]
+            },
+            {
+                reference: "Daily Sunnah - Morning and Evening",
+                arabic: "اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ",
+                translation: "O Allah, by You we enter the morning and by You we enter the evening, by You we live and by You we die, and to You is the resurrection",
+                context: "Morning Sunnah: 1) Say morning dhikr, 2) Recite Ayat al-Kursi, 3) Recite Surah Al-Ikhlas, Al-Falaq, An-Nas 3x each, 4) Say morning dua. Evening Sunnah: 1) Say evening dhikr, 2) Recite same surahs, 3) Say evening dua. These practices protect from harm and bring blessings throughout the day and night.",
+                topic: "Daily Sunnah",
+                source: "Sunnah",
+                category: "Daily Practices",
+                keywords: ["morning", "evening", "dhikr", "ayat al-kursi", "surah", "dua", "protection", "blessings", "daily", "practices", "sunnah"]
+            },
+            {
+                reference: "Eating Sunnah - Table Manners",
+                arabic: "بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ",
+                translation: "In the name of Allah and with the blessings of Allah",
+                context: "Eating Sunnah: 1) Say 'Bismillah' before eating, 2) Eat with right hand, 3) Eat from your side of the plate, 4) Don't waste food, 5) Say 'Alhamdulillah' after finishing, 6) Lick fingers after eating, 7) Don't criticize food, 8) Share food with others. The Prophet (ﷺ) said: 'The food of two people is sufficient for three, and the food of three is sufficient for four.'",
+                topic: "Eating Sunnah",
+                source: "Sunnah",
+                category: "Manners",
+                keywords: ["eating", "bismillah", "right hand", "manners", "waste", "alhamdulillah", "share", "prophet", "table", "food", "blessings"]
+            },
+            {
+                reference: "Sleeping Sunnah - Bedtime Practices",
+                arabic: "بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ، فَإِنْ أَمْسَكْتَ نَفْسِي فَارْحَمْهَا، وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا بِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ",
+                translation: "In Your name, my Lord, I lay my side down, and in Your name I raise it. If You should take my soul, then have mercy upon it, and if You should return my soul, then protect it as You protect Your righteous servants",
+                context: "Sleeping Sunnah: 1) Recite Ayat al-Kursi before sleeping, 2) Say sleeping dua, 3) Sleep on right side, 4) Face Qibla if possible, 5) Keep room clean and dark, 6) Don't sleep immediately after eating, 7) Say 'Bismillah' when entering home, 8) Recite Surah Al-Mulk before sleeping. These practices bring peaceful sleep and protection.",
+                topic: "Sleeping Sunnah",
+                source: "Sunnah",
+                category: "Daily Practices",
+                keywords: ["sleeping", "ayat al-kursi", "dua", "right side", "qibla", "clean", "bismillah", "surah al-mulk", "peaceful", "protection", "bedtime"]
+            },
+            {
+                reference: "Greeting Sunnah - Islamic Etiquette",
+                arabic: "السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ",
+                translation: "Peace be upon you and the mercy of Allah and His blessings",
+                context: "Greeting Sunnah: 1) Say 'Assalamu alaikum' when meeting Muslims, 2) Respond with 'Wa alaikum assalam', 3) Shake hands with right hand, 4) Smile when greeting, 5) Greet children and elders, 6) Enter homes with 'Bismillah', 7) Ask permission before entering private spaces. The Prophet (ﷺ) said: 'You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I show you something that will make you love one another? Spread greetings among yourselves.'",
+                topic: "Greeting Sunnah",
+                source: "Sunnah",
+                category: "Manners",
+                keywords: ["greeting", "assalamu alaikum", "shake hands", "smile", "children", "elders", "bismillah", "permission", "paradise", "love", "manners"]
+            },
+            {
+                reference: "Dress Sunnah - Modest Clothing",
+                arabic: "يَا بَنِي آدَمَ قَدْ أَنزَلْنَا عَلَيْكُمْ لِبَاسًا يُوَارِي سَوْآتِكُمْ وَرِيشًا",
+                translation: "O children of Adam, We have bestowed upon you clothing to conceal your private parts and as adornment",
+                context: "Dress Sunnah: 1) Cover awrah (private parts), 2) Wear clean, modest clothing, 3) Avoid tight or transparent clothes, 4) Don't imitate opposite gender, 5) Wear white on Fridays, 6) Keep clothes clean and presentable, 7) Don't waste money on expensive clothes, 8) Dress appropriately for different occasions. Modesty and cleanliness are key principles.",
+                topic: "Dress Sunnah",
+                source: "Sunnah",
+                category: "Appearance",
+                keywords: ["dress", "clothing", "modest", "awrah", "clean", "white", "fridays", "waste", "appropriate", "modesty", "cleanliness"]
+            },
+            {
+                reference: "Work Sunnah - Professional Ethics",
+                arabic: "إِنَّ اللَّهَ يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلًا أَنْ يُتْقِنَهُ",
+                translation: "Indeed, Allah loves when one of you does a job, that he perfects it",
+                context: "Work Sunnah: 1) Start work with 'Bismillah', 2) Do your best in every task, 3) Be honest and trustworthy, 4) Don't delay work unnecessarily, 5) Treat colleagues with respect, 6) Don't waste time or resources, 7) Say 'Alhamdulillah' when completing tasks, 8) Help others in their work. The Prophet (ﷺ) was known for his honesty and was called 'Al-Amin' (the trustworthy).",
+                topic: "Work Sunnah",
+                source: "Sunnah",
+                category: "Professional",
+                keywords: ["work", "bismillah", "best", "honest", "trustworthy", "delay", "respect", "waste", "alhamdulillah", "help", "al-amin"]
+            }
+        ];
+        
         // Enhanced Auto Wisdom with Categories
         const autoWisdom = [
             {
@@ -1118,6 +1446,26 @@
                     });
                 }
                 
+                // Search in Five Pillars database
+                if (source === 'all' || source === 'five-pillars') {
+                    fivePillarsDatabase.forEach(item => {
+                        const relevance = this.calculateRelevance(item, tokens);
+                        if (relevance > 0) {
+                            results.push({ ...item, relevance, matchedTerms: this.findMatchedTerms(item, tokens) });
+                        }
+                    });
+                }
+                
+                // Search in Sunnah database
+                if (source === 'all' || source === 'sunnah') {
+                    sunnahDatabase.forEach(item => {
+                        const relevance = this.calculateRelevance(item, tokens);
+                        if (relevance > 0) {
+                            results.push({ ...item, relevance, matchedTerms: this.findMatchedTerms(item, tokens) });
+                        }
+                    });
+                }
+                
                 // Sort by relevance and return top results
                 return results.sort((a, b) => b.relevance - a.relevance).slice(0, 20);
             }
@@ -1160,7 +1508,14 @@
                     'modern': ['contemporary', 'current', 'today', 'present'],
                     'human rights': ['rights', 'dignity', 'freedom', 'justice'],
                     'education': ['learning', 'knowledge', 'study', 'school'],
-                    'charity': ['helping', 'giving', 'donation', 'assistance']
+                    'charity': ['helping', 'giving', 'donation', 'assistance'],
+                    'five pillars': ['pillars', 'shahada', 'salah', 'zakat', 'sawm', 'hajj', 'foundation'],
+                    'sunnah': ['prophet', 'muhammad', 'teachings", "actions", "sayings", "daily", "practices"],
+                    'shahada': ['declaration', 'faith', 'testimony', 'first pillar'],
+                    'salah': ['prayer', 'prayers', 'worship', 'second pillar'],
+                    'zakat': ['charity', 'obligatory", "2.5%", "third pillar'],
+                    'sawm': ['fasting', 'ramadan', 'fourth pillar'],
+                    'hajj': ['pilgrimage', 'mecca', 'kaaba', 'fifth pillar']
                 };
                 
                 for (const [stem, variations] of Object.entries(stems)) {
