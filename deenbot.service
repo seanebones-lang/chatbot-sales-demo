@@ -1,0 +1,35 @@
+[Unit]
+Description=DeenBot Islamic AI Assistant Service
+Documentation=https://github.com/seanebones-lang/chatbot-sales-demo
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/root/islamic-study-site
+ExecStart=/usr/bin/python3 /root/islamic-study-site/deenbot_service_manager.py
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=10
+StartLimitInterval=0
+StartLimitBurst=0
+
+# Environment variables
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/root/islamic-study-site
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/root/islamic-study-site/logs
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=deenbot
+
+[Install]
+WantedBy=multi-user.target
