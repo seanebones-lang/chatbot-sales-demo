@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentic Islamic Fiqh - Complete Islamic Law & Rulings</title>
+    <meta name="description" content="Comprehensive Islamic Fiqh (Islamic Law) with authentic rulings, detailed explanations, and searchable index. Learn about prayer, business, family, and all aspects of Islamic jurisprudence.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(30, 144, 255, 0.2);
+        }
+
+        .header h1 {
+            color: #FFD700;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .header h1:hover {
+            transform: scale(1.02);
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+        }
+
+        .header p {
+            color: #87CEEB;
+            font-size: 1.2rem;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(30, 144, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(30, 144, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .search-section {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .search-section:hover {
+            border-color: #1E90FF;
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.1);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            background: rgba(30, 30, 30, 0.8);
+            color: #e0e0e0;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #1E90FF;
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
+        }
+
+        .search-button {
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+        }
+
+        .fiqh-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .category-card {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            background: rgba(18, 18, 18, 0.95);
+            border-color: #1E90FF;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(30, 144, 255, 0.2);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .category-title {
+            color: #87CEEB;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .category-desc {
+            color: #B0C4DE;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .category-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .topic-tag {
+            background: rgba(30, 144, 255, 0.2);
+            color: #87CEEB;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(30, 144, 255, 0.3);
+        }
+
+        .content-section {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .section-title:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .fiqh-ruling {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .fiqh-ruling:hover {
+            background: rgba(30, 30, 30, 0.95);
+            border-color: #1E90FF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.1);
+        }
+
+        .ruling-title {
+            color: #FFD700;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .ruling-content {
+            color: #e0e0e0;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .ruling-evidence {
+            background: rgba(152, 251, 152, 0.1);
+            border-left: 4px solid #98FB98;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .evidence-title {
+            color: #98FB98;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .arabic-text {
+            font-size: 1.2rem;
+            color: #98FB98;
+            text-align: right;
+            margin: 10px 0;
+            line-height: 2;
+        }
+
+        .translation {
+            color: #B0C4DE;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .source-info {
+            color: #87CEEB;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .search-results {
+            background: rgba(18, 18, 18, 0.9);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result-item {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .result-item:hover {
+            background: rgba(30, 30, 30, 0.95);
+            border-color: #1E90FF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.1);
+        }
+
+        .result-title {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .result-content {
+            color: #e0e0e0;
+            margin-bottom: 10px;
+        }
+
+        .result-source {
+            color: #87CEEB;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .fiqh-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
+            <h1>⚖️ Authentic Islamic Fiqh</h1>
+            <p>Complete Islamic Law & Jurisprudence with Authentic Rulings from Quran & Sunnah</p>
+        </div>
+
+        <div class="search-section">
+            <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">🔍 Search Fiqh Rulings</h3>
+            <input type="text" class="search-input" id="fiqhSearch" placeholder="Search for specific fiqh topics, rulings, or keywords..." onkeypress="handleSearchKeypress(event)">
+            <button class="search-button" onclick="searchFiqh()">Search Fiqh</button>
+        </div>
+
+        <div class="fiqh-categories">
+            <div class="category-card" onclick="showCategory('prayer')">
+                <div class="category-icon">🕌</div>
+                <div class="category-title">Prayer Fiqh</div>
+                <div class="category-desc">Complete rulings on Salah, Wudu, Adhan, and prayer-related matters</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Salah</span>
+                    <span class="topic-tag">Wudu</span>
+                    <span class="topic-tag">Adhan</span>
+                    <span class="topic-tag">Qibla</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('business')">
+                <div class="category-icon">💼</div>
+                <div class="category-title">Business Fiqh</div>
+                <div class="category-desc">Islamic business ethics, contracts, trade, and financial transactions</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Trade</span>
+                    <span class="topic-tag">Contracts</span>
+                    <span class="topic-tag">Interest</span>
+                    <span class="topic-tag">Partnerships</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('family')">
+                <div class="category-icon">👨‍👩‍👧‍👦</div>
+                <div class="category-title">Family Fiqh</div>
+                <div class="category-desc">Marriage, divorce, inheritance, and family relationships</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Marriage</span>
+                    <span class="topic-tag">Divorce</span>
+                    <span class="topic-tag">Inheritance</span>
+                    <span class="topic-tag">Children</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('social')">
+                <div class="category-icon">🤝</div>
+                <div class="category-title">Social Fiqh</div>
+                <div class="category-desc">Etiquettes, relationships, and social interactions in Islam</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Etiquettes</span>
+                    <span class="topic-tag">Relationships</span>
+                    <span class="topic-tag">Neighbors</span>
+                    <span class="topic-tag">Community</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('financial')">
+                <div class="category-icon">💰</div>
+                <div class="category-title">Financial Fiqh</div>
+                <div class="category-desc">Zakat, charity, investments, and financial obligations</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Zakat</span>
+                    <span class="topic-tag">Charity</span>
+                    <span class="topic-tag">Investments</span>
+                    <span class="topic-tag">Debts</span>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showCategory('food')">
+                <div class="category-icon">🍽️</div>
+                <div class="category-title">Food & Dietary Fiqh</div>
+                <div class="category-desc">Halal/Haram foods, fasting, and dietary regulations</div>
+                <div class="category-topics">
+                    <span class="topic-tag">Halal</span>
+                    <span class="topic-tag">Haram</span>
+                    <span class="topic-tag">Fasting</span>
+                    <span class="topic-tag">Slaughter</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prayer Fiqh Section -->
+        <div class="content-section" id="prayer-section">
+            <h2 class="section-title">🕌 Prayer Fiqh - Complete Rulings</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Obligation of Five Daily Prayers</div>
+                <div class="ruling-content">
+                    The five daily prayers (Salah) are obligatory upon every Muslim who has reached the age of puberty and is mentally sound. These prayers are: Fajr (Dawn), Dhuhr (Noon), Asr (Afternoon), Maghrib (Sunset), and Isha (Night).
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا</div>
+                    <div class="translation">"Indeed, prayer has been decreed upon the believers a decree of specified times."</div>
+                    <div class="source-info">Source: Surah An-Nisa 4:103</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Wudu (Ablution) Requirements</div>
+                <div class="ruling-content">
+                    Wudu is required before performing prayer. It involves washing the face, arms, wiping the head, and washing the feet. The order and method are specified in authentic hadith.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">لَا يَقْبَلُ اللَّهُ صَلَاةَ أَحَدِكُمْ إِذَا أَحْدَثَ حَتَّى يَتَوَضَّأَ</div>
+                    <div class="translation">"Allah does not accept the prayer of any of you if he becomes impure until he performs ablution."</div>
+                    <div class="source-info">Source: Sahih Bukhari 135</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Qibla Direction</div>
+                <div class="ruling-content">
+                    Muslims must face the Kaaba in Makkah during prayer. If the exact direction is unknown, one should make their best judgment and pray. The prayer is valid even if the direction is slightly off.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ</div>
+                    <div class="translation">"So turn your face toward al-Masjid al-Haram."</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:144</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Business Fiqh Section -->
+        <div class="content-section" id="business-section">
+            <h2 class="section-title">💼 Business Fiqh - Islamic Business Ethics</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Prohibition of Interest (Riba)</div>
+                <div class="ruling-content">
+                    Interest (Riba) is strictly prohibited in Islam. This includes both giving and receiving interest. All business transactions must be free from interest-based arrangements.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَذَرُوا مَا بَقِيَ مِنَ الرِّبَا إِن كُنتُم مُّؤْمِنِينَ</div>
+                    <div class="translation">"O you who have believed, fear Allah and give up what remains [due to you] of interest, if you should be believers."</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:278</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Honesty in Trade</div>
+                <div class="ruling-content">
+                    Honesty and transparency are essential in all business transactions. Concealing defects in goods, false advertising, and deception are prohibited.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">الْمُسْلِمُ أَخُو الْمُسْلِمِ لَا يَحِلُّ لِمُسْلِمٍ أَنْ يَبِيعَ عَلَى أَخِيهِ بَيْعًا فِيهِ عَيْبٌ إِلَّا بَيَّنَهُ لَهُ</div>
+                    <div class="translation">"A Muslim is the brother of a Muslim. It is not lawful for a Muslim to sell to his brother something in which there is a defect without pointing it out to him."</div>
+                    <div class="source-info">Source: Ibn Majah 2246</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Family Fiqh Section -->
+        <div class="content-section" id="family-section">
+            <h2 class="section-title">👨‍👩‍👧‍👦 Family Fiqh - Family Matters</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Marriage Requirements</div>
+                <div class="ruling-content">
+                    Marriage in Islam requires: consent of both parties, presence of witnesses, mahr (dowry), and proper Islamic ceremony. Polygamy is permitted with conditions of justice.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">فَانكِحُوا مَا طَابَ لَكُم مِّنَ النِّسَاءِ مَثْنَىٰ وَثُلَاثَ وَرُبَاعَ ۖ فَإِنْ خِفْتُمْ أَلَّا تَعْدِلُوا فَوَاحِدَةً</div>
+                    <div class="translation">"So marry those that please you of [other] women, two or three or four. But if you fear that you will not be just, then [marry only] one."</div>
+                    <div class="source-info">Source: Surah An-Nisa 4:3</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Inheritance Laws</div>
+                <div class="ruling-content">
+                    Islamic inheritance laws are detailed and specific. They ensure fair distribution among family members according to Quranic guidelines and prevent disputes.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ</div>
+                    <div class="translation">"Allah instructs you concerning your children: for the male, what is equal to the share of two females."</div>
+                    <div class="source-info">Source: Surah An-Nisa 4:11</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Fiqh Section -->
+        <div class="content-section" id="social-section">
+            <h2 class="section-title">🤝 Social Fiqh - Social Interactions</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Neighborly Rights</div>
+                <div class="ruling-content">
+                    Islam emphasizes the rights of neighbors. Muslims must be kind, helpful, and respectful to their neighbors regardless of their religion or background.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">مَا زَالَ جِبْرِيلُ يُوصِينِي بِالْجَارِ حَتَّى ظَنَنْتُ أَنَّهُ سَيُوَرِّثُهُ</div>
+                    <div class="translation">"Jibreel kept recommending treating neighbors with kindness until I thought he would assign a share of inheritance."</div>
+                    <div class="source-info">Source: Sahih Bukhari 6014</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Greeting Etiquette</div>
+                <div class="ruling-content">
+                    Muslims should greet each other with "Assalamu alaikum" (Peace be upon you) and respond with "Wa alaikum assalam" (And upon you be peace).
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Hadith:</div>
+                    <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ حَقُّ الْمُسْلِمِ عَلَى الْمُسْلِمِ سِتٌّ قِيلَ مَا هُنَّ يَا رَسُولَ اللَّهِ قَالَ إِذَا لَقِيتَهُ فَسَلِّمْ عَلَيْهِ</div>
+                    <div class="translation">"The rights of a Muslim upon another Muslim are six: When you meet him, greet him with peace."</div>
+                    <div class="source-info">Source: Sahih Muslim 2162</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Fiqh Section -->
+        <div class="content-section" id="financial-section">
+            <h2 class="section-title">💰 Financial Fiqh - Financial Obligations</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Zakat Obligation</div>
+                <div class="ruling-content">
+                    Zakat is obligatory for Muslims who meet the nisab (minimum threshold). It is 2.5% of wealth and must be given to specified categories of recipients.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ</div>
+                    <div class="translation">"And establish prayer and give zakah."</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:43</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Charity (Sadaqah)</div>
+                <div class="ruling-content">
+                    Voluntary charity (Sadaqah) is highly encouraged in Islam. It can be given at any time and in any amount to help those in need.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">مَّن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا فَيُضَاعِفَهُ لَهُ أَضْعَافًا كَثِيرَةً</div>
+                    <div class="translation">"Who is it that would loan Allah a goodly loan so He may multiply it for him many times over?"</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:245</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Food Fiqh Section -->
+        <div class="content-section" id="food-section">
+            <h2 class="section-title">🍽️ Food & Dietary Fiqh</h2>
+            
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Halal Food Requirements</div>
+                <div class="ruling-content">
+                    Halal food must be free from prohibited substances like pork, alcohol, and animals not slaughtered according to Islamic guidelines.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">حُرِّمَتْ عَلَيْكُمُ الْمَيْتَةُ وَالدَّمُ وَلَحْمُ الْخِنزِيرِ</div>
+                    <div class="translation">"Prohibited to you are dead animals, blood, the flesh of swine."</div>
+                    <div class="source-info">Source: Surah Al-Ma'idah 5:3</div>
+                </div>
+            </div>
+
+            <div class="fiqh-ruling">
+                <div class="ruling-title">Fasting in Ramadan</div>
+                <div class="ruling-content">
+                    Fasting during Ramadan is obligatory for all adult Muslims. It involves abstaining from food, drink, and marital relations from dawn to sunset.
+                </div>
+                <div class="ruling-evidence">
+                    <div class="evidence-title">Evidence from Quran:</div>
+                    <div class="arabic-text">يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ</div>
+                    <div class="translation">"O you who have believed, decreed upon you is fasting as it was decreed upon those before you."</div>
+                    <div class="source-info">Source: Surah Al-Baqarah 2:183</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Results Section -->
+        <div class="search-results" id="searchResults">
+            <h3 style="color: #FFD700; margin-bottom: 20px;">🔍 Search Results</h3>
+            <div id="resultsContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        // Comprehensive Fiqh Database
+        const fiqhDatabase = {
+            // Prayer Fiqh
+            "prayer": [
+                {
+                    title: "Obligation of Five Daily Prayers",
+                    content: "The five daily prayers (Salah) are obligatory upon every Muslim who has reached the age of puberty and is mentally sound.",
+                    category: "Prayer",
+                    keywords: ["prayer", "salah", "obligatory", "five", "daily"],
+                    evidence: "Quran 4:103 - Prayer has been decreed upon the believers a decree of specified times."
+                },
+                {
+                    title: "Wudu Requirements",
+                    content: "Wudu is required before performing prayer. It involves washing the face, arms, wiping the head, and washing the feet.",
+                    category: "Prayer",
+                    keywords: ["wudu", "ablution", "cleanliness", "prayer", "washing"],
+                    evidence: "Hadith - Allah does not accept prayer without wudu."
+                },
+                {
+                    title: "Qibla Direction",
+                    content: "Muslims must face the Kaaba in Makkah during prayer. If exact direction unknown, make best judgment.",
+                    category: "Prayer",
+                    keywords: ["qibla", "direction", "kaaba", "makkah", "facing"],
+                    evidence: "Quran 2:144 - Turn your face toward al-Masjid al-Haram."
+                }
+            ],
+            // Business Fiqh
+            "business": [
+                {
+                    title: "Prohibition of Interest (Riba)",
+                    content: "Interest (Riba) is strictly prohibited in Islam. All business transactions must be free from interest-based arrangements.",
+                    category: "Business",
+                    keywords: ["interest", "riba", "prohibited", "business", "transactions"],
+                    evidence: "Quran 2:278 - Fear Allah and give up what remains of interest."
+                },
+                {
+                    title: "Honesty in Trade",
+                    content: "Honesty and transparency are essential in all business transactions. Concealing defects and deception are prohibited.",
+                    category: "Business",
+                    keywords: ["honesty", "trade", "transparency", "deception", "defects"],
+                    evidence: "Hadith - A Muslim must not sell defective goods without disclosing the defect."
+                }
+            ],
+            // Family Fiqh
+            "family": [
+                {
+                    title: "Marriage Requirements",
+                    content: "Marriage requires consent of both parties, witnesses, mahr (dowry), and proper Islamic ceremony.",
+                    category: "Family",
+                    keywords: ["marriage", "consent", "witnesses", "mahr", "ceremony"],
+                    evidence: "Quran 4:3 - Marry those that please you of women, two or three or four."
+                },
+                {
+                    title: "Inheritance Laws",
+                    content: "Islamic inheritance laws ensure fair distribution among family members according to Quranic guidelines.",
+                    category: "Family",
+                    keywords: ["inheritance", "distribution", "family", "fair", "quranic"],
+                    evidence: "Quran 4:11 - Allah instructs you concerning your children."
+                }
+            ],
+            // Social Fiqh
+            "social": [
+                {
+                    title: "Neighborly Rights",
+                    content: "Islam emphasizes the rights of neighbors. Muslims must be kind, helpful, and respectful to neighbors.",
+                    category: "Social",
+                    keywords: ["neighbors", "rights", "kindness", "respect", "helpful"],
+                    evidence: "Hadith - Jibreel kept recommending treating neighbors with kindness."
+                },
+                {
+                    title: "Greeting Etiquette",
+                    content: "Muslims should greet each other with 'Assalamu alaikum' and respond appropriately.",
+                    category: "Social",
+                    keywords: ["greeting", "salam", "peace", "etiquette", "manners"],
+                    evidence: "Hadith - When you meet him, greet him with peace."
+                }
+            ],
+            // Financial Fiqh
+            "financial": [
+                {
+                    title: "Zakat Obligation",
+                    content: "Zakat is obligatory for Muslims who meet the nisab. It is 2.5% of wealth given to specified recipients.",
+                    category: "Financial",
+                    keywords: ["zakat", "obligatory", "nisab", "wealth", "charity"],
+                    evidence: "Quran 2:43 - Establish prayer and give zakah."
+                },
+                {
+                    title: "Charity (Sadaqah)",
+                    content: "Voluntary charity is highly encouraged in Islam. It can be given at any time to help those in need.",
+                    category: "Financial",
+                    keywords: ["charity", "sadaqah", "voluntary", "help", "need"],
+                    evidence: "Quran 2:245 - Who would loan Allah a goodly loan?"
+                }
+            ],
+            // Food Fiqh
+            "food": [
+                {
+                    title: "Halal Food Requirements",
+                    content: "Halal food must be free from prohibited substances like pork, alcohol, and improperly slaughtered animals.",
+                    category: "Food",
+                    keywords: ["halal", "food", "prohibited", "pork", "alcohol"],
+                    evidence: "Quran 5:3 - Prohibited are dead animals, blood, flesh of swine."
+                },
+                {
+                    title: "Fasting in Ramadan",
+                    content: "Fasting during Ramadan is obligatory. It involves abstaining from food, drink, and marital relations.",
+                    category: "Food",
+                    keywords: ["fasting", "ramadan", "obligatory", "abstain", "dawn"],
+                    evidence: "Quran 2:183 - Decreed upon you is fasting as decreed upon those before you."
+                }
+            ]
+        };
+
+        function showCategory(category) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Show selected category
+            const selectedSection = document.getElementById(category + '-section');
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+                selectedSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function searchFiqh() {
+            const query = document.getElementById('fiqhSearch').value.trim().toLowerCase();
+            if (!query) {
+                alert('Please enter a search term');
+                return;
+            }
+
+            const results = [];
+            
+            // Search through all categories
+            Object.keys(fiqhDatabase).forEach(category => {
+                fiqhDatabase[category].forEach(item => {
+                    const relevance = calculateRelevance(item, query);
+                    if (relevance > 0) {
+                        results.push({ ...item, relevance });
+                    }
+                });
+            });
+
+            // Sort by relevance
+            results.sort((a, b) => b.relevance - a.relevance);
+
+            displaySearchResults(results, query);
+        }
+
+        function calculateRelevance(item, query) {
+            let score = 0;
+            const queryWords = query.split(' ');
+            
+            queryWords.forEach(word => {
+                if (item.title.toLowerCase().includes(word)) score += 3;
+                if (item.content.toLowerCase().includes(word)) score += 2;
+                if (item.keywords.some(keyword => keyword.toLowerCase().includes(word))) score += 2;
+                if (item.category.toLowerCase().includes(word)) score += 1;
+            });
+            
+            return score;
+        }
+
+        function displaySearchResults(results, query) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            const searchResults = document.getElementById('searchResults');
+            
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p style="color: #B0C4DE; text-align: center;">No results found for "' + query + '"</p>';
+            } else {
+                resultsContainer.innerHTML = results.map(result => `
+                    <div class="result-item">
+                        <div class="result-title">${result.title}</div>
+                        <div class="result-content">${result.content}</div>
+                        <div class="result-source">Category: ${result.category} | Evidence: ${result.evidence}</div>
+                    </div>
+                `).join('');
+            }
+            
+            searchResults.style.display = 'block';
+            searchResults.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSearchKeypress(event) {
+            if (event.key === 'Enter') {
+                searchFiqh();
+            }
+        }
+
+        // Initialize page
+        window.addEventListener('load', () => {
+            // Show prayer section by default
+            showCategory('prayer');
+        });
+    </script>
+</body>
+</html>
