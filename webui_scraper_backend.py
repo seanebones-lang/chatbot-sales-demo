@@ -54,12 +54,12 @@ class WebUIScraperHandler(BaseHTTPRequestHandler):
             # Try to get response from OpenWebUI phi3:mini model
             try:
                 response = self.get_webui_response(user_message)
-                print(f"✅ Connected to OpenWebUI phi3:mini successfully!")
+                print(f"Connected to OpenWebUI phi3:mini successfully!")
             except Exception as e:
                 print(f"❌ Error getting OpenWebUI response: {e}")
                 # Fallback to enhanced responses
                 response = self.get_enhanced_response(user_message)
-                print(f"🔄 Using enhanced fallback response")
+                print(f"Using enhanced fallback response")
             
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
@@ -175,7 +175,7 @@ class WebUIScraperHandler(BaseHTTPRequestHandler):
             with urllib.request.urlopen(req, timeout=60) as response:
                 if response.status == 200:
                     response_data = json.loads(response.read().decode('utf-8'))
-                    print(f"✅ Authenticated API successful!")
+                    print(f"Authenticated API successful!")
                     
                     if 'choices' in response_data and len(response_data['choices']) > 0:
                         return response_data['choices'][0]['message']['content']
@@ -191,7 +191,7 @@ class WebUIScraperHandler(BaseHTTPRequestHandler):
         try:
             openwebui_url = "http://localhost:3001"
             
-            print(f"🔄 Trying to simulate chat with OpenWebUI...")
+            print(f"Trying to simulate chat with OpenWebUI...")
             
             # Try different possible chat endpoints
             chat_endpoints = [
@@ -232,7 +232,7 @@ class WebUIScraperHandler(BaseHTTPRequestHandler):
                             with urllib.request.urlopen(req, timeout=60) as response:
                                 if response.status == 200:
                                     response_data = json.loads(response.read().decode('utf-8'))
-                                    print(f"✅ Chat successful with {endpoint}!")
+                                    print(f"Chat successful with {endpoint}!")
                                     
                                     if 'response' in response_data:
                                         return response_data['response']
@@ -264,7 +264,7 @@ class WebUIScraperHandler(BaseHTTPRequestHandler):
         try:
             openwebui_url = "http://localhost:3001"
             
-            print(f"🔄 Trying generate endpoint...")
+            print(f"Trying generate endpoint...")
             
             payload = {
                 "prompt": f"You are DeenBot, an Islamic AI assistant. Answer this question about Islam: {user_message}",
@@ -290,7 +290,7 @@ class WebUIScraperHandler(BaseHTTPRequestHandler):
             with urllib.request.urlopen(req, timeout=60) as response:
                 if response.status == 200:
                     response_data = json.loads(response.read().decode('utf-8'))
-                    print(f"✅ Generate successful!")
+                    print(f"Generate successful!")
                     
                     if 'response' in response_data:
                         return response_data['response']
@@ -409,7 +409,7 @@ if __name__ == '__main__':
         server = HTTPServer(('0.0.0.0', port), WebUIScraperHandler)
         print(f'🚀 DeenBot with OpenWebUI phi3:mini backend is running on port {port}')
         print(f'🌐 OpenWebUI URL: http://localhost:3001')
-        print(f'🤖 AI Model: phi3:mini')
+        print(f'AI Model: phi3:mini')
         print(f'💬 Chat endpoint: http://localhost:{port}/chat')
         print('🔑 API Key: [CONFIGURED]')
         print('🛑 Press Ctrl+C to stop the server')

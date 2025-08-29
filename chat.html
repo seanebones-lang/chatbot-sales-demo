@@ -1173,7 +1173,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    addChatMessage("✅ Backend test successful! DeenBot is fully operational.", false);
+                    addChatMessage("Backend test successful! DeenBot is fully operational.", false);
                 })
                 .catch(error => {
                     console.error('Backend test failed:', error);
@@ -1198,7 +1198,7 @@
             })
             .then(response => response.json())
             .then(data => {
-                document.getElementById('resultsCount').innerHTML = `✅ Test successful! AI backend is working for "${testQuery}"`;
+                document.getElementById('resultsCount').innerHTML = `Test successful! AI backend is working for "${testQuery}"`;
                 document.getElementById('verseResults').innerHTML = `
                     <div class="ai-summary">
                         <h3>AI Backend Test Response</h3>

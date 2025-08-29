@@ -28,7 +28,7 @@ pkill -f "webui_scraper_backend.py" 2>/dev/null
 pkill -f "python3.*8080" 2>/dev/null
 
 # Start the DeenBot backend
-echo "🤖 Starting DeenBot backend..."
+echo "Starting DeenBot backend..."
 python3 webui_scraper_backend.py &
 BACKEND_PID=$!
 
@@ -37,7 +37,7 @@ sleep 2
 
 # Check if backend started successfully
 if kill -0 $BACKEND_PID 2>/dev/null; then
-    echo "✅ Backend started successfully (PID: $BACKEND_PID)"
+    echo "Backend started successfully (PID: $BACKEND_PID)"
 else
     echo "❌ Failed to start backend"
     exit 1
@@ -53,7 +53,7 @@ sleep 2
 
 # Check if frontend started successfully
 if kill -0 $FRONTEND_PID 2>/dev/null; then
-    echo "✅ Frontend started successfully (PID: $FRONTEND_PID)"
+    echo "Frontend started successfully (PID: $FRONTEND_PID)"
 else
     echo "❌ Failed to start frontend"
     kill $BACKEND_PID 2>/dev/null
@@ -63,7 +63,7 @@ fi
 echo ""
 echo "🎉 DeenBot is now running!"
 echo "🌐 Frontend: http://localhost:8001"
-echo "🤖 Backend: http://localhost:${DEENBOT_PORT}"
+echo "Backend: http://localhost:${DEENBOT_PORT}"
 echo "💬 Chat: http://localhost:8001/chat.html"
 echo ""
 echo "🛑 Press Ctrl+C to stop all servers"
@@ -74,7 +74,7 @@ cleanup() {
     echo "🧹 Shutting down servers..."
     kill $BACKEND_PID 2>/dev/null
     kill $FRONTEND_PID 2>/dev/null
-    echo "✅ All servers stopped"
+    echo "All servers stopped"
     exit 0
 }
 
