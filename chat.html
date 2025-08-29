@@ -793,11 +793,42 @@
                 </div>
             `;
             
-            // Perform search
-            setTimeout(() => {
+            // Call the Python backend AI
+            fetch("/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ message: query })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display AI response
+                document.getElementById('resultsCount').innerHTML = `AI Response for: "${query}"`;
+                document.getElementById('verseResults').innerHTML = `
+                    <div class="ai-summary">
+                        <h3>AI Assistant Response</h3>
+                        <div class="ai-response" style="white-space: pre-line; line-height: 1.8; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                            ${data.response}
+                        </div>
+                        <div class="suggestions">
+                            <h4>Try asking about:</h4>
+                            <div class="suggestion-buttons">
+                                <button class="suggestion-btn" onclick="searchSuggestion('mercy')">Mercy</button>
+                                <button class="suggestion-btn" onclick="searchSuggestion('patience')">Patience</button>
+                                <button class="suggestion-btn" onclick="searchSuggestion('family')">Family</button>
+                                <button class="suggestion-btn" onclick="searchSuggestion('prayer')">Prayer</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                // Fallback to local search if backend fails
                 const results = islamicAI.searchWithSemantics(query, currentSource);
                 displayResults(query, results);
-            }, 1000);
+            });
         }
         
         function displayResults(query, results) {
@@ -915,21 +946,46 @@
         }
         
         function testChatbot() {
-            // Test the chatbot functionality
+            // Test the chatbot functionality with backend
             document.getElementById('resultsSection').classList.add('show');
-            document.getElementById('resultsCount').innerHTML = 'Testing chatbot functionality...';
+            document.getElementById('resultsCount').innerHTML = 'Testing chatbot with AI backend...';
             
-            // Test search
+            // Test search with backend
             const testQuery = 'family';
-            const testResults = islamicAI.searchWithSemantics(testQuery, 'all');
-            
-            if (testResults && testResults.length > 0) {
-                document.getElementById('resultsCount').innerHTML = `Test successful! Found ${testResults.length} results for "${testQuery}"`;
-                displayResults(testQuery, testResults);
-            } else {
-                document.getElementById('resultsCount').innerHTML = 'Test failed: No results found';
-                document.getElementById('verseResults').innerHTML = '<div class="no-results">Chatbot test failed. Please check console for errors.</div>';
-            }
+            fetch("/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ message: testQuery })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('resultsCount').innerHTML = `✅ Test successful! AI backend is working for "${testQuery}"`;
+                document.getElementById('verseResults').innerHTML = `
+                    <div class="ai-summary">
+                        <h3>AI Backend Test Response</h3>
+                        <div class="ai-response" style="white-space: pre-line; line-height: 1.8; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                            ${data.response}
+                        </div>
+                        <div style="margin-top: 20px; padding: 15px; background: #28a745; color: white; border-radius: 10px; text-align: center;">
+                            🎉 AI Backend is working perfectly! You can now ask any Islamic question.
+                        </div>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                console.error("Backend test error:", error);
+                document.getElementById('resultsCount').innerHTML = '❌ Test failed: Backend not accessible';
+                document.getElementById('verseResults').innerHTML = `
+                    <div class="no-results">
+                        <h3>Backend Test Failed</h3>
+                        <p>Error: ${error.message}</p>
+                        <p>Please make sure the Python backend is running on port 8080</p>
+                        <button onclick="testChatbot()" class="action-btn">Try Again</button>
+                    </div>
+                `;
+            });
         }
         
         // Initialize when page loads
