@@ -79,13 +79,14 @@
         
         .search-input {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             margin-bottom: 20px;
+            align-items: center;
         }
         
         input[type="text"] {
             flex: 1;
-            padding: 18px 20px;
+            padding: 15px 20px;
             border: 2px solid rgba(68, 68, 68, 0.5);
             border-radius: 15px;
             background: rgba(24, 24, 24, 0.8);
@@ -101,21 +102,23 @@
             background: rgba(24, 24, 24, 0.95);
         }
         
-        button {
-            padding: 18px 30px;
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+        .chat-btn {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
             color: #FFFFFF;
             border: none;
-            border-radius: 15px;
+            border-radius: 12px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
         
-        button:hover {
+        .chat-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: #1e7e34;
         }
         
         .source-toggle {
@@ -167,6 +170,105 @@
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Chat Interface Styles */
+        .chat-container {
+            background: rgba(24, 24, 24, 0.9);
+            border-radius: 20px;
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            background: rgba(18, 18, 18, 0.8);
+        }
+        
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .user-message {
+            align-items: flex-end;
+        }
+        
+        .bot-message {
+            align-items: flex-start;
+        }
+        
+        .message-content {
+            max-width: 80%;
+            padding: 15px 20px;
+            border-radius: 18px;
+            line-height: 1.6;
+        }
+        
+        .user-message .message-content {
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .bot-message .message-content {
+            background: rgba(68, 68, 68, 0.8);
+            color: #E0E0E0;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message-content h3 {
+            margin: 0 0 10px 0;
+            color: #FFD700;
+        }
+        
+        .message-content p {
+            margin: 0 0 10px 0;
+        }
+        
+        .message-content ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .message-content li {
+            margin: 5px 0;
+        }
+        
+        .chat-input-area {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            background: rgba(24, 24, 24, 0.95);
+            border-top: 1px solid rgba(68, 68, 68, 0.3);
+        }
+        
+        .chat-input-area input {
+            flex: 1;
+            margin: 0;
+        }
+        
+        .send-btn {
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
         }
         
         .results-count {
@@ -398,9 +500,8 @@
         
         <div class="search-section">
             <div class="search-input">
-                <input type="text" id="searchInput" placeholder="Ask any Islamic question (e.g., 'What does Islam say about mercy?', 'How to pray?', 'Inheritance laws?', 'Quran verses about patience?', 'Family relationships?', 'Daily life guidance?')" onkeypress="handleSearch(event)">
-                <button onclick="performSearch()">Search</button>
-                <button onclick="testChatbot()" style="background: #28a745; margin-left: 10px;">Test Chatbot</button>
+                <input type="text" id="searchInput" placeholder="Type your Islamic question for DeenBot (e.g., 'What does Islam say about mercy?', 'How to pray?', 'Inheritance laws?')" onkeypress="handleSearch(event)">
+                <button onclick="testChatbot()" class="chat-btn">DeenBot</button>
             </div>
             
             <div class="source-toggle">
@@ -416,7 +517,37 @@
             </div>
         </div>
         
-        <div class="results-section" id="resultsSection">
+        <div style="text-align: center; margin: 20px 0;">
+            <button onclick="testDeenBot()" style="padding: 15px 30px; background: #28a745; color: white; border: none; border-radius: 10px; font-size: 16px; cursor: pointer;">
+                🧪 Test DeenBot (Click to test)
+            </button>
+        </div>
+        
+        <div class="chat-container" id="chatContainer" style="display: block !important;">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <h3>Assalamu alaikum! 🌟</h3>
+                        <p>I'm <strong>DeenBot</strong>, your Islamic AI assistant, ready to help you learn about Islam, Quran, Hadith, Fiqh, and more. Ask me anything!</p>
+                        <p><strong>Try asking about:</strong></p>
+                        <ul>
+                            <li>What does Islam say about mercy?</li>
+                            <li>How to pray properly?</li>
+                            <li>Inheritance laws in Islam</li>
+                            <li>Family relationships and guidance</li>
+                            <li>Daily life and moral boundaries</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Ask DeenBot anything about Islam..." onkeypress="handleChatKeyPress(event)">
+                <button onclick="sendChatMessage()" class="send-btn">Send</button>
+            </div>
+        </div>
+        
+        <div class="results-section" id="resultsSection" style="display: none;">
             <div class="results-count" id="resultsCount"></div>
             <div id="verseResults"></div>
         </div>
@@ -960,6 +1091,97 @@
             displayResults(query, results);
         }
         
+        function handleChatKeyPress(event) {
+            if (event.key === "Enter") {
+                sendChatMessage();
+            }
+        }
+        
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message to chat
+            addChatMessage(message, true);
+            input.value = '';
+            
+            // Call AI backend
+            fetch("http://localhost:8080/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ message: message })
+            })
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                // Add AI response to chat
+                addChatMessage(data.response, false);
+            })
+            .catch(error => {
+                console.error("Backend Error:", error);
+                addChatMessage("I apologize, but I encountered an error. Please try again.", false);
+            });
+        }
+        
+        function addChatMessage(content, isUser) {
+            const chatMessages = document.getElementById('chatMessages');
+            
+            if (!chatMessages) {
+                console.error('chatMessages element not found!');
+                return;
+            }
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            
+            if (isUser) {
+                messageDiv.innerHTML = `<div class="message-content">${content}</div>`;
+            } else {
+                // Format AI response with line breaks
+                const formattedContent = content.replace(/\n/g, '<br>');
+                messageDiv.innerHTML = `<div class="message-content">${formattedContent}</div>`;
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function testDeenBot() {
+            // Test the chat interface directly
+            const testMessage = "Hello DeenBot! This is a test message.";
+            
+            // Add a test user message
+            addChatMessage(testMessage, true);
+            
+            // Wait a moment, then add a test bot response
+            setTimeout(() => {
+                const testResponse = "Assalamu alaikum! I received your test message. DeenBot is working!";
+                addChatMessage(testResponse, false);
+                
+                // Now test the backend
+                fetch("http://localhost:8080/chat", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ message: "test" })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    addChatMessage("✅ Backend test successful! DeenBot is fully operational.", false);
+                })
+                .catch(error => {
+                    console.error('Backend test failed:', error);
+                    addChatMessage("❌ Backend test failed. Please check if the Python server is running on port 8080.", false);
+                });
+            }, 1000);
+        }
+        
         function testChatbot() {
             // Test the chatbot functionality with backend
             document.getElementById('resultsSection').classList.add('show');
@@ -984,7 +1206,7 @@
                             ${data.response}
                         </div>
                         <div style="margin-top: 20px; padding: 15px; background: #28a745; color: white; border-radius: 10px; text-align: center;">
-                            🎉 AI Backend is working perfectly! You can now ask any Islamic question.
+                            🎉 DeenBot is working perfectly! You can now ask any Islamic question.
                         </div>
                     </div>
                 `;
@@ -1005,23 +1227,15 @@
         
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Chat page loaded successfully');
-            console.log('IslamicAI instance:', islamicAI);
-            console.log('Current source:', currentSource);
-            
             // Show a welcome message
             document.getElementById('resultsSection').classList.add('show');
-            document.getElementById('resultsCount').innerHTML = 'Welcome to Islamic Knowledge Chat! Ask any question about Islam, Quran, Hadith, Fiqh, and more.';
+            document.getElementById('resultsCount').innerHTML = 'Welcome to DeenBot! Ask any question about Islam, Quran, Hadith, Fiqh, and more.';
             document.getElementById('verseResults').innerHTML = `
-                <div class="ai-summary">
-                    <h3>May I help you learn about Islam Insha Allah?</h3>
-                    <p>Try asking about:</p>
-                    <div class="suggestion-buttons">
-                        <button class="suggestion-btn" onclick="searchSuggestion('family')">Family relationships</button>
-                        <button class="suggestion-btn" onclick="searchSuggestion('prayer')">Prayer guidance</button>
-                        <button class="suggestion-btn" onclick="searchSuggestion('inheritance')">Inheritance laws</button>
-                        <button class="suggestion-btn" onclick="searchSuggestion('daily life')">Daily life guidance</button>
-                    </div>
+                <div class="suggestion-buttons">
+                    <button class="suggestion-btn" onclick="searchSuggestion('family')">Family relationships</button>
+                    <button class="suggestion-btn" onclick="searchSuggestion('prayer')">Prayer guidance</button>
+                    <button class="suggestion-btn" onclick="searchSuggestion('inheritance')">Inheritance laws</button>
+                    <button class="suggestion-btn" onclick="searchSuggestion('daily life')">Daily life guidance</button>
                 </div>
             `;
         });
