@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tajweed Mastery Center - Perfect Your Quran Recitation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #FFD700;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .header p {
+            color: #87CEEB;
+            font-size: 1.2rem;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(30, 144, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(30, 144, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .navigation-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-tab {
+            padding: 15px 25px;
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #87CEEB;
+            font-weight: 600;
+        }
+
+        .nav-tab:hover {
+            border-color: #1E90FF;
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: #1E90FF;
+            border-color: #1E90FF;
+            color: white;
+        }
+
+        .content-section {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .tajweed-rules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .rule-card {
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .rule-card:hover {
+            border-color: #1E90FF;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .rule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .rule-title {
+            color: #FFD700;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .rule-category {
+            background: #1E90FF;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .rule-arabic {
+            font-size: 1.8rem;
+            color: #87CEEB;
+            text-align: right;
+            line-height: 2.5;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            border-right: 4px solid #FFD700;
+        }
+
+        .rule-description {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .rule-examples {
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .examples-title {
+            color: #87CEEB;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .example-item {
+            color: #B0C4DE;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border-left: 3px solid #87CEEB;
+        }
+
+        .rule-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .audio-btn {
+            background: #32CD32;
+            color: white;
+        }
+
+        .audio-btn:hover {
+            background: #228B22;
+            transform: translateY(-2px);
+        }
+
+        .practice-btn {
+            background: #FFD700;
+            color: #333;
+        }
+
+            .practice-btn:hover {
+            background: #FFA500;
+            transform: translateY(-2px);
+        }
+
+        .learn-btn {
+            background: #9370DB;
+            color: white;
+        }
+
+        .learn-btn:hover {
+            background: #7B68EE;
+            transform: translateY(-2px);
+        }
+
+        .practice-section {
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .practice-exercises {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .exercise-card {
+            background: rgba(18, 18, 18, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .exercise-card:hover {
+            border-color: #1E90FF;
+            transform: translateY(-2px);
+        }
+
+        .exercise-icon {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .exercise-title {
+            color: #87CEEB;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .exercise-desc {
+            color: #B0C4DE;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .progress-section {
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .progress-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(18, 18, 18, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            color: #FFD700;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #87CEEB;
+            font-size: 1rem;
+        }
+
+        .resources-section {
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-card {
+            background: rgba(18, 18, 18, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-card:hover {
+            border-color: #1E90FF;
+            transform: translateY(-3px);
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .resource-title {
+            color: #87CEEB;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .resource-desc {
+            color: #B0C4DE;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .navigation-tabs {
+                flex-direction: column;
+            }
+            
+            .tajweed-rules {
+                grid-template-columns: 1fr;
+            }
+            
+            .practice-exercises {
+                grid-template-columns: 1fr;
+            }
+            
+            .progress-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
+            <h1>Tajweed Mastery Center</h1>
+            <p>Perfect your Quran recitation with interactive rules, practice exercises, and professional guidance</p>
+        </div>
+
+        <div class="navigation-tabs">
+            <div class="nav-tab active" onclick="showSection('rules')">Tajweed Rules</div>
+            <div class="nav-tab" onclick="showSection('practice')">Practice Exercises</div>
+            <div class="nav-tab" onclick="showSection('progress')">My Progress</div>
+            <div class="nav-tab" onclick="showSection('resources')">Learning Resources</div>
+        </div>
+
+        <!-- Tajweed Rules Section -->
+        <div class="content-section" id="rules-section">
+            <h2 class="section-title">Essential Tajweed Rules</h2>
+            <div class="tajweed-rules" id="tajweedRules">
+                <!-- Tajweed rules will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Practice Exercises Section -->
+        <div class="content-section" id="practice-section" style="display: none;">
+            <h2 class="section-title">Interactive Practice Exercises</h2>
+            <div class="practice-section">
+                <p style="text-align: center; color: #87CEEB; margin-bottom: 20px; font-size: 1.1rem;">
+                    Master tajweed through hands-on practice and interactive exercises
+                </p>
+                
+                <div class="practice-exercises">
+                    <div class="exercise-card" onclick="startExercise('pronunciation')">
+                        <div class="exercise-icon">🎤</div>
+                        <div class="exercise-title">Pronunciation Practice</div>
+                        <div class="exercise-desc">Practice proper pronunciation of Arabic letters and sounds</div>
+                    </div>
+                    
+                    <div class="exercise-card" onclick="startExercise('rules')">
+                        <div class="exercise-icon">📚</div>
+                        <div class="exercise-title">Rule Application</div>
+                        <div class="exercise-desc">Apply tajweed rules to actual Quranic verses</div>
+                    </div>
+                    
+                    <div class="exercise-card" onclick="startExercise('listening')">
+                        <div class="exercise-icon">👂</div>
+                        <div class="exercise-title">Listening & Recognition</div>
+                        <div class="exercise-desc">Identify tajweed rules in professional recitations</div>
+                    </div>
+                    
+                    <div class="exercise-card" onclick="startExercise('recording')">
+                        <div class="exercise-icon">🎙️</div>
+                        <div class="exercise-title">Self-Recording</div>
+                        <div class="exercise-desc">Record your recitation and compare with experts</div>
+                    </div>
+                    
+                    <div class="exercise-card" onclick="startExercise('correction')">
+                        <div class="exercise-icon">✅</div>
+                        <div class="exercise-title">Error Correction</div>
+                        <div class="exercise-desc">Identify and correct common tajweed mistakes</div>
+                    </div>
+                    
+                    <div class="exercise-card" onclick="startExercise('assessment')">
+                        <div class="exercise-icon">📊</div>
+                        <div class="exercise-title">Skill Assessment</div>
+                        <div class="exercise-desc">Test your tajweed knowledge and skills</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="content-section" id="progress-section" style="display: none;">
+            <h2 class="section-title">Your Tajweed Progress</h2>
+            <div class="progress-section">
+                <div class="progress-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="rulesLearned">0</div>
+                        <div class="stat-label">Rules Learned</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="exercisesCompleted">0</div>
+                        <div class="stat-label">Exercises Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="practiceTime">0</div>
+                        <div class="stat-label">Practice Time (hrs)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="accuracyScore">0%</div>
+                        <div class="stat-label">Accuracy Score</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="content-section" id="resources-section" style="display: none;">
+            <h2 class="section-title">Tajweed Learning Resources</h2>
+            <div class="resources-section">
+                <div class="resources-grid">
+                    <div class="resource-card" onclick="openResource('videos')">
+                        <div class="resource-icon">🎥</div>
+                        <div class="resource-title">Video Tutorials</div>
+                        <div class="resource-desc">Step-by-step tajweed lessons from experts</div>
+                    </div>
+                    <div class="resource-card" onclick="openResource('audio')">
+                        <div class="resource-icon">🔊</div>
+                        <div class="resource-title">Audio Examples</div>
+                        <div class="resource-desc">Professional recitations with rule explanations</div>
+                    </div>
+                    <div class="resource-card" onclick="openResource('charts')">
+                        <div class="resource-icon">📊</div>
+                        <div class="resource-title">Rule Charts</div>
+                        <div class="resource-desc">Visual guides for tajweed rules</div>
+                    </div>
+                    <div class="resource-card" onclick="openResource('books')">
+                        <div class="resource-icon">📖</div>
+                        <div class="resource-title">Reference Books</div>
+                        <div class="resource-desc">Comprehensive tajweed textbooks</div>
+                    </div>
+                    <div class="resource-card" onclick="openResource('apps')">
+                        <div class="resource-icon">📱</div>
+                        <div class="resource-title">Mobile Apps</div>
+                        <div class="resource-desc">Tajweed learning on the go</div>
+                    </div>
+                    <div class="resource-card" onclick="openResource('community')">
+                        <div class="resource-icon">👥</div>
+                        <div class="resource-title">Study Groups</div>
+                        <div class="resource-desc">Learn with other students</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tajweed rules data
+        const tajweedRules = [
+            {
+                id: 1,
+                title: "Noon Sakinah & Tanween Rules",
+                category: "Basic Rules",
+                arabic: "نْ + حروف الحلق",
+                description: "When Noon Sakinah (نْ) or Tanween (ً ٍ ٌ) is followed by letters of the throat (ح خ ع غ ه أ), the Noon sound is completely hidden (Ikhfa).",
+                examples: [
+                    "مِنْ هَادٍ → مِهَادٍ (Ikhfa)",
+                    "مِنْ عِنْدِهِ → مِعِنْدِهِ (Ikhfa)",
+                    "مِنْ حَيْثُ → مِحَيْثُ (Ikhfa)"
+                ],
+                audioUrl: "audio/noon_sakinah.mp3",
+                practiceUrl: "practice/noon_sakinah.html"
+            },
+            {
+                id: 2,
+                title: "Meem Sakinah Rules",
+                category: "Basic Rules",
+                arabic: "مْ + ب",
+                description: "When Meem Sakinah (مْ) is followed by the letter Baa (ب), the Meem is completely hidden (Ikhfa Shafawi).",
+                examples: [
+                    "هُمْ بِهِ → هُبِّهِ (Ikhfa Shafawi)",
+                    "لَهُمْ بَنِينَ → لَهَبَنِينَ (Ikhfa Shafawi)",
+                    "عَلَيْهِمْ بِالْحَقِّ → عَلَيْهِبِّالْحَقِّ (Ikhfa Shafawi)"
+                ],
+                audioUrl: "audio/meem_sakinah.mp3",
+                practiceUrl: "practice/meem_sakinah.html"
+            },
+            {
+                id: 3,
+                title: "Qalqalah (Bouncing)",
+                category: "Letter Characteristics",
+                arabic: "ق ط ب ج د",
+                description: "Qalqalah letters (ق ط ب ج د) have a bouncing sound when they have Sukun (ْ). The sound should be light and clear.",
+                examples: [
+                    "أَحَدْ → أَحَدْ (Qalqalah)",
+                    "مِنْ قَبْلِ → مِقْقَبْلِ (Qalqalah)",
+                    "لَمْ يَلِدْ → لَمْ يَلِدْ (Qalqalah)"
+                ],
+                audioUrl: "audio/qalqalah.mp3",
+                practiceUrl: "practice/qalqalah.html"
+            },
+            {
+                id: 4,
+                title: "Madd (Elongation)",
+                category: "Vowel Rules",
+                arabic: "ا و ي + سكون",
+                description: "Madd occurs when a letter of elongation (ا و ي) is followed by Sukun. The sound should be held for 2 counts.",
+                examples: [
+                    "قَالَ → قَالَ (Madd 2 counts)",
+                    "نُوحٍ → نُوحٍ (Madd 2 counts)",
+                    "فِي → فِي (Madd 2 counts)"
+                ],
+                audioUrl: "audio/madd.mp3",
+                practiceUrl: "practice/madd.html"
+            },
+            {
+                id: 5,
+                title: "Idgham (Merging)",
+                category: "Advanced Rules",
+                arabic: "نْ + ر ل م ن و ي",
+                description: "When Noon Sakinah (نْ) is followed by ر ل م ن و ي, the Noon merges completely into the following letter.",
+                examples: [
+                    "مِنْ رَبِّهِمْ → مِرْرَبِّهِمْ (Idgham)",
+                    "مِنْ لَدُنْهُ → مِلْلَدُنْهُ (Idgham)",
+                    "مِنْ نُّطْفَةٍ → مِ نُّطْفَةٍ (Idgham)"
+                ],
+                audioUrl: "audio/idgham.mp3",
+                practiceUrl: "practice/idgham.html"
+            },
+            {
+                id: 6,
+                title: "Ghunnah (Nasalization)",
+                category: "Advanced Rules",
+                arabic: "نْ + م",
+                description: "When Noon Sakinah (نْ) is followed by Meem (م), the Noon is hidden but the nasal sound (Ghunnah) is held for 2 counts.",
+                examples: [
+                    "مِنْ مَاءٍ → مِمْمَاءٍ (Ghunnah 2 counts)",
+                    "عَنْ مَرْيَمَ → عَمْمَرْيَمَ (Ghunnah 2 counts)",
+                    "مِنْ مَّعْدُودَاتٍ → مِمَّعْدُودَاتٍ (Ghunnah 2 counts)"
+                ],
+                audioUrl: "audio/ghunnah.mp3",
+                practiceUrl: "practice/ghunnah.html"
+            }
+        ];
+
+        // User progress data
+        let userTajweedProgress = JSON.parse(localStorage.getItem('tajweedProgress') || '{}');
+        
+        // Initialize default data if none exists
+        if (!userTajweedProgress.rulesLearned) {
+            userTajweedProgress = {
+                rulesLearned: 0,
+                exercisesCompleted: 0,
+                practiceTime: 0,
+                accuracyScore: 0,
+                startDate: new Date().toISOString(),
+                lastPracticeDate: new Date().toISOString(),
+                completedRules: [],
+                completedExercises: []
+            };
+            localStorage.setItem('tajweedProgress', JSON.stringify(userTajweedProgress));
+        }
+
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+            
+            // Show selected section
+            document.getElementById(section + '-section').style.display = 'block';
+            
+            // Update active tab
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Load section content
+            if (section === 'progress') {
+                updateProgress();
+            }
+        }
+
+        function loadTajweedRules() {
+            const rulesContainer = document.getElementById('tajweedRules');
+            rulesContainer.innerHTML = tajweedRules.map(rule => `
+                <div class="rule-card" onclick="showRuleDetails(${rule.id})">
+                    <div class="rule-header">
+                        <div class="rule-title">${rule.title}</div>
+                        <div class="rule-category">${rule.category}</div>
+                    </div>
+                    
+                    <div class="rule-arabic">${rule.arabic}</div>
+                    <div class="rule-description">${rule.description}</div>
+                    
+                    <div class="rule-examples">
+                        <div class="examples-title">Examples:</div>
+                        ${rule.examples.map(example => `
+                            <div class="example-item">${example}</div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="rule-actions">
+                        <button class="action-btn audio-btn" onclick="playAudio('${rule.audioUrl}')">Listen</button>
+                        <button class="action-btn practice-btn" onclick="startPractice('${rule.practiceUrl}')">Practice</button>
+                        <button class="action-btn learn-btn" onclick="learnRule(${rule.id})">Learn More</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showRuleDetails(ruleId) {
+            const rule = tajweedRules.find(r => r.id === ruleId);
+            if (rule) {
+                alert(`Tajweed Rule: ${rule.title}\n\nCategory: ${rule.category}\n\nDescription: ${rule.description}\n\nExamples:\n${rule.examples.join('\n')}\n\nClick the buttons below to listen, practice, and learn more about this rule.`);
+            }
+        }
+
+        function playAudio(audioUrl) {
+            alert(`Audio player would start playing the tajweed rule example.\n\nFeatures:\n- Professional pronunciation\n- Slow and normal speed options\n- Repeat functionality\n- Rule explanation overlay\n- Practice mode integration`);
+        }
+
+        function startPractice(practiceUrl) {
+            alert(`Practice session would start for this tajweed rule.\n\nFeatures:\n- Interactive exercises\n- Real-time feedback\n- Progress tracking\n- Difficulty adjustment\n- Performance analytics`);
+        }
+
+        function learnRule(ruleId) {
+            const rule = tajweedRules.find(r => r.id === ruleId);
+            if (rule) {
+                alert(`Learning Module: ${rule.title}\n\nThis would open a comprehensive learning module including:\n- Detailed rule explanation\n- Multiple examples\n- Common mistakes\n- Practice exercises\n- Assessment quiz\n- Progress tracking`);
+                
+                // Mark rule as learned
+                if (!userTajweedProgress.completedRules.includes(ruleId)) {
+                    userTajweedProgress.completedRules.push(ruleId);
+                    userTajweedProgress.rulesLearned = userTajweedProgress.completedRules.length;
+                    localStorage.setItem('tajweedProgress', JSON.stringify(userTajweedProgress));
+                }
+            }
+        }
+
+        function startExercise(exerciseType) {
+            let message = '';
+            switch(exerciseType) {
+                case 'pronunciation':
+                    message = 'Pronunciation Practice Started!\n\nYou will practice:\n- Letter articulation\n- Sound production\n- Mouth positioning\n- Breath control\n- Clear pronunciation';
+                    break;
+                case 'rules':
+                    message = 'Rule Application Started!\n\nYou will practice:\n- Applying tajweed rules\n- Rule recognition\n- Context understanding\n- Rule combinations\n- Practical application';
+                    break;
+                case 'listening':
+                    message = 'Listening & Recognition Started!\n\nYou will practice:\n- Audio recognition\n- Rule identification\n- Error detection\n- Quality assessment\n- Comparative analysis';
+                    break;
+                case 'recording':
+                    message = 'Self-Recording Started!\n\nYou will practice:\n- Recording your voice\n- Self-assessment\n- Expert comparison\n- Progress tracking\n- Improvement areas';
+                    break;
+                case 'correction':
+                    message = 'Error Correction Started!\n\nYou will practice:\n- Mistake identification\n- Correct pronunciation\n- Common errors\n- Prevention techniques\n- Quality improvement';
+                    break;
+                case 'assessment':
+                    message = 'Skill Assessment Started!\n\nYou will be tested on:\n- Rule knowledge\n- Practical application\n- Pronunciation accuracy\n- Overall proficiency\n- Areas for improvement';
+                    break;
+            }
+            alert(message);
+            
+            // Update progress
+            if (!userTajweedProgress.completedExercises.includes(exerciseType)) {
+                userTajweedProgress.completedExercises.push(exerciseType);
+                userTajweedProgress.exercisesCompleted = userTajweedProgress.completedExercises.length;
+                localStorage.setItem('tajweedProgress', JSON.stringify(userTajweedProgress));
+            }
+        }
+
+        function updateProgress() {
+            document.getElementById('rulesLearned').textContent = userTajweedProgress.rulesLearned;
+            document.getElementById('exercisesCompleted').textContent = userTajweedProgress.exercisesCompleted;
+            document.getElementById('practiceTime').textContent = Math.round(userTajweedProgress.practiceTime * 10) / 10;
+            document.getElementById('accuracyScore').textContent = userTajweedProgress.accuracyScore + '%';
+        }
+
+        function openResource(type) {
+            let message = '';
+            switch(type) {
+                case 'videos':
+                    message = 'Video Tutorials would include:\n- Step-by-step lessons\n- Expert demonstrations\n- Rule explanations\n- Practice sessions\n- Progress tracking';
+                    break;
+                case 'audio':
+                    message = 'Audio Examples would include:\n- Professional recitations\n- Rule demonstrations\n- Practice exercises\n- Speed variations\n- Quality examples';
+                    break;
+                case 'charts':
+                    message = 'Rule Charts would include:\n- Visual rule guides\n- Letter classifications\n- Rule combinations\n- Practice diagrams\n- Reference materials';
+                    break;
+                case 'books':
+                    message = 'Reference Books would include:\n- Comprehensive guides\n- Rule explanations\n- Practice exercises\n- Examples and exceptions\n- Advanced topics';
+                    break;
+                case 'apps':
+                    message = 'Mobile Apps would include:\n- On-the-go learning\n- Interactive exercises\n- Progress tracking\n- Audio examples\n- Practice tools';
+                    break;
+                case 'community':
+                    message = 'Study Groups would include:\n- Group discussions\n- Peer learning\n- Expert guidance\n- Practice partners\n- Motivation support';
+                    break;
+            }
+            alert(message);
+        }
+
+        // Initialize page
+        window.addEventListener('load', () => {
+            loadTajweedRules();
+            updateProgress();
+        });
+    </script>
+</body>
+</html>
