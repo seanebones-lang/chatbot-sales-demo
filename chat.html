@@ -794,7 +794,7 @@
             `;
             
             // Call the Python backend AI
-            fetch("/chat", {
+            fetch("http://localhost:8080/chat", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -952,7 +952,7 @@
             
             // Test search with backend
             const testQuery = 'family';
-            fetch("/chat", {
+            fetch("http://localhost:8080/chat", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
