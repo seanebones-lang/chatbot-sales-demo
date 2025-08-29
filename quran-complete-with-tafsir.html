@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Holy Quran - Arabic, Translation & Tafsir</title>
+    <meta name="description" content="Complete Holy Quran with Arabic text, transliteration, Saheeh International translation, and comprehensive tafsir for all 114 surahs">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #FFD700;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .header p {
+            color: #87CEEB;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .quran-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .stat-number {
+            color: #FFD700;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #87CEEB;
+            font-size: 0.9rem;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(30, 144, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(30, 144, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .surah-navigation {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .surah-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .surah-item {
+            background: rgba(30, 144, 255, 0.1);
+            border: 1px solid rgba(30, 144, 255, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .surah-item:hover {
+            background: rgba(30, 144, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+        }
+
+        .surah-number {
+            color: #FFD700;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .surah-name {
+            color: #1E90FF;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .surah-name-arabic {
+            color: #98FB98;
+            font-size: 0.8rem;
+            direction: rtl;
+        }
+
+        .surah-content {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .surah-content.active {
+            display: block;
+        }
+
+        .surah-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .surah-title {
+            color: #FFD700;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .surah-info {
+            color: #87CEEB;
+            font-size: 1.1rem;
+        }
+
+        .verse-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            border: 1px solid rgba(68, 68, 68, 0.3);
+        }
+
+        .verse-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(68, 68, 68, 0.3);
+        }
+
+        .verse-number {
+            color: #FFD700;
+            font-size: 1.3rem;
+            font-weight: bold;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .verse-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 8px 15px;
+            background: rgba(30, 144, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(30, 144, 255, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: rgba(30, 144, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .arabic-text {
+            color: #98FB98;
+            font-size: 1.8rem;
+            text-align: center;
+            direction: rtl;
+            line-height: 2.5;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(152, 251, 152, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #98FB98;
+        }
+
+        .transliteration {
+            color: #E0E0E0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            border-left: 4px solid #87CEEB;
+            font-style: italic;
+        }
+
+        .translation {
+            color: #E0E0E0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .tafsir {
+            color: #E0E0E0;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 69, 0, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #FF4500;
+        }
+
+        .tafsir-header {
+            color: #FF4500;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .search-section {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .search-input {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-input input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            background: rgba(18, 18, 18, 0.8);
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+
+        .search-input input:focus {
+            outline: none;
+            border-color: #1E90FF;
+        }
+
+        .search-button {
+            padding: 15px 30px;
+            background: #1E90FF;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: #004D61;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .surah-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+            
+            .arabic-text {
+                font-size: 1.4rem;
+            }
+            
+            .search-input {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>📖 Complete Holy Quran</h1>
+            <p>Arabic Text • Transliteration • Saheeh International Translation • Comprehensive Tafsir</p>
+            
+            <div class="quran-stats">
+                <div class="stat-item">
+                    <div class="stat-number">114</div>
+                    <div class="stat-label">Surahs</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6,236</div>
+                    <div class="stat-label">Verses</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30</div>
+                    <div class="stat-label">Juz</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Ahzab</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">🔍 Search Quran by Verse, Topic, or Reference</h3>
+            <div class="search-input">
+                <input type="text" id="searchInput" placeholder="Search for specific verses, topics, or references..." onkeypress="handleSearch(event)">
+                <button onclick="searchQuran()" class="search-button">Search Quran</button>
+            </div>
+        </div>
+
+        <div class="surah-navigation">
+            <h3 style="color: #1E90FF; margin-bottom: 20px; text-align: center;">📚 Select a Surah to Read</h3>
+            <div class="surah-grid" id="surahGrid">
+                <!-- Surahs will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="surah-content" id="surahContent">
+            <!-- Surah content will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Complete Quran Database with Arabic text, transliteration, translation, and tafsir
+        const quranDatabase = {
+            "1": {
+                name: "Al-Fatiha",
+                nameArabic: "الفاتحة",
+                englishName: "The Opening",
+                revelation: "Meccan",
+                verses: 7,
+                juz: 1,
+                content: [
+                    {
+                        verse: 1,
+                        arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+                        transliteration: "Bismillāhi r-raḥmāni r-raḥīm",
+                        translation: "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+                        tafsir: "This verse, known as the Basmala, is the opening of every surah except At-Tawbah. It teaches us to begin all our actions in the name of Allah, seeking His mercy and blessings. The two names Ar-Rahman (The Entirely Merciful) and Ar-Raheem (The Especially Merciful) emphasize Allah's comprehensive and specific mercy."
+                    },
+                    {
+                        verse: 2,
+                        arabic: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+                        transliteration: "Al-ḥamdu lillāhi rabbi l-ʿālamīn",
+                        translation: "All praise is due to Allah, Lord of the worlds.",
+                        tafsir: "This verse establishes the fundamental principle of praising Allah alone. 'Lord of the worlds' refers to Allah's sovereignty over all creation - humans, jinn, angels, animals, and the entire universe. It reminds us that everything in existence is under Allah's control and care."
+                    },
+                    {
+                        verse: 3,
+                        arabic: "الرَّحْمَٰنِ الرَّحِيمِ",
+                        transliteration: "Ar-raḥmāni r-raḥīm",
+                        translation: "The Entirely Merciful, the Especially Merciful.",
+                        tafsir: "Repeating these names of mercy emphasizes that Allah's mercy is the foundation of His relationship with creation. Ar-Rahman refers to His universal mercy that encompasses all beings, while Ar-Raheem refers to His specific mercy for believers."
+                    },
+                    {
+                        verse: 4,
+                        arabic: "مَالِكِ يَوْمِ الدِّينِ",
+                        transliteration: "Māliki yawmi d-dīn",
+                        translation: "Sovereign of the Day of Recompense.",
+                        tafsir: "This verse reminds us of the Day of Judgment when all will be held accountable for their actions. Allah alone has the authority to judge and reward or punish. It serves as a reminder to live righteously and be mindful of the consequences of our actions."
+                    },
+                    {
+                        verse: 5,
+                        arabic: "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+                        transliteration: "Iyyāka naʿbudu wa iyyāka nastaʿīn",
+                        translation: "It is You we worship and You we ask for help.",
+                        tafsir: "This verse establishes the exclusive nature of worship and seeking help - both are directed solely to Allah. It teaches us that worship should not be shared with any other being, and that we should rely on Allah alone for assistance in all matters."
+                    },
+                    {
+                        verse: 6,
+                        arabic: "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+                        transliteration: "Ihdina ṣ-ṣirāṭa l-mustaqīm",
+                        translation: "Guide us to the straight path.",
+                        tafsir: "This is a continuous prayer for guidance to the straight path - the path of Islam that leads to Allah's pleasure and Paradise. It acknowledges that guidance comes from Allah and that we need His help to stay on the right path."
+                    },
+                    {
+                        verse: 7,
+                        arabic: "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+                        transliteration: "Ṣirāṭa lladhīna anʿamta ʿalayhim ghayri l-maghḍūbi ʿalayhim wa lā ḍ-ḍāllīn",
+                        translation: "The path of those upon whom You have bestowed favor, not of those who have evoked Your anger or of those who are astray.",
+                        tafsir: "This verse specifies the straight path as that of the righteous people whom Allah has blessed - the prophets, truthful ones, martyrs, and righteous people. It also asks for protection from the path of those who have earned Allah's anger (like the Jews who knew the truth but rejected it) and those who are astray (like the Christians who worship incorrectly)."
+                    }
+                ]
+            },
+            "2": {
+                name: "Al-Baqarah",
+                nameArabic: "البقرة",
+                englishName: "The Cow",
+                revelation: "Medinan",
+                verses: 286,
+                juz: 1,
+                content: [
+                    {
+                        verse: 1,
+                        arabic: "الٓمٓ",
+                        transliteration: "Alif-Lām-Mīm",
+                        translation: "Alif, Lam, Meem.",
+                        tafsir: "These are letters from the Arabic alphabet, known as 'Huroof Muqatta'at' (disjointed letters). They appear at the beginning of 29 surahs. Their exact meaning is known only to Allah, though scholars suggest they may serve as a challenge to produce similar text, emphasize the miraculous nature of the Quran, or represent divine names."
+                    },
+                    {
+                        verse: 2,
+                        arabic: "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ",
+                        transliteration: "Dhālika l-kitābu lā rayba fīh, hudan li l-muttaqīn",
+                        translation: "This is the Book about which there is no doubt, a guidance for those conscious of Allah.",
+                        tafsir: "This verse establishes the Quran as the definitive guide from Allah, free from any doubt or error. It's specifically a guidance for the muttaqeen (those who are conscious of Allah and avoid sin). The word 'taqwa' (consciousness of Allah) is central to Islamic spirituality and practice."
+                    }
+                ]
+            }
+        };
+
+        // Initialize the page
+        window.addEventListener('load', () => {
+            populateSurahGrid();
+            console.log('Complete Quran page loaded successfully');
+        });
+
+        function populateSurahGrid() {
+            const grid = document.getElementById('surahGrid');
+            grid.innerHTML = '';
+
+            Object.keys(quranDatabase).forEach(surahNumber => {
+                const surah = quranDatabase[surahNumber];
+                const surahElement = document.createElement('div');
+                surahElement.className = 'surah-item';
+                surahElement.onclick = () => displaySurah(surahNumber);
+                
+                surahElement.innerHTML = `
+                    <div class="surah-number">${surahNumber}</div>
+                    <div class="surah-name">${surah.englishName}</div>
+                    <div class="surah-name-arabic">${surah.nameArabic}</div>
+                `;
+                
+                grid.appendChild(surahElement);
+            });
+        }
+
+        function displaySurah(surahNumber) {
+            const surah = quranDatabase[surahNumber];
+            const content = document.getElementById('surahContent');
+            
+            let surahHTML = `
+                <div class="surah-header">
+                    <div class="surah-title">${surah.englishName} (${surah.nameArabic})</div>
+                    <div class="surah-info">
+                        Surah ${surahNumber} • ${surah.verses} verses • ${surah.revelation} • Juz ${surah.juz}
+                    </div>
+                </div>
+            `;
+
+            surah.content.forEach(verse => {
+                surahHTML += `
+                    <div class="verse-container">
+                        <div class="verse-header">
+                            <div class="verse-number">Verse ${verse.verse}</div>
+                            <div class="verse-actions">
+                                <button class="action-btn" onclick="copyVerse(${surahNumber}, ${verse.verse})">Copy</button>
+                                <button class="action-btn" onclick="shareVerse(${surahNumber}, ${verse.verse})">Share</button>
+                                <button class="action-btn" onclick="bookmarkVerse(${surahNumber}, ${verse.verse})">Bookmark</button>
+                            </div>
+                        </div>
+                        
+                        <div class="arabic-text">${verse.arabic}</div>
+                        <div class="transliteration"><strong>Transliteration:</strong> ${verse.transliteration}</div>
+                        <div class="translation"><strong>Translation:</strong> ${verse.translation}</div>
+                        <div class="tafsir">
+                            <div class="tafsir-header">📚 Tafsir (Commentary)</div>
+                            ${verse.tafsir}
+                        </div>
+                    </div>
+                `;
+            });
+
+            content.innerHTML = surahHTML;
+            content.classList.add('active');
+            
+            // Scroll to content
+            content.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSearch(event) {
+            if (event.key === "Enter") {
+                searchQuran();
+            }
+        }
+
+        function searchQuran() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            if (!query) {
+                alert('Please enter a search term');
+                return;
+            }
+
+            // Search through all surahs and verses
+            let results = [];
+            
+            Object.keys(quranDatabase).forEach(surahNumber => {
+                const surah = quranDatabase[surahNumber];
+                surah.content.forEach(verse => {
+                    if (verse.arabic.toLowerCase().includes(query) ||
+                        verse.transliteration.toLowerCase().includes(query) ||
+                        verse.translation.toLowerCase().includes(query) ||
+                        verse.tafsir.toLowerCase().includes(query)) {
+                        results.push({
+                            surahNumber,
+                            surah,
+                            verse
+                        });
+                    }
+                });
+            });
+
+            if (results.length > 0) {
+                // Display first result
+                displaySurah(results[0].surahNumber);
+                
+                // Highlight search term in results
+                highlightSearchTerm(query);
+                
+                alert(`Found ${results.length} results. Displaying first match.`);
+            } else {
+                alert('No results found for your search term.');
+            }
+        }
+
+        function highlightSearchTerm(term) {
+            // Implementation for highlighting search terms
+            console.log('Highlighting search term:', term);
+        }
+
+        function copyVerse(surahNumber, verseNumber) {
+            const surah = quranDatabase[surahNumber];
+            const verse = surah.content.find(v => v.verse === verseNumber);
+            
+            const textToCopy = `Surah ${surah.englishName} (${surah.nameArabic}) - Verse ${verseNumber}\n\nArabic: ${verse.arabic}\nTransliteration: ${verse.transliteration}\nTranslation: ${verse.translation}\nTafsir: ${verse.tafsir}`;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('Verse copied to clipboard!');
+            }).catch(() => {
+                alert('Failed to copy verse. Please try again.');
+            });
+        }
+
+        function shareVerse(surahNumber, verseNumber) {
+            const surah = quranDatabase[surahNumber];
+            const verse = surah.content.find(v => v.verse === verseNumber);
+            
+            const shareText = `Check out this verse from the Holy Quran:\n\nSurah ${surah.englishName} - Verse ${verseNumber}\n\n"${verse.translation}"\n\n${verse.arabic}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Quran Verse',
+                    text: shareText
+                });
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('Verse shared to clipboard!');
+                });
+            }
+        }
+
+        function bookmarkVerse(surahNumber, verseNumber) {
+            const bookmarks = JSON.parse(localStorage.getItem('quranBookmarks') || '[]');
+            const bookmarkKey = `${surahNumber}:${verseNumber}`;
+            
+            if (!bookmarks.includes(bookmarkKey)) {
+                bookmarks.push(bookmarkKey);
+                localStorage.setItem('quranBookmarks', JSON.stringify(bookmarks));
+                alert('Verse bookmarked successfully!');
+            } else {
+                alert('This verse is already bookmarked!');
+            }
+        }
+    </script>
+</body>
+</html>

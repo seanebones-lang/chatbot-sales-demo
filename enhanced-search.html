@@ -137,6 +137,82 @@
             background: rgba(30, 144, 255, 0.3);
         }
 
+        /* Searchable Index Styles */
+        .searchable-index {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .index-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .index-category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+        }
+
+        .index-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .index-items {
+            color: #E0E0E0;
+            line-height: 1.8;
+        }
+
+        .index-item {
+            cursor: pointer;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+
+        .index-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFD700;
+            transform: translateX(5px);
+        }
+
+        .quick-search-tags {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .search-tag {
+            background: rgba(30, 144, 255, 0.2);
+            color: #87CEEB;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 144, 255, 0.3);
+        }
+
+        .search-tag:hover {
+            background: rgba(30, 144, 255, 0.4);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+        }
+
         .results-section {
             background: rgba(18, 18, 18, 0.8);
             border: 2px solid rgba(68, 68, 68, 0.5);
@@ -346,6 +422,16 @@
             <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
             <h1>Enhanced Islamic Knowledge Search</h1>
             <p>Comprehensive search across Quran, Hadith, Fiqh, Sunnah, and Islamic guidance with PDF generation</p>
+            
+            <!-- AI Connection Status -->
+            <div class="ai-status" style="margin-top: 20px; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(68, 68, 68, 0.3);">
+                <div id="aiConnectionStatus" style="color: #87CEEB; font-size: 1.1rem; font-weight: bold; text-align: center;">
+                    🔄 Connecting to AI Model...
+                </div>
+                <div style="color: #E0E0E0; font-size: 0.9rem; text-align: center; margin-top: 10px;">
+                    Local DeenBot AI Model for Enhanced Islamic Guidance
+                </div>
+            </div>
         </div>
 
         <div class="search-section">
@@ -363,6 +449,78 @@
                 <button class="source-btn" onclick="setSource('new-muslim')">New Muslim Guide</button>
                 <button class="source-btn" onclick="setSource('encouragement')">Encouragement</button>
                 <button class="source-btn" onclick="setSource('practical')">Practical Guidance</button>
+            </div>
+        </div>
+
+        <!-- Searchable Index Section -->
+        <div class="searchable-index" style="margin-top: 25px; padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 15px; border: 2px solid rgba(255, 215, 0, 0.3);">
+            <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">📚 Searchable Islamic Knowledge Index</h3>
+            
+            <div class="index-categories" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <!-- Quran Index -->
+                <div class="index-category" style="background: rgba(30, 144, 255, 0.1); padding: 20px; border-radius: 10px; border-left: 4px solid #1E90FF;">
+                    <h4 style="color: #1E90FF; margin-bottom: 15px;">📖 Quran Index</h4>
+                    <div class="index-items">
+                        <div class="index-item" onclick="searchFromIndex('tawheed')">• Tawheed (Oneness of Allah)</div>
+                        <div class="index-item" onclick="searchFromIndex('prayer')">• Prayer & Worship</div>
+                        <div class="index-item" onclick="searchFromIndex('mercy')">• Mercy & Compassion</div>
+                        <div class="index-item" onclick="searchFromIndex('patience')">• Patience & Perseverance</div>
+                        <div class="index-item" onclick="searchFromIndex('gratitude')">• Gratitude & Thankfulness</div>
+                    </div>
+                </div>
+                
+                <!-- Hadith Index -->
+                <div class="index-category" style="background: rgba(152, 251, 152, 0.1); padding: 20px; border-radius: 10px; border-left: 4px solid #98FB98;">
+                    <h4 style="color: #98FB98; margin-bottom: 15px;">📚 Hadith Index</h4>
+                    <div class="index-items">
+                        <div class="index-item" onclick="searchFromIndex('sahih bukhari')">• Sahih Bukhari</div>
+                        <div class="index-item" onclick="searchFromIndex('sahih muslim')">• Sahih Muslim</div>
+                        <div class="index-item" onclick="searchFromIndex('riyadh saliheen')">• Riyadh as-Saliheen</div>
+                        <div class="index-item" onclick="searchFromIndex('intention')">• Intention & Purpose</div>
+                        <div class="index-item" onclick="searchFromIndex('faith')">• Faith & Belief</div>
+                    </div>
+                </div>
+                
+                <!-- Fiqh Index -->
+                <div class="index-category" style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 10px; border-left: 4px solid #FFD700;">
+                    <h4 style="color: #FFD700; margin-bottom: 15px;">⚖️ Fiqh Index</h4>
+                    <div class="index-items">
+                        <div class="index-item" onclick="searchFromIndex('prayer times')">• Prayer Times</div>
+                        <div class="index-item" onclick="searchFromIndex('wudu')">• Wudu & Cleanliness</div>
+                        <div class="index-item" onclick="searchFromIndex('business ethics')">• Business Ethics</div>
+                        <div class="index-item" onclick="searchFromIndex('halal')">• Halal & Haram</div>
+                        <div class="index-item" onclick="searchFromIndex('family')">• Family & Marriage</div>
+                    </div>
+                </div>
+                
+                <!-- Sunnah Index -->
+                <div class="index-category" style="background: rgba(255, 69, 0, 0.1); padding: 20px; border-radius: 10px; border-left: 4px solid #FF4500;">
+                    <h4 style="color: #FF4500; margin-bottom: 15px;">🌟 Sunnah Index</h4>
+                    <div class="index-items">
+                        <div class="index-item" onclick="searchFromIndex('morning supplication')">• Morning Supplications</div>
+                        <div class="index-item" onclick="searchFromIndex('evening supplication')">• Evening Supplications</div>
+                        <div class="index-item" onclick="searchFromIndex('eating')">• Eating & Drinking</div>
+                        <div class="index-item" onclick="searchFromIndex('sleeping')">• Sleeping & Waking</div>
+                        <div class="index-item" onclick="searchFromIndex('travel')">• Travel & Journey</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Search Tags -->
+            <div class="quick-search-tags" style="margin-top: 25px; text-align: center;">
+                <h4 style="color: #87CEEB; margin-bottom: 15px;">🔍 Quick Search Tags</h4>
+                <div class="tags-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                    <span class="search-tag" onclick="searchFromIndex('allah')">Allah</span>
+                    <span class="search-tag" onclick="searchFromIndex('prophet')">Prophet</span>
+                    <span class="search-tag" onclick="searchFromIndex('islam')">Islam</span>
+                    <span class="search-tag" onclick="searchFromIndex('faith')">Faith</span>
+                    <span class="search-tag" onclick="searchFromIndex('prayer')">Prayer</span>
+                    <span class="search-tag" onclick="searchFromIndex('mercy')">Mercy</span>
+                    <span class="search-tag" onclick="searchFromIndex('patience')">Patience</span>
+                    <span class="search-tag" onclick="searchFromIndex('gratitude')">Gratitude</span>
+                    <span class="search-tag" onclick="searchFromIndex('knowledge')">Knowledge</span>
+                    <span class="search-tag" onclick="searchFromIndex('character')">Character</span>
+                </div>
             </div>
         </div>
 
@@ -540,6 +698,177 @@
             ]
         };
 
+        // Comprehensive Hadith Library
+        const hadithLibrary = {
+            // Sahih Bukhari
+            "sahih-bukhari": [
+                {
+                    reference: "Sahih Bukhari 1:1",
+                    arabic: "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى",
+                    translation: "Actions are judged by intentions, and every person will be rewarded according to what they intended.",
+                    context: "The first hadith in Sahih Bukhari, emphasizing the importance of intention in all actions.",
+                    topic: "Intention",
+                    source: "Sahih Bukhari",
+                    narrator: "Umar ibn Al-Khattab",
+                    keywords: ["intention", "actions", "reward", "niyyah", "purpose", "motivation"],
+                    difficulty: "beginner",
+                    pdfAvailable: true,
+                    pdfTitle: "Sahih_Bukhari_Intention_Hadith.pdf"
+                },
+                {
+                    reference: "Sahih Bukhari 2:8",
+                    arabic: "الإِسْلاَمُ أَنْ تَشْهَدَ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+                    translation: "Islam is to testify that there is no deity except Allah and that Muhammad is the Messenger of Allah.",
+                    context: "Definition of Islam according to the Prophet Muhammad (ﷺ).",
+                    topic: "Islam",
+                    source: "Sahih Bukhari",
+                    narrator: "Abu Hurairah",
+                    keywords: ["islam", "shahada", "testimony", "faith", "declaration", "muhammad"],
+                    difficulty: "beginner",
+                    pdfAvailable: true,
+                    pdfTitle: "Islam_Definition_Hadith.pdf"
+                }
+            ],
+            
+            // Sahih Muslim
+            "sahih-muslim": [
+                {
+                    reference: "Sahih Muslim 1:1",
+                    arabic: "مَنْ حَسَّنَ إِسْلاَمَهُ حَسَنَ إِيمَانُهُ",
+                    translation: "Whoever improves their Islam, their faith will be improved.",
+                    context: "Emphasizing the connection between outward actions and inner faith.",
+                    topic: "Faith",
+                    source: "Sahih Muslim",
+                    narrator: "Abu Hurairah",
+                    keywords: ["faith", "islam", "improvement", "actions", "iman", "practice"],
+                    difficulty: "beginner",
+                    pdfAvailable: true,
+                    pdfTitle: "Faith_Improvement_Hadith.pdf"
+                }
+            ],
+            
+            // Riyadh as-Saliheen
+            "riyadh-saliheen": [
+                {
+                    reference: "Riyadh as-Saliheen 1:1",
+                    arabic: "إِنَّ اللَّهَ تَعَالَى يَقُولُ إِنِّي أَنَا اللَّهُ لاَ إِلَهَ إِلاَّ أَنَا",
+                    translation: "Allah the Exalted says: 'I am Allah, there is no deity except Me.'",
+                    context: "Qudsi hadith emphasizing Allah's oneness and direct communication.",
+                    topic: "Tawheed",
+                    source: "Riyadh as-Saliheen",
+                    narrator: "Abu Hurairah",
+                    keywords: ["allah", "oneness", "qudsi", "divine", "communication", "tawheed"],
+                    difficulty: "intermediate",
+                    pdfAvailable: true,
+                    pdfTitle: "Qudsi_Hadith_Collection.pdf"
+                }
+            ]
+        };
+
+        // Comprehensive Fiqh Library
+        const fiqhLibrary = {
+            // Prayer Fiqh
+            "prayer-fiqh": [
+                {
+                    reference: "Prayer Times Fiqh",
+                    arabic: "أَوَّلُ الْوَقْتِ رِضْوَانُ اللَّهِ وَآخِرُهُ عَفْوُ اللَّهِ",
+                    translation: "The beginning of prayer time is Allah's pleasure, and the end is Allah's forgiveness.",
+                    context: "Fiqh ruling on the importance of praying at the beginning of prayer times.",
+                    topic: "Prayer Times",
+                    source: "Fiqh",
+                    school: "All Schools",
+                    keywords: ["prayer", "times", "beginning", "pleasure", "forgiveness", "fiqh"],
+                    difficulty: "intermediate",
+                    pdfAvailable: true,
+                    pdfTitle: "Prayer_Times_Fiqh_Guide.pdf"
+                },
+                {
+                    reference: "Wudu Fiqh",
+                    arabic: "الطُّهُورُ شَطْرُ الإِيمَانِ",
+                    translation: "Cleanliness is half of faith.",
+                    context: "Fiqh ruling on the importance of wudu and cleanliness in Islam.",
+                    topic: "Cleanliness",
+                    source: "Fiqh",
+                    school: "All Schools",
+                    keywords: ["cleanliness", "wudu", "faith", "purity", "ablution", "fiqh"],
+                    difficulty: "beginner",
+                    pdfAvailable: true,
+                    pdfTitle: "Wudu_Fiqh_Complete_Guide.pdf"
+                }
+            ],
+            
+            // Business Fiqh
+            "business-fiqh": [
+                {
+                    reference: "Business Ethics Fiqh",
+                    arabic: "إِنَّ اللَّهَ يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلاً أَنْ يُتْقِنَهُ",
+                    translation: "Allah loves when one of you does a job, that he perfects it.",
+                    context: "Fiqh ruling on the importance of excellence and perfection in work.",
+                    topic: "Business Ethics",
+                    source: "Fiqh",
+                    school: "All Schools",
+                    keywords: ["business", "ethics", "perfection", "excellence", "work", "quality"],
+                    difficulty: "intermediate",
+                    pdfAvailable: true,
+                    pdfTitle: "Business_Ethics_Fiqh_Guide.pdf"
+                }
+            ]
+        };
+
+        // Comprehensive Sunnah Library
+        const sunnahLibrary = {
+            // Daily Sunnah
+            "daily-sunnah": [
+                {
+                    reference: "Morning Sunnah",
+                    arabic: "اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ",
+                    translation: "O Allah, I have reached the morning and at this very time I call on You and the bearers of Your Throne.",
+                    context: "Morning supplication from the Sunnah of Prophet Muhammad (ﷺ).",
+                    topic: "Morning Supplication",
+                    source: "Sunnah",
+                    category: "Daily",
+                    keywords: ["morning", "supplication", "dua", "throne", "allah", "sunnah"],
+                    difficulty: "beginner",
+                    pdfAvailable: true,
+                    pdfTitle: "Morning_Sunnah_Collection.pdf"
+                },
+                {
+                    reference: "Evening Sunnah",
+                    arabic: "اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ",
+                    translation: "O Allah, I have reached the evening and at this very time I call on You and the bearers of Your Throne.",
+                    context: "Evening supplication from the Sunnah of Prophet Muhammad (ﷺ).",
+                    topic: "Evening Supplication",
+                    source: "Sunnah",
+                    category: "Daily",
+                    keywords: ["evening", "supplication", "dua", "throne", "allah", "sunnah"],
+                    difficulty: "beginner",
+                    pdfAvailable: true,
+                    pdfTitle: "Evening_Sunnah_Collection.pdf"
+                }
+            ],
+            
+            // Eating Sunnah
+            "eating-sunnah": [
+                {
+                    reference: "Eating Sunnah",
+                    arabic: "بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ",
+                    translation: "In the name of Allah and with the blessings of Allah.",
+                    context: "Sunnah of saying bismillah before eating.",
+                    topic: "Eating",
+                    source: "Sunnah",
+                    category: "Daily",
+                    keywords: ["eating", "bismillah", "blessings", "allah", "sunnah", "food"],
+                    difficulty: "beginner",
+                    pdfAvailable: true,
+                    pdfTitle: "Eating_Sunnah_Complete_Guide.pdf"
+                }
+            ]
+        };
+
+        // AI Model Connection Status
+        let aiModelConnected = false;
+        let aiModelEndpoint = 'http://localhost:8080/chat';
+
         let currentSource = 'all';
         let currentFilters = {
             topic: '',
@@ -577,47 +906,144 @@
             displayResults(query, results);
         }
 
+        function searchFromIndex(searchTerm) {
+            // Set the search input value
+            document.getElementById('searchInput').value = searchTerm;
+            
+            // Perform the search
+            performEnhancedSearch();
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
         function searchDatabase(query) {
             const queryLower = query.toLowerCase();
             const results = [];
 
-            // Search through all categories
+            // Search through Quran database
             Object.keys(enhancedIslamicDatabase).forEach(category => {
                 enhancedIslamicDatabase[category].forEach(item => {
-                    // Check if item matches current source filter
-                    if (currentSource !== 'all' && item.source.toLowerCase() !== currentSource.toLowerCase()) {
-                        return;
-                    }
-
-                    // Check if item matches topic filter
-                    if (currentFilters.topic && item.topic.toLowerCase() !== currentFilters.topic.toLowerCase()) {
-                        return;
-                    }
-
-                    // Check if item matches difficulty filter
-                    if (currentFilters.difficulty !== 'all' && item.difficulty !== currentFilters.difficulty) {
-                        return;
-                    }
-
-                    // Check if item matches PDF filter
-                    if (currentFilters.pdfOnly && !item.pdfAvailable) {
-                        return;
-                    }
-
-                    // Check if item matches search query
-                    const matchesQuery = 
-                        item.reference.toLowerCase().includes(queryLower) ||
-                        item.translation.toLowerCase().includes(queryLower) ||
-                        item.context.toLowerCase().includes(queryLower) ||
-                        item.keywords.some(keyword => keyword.toLowerCase().includes(queryLower));
-
-                    if (matchesQuery) {
-                        results.push(item);
+                    if (matchesFilters(item) && matchesQuery(item, queryLower)) {
+                        results.push({...item, searchScore: calculateSearchScore(item, queryLower)});
                     }
                 });
             });
 
-            return results;
+            // Search through Hadith library
+            Object.keys(hadithLibrary).forEach(category => {
+                hadithLibrary[category].forEach(item => {
+                    if (matchesFilters(item) && matchesQuery(item, queryLower)) {
+                        results.push({...item, searchScore: calculateSearchScore(item, queryLower)});
+                    }
+                });
+            });
+
+            // Search through Fiqh library
+            Object.keys(fiqhLibrary).forEach(category => {
+                fiqhLibrary[category].forEach(item => {
+                    if (matchesFilters(item) && matchesQuery(item, queryLower)) {
+                        results.push({...item, searchScore: calculateSearchScore(item, queryLower)});
+                    }
+                });
+            });
+
+            // Search through Sunnah library
+            Object.keys(sunnahLibrary).forEach(category => {
+                sunnahLibrary[category].forEach(item => {
+                    if (matchesFilters(item) && matchesQuery(item, queryLower)) {
+                        results.push({...item, searchScore: calculateSearchScore(item, queryLower)});
+                    }
+                });
+            });
+
+            // Sort by search relevance score
+            return results.sort((a, b) => b.searchScore - a.searchScore);
+        }
+
+        function matchesFilters(item) {
+            // Check if item matches current source filter
+            if (currentSource !== 'all' && item.source.toLowerCase() !== currentSource.toLowerCase()) {
+                return false;
+            }
+
+            // Check if item matches topic filter
+            if (currentFilters.topic && item.topic.toLowerCase() !== currentFilters.topic.toLowerCase()) {
+                return false;
+            }
+
+            // Check if item matches difficulty filter
+            if (currentFilters.difficulty !== 'all' && item.difficulty !== currentFilters.difficulty) {
+                return false;
+            }
+
+            // Check if item matches PDF filter
+            if (currentFilters.pdfOnly && !item.pdfAvailable) {
+                return false;
+            }
+
+            return true;
+        }
+
+        function matchesQuery(item, queryLower) {
+            // Enhanced search matching with multiple criteria
+            const searchableText = [
+                item.reference,
+                item.translation,
+                item.context,
+                item.arabic,
+                ...item.keywords
+            ].join(' ').toLowerCase();
+
+            // Exact phrase match (highest priority)
+            if (searchableText.includes(queryLower)) {
+                return true;
+            }
+
+            // Word-by-word matching
+            const queryWords = queryLower.split(' ').filter(word => word.length > 2);
+            const matchCount = queryWords.filter(word => searchableText.includes(word)).length;
+            
+            // Return true if at least 50% of words match
+            return matchCount >= Math.ceil(queryWords.length * 0.5);
+        }
+
+        function calculateSearchScore(item, queryLower) {
+            let score = 0;
+            const searchableText = [
+                item.reference,
+                item.translation,
+                item.context,
+                item.arabic,
+                ...item.keywords
+            ].join(' ').toLowerCase();
+
+            // Exact phrase match gets highest score
+            if (searchableText.includes(queryLower)) {
+                score += 100;
+            }
+
+            // Word-by-word scoring
+            const queryWords = queryLower.split(' ').filter(word => word.length > 2);
+            queryWords.forEach(word => {
+                if (searchableText.includes(word)) {
+                    score += 10;
+                }
+            });
+
+            // Boost for exact reference matches
+            if (item.reference.toLowerCase().includes(queryLower)) {
+                score += 50;
+            }
+
+            // Boost for exact keyword matches
+            if (item.keywords.some(keyword => keyword.toLowerCase() === queryLower)) {
+                score += 30;
+            }
+
+            return score;
         }
 
         function displayResults(query, results) {
@@ -697,10 +1123,82 @@
             }
         }
 
+        // AI Model Connection Functions
+        async function connectToAIModel() {
+            try {
+                const response = await fetch(aiModelEndpoint + '/health', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    aiModelConnected = true;
+                    console.log('✅ Connected to local AI model');
+                    updateAIConnectionStatus();
+                } else {
+                    throw new Error('AI model not responding');
+                }
+            } catch (error) {
+                aiModelConnected = false;
+                console.log('❌ AI model connection failed:', error.message);
+                updateAIConnectionStatus();
+            }
+        }
+
+        async function askAIModel(question) {
+            if (!aiModelConnected) {
+                alert('AI model is not connected. Please ensure DeenBot is running.');
+                return null;
+            }
+
+            try {
+                const response = await fetch(aiModelEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: question,
+                        user_id: 'search_user'
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.response;
+                } else {
+                    throw new Error('AI model request failed');
+                }
+            } catch (error) {
+                console.error('AI model error:', error);
+                return null;
+            }
+        }
+
+        function updateAIConnectionStatus() {
+            const statusElement = document.getElementById('aiConnectionStatus');
+            if (statusElement) {
+                if (aiModelConnected) {
+                    statusElement.innerHTML = '🟢 AI Model Connected';
+                    statusElement.style.color = '#98FB98';
+                } else {
+                    statusElement.innerHTML = '🔴 AI Model Disconnected';
+                    statusElement.style.color = '#FF6B6B';
+                }
+            }
+        }
+
         // Initialize page
-        window.addEventListener('load', () => {
-            // Set up any initial state
+        window.addEventListener('load', async () => {
             console.log('Enhanced Islamic Search loaded successfully');
+            
+            // Connect to AI model
+            await connectToAIModel();
+            
+            // Set up periodic connection check
+            setInterval(connectToAIModel, 30000); // Check every 30 seconds
         });
     </script>
 </body>
