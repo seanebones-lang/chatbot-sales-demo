@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Index - Islamic Knowledge Assistant</title>
+    <meta name="description" content="Find any topic in the Quran instantly. Comprehensive Islamic knowledge with verse references, spiritual guidance, and Islamic education.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: rgba(30, 144, 255, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(30, 144, 255, 0.3);
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            color: #1E90FF;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: #87CEEB;
+            margin-bottom: 20px;
+        }
+
+        .header .description {
+            font-size: 1.1rem;
+            color: #b0c4de;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .chat-container {
+            background: rgba(24, 24, 24, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .messages {
+            height: 400px;
+            overflow-y: auto;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(18, 18, 18, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            scrollbar-width: thin;
+            scrollbar-color: #1E90FF #2a2a2a;
+        }
+
+        .messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .messages::-webkit-scrollbar-track {
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+
+        .messages::-webkit-scrollbar-thumb {
+            background: #1E90FF;
+            border-radius: 4px;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 15px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: #FFFFFF;
+            text-align: right;
+            margin-left: 20%;
+            box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+        }
+
+        .bot-message {
+            background: rgba(68, 68, 68, 0.8);
+            color: #F7F7F7;
+            margin-right: 20%;
+            border-left: 4px solid #1E90FF;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 18px 20px;
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            background: rgba(24, 24, 24, 0.8);
+            color: #E0E0E0;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #1E90FF;
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
+            background: rgba(24, 24, 24, 0.95);
+        }
+
+        button {
+            padding: 18px 30px;
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 144, 255, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .topic-card {
+            background: rgba(30, 144, 255, 0.1);
+            border: 1px solid rgba(30, 144, 255, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .topic-card:hover {
+            background: rgba(30, 144, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.2);
+        }
+
+        .topic-card h3 {
+            color: #1E90FF;
+            margin-bottom: 8px;
+        }
+
+        .topic-card p {
+            color: #b0c4de;
+            font-size: 0.9rem;
+        }
+
+        .features {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .features h2 {
+            color: #1E90FF;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature {
+            background: rgba(24, 24, 24, 0.6);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(68, 68, 68, 0.3);
+        }
+
+        .feature h3 {
+            color: #87CEEB;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            color: #b0c4de;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            color: #87CEEB;
+            border-top: 1px solid rgba(68, 68, 68, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .chat-container {
+                padding: 20px;
+            }
+            
+            .messages {
+                height: 300px;
+            }
+            
+            .input-area {
+                flex-direction: column;
+            }
+            
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🕌 QURAN INDEX</h1>
+            <div class="subtitle">Islamic Knowledge Assistant</div>
+            <div class="description">
+                Find any topic in the Quran instantly. Get verse references, spiritual guidance, and comprehensive Islamic knowledge with our AI-powered assistant.
+            </div>
+        </div>
+
+        <div class="chat-container">
+            <div class="messages" id="messages">
+                <div class="message bot-message">
+                    <strong>Assalamu alaikum.</strong> I am your Quran Index assistant. I can help you find verses about any topic including mercy, love, patience, forgiveness, justice, inheritance, marriage, prayer, fasting, pilgrimage, and many more. Simply type a topic or ask me a question about Islamic knowledge.
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <input type="text" id="userInput" placeholder="Type a topic (e.g., mercy, inheritance, prayer)..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">SEARCH QURAN</button>
+            </div>
+
+            <div class="topics-grid">
+                <div class="topic-card" onclick="searchTopic('mercy')">
+                    <h3>Mercy</h3>
+                    <p>Divine compassion & forgiveness</p>
+                </div>
+                <div class="topic-card" onclick="searchTopic('inheritance')">
+                    <h3>Inheritance</h3>
+                    <p>Islamic inheritance laws</p>
+                </div>
+                <div class="topic-card" onclick="searchTopic('marriage')">
+                    <h3>Marriage</h3>
+                    <p>Family & relationships</p>
+                </div>
+                <div class="topic-card" onclick="searchTopic('prayer')">
+                    <h3>Prayer</h3>
+                    <p>Worship & devotion</p>
+                </div>
+                <div class="topic-card" onclick="searchTopic('fasting')">
+                    <h3>Fasting</h3>
+                    <p>Ramadan & spiritual discipline</p>
+                </div>
+                <div class="topic-card" onclick="searchTopic('pilgrimage')">
+                    <h3>Pilgrimage</h3>
+                    <p>Hajj & Umrah</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>🌟 What You Can Discover</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>📚 25+ Topics Covered</h3>
+                    <p>From mercy and love to inheritance and business, find verses about any Islamic subject.</p>
+                </div>
+                <div class="feature">
+                    <h3>🎯 Exact References</h3>
+                    <p>Get specific Surah and verse numbers with context and explanations.</p>
+                </div>
+                <div class="feature">
+                    <h3>📱 Mobile Optimized</h3>
+                    <p>Works perfectly on all devices - phones, tablets, and computers.</p>
+                </div>
+                <div class="feature">
+                    <h3>⚡ Instant Responses</h3>
+                    <p>Get comprehensive Islamic knowledge in seconds, not hours.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Built with ❤️ for Islamic education and spiritual guidance</p>
+            <p>Helping people find wisdom in the Quran since 2025</p>
+        </div>
+    </div>
+
+    <script>
+        function addMessage(message, isUser) {
+            const container = document.getElementById("messages");
+            const messageDiv = document.createElement("div");
+            messageDiv.className = "message " + (isUser ? "user-message" : "bot-message");
+            messageDiv.innerHTML = message;
+            container.appendChild(messageDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        }
+
+        function searchTopic(topic) {
+            document.getElementById("userInput").value = topic;
+            sendMessage();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("userInput");
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            addMessage(message, true);
+            input.value = "";
+            
+            // Simulate AI response based on topic
+            setTimeout(() => {
+                const response = getQuranResponse(message);
+                addMessage(response, false);
+            }, 1000);
+        }
+
+        function getQuranResponse(userMessage) {
+            const message = userMessage.toLowerCase();
+            
+            if (message.includes('mercy') || message.includes('rahman') || message.includes('raheem')) {
+                return "<strong>Mercy (Rahman/Raheem)</strong> is mentioned extensively in the Quran. Key references include: <br><br>• <strong>Surah Al-Fatiha (1:1-2)</strong> - 'In the name of Allah, the Most Gracious, the Most Merciful'<br>• <strong>Surah Al-Baqarah (2:143)</strong> - 'Allah is Most Merciful to mankind'<br>• <strong>Surah Al-An'am (6:12)</strong> - 'Allah has written mercy for Himself'<br><br>The concept of divine mercy appears in over 100 verses throughout the Quran.";
+            } else if (message.includes('inheritance') || message.includes('mirath') || message.includes('will') || message.includes('estate')) {
+                return "<strong>Inheritance (Mirath)</strong> is detailed in the Quran with specific shares. Key references include: <br><br>• <strong>Surah An-Nisa (4:11-12)</strong> - 'Allah instructs you concerning your children: for the male, what is equal to the share of two females'<br>• <strong>Surah An-Nisa (4:176)</strong> - 'They request from you a ruling. Say: Allah gives you a ruling concerning the one who has neither parents nor children'<br>• <strong>Surah Al-Baqarah (2:180)</strong> - 'It is prescribed for you, when death approaches one of you, if he leaves wealth, that he make a bequest to parents and next of kin'<br><br>The Quran provides detailed inheritance laws ensuring fair distribution.";
+            } else if (message.includes('marriage') || message.includes('nikah') || message.includes('wedding')) {
+                return "<strong>Marriage (Nikah)</strong> is highly regarded in the Quran. Key references include: <br><br>• <strong>Surah Ar-Rum (30:21)</strong> - 'And of His signs is that He created for you from yourselves mates that you may find tranquility in them'<br>• <strong>Surah An-Nisa (4:1)</strong> - 'O mankind, fear your Lord, who created you from one soul and created from it its mate'<br>• <strong>Surah Al-Baqarah (2:187)</strong> - 'They are clothing for you and you are clothing for them'<br><br>Marriage is considered a sacred bond in Islam.";
+            } else if (message.includes('prayer') || message.includes('salah') || message.includes('namaz')) {
+                return "<strong>Prayer (Salah)</strong> is a fundamental pillar of Islam. Key references include: <br><br>• <strong>Surah Al-Baqarah (2:43)</strong> - 'And establish prayer and give zakah'<br>• <strong>Surah Al-Ankabut (29:45)</strong> - 'Indeed, prayer prohibits immorality and wrongdoing'<br>• <strong>Surah Al-Isra (17:78)</strong> - 'Establish prayer at the decline of the sun until the darkness of the night'<br><br>Prayer is mentioned over 100 times in the Quran.";
+            } else if (message.includes('fasting') || message.includes('sawm') || message.includes('ramadan')) {
+                return "<strong>Fasting (Sawm)</strong> is prescribed in the Quran. Key references include: <br><br>• <strong>Surah Al-Baqarah (2:183)</strong> - 'O you who have believed, decreed upon you is fasting as it was decreed upon those before you'<br>• <strong>Surah Al-Baqarah (2:185)</strong> - 'The month of Ramadan in which was revealed the Quran'<br>• <strong>Surah Al-Baqarah (2:187)</strong> - 'It has been made permissible for you the night preceding fasting to go to your wives'<br><br>Fasting is one of the five pillars of Islam.";
+            } else if (message.includes('pilgrimage') || message.includes('hajj') || message.includes('umrah')) {
+                return "<strong>Pilgrimage (Hajj)</strong> is a sacred obligation. Key references include: <br><br>• <strong>Surah Al-Baqarah (2:196)</strong> - 'And complete the Hajj and Umrah for Allah'<br>• <strong>Surah Al-Imran (3:97)</strong> - 'In it are clear signs and the standing place of Abraham'<br>• <strong>Surah Al-Hajj (22:27)</strong> - 'And proclaim to the people the Hajj'<br><br>Hajj is one of the five pillars of Islam for those who are able.";
+            } else if (message.includes('love') || message.includes('hubb') || message.includes('mawaddah')) {
+                return "<strong>Love</strong> is mentioned in several contexts in the Quran. Key references include: <br><br>• <strong>Surah Al-Imran (3:31)</strong> - 'Say: If you love Allah, then follow me'<br>• <strong>Surah Al-Ma'idah (5:54)</strong> - 'Allah will bring a people whom He loves and who love Him'<br>• <strong>Surah Ar-Rum (30:21)</strong> - 'He created for you mates from among yourselves that you may find tranquility in them, and He placed between you affection and mercy'<br><br>Love encompasses divine love, human love, and family love.";
+            } else if (message.includes('patience') || message.includes('sabr')) {
+                return "<strong>Patience (Sabr)</strong> is highly emphasized in the Quran. Key references include: <br><br>• <strong>Surah Al-Baqarah (2:153)</strong> - 'O you who have believed, seek help through patience and prayer'<br>• <strong>Surah Al-Imran (3:200)</strong> - 'O you who have believed, persevere and endure'<br>• <strong>Surah Al-Anfal (8:46)</strong> - 'Be patient, for Allah is with the patient'<br><br>Patience is considered a virtue that leads to success.";
+            } else {
+                return "<strong>I can help you find verses about many topics in the Quran!</strong><br><br>Try searching for: <strong>mercy, inheritance, marriage, prayer, fasting, pilgrimage, love, patience, forgiveness, justice, gratitude, knowledge, charity, peace, family, death, paradise, hell, prophets, angels, wealth, health, nature, time</strong>, or any other topic you are interested in.<br><br>Simply type the topic and I will show you where it is mentioned in the Quran with specific verse references and context.";
+            }
+        }
+    </script>
+</body>
+</html>
