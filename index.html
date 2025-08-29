@@ -647,6 +647,12 @@
                         <h3>Dedication</h3>
                         <p>In gratitude to those who guided me to Islam</p>
                     </div>
+                    
+                    <div class="menu-item" onclick="goToPage('hadith-collection')">
+                        <div class="menu-icon">Hadith</div>
+                        <h3>Hadith Collection</h3>
+                        <p>Authentic sayings of Prophet Muhammad (PBUH)</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2102,6 +2108,9 @@
                     break;
                 case 'dedication':
                     window.location.href = 'dedication.html';
+                    break;
+                case 'hadith-collection':
+                    window.location.href = 'hadith-collection.html';
                     break;
                 default:
                     console.log('Page not found');
