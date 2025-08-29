@@ -39,6 +39,12 @@
             font-size: 2.5rem;
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .header h1:hover {
+            transform: scale(1.02);
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
         }
 
         .header p {
@@ -108,6 +114,12 @@
             font-size: 2rem;
             margin-bottom: 25px;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .section-title:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
 
         .alphabet-grid {
@@ -267,6 +279,11 @@
             transition: width 0.3s ease;
         }
 
+        .progress-fill:hover {
+            background: linear-gradient(90deg, #32CD32, #1E90FF);
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.4);
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -280,6 +297,14 @@
             border-radius: 10px;
             padding: 20px;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(18, 18, 18, 0.95);
+            border-color: #1E90FF;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.2);
         }
 
         .stat-number {
@@ -319,7 +344,9 @@
 
         .resource-card:hover {
             border-color: #1E90FF;
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(30, 144, 255, 0.3);
+            background: rgba(18, 18, 18, 0.95);
         }
 
         .resource-icon {
@@ -337,6 +364,61 @@
         .resource-desc {
             color: #B0C4DE;
             font-size: 0.9rem;
+        }
+
+        .pronunciation-item:hover {
+            background: rgba(18, 18, 18, 0.95);
+            border-color: #FFD700;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .phrase-item:hover {
+            background: rgba(18, 18, 18, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(152, 251, 152, 0.2);
+        }
+
+        .step-item:hover {
+            background: rgba(18, 18, 18, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .lesson-card:hover {
+            background: rgba(18, 18, 18, 0.95);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(30, 144, 255, 0.2);
+        }
+
+        .word-item:hover {
+            background: rgba(18, 18, 18, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(152, 251, 152, 0.2);
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 69, 0, 0.3);
+        }
+
+        .group-option:hover {
+            background: rgba(18, 18, 18, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.2);
+        }
+
+        .topic-item:hover {
+            background: rgba(18, 18, 18, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(152, 251, 152, 0.2);
+        }
+
+        .quiz-option-btn:hover {
+            background: rgba(30, 144, 255, 0.2);
+            border-color: #1E90FF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -459,6 +541,208 @@
                     <div class="resource-icon">Groups</div>
                     <div class="resource-title">Study Groups</div>
                     <div class="resource-desc">Connect with other learners</div>
+                </div>
+            </div>
+            
+            <!-- Resource Content Sections -->
+            <div class="resource-content" id="pronunciation-resource-content" style="display: none;">
+                <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">🎤 Pronunciation Guide</h3>
+                <div class="pronunciation-content">
+                    <div class="audio-section" style="background: rgba(30, 144, 255, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                        <h4 style="color: #1E90FF; margin-bottom: 15px;">🔊 Audio Examples</h4>
+                        <div class="letter-pronunciation-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                            <div class="pronunciation-item" onclick="playPronunciation('alif')" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease;">
+                                <div style="font-size: 2rem; color: #FFD700; margin-bottom: 10px;">ا</div>
+                                <div style="color: #87CEEB;">Alif</div>
+                                <div style="color: #B0C4DE; font-size: 0.9rem;">Click to hear</div>
+                            </div>
+                            <div class="pronunciation-item" onclick="playPronunciation('baa')" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease;">
+                                <div style="font-size: 2rem; color: #FFD700; margin-bottom: 10px;">ب</div>
+                                <div style="color: #87CEEB;">Baa</div>
+                                <div style="color: #B0C4DE; font-size: 0.9rem;">Click to hear</div>
+                            </div>
+                            <div class="pronunciation-item" onclick="playPronunciation('taa')" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s ease;">
+                                <div style="font-size: 2rem; color: #FFD700; margin-bottom: 10px;">ت</div>
+                                <div style="color: #87CEEB;">Taa</div>
+                                <div style="color: #B0C4DE; font-size: 0.9rem;">Click to hear</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="practice-section" style="background: rgba(152, 251, 152, 0.1); padding: 20px; border-radius: 15px;">
+                        <h4 style="color: #98FB98; margin-bottom: 15px;">🎯 Practice Exercises</h4>
+                        <p style="color: #E0E0E0; margin-bottom: 15px;">Practice pronouncing these common Arabic phrases:</p>
+                        <div class="practice-phrases" style="display: grid; gap: 15px;">
+                            <div class="phrase-item" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; border-left: 4px solid #98FB98;">
+                                <div style="font-size: 1.5rem; color: #98FB98; text-align: center; margin-bottom: 10px;">بِسْمِ اللَّهِ</div>
+                                <div style="color: #E0E0E0; text-align: center;">Bismillah (In the name of Allah)</div>
+                            </div>
+                            <div class="phrase-item" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; border-left: 4px solid #98FB98;">
+                                <div style="font-size: 1.5rem; color: #98FB98; text-align: center; margin-bottom: 10px;">الْحَمْدُ لِلَّهِ</div>
+                                <div style="color: #E0E0E0; text-align: center;">Alhamdulillah (Praise be to Allah)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-content" id="writing-resource-content" style="display: none;">
+                <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">✍️ Writing Practice</h3>
+                <div class="writing-content">
+                    <div class="writing-guide" style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                        <h4 style="color: #FFD700; margin-bottom: 15px;">📝 Letter Formation Guide</h4>
+                        <p style="color: #E0E0E0; margin-bottom: 15px;">Learn to write Arabic letters step by step:</p>
+                        <div class="writing-steps" style="display: grid; gap: 15px;">
+                            <div class="step-item" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; border-left: 4px solid #FFD700;">
+                                <div style="color: #FFD700; font-weight: bold; margin-bottom: 5px;">Step 1: Start Point</div>
+                                <div style="color: #E0E0E0;">Begin at the top right and move left</div>
+                            </div>
+                            <div class="step-item" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; border-left: 4px solid #FFD700;">
+                                <div style="color: #FFD700; font-weight: bold; margin-bottom: 5px;">Step 2: Main Stroke</div>
+                                <div style="color: #E0E0E0;">Draw the main body of the letter</div>
+                            </div>
+                            <div class="step-item" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; border-left: 4px solid #FFD700;">
+                                <div style="color: #FFD700; font-weight: bold; margin-bottom: 5px;">Step 3: Finishing Touches</div>
+                                <div style="color: #E0E0E0;">Add dots and connecting strokes</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="practice-sheets" style="background: rgba(30, 144, 255, 0.1); padding: 20px; border-radius: 15px;">
+                        <h4 style="color: #1E90FF; margin-bottom: 15px;">📋 Practice Sheets</h4>
+                        <p style="color: #E0E0E0; margin-bottom: 15px;">Download printable practice sheets:</p>
+                        <div class="sheet-buttons" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                            <button class="download-btn" onclick="downloadPracticeSheet('basic-letters')" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">📄 Basic Letters</button>
+                            <button class="download-btn" onclick="downloadPracticeSheet('connecting-forms')" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">📄 Connecting Forms</button>
+                            <button class="download-btn" onclick="downloadPracticeSheet('calligraphy')" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">📄 Calligraphy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-content" id="grammar-resource-content" style="display: none;">
+                <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">📚 Grammar Rules</h3>
+                <div class="grammar-content">
+                    <div class="grammar-lessons" style="display: grid; gap: 20px;">
+                        <div class="lesson-card" style="background: rgba(18, 18, 18, 0.8); padding: 20px; border-radius: 15px; border-left: 4px solid #1E90FF;">
+                            <h4 style="color: #1E90FF; margin-bottom: 15px;">🔤 Basic Sentence Structure</h4>
+                            <p style="color: #E0E0E0; margin-bottom: 15px;">Arabic follows a Verb-Subject-Object (VSO) structure:</p>
+                            <div style="background: rgba(30, 144, 255, 0.1); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                                <div style="color: #98FB98; font-size: 1.2rem; text-align: center; margin-bottom: 10px;">كَتَبَ الطَّالِبُ الدَّرْسَ</div>
+                                <div style="color: #E0E0E0; text-align: center;">Wrote the student the lesson</div>
+                                <div style="color: #87CEEB; text-align: center; font-size: 0.9rem;">Verb + Subject + Object</div>
+                            </div>
+                        </div>
+                        <div class="lesson-card" style="background: rgba(18, 18, 18, 0.8); padding: 20px; border-radius: 15px; border-left: 4px solid #FFD700;">
+                            <h4 style="color: #FFD700; margin-bottom: 15px;">📖 Noun Cases and Gender</h4>
+                            <p style="color: #E0E0E0; margin-bottom: 15px;">Arabic nouns have three cases and two genders:</p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                                <div style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 10px;">
+                                    <div style="color: #FFD700; font-weight: bold; margin-bottom: 5px;">Cases:</div>
+                                    <div style="color: #E0E0E0;">Nominative (مرفوع), Accusative (منصوب), Genitive (مجرور)</div>
+                                </div>
+                                <div style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 10px;">
+                                    <div style="color: #FFD700; font-weight: bold; margin-bottom: 5px;">Genders:</div>
+                                    <div style="color: #E0E0E0;">Masculine (مذكر), Feminine (مؤنث)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-content" id="vocabulary-resource-content" style="display: none;">
+                <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">📖 Vocabulary Builder</h3>
+                <div class="vocabulary-content">
+                    <div class="word-categories" style="display: grid; gap: 20px;">
+                        <div class="category-card" style="background: rgba(18, 18, 18, 0.8); padding: 20px; border-radius: 15px; border-left: 4px solid #98FB98;">
+                            <h4 style="color: #98FB98; margin-bottom: 15px;">🕌 Religious Terms</h4>
+                            <div class="word-list" style="display: grid; gap: 10px;">
+                                <div class="word-item" style="background: rgba(152, 251, 152, 0.1); padding: 10px; border-radius: 8px;">
+                                    <div style="color: #98FB98; font-weight: bold;">إِلٰهٌ (Ilah)</div>
+                                    <div style="color: #E0E0E0;">God, deity</div>
+                                </div>
+                                <div class="word-item" style="background: rgba(152, 251, 152, 0.1); padding: 10px; border-radius: 8px;">
+                                    <div style="color: #98FB98; font-weight: bold;">رَسُولٌ (Rasool)</div>
+                                    <div style="color: #E0E0E0;">Messenger, prophet</div>
+                                </div>
+                                <div class="word-item" style="background: rgba(152, 251, 152, 0.1); padding: 10px; border-radius: 8px;">
+                                    <div style="color: #98FB98; font-weight: bold;">كِتَابٌ (Kitaab)</div>
+                                    <div style="color: #E0E0E0;">Book, scripture</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-card" style="background: rgba(18, 18, 18, 0.8); padding: 20px; border-radius: 15px; border-left: 4px solid #1E90FF;">
+                            <h4 style="color: #1E90FF; margin-bottom: 15px;">🌍 Daily Life</h4>
+                            <div class="word-list" style="display: grid; gap: 10px;">
+                                <div class="word-item" style="background: rgba(30, 144, 255, 0.1); padding: 10px; border-radius: 8px;">
+                                    <div style="color: #1E90FF; font-weight: bold;">مَاءٌ (Maa')</div>
+                                    <div style="color: #E0E0E0;">Water</div>
+                                </div>
+                                <div class="word-item" style="background: rgba(30, 144, 255, 0.1); padding: 10px; border-radius: 8px;">
+                                    <div style="color: #1E90FF; font-weight: bold;">طَعَامٌ (Ta'aam)</div>
+                                    <div style="color: #E0E0E0;">Food</div>
+                                </div>
+                                <div class="word-item" style="background: rgba(30, 144, 255, 0.1); padding: 10px; border-radius: 8px;">
+                                    <div style="color: #1E90FF; font-weight: bold;">بَيْتٌ (Bayt)</div>
+                                    <div style="color: #E0E0E0;">House, home</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-content" id="quiz-resource-content" style="display: none;">
+                <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">🧠 Practice Quizzes</h3>
+                <div class="quiz-content">
+                    <div class="quiz-selection" style="background: rgba(255, 69, 0, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                        <h4 style="color: #FF4500; margin-bottom: 15px;">📝 Choose Your Quiz</h4>
+                        <div class="quiz-options" style="display: grid; gap: 15px;">
+                            <button class="quiz-btn" onclick="startQuiz('alphabet')" style="background: linear-gradient(135deg, #FF4500 0%, #FF6347 100%); color: white; border: none; padding: 15px; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">🔤 Alphabet Quiz</button>
+                            <button class="quiz-btn" onclick="startQuiz('vocabulary')" style="background: linear-gradient(135deg, #FF4500 0%, #FF6347 100%); color: white; border: none; padding: 15px; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">📖 Vocabulary Quiz</button>
+                            <button class="quiz-btn" onclick="startQuiz('grammar')" style="background: linear-gradient(135deg, #FF4500 0%, #FF6347 100%); color: white; border: none; padding: 15px; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">📚 Grammar Quiz</button>
+                        </div>
+                    </div>
+                    <div id="quiz-container" style="display: none;">
+                        <!-- Quiz content will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-content" id="community-resource-content" style="display: none;">
+                <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">🤝 Study Groups</h3>
+                <div class="community-content">
+                    <div class="group-info" style="background: rgba(30, 144, 255, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                        <h4 style="color: #1E90FF; margin-bottom: 15px;">👥 Join Study Groups</h4>
+                        <p style="color: #E0E0E0; margin-bottom: 15px;">Connect with other Arabic learners and practice together:</p>
+                        <div class="group-options" style="display: grid; gap: 15px;">
+                            <div class="group-option" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; border-left: 4px solid #1E90FF;">
+                                <div style="color: #1E90FF; font-weight: bold; margin-bottom: 5px;">📚 Beginner Group</div>
+                                <div style="color: #E0E0E0;">For those just starting their Arabic journey</div>
+                            </div>
+                            <div class="group-option" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; border-left: 4px solid #98FB98;">
+                                <div style="color: #98FB98; font-weight: bold; margin-bottom: 5px;">📖 Intermediate Group</div>
+                                <div style="color: #E0E0E0;">For learners with basic Arabic knowledge</div>
+                            </div>
+                            <div class="group-option" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; border-left: 4px solid #FFD700;">
+                                <div style="color: #FFD700; font-weight: bold; margin-bottom: 5px;">🌟 Advanced Group</div>
+                                <div style="color: #E0E0E0;">For advanced learners and Quranic Arabic</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="discussion-forum" style="background: rgba(152, 251, 152, 0.1); padding: 20px; border-radius: 15px;">
+                        <h4 style="color: #98FB98; margin-bottom: 15px;">💬 Discussion Forum</h4>
+                        <p style="color: #E0E0E0; margin-bottom: 15px;">Ask questions and share your progress:</p>
+                        <div class="forum-topics" style="display: grid; gap: 15px;">
+                            <div class="topic-item" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; border-left: 4px solid #98FB98;">
+                                <div style="color: #98FB98; font-weight: bold; margin-bottom: 5px;">❓ Pronunciation Help</div>
+                                <div style="color: #E0E0E0;">Get help with difficult Arabic sounds</div>
+                            </div>
+                            <div class="topic-item" style="background: rgba(18, 18, 18, 0.8); padding: 15px; border-radius: 10px; border-left: 4px solid #98FB98;">
+                                <div style="color: #98FB98; font-weight: bold; margin-bottom: 5px;">📝 Writing Practice</div>
+                                <div style="color: #E0E0E0;">Share your Arabic handwriting progress</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -643,28 +927,36 @@
         }
 
         function openResource(type) {
-            let message = '';
-            switch(type) {
-                case 'pronunciation':
-                    message = 'Pronunciation Guide would open with:\n- Audio examples for each letter\n- Interactive pronunciation practice\n- Common mistakes and corrections\n- Regional accent variations';
-                    break;
-                case 'writing':
-                    message = 'Writing Practice would include:\n- Step-by-step letter formation\n- Interactive writing exercises\n- Calligraphy practice sheets\n- Progress tracking';
-                    break;
-                case 'grammar':
-                    message = 'Grammar Rules would cover:\n- Basic sentence structure\n- Verb conjugations\n- Noun cases and gender\n- Common patterns in Quran';
-                    break;
-                case 'vocabulary':
-                    message = 'Vocabulary Builder would feature:\n- Most common Quranic words\n- Root word analysis\n- Related word families\n- Contextual usage examples';
-                    break;
-                case 'quiz':
-                    message = 'Practice Quizzes would include:\n- Multiple choice questions\n- Fill-in-the-blank exercises\n- Audio recognition tests\n- Progress assessment';
-                    break;
-                case 'community':
-                    message = 'Study Groups would provide:\n- Discussion forums\n- Study partners\n- Expert Q&A sessions\n- Group challenges';
-                    break;
+            // Hide all resource content first
+            hideAllResourceContent();
+            
+            // Show the selected resource content
+            const resourceContent = document.getElementById(`${type}-resource-content`);
+            if (resourceContent) {
+                resourceContent.style.display = 'block';
             }
-            alert(message);
+            
+            // Update active tab
+            updateActiveResourceTab(type);
+        }
+
+        function hideAllResourceContent() {
+            const resourceContents = document.querySelectorAll('.resource-content');
+            resourceContents.forEach(content => {
+                content.style.display = 'none';
+            });
+        }
+
+        function updateActiveResourceTab(type) {
+            // Remove active class from all resource tabs
+            const resourceTabs = document.querySelectorAll('.resource-tab');
+            resourceTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Add active class to selected tab
+            const activeTab = document.querySelector(`[data-resource="${type}"]`);
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
         }
 
         function populateAlphabet() {
@@ -697,6 +989,112 @@
                 localStorage.setItem('arabicProgress', JSON.stringify(userProgress));
             }
         });
+
+        // Additional resource functions
+        function playPronunciation(letter) {
+            const pronunciations = {
+                'alif': 'ا - Alif (like "a" in father)',
+                'baa': 'ب - Baa (like "b" in boy)',
+                'taa': 'ت - Taa (like "t" in tea)'
+            };
+            
+            const message = `🔊 Playing pronunciation for: ${pronunciations[letter]}\n\nIn a real implementation, this would play actual audio of the letter being pronounced by a native Arabic speaker.`;
+            alert(message);
+        }
+
+        function downloadPracticeSheet(type) {
+            const sheets = {
+                'basic-letters': 'Basic Arabic Letters Practice Sheet',
+                'connecting-forms': 'Arabic Letter Connecting Forms',
+                'calligraphy': 'Arabic Calligraphy Practice Sheet'
+            };
+            
+            const message = `📄 Downloading: ${sheets[type]}\n\nThis would generate a beautiful PDF practice sheet with:\n- Letter tracing exercises\n- Writing guidelines\n- Practice space\n- Beautiful Islamic design\n\nAvailable via email or text message.`;
+            alert(message);
+        }
+
+        function startQuiz(type) {
+            const quizContainer = document.getElementById('quiz-container');
+            const quizTypes = {
+                'alphabet': {
+                    title: '🔤 Arabic Alphabet Quiz',
+                    questions: [
+                        { question: 'What letter is this? ا', answer: 'Alif', options: ['Alif', 'Baa', 'Taa', 'Thaa'] },
+                        { question: 'What letter is this? ب', answer: 'Baa', options: ['Alif', 'Baa', 'Taa', 'Thaa'] },
+                        { question: 'What letter is this? ت', answer: 'Taa', options: ['Alif', 'Baa', 'Taa', 'Thaa'] }
+                    ]
+                },
+                'vocabulary': {
+                    title: '📖 Arabic Vocabulary Quiz',
+                    questions: [
+                        { question: 'What does "مَاءٌ" mean?', answer: 'Water', options: ['Food', 'Water', 'House', 'Book'] },
+                        { question: 'What does "بَيْتٌ" mean?', answer: 'House', options: ['Food', 'Water', 'House', 'Book'] },
+                        { question: 'What does "كِتَابٌ" mean?', answer: 'Book', options: ['Food', 'Water', 'House', 'Book'] }
+                    ]
+                },
+                'grammar': {
+                    title: '📚 Arabic Grammar Quiz',
+                    questions: [
+                        { question: 'What is the basic Arabic sentence structure?', answer: 'VSO', options: ['SVO', 'VSO', 'SOV', 'VOS'] },
+                        { question: 'How many cases do Arabic nouns have?', answer: '3', options: ['2', '3', '4', '5'] },
+                        { question: 'How many genders do Arabic nouns have?', answer: '2', options: ['1', '2', '3', '4'] }
+                    ]
+                }
+            };
+
+            const quiz = quizTypes[type];
+            let currentQuestion = 0;
+            let score = 0;
+
+            function displayQuestion() {
+                if (currentQuestion >= quiz.questions.length) {
+                    showQuizResults();
+                    return;
+                }
+
+                const question = quiz.questions[currentQuestion];
+                const optionsHTML = question.options.map(option => 
+                    `<button class="quiz-option-btn" onclick="selectAnswer('${option}')" style="background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(68, 68, 68, 0.5); color: #E0E0E0; padding: 15px; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-bottom: 10px;">${option}</button>`
+                ).join('');
+
+                quizContainer.innerHTML = `
+                    <div style="background: rgba(18, 18, 18, 0.9); padding: 30px; border-radius: 20px; border: 2px solid rgba(30, 144, 255, 0.3);">
+                        <h4 style="color: #FFD700; margin-bottom: 20px; text-align: center;">${quiz.title}</h4>
+                        <div style="color: #87CEEB; margin-bottom: 15px; text-align: center;">Question ${currentQuestion + 1} of ${quiz.questions.length}</div>
+                        <div style="color: #E0E0E0; font-size: 1.2rem; margin-bottom: 25px; text-align: center;">${question.question}</div>
+                        <div style="display: grid; gap: 15px;">
+                            ${optionsHTML}
+                        </div>
+                    </div>
+                `;
+                quizContainer.style.display = 'block';
+            }
+
+            function selectAnswer(selectedAnswer) {
+                const question = quiz.questions[currentQuestion];
+                if (selectedAnswer === question.answer) {
+                    score++;
+                }
+                currentQuestion++;
+                displayQuestion();
+            }
+
+            function showQuizResults() {
+                const percentage = Math.round((score / quiz.questions.length) * 100);
+                const message = score === quiz.questions.length ? '🎉 Perfect!' : score > quiz.questions.length / 2 ? '👍 Good job!' : '📚 Keep studying!';
+                
+                quizContainer.innerHTML = `
+                    <div style="background: rgba(18, 18, 18, 0.9); padding: 30px; border-radius: 20px; border: 2px solid rgba(30, 144, 255, 0.3); text-align: center;">
+                        <h4 style="color: #FFD700; margin-bottom: 20px;">${message}</h4>
+                        <div style="color: #87CEEB; font-size: 1.5rem; margin-bottom: 15px;">Your Score: ${score}/${quiz.questions.length}</div>
+                        <div style="color: #E0E0E0; margin-bottom: 25px;">Percentage: ${percentage}%</div>
+                        <button onclick="startQuiz('${type}')" style="background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%); color: white; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">🔄 Try Again</button>
+                    </div>
+                `;
+            }
+
+            displayQuestion();
+        }
     </script>
 </body>
 </html>
