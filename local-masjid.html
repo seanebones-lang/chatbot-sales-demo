@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Masjid & Prayer Times - Islamic Community Resources</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #FFD700;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .header p {
+            color: #87CEEB;
+            font-size: 1.2rem;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(30, 144, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(30, 144, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .section h2 {
+            color: #FFD700;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .prayer-times {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .prayer-time {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .prayer-time:hover {
+            border-color: #1E90FF;
+            transform: translateY(-2px);
+        }
+
+        .prayer-name {
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .prayer-time-value {
+            color: #87CEEB;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .masjid-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .masjid-item {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .masjid-item:hover {
+            border-color: #1E90FF;
+            transform: translateY(-2px);
+        }
+
+        .masjid-name {
+            color: #FFD700;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .masjid-address {
+            color: #87CEEB;
+            margin-bottom: 8px;
+        }
+
+        .masjid-phone {
+            color: #B0C4DE;
+            margin-bottom: 8px;
+        }
+
+        .masjid-services {
+            color: #98FB98;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .masjid-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-btn {
+            background: #DC143C;
+            color: white;
+        }
+
+        .pdf-btn:hover {
+            background: #B22222;
+        }
+
+        .directions-btn {
+            background: #32CD32;
+            color: white;
+        }
+
+        .directions-btn:hover {
+            background: #228B22;
+        }
+
+        .contact-btn {
+            background: #FFD700;
+            color: #333;
+        }
+
+        .contact-btn:hover {
+            background: #FFA500;
+        }
+
+        .location-input {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            color: #e0e0e0;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .location-input:focus {
+            outline: none;
+            border-color: #1E90FF;
+        }
+
+        .update-btn {
+            background: #1E90FF;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .update-btn:hover {
+            background: #004D61;
+            transform: translateY(-2px);
+        }
+
+        .download-section {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .download-section h2 {
+            color: #FFD700;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .download-item {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .download-item:hover {
+            border-color: #1E90FF;
+            transform: translateY(-2px);
+        }
+
+        .download-title {
+            color: #FFD700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .download-description {
+            color: #B0C4DE;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .download-btn {
+            background: #DC143C;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #B22222;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .prayer-times {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .masjid-actions {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
+            <h1>Local Masjid & Prayer Times</h1>
+            <p>Find local Islamic centers, prayer times, and community resources</p>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <h2>Prayer Times</h2>
+                <input type="text" class="location-input" id="locationInput" placeholder="Enter your city or zip code for accurate prayer times" value="New York, NY">
+                <button class="update-btn" onclick="updatePrayerTimes()">Update Prayer Times</button>
+                
+                <div class="prayer-times" id="prayerTimes">
+                    <div class="prayer-time">
+                        <div class="prayer-name">Fajr</div>
+                        <div class="prayer-time-value">5:30 AM</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div class="prayer-name">Dhuhr</div>
+                        <div class="prayer-time-value">1:15 PM</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div class="prayer-name">Asr</div>
+                        <div class="prayer-time-value">4:45 PM</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div class="prayer-name">Maghrib</div>
+                        <div class="prayer-time-value">7:30 PM</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div class="prayer-name">Isha</div>
+                        <div class="prayer-time-value">9:00 PM</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Local Masjids</h2>
+                <div class="masjid-list" id="masjidList">
+                    <div class="masjid-item">
+                        <div class="masjid-name">Islamic Center of New York</div>
+                        <div class="masjid-address">123 Main Street, New York, NY 10001</div>
+                        <div class="masjid-phone">Phone: (212) 555-0123</div>
+                        <div class="masjid-services">Services: Daily prayers, Friday prayer, Islamic school, Community events</div>
+                        <div class="masjid-actions">
+                            <button class="action-btn pdf-btn" onclick="downloadMasjidInfo('Islamic_Center_NY.pdf')">Download Info</button>
+                            <button class="action-btn directions-btn" onclick="getDirections('123 Main Street, New York, NY 10001')">Directions</button>
+                            <button class="action-btn contact-btn" onclick="contactMasjid('(212) 555-0123')">Contact</button>
+                        </div>
+                    </div>
+
+                    <div class="masjid-item">
+                        <div class="masjid-name">Masjid Al-Rahman</div>
+                        <div class="masjid-address">456 Oak Avenue, Brooklyn, NY 11201</div>
+                        <div class="masjid-phone">Phone: (718) 555-0456</div>
+                        <div class="masjid-services">Services: Daily prayers, Quran classes, Youth programs, Food pantry</div>
+                        <div class="masjid-actions">
+                            <button class="action-btn pdf-btn" onclick="downloadMasjidInfo('Masjid_Al_Rahman.pdf')">Download Info</button>
+                            <button class="action-btn directions-btn" onclick="getDirections('456 Oak Avenue, Brooklyn, NY 11201')">Directions</button>
+                            <button class="action-btn contact-btn" onclick="contactMasjid('(718) 555-0456')">Contact</button>
+                        </div>
+                    </div>
+
+                    <div class="masjid-item">
+                        <div class="masjid-name">Islamic Society of Queens</div>
+                        <div class="masjid-address">789 Elm Street, Queens, NY 11375</div>
+                        <div class="masjid-phone">Phone: (718) 555-0789</div>
+                        <div class="masjid-services">Services: Daily prayers, Islamic library, Counseling services, Outreach programs</div>
+                        <div class="masjid-actions">
+                            <button class="action-btn pdf-btn" onclick="downloadMasjidInfo('Islamic_Society_Queens.pdf')">Download Info</button>
+                            <button class="action-btn directions-btn" onclick="getDirections('789 Elm Street, Queens, NY 11375')">Directions</button>
+                            <button class="action-btn contact-btn" onclick="contactMasjid('(718) 555-0789')">Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="download-section">
+            <h2>Downloadable Resources</h2>
+            <div class="download-grid">
+                <div class="download-item">
+                    <div class="download-title">Complete Prayer Guide</div>
+                    <div class="download-description">Step-by-step prayer instructions with Arabic text, transliteration, and English translation</div>
+                    <button class="download-btn" onclick="downloadResource('Complete_Prayer_Guide.pdf')">Download PDF</button>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-title">Wudu Guide</div>
+                    <div class="download-description">Complete wudu (ablution) guide with illustrations and step-by-step instructions</div>
+                    <button class="download-btn" onclick="downloadResource('Complete_Wudu_Guide.pdf')">Download PDF</button>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-title">Prayer Times Calendar</div>
+                    <div class="download-description">Monthly prayer times calendar for your location with Islamic dates</div>
+                    <button class="download-btn" onclick="downloadResource('Prayer_Times_Calendar.pdf')">Download PDF</button>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-title">Local Masjid Directory</div>
+                    <div class="download-description">Complete directory of local masjids with contact information and services</div>
+                    <button class="download-btn" onclick="downloadResource('Local_Masjid_Directory.pdf')">Download PDF</button>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-title">Islamic Community Resources</div>
+                    <div class="download-description">Guide to local Islamic schools, halal restaurants, and community services</div>
+                    <button class="download-btn" onclick="downloadResource('Community_Resources_Guide.pdf')">Download PDF</button>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-title">New Muslim Welcome Kit</div>
+                    <div class="download-description">Essential information for new Muslims including local resources and support</div>
+                    <button class="download-btn" onclick="downloadResource('New_Muslim_Welcome_Kit.pdf')">Download PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updatePrayerTimes() {
+            const location = document.getElementById('locationInput').value;
+            if (!location) {
+                alert('Please enter a location');
+                return;
+            }
+
+            // Save location to localStorage for masjid search
+            localStorage.setItem('userLocation', location);
+
+            // Simulate API call to prayer times service
+            alert(`Updating prayer times for ${location}...\n\nThis would integrate with a prayer times API (like Aladhan API) to provide accurate prayer times based on your location.`);
+            
+            // Update prayer times
+            document.getElementById('prayerTimes').innerHTML = `
+                <div class="prayer-time">
+                    <div class="prayer-name">Fajr</div>
+                    <div class="prayer-time-value">5:25 AM</div>
+                </div>
+                <div class="prayer-time">
+                    <div class="prayer-name">Dhuhr</div>
+                    <div class="prayer-time-value">1:10 PM</div>
+                </div>
+                <div class="prayer-time">
+                    <div class="prayer-name">Asr</div>
+                    <div class="prayer-time-value">4:40 PM</div>
+                </div>
+                <div class="prayer-time">
+                    <div class="prayer-name">Maghrib</div>
+                    <div class="prayer-time-value">7:25 PM</div>
+                </div>
+                <div class="prayer-time">
+                    <div class="prayer-name">Isha</div>
+                    <div class="prayer-time-value">8:55 PM</div>
+                </div>
+            `;
+
+            // Update local masjids for the same location
+            updateLocalMasjids(location);
+        }
+
+        function downloadMasjidInfo(filename) {
+            alert(`Downloading masjid information: ${filename}\n\nThis would generate a comprehensive PDF with:\n- Masjid details and contact information\n- Prayer times and services\n- Directions and parking information\n- Community programs and events\n- Islamic calendar and important dates`);
+        }
+
+        function getDirections(address) {
+            // Open Google Maps with the address
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+            window.open(mapsUrl, '_blank');
+        }
+
+        function contactMasjid(phone) {
+            // Open phone app or copy phone number
+            if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/)) {
+                window.location.href = `tel:${phone}`;
+            } else {
+                navigator.clipboard.writeText(phone);
+                alert(`Phone number copied to clipboard: ${phone}`);
+            }
+        }
+
+        function downloadResource(filename) {
+            alert(`Downloading resource: ${filename}\n\nThis would generate a beautiful, formatted PDF with:\n- Professional Islamic typography\n- Arabic text with proper formatting\n- English translations and explanations\n- Step-by-step instructions\n- Beautiful Islamic artwork and borders\n- Print-ready formatting`);
+        }
+
+        // Initialize page
+        window.addEventListener('load', () => {
+            console.log('Local Masjid & Prayer Times page loaded successfully');
+            
+            // In a real implementation, this would:
+            // 1. Get user's location (with permission)
+            // 2. Call prayer times API
+            // 3. Fetch local masjid data from database
+            // 4. Update prayer times and masjid list
+        });
+    </script>
+</body>
+</html>

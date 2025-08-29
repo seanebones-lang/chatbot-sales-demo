@@ -109,9 +109,25 @@ class WebUIScraperHandler(BaseHTTPRequestHandler):
             print(f"❌ OpenWebUI interaction error: {e}")
             raise e
 
+    def test_openwebui_connection(self):
+        """Test if OpenWebUI is accessible"""
+        try:
+            test_url = "http://localhost:3001"
+            req = urllib.request.Request(test_url, method="GET")
+            with urllib.request.urlopen(req, timeout=10) as response:
+                return response.status == 200
+        except Exception as e:
+            print(f"❌ OpenWebUI connection test failed: {e}")
+            return False
+
     def try_authenticated_api(self, user_message):
         """Try to use the OpenWebUI API with the actual API key"""
         try:
+            # First test if OpenWebUI is accessible
+            if not self.test_openwebui_connection():
+                print("❌ OpenWebUI is not accessible. Check if it's running on port 3001.")
+                return None
+                
             openwebui_url = "http://localhost:3001"
             
             # Get API key from environment variable for security
@@ -156,7 +172,7 @@ class WebUIScraperHandler(BaseHTTPRequestHandler):
                 method="POST"
             )
             
-            with urllib.request.urlopen(req, timeout=30) as response:
+            with urllib.request.urlopen(req, timeout=60) as response:
                 if response.status == 200:
                     response_data = json.loads(response.read().decode('utf-8'))
                     print(f"✅ Authenticated API successful!")
@@ -213,7 +229,7 @@ class WebUIScraperHandler(BaseHTTPRequestHandler):
                                 method="POST"
                             )
                             
-                            with urllib.request.urlopen(req, timeout=30) as response:
+                            with urllib.request.urlopen(req, timeout=60) as response:
                                 if response.status == 200:
                                     response_data = json.loads(response.read().decode('utf-8'))
                                     print(f"✅ Chat successful with {endpoint}!")
@@ -271,7 +287,7 @@ class WebUIScraperHandler(BaseHTTPRequestHandler):
                 method="POST"
             )
             
-            with urllib.request.urlopen(req, timeout=30) as response:
+            with urllib.request.urlopen(req, timeout=60) as response:
                 if response.status == 200:
                     response_data = json.loads(response.read().decode('utf-8'))
                     print(f"✅ Generate successful!")

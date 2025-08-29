@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeenBot - Islamic AI Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3c72 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 0;
+            min-height: 600px;
+        }
+
+        .chat-section {
+            padding: 30px;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .chat-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 16px;
+            border-radius: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background: #007bff;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-message {
+            background: #f1f3f4;
+            color: #333;
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .send-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .send-button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-left: 1px solid #e0e0e0;
+        }
+
+        .search-section {
+            margin-bottom: 30px;
+        }
+
+        .search-section h3 {
+            color: #2c5aa0;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .search-button {
+            width: 100%;
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: #218838;
+        }
+
+        .quick-links {
+            margin-bottom: 30px;
+        }
+
+        .quick-links h3 {
+            color: #2c5aa0;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .quick-link {
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: color 0.3s ease;
+        }
+
+        .quick-link:hover {
+            color: #0056b3;
+        }
+
+        .status-indicator {
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .status-connected {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-fallback {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                border-left: none;
+                border-top: 1px solid #e0e0e0;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .back-button {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-bottom: 20px;
+            }
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 12px 16px;
+            background: #f1f3f4;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .typing-indicator.show {
+            display: block;
+        }
+
+        .follow-up-questions {
+            background: #f8f9fa !important;
+            border-left: 4px solid #007bff;
+        }
+
+        .follow-up-link {
+            cursor: pointer;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: #007bff;
+        }
+
+        .follow-up-link:hover {
+            background: #e3f2fd;
+            color: #0056b3;
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
+            <h1>DeenBot</h1>
+            <p>Your Islamic AI Assistant - Powered by Advanced AI Technology</p>
+        </div>
+
+        <div class="main-content">
+            <div class="chat-section">
+                <div class="status-indicator status-connected" id="statusIndicator">
+                    Connected to AI Model
+                </div>
+                
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            Assalamu alaikum! I am DeenBot, your dedicated Islamic AI assistant. What is your name, dear brother/sister?
+                        </div>
+                    </div>
+                    
+                    <div class="typing-indicator" id="typingIndicator">
+                        DeenBot is thinking...
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about Islam..." onkeypress="handleKeyPress(event)">
+                        <button class="send-button" onclick="sendChatMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="search-section">
+                    <h3>Quick Search</h3>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search Islamic topics...">
+                    <button class="search-button" onclick="performSearch()">Search</button>
+                </div>
+
+                <div class="quick-links">
+                    <h3>Quick Topics</h3>
+                    <a href="#" class="quick-link" onclick="askQuestion('What are the five pillars of Islam?')">Five Pillars of Islam</a>
+                    <a href="#" class="quick-link" onclick="askQuestion('How to perform wudu?')">How to Perform Wudu</a>
+                    <a href="#" class="quick-link" onclick="askQuestion('What does the Quran say about mercy?')">Quran on Mercy</a>
+                    <a href="#" class="quick-link" onclick="askQuestion('Tell me about Prophet Muhammad (PBUH)')">Prophet Muhammad (PBUH)</a>
+                    <a href="#" class="quick-link" onclick="askQuestion('What is the importance of prayer in Islam?')">Importance of Prayer</a>
+                    <a href="#" class="quick-link" onclick="askQuestion('How to become a Muslim?')">How to Become a Muslim</a>
+                    <a href="#" class="quick-link" onclick="askQuestion('What is the significance of the Shahada?')">Significance of Shahada</a>
+                    <a href="#" class="quick-link" onclick="askQuestion('Tell me about Islamic inheritance laws')">Islamic Inheritance Laws</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isTyping = false;
+        let userName = '';
+        let isFirstMessage = true;
+        let conversationContext = '';
+        let followUpQuestions = [
+            "Would you like me to explain this in more detail?",
+            "Is there a specific aspect of this topic you'd like to explore further?",
+            "Would you like to know how this applies to daily life?",
+            "Should I provide more Quranic verses or Hadith on this subject?",
+            "Would you like to learn about related Islamic topics?",
+            "Is there something specific about this that you find challenging?",
+            "Would you like practical examples of how to implement this in your life?",
+            "Should I explain the historical context of this teaching?",
+            "Would you like to know what the scholars say about this topic?",
+            "Is there a particular situation where you need guidance on this?"
+        ];
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendChatMessage();
+            }
+        }
+
+        function askQuestion(question) {
+            document.getElementById('chatInput').value = question;
+            sendChatMessage();
+        }
+
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.trim();
+            if (searchTerm) {
+                document.getElementById('chatInput').value = `Search for: ${searchTerm}`;
+                sendChatMessage();
+                document.getElementById('searchInput').value = '';
+            }
+        }
+
+        function addChatMessage(message, isUser) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            typingIndicator.classList.add('show');
+            isTyping = true;
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            typingIndicator.classList.remove('show');
+            isTyping = false;
+        }
+
+        function updateStatus(status, message) {
+            const statusIndicator = document.getElementById('statusIndicator');
+            statusIndicator.className = `status-indicator status-${status}`;
+            statusIndicator.textContent = message;
+        }
+
+        function generateFollowUpQuestion(userMessage, botResponse) {
+            // Analyze the conversation context to generate relevant follow-ups
+            const messageLower = userMessage.toLowerCase();
+            const responseLower = botResponse.toLowerCase();
+            
+            // Context-specific follow-up questions
+            if (messageLower.includes('prayer') || messageLower.includes('salah') || messageLower.includes('namaz')) {
+                return [
+                    "Would you like me to explain the specific steps of this prayer?",
+                    "Should I show you the proper way to perform wudu before prayer?",
+                    "Would you like to know the recommended times for this prayer?",
+                    "Should I explain the spiritual benefits of this prayer?"
+                ];
+            } else if (messageLower.includes('quran') || messageLower.includes('verse') || messageLower.includes('surah')) {
+                return [
+                    "Would you like me to explain the historical context of this verse?",
+                    "Should I provide more verses on the same topic?",
+                    "Would you like to know how to apply this teaching in daily life?",
+                    "Should I explain the Arabic meaning and linguistic beauty?"
+                ];
+            } else if (messageLower.includes('hadith') || messageLower.includes('prophet') || messageLower.includes('muhammad')) {
+                return [
+                    "Would you like me to explain the context of this Hadith?",
+                    "Should I provide more Hadith on the same topic?",
+                    "Would you like to know how the Prophet (PBUH) applied this teaching?",
+                    "Should I explain the authenticity and grading of this Hadith?"
+                ];
+            } else if (messageLower.includes('fiqh') || messageLower.includes('law') || messageLower.includes('ruling')) {
+                return [
+                    "Would you like me to explain the different scholarly opinions on this?",
+                    "Should I provide practical examples of how to apply this ruling?",
+                    "Would you like to know the evidence behind this ruling?",
+                    "Should I explain when this ruling applies and when it doesn't?"
+                ];
+            } else if (messageLower.includes('family') || messageLower.includes('marriage') || messageLower.includes('children')) {
+                return [
+                    "Would you like practical advice on implementing this in family life?",
+                    "Should I provide more Islamic guidance on family relationships?",
+                    "Would you like to know how the Prophet (PBUH) treated his family?",
+                    "Should I explain the rights and responsibilities in family matters?"
+                ];
+            } else if (messageLower.includes('new muslim') || messageLower.includes('convert') || messageLower.includes('shahada')) {
+                return [
+                    "Would you like me to explain the next steps after becoming Muslim?",
+                    "Should I provide guidance on building your Islamic foundation?",
+                    "Would you like to know about essential Islamic practices for beginners?",
+                    "Should I explain how to deal with family and friends who may not understand?"
+                ];
+            }
+            
+            // Default follow-up questions based on general topics
+            return [
+                "Would you like me to explain this in more detail?",
+                "Is there a specific aspect of this topic you'd like to explore further?",
+                "Would you like to know how this applies to daily life?",
+                "Should I provide more Quranic verses or Hadith on this subject?"
+            ];
+        }
+
+        function addFollowUpQuestions(questions) {
+            const chatMessages = document.getElementById('chatMessages');
+            const followUpDiv = document.createElement('div');
+            followUpDiv.className = 'message bot-message follow-up-questions';
+            followUpDiv.innerHTML = `
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e0e0e0;">
+                    <strong>Follow-up Questions:</strong><br>
+                    ${questions.map(q => `<div class="follow-up-link" onclick="askFollowUp('${q}')">• ${q}</div>`).join('')}
+                </div>
+            `;
+            chatMessages.appendChild(followUpDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function askFollowUp(question) {
+            document.getElementById('chatInput').value = question;
+            sendChatMessage();
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message || isTyping) return;
+
+            addChatMessage(message, true);
+            input.value = '';
+            
+            // Handle first message (name collection)
+            if (isFirstMessage) {
+                userName = message.trim();
+                isFirstMessage = false;
+                
+                // Greet by name and ask for question
+                setTimeout(() => {
+                    addChatMessage(`Assalamu alaikum ${userName}! Jazakallah for introducing yourself. I'm here to help you with any questions about Islam, the Quran, Hadith, Fiqh, and Islamic guidance. What would you like to know?`, false);
+                }, 1000);
+                return;
+            }
+            
+            showTypingIndicator();
+            updateStatus('connected', 'DeenBot is thinking...');
+
+            try {
+                const response = await fetch("http://localhost:8080/chat", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    hideTypingIndicator();
+                    addChatMessage(data.response, false);
+                    
+                    // Add follow-up questions based on the conversation
+                    const followUpQuestions = generateFollowUpQuestion(message, data.response);
+                    setTimeout(() => {
+                        addFollowUpQuestions(followUpQuestions);
+                    }, 1000);
+                    
+                    updateStatus('connected', 'Connected to AI Model');
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                hideTypingIndicator();
+                console.error("Chat Error:", error);
+                
+                if (error.message.includes('timeout') || error.message.includes('Failed to fetch')) {
+                    updateStatus('fallback', 'Using Enhanced Local Knowledge');
+                    addChatMessage("I'm currently using my enhanced local knowledge base. Let me provide you with comprehensive Islamic guidance based on authentic sources.", false);
+                } else {
+                    updateStatus('error', 'Connection Error - Using Local Knowledge');
+                    addChatMessage("I apologize, but I encountered a connection issue. I'm switching to my comprehensive local knowledge base to assist you.", false);
+                }
+            }
+        }
+
+        // Auto-scroll to bottom when new messages arrive
+        const chatMessages = document.getElementById('chatMessages');
+        const observer = new MutationObserver(() => {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+        observer.observe(chatMessages, { childList: true });
+
+        // Test connection on page load
+        window.addEventListener('load', async () => {
+            try {
+                const response = await fetch("http://localhost:8080/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: "test" })
+                });
+                
+                if (response.ok) {
+                    updateStatus('connected', 'Connected to AI Model');
+                } else {
+                    updateStatus('fallback', 'Using Enhanced Local Knowledge');
+                }
+            } catch (error) {
+                updateStatus('fallback', '⚠️ Using Enhanced Local Knowledge');
+            }
+        });
+    </script>
+</body>
+</html>

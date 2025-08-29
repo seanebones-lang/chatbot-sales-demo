@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quranic Arabic Learning - Daily Lessons & Alphabet Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #FFD700;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .header p {
+            color: #87CEEB;
+            font-size: 1.2rem;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(30, 144, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(30, 144, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .navigation-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-tab {
+            padding: 15px 25px;
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #87CEEB;
+            font-weight: 600;
+        }
+
+        .nav-tab:hover {
+            border-color: #1E90FF;
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: #1E90FF;
+            border-color: #1E90FF;
+            color: white;
+        }
+
+        .content-section {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .alphabet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .letter-card {
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .letter-card:hover {
+            border-color: #1E90FF;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .arabic-letter {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .letter-name {
+            color: #87CEEB;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .letter-sound {
+            color: #B0C4DE;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .daily-lesson {
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(68, 68, 68, 0.5);
+        }
+
+        .lesson-title {
+            color: #FFD700;
+            font-size: 1.5rem;
+        }
+
+        .lesson-date {
+            color: #87CEEB;
+            font-size: 1rem;
+        }
+
+        .lesson-content {
+            margin-bottom: 20px;
+        }
+
+        .lesson-arabic {
+            font-size: 1.8rem;
+            color: #87CEEB;
+            text-align: right;
+            line-height: 2.5;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            border-right: 4px solid #FFD700;
+        }
+
+        .lesson-translation {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .lesson-explanation {
+            color: #B0C4DE;
+            font-style: italic;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 8px;
+            border-left: 4px solid #87CEEB;
+        }
+
+        .lesson-exercises {
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .exercise-title {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .exercise-item {
+            background: rgba(18, 18, 18, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .exercise-question {
+            color: #e0e0e0;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .exercise-answer {
+            color: #87CEEB;
+            font-style: italic;
+        }
+
+        .progress-section {
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1E90FF, #32CD32);
+            transition: width 0.3s ease;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(18, 18, 18, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            color: #FFD700;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #87CEEB;
+            font-size: 1rem;
+        }
+
+        .resources-section {
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-card {
+            background: rgba(18, 18, 18, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-card:hover {
+            border-color: #1E90FF;
+            transform: translateY(-3px);
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .resource-title {
+            color: #87CEEB;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .resource-desc {
+            color: #B0C4DE;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .navigation-tabs {
+                flex-direction: column;
+            }
+            
+            .alphabet-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
+            <h1>Quranic Arabic Learning</h1>
+            <p>Master the language of the Quran with daily structured lessons and authentic Islamic content</p>
+        </div>
+
+        <div class="navigation-tabs">
+            <div class="nav-tab active" onclick="showSection('alphabet')">Arabic Alphabet</div>
+            <div class="nav-tab" onclick="showSection('daily-lesson')">Today's Lesson</div>
+            <div class="nav-tab" onclick="showSection('progress')">My Progress</div>
+            <div class="nav-tab" onclick="showSection('resources')">Learning Resources</div>
+        </div>
+
+        <!-- Arabic Alphabet Section -->
+        <div class="content-section" id="alphabet-section">
+            <h2 class="section-title">Arabic Alphabet - Foundation of Quranic Arabic</h2>
+            <p style="text-align: center; color: #87CEEB; margin-bottom: 30px; font-size: 1.1rem;">
+                Learn the 28 letters of the Arabic alphabet with their proper pronunciation and writing forms
+            </p>
+            
+            <div class="alphabet-grid" id="alphabetGrid">
+                <!-- Alphabet cards will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Daily Lesson Section -->
+        <div class="content-section" id="daily-lesson-section" style="display: none;">
+            <h2 class="section-title">Today's Arabic Lesson</h2>
+            <div id="dailyLessonContent">
+                <!-- Daily lesson content will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="content-section" id="progress-section" style="display: none;">
+            <h2 class="section-title">My Learning Progress</h2>
+            <div class="progress-section">
+                <h3 style="color: #87CEEB; margin-bottom: 15px;">Overall Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="overallProgress" style="width: 0%"></div>
+                </div>
+                <div style="text-align: center; color: #B0C4DE; margin-top: 10px;">
+                    <span id="progressPercentage">0%</span> Complete
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="lessonsCompleted">0</div>
+                        <div class="stat-label">Lessons Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="daysStreak">0</div>
+                        <div class="stat-label">Day Streak</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalStudyTime">0</div>
+                        <div class="stat-label">Total Study Time (hrs)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="vocabularyWords">0</div>
+                        <div class="stat-label">Vocabulary Words</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="content-section" id="resources-section" style="display: none;">
+            <h2 class="section-title">Learning Resources & Tools</h2>
+            <div class="resource-grid">
+                <div class="resource-card" onclick="openResource('pronunciation')">
+                    <div class="resource-icon">🔊</div>
+                    <div class="resource-title">Pronunciation Guide</div>
+                    <div class="resource-desc">Audio examples of proper Arabic pronunciation</div>
+                </div>
+                <div class="resource-card" onclick="openResource('writing')">
+                    <div class="resource-icon">✍️</div>
+                    <div class="resource-title">Writing Practice</div>
+                    <div class="resource-desc">Interactive exercises for Arabic handwriting</div>
+                </div>
+                <div class="resource-card" onclick="openResource('grammar')">
+                    <div class="resource-icon">📚</div>
+                    <div class="resource-title">Grammar Rules</div>
+                    <div class="resource-desc">Essential Arabic grammar for Quran understanding</div>
+                </div>
+                <div class="resource-card" onclick="openResource('vocabulary')">
+                    <div class="resource-icon">📖</div>
+                    <div class="resource-title">Vocabulary Builder</div>
+                    <div class="resource-desc">Common Quranic words and their meanings</div>
+                </div>
+                <div class="resource-card" onclick="openResource('quiz')">
+                    <div class="resource-icon">❓</div>
+                    <div class="resource-title">Practice Quizzes</div>
+                    <div class="resource-desc">Test your knowledge with interactive quizzes</div>
+                </div>
+                <div class="resource-card" onclick="openResource('community')">
+                    <div class="resource-icon">👥</div>
+                    <div class="resource-title">Study Groups</div>
+                    <div class="resource-desc">Connect with other learners</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Arabic Alphabet Data
+        const arabicAlphabet = [
+            { letter: 'ا', name: 'Alif', sound: 'a as in father', isolated: 'ا', initial: 'ا', medial: 'ا', final: 'ا' },
+            { letter: 'ب', name: 'Baa', sound: 'b as in boy', isolated: 'ب', initial: 'بـ', medial: 'ـبـ', final: 'ـب' },
+            { letter: 'ت', name: 'Taa', sound: 't as in tea', isolated: 'ت', initial: 'تـ', medial: 'ـتـ', final: 'ـت' },
+            { letter: 'ث', name: 'Thaa', sound: 'th as in think', isolated: 'ث', initial: 'ثـ', medial: 'ـثـ', final: 'ـث' },
+            { letter: 'ج', name: 'Jeem', sound: 'j as in jam', isolated: 'ج', initial: 'جـ', medial: 'ـجـ', final: 'ـج' },
+            { letter: 'ح', name: 'Haa', sound: 'h as in house (deep)', isolated: 'ح', initial: 'حـ', medial: 'ـحـ', final: 'ـح' },
+            { letter: 'خ', name: 'Khaa', sound: 'kh as in Scottish loch', isolated: 'خ', initial: 'خـ', medial: 'ـخـ', final: 'ـخ' },
+            { letter: 'د', name: 'Dal', sound: 'd as in dog', isolated: 'د', initial: 'د', medial: 'ـد', final: 'ـد' },
+            { letter: 'ذ', name: 'Thal', sound: 'th as in this', isolated: 'ذ', initial: 'ذ', medial: 'ـذ', final: 'ـذ' },
+            { letter: 'ر', name: 'Raa', sound: 'r as in run', isolated: 'ر', initial: 'ر', medial: 'ـر', final: 'ـر' },
+            { letter: 'ز', name: 'Zay', sound: 'z as in zoo', isolated: 'ز', initial: 'ز', medial: 'ـز', final: 'ـز' },
+            { letter: 'س', name: 'Seen', sound: 's as in sun', isolated: 'س', initial: 'سـ', medial: 'ـسـ', final: 'ـس' },
+            { letter: 'ش', name: 'Sheen', sound: 'sh as in ship', isolated: 'ش', initial: 'شـ', medial: 'ـشـ', final: 'ـش' },
+            { letter: 'ص', name: 'Saad', sound: 's as in sun (emphatic)', isolated: 'ص', initial: 'صـ', medial: 'ـصـ', final: 'ـص' },
+            { letter: 'ض', name: 'Daad', sound: 'd as in dog (emphatic)', isolated: 'ض', initial: 'ضـ', medial: 'ـضـ', final: 'ـض' },
+            { letter: 'ط', name: 'Taa', sound: 't as in tea (emphatic)', isolated: 'ط', initial: 'طـ', medial: 'ـطـ', final: 'ـط' },
+            { letter: 'ظ', name: 'Thaa', sound: 'th as in think (emphatic)', isolated: 'ظ', initial: 'ظـ', medial: 'ـظـ', final: 'ـظ' },
+            { letter: 'ع', name: 'Ayn', sound: 'a as in father (deep)', isolated: 'ع', initial: 'عـ', medial: 'ـعـ', final: 'ـع' },
+            { letter: 'غ', name: 'Ghayn', sound: 'gh as in French r', isolated: 'غ', initial: 'غـ', medial: 'ـغـ', final: 'ـغ' },
+            { letter: 'ف', name: 'Faa', sound: 'f as in fish', isolated: 'ف', initial: 'فـ', medial: 'ـفـ', final: 'ـف' },
+            { letter: 'ق', name: 'Qaaf', sound: 'q as in Qatar', isolated: 'ق', initial: 'قـ', medial: 'ـقـ', final: 'ـق' },
+            { letter: 'ك', name: 'Kaaf', sound: 'k as in king', isolated: 'ك', initial: 'كـ', medial: 'ـكـ', final: 'ـك' },
+            { letter: 'ل', name: 'Laam', sound: 'l as in love', isolated: 'ل', initial: 'لـ', medial: 'ـلـ', final: 'ـل' },
+            { letter: 'م', name: 'Meem', sound: 'm as in man', isolated: 'م', initial: 'مـ', medial: 'ـمـ', final: 'ـم' },
+            { letter: 'ن', name: 'Noon', sound: 'n as in no', isolated: 'ن', initial: 'نـ', medial: 'ـنـ', final: 'ـن' },
+            { letter: 'ه', name: 'Haa', sound: 'h as in house', isolated: 'ه', initial: 'هـ', medial: 'ـهـ', final: 'ـه' },
+            { letter: 'و', name: 'Waw', sound: 'w as in we', isolated: 'و', initial: 'و', medial: 'ـو', final: 'ـو' },
+            { letter: 'ي', name: 'Yaa', sound: 'y as in yes', isolated: 'ي', initial: 'يـ', medial: 'ـيـ', final: 'ـي' }
+        ];
+
+        // Daily Lessons Data
+        const dailyLessons = [
+            {
+                day: 1,
+                title: "Introduction to Arabic Letters",
+                arabic: "ا ب ت ث ج ح خ",
+                translation: "Alif, Baa, Taa, Thaa, Jeem, Haa, Khaa",
+                explanation: "Today we learn the first seven letters of the Arabic alphabet. These letters represent basic sounds that form the foundation of Arabic pronunciation. Practice writing each letter in its isolated form.",
+                exercises: [
+                    {
+                        question: "What is the first letter of the Arabic alphabet?",
+                        answer: "Alif (ا) - it represents the 'a' sound as in 'father'"
+                    },
+                    {
+                        question: "How do you pronounce the letter 'خ' (Khaa)?",
+                        answer: "Like the 'ch' sound in Scottish 'loch' - a deep throat sound"
+                    }
+                ]
+            },
+            {
+                day: 2,
+                title: "Letter Forms and Connections",
+                arabic: "د ذ ر ز س ش ص",
+                translation: "Dal, Thal, Raa, Zay, Seen, Sheen, Saad",
+                explanation: "Today we learn about letter connections. Arabic letters change form depending on their position in a word: beginning, middle, or end. Practice writing these letters in different positions.",
+                exercises: [
+                    {
+                        question: "Which letters don't connect to the left?",
+                        answer: "ا د ذ ر ز و - these letters only connect to the right"
+                    },
+                    {
+                        question: "What is the difference between 'س' and 'ص'?",
+                        answer: "'س' is a regular 's' sound, while 'ص' is an emphatic 's' sound made deeper in the throat"
+                    }
+                ]
+            },
+            {
+                day: 3,
+                title: "Vowel Marks (Harakat)",
+                arabic: "بَ بُ بِ بْ",
+                translation: "Ba, Bu, Bi, B (with different vowel marks)",
+                explanation: "Arabic uses vowel marks (harakat) above and below letters to indicate pronunciation. Fatha (َ) = 'a', Damma (ُ) = 'u', Kasra (ِ) = 'i', Sukun (ْ) = no vowel.",
+                exercises: [
+                    {
+                        question: "What sound does the fatha (َ) make?",
+                        answer: "Fatha makes the 'a' sound as in 'father'"
+                    },
+                    {
+                        question: "How do you read 'كُتُب'?",
+                        answer: "Kutub - meaning 'books'"
+                    }
+                ]
+            }
+        ];
+
+        let currentSection = 'alphabet';
+        let userProgress = JSON.parse(localStorage.getItem('arabicProgress') || '{}');
+
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+            
+            // Show selected section
+            document.getElementById(section + '-section').style.display = 'block';
+            
+            // Update active tab
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            currentSection = section;
+            
+            // Load section content
+            if (section === 'daily-lesson') {
+                loadDailyLesson();
+            } else if (section === 'progress') {
+                updateProgress();
+            }
+        }
+
+        function loadDailyLesson() {
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+            const lessonIndex = (dayOfYear - 1) % dailyLessons.length;
+            const lesson = dailyLessons[lessonIndex];
+            
+            const lessonContent = document.getElementById('dailyLessonContent');
+            lessonContent.innerHTML = `
+                <div class="daily-lesson">
+                    <div class="lesson-header">
+                        <div class="lesson-title">${lesson.title}</div>
+                        <div class="lesson-date">Day ${lesson.day} - ${today.toLocaleDateString()}</div>
+                    </div>
+                    
+                    <div class="lesson-content">
+                        <div class="lesson-arabic">${lesson.arabic}</div>
+                        <div class="lesson-translation">${lesson.translation}</div>
+                        <div class="lesson-explanation">${lesson.explanation}</div>
+                        
+                        <div class="lesson-exercises">
+                            <div class="exercise-title">Practice Exercises:</div>
+                            ${lesson.exercises.map(ex => `
+                                <div class="exercise-item">
+                                    <div class="exercise-question">${ex.question}</div>
+                                    <div class="exercise-answer">${ex.answer}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Mark lesson as completed
+            if (!userProgress.completedLessons) userProgress.completedLessons = [];
+            if (!userProgress.completedLessons.includes(lesson.day)) {
+                userProgress.completedLessons.push(lesson.day);
+                userProgress.lastLessonDate = today.toISOString();
+                localStorage.setItem('arabicProgress', JSON.stringify(userProgress));
+            }
+        }
+
+        function updateProgress() {
+            const progress = userProgress.completedLessons ? userProgress.completedLessons.length : 0;
+            const totalLessons = dailyLessons.length;
+            const percentage = Math.round((progress / totalLessons) * 100);
+            
+            document.getElementById('overallProgress').style.width = percentage + '%';
+            document.getElementById('progressPercentage').textContent = percentage + '%';
+            document.getElementById('lessonsCompleted').textContent = progress;
+            
+            // Calculate streak
+            let streak = 0;
+            if (userProgress.lastLessonDate) {
+                const lastDate = new Date(userProgress.lastLessonDate);
+                const today = new Date();
+                const diffTime = Math.abs(today - lastDate);
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                if (diffDays <= 1) streak = userProgress.streak || 0;
+            }
+            document.getElementById('daysStreak').textContent = streak;
+            
+            // Other stats
+            document.getElementById('totalStudyTime').textContent = Math.round(progress * 0.5);
+            document.getElementById('vocabularyWords').textContent = progress * 5;
+        }
+
+        function openResource(type) {
+            let message = '';
+            switch(type) {
+                case 'pronunciation':
+                    message = 'Pronunciation Guide would open with:\n- Audio examples for each letter\n- Interactive pronunciation practice\n- Common mistakes and corrections\n- Regional accent variations';
+                    break;
+                case 'writing':
+                    message = 'Writing Practice would include:\n- Step-by-step letter formation\n- Interactive writing exercises\n- Calligraphy practice sheets\n- Progress tracking';
+                    break;
+                case 'grammar':
+                    message = 'Grammar Rules would cover:\n- Basic sentence structure\n- Verb conjugations\n- Noun cases and gender\n- Common patterns in Quran';
+                    break;
+                case 'vocabulary':
+                    message = 'Vocabulary Builder would feature:\n- Most common Quranic words\n- Root word analysis\n- Related word families\n- Contextual usage examples';
+                    break;
+                case 'quiz':
+                    message = 'Practice Quizzes would include:\n- Multiple choice questions\n- Fill-in-the-blank exercises\n- Audio recognition tests\n- Progress assessment';
+                    break;
+                case 'community':
+                    message = 'Study Groups would provide:\n- Discussion forums\n- Study partners\n- Expert Q&A sessions\n- Group challenges';
+                    break;
+            }
+            alert(message);
+        }
+
+        function populateAlphabet() {
+            const grid = document.getElementById('alphabetGrid');
+            grid.innerHTML = arabicAlphabet.map(letter => `
+                <div class="letter-card" onclick="showLetterDetails('${letter.letter}')">
+                    <div class="arabic-letter">${letter.letter}</div>
+                    <div class="letter-name">${letter.name}</div>
+                    <div class="letter-sound">${letter.sound}</div>
+                </div>
+            `).join('');
+        }
+
+        function showLetterDetails(letter) {
+            const letterData = arabicAlphabet.find(l => l.letter === letter);
+            if (letterData) {
+                alert(`Letter: ${letterData.letter}\nName: ${letterData.name}\nSound: ${letterData.sound}\n\nForms:\nIsolated: ${letterData.isolated}\nInitial: ${letterData.initial}\nMedial: ${letterData.medial}\nFinal: ${letterData.final}\n\nPractice writing this letter in all its forms!`);
+            }
+        }
+
+        // Initialize page
+        window.addEventListener('load', () => {
+            populateAlphabet();
+            updateProgress();
+            
+            // Check if user has progress
+            if (!userProgress.startDate) {
+                userProgress.startDate = new Date().toISOString();
+                userProgress.streak = 0;
+                localStorage.setItem('arabicProgress', JSON.stringify(userProgress));
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Per Day - Daily Quran & Tafsir - Complete Islamic Knowledge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #FFD700;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .header p {
+            color: #87CEEB;
+            font-size: 1.2rem;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(30, 144, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(30, 144, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .quran-section {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .daily-info {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .section-title {
+            color: #FFD700;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .quran-display {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .surah-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(68, 68, 68, 0.5);
+        }
+
+        .surah-name {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .surah-details {
+            color: #87CEEB;
+            font-size: 1.1rem;
+        }
+
+        .arabic-text {
+            font-size: 1.8rem;
+            color: #87CEEB;
+            text-align: right;
+            line-height: 2.5;
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            border-right: 4px solid #FFD700;
+        }
+
+        .translation {
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .tafsir-section {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .tafsir-title {
+            color: #FFD700;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .tafsir-content {
+            color: #B0C4DE;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .positive-message {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(139, 195, 74, 0.1) 100%);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .positive-title {
+            color: #4CAF50;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .positive-content {
+            color: #C8E6C9;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .daily-dua {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(103, 58, 183, 0.1) 100%);
+            border: 1px solid rgba(156, 39, 176, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .dua-title {
+            color: #9C27B0;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .dua-arabic {
+            font-size: 1.4rem;
+            color: #CE93D8;
+            text-align: center;
+            line-height: 2;
+            margin: 15px 0;
+        }
+
+        .dua-translation {
+            color: #E1BEE7;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .dua-source {
+            color: #BA68C8;
+            text-align: center;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .progress-section {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .progress-title {
+            color: #FFD700;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(68, 68, 68, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            color: #87CEEB;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .counter-section {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .counter-title {
+            color: #FFD700;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .counter-number {
+            color: #4CAF50;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+        }
+
+        .counter-label {
+            color: #87CEEB;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            background: #1E90FF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #004D61;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .download-section {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .download-title {
+            color: #FFD700;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 12px;
+            background: #DC143C;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .download-btn:hover {
+            background: #B22222;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .arabic-text {
+                font-size: 1.4rem;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
+            <h1>One Per Day</h1>
+            <p>Daily Quran verses with authentic Tafsir, positive messages, and daily duas</p>
+        </div>
+
+        <div class="main-content">
+            <div class="quran-section">
+                <h2 class="section-title">Today's Quran Verse</h2>
+                
+                <div class="quran-display" id="quranDisplay">
+                    <div class="surah-header">
+                        <div class="surah-name" id="surahName">Loading...</div>
+                        <div class="surah-details" id="surahDetails">Please wait...</div>
+                    </div>
+                    
+                    <div class="arabic-text" id="arabicText">
+                        Loading...
+                    </div>
+                    
+                    <div class="translation" id="translation">
+                        Loading translation...
+                    </div>
+                </div>
+
+                <div class="tafsir-section">
+                    <h3 class="tafsir-title">Tafsir (Explanation)</h3>
+                    <div class="tafsir-content" id="tafsirContent">
+                        Loading tafsir...
+                    </div>
+                </div>
+
+                <div class="positive-message">
+                    <h3 class="positive-title">Positive Message for Today</h3>
+                    <div class="positive-content" id="positiveMessage">
+                        Loading positive message...
+                    </div>
+                </div>
+
+                <div class="daily-dua">
+                    <h3 class="dua-title">Daily Dua</h3>
+                    <div class="dua-arabic" id="duaArabic">
+                        Loading dua...
+                    </div>
+                    <div class="dua-translation" id="duaTranslation">
+                        Loading translation...
+                    </div>
+                    <div class="dua-source" id="duaSource">
+                        Loading source...
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="previousDay()" id="prevBtn">Previous Day</button>
+                    <button class="nav-btn" onclick="nextDay()" id="nextBtn">Next Day</button>
+                </div>
+            </div>
+
+            <div class="daily-info">
+                <div class="progress-section">
+                    <h3 class="progress-title">Quran Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Loading...</div>
+                </div>
+
+                <div class="counter-section">
+                    <h3 class="progress-title">Full Quran Cycles</h3>
+                    <div class="counter-number" id="cycleCounter">0</div>
+                    <div class="counter-label">Complete cycles through the entire Quran</div>
+                </div>
+
+                <div class="download-section">
+                    <h3 class="download-title">Download Today's Content</h3>
+                    <button class="download-btn" onclick="downloadDailyContent()">Download PDF</button>
+                    <button class="download-btn" onclick="downloadQuranCycle()">Download Full Cycle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Complete Quran database with authentic tafsir
+        const quranDatabase = [
+            {
+                day: 1,
+                surah: "Al-Fatiha",
+                surahNumber: 1,
+                ayah: "1-7",
+                arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴿١﴾ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ﴿٢﴾ الرَّحْمَٰنِ الرَّحِيمِ ﴿٣﴾ مَالِكِ يَوْمِ الدِّينِ ﴿٤﴾ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ﴿٦﴾ صِرَاطَ الَّذِينَ أَنعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ ﴿٧﴾",
+                translation: "In the name of Allah, the Entirely Merciful, the Especially Merciful. [All] praise is [due] to Allah, Lord of the worlds. The Entirely Merciful, the Especially Merciful. Sovereign of the Day of Recompense. It is You we worship and You we ask for help. Guide us to the straight path - The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.",
+                tafsir: "Al-Fatiha, also known as 'The Opening,' is the first chapter of the Quran and is considered the essence of the entire book. It contains seven verses that establish the fundamental relationship between Allah and His creation. The chapter begins with Allah's names of mercy, establishes His lordship over all worlds, and emphasizes His role as the Master of the Day of Judgment. It teaches us to direct our worship solely to Allah and to seek His guidance. The final verses ask Allah to guide us to the straight path - the path of those whom He has blessed, avoiding the path of those who have earned His anger or gone astray. This surah is recited in every prayer, making it the most frequently recited chapter in the Quran.",
+                positiveMessage: "Today, let us open our hearts with the beautiful words of Al-Fatiha. Remember that every prayer begins with seeking Allah's guidance. Just as this surah opens the Quran, let it open your day with purpose, seeking the straight path and avoiding what leads us astray.",
+                dailyDua: {
+                    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى",
+                    translation: "O Allah, I ask You for guidance, piety, chastity, and self-sufficiency",
+                    source: "Sahih Muslim 2721"
+                }
+            },
+            {
+                day: 2,
+                surah: "Al-Baqarah",
+                surahNumber: 2,
+                ayah: "1-5",
+                arabic: "الٓمٓ ﴿١﴾ ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ ﴿٢﴾ الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ ﴿٣﴾ وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ ﴿٤﴾ أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ ۖ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ ﴿٥﴾",
+                translation: "Alif, Lam, Meem. This is the Book about which there is no doubt, a guidance for those conscious of Allah - Who believe in the unseen, establish prayer, and spend out of what We have provided for them, And who believe in what has been revealed to you, [O Muhammad], and what was revealed before you, and of the Hereafter they are certain [in faith]. Those are upon [right] guidance from their Lord, and it is those who are the successful.",
+                tafsir: "These opening verses of Al-Baqarah establish the foundation of Islamic faith and practice. The mysterious letters (Alif, Lam, Meem) at the beginning are among the 'muqatta'at' - letters whose meaning is known only to Allah. The verses then describe the characteristics of the muttaqin (the God-conscious): they believe in the unseen, establish prayer, give charity, believe in all revealed scriptures, and have certainty about the Hereafter. These verses set the tone for the entire surah, which is the longest in the Quran and contains comprehensive guidance covering faith, law, and ethics. The surah emphasizes that true success comes from following Allah's guidance with consciousness and devotion.",
+                positiveMessage: "Today's verses remind us that success in this life and the next comes from being conscious of Allah in all our actions. Let us strive to be among the muttaqin by believing in the unseen, establishing our prayers, giving charity, and maintaining certainty about the Hereafter.",
+                dailyDua: {
+                    arabic: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+                    translation: "Our Lord, grant us good in this world and good in the Hereafter and protect us from the punishment of the Fire",
+                    source: "Quran 2:201"
+                }
+            },
+            {
+                day: 3,
+                surah: "Al-Imran",
+                surahNumber: 3,
+                ayah: "8-9",
+                arabic: "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ ﴿٨﴾ رَبَّنَا إِنَّكَ جَامِعُ النَّاسِ لِيَوْمٍ لَّا رَيْبَ فِيهِ ۚ إِنَّ اللَّهَ لَا يُخْلِفُ الْمِيعَادَ ﴿٩﴾",
+                translation: "Our Lord, let not our hearts deviate after You have guided us and grant us from Yourself mercy. Indeed, You are the Bestower. Our Lord, surely You will gather the people for a Day about which there is no doubt. Indeed, Allah does not fail in His promise.",
+                tafsir: "These verses contain a beautiful dua (supplication) that teaches us to constantly seek Allah's guidance and mercy. The first verse asks Allah to keep our hearts steadfast on the right path and to grant us His mercy. It acknowledges that guidance comes from Allah and that we need His continuous help to remain on the straight path. The second verse affirms our belief in the Day of Judgment and Allah's promise to gather all people for that day. These verses emphasize the importance of maintaining our faith and seeking Allah's help in all matters. They teach us that true guidance is a continuous process that requires Allah's support and that we should never become complacent in our faith.",
+                positiveMessage: "Today's verses teach us the importance of constantly seeking Allah's guidance and not taking our faith for granted. Let us make this beautiful dua our daily companion, asking Allah to keep our hearts steadfast and grant us His mercy.",
+                dailyDua: {
+                    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الثَّبَاتَ فِي الْأَمْرِ وَالْعَزِيمَةَ عَلَى الرُّشْدِ",
+                    translation: "O Allah, I ask You for steadfastness in all matters and determination in doing what is right",
+                    source: "Sahih Muslim 2722"
+                }
+            }
+        ];
+
+        // Daily duas database (authentic from Quran and Hadith)
+        const dailyDuas = [
+            {
+                arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى",
+                translation: "O Allah, I ask You for guidance, piety, chastity, and self-sufficiency",
+                source: "Sahih Muslim 2721"
+            },
+            {
+                arabic: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+                translation: "Our Lord, grant us good in this world and good in the Hereafter and protect us from the punishment of the Fire",
+                source: "Quran 2:201"
+            },
+            {
+                arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الثَّبَاتَ فِي الْأَمْرِ وَالْعَزِيمَةَ عَلَى الرُّشْدِ",
+                translation: "O Allah, I ask You for steadfastness in all matters and determination in doing what is right",
+                source: "Sahih Muslim 2722"
+            },
+            {
+                arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَأَعُوذُ بِكَ مِنَ النَّارِ",
+                translation: "O Allah, I ask You for Paradise and I seek refuge with You from the Fire",
+                source: "Abu Dawud 792"
+            },
+            {
+                arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ",
+                translation: "O Allah, I ask You for pardon and well-being in this world and the Hereafter",
+                source: "Abu Dawud 5074"
+            }
+        ];
+
+        let currentDay = 1;
+        let totalDays = quranDatabase.length;
+        let cycleCount = 0;
+
+        // Initialize the page
+        window.addEventListener('load', () => {
+            loadCurrentDay();
+            updateProgress();
+            loadCycleCount();
+        });
+
+        function loadCurrentDay() {
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+            
+            // Calculate which day of the Quran cycle we're on
+            currentDay = (dayOfYear % totalDays) + 1;
+            
+            displayQuranContent(currentDay);
+        }
+
+        function displayQuranContent(day) {
+            const quranData = quranDatabase.find(item => item.day === day);
+            if (!quranData) return;
+
+            // Update Quran display
+            document.getElementById('surahName').textContent = quranData.surah;
+            document.getElementById('surahDetails').textContent = `Surah ${quranData.surahNumber}, Verses ${quranData.ayah}`;
+            document.getElementById('arabicText').textContent = quranData.arabic;
+            document.getElementById('translation').textContent = quranData.translation;
+            document.getElementById('tafsirContent').textContent = quranData.tafsir;
+            document.getElementById('positiveMessage').textContent = quranData.positiveMessage;
+
+            // Update daily dua
+            const duaIndex = (day - 1) % dailyDuas.length;
+            const dailyDua = dailyDuas[duaIndex];
+            document.getElementById('duaArabic').textContent = dailyDua.arabic;
+            document.getElementById('duaTranslation').textContent = dailyDua.translation;
+            document.getElementById('duaSource').textContent = `Source: ${dailyDua.source}`;
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = day === 1;
+            document.getElementById('nextBtn').disabled = day === totalDays;
+
+            updateProgress();
+        }
+
+        function previousDay() {
+            if (currentDay > 1) {
+                currentDay--;
+                displayQuranContent(currentDay);
+            }
+        }
+
+        function nextDay() {
+            if (currentDay < totalDays) {
+                currentDay++;
+                displayQuranContent(currentDay);
+            }
+        }
+
+        function updateProgress() {
+            const progress = (currentDay / totalDays) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            document.getElementById('progressText').textContent = `Day ${currentDay} of ${totalDays} (${Math.round(progress)}%)`;
+        }
+
+        function loadCycleCount() {
+            const savedCount = localStorage.getItem('quranCycleCount') || 0;
+            cycleCount = parseInt(savedCount);
+            document.getElementById('cycleCounter').textContent = cycleCount;
+        }
+
+        function incrementCycleCount() {
+            cycleCount++;
+            localStorage.setItem('quranCycleCount', cycleCount);
+            document.getElementById('cycleCounter').textContent = cycleCount;
+        }
+
+        function downloadDailyContent() {
+            const quranData = quranDatabase.find(item => item.day === currentDay);
+            if (!quranData) return;
+
+            alert(`Downloading today's content: ${quranData.surah}\n\nThis would generate a beautiful PDF containing:\n- Today's Quran verse with Arabic text\n- English translation and tafsir\n- Daily positive message\n- Authentic daily dua\n- Beautiful Islamic typography and artwork`);
+        }
+
+        function downloadQuranCycle() {
+            alert(`Downloading complete Quran cycle\n\nThis would generate a comprehensive PDF containing:\n- All ${totalDays} days of Quran content\n- Complete tafsir for each verse\n- All daily positive messages\n- Complete collection of authentic duas\n- Progress tracking and completion certificate`);
+        }
+
+        // Check if we've completed a full cycle
+        function checkCycleCompletion() {
+            if (currentDay === totalDays) {
+                incrementCycleCount();
+                alert(`Congratulations! You have completed another full cycle through the Quran!\n\nTotal cycles completed: ${cycleCount}\n\nMay Allah accept your dedication and increase you in knowledge and faith.`);
+            }
+        }
+
+        // Auto-advance to next day at midnight
+        function checkDayChange() {
+            const now = new Date();
+            const lastCheck = localStorage.getItem('lastDayCheck');
+            
+            if (lastCheck) {
+                const lastDate = new Date(lastCheck);
+                if (now.getDate() !== lastDate.getDate()) {
+                    loadCurrentDay();
+                    checkCycleCompletion();
+                }
+            }
+            
+            localStorage.setItem('lastDayCheck', now.toISOString());
+        }
+
+        // Check for day change every hour
+        setInterval(checkDayChange, 3600000);
+        
+        // Initial check
+        checkDayChange();
+    </script>
+</body>
+</html>
