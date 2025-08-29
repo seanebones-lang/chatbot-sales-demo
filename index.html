@@ -552,6 +552,134 @@
             border-top: 1px solid rgba(68, 68, 68, 0.3);
         }
 
+        /* Bottom Navigation Tabs */
+        .bottom-navigation {
+            margin-top: 60px;
+            padding: 20px;
+            background: rgba(18, 18, 18, 0.9);
+            border-radius: 25px;
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .nav-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .nav-tab:hover::before {
+            left: 100%;
+        }
+
+        .nav-tab:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: #1E90FF;
+            box-shadow: 0 15px 35px rgba(30, 144, 255, 0.4);
+            background: rgba(18, 18, 18, 0.95);
+        }
+
+        .nav-tab:active {
+            transform: translateY(-4px) scale(0.98);
+        }
+
+        .tab-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab:hover .tab-icon {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 10px rgba(30, 144, 255, 0.6));
+        }
+
+        .tab-label {
+            color: #87CEEB;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab:hover .tab-label {
+            color: #1E90FF;
+            text-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+        }
+
+        /* Animation for tab entrance */
+        .nav-tab {
+            animation: tabSlideUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .nav-tab:nth-child(1) { animation-delay: 0.1s; }
+        .nav-tab:nth-child(2) { animation-delay: 0.2s; }
+        .nav-tab:nth-child(3) { animation-delay: 0.3s; }
+        .nav-tab:nth-child(4) { animation-delay: 0.4s; }
+        .nav-tab:nth-child(5) { animation-delay: 0.5s; }
+        .nav-tab:nth-child(6) { animation-delay: 0.6s; }
+        .nav-tab:nth-child(7) { animation-delay: 0.7s; }
+        .nav-tab:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes tabSlideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Pulse animation for active state */
+        .nav-tab.active {
+            animation: tabPulse 2s infinite;
+        }
+
+        @keyframes tabPulse {
+            0%, 100% {
+                box-shadow: 0 15px 35px rgba(30, 144, 255, 0.4);
+            }
+            50% {
+                box-shadow: 0 15px 35px rgba(30, 144, 255, 0.8);
+            }
+        }
+
+        /* Ripple effect animation */
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .islamic-greeting {
                 font-size: 2rem;
@@ -614,6 +742,30 @@
             
             .verse-actions {
                 flex-direction: column;
+            }
+
+            /* Mobile responsive for bottom navigation */
+            .bottom-navigation {
+                margin-top: 40px;
+                padding: 15px;
+            }
+
+            .nav-tabs {
+                gap: 10px;
+            }
+
+            .nav-tab {
+                padding: 12px 15px;
+                min-width: 70px;
+            }
+
+            .tab-icon {
+                font-size: 1.5rem;
+                margin-bottom: 6px;
+            }
+
+            .tab-label {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -733,6 +885,44 @@
                 <h3>Hadith Collections</h3>
                 <p>Complete collections from major Islamic scholars</p>
             </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Tabs -->
+        <div class="bottom-navigation">
+            <div class="nav-tabs">
+                <div class="nav-tab" onclick="goToPage('prayer')">
+                    <div class="tab-icon">🕌</div>
+                    <span class="tab-label">Prayer</span>
+                </div>
+                <div class="nav-tab" onclick="goToPage('daily-message')">
+                    <div class="tab-icon">📅</div>
+                    <span class="tab-label">Daily</span>
+                </div>
+                <div class="nav-tab" onclick="goToPage('chat')">
+                    <div class="tab-icon">🤖</div>
+                    <span class="tab-label">DeenBot</span>
+                </div>
+                <div class="nav-tab" onclick="window.location.href='authentic-fiqh.html'">
+                    <div class="tab-icon">⚖️</div>
+                    <span class="tab-label">Fiqh</span>
+                </div>
+                <div class="nav-tab" onclick="goToPage('five-pillars')">
+                    <div class="tab-icon">🏛️</div>
+                    <span class="tab-label">Pillars</span>
+                </div>
+                <div class="nav-tab" onclick="goToPage('sunnah')">
+                    <div class="tab-icon">🌟</div>
+                    <span class="tab-label">Sunnah</span>
+                </div>
+                <div class="nav-tab" onclick="goToPage('new-muslim')">
+                    <div class="tab-icon">🆕</div>
+                    <span class="tab-label">New Muslim</span>
+                </div>
+                <div class="nav-tab" onclick="goToPage('hadith-collections-hub')">
+                    <div class="tab-icon">📚</div>
+                    <span class="tab-label">Hadith</span>
                 </div>
             </div>
         </div>
@@ -1820,6 +2010,49 @@
                     // Add debugging for mobile
                     console.log('Menu item configured for:', pageName);
                 }
+            });
+
+            // Bottom navigation tab functionality
+            const navTabs = document.querySelectorAll('.nav-tab');
+            
+            navTabs.forEach(tab => {
+                // Add click animation
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    navTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Add ripple effect
+                    const ripple = document.createElement('div');
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(30, 144, 255, 0.6)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.left = '50%';
+                    ripple.style.top = '50%';
+                    ripple.style.width = '20px';
+                    ripple.style.height = '20px';
+                    ripple.style.marginLeft = '-10px';
+                    ripple.style.marginTop = '-10px';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+
+                // Add hover sound effect (optional)
+                tab.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.05)';
+                });
+
+                tab.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
             });
         });
         
