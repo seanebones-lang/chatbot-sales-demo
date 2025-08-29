@@ -1,0 +1,24 @@
+[build]
+  publish = "."
+  command = "echo 'Static site - no build needed'"
+
+# Site name for custom subdomain
+[build.environment]
+  NODE_VERSION = "18"
+
+# Custom site name - exact capitalization
+[context.production.environment]
+  SITE_NAME = "IslamicStudyApplication"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
