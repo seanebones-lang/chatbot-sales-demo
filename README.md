@@ -1,135 +1,52 @@
-# 🕌 Quran Index - Islamic Knowledge Assistant
+# 🕌 Complete Islamic Knowledge - Quran & Hadith System
 
-**Find any topic in the Quran instantly with our comprehensive Islamic knowledge system.**
+A comprehensive Islamic knowledge system providing access to Quran verses, authentic Hadiths, and interactive learning features.
 
-## ✨ What You Get
+## 🌟 Features
 
-- **🕌 Complete Quran Index** - Find verses by any topic instantly
-- **📚 25+ Islamic Topics** - From mercy to inheritance to business
-- **🎯 Exact Verse References** - Get specific Surah and verse numbers
-- **📱 Mobile & Desktop Optimized** - Works perfectly on all devices
-- **⚡ Instant Responses** - Comprehensive knowledge in seconds
-- **🌐 Live Demo** - Available at [seanebones-lang.github.io/chatbot-sales-demo/](https://seanebones-lang.github.io/chatbot-sales-demo/)
+- **Complete Quran Searchability** - Find any verse by topic, reference, or content
+- **Authentic Hadith Collection** - Sahih Bukhari, Muslim, and other authentic sources
+- **Interactive Learning** - Beautiful interface with Arabic text and translations
+- **Smart Search** - AI-powered semantic search for Islamic topics
+- **Mobile Responsive** - Works perfectly on all devices
 
-## 🌟 Topics Covered
+## 🚀 Live Demo
 
-### **Core Islamic Concepts**
-- **Mercy (Rahman/Raheem)** - Divine compassion & forgiveness
-- **Love (Hubb/Mawaddah)** - Divine love, human love, family love
-- **Patience (Sabr)** - Endurance, perseverance, seeking help through prayer
-- **Forgiveness (Ghafr/Tawbah)** - Divine forgiveness, repentance
-- **Justice (Adl)** - Standing firm in justice, fairness
+Visit the live site: [https://seanebones-lang.github.io/chatbot-sales-demo/](https://seanebones-lang.github.io/chatbot-sales-demo/)
 
-### **Family & Relationships**
-- **Marriage (Nikah)** - Sacred bonds, tranquility, family creation
-- **Family** - Parents, children, relationships, kinship
-- **Inheritance (Mirath)** - Islamic inheritance laws, fair distribution
+## 📚 What You Can Search
 
-### **Worship & Spirituality**
-- **Prayer (Salah)** - Fundamental pillar, mentioned 100+ times
-- **Fasting (Sawm)** - Ramadan, spiritual discipline, self-control
-- **Pilgrimage (Hajj)** - Sacred obligation, Kaaba, spiritual journey
+- **Islamic Topics**: Mercy, kindness, prayer, patience, family, knowledge
+- **Quran Verses**: Complete verses with Arabic text and translations
+- **Hadiths**: Authentic prophetic traditions with authentication levels
+- **Context**: Detailed explanations and historical context
 
-### **Business & Society**
-- **Trade & Business** - Islamic commerce, fair dealing, interest prohibition
-- **Wealth** - Financial matters, charity, economic justice
-- **Community (Ummah)** - Brotherhood, unity, social responsibility
+## 🛠️ Technology
 
-### **Knowledge & Education**
-- **Knowledge (Ilm)** - Wisdom, learning, divine knowledge
-- **Education** - Teaching, learning, intellectual growth
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Search**: AI-powered semantic search algorithms
+- **Database**: Comprehensive Islamic knowledge database
+- **Hosting**: GitHub Pages
 
-### **Health & Nature**
-- **Health** - Healing, medicine, wellness
-- **Nature** - Creation, animals, plants, environmental stewardship
+## 📖 Usage
 
-### **Time & Existence**
-- **Time** - Temporal concepts, day/night cycles, months/years
-- **Death & Afterlife** - Mortality, spiritual transition
-- **Paradise (Jannah)** - Eternal gardens, divine rewards
-- **Hell (Jahannam)** - Divine justice, spiritual consequences
+1. **Search by Topic**: Enter any Islamic topic (e.g., "mercy", "prayer")
+2. **Filter Sources**: Choose Quran only, Hadith only, or both
+3. **Interactive Learning**: Click on search options for quick access
+4. **Auto-Wisdom**: Enjoy rotating Islamic wisdom every minute
 
-### **Spiritual Beings**
-- **Prophets & Messengers** - Divine guidance, spiritual leadership
-- **Angels** - Divine servants, spiritual messengers
-- **Satan (Shaytan)** - Evil, temptation, spiritual warfare
+## 🤲 Islamic Values
 
-## 🚀 Features
+This system is built with respect for Islamic tradition and provides authentic, verified Islamic knowledge from reliable sources.
 
-- **Instant Topic Search** - Type any Islamic subject
-- **Comprehensive Responses** - Detailed explanations with context
-- **Professional Interface** - Beautiful, responsive design
-- **Mobile First** - Perfect for phones, tablets, and computers
-- **Islamic Design** - Respectful, professional appearance
-- **Quick Topic Cards** - Click to search popular topics
+## 📱 Mobile Friendly
 
-## 🎯 Perfect For
+Optimized for all devices - desktop, tablet, and mobile phones.
 
-- **Islamic Centers** - Provide instant spiritual guidance
-- **Mosques** - Help community members find verses
-- **Religious Education** - Teach Islamic concepts and principles
-- **Spiritual Guidance** - Personal spiritual development
-- **Islamic Scholars** - Quick reference tool for research
-- **Students** - Learn about Islamic topics and themes
-- **Families** - Teach children about Islamic values
-- **Businesses** - Understand Islamic business principles
+## 🌍 Open Source
 
-## 🎨 Design Features
-
-- **Professional Dark Theme** - Executive, premium appearance
-- **Islamic Color Scheme** - Blue and teal highlights
-- **Responsive Layout** - Works on all screen sizes
-- **Smooth Animations** - Professional user experience
-- **Accessibility** - Easy to read and navigate
-
-## 🔧 Technical Details
-
-- **Pure HTML/CSS/JavaScript** - No external dependencies
-- **Mobile Optimized** - Touch-friendly interface
-- **Cross Browser** - Works on Chrome, Safari, Firefox, Edge
-- **Fast Loading** - Optimized for quick responses
-- **SEO Friendly** - Proper meta tags and structure
-
-## 🌐 Live Demo
-
-**Visit:** [https://seanebones-lang.github.io/chatbot-sales-demo/](https://seanebones-lang.github.io/chatbot-sales-demo/)
-
-## 💡 How to Use
-
-1. **Type a topic** in the search box (e.g., "mercy", "inheritance", "prayer")
-2. **Click "SEARCH QURAN"** or press Enter
-3. **Get instant results** with verse references and context
-4. **Click topic cards** for quick access to popular subjects
-
-## 🚀 Deployment
-
-This is a static HTML site that can be deployed anywhere:
-- **GitHub Pages** (current)
-- **Netlify**
-- **Vercel**
-- **Any web hosting service**
-
-## 🤝 Contributing
-
-This Quran Index is designed to help people find Islamic knowledge quickly and easily. Suggestions for additional topics or improvements are welcome.
-
-## 📞 Support
-
-- **Tested** - All topics tested and working
-- **Documented** - Complete topic coverage
-- **Maintained** - Regular updates and improvements
-- **Professional** - Production-ready quality
-
-## 🎉 Success Story
-
-**Built in 4 days from zero knowledge to complete Islamic knowledge system!**
-
-From learning Python and deployment to creating a comprehensive Quran Index that helps thousands of people find spiritual guidance instantly.
+Contributions welcome! This project aims to make Islamic knowledge accessible to everyone.
 
 ---
 
-**Built with ❤️ for Islamic education and spiritual guidance**
-
-*Helping people find wisdom in the Quran since 2025*
-
-**The Quran Index is now live at your GitHub Pages URL!** 🕌✨
+**Built with ❤️ for Islamic education and knowledge sharing**
