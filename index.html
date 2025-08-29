@@ -96,6 +96,38 @@
             user-select: none;
             -webkit-tap-highlight-color: transparent;
         }
+
+        /* Large Fiqh Tile - Spans 2 columns */
+        .menu-item.large-tile {
+            grid-column: span 2;
+            min-height: 180px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(30, 144, 255, 0.1) 100%);
+            border: 2px solid rgba(30, 144, 255, 0.4);
+        }
+
+        .menu-item.large-tile:hover {
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.95) 0%, rgba(30, 144, 255, 0.2) 100%);
+            border-color: #1E90FF;
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(30, 144, 255, 0.4);
+        }
+
+        .menu-item.large-tile .menu-icon {
+            font-size: 5rem;
+            margin-bottom: 25px;
+        }
+
+        .menu-item.large-tile h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .menu-item.large-tile p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 600px;
+        }
         
         .menu-item:hover {
             transform: translateY(-10px);
@@ -715,6 +747,26 @@
                 -ms-user-select: none;
                 user-select: none;
             }
+
+            .menu-item.large-tile {
+                grid-column: span 1;
+                min-height: 140px;
+                padding: 30px;
+            }
+
+            .menu-item.large-tile .menu-icon {
+                font-size: 3rem;
+                margin-bottom: 15px;
+            }
+
+            .menu-item.large-tile h3 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .menu-item.large-tile p {
+                font-size: 1rem;
+            }
             
             .menu-item h3 {
                 font-size: 1.3rem;
@@ -784,86 +836,97 @@
             <div class="main-menu">
                 <h2>Choose Your Path of Learning</h2>
                 <div class="menu-grid">
-                    <div class="menu-item" onclick="goToPage('prayer')">
-                        <div class="menu-icon">Prayer</div>
-                        <h3>Prayer Guide</h3>
-                        <p>Learn how to pray, prayer times, and prayer guidance</p>
-                    </div>
-                    
-                    <div class="menu-item" onclick="goToPage('daily-message')">
-                        <div class="menu-icon">Daily</div>
-                        <h3>Daily Islamic Message</h3>
-                        <p>Get your daily dose of Islamic wisdom and inspiration</p>
-                    </div>
-                    
-                    <div class="menu-item" onclick="goToPage('one-per-day')">
-                        <div class="menu-icon">Quran</div>
-                        <h3>One Per Day</h3>
-                        <p>Daily Quran verse with authentic tafsir, positive message, and daily dua</p>
-                    </div>
-                    
-                    <div class="menu-item" onclick="goToPage('chat')">
-                        <div class="menu-icon">AI</div>
-                        <h3>DeenBot AI Assistant</h3>
-                        <p>Chat with our AI-powered Islamic assistant for personalized guidance</p>
-                    </div>
-                    
-                    <div class="menu-item" onclick="goToPage('fiqh')">
+                    <!-- Large Fiqh Tile - Spans 2 columns -->
+                    <div class="menu-item large-tile" onclick="goToPage('fiqh')">
                         <div class="menu-icon">⚖️</div>
                         <h3>Complete Islamic Jurisprudence</h3>
-                        <p>Comprehensive Islamic law library with 110+ sections covering every aspect of Islamic jurisprudence</p>
+                        <p>Comprehensive Islamic law library with 110+ sections covering every aspect of Islamic jurisprudence, family law, business transactions, worship, and daily life guidance</p>
                     </div>
                     
-                    <div class="menu-item" onclick="goToPage('enhanced-search')">
-                        <div class="menu-icon">Search</div>
-                        <h3>Enhanced Search</h3>
-                        <p>Comprehensive search across all Islamic sources with PDF generation</p>
-                    </div>
-                    
-                    <div class="menu-item" onclick="goToPage('local-masjid')">
-                        <div class="menu-icon">Masjid</div>
-                        <h3>Local Masjid & Prayer Times</h3>
-                        <p>Find local Islamic centers, prayer times, and community resources</p>
+                    <!-- Quran Section -->
+                    <div class="menu-item" onclick="goToPage('one-per-day')">
+                        <div class="menu-icon">📖</div>
+                        <h3>Daily Quran</h3>
+                        <p>Daily verse with authentic tafsir, positive message, and daily dua</p>
                     </div>
                     
                     <div class="menu-item" onclick="goToPage('quranic-arabic')">
-                        <div class="menu-icon">Arabic</div>
-                        <h3>Quranic Arabic Learning</h3>
-                        <p>Master Arabic with daily structured lessons, alphabet guide, and authentic Islamic content</p>
-                    </div>
-                    
-                    <div class="menu-item" onclick="goToPage('comprehensive-search')">
-                        <div class="menu-icon">Search</div>
-                        <h3>Comprehensive Islamic Search</h3>
-                        <p>Search across complete Quran, Hadith, Tafsir, and authentic Islamic sources</p>
+                        <div class="menu-icon">العربية</div>
+                        <h3>Quranic Arabic</h3>
+                        <p>Master Arabic with structured lessons and authentic Islamic content</p>
                     </div>
                     
                     <div class="menu-item" onclick="goToPage('quran-memorization')">
                         <div class="menu-icon">Hifdh</div>
-                        <h3>Quran Memorization System</h3>
-                        <p>Master Hifdh with structured plans, daily goals, and proven memorization techniques</p>
+                        <h3>Quran Memorization</h3>
+                        <p>Structured plans and proven memorization techniques</p>
                     </div>
                     
                     <div class="menu-item" onclick="goToPage('tajweed-mastery')">
                         <div class="menu-icon">Tajweed</div>
-                        <h3>Tajweed Mastery Center</h3>
-                        <p>Perfect your Quran recitation with interactive rules, practice exercises, and professional guidance</p>
+                        <h3>Tajweed Mastery</h3>
+                        <p>Perfect your Quran recitation with interactive rules</p>
                     </div>
                     
-                    <div class="menu-item" onclick="goToPage('five-pillars')">
-                        <div class="menu-icon">Pillars</div>
-                        <h3>Five Pillars</h3>
-                        <p>Learn about the foundation of Islam</p>
+                    <!-- Hadiths Section -->
+                    <div class="menu-item" onclick="goToPage('hadith-collections-hub')">
+                        <div class="menu-icon">📚</div>
+                        <h3>Hadith Collections</h3>
+                        <p>Complete collections from major Islamic scholars</p>
                     </div>
                     
+                    <div class="menu-item" onclick="goToPage('enhanced-search')">
+                        <div class="menu-icon">🔍</div>
+                        <h3>Enhanced Search</h3>
+                        <p>Search across all Islamic sources with PDF generation</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('comprehensive-search')">
+                        <div class="menu-icon">Search</div>
+                        <h3>Comprehensive Search</h3>
+                        <p>Search Quran, Hadith, Tafsir, and authentic sources</p>
+                    </div>
+                    
+                    <!-- Sunnah Section -->
                     <div class="menu-item" onclick="goToPage('sunnah')">
-                        <div class="menu-icon">Sunnah</div>
+                        <div class="menu-icon">🌟</div>
                         <h3>Prophet's Sunnah</h3>
                         <p>Follow the way of Prophet Muhammad (PBUH)</p>
                     </div>
                     
+                    <div class="menu-item" onclick="goToPage('five-pillars')">
+                        <div class="menu-icon">🏛️</div>
+                        <h3>Five Pillars</h3>
+                        <p>Learn about the foundation of Islam</p>
+                    </div>
+                    
+                    <!-- Other Categories -->
+                    <div class="menu-item" onclick="goToPage('prayer')">
+                        <div class="menu-icon">🕌</div>
+                        <h3>Prayer Guide</h3>
+                        <p>Learn how to pray, prayer times, and guidance</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('daily-message')">
+                        <div class="menu-icon">📅</div>
+                        <h3>Daily Message</h3>
+                        <p>Daily Islamic wisdom and inspiration</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('chat')">
+                        <div class="menu-icon">🤖</div>
+                        <h3>DeenBot AI</h3>
+                        <p>AI-powered Islamic assistant for guidance</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('local-masjid')">
+                        <div class="menu-icon">Masjid</div>
+                        <h3>Local Masjid</h3>
+                        <p>Find Islamic centers and prayer times</p>
+                    </div>
+                    
                     <div class="menu-item" onclick="goToPage('new-muslim')">
-                        <div class="menu-icon">New</div>
+                        <div class="menu-icon">🆕</div>
                         <h3>New Muslim Guide</h3>
                         <p>Essential guidance for new Muslims</p>
                     </div>
@@ -871,20 +934,15 @@
                     <div class="menu-item" onclick="goToPage('recommended-surahs')">
                         <div class="menu-icon">📖</div>
                         <h3>Recommended Surahs</h3>
-                        <p>Essential Quran chapters for beginners with tafsir</p>
+                        <p>Essential Quran chapters for beginners</p>
                     </div>
                     
+                    <!-- Dedication Always Last -->
                     <div class="menu-item" onclick="goToPage('dedication')">
-                        <div class="menu-icon">Dedication</div>
+                        <div class="menu-icon">💝</div>
                         <h3>Dedication</h3>
                         <p>In gratitude to those who guided me to Islam</p>
                     </div>
-                    
-                                <div class="menu-item" onclick="goToPage('hadith-collections-hub')">
-                <div class="menu-icon">Hadith</div>
-                <h3>Hadith Collections</h3>
-                <p>Complete collections from major Islamic scholars</p>
-            </div>
                 </div>
             </div>
         </div>
