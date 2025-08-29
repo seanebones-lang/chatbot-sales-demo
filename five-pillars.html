@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five Pillars of Islam - Foundation of Islamic Faith</title>
+    <meta name="description" content="Learn about the Five Pillars of Islam: Shahada, Salah, Zakat, Sawm, and Hajj. Complete guide with explanations and practical guidance.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #E0E0E0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 20px;
+            border: 1px solid rgba(68, 68, 68, 0.5);
+        }
+        
+        .header h1 {
+            color: #FFD700;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .header p {
+            color: #87CEEB;
+            font-size: 1.2rem;
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+        }
+        
+        .pillar-section {
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(68, 68, 68, 0.5);
+        }
+        
+        .pillar-number {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .pillar-title {
+            color: #FFD700;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .pillar-subtitle {
+            color: #87CEEB;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        
+        .pillar-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .pillar-description {
+            color: #E0E0E0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .pillar-details {
+            background: rgba(30, 144, 255, 0.1);
+            border: 1px solid rgba(30, 144, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .pillar-details h4 {
+            color: #1E90FF;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .detail-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(18, 18, 18, 0.5);
+            border-radius: 10px;
+        }
+        
+        .detail-label {
+            color: #FFD700;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .detail-value {
+            color: #E0E0E0;
+        }
+        
+        .arabic-text {
+            color: #98FB98;
+            font-size: 1.4rem;
+            margin: 15px 0;
+            text-align: center;
+            direction: rtl;
+            line-height: 2;
+            background: rgba(152, 251, 152, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(152, 251, 152, 0.3);
+        }
+        
+        .translation {
+            color: #87CEEB;
+            font-style: italic;
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        .importance-section {
+            background: rgba(152, 251, 152, 0.1);
+            border: 1px solid rgba(152, 251, 152, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .importance-section h4 {
+            color: #98FB98;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .importance-list {
+            list-style: none;
+        }
+        
+        .importance-list li {
+            color: #E0E0E0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .importance-list li:before {
+            content: "•";
+            color: #98FB98;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .pillar-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .pillar-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .back-btn {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="goBack()">Back to Main</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Five Pillars of Islam</h1>
+            <p>The foundation upon which the entire structure of Islam is built</p>
+        </div>
+        
+        <div class="pillar-section">
+            <div class="pillar-header">
+                <div class="pillar-number">1</div>
+                <div>
+                    <div class="pillar-title">Shahada</div>
+                    <div class="pillar-subtitle">Declaration of Faith</div>
+                </div>
+            </div>
+            
+            <div class="pillar-content">
+                <div class="pillar-description">
+                    <p>The Shahada is the first and most fundamental pillar of Islam. It is the declaration that there is no deity except Allah and that Muhammad is His Messenger. This declaration is what makes a person a Muslim.</p>
+                    <p>It's not just words to be recited, but a profound belief that must be held in the heart and reflected in one's actions. The Shahada is recited during daily prayers, when converting to Islam, and at the end of life.</p>
+                </div>
+                
+                <div class="pillar-details">
+                    <h4>Key Details</h4>
+                    <div class="detail-item">
+                        <div class="detail-label">Arabic Text:</div>
+                        <div class="arabic-text">أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ</div>
+                        <div class="translation">I bear witness that there is no deity except Allah, and I bear witness that Muhammad is the Messenger of Allah.</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">When to Recite:</div>
+                        <div class="detail-value">Daily prayers, conversion, end of life</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Meaning:</div>
+                        <div class="detail-value">Complete submission to Allah and acceptance of Prophet Muhammad's guidance</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="importance-section">
+                <h4>Why Shahada is Important</h4>
+                <ul class="importance-list">
+                    <li>It's the entry point into Islam</li>
+                    <li>Establishes the foundation of monotheism</li>
+                    <li>Creates a direct relationship with Allah</li>
+                    <li>Unites all Muslims worldwide</li>
+                    <li>Provides spiritual identity and purpose</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="pillar-section">
+            <div class="pillar-header">
+                <div class="pillar-number">2</div>
+                <div>
+                    <div class="pillar-title">Salah</div>
+                    <div class="pillar-subtitle">Prayer</div>
+                </div>
+            </div>
+            
+            <div class="pillar-content">
+                <div class="pillar-description">
+                    <p>Salah is the ritual prayer performed five times daily at prescribed times. It's a direct connection between the worshipper and Allah, serving as a reminder of our purpose in life and our relationship with our Creator.</p>
+                    <p>Prayer purifies the heart, strengthens faith, and provides spiritual discipline. It's performed facing the Kaaba in Mecca and includes specific movements and recitations from the Quran.</p>
+                </div>
+                
+                <div class="pillar-details">
+                    <h4>Prayer Times & Details</h4>
+                    <div class="detail-item">
+                        <div class="detail-label">Fajr (Dawn):</div>
+                        <div class="detail-value">2 rakats - Before sunrise</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Dhuhr (Noon):</div>
+                        <div class="detail-value">4 rakats - After sun passes zenith</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Asr (Afternoon):</div>
+                        <div class="detail-value">4 rakats - Late afternoon</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Maghrib (Sunset):</div>
+                        <div class="detail-value">3 rakats - After sunset</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Isha (Night):</div>
+                        <div class="detail-value">4 rakats - Night time</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="importance-section">
+                <h4>Benefits of Salah</h4>
+                <ul class="importance-list">
+                    <li>Maintains spiritual connection with Allah</li>
+                    <li>Provides daily structure and discipline</li>
+                    <li>Purifies the heart and soul</li>
+                    <li>Strengthens community bonds</li>
+                    <li>Offers regular moments of reflection</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="pillar-section">
+            <div class="pillar-header">
+                <div class="pillar-number">3</div>
+                <div>
+                    <div class="pillar-title">Zakat</div>
+                    <div class="pillar-subtitle">Charity</div>
+                </div>
+            </div>
+            
+            <div class="pillar-content">
+                <div class="pillar-description">
+                    <p>Zakat is the obligatory charity that Muslims must give annually if they meet certain wealth criteria. It's typically 2.5% of one's savings and investments. This pillar ensures wealth distribution and helps those in need.</p>
+                    <p>Zakat purifies wealth, teaches generosity, and creates social responsibility. It's not just giving money but also includes giving time, knowledge, and other resources to help others.</p>
+                </div>
+                
+                <div class="pillar-details">
+                    <h4>Zakat Requirements</h4>
+                    <div class="detail-item">
+                        <div class="detail-label">Rate:</div>
+                        <div class="detail-value">2.5% of eligible wealth</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Nisab (Minimum):</div>
+                        <div class="detail-value">Value of 87.48 grams of gold or 612.36 grams of silver</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Frequency:</div>
+                        <div class="detail-value">Annually, after one lunar year</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Recipients:</div>
+                        <div class="detail-value">Poor, needy, debtors, travelers, and others specified in Quran</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="importance-section">
+                <h4>Purpose of Zakat</h4>
+                <ul class="importance-list">
+                    <li>Purifies wealth and soul</li>
+                    <li>Reduces economic inequality</li>
+                    <li>Strengthens community bonds</li>
+                    <li>Teaches gratitude and generosity</li>
+                    <li>Fulfills social responsibility</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="pillar-section">
+            <div class="pillar-header">
+                <div class="pillar-number">4</div>
+                <div>
+                    <div class="pillar-title">Sawm</div>
+                    <div class="pillar-subtitle">Fasting</div>
+                </div>
+            </div>
+            
+            <div class="pillar-content">
+                <div class="pillar-description">
+                    <p>Sawm refers to fasting during the month of Ramadan, from dawn to sunset. Muslims abstain from food, drink, and other physical needs during daylight hours. This pillar teaches self-discipline, empathy, and gratitude.</p>
+                    <p>Fasting is not just about abstaining from food but also from negative thoughts, actions, and speech. It's a time for increased prayer, Quran recitation, and charitable acts.</p>
+                </div>
+                
+                <div class="pillar-details">
+                    <h4>Fasting Details</h4>
+                    <div class="detail-item">
+                        <div class="detail-label">Duration:</div>
+                        <div class="detail-value">29-30 days during Ramadan</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Daily Period:</div>
+                        <div class="detail-value">From Fajr (dawn) to Maghrib (sunset)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">What to Avoid:</div>
+                        <div class="detail-value">Food, drink, smoking, intimate relations</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Exceptions:</div>
+                        <div class="detail-value">Children, elderly, sick, pregnant, traveling</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="importance-section">
+                <h4>Benefits of Fasting</h4>
+                <ul class="importance-list">
+                    <li>Develops self-discipline and willpower</li>
+                    <li>Increases empathy for the less fortunate</li>
+                    <li>Purifies the soul and strengthens faith</li>
+                    <li>Promotes gratitude and appreciation</li>
+                    <li>Creates community solidarity</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="pillar-section">
+            <div class="pillar-header">
+                <div class="pillar-number">5</div>
+                <div>
+                    <div class="pillar-title">Hajj</div>
+                    <div class="pillar-subtitle">Pilgrimage</div>
+                </div>
+            </div>
+            
+            <div class="pillar-content">
+                <div class="pillar-description">
+                    <p>Hajj is the annual pilgrimage to Mecca that every able-bodied Muslim must perform at least once in their lifetime. It takes place during the Islamic month of Dhul Hijjah and involves specific rituals that commemorate the life of Prophet Ibrahim and his family.</p>
+                    <p>Hajj is a profound spiritual journey that unites Muslims from all over the world, regardless of race, nationality, or social status. It's a demonstration of equality and unity in the eyes of Allah.</p>
+                </div>
+                
+                <div class="pillar-details">
+                    <h4>Hajj Requirements</h4>
+                    <div class="detail-item">
+                        <div class="detail-label">Frequency:</div>
+                        <div class="detail-value">Once in lifetime (if able)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Timing:</div>
+                        <div class="detail-value">8th-13th of Dhul Hijjah</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Requirements:</div>
+                        <div class="detail-value">Physical ability, financial means, safety</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Main Rituals:</div>
+                        <div class="detail-value">Tawaf, Sa'i, Arafat, Muzdalifah, Mina</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="importance-section">
+                <h4>Significance of Hajj</h4>
+                <ul class="importance-list">
+                    <li>Fulfills a major religious obligation</li>
+                    <li>Creates global Muslim unity</li>
+                    <li>Purifies sins and renews faith</li>
+                    <li>Teaches sacrifice and devotion</li>
+                    <li>Connects to Islamic history and heritage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

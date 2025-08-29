@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Islamic Message - Daily Wisdom & Inspiration</title>
+    <meta name="description" content="Get your daily dose of Islamic wisdom, Quran verses, and Hadiths for spiritual growth and inspiration">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #E0E0E0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 20px;
+            border: 1px solid rgba(68, 68, 68, 0.5);
+        }
+        
+        .header h1 {
+            color: #FFD700;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .header p {
+            color: #87CEEB;
+            font-size: 1.2rem;
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+        }
+        
+        .daily-message {
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .message-date {
+            color: #87CEEB;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .message-title {
+            color: #1E90FF;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .quran-verse {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .quran-verse h3 {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .arabic-text {
+            color: #98FB98;
+            font-size: 1.8rem;
+            margin: 20px 0;
+            text-align: center;
+            direction: rtl;
+            line-height: 2;
+        }
+        
+        .translation {
+            color: #E0E0E0;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .reference {
+            color: #87CEEB;
+            font-size: 1rem;
+            margin-top: 15px;
+        }
+        
+        .hadith-section {
+            background: rgba(30, 144, 255, 0.1);
+            border: 1px solid rgba(30, 144, 255, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .hadith-section h3 {
+            color: #1E90FF;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hadith-text {
+            color: #E0E0E0;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        
+        .wisdom-section {
+            background: rgba(152, 251, 152, 0.1);
+            border: 1px solid rgba(152, 251, 152, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .wisdom-section h3 {
+            color: #98FB98;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .wisdom-text {
+            color: #E0E0E0;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+        }
+        
+        .refresh-btn {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        }
+        
+        .share-btn {
+            background: linear-gradient(135deg, #98FB98 0%, #90EE90 100%);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .daily-message {
+                padding: 20px;
+            }
+            
+            .arabic-text {
+                font-size: 1.4rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .back-btn {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="goBack()">Back to Main</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Daily Islamic Message</h1>
+            <p>Your daily dose of Islamic wisdom and inspiration</p>
+        </div>
+        
+        <div class="daily-message" id="dailyMessage">
+            <div class="message-date" id="messageDate"></div>
+            <div class="message-title" id="messageTitle"></div>
+            
+            <div class="quran-verse" id="quranVerse">
+                <h3>Quran Verse of the Day</h3>
+                <div class="arabic-text" id="arabicText"></div>
+                <div class="translation" id="translation"></div>
+                <div class="reference" id="reference"></div>
+            </div>
+            
+            <div class="hadith-section" id="hadithSection">
+                <h3>Hadith of the Day</h3>
+                <div class="hadith-text" id="hadithText"></div>
+                <div class="reference" id="hadithReference"></div>
+            </div>
+            
+            <div class="wisdom-section" id="wisdomSection">
+                <h3>Islamic Wisdom</h3>
+                <div class="wisdom-text" id="wisdomText"></div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn refresh-btn" onclick="refreshMessage()">New Message</button>
+                <button class="action-btn share-btn" onclick="shareMessage()">Share Wisdom</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Daily Islamic Messages Database
+        const dailyMessages = [
+            {
+                title: "The Power of Patience",
+                quran: {
+                    arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+                    translation: "O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient.",
+                    reference: "Al-Baqarah 2:153"
+                },
+                hadith: {
+                    text: "The Prophet (PBUH) said: 'No fatigue, illness, anxiety, sorrow, harm, or grief afflicts a Muslim, even a thorn that pricks him, except that Allah expiates some of his sins by it.'",
+                    reference: "Sahih Bukhari"
+                },
+                wisdom: "Patience is not the ability to wait, but the ability to keep a positive attitude while waiting. Allah tests us with difficulties to purify our hearts and increase our faith."
+            },
+            {
+                title: "The Mercy of Allah",
+                quran: {
+                    arabic: "إِنَّ اللَّهَ غَفُورٌ رَّحِيمٌ",
+                    translation: "Indeed, Allah is Forgiving and Merciful.",
+                    reference: "Multiple verses"
+                },
+                hadith: {
+                    text: "The Prophet (PBUH) said: 'When Allah decreed the creation, He wrote in His Book which is with Him on His Throne: My mercy prevails over My wrath.'",
+                    reference: "Sahih Bukhari"
+                },
+                wisdom: "Allah's mercy encompasses everything. No matter how many mistakes we make, His forgiveness is always available to those who sincerely repent and seek His mercy."
+            },
+            {
+                title: "The Importance of Knowledge",
+                quran: {
+                    arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
+                    translation: "Read in the name of your Lord who created.",
+                    reference: "Al-Alaq 96:1"
+                },
+                hadith: {
+                    text: "The Prophet (PBUH) said: 'Seek knowledge from the cradle to the grave.'",
+                    reference: "Various sources"
+                },
+                wisdom: "Knowledge is the light that guides us through life's journey. Every piece of beneficial knowledge brings us closer to Allah and helps us serve His creation better."
+            },
+            {
+                title: "The Value of Good Character",
+                quran: {
+                    arabic: "وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ",
+                    translation: "And indeed, you are of a great moral character.",
+                    reference: "Al-Qalam 68:4"
+                },
+                hadith: {
+                    text: "The Prophet (PBUH) said: 'The most beloved of you to me and the nearest to me in the Hereafter are those with the best character.'",
+                    reference: "Sahih Bukhari"
+                },
+                wisdom: "Good character is the foundation of a successful life. It opens doors, builds relationships, and brings peace to our hearts. Strive to be the best version of yourself."
+            },
+            {
+                title: "The Blessing of Gratitude",
+                quran: {
+                    arabic: "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+                    translation: "If you are grateful, I will surely increase you.",
+                    reference: "Ibrahim 14:7"
+                },
+                hadith: {
+                    text: "The Prophet (PBUH) said: 'Whoever does not thank people does not thank Allah.'",
+                    reference: "Sahih Bukhari"
+                },
+                wisdom: "Gratitude is the key to abundance. When we appreciate what we have, Allah gives us more. Start each day by counting your blessings and thanking Allah for them."
+            }
+        ];
+        
+        let currentMessageIndex = 0;
+        
+        function displayMessage() {
+            const message = dailyMessages[currentMessageIndex];
+            const today = new Date().toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            document.getElementById('messageDate').textContent = today;
+            document.getElementById('messageTitle').textContent = message.title;
+            document.getElementById('arabicText').textContent = message.quran.arabic;
+            document.getElementById('translation').textContent = message.quran.translation;
+            document.getElementById('reference').textContent = message.quran.reference;
+            document.getElementById('hadithText').textContent = message.hadith.text;
+            document.getElementById('hadithReference').textContent = message.hadith.reference;
+            document.getElementById('wisdomText').textContent = message.wisdom;
+        }
+        
+        function refreshMessage() {
+            currentMessageIndex = (currentMessageIndex + 1) % dailyMessages.length;
+            displayMessage();
+        }
+        
+        function shareMessage() {
+            const message = dailyMessages[currentMessageIndex];
+            const shareText = `Daily Islamic Wisdom: ${message.title}\n\nQuran: ${message.quran.translation}\n\nHadith: ${message.hadith.text}\n\nWisdom: ${message.wisdom}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Daily Islamic Message',
+                    text: shareText
+                });
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('Message copied to clipboard!');
+                });
+            }
+        }
+        
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+        
+        // Initialize with first message
+        displayMessage();
+        
+        // Change message every 24 hours
+        setInterval(() => {
+            currentMessageIndex = (currentMessageIndex + 1) % dailyMessages.length;
+            displayMessage();
+        }, 24 * 60 * 60 * 1000);
+    </script>
+</body>
+</html>

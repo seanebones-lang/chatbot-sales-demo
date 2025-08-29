@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prophet's Sunnah - Following the Way of Prophet Muhammad (PBUH)</title>
+    <meta name="description" content="Learn about the Sunnah of Prophet Muhammad (PBUH) - his teachings, actions, and way of life that guide Muslims in daily living.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #E0E0E0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 20px;
+            border: 1px solid rgba(68, 68, 68, 0.5);
+        }
+        
+        .header h1 {
+            color: #FFD700;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .header p {
+            color: #87CEEB;
+            font-size: 1.2rem;
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+        }
+        
+        .sunnah-section {
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(68, 68, 68, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .sunnah-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(68, 68, 68, 0.5);
+        }
+        
+        .sunnah-icon {
+            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .sunnah-title {
+            color: #1E90FF;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .sunnah-subtitle {
+            color: #87CEEB;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        
+        .sunnah-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .sunnah-description {
+            color: #E0E0E0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .sunnah-examples {
+            background: rgba(152, 251, 152, 0.1);
+            border: 1px solid rgba(152, 251, 152, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .sunnah-examples h4 {
+            color: #98FB98;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .example-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(18, 18, 18, 0.5);
+            border-radius: 10px;
+            border-left: 3px solid #98FB98;
+        }
+        
+        .example-title {
+            color: #FFD700;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .example-description {
+            color: #E0E0E0;
+            font-size: 0.95rem;
+        }
+        
+        .hadith-quote {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .hadith-quote h4 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .hadith-text {
+            color: #E0E0E0;
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .hadith-reference {
+            color: #87CEEB;
+            font-size: 0.9rem;
+        }
+        
+        .benefits-section {
+            background: rgba(255, 140, 0, 0.1);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .benefits-section h4 {
+            color: #FFA500;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .benefits-list {
+            list-style: none;
+        }
+        
+        .benefits-list li {
+            color: #E0E0E0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .benefits-list li:before {
+            content: "•";
+            color: #FFA500;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .practical-tips {
+            background: rgba(138, 43, 226, 0.1);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .practical-tips h4 {
+            color: #8A2BE2;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .tips-list {
+            list-style: none;
+        }
+        
+        .tips-list li {
+            color: #E0E0E0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .tips-list li:before {
+            content: "→";
+            color: #8A2BE2;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .sunnah-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .sunnah-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .back-btn {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="goBack()">Back to Main</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Prophet's Sunnah</h1>
+            <p>Following the way of Prophet Muhammad (PBUH) in daily life</p>
+        </div>
+        
+        <div class="sunnah-section">
+            <div class="sunnah-header">
+                <div class="sunnah-icon">Daily</div>
+                <div>
+                    <div class="sunnah-title">Daily Sunnah</div>
+                    <div class="sunnah-subtitle">Morning to Evening Practices</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-content">
+                <div class="sunnah-description">
+                    <p>The Prophet (PBUH) established a beautiful routine for daily living that brings blessings and spiritual growth. Following these practices helps us maintain a balanced and purposeful life.</p>
+                    <p>These daily Sunnahs are not obligatory but highly recommended, as they bring us closer to Allah and help us follow the best example of human character.</p>
+                </div>
+                
+                <div class="sunnah-examples">
+                    <h4>Daily Practices</h4>
+                    <div class="example-item">
+                        <div class="example-title">Morning Dhikr</div>
+                        <div class="example-description">Recite morning supplications and remember Allah upon waking</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Miswak Usage</div>
+                        <div class="example-description">Clean teeth with miswak before prayers and meals</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Dua Before Eating</div>
+                        <div class="example-description">Say "Bismillah" before starting any meal</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Evening Remembrance</div>
+                        <div class="example-description">Recite evening supplications and Ayat Al-Kursi</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"Whoever recites Ayat Al-Kursi in the morning will be protected until evening, and whoever recites it in the evening will be protected until morning."</div>
+                <div class="hadith-reference">Sahih Al-Bukhari</div>
+            </div>
+            
+            <div class="benefits-section">
+                <h4>Benefits of Daily Sunnah</h4>
+                <ul class="benefits-list">
+                    <li>Increases blessings in daily activities</li>
+                    <li>Strengthens connection with Allah</li>
+                    <li>Improves character and manners</li>
+                    <li>Brings peace and tranquility</li>
+                    <li>Creates spiritual discipline</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="sunnah-section">
+            <div class="sunnah-header">
+                <div class="sunnah-icon">Eating</div>
+                <div>
+                    <div class="sunnah-title">Eating Sunnah</div>
+                    <div class="sunnah-subtitle">Proper Manners at Meals</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-content">
+                <div class="sunnah-description">
+                    <p>The Prophet (PBUH) taught us the proper etiquette for eating and drinking. These practices show respect for food, gratitude to Allah, and consideration for others.</p>
+                    <p>Following these Sunnahs helps us maintain good health, show gratitude, and develop proper manners in all aspects of life.</p>
+                </div>
+                
+                <div class="sunnah-examples">
+                    <h4>Eating Etiquette</h4>
+                    <div class="example-item">
+                        <div class="example-title">Start with Bismillah</div>
+                        <div class="example-description">Begin eating by saying "In the name of Allah"</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Use Right Hand</div>
+                        <div class="example-description">Eat and drink with the right hand</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Small Bites</div>
+                        <div class="example-description">Take small bites and chew thoroughly</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">End with Alhamdulillah</div>
+                        <div class="example-description">Thank Allah after finishing the meal</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"When one of you eats, let him eat with his right hand, and when he drinks, let him drink with his right hand, for Satan eats and drinks with his left hand."</div>
+                <div class="hadith-reference">Sahih Muslim</div>
+            </div>
+            
+            <div class="practical-tips">
+                <h4>Practical Tips</h4>
+                <ul class="tips-list">
+                    <li>Always wash hands before and after eating</li>
+                    <li>Share food with others when possible</li>
+                    <li>Don't waste food - take only what you need</li>
+                    <li>Eat together as a family when possible</li>
+                    <li>Express gratitude for the blessing of food</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="sunnah-section">
+            <div class="sunnah-header">
+                <div class="sunnah-icon">Sleeping</div>
+                <div>
+                    <div class="sunnah-title">Sleeping Sunnah</div>
+                    <div class="sunnah-subtitle">Proper Sleep Habits</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-content">
+                <div class="sunnah-description">
+                    <p>The Prophet (PBUH) taught us the proper way to sleep, including supplications, sleeping position, and bedtime routine. These practices help ensure peaceful sleep and protection during the night.</p>
+                    <p>Following these Sunnahs brings tranquility to our sleep and helps us wake up refreshed and ready to serve Allah.</p>
+                </div>
+                
+                <div class="sunnah-examples">
+                    <h4>Sleep Practices</h4>
+                    <div class="example-item">
+                        <div class="example-title">Evening Supplications</div>
+                        <div class="example-description">Recite protective duas before sleeping</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Sleep Position</div>
+                        <div class="example-description">Sleep on the right side facing Qibla</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Clean Sleeping Area</div>
+                        <div class="example-description">Ensure the bed and room are clean</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Morning Gratitude</div>
+                        <div class="example-description">Thank Allah for waking up safely</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"When you go to bed, perform ablution as you do for prayer, then lie on your right side and say: 'O Allah, I surrender myself to You and entrust my affair to You.'"</div>
+                <div class="hadith-reference">Sahih Al-Bukhari</div>
+            </div>
+            
+            <div class="benefits-section">
+                <h4>Benefits of Sleep Sunnah</h4>
+                <ul class="benefits-list">
+                    <li>Ensures peaceful and restful sleep</li>
+                    <li>Provides spiritual protection during night</li>
+                    <li>Helps maintain good sleep hygiene</li>
+                    <li>Creates a mindful bedtime routine</li>
+                    <li>Strengthens connection with Allah</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="sunnah-section">
+            <div class="sunnah-header">
+                <div class="sunnah-icon">Greeting</div>
+                <div>
+                    <div class="sunnah-title">Greeting Sunnah</div>
+                    <div class="sunnah-subtitle">Proper Islamic Greetings</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-content">
+                <div class="sunnah-description">
+                    <p>The Prophet (PBUH) taught us the beautiful Islamic greeting of "Assalamu alaikum" (Peace be upon you) and its response. This greeting spreads peace and creates bonds of brotherhood.</p>
+                    <p>Greeting others with peace is a fundamental Sunnah that promotes harmony, respect, and unity among Muslims and with others.</p>
+                </div>
+                
+                <div class="sunnah-examples">
+                    <h4>Greeting Practices</h4>
+                    <div class="example-item">
+                        <div class="example-title">Assalamu Alaikum</div>
+                        <div class="example-description">Greet with "Peace be upon you"</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Wa Alaikum Assalam</div>
+                        <div class="example-description">Respond with "And peace be upon you too"</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Greet First</div>
+                        <div class="example-description">Be the first to greet others</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Smile</div>
+                        <div class="example-description">Accompany greeting with a smile</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I tell you something that will make you love one another? Spread the greeting of peace among yourselves."</div>
+                <div class="hadith-reference">Sahih Muslim</div>
+            </div>
+            
+            <div class="practical-tips">
+                <h4>Greeting Tips</h4>
+                <ul class="tips-list">
+                    <li>Greet everyone you meet, even strangers</li>
+                    <li>Use the full greeting: "Assalamu alaikum wa rahmatullahi wa barakatuh"</li>
+                    <li>Greet children as well as adults</li>
+                    <li>Maintain eye contact when greeting</li>
+                    <li>Greet people entering your home or gathering</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="sunnah-section">
+            <div class="sunnah-header">
+                <div class="sunnah-icon">Work</div>
+                <div>
+                    <div class="sunnah-title">Work & Business Sunnah</div>
+                    <div class="sunnah-subtitle">Islamic Work Ethics</div>
+                </div>
+            </div>
+            
+            <div class="sunnah-content">
+                <div class="sunnah-description">
+                    <p>The Prophet (PBUH) was a merchant and taught us the proper way to conduct business and work. These Sunnahs ensure honesty, fairness, and success in all our endeavors.</p>
+                    <p>Following these work Sunnahs helps us maintain integrity, build trust, and achieve success while pleasing Allah.</p>
+                </div>
+                
+                <div class="sunnah-examples">
+                    <h4>Work Ethics</h4>
+                    <div class="example-item">
+                        <div class="example-title">Honesty in Trade</div>
+                        <div class="example-description">Always be truthful about products and prices</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Fair Treatment</div>
+                        <div class="example-description">Treat employees and customers fairly</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Quality Work</div>
+                        <div class="example-description">Do your best work as if Allah is watching</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-title">Timely Payment</div>
+                        <div class="example-description">Pay workers promptly and fairly</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hadith-quote">
+                <h4>Prophet's Teaching</h4>
+                <div class="hadith-text">"The truthful and trustworthy merchant will be with the prophets, the truthful, and the martyrs on the Day of Resurrection."</div>
+                <div class="hadith-reference">Sunan At-Tirmidhi</div>
+            </div>
+            
+            <div class="benefits-section">
+                <h4>Benefits of Work Sunnah</h4>
+                <ul class="benefits-list">
+                    <li>Builds trust and reputation</li>
+                    <li>Ensures long-term success</li>
+                    <li>Pleases Allah and earns rewards</li>
+                    <li>Creates positive work environment</li>
+                    <li>Sets example for others</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
