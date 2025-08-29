@@ -57,6 +57,79 @@
             margin-left: auto;
             margin-right: auto;
         }
+        
+        .main-menu {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .main-menu h2 {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .menu-item {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            border-color: #1E90FF;
+            box-shadow: 0 20px 40px rgba(30, 144, 255, 0.3);
+            background: rgba(18, 18, 18, 0.95);
+        }
+        
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .menu-item:hover::before {
+            left: 100%;
+        }
+        
+        .menu-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .menu-item h3 {
+            color: #1E90FF;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .menu-item p {
+            color: #87CEEB;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+        }
 
         .bot-message {
             background: rgba(18, 18, 18, 0.8);
@@ -96,7 +169,7 @@
             border: 1px solid rgba(68, 68, 68, 0.5);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             margin-bottom: 30px;
-            display: none;
+            display: block;
         }
 
         .search-section.show {
@@ -476,6 +549,47 @@
                 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br><br>
                 إِنَّ الْحَمْدَ لِلَّهِ، نَحْمَدُهُ وَنَسْتَعِينُهُ وَنَسْتَغْفِرُهُ، وَ نَعُوذُ بِاللَّهِ مِنْ شُرُورِ أَنْفُسِنَا وَمِنْ سَيِّئَاتِ أَعْمَالِنَا، مَنْ يَهْدِهِ اللَّهُ فَلَا مُضِلَّ لَهُ، وَمَنْ يُضْلِلْ فَلَا هَادِيَ لَهُ<br><br>
                 وَأَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ
+            </div>
+            
+            <div class="main-menu">
+                <h2>Choose Your Path of Learning</h2>
+                <div class="menu-grid">
+                    <div class="menu-item" onclick="goToPage('prayer')">
+                        <div class="menu-icon">🕌</div>
+                        <h3>Prayer Guide</h3>
+                        <p>Learn how to pray, prayer times, and prayer guidance</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('daily-message')">
+                        <div class="menu-icon">📖</div>
+                        <h3>Daily Islamic Message</h3>
+                        <p>Get your daily dose of Islamic wisdom and inspiration</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('chat')">
+                        <div class="menu-icon">💬</div>
+                        <h3>Islamic Knowledge Chat</h3>
+                        <p>Ask any question about Islam, Quran, Hadith, and more</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('five-pillars')">
+                        <div class="menu-icon">🏛️</div>
+                        <h3>Five Pillars</h3>
+                        <p>Learn about the foundation of Islam</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('sunnah')">
+                        <div class="menu-icon">☀️</div>
+                        <h3>Prophet's Sunnah</h3>
+                        <p>Follow the way of Prophet Muhammad (PBUH)</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('new-muslim')">
+                        <div class="menu-icon">🌟</div>
+                        <h3>New Muslim Guide</h3>
+                        <p>Essential guidance for new Muslims</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1716,6 +1830,32 @@
         
         // Initialize AI system with strict guardrails
         const islamicAI = new IslamicAI();
+        
+        // Page Navigation System
+        function goToPage(page) {
+            switch(page) {
+                case 'prayer':
+                    window.location.href = 'prayer-guide.html';
+                    break;
+                case 'daily-message':
+                    window.location.href = 'daily-message.html';
+                    break;
+                case 'chat':
+                    window.location.href = 'chat.html';
+                    break;
+                case 'five-pillars':
+                    window.location.href = 'five-pillars.html';
+                    break;
+                case 'sunnah':
+                    window.location.href = 'sunnah.html';
+                    break;
+                case 'new-muslim':
+                    window.location.href = 'new-muslim.html';
+                    break;
+                default:
+                    console.log('Page not found');
+            }
+        }
         
         // Main search function
         function performSearch() {
