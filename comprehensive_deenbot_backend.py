@@ -1966,7 +1966,7 @@ These pillars form the foundation of Islamic practice and are essential for spir
         # Convert to lowercase for matching
         message_lower = user_message.lower()
         
-        # Priority matching for specific topics
+        # Priority matching for specific topics with flexible word matching
         priority_keywords = {
             "prophet muhammad": "prophet_muhammad",
             "muhammad pbuh": "prophet_muhammad",
@@ -1991,9 +1991,20 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "sadness": "grief_and_sadness",
             "grieving": "grief_and_sadness",
             "loss": "grief_and_sadness",
+            "sad": "grief_and_sadness",
+            "depressed": "grief_and_sadness",
+            "unhappy": "grief_and_sadness",
+            "melancholy": "grief_and_sadness",
+            "sorrow": "grief_and_sadness",
             "anxiety": "anxiety_and_worry",
+            "anxious": "anxiety_and_worry",
             "worry": "anxiety_and_worry",
+            "worried": "anxiety_and_worry",
             "stress": "anxiety_and_worry",
+            "stressed": "anxiety_and_worry",
+            "nervous": "anxiety_and_worry",
+            "fear": "anxiety_and_worry",
+            "afraid": "anxiety_and_worry",
             "family problems": "family_issues",
             "family conflicts": "family_issues",
             "marriage problems": "family_issues",
@@ -2009,7 +2020,12 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "motivation": "motivation_and_encouragement",
             "encouragement": "motivation_and_encouragement",
             "inspired": "motivation_and_encouragement",
-            "self improvement": "self_improvement",
+            "good day": "motivation_and_encouragement",
+            "happy": "motivation_and_encouragement",
+            "joy": "motivation_and_encouragement",
+            "blessed": "motivation_and_encouragement",
+            "grateful": "motivation_and_encouragement",
+            "thankful": "motivation_and_encouragement",
             "self improvement": "self_improvement",
             "personal growth": "self_improvement",
             "work": "work_and_career",
