@@ -824,10 +824,18 @@
                 `;
             })
             .catch(error => {
-                console.error("Error:", error);
-                // Fallback to local search if backend fails
-                const results = islamicAI.searchWithSemantics(query, currentSource);
-                displayResults(query, results);
+                console.error("Backend Error:", error);
+                // Show user-friendly error message
+                document.getElementById('resultsCount').innerHTML = `❌ Backend Error: ${error.message}`;
+                document.getElementById('verseResults').innerHTML = `
+                    <div class="no-results">
+                        <h3>Backend Connection Failed</h3>
+                        <p>Error: ${error.message}</p>
+                        <p>Please check if the Python backend is running on port 8080</p>
+                        <button onclick="performSearch()" class="action-btn">Try Again</button>
+                        <button onclick="useLocalSearch('${query}')" class="action-btn">Use Local Search</button>
+                    </div>
+                `;
             });
         }
         
@@ -943,6 +951,13 @@
         
         function goBack() {
             window.location.href = 'index.html';
+        }
+        
+        function useLocalSearch(query) {
+            // Fallback to local search if backend fails
+            document.getElementById('resultsCount').innerHTML = `Using Local Search for: "${query}"`;
+            const results = islamicAI.searchWithSemantics(query, currentSource);
+            displayResults(query, results);
         }
         
         function testChatbot() {
