@@ -885,14 +885,8 @@
                     
                     <div class="menu-item" onclick="goToPage('enhanced-search')">
                         <div class="menu-icon">Search</div>
-                        <h3>Enhanced Search</h3>
-                        <p>Search across all Islamic sources with PDF generation</p>
-                    </div>
-                    
-                    <div class="menu-item" onclick="goToPage('comprehensive-search')">
-                        <div class="menu-icon">Search</div>
-                        <h3>Comprehensive Search</h3>
-                        <p>Search Quran, Hadith, Tafsir, and authentic sources</p>
+                        <h3>Unified Search</h3>
+                        <p>Search across all Islamic sources: Quran, Hadith, Tafsir, and authentic sources with PDF generation</p>
                     </div>
                     
                     <!-- Sunnah Section -->
@@ -1008,14 +1002,14 @@
             
             <div class="source-toggle">
                 <button class="source-btn active" onclick="setSource('all')">All Sources</button>
-                <button class="source-btn" onclick="setSource('quran')">Quran Only</button>
-                <button class="source-btn" onclick="setSource('hadith')">Hadith Only</button>
-                <button class="source-btn" onclick="setSource('fiqh')">Fiqh (Islamic Law)</button>
-                <button class="source-btn" onclick="setSource('new-muslim')">New Muslim Guide</button>
-                <button class="source-btn" onclick="setSource('what-is-islam')">What is Islam?</button>
-                <button class="source-btn" onclick="setSource('five-pillars')">Five Pillars</button>
-                <button class="source-btn" onclick="setSource('sunnah')">Sunnah</button>
-                <button class="source-btn" onclick="setSource('family-daily-life')">Family & Daily Life</button>
+                <button class="source-btn" onclick="goToPage('quran-complete')">Quran Only</button>
+                <button class="source-btn" onclick="goToPage('hadith-collections-hub')">Hadith Only</button>
+                <button class="source-btn" onclick="goToPage('fiqh')">Fiqh (Islamic Law)</button>
+                <button class="source-btn" onclick="goToPage('new-muslim')">New Muslim Guide</button>
+                <button class="source-btn" onclick="goToPage('what-is-islam')">What is Islam?</button>
+                <button class="source-btn" onclick="goToPage('five-pillars')">Five Pillars</button>
+                <button class="source-btn" onclick="goToPage('sunnah')">Sunnah</button>
+                <button class="source-btn" onclick="goToPage('family-daily-life')">Family & Daily Life</button>
             </div>
         </div>
 
@@ -2491,9 +2485,7 @@
                 case 'quranic-arabic':
                     window.location.href = 'quranic-arabic.html';
                     break;
-                case 'comprehensive-search':
-                    window.location.href = 'comprehensive-search.html';
-                    break;
+
                 case 'quran-memorization':
                     window.location.href = 'quran-memorization.html';
                     break;
@@ -2514,6 +2506,15 @@
                     break;
                 case 'hadith-collections-hub':
                     window.location.href = 'hadith-collections-hub.html';
+                    break;
+                case 'quran-complete':
+                    window.location.href = 'quran-complete.html';
+                    break;
+                case 'what-is-islam':
+                    window.location.href = 'what-is-islam.html';
+                    break;
+                case 'family-daily-life':
+                    window.location.href = 'family-daily-life.html';
                     break;
                 case 'recommended-surahs':
                     window.location.href = 'recommended-surahs.html';
