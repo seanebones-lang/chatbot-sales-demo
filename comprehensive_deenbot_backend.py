@@ -38,6 +38,66 @@ class ComprehensiveDeenBot:
     
     def __init__(self):
         self.islamic_knowledge = {
+            "islam_basics": {
+                "question": "What is Islam?",
+                "answer": """**Islam - The Complete Way of Life**
+
+Islam is the monotheistic Abrahamic religion revealed to Prophet Muhammad (PBUH) through the Quran. The word "Islam" means "submission to God" and "peace."
+
+**Core Beliefs:**
+- **Tawhid (Oneness of God)**: Belief in one God (Allah) with no partners
+- **Prophethood**: Belief in all prophets including Adam, Noah, Abraham, Moses, Jesus, and Muhammad (PBUH)
+- **Divine Books**: Belief in the Torah, Psalms, Gospel, and Quran
+- **Day of Judgment**: Belief in life after death and accountability
+
+**Key Principles:**
+- **Peace**: Islam promotes peace, justice, and harmony
+- **Mercy**: Allah is the Most Merciful and Compassionate
+- **Justice**: Equal treatment for all regardless of race, ethnicity, or social status
+- **Knowledge**: Seeking knowledge is obligatory for every Muslim
+
+**Reference**: Quran 3:19 - "Indeed, the religion in the sight of Allah is Islam"
+**Reference**: Quran 5:3 - "This day I have perfected for you your religion and completed My favor upon you and have approved for you Islam as religion"
+
+Islam provides comprehensive guidance for all aspects of life - spiritual, social, economic, and personal.""",
+                "references": ["Quran 3:19", "Quran 5:3", "Quran 2:256", "Quran 49:13"]
+            },
+            
+            "taqwa_concept": {
+                "question": "What is the concept of Taqwa in Islam?",
+                "answer": """**Taqwa - The Essence of Islamic Spirituality**
+
+Taqwa is often translated as "God-consciousness" or "piety," but it encompasses much more - it's the comprehensive awareness of Allah in all aspects of life.
+
+**Definition of Taqwa:**
+- **Linguistic meaning**: "To protect" or "to shield"
+- **Islamic meaning**: Being conscious of Allah and fearing His displeasure
+- **Practical meaning**: Living in constant awareness of divine presence
+
+**Levels of Taqwa:**
+1. **Basic Taqwa**: Avoiding major sins and fulfilling obligations
+2. **Intermediate Taqwa**: Avoiding doubtful matters and increasing good deeds
+3. **Advanced Taqwa**: Constant remembrance of Allah and seeking His pleasure
+
+**How to Develop Taqwa:**
+- **Regular Prayer**: Maintaining the five daily prayers
+- **Quran Recitation**: Reading and reflecting on the Quran daily
+- **Dhikr**: Remembering Allah throughout the day
+- **Good Character**: Treating others with kindness and respect
+- **Avoiding Haram**: Staying away from forbidden actions
+
+**Benefits of Taqwa:**
+- **Divine Guidance**: "O you who have believed, if you fear Allah, He will grant you a criterion" (Quran 8:29)
+- **Easier Path**: "Whoever fears Allah, He will make for him ease in his matter" (Quran 65:4)
+- **Protection**: "Indeed, the friends of Allah - no fear will there be concerning them, nor will they grieve" (Quran 10:62)
+
+**Reference**: Quran 2:2 - "This is the Book about which there is no doubt, a guidance for those conscious of Allah"
+**Reference**: Quran 49:13 - "Indeed, the most noble of you in the sight of Allah is the most righteous of you"
+
+Taqwa is the foundation of a strong relationship with Allah and the key to success in this life and the Hereafter.""",
+                "references": ["Quran 2:2", "Quran 8:29", "Quran 10:62", "Quran 49:13", "Quran 65:4", "Quran 3:102"]
+            },
+            
             "five_pillars": {
                 "question": "What are the five pillars of Islam?",
                 "answer": """The Five Pillars of Islam are the fundamental acts of worship that every Muslim must fulfill:
@@ -1957,7 +2017,17 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "halal": "Halal means permissible in Islam. Reference: Quran 5:5 - 'This day are [all] good foods made lawful for you'",
             "haram": "Haram means forbidden in Islam. Reference: Quran 5:3 - 'Prohibited to you are dead animals, blood, the flesh of swine'",
             "jannah": "Jannah (Paradise) is the eternal reward for righteous believers. Reference: Quran 3:133 - 'And hasten to forgiveness from your Lord and a garden as wide as the heavens and earth'",
-            "akhirah": "Akhirah refers to the Hereafter or life after death. Reference: Quran 2:4 - 'And who believe in what has been revealed to you and what was revealed before you, and of the Hereafter they are certain'"
+            "akhirah": "Akhirah refers to the Hereafter or life after death. Reference: Quran 2:4 - 'And who believe in what has been revealed to you and what was revealed before you, and of the Hereafter they are certain'",
+            
+            # Additional topics for better coverage
+            "fasting_ramadan": "Fasting during Ramadan is one of the Five Pillars of Islam. Muslims fast from dawn to sunset, abstaining from food, drink, and other physical needs. Reference: Quran 2:183 - 'O you who have believed, decreed upon you is fasting as it was decreed upon those before you'",
+            "zakat_charity": "Zakat is the annual giving of 2.5% of wealth to the poor and needy. It's one of the Five Pillars and a form of worship that purifies wealth. Reference: Quran 2:267 - 'O you who have believed, spend from the good things which you have earned'",
+            "hajj_pilgrimage": "Hajj is the annual pilgrimage to Mecca, obligatory once in a lifetime for those who are able. It's one of the Five Pillars and a profound spiritual journey. Reference: Quran 3:97 - 'And [due] to Allah from the people is a pilgrimage to the House'",
+            "prayer_guidance": "Prayer (Salah) is the second pillar of Islam. Muslims pray five times daily: Fajr (dawn), Dhuhr (noon), Asr (afternoon), Maghrib (sunset), and Isha (night). Reference: Quran 4:103 - 'Indeed, prayer has been decreed upon the believers a [decreed] portion of time'",
+            "halal_haram": "Halal means permissible and Haram means forbidden in Islam. These terms apply to food, business practices, relationships, and all aspects of life. Reference: Quran 5:5 - 'This day are [all] good foods made lawful for you'",
+            "sunnah_importance": "Sunnah refers to the teachings and practices of Prophet Muhammad (PBUH). Following the Sunnah is essential for Muslims as it provides practical guidance for implementing Islamic principles. Reference: Quran 33:21 - 'There has certainly been for you in the Messenger of Allah an excellent pattern'",
+            "hadith_importance": "Hadith are the recorded sayings and actions of Prophet Muhammad (PBUH). They provide detailed guidance on how to implement Islamic teachings in daily life. Reference: Quran 33:21 - 'There has certainly been for you in the Messenger of Allah an excellent pattern'",
+            "quran_importance": "The Quran is the holy book of Islam, revealed to Prophet Muhammad (PBUH) over 23 years. It's the primary source of Islamic guidance and contains Allah's direct message to humanity. Reference: Quran 2:2 - 'This is the Book about which there is no doubt, a guidance for those conscious of Allah'"
         }
 
     def get_comprehensive_response(self, user_message):
@@ -1968,25 +2038,72 @@ These pillars form the foundation of Islamic practice and are essential for spir
         
         # Priority matching for specific topics with flexible word matching
         priority_keywords = {
+            # Core Islamic concepts
+            "islam": "islam_basics",
+            "what is islam": "islam_basics",
+            "muslim": "islam_basics",
+            "taqwa": "taqwa_concept",
+            "concept of taqwa": "taqwa_concept",
+            "explain taqwa": "taqwa_concept",
+            
+            # Prophet and leadership
             "prophet muhammad": "prophet_muhammad",
             "muhammad pbuh": "prophet_muhammad",
             "muhammad (pbuh)": "prophet_muhammad",
+            "prophet": "prophet_muhammad",
+            
+            # Five pillars
             "five pillars": "five_pillars",
             "five pillars of islam": "five_pillars",
-            "how to perform wudu": "wudu",
+            "pillars of islam": "five_pillars",
+            "shahada": "shahada_significance",
+            "significance of shahada": "shahada_significance",
+            "prayer": "prayer_importance",
+            "prayer importance": "prayer_importance",
+            "importance of prayer": "prayer_importance",
+            "salah": "prayer_importance",
+            "fasting": "fasting_ramadan",
+            "ramadan": "fasting_ramadan",
+            "zakat": "zakat_charity",
+            "charity": "zakat_charity",
+            "hajj": "hajj_pilgrimage",
+            "pilgrimage": "hajj_pilgrimage",
+            
+            # Worship practices
             "wudu": "wudu",
             "ablution": "wudu",
+            "how to perform wudu": "wudu",
+            "how to pray": "prayer_guidance",
+            "prayer guidance": "prayer_guidance",
+            
+            # Islamic concepts
             "mercy": "mercy",
             "quran on mercy": "mercy",
+            "halal": "halal_haram",
+            "haram": "halal_haram",
+            "sunnah": "sunnah_importance",
+            "hadith": "hadith_importance",
+            "quran": "quran_importance",
+            
+            # Conversion and faith
             "how to become muslim": "becoming_muslim",
             "become muslim": "becoming_muslim",
             "convert to islam": "becoming_muslim",
-            "shahada": "shahada_significance",
-            "significance of shahada": "shahada_significance",
-            "inheritance": "inheritance_laws",
-            "inheritance laws": "inheritance_laws",
-            "prayer importance": "prayer_importance",
-            "importance of prayer": "prayer_importance",
+            "revert to islam": "becoming_muslim",
+            
+            # Family and relationships
+            "family problems": "family_issues",
+            "family conflicts": "family_issues",
+            "marriage problems": "family_issues",
+            "marriage": "marriage_and_relationships",
+            "relationships": "marriage_and_relationships",
+            "dating": "marriage_and_relationships",
+            "parenting": "parenting_and_children",
+            "children": "parenting_and_children",
+            "raising kids": "parenting_and_children",
+            "child rearing": "parenting_and_children",
+            
+            # Mental health and emotions
             "grief": "grief_and_sadness",
             "sadness": "grief_and_sadness",
             "grieving": "grief_and_sadness",
@@ -2005,15 +2122,29 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "nervous": "anxiety_and_worry",
             "fear": "anxiety_and_worry",
             "afraid": "anxiety_and_worry",
-            "family problems": "family_issues",
-            "family conflicts": "family_issues",
-            "marriage problems": "family_issues",
             "depression": "depression_and_mental_health",
             "mental health": "depression_and_mental_health",
             "mental illness": "depression_and_mental_health",
-            "marriage": "marriage_and_relationships",
-            "relationships": "marriage_and_relationships",
-            "dating": "marriage_and_relationships",
+            
+            # Work and career
+            "work": "work_and_career",
+            "career": "work_and_career",
+            "job": "work_and_career",
+            "business": "work_and_career",
+            "job loss": "job_loss_and_financial_struggles",
+            "fired": "job_loss_and_financial_struggles",
+            "laid off": "job_loss_and_financial_struggles",
+            "unemployed": "job_loss_and_financial_struggles",
+            
+            # Financial matters
+            "financial problems": "job_loss_and_financial_struggles",
+            "money problems": "job_loss_and_financial_struggles",
+            "broke": "job_loss_and_financial_struggles",
+            "debt": "job_loss_and_financial_struggles",
+            "inheritance": "inheritance_laws",
+            "inheritance laws": "inheritance_laws",
+            
+            # Personal development
             "addiction": "addiction_and_habits",
             "habits": "addiction_and_habits",
             "smoking": "addiction_and_habits",
@@ -2028,32 +2159,17 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "thankful": "motivation_and_encouragement",
             "self improvement": "self_improvement",
             "personal growth": "self_improvement",
-            "work": "work_and_career",
-            "career": "work_and_career",
-            "job": "work_and_career",
-            "business": "work_and_career",
-            "parenting": "parenting_and_children",
-            "children": "parenting_and_children",
-            "raising kids": "parenting_and_children",
-            "child rearing": "parenting_and_children",
+            
+            # Life events
             "death": "death_and_loss",
             "died": "death_and_loss",
             "passed away": "death_and_loss",
             "lost": "death_and_loss",
-            "grieving": "death_and_loss",
             "funeral": "death_and_loss",
             "divorce": "divorce_and_separation",
             "separated": "divorce_and_separation",
             "marriage ended": "divorce_and_separation",
-            "split up": "divorce_and_separation",
-            "job loss": "job_loss_and_financial_struggles",
-            "fired": "job_loss_and_financial_struggles",
-            "laid off": "job_loss_and_financial_struggles",
-            "unemployed": "job_loss_and_financial_struggles",
-            "financial problems": "job_loss_and_financial_struggles",
-            "money problems": "job_loss_and_financial_struggles",
-            "broke": "job_loss_and_financial_struggles",
-            "debt": "job_loss_and_financial_struggles"
+            "split up": "divorce_and_separation"
         }
         
         # Check priority keywords first
