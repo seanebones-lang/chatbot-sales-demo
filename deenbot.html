@@ -323,6 +323,9 @@
                 <div class="status-indicator status-connected" id="statusIndicator">
                     Connected to AI Model
                 </div>
+                <div style="text-align: center; margin-bottom: 15px; font-size: 12px; color: #666;">
+                    Backend: <span id="serverUrlDisplay">Detecting...</span>
+                </div>
                 
                 <div class="chat-container">
                     <div class="chat-messages" id="chatMessages">
@@ -364,7 +367,19 @@
         </div>
     </div>
 
-    <script>
+    
+        // Auto-detect server URL (local vs DigitalOcean)
+        function getServerUrl() {
+            const hostname = window.location.hostname;
+            if (hostname === 'localhost' || hostname === '127.0.0.1') {
+                return '${serverUrl}';
+            } else {
+                // On DigitalOcean, use the same hostname but port 8080
+                return `http://${hostname}:8080`;
+            }
+        }
+        
+<script>
         let isTyping = false;
         let userName = '';
         let isFirstMessage = true;
@@ -507,6 +522,27 @@
             sendChatMessage();
         }
 
+        // Auto-detect server URL (local vs DigitalOcean)
+        function getServerUrl() {
+            const hostname = window.location.hostname;
+            if (hostname === 'localhost' || hostname === '127.0.0.1') {
+                return '${serverUrl}';
+            } else {
+                // On DigitalOcean, use the same hostname but port 8080
+                return `http://${hostname}:8080`;
+            }
+        }
+
+        // Update server URL display
+        function updateServerUrlDisplay() {
+            const serverUrl = getServerUrl();
+            const display = document.getElementById('serverUrlDisplay');
+            if (display) {
+                display.textContent = serverUrl;
+                display.style.color = serverUrl.includes('localhost') ? '#28a745' : '#007bff';
+            }
+        }
+
         async function sendChatMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
@@ -531,7 +567,8 @@
             updateStatus('connected', 'DeenBot is thinking...');
 
             try {
-                const response = await fetch("http://localhost:8080/chat", {
+                const serverUrl = getServerUrl();
+                const response = await fetch(`${serverUrl}/chat`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -551,6 +588,7 @@
                     }, 1000);
                     
                     updateStatus('connected', 'Connected to AI Model');
+                    console.log(`✅ Message sent successfully to ${getServerUrl()}`);
                 } else {
                     throw new Error(`HTTP ${response.status}`);
                 }
@@ -558,12 +596,13 @@
                 hideTypingIndicator();
                 console.error("Chat Error:", error);
                 
+                const serverUrl = getServerUrl();
                 if (error.message.includes('timeout') || error.message.includes('Failed to fetch')) {
-                    updateStatus('fallback', 'Using Enhanced Local Knowledge');
-                    addChatMessage("I'm currently using my enhanced local knowledge base. Let me provide you with comprehensive Islamic guidance based on authentic sources.", false);
+                    updateStatus('fallback', `Connection timeout to ${serverUrl}`);
+                    addChatMessage(`I'm having trouble connecting to my AI backend at ${serverUrl}. This could be because the backend service isn't running or there's a network issue. Let me try to help you with my local knowledge base.`, false);
                 } else {
-                    updateStatus('error', 'Connection Error - Using Local Knowledge');
-                    addChatMessage("I apologize, but I encountered a connection issue. I'm switching to my comprehensive local knowledge base to assist you.", false);
+                    updateStatus('error', `Connection Error to ${serverUrl}`);
+                    addChatMessage(`I apologize, but I encountered a connection issue with my AI backend at ${serverUrl}. The error is: ${error.message}. I'm switching to my comprehensive local knowledge base to assist you.`, false);
                 }
             }
         }
@@ -577,8 +616,11 @@
 
         // Test connection on page load
         window.addEventListener('load', async () => {
+            // Update server URL display first
+            updateServerUrlDisplay();
             try {
-                const response = await fetch("http://localhost:8080/chat", {
+                const serverUrl = getServerUrl();
+                const response = await fetch(`${serverUrl}/chat`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ message: "test" })
@@ -586,11 +628,14 @@
                 
                 if (response.ok) {
                     updateStatus('connected', 'Connected to AI Model');
+                    console.log(`✅ Connected to DeenBot backend at ${serverUrl}`);
                 } else {
                     updateStatus('fallback', 'Using Enhanced Local Knowledge');
+                    console.log(`⚠️ Backend responded with status ${response.status}`);
                 }
             } catch (error) {
                 updateStatus('fallback', '⚠️ Using Enhanced Local Knowledge');
+                console.log(`❌ Connection error: ${error.message}`);
             }
         });
     </script>

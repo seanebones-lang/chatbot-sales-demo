@@ -553,7 +553,8 @@
         </div>
     </div>
     
-    <script>
+    
+<script>
         // Full Islamic Knowledge System
         let currentSource = 'all';
         
@@ -902,6 +903,17 @@
         
         const islamicAI = new IslamicAI();
         
+        // Auto-detect server URL (local vs DigitalOcean)
+        function getServerUrl() {
+            const hostname = window.location.hostname;
+            if (hostname === 'localhost' || hostname === '127.0.0.1') {
+                return 'http://localhost:8080';
+            } else {
+                // On DigitalOcean, use the same hostname but port 8080
+                return `http://${hostname}:8080`;
+            }
+        }
+        
         function setSource(source) {
             currentSource = source;
             document.querySelectorAll('.source-btn').forEach(btn => btn.classList.remove('active'));
@@ -925,7 +937,8 @@
             `;
             
             // Call the Python backend AI
-            fetch("http://localhost:8080/chat", {
+            const serverUrl = getServerUrl();
+            fetch(`${serverUrl}/chat`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1108,7 +1121,8 @@
             input.value = '';
             
             // Call AI backend
-            fetch("http://localhost:8080/chat", {
+            const serverUrl = getServerUrl();
+            fetch(`${serverUrl}/chat`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1164,7 +1178,8 @@
                 addChatMessage(testResponse, false);
                 
                 // Now test the backend
-                fetch("http://localhost:8080/chat", {
+                const serverUrl = getServerUrl();
+                fetch(`${serverUrl}/chat`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -1189,7 +1204,8 @@
             
             // Test search with backend
             const testQuery = 'family';
-            fetch("http://localhost:8080/chat", {
+            const serverUrl = getServerUrl();
+            fetch(`${serverUrl}/chat`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
