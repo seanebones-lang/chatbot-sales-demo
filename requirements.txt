@@ -1,5 +1,7 @@
 # Islamic AI Chat Backend Requirements
-# No external dependencies needed - uses only Python standard library
+
+# Core dependencies
+psutil>=5.8.0
 
 # Python version: 3.6+
 # Built-in modules used:
@@ -7,9 +9,13 @@
 # - json
 # - os
 # - sys
+# - threading
+# - time
+# - logging
+# - urllib.parse
 
-# To run the backend:
-# python3 quran_ai_backend.py
+# To run the comprehensive backend:
+# python3 comprehensive_deenbot_backend.py
 
 # The backend will start on port 8080
 # Frontend should be served from the same directory
