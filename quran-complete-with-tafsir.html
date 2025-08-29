@@ -33,6 +33,13 @@
             border-radius: 20px;
             border: 2px solid rgba(255, 215, 0, 0.3);
             margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .header:hover {
+            border-color: rgba(255, 215, 0, 0.6);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
+            transform: translateY(-3px);
         }
 
         .header h1 {
@@ -61,6 +68,39 @@
             border-radius: 10px;
             text-align: center;
             border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item.clickable {
+            cursor: pointer;
+            border-color: rgba(30, 144, 255, 0.3);
+        }
+
+        .stat-item.clickable:hover {
+            background: rgba(30, 144, 255, 0.15);
+            border-color: rgba(30, 144, 255, 0.6);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(30, 144, 255, 0.3);
+        }
+
+        .stat-item.info-only {
+            border-color: rgba(255, 215, 0, 0.3);
+            opacity: 0.8;
+        }
+
+        .stat-hint {
+            color: #87CEEB;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item.clickable:hover .stat-hint {
+            opacity: 1;
+            color: #1E90FF;
         }
 
         .stat-number {
@@ -99,6 +139,13 @@
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .surah-navigation:hover {
+            border-color: rgba(30, 144, 255, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
         }
 
         .surah-grid {
@@ -121,8 +168,9 @@
 
         .surah-item:hover {
             background: rgba(30, 144, 255, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(30, 144, 255, 0.4);
+            border-color: rgba(30, 144, 255, 0.6);
         }
 
         .surah-number {
@@ -151,6 +199,12 @@
             padding: 30px;
             margin-bottom: 30px;
             display: none;
+            transition: all 0.3s ease;
+        }
+
+        .surah-content:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
         .surah-content.active {
@@ -285,6 +339,13 @@
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .search-section:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
         }
 
         .search-input {
@@ -357,21 +418,25 @@
             <p>Arabic Text • Transliteration • Saheeh International Translation • Comprehensive Tafsir</p>
             
             <div class="quran-stats">
-                <div class="stat-item">
+                <div class="stat-item clickable" onclick="navigateToSurahs()">
                     <div class="stat-number">114</div>
                     <div class="stat-label">Surahs</div>
+                    <div class="stat-hint">Click to browse all surahs</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">6,236</div>
-                    <div class="stat-label">Verses</div>
-                </div>
-                <div class="stat-item">
+                <div class="stat-item clickable" onclick="navigateToJuz()">
                     <div class="stat-number">30</div>
                     <div class="stat-label">Juz</div>
+                    <div class="stat-hint">Click to browse by Juz</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item clickable" onclick="navigateToAhzab()">
                     <div class="stat-number">7</div>
                     <div class="stat-label">Ahzab</div>
+                    <div class="stat-hint">Click to browse by Ahzab</div>
+                </div>
+                <div class="stat-item info-only">
+                    <div class="stat-number">6,236</div>
+                    <div class="stat-label">Verses</div>
+                    <div class="stat-hint">Total verses in Quran</div>
                 </div>
             </div>
         </div>
@@ -645,6 +710,44 @@
             } else {
                 alert('This verse is already bookmarked!');
             }
+        }
+
+        // Navigation functions for clickable stat items
+        function navigateToSurahs() {
+            // Scroll to surah navigation section
+            document.querySelector('.surah-navigation').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+            
+            // Add visual feedback
+            const surahNav = document.querySelector('.surah-navigation');
+            surahNav.style.borderColor = 'rgba(30, 144, 255, 0.8)';
+            surahNav.style.boxShadow = '0 15px 35px rgba(30, 144, 255, 0.4)';
+            
+            setTimeout(() => {
+                surahNav.style.borderColor = '';
+                surahNav.style.boxShadow = '';
+            }, 2000);
+        }
+
+        function navigateToJuz() {
+            // Show Juz-based navigation (placeholder for future enhancement)
+            alert('Juz navigation coming soon! This will allow you to browse the Quran by the 30 Juz divisions.');
+            
+            // For now, scroll to surah navigation
+            document.querySelector('.surah-navigation').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        function navigateToAhzab() {
+            // Show Ahzab-based navigation (placeholder for future enhancement)
+            alert('Ahzab navigation coming soon! This will allow you to browse the Quran by the 7 Ahzab divisions.');
+            
+            // For now, scroll to surah navigation
+            document.querySelector('.surah-navigation').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
         }
     </script>
 </body>
