@@ -615,6 +615,7 @@
                 <button class="source-btn" onclick="setSource('what-is-islam')">What is Islam?</button>
                 <button class="source-btn" onclick="setSource('five-pillars')">Five Pillars</button>
                 <button class="source-btn" onclick="setSource('sunnah')">Sunnah</button>
+                <button class="source-btn" onclick="setSource('family-daily-life')">Family & Daily Life</button>
             </div>
         </div>
 
@@ -1023,11 +1024,51 @@
                 reference: "Inheritance Laws - Al-Nisa 4:11-12",
                 arabic: "يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ",
                 translation: "Allah instructs you concerning your children: for the male, what is equal to the share of two females.",
-                context: "Basic principle of Islamic inheritance where males receive twice the share of females.",
+                context: "Basic principle of Islamic inheritance where males receive twice the share of females. This applies to children's inheritance from their parents. The male child receives twice the share of a female child.",
                 topic: "Inheritance",
                 source: "Fiqh",
                 category: "Family Law",
-                keywords: ["inheritance", "children", "males", "females", "shares", "family", "law"]
+                keywords: ["inheritance", "children", "males", "females", "shares", "family", "law", "parents", "distribution"]
+            },
+            {
+                reference: "Spouse Inheritance - Al-Nisa 4:12",
+                arabic: "وَلَكُمْ نِصْفُ مَا تَرَكَ أَزْوَاجُكُمْ إِن لَّمْ يَكُن لَّهُنَّ وَلَدٌ",
+                translation: "And for you is half of what your wives leave if they have no child.",
+                context: "If a wife dies without children, her husband inherits half of her estate. If she has children, he gets one-fourth. This ensures fair distribution while maintaining family stability.",
+                topic: "Inheritance",
+                source: "Fiqh",
+                category: "Family Law",
+                keywords: ["inheritance", "spouse", "wife", "husband", "children", "estate", "distribution", "family law", "marriage"]
+            },
+            {
+                reference: "Parent Inheritance - Al-Nisa 4:11",
+                arabic: "وَلِأَبَوَيْهِ لِكُلِّ وَاحِدٍ مِّنْهُمَا السُّدُسُ مِمَّا تَرَكَ",
+                translation: "And for one's parents, to each one of them is a sixth of what he left.",
+                context: "Parents inherit one-sixth each from their deceased child's estate. This applies when the deceased has children. If no children, parents get more. This ensures parents are cared for in their old age.",
+                topic: "Inheritance",
+                source: "Fiqh",
+                category: "Family Law",
+                keywords: ["inheritance", "parents", "sixth", "estate", "children", "deceased", "care", "old age", "family law"]
+            },
+            {
+                reference: "Sibling Inheritance - Al-Nisa 4:176",
+                arabic: "يَسْتَفْتُونَكَ قُلِ اللَّهُ يُفْتِيكُمْ فِي الْكَلَالَةِ",
+                translation: "They request from you a [legal] ruling. Say, 'Allah gives you a ruling concerning one having neither descendants nor ascendants.'",
+                context: "When someone dies without parents or children (kalalah), their siblings inherit. Brothers get twice the share of sisters. This ensures family wealth stays within the family unit.",
+                topic: "Inheritance",
+                source: "Fiqh",
+                category: "Family Law",
+                keywords: ["inheritance", "siblings", "brothers", "sisters", "kalalah", "no parents", "no children", "family wealth", "distribution"]
+            },
+            {
+                reference: "Inheritance Calculation - Islamic Mathematics",
+                arabic: "فَرِيضَةً مِّنَ اللَّهِ ۗ إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا",
+                translation: "An obligation from Allah. Indeed, Allah is ever Knowing and Wise.",
+                context: "Islamic inheritance uses precise mathematical calculations to ensure fair distribution. The total estate is divided into shares (faraid) with specific fractions for each heir. This prevents disputes and ensures justice.",
+                topic: "Inheritance",
+                source: "Fiqh",
+                category: "Family Law",
+                keywords: ["inheritance", "calculation", "mathematics", "faraid", "shares", "fractions", "heirs", "disputes", "justice", "fair distribution"]
             },
             {
                 reference: "Prayer Times - Al-Isra 17:78",
@@ -1417,6 +1458,110 @@
             }
         ];
         
+        // Family and Daily Life Database - Comprehensive Guidance
+        const familyDailyLifeDatabase = [
+            {
+                reference: "Family Relations - Al-Baqarah 2:187",
+                arabic: "هُنَّ لِبَاسٌ لَكُمْ وَأَنْتُمْ لِبَاسٌ لَهُنَّ",
+                translation: "They are clothing for you and you are clothing for them.",
+                context: "This verse beautifully describes the relationship between spouses - they are like clothing that protects, covers, and beautifies each other. In a healthy family, each member supports and complements the others, creating a harmonious unit where love, respect, and understanding flourish.",
+                topic: "Family Relations",
+                source: "Family & Daily Life",
+                category: "Marriage",
+                keywords: ["family", "marriage", "spouses", "relationship", "love", "protection", "unity", "harmony", "support", "understanding"]
+            },
+            {
+                reference: "Family Unity - Al-Rum 30:21",
+                arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً",
+                translation: "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy.",
+                context: "Allah created spouses to bring tranquility, affection, and mercy to our lives. This is the foundation of a healthy family. When family members treat each other with love and compassion, they create a peaceful home environment that nurtures spiritual growth and emotional well-being.",
+                topic: "Family Unity",
+                source: "Family & Daily Life",
+                category: "Marriage",
+                keywords: ["family", "marriage", "tranquility", "affection", "mercy", "spouses", "love", "peace", "home", "spiritual growth", "emotional well-being"]
+            },
+            {
+                reference: "Parent-Child Relations - Al-Isra 17:23-24",
+                arabic: "وَقَضَى رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا",
+                translation: "And your Lord has decreed that you not worship except Him, and to parents, good treatment.",
+                context: "Islam emphasizes treating parents with kindness, respect, and care. This includes speaking gently to them, helping them in their daily needs, and never showing impatience or disrespect. The Prophet (PBUH) said that serving parents is one of the most beloved acts to Allah.",
+                topic: "Parent-Child Relations",
+                source: "Family & Daily Life",
+                category: "Family",
+                keywords: ["parents", "children", "respect", "kindness", "care", "help", "patience", "service", "allah", "prophet", "family"]
+            },
+            {
+                reference: "Daily Life - Al-Baqarah 2:168",
+                arabic: "يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا",
+                translation: "O mankind, eat from whatever is on earth [that is] lawful and good.",
+                context: "Islam teaches us to consume only what is halal (permissible) and tayyib (good/wholesome) in our daily lives. This applies to food, entertainment, relationships, and all aspects of life. Making halal choices ensures our actions are blessed and brings us closer to Allah.",
+                topic: "Daily Life",
+                source: "Family & Daily Life",
+                category: "Daily Living",
+                keywords: ["daily life", "food", "halal", "tayyib", "permissible", "wholesome", "consumption", "entertainment", "relationships", "blessed", "allah"]
+            },
+            {
+                reference: "Moral Boundaries - Al-Isra 17:32",
+                arabic: "وَلَا تَقْرَبُوا الزِّنَا ۖ إِنَّهُ كَانَ فَاحِشَةً وَسَاءَ سَبِيلًا",
+                translation: "And do not approach unlawful sexual intercourse. Indeed, it is an immorality and an evil way.",
+                context: "Islam provides clear guidance on maintaining moral boundaries in daily life and relationships. This includes proper conduct between men and women, avoiding inappropriate interactions, and preserving the sanctity of family relationships. These boundaries protect society and maintain moral standards.",
+                topic: "Moral Boundaries",
+                source: "Family & Daily Life",
+                category: "Daily Living",
+                keywords: ["moral boundaries", "relationships", "conduct", "men", "women", "interactions", "sanctity", "family", "society", "standards", "protection"]
+            },
+            {
+                reference: "Family Communication - Al-Hujurat 49:11",
+                arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِّن قَوْمٍ",
+                translation: "O you who have believed, let not a people ridicule [another] people.",
+                context: "Good family communication is built on respect, kindness, and avoiding hurtful speech. This includes not mocking others, using gentle words, listening attentively, and resolving conflicts peacefully. The Prophet (PBUH) taught that kind words are a form of charity.",
+                topic: "Family Communication",
+                source: "Family & Daily Life",
+                category: "Communication",
+                keywords: ["family", "communication", "respect", "kindness", "gentle", "listening", "conflicts", "peaceful", "charity", "prophet", "guidance"]
+            },
+            {
+                reference: "Family Responsibilities - Al-Baqarah 2:233",
+                arabic: "وَعَلَى الْمَوْلُودِ لَهُ رِزْقُهُنَّ وَكِسْوَتُهُنَّ بِالْمَعْرُوفِ",
+                translation: "Upon the father is the mothers' provision and their clothing according to what is acceptable.",
+                context: "Islam clearly defines family responsibilities. Fathers are responsible for providing financial support, while mothers are primarily responsible for nurturing and raising children. Both parents share the responsibility of providing emotional support, education, and Islamic guidance to their children.",
+                topic: "Family Responsibilities",
+                source: "Family & Daily Life",
+                category: "Responsibilities",
+                keywords: ["family", "responsibilities", "fathers", "mothers", "financial", "nurturing", "raising", "children", "emotional", "education", "islamic guidance"]
+            },
+            {
+                reference: "Family Time - Al-Ahzab 33:21",
+                arabic: "لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ",
+                translation: "There has certainly been for you in the Messenger of Allah an excellent pattern.",
+                context: "The Prophet (PBUH) showed us how to balance family time with other responsibilities. He spent quality time with his family, played with children, helped with household chores, and maintained strong family bonds. This teaches us that family should always be a priority in our busy lives.",
+                topic: "Family Time",
+                source: "Family & Daily Life",
+                category: "Time Management",
+                keywords: ["family time", "balance", "responsibilities", "quality time", "children", "household", "chores", "bonds", "priority", "busy lives", "prophet"]
+            },
+            {
+                reference: "Family Education - Al-Alaq 96:1",
+                arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
+                translation: "Read in the name of your Lord who created.",
+                context: "Education is fundamental in Islam, and families have a responsibility to ensure their children receive both Islamic and worldly education. This includes teaching Quran, Hadith, Islamic values, as well as practical skills needed for daily life. Knowledge empowers families and strengthens communities.",
+                topic: "Family Education",
+                source: "Family & Daily Life",
+                category: "Education",
+                keywords: ["family", "education", "islamic", "worldly", "quran", "hadith", "values", "practical skills", "daily life", "knowledge", "empowerment", "communities"]
+            },
+            {
+                reference: "Family Health - Al-Baqarah 2:195",
+                arabic: "وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ",
+                translation: "And do not throw yourselves into destruction.",
+                context: "Taking care of family health is an Islamic duty. This includes maintaining good hygiene, eating nutritious food, exercising regularly, getting adequate sleep, and seeking medical care when needed. A healthy family is better able to serve Allah and contribute to society.",
+                topic: "Family Health",
+                source: "Family & Daily Life",
+                category: "Health",
+                keywords: ["family", "health", "hygiene", "nutrition", "exercise", "sleep", "medical care", "duty", "serve allah", "society", "well-being"]
+            }
+        ];
+        
         // Enhanced Auto Wisdom with Categories
         const autoWisdom = [
             {
@@ -1573,6 +1718,16 @@
                 // Search in Sunnah database
                 if (source === 'all' || source === 'sunnah') {
                     sunnahDatabase.forEach(item => {
+                        const relevance = this.calculateRelevance(item, tokens);
+                        if (relevance > 0) {
+                            results.push({ ...item, relevance, matchedTerms: this.findMatchedTerms(item, tokens) });
+                        }
+                    });
+                }
+                
+                // Search in Family and Daily Life database
+                if (source === 'all' || source === 'family-daily-life') {
+                    familyDailyLifeDatabase.forEach(item => {
                         const relevance = this.calculateRelevance(item, tokens);
                         if (relevance > 0) {
                             results.push({ ...item, relevance, matchedTerms: this.findMatchedTerms(item, tokens) });

@@ -335,6 +335,27 @@
             margin-bottom: 15px;
         }
         
+        .loading {
+            text-align: center;
+            padding: 30px;
+            color: #87CEEB;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(30, 144, 255, 0.3);
+            border-top: 4px solid #1E90FF;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -377,7 +398,7 @@
         
         <div class="search-section">
             <div class="search-input">
-                <input type="text" id="searchInput" placeholder="Ask any Islamic question (e.g., 'What does Islam say about mercy?', 'How to pray?', 'Inheritance laws?', 'Quran verses about patience?')" onkeypress="handleSearch(event)">
+                <input type="text" id="searchInput" placeholder="Ask any Islamic question (e.g., 'What does Islam say about mercy?', 'How to pray?', 'Inheritance laws?', 'Quran verses about patience?', 'Family relationships?', 'Daily life guidance?')" onkeypress="handleSearch(event)">
                 <button onclick="performSearch()">Search</button>
             </div>
             
@@ -390,6 +411,7 @@
                 <button class="source-btn" onclick="setSource('what-is-islam')">What is Islam?</button>
                 <button class="source-btn" onclick="setSource('five-pillars')">Five Pillars</button>
                 <button class="source-btn" onclick="setSource('sunnah')">Sunnah</button>
+                <button class="source-btn" onclick="setSource('family-daily-life')">Family & Daily Life</button>
             </div>
         </div>
         
@@ -400,15 +422,356 @@
     </div>
     
     <script>
-        // Include all the databases and AI system here
-        // This would be a very long script, so I'll create a simplified version
-        // In the actual implementation, all databases would be included
-        
+        // Full Islamic Knowledge System
         let currentSource = 'all';
+        
+        // Islamic Knowledge Databases
+        const islamicDatabase = [
+            // Family and Relationships
+            {
+                reference: "Al-Baqarah 2:187",
+                arabic: "هُنَّ لِبَاسٌ لَكُمْ وَأَنْتُمْ لِبَاسٌ لَهُنَّ",
+                translation: "They are clothing for you and you are clothing for them.",
+                context: "This verse beautifully describes the relationship between spouses - they are like clothing that protects, covers, and beautifies each other.",
+                topic: "Family",
+                source: "Quran",
+                category: "Family Relations",
+                keywords: ["family", "marriage", "spouses", "relationship", "love", "protection", "unity"]
+            },
+            {
+                reference: "Al-Rum 30:21",
+                arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً",
+                translation: "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy.",
+                context: "Allah created spouses to bring tranquility, affection, and mercy to our lives. This is the foundation of a healthy family.",
+                topic: "Family",
+                source: "Quran",
+                category: "Family Relations",
+                keywords: ["family", "marriage", "tranquility", "affection", "mercy", "spouses", "love"]
+            },
+            // Daily Life Guidance
+            {
+                reference: "Al-Baqarah 2:168",
+                arabic: "يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا",
+                translation: "O mankind, eat from whatever is on earth [that is] lawful and good.",
+                context: "Islam teaches us to consume only what is halal (permissible) and tayyib (good/wholesome) in our daily lives.",
+                topic: "Daily Life",
+                source: "Quran",
+                category: "Daily Living",
+                keywords: ["daily life", "food", "halal", "tayyib", "permissible", "wholesome", "consumption"]
+            },
+            {
+                reference: "Al-Isra 17:32",
+                arabic: "وَلَا تَقْرَبُوا الزِّنَا ۖ إِنَّهُ كَانَ فَاحِشَةً وَسَاءَ سَبِيلًا",
+                translation: "And do not approach unlawful sexual intercourse. Indeed, it is an immorality and an evil way.",
+                context: "Islam provides clear guidance on maintaining moral boundaries in daily life and relationships.",
+                topic: "Daily Life",
+                source: "Quran",
+                category: "Daily Living",
+                keywords: ["daily life", "morality", "boundaries", "relationships", "purity", "guidance"]
+            }
+        ];
+        
+        const hadithDatabase = [
+            {
+                reference: "Sahih Bukhari 5:78 - Family",
+                arabic: "خَيْرُكُمْ خَيْرُكُمْ لِأَهْلِهِ",
+                translation: "The best of you is the best to his family.",
+                context: "The Prophet (PBUH) emphasizes treating family members with kindness and respect.",
+                topic: "Family",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Huraira",
+                keywords: ["family", "best", "kindness", "respect", "treatment", "relationships"]
+            },
+            {
+                reference: "Sahih Muslim - Daily Life",
+                arabic: "إِنَّ اللَّهَ جَمِيلٌ يُحِبُّ الْجَمَالَ",
+                translation: "Indeed, Allah is beautiful and He loves beauty.",
+                context: "This Hadith teaches us that Allah appreciates beauty and cleanliness in our daily lives.",
+                topic: "Daily Life",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Various",
+                keywords: ["daily life", "beauty", "cleanliness", "appreciation", "Allah", "guidance"]
+            }
+        ];
+        
+        const fiqhDatabase = [
+            {
+                reference: "Inheritance Laws - Al-Nisa 4:11-12",
+                arabic: "يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنْثَيَيْنِ",
+                translation: "Allah instructs you concerning your children: for the male, what is equal to the share of two females.",
+                context: "Basic principle of Islamic inheritance where males receive twice the share of females. This applies to children's inheritance from their parents. The male child receives twice the share of a female child.",
+                topic: "Inheritance",
+                source: "Fiqh",
+                category: "Family Law",
+                keywords: ["inheritance", "children", "males", "females", "shares", "family", "law", "parents", "distribution"]
+            },
+            {
+                reference: "Spouse Inheritance - Al-Nisa 4:12",
+                arabic: "وَلَكُمْ نِصْفُ مَا تَرَكَ أَزْوَاجُكُمْ إِن لَّمْ يَكُن لَّهُنَّ وَلَدٌ",
+                translation: "And for you is half of what your wives leave if they have no child.",
+                context: "If a wife dies without children, her husband inherits half of her estate. If she has children, he gets one-fourth. This ensures fair distribution while maintaining family stability.",
+                topic: "Inheritance",
+                source: "Fiqh",
+                category: "Family Law",
+                keywords: ["inheritance", "spouse", "wife", "husband", "children", "estate", "distribution", "family law", "marriage"]
+            },
+            {
+                reference: "Parent Inheritance - Al-Nisa 4:11",
+                arabic: "وَلِأَبَوَيْهِ لِكُلِّ وَاحِدٍ مِّنْهُمَا السُّدُسُ مِمَّا تَرَكَ",
+                translation: "And for one's parents, to each one of them is a sixth of what he left.",
+                context: "Parents inherit one-sixth each from their deceased child's estate. This applies when the deceased has children. If no children, parents get more. This ensures parents are cared for in their old age.",
+                topic: "Inheritance",
+                source: "Fiqh",
+                category: "Family Law",
+                keywords: ["inheritance", "parents", "sixth", "estate", "children", "deceased", "care", "old age", "family law"]
+            },
+            {
+                reference: "Sibling Inheritance - Al-Nisa 4:176",
+                arabic: "يَسْتَفْتُونَكَ قُلِ اللَّهُ يُفْتِيكُمْ فِي الْكَلَالَةِ",
+                translation: "They request from you a [legal] ruling. Say, 'Allah gives you a ruling concerning one having neither descendants nor ascendants.'",
+                context: "When someone dies without parents or children (kalalah), their siblings inherit. Brothers get twice the share of sisters. This ensures family wealth stays within the family unit.",
+                topic: "Inheritance",
+                source: "Fiqh",
+                category: "Family Law",
+                keywords: ["inheritance", "siblings", "brothers", "sisters", "kalalah", "no parents", "no children", "family wealth", "distribution"]
+            },
+            {
+                reference: "Inheritance Calculation - Islamic Mathematics",
+                arabic: "فَرِيضَةً مِّنَ اللَّهِ ۗ إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا",
+                translation: "An obligation from Allah. Indeed, Allah is ever Knowing and Wise.",
+                context: "Islamic inheritance uses precise mathematical calculations to ensure fair distribution. The total estate is divided into shares (faraid) with specific fractions for each heir. This prevents disputes and ensures justice.",
+                topic: "Inheritance",
+                source: "Fiqh",
+                category: "Family Law",
+                keywords: ["inheritance", "calculation", "mathematics", "faraid", "shares", "fractions", "heirs", "disputes", "justice", "fair distribution"]
+            },
+            {
+                reference: "Marriage Laws - Al-Nisa 4:4",
+                arabic: "وَآتُوا النِّسَاءَ صَدُقَاتِهِنَّ نِحْلَةً",
+                translation: "And give the women [upon marriage] their [bridal] gifts graciously.",
+                context: "Islamic law requires the husband to give a mahr (bridal gift) to his wife as a sign of respect and commitment.",
+                topic: "Marriage",
+                source: "Fiqh",
+                category: "Family Law",
+                keywords: ["marriage", "mahr", "bridal gift", "respect", "commitment", "family law"]
+            }
+        ];
+        
+        const newMuslimDatabase = [
+            {
+                reference: "Shahada - Declaration of Faith",
+                arabic: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+                translation: "I bear witness that there is no deity except Allah, and I bear witness that Muhammad is the Messenger of Allah.",
+                context: "The first step for new Muslims - declaring faith in Allah and His Messenger. This is your entry into Islam.",
+                topic: "Shahada",
+                source: "New Muslim",
+                category: "Basic Faith",
+                keywords: ["shahada", "declaration", "faith", "allah", "muhammad", "messenger", "new muslim", "first step"]
+            }
+        ];
+        
+        const whatIsIslamDatabase = [
+            {
+                reference: "What is Islam? - Core Definition",
+                arabic: "إِنَّ الدِّينَ عِندَ اللَّهِ الْإِسْلَامُ",
+                translation: "Indeed, the religion in the sight of Allah is Islam",
+                context: "Islam means 'submission to God' and 'peace.' It's a monotheistic faith that believes in one God (Allah) and follows the teachings of Prophet Muhammad (PBUH).",
+                topic: "What is Islam",
+                source: "What is Islam",
+                category: "Basic Understanding",
+                keywords: ["islam", "definition", "meaning", "monotheism", "one god", "allah", "prophets", "abraham", "moses", "jesus", "peace", "submission"]
+            }
+        ];
+        
+        const fivePillarsDatabase = [
+            {
+                reference: "First Pillar - Shahada",
+                arabic: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+                translation: "I bear witness that there is no deity except Allah, and I bear witness that Muhammad is the Messenger of Allah.",
+                context: "The Shahada is the first and most fundamental pillar of Islam. It's the declaration that makes a person a Muslim.",
+                topic: "Five Pillars",
+                source: "Five Pillars",
+                category: "Basic Faith",
+                keywords: ["shahada", "five pillars", "declaration", "faith", "allah", "muhammad", "messenger", "islam"]
+            }
+        ];
+        
+        const sunnahDatabase = [
+            {
+                reference: "Daily Sunnah - Morning",
+                arabic: "اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ",
+                translation: "O Allah, I have reached the morning and at this very time all things are subservient to You. I bear witness to You and bear witness to the bearers of Your Throne, Your angels, and all Your creatures.",
+                context: "This is a beautiful morning supplication that the Prophet (PBUH) taught us to recite daily.",
+                topic: "Sunnah",
+                source: "Sunnah",
+                category: "Daily Practices",
+                keywords: ["sunnah", "morning", "supplication", "daily", "prophet", "guidance", "practices"]
+            }
+        ];
+        
+        // Family and Daily Life Database - Comprehensive Guidance
+        const familyDailyLifeDatabase = [
+            {
+                reference: "Family Relations - Al-Baqarah 2:187",
+                arabic: "هُنَّ لِبَاسٌ لَكُمْ وَأَنْتُمْ لِبَاسٌ لَهُنَّ",
+                translation: "They are clothing for you and you are clothing for them.",
+                context: "This verse beautifully describes the relationship between spouses - they are like clothing that protects, covers, and beautifies each other. In a healthy family, each member supports and complements the others, creating a harmonious unit where love, respect, and understanding flourish.",
+                topic: "Family Relations",
+                source: "Family & Daily Life",
+                category: "Marriage",
+                keywords: ["family", "marriage", "spouses", "relationship", "love", "protection", "unity", "harmony", "support", "understanding"]
+            },
+            {
+                reference: "Family Unity - Al-Rum 30:21",
+                arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً",
+                translation: "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy.",
+                context: "Allah created spouses to bring tranquility, affection, and mercy to our lives. This is the foundation of a healthy family. When family members treat each other with love and compassion, they create a peaceful home environment that nurtures spiritual growth and emotional well-being.",
+                topic: "Family Unity",
+                source: "Family & Daily Life",
+                category: "Marriage",
+                keywords: ["family", "marriage", "tranquility", "affection", "mercy", "spouses", "love", "peace", "home", "spiritual growth", "emotional well-being"]
+            },
+            {
+                reference: "Parent-Child Relations - Al-Isra 17:23-24",
+                arabic: "وَقَضَى رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا",
+                translation: "And your Lord has decreed that you not worship except Him, and to parents, good treatment.",
+                context: "Islam emphasizes treating parents with kindness, respect, and care. This includes speaking gently to them, helping them in their daily needs, and never showing impatience or disrespect. The Prophet (PBUH) said that serving parents is one of the most beloved acts to Allah.",
+                topic: "Parent-Child Relations",
+                source: "Family & Daily Life",
+                category: "Family",
+                keywords: ["parents", "children", "respect", "kindness", "care", "help", "patience", "service", "allah", "prophet", "family"]
+            },
+            {
+                reference: "Daily Life - Al-Baqarah 2:168",
+                arabic: "يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا",
+                translation: "O mankind, eat from whatever is on earth [that is] lawful and good.",
+                context: "Islam teaches us to consume only what is halal (permissible) and tayyib (good/wholesome) in our daily lives. This applies to food, entertainment, relationships, and all aspects of life. Making halal choices ensures our actions are blessed and brings us closer to Allah.",
+                topic: "Daily Life",
+                source: "Family & Daily Life",
+                category: "Daily Living",
+                keywords: ["daily life", "food", "halal", "tayyib", "permissible", "wholesome", "consumption", "entertainment", "relationships", "blessed", "allah"]
+            },
+            {
+                reference: "Moral Boundaries - Al-Isra 17:32",
+                arabic: "وَلَا تَقْرَبُوا الزِّنَا ۖ إِنَّهُ كَانَ فَاحِشَةً وَسَاءَ سَبِيلًا",
+                translation: "And do not approach unlawful sexual intercourse. Indeed, it is an immorality and an evil way.",
+                context: "Islam provides clear guidance on maintaining moral boundaries in daily life and relationships. This includes proper conduct between men and women, avoiding inappropriate interactions, and preserving the sanctity of family relationships. These boundaries protect society and maintain moral standards.",
+                topic: "Moral Boundaries",
+                source: "Family & Daily Life",
+                category: "Daily Living",
+                keywords: ["moral boundaries", "relationships", "conduct", "men", "women", "interactions", "sanctity", "family", "society", "standards", "protection"]
+            }
+        ];
+        
+        // AI Search System
+        class IslamicAI {
+            constructor() {
+                this.databases = [
+                    islamicDatabase,
+                    hadithDatabase,
+                    fiqhDatabase,
+                    newMuslimDatabase,
+                    whatIsIslamDatabase,
+                    fivePillarsDatabase,
+                    sunnahDatabase,
+                    familyDailyLifeDatabase
+                ];
+            }
+            
+            searchWithSemantics(query, source = 'all') {
+                const queryLower = query.toLowerCase();
+                let results = [];
+                
+                // Determine which databases to search based on source
+                let searchableDatabases = this.databases;
+                if (source !== 'all') {
+                    switch(source) {
+                        case 'quran':
+                            searchableDatabases = [islamicDatabase];
+                            break;
+                        case 'hadith':
+                            searchableDatabases = [hadithDatabase];
+                            break;
+                        case 'fiqh':
+                            searchableDatabases = [fiqhDatabase];
+                            break;
+                        case 'new-muslim':
+                            searchableDatabases = [newMuslimDatabase];
+                            break;
+                        case 'what-is-islam':
+                            searchableDatabases = [whatIsIslamDatabase];
+                            break;
+                        case 'five-pillars':
+                            searchableDatabases = [fivePillarsDatabase];
+                            break;
+                        case 'sunnah':
+                            searchableDatabases = [sunnahDatabase];
+                            break;
+                        case 'family-daily-life':
+                            searchableDatabases = [familyDailyLifeDatabase];
+                            break;
+                    }
+                }
+                
+                // Search through databases
+                searchableDatabases.forEach(database => {
+                    database.forEach(item => {
+                        const relevance = this.calculateRelevance(queryLower, item);
+                        if (relevance > 0) {
+                            results.push({ ...item, relevance });
+                        }
+                    });
+                });
+                
+                // Sort by relevance and return top results
+                return results.sort((a, b) => b.relevance - a.relevance).slice(0, 10);
+            }
+            
+            calculateRelevance(query, item) {
+                let score = 0;
+                const queryWords = query.split(' ');
+                
+                // Check keywords
+                if (item.keywords) {
+                    item.keywords.forEach(keyword => {
+                        if (query.includes(keyword.toLowerCase())) {
+                            score += 10;
+                        }
+                    });
+                }
+                
+                // Check topic
+                if (item.topic && query.includes(item.topic.toLowerCase())) {
+                    score += 8;
+                }
+                
+                // Check category
+                if (item.category && query.includes(item.category.toLowerCase())) {
+                    score += 6;
+                }
+                
+                // Check translation
+                if (item.translation && queryWords.some(word => 
+                    item.translation.toLowerCase().includes(word))) {
+                    score += 4;
+                }
+                
+                // Check context
+                if (item.context && queryWords.some(word => 
+                    item.context.toLowerCase().includes(word))) {
+                    score += 3;
+                }
+                
+                return score;
+            }
+        }
+        
+        const islamicAI = new IslamicAI();
         
         function setSource(source) {
             currentSource = source;
-            // Update button states
             document.querySelectorAll('.source-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
         }
@@ -420,66 +783,89 @@
                 return;
             }
             
-            // Show results section
+            // Show results section with loading
             document.getElementById('resultsSection').classList.add('show');
-            document.getElementById('resultsCount').innerHTML = `Searching for: "${query}"`;
-            
-            // Simulate search results (in actual implementation, this would search the databases)
-            setTimeout(() => {
-                showSampleResults(query);
-            }, 1000);
-        }
-        
-        function showSampleResults(query) {
-            document.getElementById('resultsCount').innerHTML = `Found 3 results for "${query}"`;
-            
-            const resultsHTML = `
-                <div class="ai-summary">
-                    <h3>AI Assistant Summary</h3>
-                    <p>I found several relevant results about "${query}". Here are the most relevant Islamic teachings and guidance.</p>
-                    <div class="suggestions">
-                        <h4>Suggested Topics:</h4>
-                        <div class="suggestion-buttons">
-                            <button class="suggestion-btn" onclick="searchSuggestion('patience')">Patience</button>
-                            <button class="suggestion-btn" onclick="searchSuggestion('mercy')">Mercy</button>
-                            <button class="suggestion-btn" onclick="searchSuggestion('prayer')">Prayer</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="verse-item">
-                    <div class="verse-header">
-                        <div class="verse-reference">Al-Baqarah 2:153</div>
-                        <div class="verse-source">Quran</div>
-                        <div class="verse-topic">Patience</div>
-                    </div>
-                    <div class="arabic-text">يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</div>
-                    <div class="translation">O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient.</div>
-                    <div class="context">This verse teaches us that patience and prayer are the keys to overcoming difficulties in life.</div>
-                    <div class="verse-actions">
-                        <button class="action-btn" onclick="copyToClipboard(this)">Copy</button>
-                        <button class="action-btn" onclick="shareVerse(this)">Share</button>
-                        <button class="action-btn" onclick="addToFavorites(this)">Favorite</button>
-                    </div>
-                </div>
-                
-                <div class="verse-item">
-                    <div class="verse-header">
-                        <div class="verse-reference">Sahih Bukhari</div>
-                        <div class="verse-source">Hadith</div>
-                        <div class="verse-topic">Patience</div>
-                    </div>
-                    <div class="translation">The Prophet (PBUH) said: "No fatigue, illness, anxiety, sorrow, harm, or grief afflicts a Muslim, even a thorn that pricks him, except that Allah expiates some of his sins by it."</div>
-                    <div class="context">This Hadith teaches us that Allah uses difficulties to purify our hearts and expiate our sins.</div>
-                    <div class="verse-actions">
-                        <button class="action-btn" onclick="copyToClipboard(this)">Copy</button>
-                        <button class="action-btn" onclick="shareVerse(this)">Share</button>
-                        <button class="action-btn" onclick="addToFavorites(this)">Favorite</button>
-                    </div>
+            document.getElementById('resultsCount').innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <div>Searching for: "${query}"</div>
                 </div>
             `;
             
+            // Perform search
+            setTimeout(() => {
+                const results = islamicAI.searchWithSemantics(query, currentSource);
+                displayResults(query, results);
+            }, 1000);
+        }
+        
+        function displayResults(query, results) {
+            if (results.length === 0) {
+                document.getElementById('resultsCount').innerHTML = `No results found for "${query}"`;
+                document.getElementById('verseResults').innerHTML = `
+                    <div class="no-results">
+                        <h3>No Results Found</h3>
+                        <p>Try searching for different keywords or browse our categories:</p>
+                        <div class="suggestion-buttons">
+                            <button class="suggestion-btn" onclick="searchSuggestion('prayer')">Prayer</button>
+                            <button class="suggestion-btn" onclick="searchSuggestion('family')">Family</button>
+                            <button class="suggestion-btn" onclick="searchSuggestion('inheritance')">Inheritance</button>
+                            <button class="suggestion-btn" onclick="searchSuggestion('daily life')">Daily Life</button>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            document.getElementById('resultsCount').innerHTML = `Found ${results.length} results for "${query}"`;
+            
+            // Generate AI summary
+            const summary = generateAISummary(query, results);
+            
+            // Display results
+            let resultsHTML = summary;
+            
+            results.forEach(result => {
+                resultsHTML += `
+                    <div class="verse-item">
+                        <div class="verse-header">
+                            <div class="verse-reference">${result.reference}</div>
+                            <div class="verse-source">${result.source}</div>
+                            <div class="verse-topic">${result.topic}</div>
+                        </div>
+                        ${result.arabic ? `<div class="arabic-text">${result.arabic}</div>` : ''}
+                        <div class="translation">${result.translation}</div>
+                        <div class="context">${result.context}</div>
+                        <div class="verse-actions">
+                            <button class="action-btn" onclick="copyToClipboard(this)">Copy</button>
+                            <button class="action-btn" onclick="shareVerse(this)">Share</button>
+                            <button class="action-btn" onclick="addToFavorites(this)">Favorite</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
             document.getElementById('verseResults').innerHTML = resultsHTML;
+        }
+        
+        function generateAISummary(query, results) {
+            const topics = [...new Set(results.map(r => r.topic))];
+            const sources = [...new Set(results.map(r => r.source))];
+            
+            return `
+                <div class="ai-summary">
+                    <h3>AI Assistant Summary</h3>
+                    <p>I found ${results.length} relevant results about "${query}". The search covered ${sources.join(', ')} sources and found information about ${topics.join(', ')}.</p>
+                    <div class="suggestions">
+                        <h4>Suggested Related Topics:</h4>
+                        <div class="suggestion-buttons">
+                            ${topics.slice(0, 4).map(topic => 
+                                `<button class="suggestion-btn" onclick="searchSuggestion('${topic.toLowerCase()}')">${topic}</button>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
         }
         
         function searchSuggestion(topic) {
