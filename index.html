@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Islamic Knowledge - AI-Powered Quran & Hadith Assistant</title>
-    <meta name="description" content="Advanced Islamic knowledge system with AI-powered responses, comprehensive search, and interactive learning. Get accurate answers to any Islamic question instantly.">
+    <title>Complete Islamic Knowledge - Quran, Hadith, Fiqh & AI Assistant</title>
+    <meta name="description" content="Complete Islamic knowledge system with full Quran search, comprehensive Hadith collection, Fiqh (Islamic law), and AI-powered responses. Learn about inheritance, prayer, and all aspects of Islam.">
     <style>
         * {
             margin: 0;
@@ -26,49 +26,67 @@
             padding: 20px;
         }
 
-        .header {
+        .welcome-screen {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 40px 0;
+            padding: 60px 20px;
             background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
-            border-radius: 20px;
-            border: 1px solid rgba(30, 144, 255, 0.3);
+            border-radius: 30px;
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-in;
         }
 
-        .header h1 {
-            font-size: 3.5rem;
-            color: #1E90FF;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .header .subtitle {
+        .islamic-greeting {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .opening-dua {
             font-size: 1.3rem;
             color: #87CEEB;
-            margin-bottom: 20px;
-        }
-
-        .header .description {
-            font-size: 1.1rem;
-            color: #b0c4de;
+            line-height: 2;
+            margin-bottom: 30px;
             max-width: 800px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .ai-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            color: #000;
-            padding: 8px 16px;
+        .bot-message {
+            background: rgba(18, 18, 18, 0.8);
             border-radius: 20px;
-            font-weight: bold;
-            margin-top: 15px;
-            animation: pulse 2s infinite;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #1E90FF;
+            animation: slideIn 1s ease-out 2s both;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .bot-message h3 {
+            color: #1E90FF;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .quran-quote {
+            font-style: italic;
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .search-section {
@@ -78,6 +96,17 @@
             border: 1px solid rgba(68, 68, 68, 0.5);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             margin-bottom: 30px;
+            display: none;
+        }
+
+        .search-section.show {
+            display: block;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .search-input {
@@ -126,6 +155,7 @@
             justify-content: center;
             gap: 20px;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
         .source-btn {
@@ -172,16 +202,6 @@
             margin-bottom: 15px;
         }
 
-        .ai-summary .suggestions {
-            margin-top: 15px;
-        }
-
-        .ai-summary .suggestions h4 {
-            color: #87CEEB;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
         .suggestion-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -214,6 +234,11 @@
             border: 1px solid rgba(68, 68, 68, 0.5);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             margin-bottom: 30px;
+        }
+
+        .results-section.show {
+            display: block;
+            animation: fadeInUp 1s ease-out;
         }
 
         .results-count {
@@ -268,18 +293,6 @@
             border-radius: 10px;
             font-size: 0.9rem;
             font-weight: bold;
-        }
-
-        .relevance-score {
-            color: #FFD700;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-
-        .matched-terms {
-            color: #87CEEB;
-            font-size: 0.8rem;
-            margin-top: 10px;
         }
 
         .verse-text {
@@ -419,42 +432,6 @@
             font-size: 1.1rem;
         }
 
-        .auto-verse {
-            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
-            border: 2px solid rgba(30, 144, 255, 0.3);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 30px;
-            animation: pulse 2s infinite;
-        }
-
-        .auto-verse h3 {
-            color: #1E90FF;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .wisdom-text {
-            color: #E0E0E0;
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        .wisdom-source {
-            color: #87CEEB;
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
-
-        .wisdom-category {
-            color: #FFD700;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
         .footer {
             text-align: center;
             margin-top: 50px;
@@ -464,8 +441,12 @@
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
+            .islamic-greeting {
+                font-size: 2rem;
+            }
+            
+            .opening-dua {
+                font-size: 1.1rem;
             }
             
             .container {
@@ -489,33 +470,34 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>🤖 AI-Powered Islamic Knowledge</h1>
-            <div class="subtitle">Advanced Quran & Hadith Assistant</div>
-            <div class="description">
-                Get intelligent, contextual responses to any Islamic question. Our AI system understands your intent and provides the most relevant Islamic knowledge from authentic sources.
+        <div class="welcome-screen" id="welcomeScreen">
+            <div class="islamic-greeting">السلام عليكم</div>
+            <div class="opening-dua">
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br><br>
+                إِنَّ الْحَمْدَ لِلَّهِ، نَحْمَدُهُ وَنَسْتَعِينُهُ وَنَسْتَغْفِرُهُ، وَ نَعُوذُ بِاللَّهِ مِنْ شُرُورِ أَنْفُسِنَا وَمِنْ سَيِّئَاتِ أَعْمَالِنَا، مَنْ يَهْدِهِ اللَّهُ فَلَا مُضِلَّ لَهُ، وَمَنْ يُضْلِلْ فَلَا هَادِيَ لَهُ<br><br>
+                وَأَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ
             </div>
-            <div class="ai-badge">🚀 AI-Enhanced Search & Responses</div>
         </div>
 
-        <div class="search-section">
+        <div class="bot-message" id="botMessage" style="display: none;">
+            <h3>🤖 May I help you learn about Islam Insha Allah?</h3>
+            <div class="quran-quote" id="quranQuote">
+                Loading beautiful Quranic wisdom...
+            </div>
+        </div>
+
+        <div class="search-section" id="searchSection">
             <div class="search-input">
-                <input type="text" id="searchInput" placeholder="Ask any Islamic question (e.g., 'What does Islam say about mercy?', 'How to pray?', 'Why is knowledge important?')" onkeypress="handleSearch(event)">
+                <input type="text" id="searchInput" placeholder="Ask any Islamic question (e.g., 'What does Islam say about mercy?', 'How to pray?', 'Inheritance laws?', 'Quran verses about patience?')" onkeypress="handleSearch(event)">
                 <button onclick="performSearch()">🔍 Search</button>
             </div>
             
             <div class="source-toggle">
-                <button class="source-btn active" onclick="setSource('both')">📚 All Sources</button>
+                <button class="source-btn active" onclick="setSource('all')">📚 All Sources</button>
                 <button class="source-btn" onclick="setSource('quran')">📖 Quran Only</button>
                 <button class="source-btn" onclick="setSource('hadith')">📜 Hadith Only</button>
+                <button class="source-btn" onclick="setSource('fiqh')">⚖️ Fiqh (Islamic Law)</button>
             </div>
-        </div>
-
-        <div class="auto-verse" id="autoWisdom">
-            <h3>💡 Daily Islamic Wisdom</h3>
-            <div class="wisdom-text">Loading wisdom...</div>
-            <div class="wisdom-source">- Loading...</div>
-            <div class="wisdom-category">Islamic Wisdom</div>
         </div>
 
         <div class="results-section" id="resultsSection">
@@ -525,543 +507,670 @@
     </div>
 
     <script>
-        // Enhanced Islamic Knowledge Database with AI-powered responses
+        // Comprehensive Islamic Knowledge Database
         const islamicDatabase = {
-            // Core Islamic Concepts
+            // Core Islamic Concepts (Aqeedah)
             tawheed: [
                 {
                     reference: "Al-Ikhlas 112:1-4",
                     arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾",
                     translation: "Say, 'He is Allah, [who is] One, Allah, the Eternal Refuge. He neither begets nor is born, nor is there to Him any equivalent.'",
-                    context: "The fundamental Islamic belief in the oneness of Allah (Tawheed) - the cornerstone of Islamic faith. This verse establishes the pure monotheistic belief that Allah is unique, eternal, and has no partners or equals.",
+                    context: "The fundamental Islamic belief in the oneness of Allah (Tawheed) - the cornerstone of Islamic faith.",
                     topic: "Tawheed",
                     source: "Quran",
-                    keywords: ["oneness", "unity", "monotheism", "allah", "god", "divine", "eternal", "refuge", "unique", "no partners"]
+                    keywords: ["oneness", "unity", "monotheism", "allah", "god", "divine", "eternal", "refuge"]
                 },
                 {
-                    reference: "Sahih Bukhari 1:1",
-                    arabic: "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ",
-                    translation: "Actions are judged by intentions, and every person will be rewarded according to what they intended.",
-                    context: "Prophet Muhammad (ﷺ) emphasized that sincere intention (niyyah) is essential for all actions to be accepted by Allah. This hadith teaches that the value of any deed lies in the intention behind it.",
+                    reference: "Al-Baqarah 2:255",
+                    arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ",
+                    translation: "Allah - there is no deity except Him, the Ever-Living, the Self-Sustaining. Neither drowsiness overtakes Him nor sleep.",
+                    context: "The Ayat al-Kursi, describing Allah's unique attributes and eternal nature.",
                     topic: "Tawheed",
-                    source: "Hadith",
-                    authentication: "Sahih",
-                    narrator: "Narrated by Umar ibn Al-Khattab",
-                    keywords: ["intention", "niyyah", "sincerity", "actions", "rewards", "acceptance", "value", "deeds"]
+                    source: "Quran",
+                    keywords: ["allah", "deity", "living", "eternal", "sustaining", "awake", "divine"]
                 }
             ],
             
-            // Five Pillars of Islam
+            // Prayer (Salah)
             salah: [
                 {
-                    reference: "Al-Baqarah 2:43",
-                    arabic: "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ",
-                    translation: "And establish prayer and give zakah",
-                    context: "Prayer (Salah) as a fundamental pillar of Islamic practice and spiritual discipline. This verse commands believers to establish regular prayer as a means of maintaining connection with Allah and spiritual discipline.",
+                    reference: "Al-Baqarah 2:238",
+                    arabic: "حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ وَقُومُوا لِلَّهِ قَانِتِينَ",
+                    translation: "Maintain with care the [obligatory] prayers and [in particular] the middle prayer and stand before Allah, devoutly obedient.",
+                    context: "Command to maintain prayers, especially the middle prayer (Asr), with devotion and obedience.",
                     topic: "Salah",
                     source: "Quran",
-                    keywords: ["prayer", "establish", "worship", "discipline", "spiritual", "pillar", "obligation", "connection", "regular"]
+                    keywords: ["prayer", "salah", "maintain", "obligatory", "devout", "obedient", "worship"]
                 },
                 {
-                    reference: "Sahih Bukhari 2:8",
-                    arabic: "الصَّلَاةُ عِمَادُ الدِّينِ",
-                    translation: "Prayer is the pillar of religion",
-                    context: "Prophet Muhammad (ﷺ) emphasized that prayer is the foundation of Islamic faith and practice. Without prayer, the structure of faith cannot stand, making it the most important act of worship.",
+                    reference: "Al-Ma'un 107:4-5",
+                    arabic: "فَوَيْلٌ لِّلْمُصَلِّينَ ﴿٤﴾ الَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ ﴿٥﴾",
+                    translation: "So woe to those who pray [but] who are heedless of their prayer.",
+                    context: "Warning against performing prayer without proper attention and devotion.",
                     topic: "Salah",
-                    source: "Hadith",
-                    authentication: "Sahih",
-                    narrator: "Narrated by Abu Hurairah",
-                    keywords: ["pillar", "foundation", "religion", "faith", "practice", "essential", "structure", "worship"]
+                    source: "Quran",
+                    keywords: ["prayer", "heedless", "attention", "devotion", "warning", "woe"]
                 }
             ],
             
-            // Character and Ethics
+            // Mercy and Kindness
             mercy: [
                 {
-                    reference: "Al-Fatiha 1:1",
-                    arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-                    translation: "In the name of Allah, the Entirely Merciful, the Especially Merciful",
-                    context: "Allah's mercy encompasses everything and is the foundation of Islamic teachings. This opening verse of the Quran establishes that Allah's mercy is all-encompassing and should be reflected in how believers treat others.",
+                    reference: "Al-Anbiya 21:107",
+                    arabic: "وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ",
+                    translation: "And We have not sent you, [O Muhammad], except as a mercy to the worlds.",
+                    context: "Prophet Muhammad (ﷺ) was sent as a mercy to all of creation, not just Muslims.",
                     topic: "Mercy",
                     source: "Quran",
-                    keywords: ["mercy", "compassion", "blessing", "beginning", "foundation", "allah", "bismillah", "encompassing", "treat others"]
+                    keywords: ["mercy", "prophet", "muhammad", "worlds", "creation", "compassion"]
                 },
                 {
-                    reference: "Sahih Muslim 4:2024",
-                    arabic: "مَنْ لَا يَرْحَمُ لَا يُرْحَمُ",
-                    translation: "Whoever does not show mercy will not be shown mercy",
-                    context: "Prophet Muhammad (ﷺ) taught that showing kindness and mercy to others is essential for receiving divine mercy. This hadith establishes the principle of reciprocity in mercy and compassion.",
+                    reference: "Al-Fatiha 1:1-3",
+                    arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴿١﴾ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ﴿٢﴾ الرَّحْمَٰنِ الرَّحِيمِ",
+                    translation: "In the name of Allah, the Entirely Merciful, the Especially Merciful. [All] praise is [due] to Allah, Lord of the worlds. The Entirely Merciful, the Especially Merciful.",
+                    context: "Opening of the Quran emphasizing Allah's mercy and His role as Lord of all creation.",
                     topic: "Mercy",
-                    source: "Hadith",
-                    authentication: "Sahih",
-                    narrator: "Narrated by Jarir ibn Abdullah",
-                    keywords: ["show mercy", "kindness", "essential", "divine mercy", "reciprocity", "teaching", "compassion"]
-                }
-            ],
-            
-            kindness: [
-                {
-                    reference: "Al-Baqarah 2:195",
-                    arabic: "وَأَحْسِنُوا ۛ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ",
-                    translation: "And do good; indeed, Allah loves the doers of good",
-                    context: "Allah commands believers to be kind and do good deeds, as He loves those who excel in goodness. This verse encourages excellence in all actions and treating others with kindness and generosity.",
-                    topic: "Kindness",
                     source: "Quran",
-                    keywords: ["good deeds", "excellence", "allah loves", "command", "believers", "goodness", "kindness", "generosity", "actions"]
+                    keywords: ["mercy", "merciful", "allah", "lord", "worlds", "praise", "compassion"]
                 }
             ],
             
+            // Patience and Perseverance
             patience: [
                 {
                     reference: "Al-Baqarah 2:153",
-                    arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",
-                    translation: "O you who have believed, seek help through patience and prayer",
-                    context: "Allah teaches believers to seek strength through patience and prayer during difficult times. This verse provides the formula for overcoming challenges: patience in adversity and prayer for divine assistance.",
+                    arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+                    translation: "O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient.",
+                    context: "Guidance to seek Allah's help through patience and prayer, with assurance that Allah supports the patient.",
                     topic: "Patience",
                     source: "Quran",
-                    keywords: ["seek help", "strength", "difficult times", "believers", "prayer", "patience", "support", "challenges", "adversity"]
+                    keywords: ["patience", "prayer", "help", "allah", "believers", "support", "perseverance"]
+                },
+                {
+                    reference: "Al-Imran 3:200",
+                    arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا ۚ وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُفْلِحُونَ",
+                    translation: "O you who have believed, persevere and endure and remain stationed and fear Allah that you may be successful.",
+                    context: "Command to persevere, endure, remain steadfast, and maintain taqwa for success.",
+                    topic: "Patience",
+                    source: "Quran",
+                    keywords: ["patience", "persevere", "endure", "steadfast", "taqwa", "success", "fear"]
                 }
             ],
             
             // Knowledge and Learning
             knowledge: [
                 {
-                    reference: "Al-Zumar 39:9",
-                    arabic: "قُلْ هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ",
-                    translation: "Say, 'Are those who know equal to those who do not know?'",
-                    context: "Allah emphasizes the importance of seeking knowledge and education. This rhetorical question highlights the fundamental difference between those who pursue knowledge and those who remain ignorant.",
+                    reference: "Al-Alaq 96:1-5",
+                    arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ ﴿١﴾ خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ ﴿٢﴾ اقْرَأْ وَرَبُّكَ الْأَكْرَمُ ﴿٣﴾ الَّذِي عَلَّمَ بِالْقَلَمِ ﴿٤﴾ عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ",
+                    translation: "Read in the name of your Lord who created - Created man from a clinging substance. Read, and your Lord is the most Generous - Who taught by the pen - Taught man that which he knew not.",
+                    context: "The first revelation emphasizing the importance of reading, learning, and knowledge.",
                     topic: "Knowledge",
                     source: "Quran",
-                    keywords: ["knowledge", "equal", "importance", "education", "seeking", "learn", "ignorance", "pursue", "difference"]
+                    keywords: ["read", "knowledge", "learning", "pen", "education", "lord", "created"]
+                },
+                {
+                    reference: "Al-Mujadila 58:11",
+                    arabic: "يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ",
+                    translation: "Allah will raise those who have believed among you and those who were given knowledge, by degrees.",
+                    context: "Allah elevates believers and those with knowledge to higher spiritual levels.",
+                    topic: "Knowledge",
+                    source: "Quran",
+                    keywords: ["knowledge", "believers", "elevate", "degrees", "spiritual", "levels"]
                 }
             ],
             
             // Family and Relationships
             family: [
                 {
-                    reference: "Al-Isra 17:23",
-                    arabic: "وَقَضَىٰ رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا",
-                    translation: "And your Lord has decreed that you not worship except Him, and to parents, good treatment",
-                    context: "Allah commands good treatment of parents as a fundamental duty alongside worship. This verse establishes that honoring parents is second only to worshipping Allah in importance.",
+                    reference: "Ar-Rum 30:21",
+                    arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
+                    translation: "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy.",
+                    context: "Allah's wisdom in creating spouses for tranquility, affection, and mercy between partners.",
                     topic: "Family",
                     source: "Quran",
-                    keywords: ["parents", "good treatment", "duty", "worship", "command", "fundamental", "decreed", "honor", "importance"]
+                    keywords: ["spouses", "tranquility", "affection", "mercy", "marriage", "relationships", "signs"]
+                },
+                {
+                    reference: "Al-Isra 17:23-24",
+                    arabic: "وَقَضَىٰ رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا",
+                    translation: "And your Lord has decreed that you not worship except Him, and to parents, good treatment.",
+                    context: "Command to worship Allah alone and treat parents with kindness and respect.",
+                    topic: "Family",
+                    source: "Quran",
+                    keywords: ["parents", "worship", "allah", "kindness", "respect", "treatment", "command"]
+                }
+            ],
+            
+            // Fiqh - Islamic Law
+            fiqh: [
+                {
+                    reference: "Al-Baqarah 2:275",
+                    arabic: "الَّذِينَ يَأْكُلُونَ الرِّبَا لَا يَقُومُونَ إِلَّا كَمَا يَقُومُ الَّذِي يَتَخَبَّطُهُ الشَّيْطَانُ مِنَ الْمَسِّ",
+                    translation: "Those who consume interest cannot stand [on the Day of Resurrection] except as one stands who is being beaten by Satan into insanity.",
+                    context: "Severe warning against riba (interest/usury) in Islamic finance and economics.",
+                    topic: "Fiqh",
+                    source: "Quran",
+                    keywords: ["riba", "interest", "usury", "satan", "finance", "economics", "warning"]
+                },
+                {
+                    reference: "Al-Ma'idah 5:38",
+                    arabic: "وَالسَّارِقُ وَالسَّارِقَةُ فَاقْطَعُوا أَيْدِيَهُمَا جَزَاءً بِمَا كَسَبَا نَكَالًا مِّنَ اللَّهِ",
+                    translation: "As for the thief, the male and the female, amputate their hands in recompense for what they committed as a deterrent [punishment] from Allah.",
+                    context: "Islamic law regarding theft and its punishment as a deterrent.",
+                    topic: "Fiqh",
+                    source: "Quran",
+                    keywords: ["theft", "punishment", "amputation", "deterrent", "law", "justice"]
                 }
             ]
         };
-
-        // AI-powered response generation system
+        
+        // Comprehensive Hadith Database
+        const hadithDatabase = [
+            {
+                reference: "Sahih Bukhari 1:1",
+                arabic: "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى",
+                translation: "Actions are judged by intentions, and every person will be rewarded according to what they intended.",
+                context: "The Prophet (ﷺ) emphasizes that all actions are judged by their underlying intentions.",
+                topic: "Intentions",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Umar ibn Al-Khattab",
+                keywords: ["intentions", "actions", "rewards", "judgment", "sincerity"]
+            },
+            {
+                reference: "Sahih Muslim 1:1",
+                arabic: "مَنْ حَسَّنَ إِسْلَامَهُ حَسَّنَ إِيمَانَهُ",
+                translation: "Whoever perfects their Islam, perfects their faith.",
+                context: "Emphasizing the connection between outward Islamic practice and inner faith.",
+                topic: "Faith",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["islam", "faith", "perfection", "practice", "belief"]
+            },
+            {
+                reference: "Sahih Bukhari 2:8",
+                arabic: "الإِسْلَامُ أَنْ تَشْهَدَ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+                translation: "Islam is to testify that there is no deity except Allah and that Muhammad is the Messenger of Allah.",
+                context: "The first pillar of Islam - the Shahada (declaration of faith).",
+                topic: "Shahada",
+                source: "Hadith",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                keywords: ["shahada", "faith", "testimony", "allah", "muhammad", "messenger"]
+            }
+        ];
+        
+        // Fiqh Database - Islamic Law
+        const fiqhDatabase = [
+            {
+                reference: "Inheritance Laws - Al-Nisa 4:11-12",
+                arabic: "يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ",
+                translation: "Allah instructs you concerning your children: for the male, what is equal to the share of two females.",
+                context: "Basic principle of Islamic inheritance where males receive twice the share of females.",
+                topic: "Inheritance",
+                source: "Fiqh",
+                category: "Family Law",
+                keywords: ["inheritance", "children", "males", "females", "shares", "family", "law"]
+            },
+            {
+                reference: "Prayer Times - Al-Isra 17:78",
+                arabic: "أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ",
+                translation: "Establish prayer from the decline of the sun until the darkness of the night.",
+                context: "General guidance on prayer timing from sunset to night.",
+                topic: "Prayer Times",
+                source: "Fiqh",
+                category: "Worship",
+                keywords: ["prayer", "times", "sunset", "night", "worship", "timing"]
+            },
+            {
+                reference: "Business Ethics - Al-Baqarah 2:282",
+                arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا تَدَايَنتُم بِدَيْنٍ إِلَىٰ أَجَلٍ مُّسَمًّى فَاكْتُبُوهُ",
+                translation: "O you who have believed, when you contract a debt for a specified term, write it down.",
+                context: "Islamic business ethics requiring written contracts for financial transactions.",
+                topic: "Business Ethics",
+                source: "Fiqh",
+                category: "Commercial Law",
+                keywords: ["business", "contracts", "debt", "ethics", "transactions", "writing"]
+            }
+        ];
+        
+        // Enhanced Auto Wisdom with Categories
+        const autoWisdom = [
+            {
+                text: "The best of you are those who are best to their families.",
+                reference: "Sahih Bukhari",
+                category: "Family"
+            },
+            {
+                text: "Seek knowledge from the cradle to the grave.",
+                reference: "Hadith",
+                category: "Knowledge"
+            },
+            {
+                text: "Cleanliness is half of faith.",
+                reference: "Sahih Muslim",
+                category: "Hygiene"
+            },
+            {
+                text: "The strong person is not the one who can wrestle someone else down. The strong person is the one who can control himself when he is angry.",
+                reference: "Sahih Bukhari",
+                category: "Character"
+            },
+            {
+                text: "Whoever believes in Allah and the Last Day, let him speak good or remain silent.",
+                reference: "Sahih Bukhari",
+                category: "Speech"
+            }
+        ];
+        
+        // Welcome system
+        let welcomeTimer;
+        
+        function startWelcomeSequence() {
+            // Show bot message after 30 seconds
+            welcomeTimer = setTimeout(() => {
+                document.getElementById('botMessage').style.display = 'block';
+                showRandomQuranQuote();
+            }, 30000);
+        }
+        
+        function showRandomQuranQuote() {
+            const quotes = [
+                {
+                    text: "Indeed, Allah is with the patient.",
+                    reference: "Al-Baqarah 2:153"
+                },
+                {
+                    text: "And We have not sent you, [O Muhammad], except as a mercy to the worlds.",
+                    reference: "Al-Anbiya 21:107"
+                },
+                {
+                    text: "Verily, in the remembrance of Allah do hearts find rest.",
+                    reference: "Ar-Ra'd 13:28"
+                },
+                {
+                    text: "Allah does not burden a soul beyond that it can bear.",
+                    reference: "Al-Baqarah 2:286"
+                },
+                {
+                    text: "Indeed, Allah is Forgiving and Merciful.",
+                    reference: "Al-Baqarah 2:199"
+                }
+            ];
+            
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('quranQuote').innerHTML = `
+                "${randomQuote.text}"<br>
+                <small>- ${randomQuote.reference}</small>
+            `;
+        }
+        
+        // Initialize welcome sequence
+        document.addEventListener('DOMContentLoaded', function() {
+            startWelcomeSequence();
+            
+            // Show search section when user starts typing
+            document.getElementById('searchInput').addEventListener('focus', function() {
+                clearTimeout(welcomeTimer);
+                document.getElementById('searchSection').classList.add('show');
+            });
+        });
+        
+        // AI-Powered Islamic Knowledge System
         class IslamicAI {
             constructor() {
-                this.context = {};
-                this.conversationHistory = [];
+                this.currentSource = 'all';
+                this.searchHistory = [];
             }
-
-            // Enhanced search with semantic matching
-            searchWithSemantics(query, source = 'both') {
+            
+            searchWithSemantics(query, source = 'all') {
                 const results = [];
-                const searchTerms = this.tokenizeQuery(query);
-                const queryIntent = this.analyzeIntent(query);
-
-                Object.keys(islamicDatabase).forEach(topic => {
-                    islamicDatabase[topic].forEach(item => {
-                        if (source === 'both' || item.source.toLowerCase() === source.toLowerCase()) {
-                            const relevanceScore = this.calculateRelevance(item, searchTerms, queryIntent);
-                            if (relevanceScore > 0.3) { // Threshold for relevance
-                                results.push({
-                                    ...item,
-                                    relevanceScore,
-                                    matchedTerms: this.findMatchedTerms(item, searchTerms)
-                                });
+                const tokens = this.tokenizeQuery(query.toLowerCase());
+                
+                // Search in all databases based on source filter
+                if (source === 'all' || source === 'quran') {
+                    Object.values(islamicDatabase).forEach(topic => {
+                        topic.forEach(verse => {
+                            const relevance = this.calculateRelevance(verse, tokens);
+                            if (relevance > 0) {
+                                results.push({ ...verse, relevance, matchedTerms: this.findMatchedTerms(verse, tokens) });
                             }
+                        });
+                    });
+                }
+                
+                if (source === 'all' || source === 'hadith') {
+                    hadithDatabase.forEach(hadith => {
+                        const relevance = this.calculateRelevance(hadith, tokens);
+                        if (relevance > 0) {
+                            results.push({ ...hadith, relevance, matchedTerms: this.findMatchedTerms(hadith, tokens) });
                         }
                     });
-                });
-
-                // Sort by relevance score
-                return results.sort((a, b) => b.relevanceScore - a.relevanceScore);
+                }
+                
+                if (source === 'all' || source === 'fiqh') {
+                    fiqhDatabase.forEach(fiqh => {
+                        const relevance = this.calculateRelevance(fiqh, tokens);
+                        if (relevance > 0) {
+                            results.push({ ...fiqh, relevance, matchedTerms: this.findMatchedTerms(fiqh, tokens) });
+                        }
+                    });
+                }
+                
+                // Sort by relevance and return top results
+                return results.sort((a, b) => b.relevance - a.relevance).slice(0, 20);
             }
-
-            // Tokenize and clean query
+            
             tokenizeQuery(query) {
-                return query.toLowerCase()
-                    .replace(/[^\w\s]/g, ' ')
-                    .split(/\s+/)
-                    .filter(word => word.length > 2)
-                    .map(word => this.stemWord(word));
+                return query.split(/\s+/).filter(token => token.length > 2);
             }
-
-            // Basic word stemming for better matching
+            
             stemWord(word) {
-                // Remove common suffixes
-                const suffixes = ['ing', 'ed', 'er', 'est', 'ly', 's', 'es'];
-                for (let suffix of suffixes) {
-                    if (word.endsWith(suffix) && word.length > suffix.length + 2) {
-                        word = word.slice(0, -suffix.length);
-                        break;
+                // Simple stemming for common Islamic terms
+                const stems = {
+                    'pray': ['praying', 'prayed', 'prayers'],
+                    'prayer': ['prayers', 'praying'],
+                    'allah': ['god', 'divine'],
+                    'islam': ['islamic', 'muslim'],
+                    'quran': ['quranic', 'koran'],
+                    'hadith': ['hadiths', 'ahadith'],
+                    'mercy': ['merciful', 'mercifulness'],
+                    'patience': ['patient', 'patiently'],
+                    'knowledge': ['learn', 'learning', 'educated'],
+                    'family': ['familial', 'families'],
+                    'inheritance': ['inherit', 'inherited'],
+                    'business': ['commercial', 'trade', 'trading']
+                };
+                
+                for (const [stem, variations] of Object.entries(stems)) {
+                    if (variations.includes(word) || word.startsWith(stem)) {
+                        return stem;
                     }
                 }
                 return word;
             }
-
-            // Analyze user intent
-            analyzeIntent(query) {
-                const queryLower = query.toLowerCase();
-                
-                if (queryLower.includes('what') || queryLower.includes('explain') || queryLower.includes('tell me')) {
-                    return 'explanation';
-                } else if (queryLower.includes('how') || queryLower.includes('method') || queryLower.includes('way')) {
-                    return 'method';
-                } else if (queryLower.includes('why') || queryLower.includes('reason') || queryLower.includes('purpose')) {
-                    return 'reason';
-                } else {
-                    return 'general';
-                }
-            }
-
-            // Calculate relevance score
-            calculateRelevance(item, searchTerms, intent) {
+            
+            calculateRelevance(item, tokens) {
                 let score = 0;
-                const itemText = `${item.translation} ${item.context} ${item.topic}`.toLowerCase();
+                const allText = `${item.translation} ${item.context} ${item.topic} ${item.keywords?.join(' ') || ''}`.toLowerCase();
                 
-                // Exact keyword matches
-                searchTerms.forEach(term => {
-                    if (itemText.includes(term)) {
-                        score += 0.4;
+                tokens.forEach(token => {
+                    const stemmedToken = this.stemWord(token);
+                    
+                    // Exact matches get highest score
+                    if (allText.includes(token)) score += 10;
+                    if (allText.includes(stemmedToken)) score += 8;
+                    
+                    // Keyword matches
+                    if (item.keywords) {
+                        item.keywords.forEach(keyword => {
+                            if (keyword.includes(token) || keyword.includes(stemmedToken)) score += 15;
+                        });
                     }
-                    // Check keywords array if it exists
-                    if (item.keywords && item.keywords.some(keyword => keyword.includes(term))) {
-                        score += 0.3;
-                    }
+                    
+                    // Topic matches
+                    if (item.topic.toLowerCase().includes(token) || item.topic.toLowerCase().includes(stemmedToken)) score += 12;
+                    
+                    // Context matches
+                    if (item.context.toLowerCase().includes(token) || item.context.toLowerCase().includes(stemmedToken)) score += 5;
                 });
-
-                // Intent matching
-                if (intent === 'explanation' && item.context.length > 50) {
-                    score += 0.2;
-                }
-
-                // Source preference
-                if (item.source === 'Quran') {
-                    score += 0.1;
-                }
-
-                return Math.min(score, 1.0);
+                
+                return score;
             }
-
-            // Find which terms matched
-            findMatchedTerms(item, searchTerms) {
+            
+            findMatchedTerms(item, tokens) {
                 const matched = [];
-                const itemText = `${item.translation} ${item.context} ${item.topic}`.toLowerCase();
-                
-                searchTerms.forEach(term => {
-                    if (itemText.includes(term)) {
-                        matched.push(term);
+                tokens.forEach(token => {
+                    const stemmedToken = this.stemWord(token);
+                    if (item.keywords && item.keywords.some(keyword => 
+                        keyword.includes(token) || keyword.includes(stemmedToken))) {
+                        matched.push(token);
                     }
                 });
-                
-                return matched;
+                return [...new Set(matched)];
             }
-
-            // Generate contextual response
+            
             generateResponse(query, results) {
                 if (results.length === 0) {
                     return {
-                        text: "I couldn't find specific information about that topic. Could you please rephrase your question or ask about a different Islamic topic?",
-                        suggestions: ["Try asking about prayer", "Ask about Quran verses", "Inquire about Hadith", "Learn about Islamic ethics"]
+                        summary: "I couldn't find specific information about that query, but here are some related topics you might be interested in:",
+                        suggestions: this.generateSuggestions(query),
+                        relatedTopics: this.findRelatedTopics(query)
                     };
                 }
-
+                
                 const topResult = results[0];
-                let response = `Based on your question about "${query}", here's what I found:\n\n`;
-                
-                response += `**${topResult.reference}**\n`;
-                if (topResult.arabic) {
-                    response += `*Arabic:* ${topResult.arabic}\n\n`;
-                }
-                response += `*Translation:* ${topResult.translation}\n\n`;
-                response += `*Context:* ${topResult.context}\n\n`;
-                
-                if (topResult.source === 'Hadith' && topResult.authentication) {
-                    response += `*Authentication:* ${topResult.authentication}\n`;
-                    if (topResult.narrator) {
-                        response += `*Narrated by:* ${topResult.narrator}\n`;
-                    }
-                }
-
                 return {
-                    text: response,
-                    suggestions: this.generateSuggestions(topResult, results),
-                    relatedTopics: this.findRelatedTopics(topResult.topic)
+                    summary: `I found ${results.length} relevant results about "${query}". The most relevant is about ${topResult.topic.toLowerCase()}.`,
+                    suggestions: this.generateSuggestions(query, results),
+                    relatedTopics: this.findRelatedTopics(query, results)
                 };
             }
-
-            // Generate contextual suggestions
-            generateSuggestions(topResult, allResults) {
+            
+            generateSuggestions(query, results = []) {
                 const suggestions = [];
                 
                 // Add topic-based suggestions
-                if (topResult.topic === 'Salah') {
-                    suggestions.push("Learn about prayer times", "Understand prayer benefits", "Study prayer etiquette");
-                } else if (topResult.topic === 'Tawheed') {
-                    suggestions.push("Learn about Allah's attributes", "Study monotheism", "Understand divine unity");
-                } else if (topResult.topic === 'Mercy') {
-                    suggestions.push("Learn about compassion", "Study forgiveness", "Understand kindness");
+                if (results.length > 0) {
+                    const topics = [...new Set(results.map(r => r.topic))];
+                    topics.slice(0, 3).forEach(topic => {
+                        suggestions.push(`Learn more about ${topic}`);
+                    });
                 }
-
-                return suggestions.slice(0, 3);
+                
+                // Add general Islamic topics
+                const generalTopics = ['prayer', 'mercy', 'patience', 'family', 'knowledge', 'business'];
+                generalTopics.forEach(topic => {
+                    if (!query.toLowerCase().includes(topic)) {
+                        suggestions.push(`What does Islam say about ${topic}?`);
+                    }
+                });
+                
+                return suggestions.slice(0, 5);
             }
-
-            // Find related topics
-            findRelatedTopics(topic) {
+            
+            findRelatedTopics(query, results = []) {
                 const related = [];
-                const topicMap = {
-                    'Salah': ['Prayer', 'Worship', 'Spirituality'],
-                    'Tawheed': ['Monotheism', 'Faith', 'Belief'],
-                    'Mercy': ['Kindness', 'Compassion', 'Forgiveness'],
-                    'Knowledge': ['Learning', 'Education', 'Wisdom'],
-                    'Family': ['Relationships', 'Parents', 'Children']
-                };
-
-                if (topicMap[topic]) {
-                    related.push(...topicMap[topic]);
+                const queryLower = query.toLowerCase();
+                
+                if (queryLower.includes('prayer') || queryLower.includes('salah')) {
+                    related.push('Prayer Times', 'Prayer Benefits', 'Prayer Etiquette');
                 }
-
-                return related;
+                if (queryLower.includes('family') || queryLower.includes('marriage')) {
+                    related.push('Parent-Child Relations', 'Marriage in Islam', 'Family Values');
+                }
+                if (queryLower.includes('business') || queryLower.includes('trade')) {
+                    related.push('Islamic Finance', 'Business Ethics', 'Halal Business');
+                }
+                if (queryLower.includes('inheritance') || queryLower.includes('fiqh')) {
+                    related.push('Islamic Law', 'Family Law', 'Financial Law');
+                }
+                
+                return related.slice(0, 5);
             }
         }
-
+        
         // Initialize AI system
         const islamicAI = new IslamicAI();
-
-        // Enhanced Auto-interactive wisdom with more categories
-        const autoWisdom = [
-            {
-                reference: "Al-Baqarah 2:186",
-                text: "And when My servants ask you concerning Me, indeed I am near. I respond to the invocation of the supplicant when he calls upon Me.",
-                source: "Quran",
-                category: "Dua & Supplication"
-            },
-            {
-                reference: "Sahih Bukhari 1:1",
-                text: "Actions are judged by intentions, and every person will be rewarded according to what they intended.",
-                source: "Hadith",
-                category: "Intentions & Actions"
-            },
-            {
-                reference: "Al-Fatiha 1:5",
-                text: "It is You we worship and You we ask for help.",
-                source: "Quran",
-                category: "Worship & Dependence"
-            },
-            {
-                reference: "Sahih Muslim 4:2024",
-                text: "Whoever does not show mercy will not be shown mercy. The merciful are shown mercy by the Most Merciful.",
-                source: "Hadith",
-                category: "Mercy & Compassion"
-            },
-            {
-                reference: "Al-Isra 17:82",
-                text: "And We send down of the Quran that which is healing and mercy for the believers.",
-                source: "Quran",
-                category: "Quran & Healing"
-            }
-        ];
-
-        let currentSource = 'both';
-        let autoWisdomIndex = 0;
-        let autoWisdomTimer;
-
-        // Enhanced search functions
+        
+        // Main search function
         function performSearch() {
             const query = document.getElementById('searchInput').value.trim();
-            if (!query) return;
-
-            const results = islamicAI.searchWithSemantics(query, currentSource);
-            displayResults(results, query);
+            if (!query) {
+                showNotification('Please enter a search query', 'error');
+                return;
+            }
+            
+            const results = islamicAI.searchWithSemantics(query, islamicAI.currentSource);
+            displayResults(query, results);
+            
+            // Add to search history
+            islamicAI.searchHistory.push(query);
         }
-
-        function displayResults(results, query) {
+        
+        function handleSearch(event) {
+            if (event.key === "Enter") {
+                performSearch();
+            }
+        }
+        
+        function setSource(source) {
+            islamicAI.currentSource = source;
+            // Update button states
+            document.querySelectorAll('.source-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        function displayResults(query, results) {
             const resultsSection = document.getElementById('resultsSection');
             const resultsCount = document.getElementById('resultsCount');
             const verseResults = document.getElementById('verseResults');
-
+            
+            resultsSection.classList.add('show');
+            
             if (results.length === 0) {
-                resultsCount.textContent = `No results found for "${query}". Try rephrasing your question.`;
-                resultsSection.style.display = 'block';
+                resultsCount.innerHTML = 'No results found';
+                const aiResponse = islamicAI.generateResponse(query, results);
+                
                 verseResults.innerHTML = `
                     <div class="no-results">
-                        <h3>No exact matches found</h3>
-                        <p>Try these suggestions:</p>
-                        <div class="suggestion-buttons">
-                            <button onclick="searchByTopic('prayer')" class="suggestion-btn">Prayer</button>
-                            <button onclick="searchByTopic('mercy')" class="suggestion-btn">Mercy</button>
-                            <button onclick="searchByTopic('knowledge')" class="suggestion-btn">Knowledge</button>
-                            <button onclick="searchByTopic('family')" class="suggestion-btn">Family</button>
+                        <h3>🔍 No Results Found</h3>
+                        <p>I couldn't find specific information about "${query}", but here are some related topics:</p>
+                        <div class="ai-summary">
+                            <h3>🤖 AI Assistant Summary</h3>
+                            <p>${aiResponse.summary}</p>
+                            <div class="suggestions">
+                                <h4>💡 Suggested Topics:</h4>
+                                <div class="suggestion-buttons">
+                                    ${aiResponse.suggestions.map(suggestion => 
+                                        `<button class="suggestion-btn" onclick="searchSuggestion('${suggestion}')">${suggestion}</button>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                            <div class="suggestions">
+                                <h4>🔗 Related Topics:</h4>
+                                <div class="suggestion-buttons">
+                                    ${aiResponse.relatedTopics.map(topic => 
+                                        `<button class="suggestion-btn" onclick="searchSuggestion('${topic}')">${topic}</button>`
+                                    ).join('')}
+                                </div>
+                            </div>
                         </div>
-                        <p>Or ask your question in a different way:</p>
-                        <ul>
-                            <li>"What does Islam say about..."</li>
-                            <li>"How to..."</li>
-                            <li>"Why is..."</li>
-                            <li>"Tell me about..."</li>
-                        </ul>
                     </div>
                 `;
                 return;
             }
-
-            resultsCount.textContent = `${results.length} results found for "${query}"`;
-            resultsSection.style.display = 'block';
-
-            verseResults.innerHTML = '';
             
-            // Show AI-generated summary if available
-            if (results.length > 0) {
-                const aiResponse = islamicAI.generateResponse(query, results);
-                if (aiResponse.suggestions && aiResponse.suggestions.length > 0) {
-                    const summaryDiv = document.createElement('div');
-                    summaryDiv.className = 'ai-summary';
-                    summaryDiv.innerHTML = `
-                        <h3>🤖 AI Assistant Summary</h3>
-                        <p>${aiResponse.text}</p>
-                        <div class="suggestions">
-                            <h4>💡 Related Topics:</h4>
-                            <div class="suggestion-buttons">
-                                ${aiResponse.suggestions.map(suggestion => 
-                                    `<button onclick="searchByTopic('${suggestion.toLowerCase().split(' ')[0]}')" class="suggestion-btn">${suggestion}</button>`
-                                ).join('')}
-                            </div>
+            resultsCount.innerHTML = `Found ${results.length} results for "${query}"`;
+            
+            // Show AI summary
+            const aiResponse = islamicAI.generateResponse(query, results);
+            let resultsHTML = `
+                <div class="ai-summary">
+                    <h3>🤖 AI Assistant Summary</h3>
+                    <p>${aiResponse.summary}</p>
+                    <div class="suggestions">
+                        <h4>💡 Suggested Topics:</h4>
+                        <div class="suggestion-buttons">
+                            ${aiResponse.suggestions.map(suggestion => 
+                                `<button class="suggestion-btn" onclick="searchSuggestion('${suggestion}')">${suggestion}</button>`
+                            ).join('')}
                         </div>
-                    `;
-                    verseResults.appendChild(summaryDiv);
-                }
-            }
-
-            results.forEach((item, index) => {
-                const resultItem = createResultItem(item, index);
-                verseResults.appendChild(resultItem);
+                    </div>
+                </div>
+            `;
+            
+            // Display results
+            results.forEach(result => {
+                resultsHTML += createResultItem(result);
             });
+            
+            verseResults.innerHTML = resultsHTML;
         }
-
-        function createResultItem(item, index) {
-            const resultDiv = document.createElement('div');
-            resultDiv.className = 'verse-item';
+        
+        function createResultItem(result) {
+            const sourceBadge = result.source === 'Quran' ? '📖 Quran' : 
+                               result.source === 'Hadith' ? '📜 Hadith' : '⚖️ Fiqh';
             
-            let sourceBadge = '';
-            let authenticationInfo = '';
-            let relevanceInfo = '';
-            
-            if (item.source === 'Hadith') {
-                sourceBadge = `<div class="verse-source">${item.source}</div>`;
-                authenticationInfo = `
+            let authenticationHTML = '';
+            if (result.authentication) {
+                authenticationHTML = `
                     <div class="hadith-authentication">
-                        <div class="level">Authentication: ${item.authentication}</div>
-                        <div class="narrator">${item.narrator}</div>
-                    </div>
-                `;
-            } else {
-                sourceBadge = `<div class="verse-topic">${item.source}</div>`;
-            }
-
-            // Add relevance score if available
-            if (item.relevanceScore) {
-                const percentage = Math.round(item.relevanceScore * 100);
-                relevanceInfo = `<div class="relevance-score">Relevance: ${percentage}%</div>`;
-            }
-
-            // Add matched terms if available
-            let matchedTermsInfo = '';
-            if (item.matchedTerms && item.matchedTerms.length > 0) {
-                matchedTermsInfo = `
-                    <div class="matched-terms">
-                        <small>Matched: ${item.matchedTerms.join(', ')}</small>
+                        <div class="level">${result.authentication}</div>
+                        ${result.narrator ? `<div class="narrator">Narrated by: ${result.narrator}</div>` : ''}
                     </div>
                 `;
             }
             
-            resultDiv.innerHTML = `
-                <div class="verse-header">
-                    <div class="verse-reference">${item.reference}</div>
-                    ${sourceBadge}
-                    ${relevanceInfo}
-                </div>
-                <div class="verse-text">
-                    ${item.arabic ? `<div class="verse-arabic">${item.arabic}</div>` : ''}
-                    <div class="verse-translation">${item.translation}</div>
-                </div>
-                <div class="verse-context">
-                    <h4>Context & Meaning</h4>
-                    <p>${item.context}</p>
-                </div>
-                ${authenticationInfo}
-                ${matchedTermsInfo}
-                <div class="verse-actions">
-                    <button onclick="copyToClipboard('${item.reference}')" class="action-btn">📋 Copy Reference</button>
-                    <button onclick="shareVerse('${item.reference}')" class="action-btn">📤 Share</button>
-                    <button onclick="addToFavorites(${index})" class="action-btn">⭐ Favorite</button>
+            let categoryHTML = '';
+            if (result.category) {
+                categoryHTML = `<span class="verse-topic">${result.category}</span>`;
+            }
+            
+            return `
+                <div class="verse-item">
+                    <div class="verse-header">
+                        <div class="verse-reference">${result.reference}</div>
+                        <div class="verse-source">${sourceBadge}</div>
+                        <div class="verse-topic">${result.topic}</div>
+                        ${categoryHTML}
+                    </div>
+                    
+                    <div class="verse-text">
+                        <div class="verse-arabic">${result.arabic}</div>
+                        <div class="verse-translation">${result.translation}</div>
+                    </div>
+                    
+                    <div class="verse-context">
+                        <h4>📚 Context & Explanation</h4>
+                        <p>${result.context}</p>
+                    </div>
+                    
+                    ${authenticationHTML}
+                    
+                    <div class="relevance-score">🎯 Relevance Score: ${result.relevance}</div>
+                    ${result.matchedTerms && result.matchedTerms.length > 0 ? 
+                        `<div class="matched-terms">🔍 Matched Terms: ${result.matchedTerms.join(', ')}</div>` : ''}
+                    
+                    <div class="verse-actions">
+                        <button class="action-btn" onclick="copyToClipboard('${result.translation}')">📋 Copy</button>
+                        <button class="action-btn" onclick="shareVerse('${result.reference}', '${result.translation}')">📤 Share</button>
+                        <button class="action-btn" onclick="addToFavorites('${result.reference}')">⭐ Favorite</button>
+                    </div>
                 </div>
             `;
-            
-            return resultDiv;
         }
-
-        // Enhanced search by topic with AI suggestions
-        function searchByTopic(topic) {
-            document.getElementById('searchInput').value = topic;
+        
+        function searchSuggestion(suggestion) {
+            document.getElementById('searchInput').value = suggestion;
             performSearch();
-            
-            // Show AI suggestions for the topic
-            setTimeout(() => {
-                const suggestions = islamicAI.findRelatedTopics(topic.charAt(0).toUpperCase() + topic.slice(1));
-                if (suggestions.length > 0) {
-                    showTopicSuggestions(topic, suggestions);
-                }
-            }, 100);
         }
-
-        // Show topic suggestions
-        function showTopicSuggestions(currentTopic, suggestions) {
-            const suggestionsDiv = document.createElement('div');
-            suggestionsDiv.className = 'topic-suggestions';
-            suggestionsDiv.innerHTML = `
-                <h4>🔍 Related to "${currentTopic}":</h4>
-                <div class="suggestion-buttons">
-                    ${suggestions.map(suggestion => 
-                        `<button onclick="searchByTopic('${suggestion.toLowerCase()}')" class="suggestion-btn">${suggestion}</button>`
-                    ).join('')}
-                </div>
-            `;
-            
-            const resultsSection = document.getElementById('resultsSection');
-            resultsSection.appendChild(suggestionsDiv);
-        }
-
-        // Utility functions
+        
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                showNotification('Reference copied to clipboard!', 'success');
+                showNotification('Copied to clipboard!', 'success');
             }).catch(() => {
-                showNotification('Failed to copy reference', 'error');
+                showNotification('Failed to copy', 'error');
             });
         }
-
-        function shareVerse(reference) {
+        
+        function shareVerse(reference, text) {
             if (navigator.share) {
                 navigator.share({
-                    title: 'Islamic Knowledge',
-                    text: `Check out this Islamic reference: ${reference}`,
-                    url: window.location.href
+                    title: `Islamic Wisdom: ${reference}`,
+                    text: text
                 });
             } else {
-                copyToClipboard(reference);
-                showNotification('Reference copied! Share it with others.', 'info');
+                copyToClipboard(`${reference}: ${text}`);
+                showNotification('Reference copied to clipboard!', 'success');
             }
         }
-
-        function addToFavorites(index) {
-            showNotification('Feature coming soon!', 'info');
+        
+        function addToFavorites(reference) {
+            showNotification('Favorites feature coming soon!', 'info');
         }
-
+        
         function showNotification(message, type = 'info') {
             const notification = document.createElement('div');
             notification.className = `notification notification-${type}`;
@@ -1080,56 +1189,6 @@
                 }, 300);
             }, 3000);
         }
-
-        // Event handlers
-        function handleSearch(event) {
-            if (event.key === "Enter") {
-                performSearch();
-            }
-        }
-
-        function setSource(source) {
-            currentSource = source;
-            
-            // Update button states
-            document.querySelectorAll('.source-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Update search placeholder
-            const searchInput = document.getElementById('searchInput');
-            if (source === 'quran') {
-                searchInput.placeholder = "Search Quran verses only (e.g., mercy, prayer, patience)...";
-            } else if (source === 'hadith') {
-                searchInput.placeholder = "Search Hadiths only (e.g., kindness, prayer, patience)...";
-            } else {
-                searchInput.placeholder = "Ask any Islamic question (e.g., 'What does Islam say about mercy?', 'How to pray?', 'Why is knowledge important?')";
-            }
-        }
-
-        // Auto-wisdom functions
-        function startAutoWisdomTimer() {
-            autoWisdomTimer = setInterval(updateAutoWisdom, 8000);
-        }
-
-        function updateAutoWisdom() {
-            const wisdomElement = document.getElementById('autoWisdom');
-            if (wisdomElement) {
-                const wisdom = autoWisdom[autoWisdomIndex];
-                wisdomElement.innerHTML = `
-                    <h3>💡 Daily Islamic Wisdom</h3>
-                    <div class="wisdom-text">"${wisdom.text}"</div>
-                    <div class="wisdom-source">- ${wisdom.reference} (${wisdom.source})</div>
-                    <div class="wisdom-category">${wisdom.category || 'Islamic Wisdom'}</div>
-                `;
-                autoWisdomIndex = (autoWisdomIndex + 1) % autoWisdom.length;
-            }
-        }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            startAutoWisdomTimer();
-            updateAutoWisdom();
-        });
     </script>
 </body>
 </html>
