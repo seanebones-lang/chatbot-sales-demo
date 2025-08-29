@@ -2161,11 +2161,476 @@
                 return;
             }
             
-            const results = islamicAI.searchWithSemantics(query, islamicAI.currentSource);
+            // Enhanced search with fuzzy matching and partial search
+            const results = enhancedSearch(query, islamicAI.currentSource);
             displayResults(query, results);
             
             // Add to search history
             islamicAI.searchHistory.push(query);
+        }
+        
+        // Enhanced search function with fuzzy matching
+        function enhancedSearch(query, source) {
+            const queryLower = query.toLowerCase();
+            const tokens = queryLower.split(/\s+/).filter(token => token.length > 1);
+            const results = [];
+            
+            // Search in all databases based on source
+            if (source === 'all' || source === 'quran') {
+                islamicDatabase.quran?.forEach(item => {
+                    const relevance = calculateEnhancedRelevance(item, tokens, queryLower);
+                    if (relevance > 0) {
+                        results.push({ ...item, relevance, matchedTerms: findMatchedTerms(item, tokens) });
+                    }
+                });
+            }
+            
+            if (source === 'all' || source === 'hadith') {
+                hadithDatabase.forEach(hadith => {
+                    const relevance = calculateEnhancedRelevance(hadith, tokens, queryLower);
+                    if (relevance > 0) {
+                        results.push({ ...hadith, relevance, matchedTerms: findMatchedTerms(hadith, tokens) });
+                    }
+                });
+            }
+            
+            if (source === 'all' || source === 'fiqh') {
+                fiqhDatabase.forEach(fiqh => {
+                    const relevance = calculateEnhancedRelevance(fiqh, tokens, queryLower);
+                    if (relevance > 0) {
+                        results.push({ ...fiqh, relevance, matchedTerms: findMatchedTerms(fiqh, tokens) });
+                    }
+                });
+            }
+            
+            // Search in other databases
+            if (source === 'all' || source === 'new-muslim') {
+                newMuslimDatabase.forEach(item => {
+                    const relevance = calculateEnhancedRelevance(item, tokens, queryLower);
+                    if (relevance > 0) {
+                        results.push({ ...item, relevance, matchedTerms: findMatchedTerms(item, tokens) });
+                    }
+                });
+            }
+            
+            if (source === 'all' || source === 'what-is-islam') {
+                whatIsIslamDatabase.forEach(item => {
+                    const relevance = calculateEnhancedRelevance(item, tokens, queryLower);
+                    if (relevance > 0) {
+                        results.push({ ...item, relevance, matchedTerms: findMatchedTerms(item, tokens) });
+                    }
+                });
+            }
+            
+            if (source === 'all' || source === 'five-pillars') {
+                fivePillarsDatabase.forEach(item => {
+                    const relevance = calculateEnhancedRelevance(item, tokens, queryLower);
+                    if (relevance > 0) {
+                        results.push({ ...item, relevance, matchedTerms: findMatchedTerms(item, tokens) });
+                    }
+                });
+            }
+            
+            if (source === 'all' || source === 'sunnah') {
+                sunnahDatabase.forEach(item => {
+                    const relevance = calculateEnhancedRelevance(item, tokens, queryLower);
+                    if (relevance > 0) {
+                        results.push({ ...item, relevance, matchedTerms: findMatchedTerms(item, tokens) });
+                    }
+                });
+            }
+            
+            if (source === 'all' || source === 'family-daily-life') {
+                familyDailyLifeDatabase.forEach(item => {
+                    const relevance = calculateEnhancedRelevance(item, tokens, queryLower);
+                    if (relevance > 0) {
+                        results.push({ ...item, relevance, matchedTerms: findMatchedTerms(item, tokens) });
+                    }
+                });
+            }
+            
+            // Sort by relevance and return top results
+            return results.sort((a, b) => b.relevance - a.relevance).slice(0, 25);
+        }
+        
+        // Enhanced relevance calculation with fuzzy matching
+        function calculateEnhancedRelevance(item, tokens, queryLower) {
+            let score = 0;
+            const allText = `${item.translation || ''} ${item.context || ''} ${item.topic || ''} ${item.keywords?.join(' ') || ''} ${item.arabic || ''}`.toLowerCase();
+            
+            // Exact query match (highest score)
+            if (allText.includes(queryLower)) score += 50;
+            
+            // Partial word matches
+            tokens.forEach(token => {
+                if (token.length > 2) {
+                    // Exact token match
+                    if (allText.includes(token)) score += 20;
+                    
+                    // Partial token match (fuzzy)
+                    const partialMatches = allText.split(' ').filter(word => 
+                        word.includes(token) || token.includes(word)
+                    );
+                    score += partialMatches.length * 5;
+                    
+                    // Stemmed matches
+                    const stemmedToken = stemWord(token);
+                    if (allText.includes(stemmedToken)) score += 15;
+                }
+            });
+            
+            // Keyword matches
+            if (item.keywords) {
+                item.keywords.forEach(keyword => {
+                    if (queryLower.includes(keyword.toLowerCase()) || keyword.toLowerCase().includes(queryLower)) {
+                        score += 25;
+                    }
+                    tokens.forEach(token => {
+                        if (keyword.toLowerCase().includes(token) || token.includes(keyword.toLowerCase())) {
+                            score += 20;
+                        }
+                    });
+                });
+            }
+            
+            // Topic matches
+            if (item.topic && queryLower.includes(item.topic.toLowerCase())) score += 30;
+            
+            // Context matches
+            if (item.context && queryLower.includes(item.context.toLowerCase())) score += 15;
+            
+            return score;
+        }
+        
+        // Enhanced word stemming for Islamic terms
+        function stemWord(word) {
+            const stems = {
+                'pray': ['praying', 'prayed', 'prayers', 'prayer'],
+                'prayer': ['prayers', 'praying', 'prayed'],
+                'allah': ['god', 'divine', 'lord'],
+                'islam': ['islamic', 'muslim', 'islamic'],
+                'quran': ['quranic', 'koran', 'quran'],
+                'hadith': ['hadiths', 'ahadith', 'hadith'],
+                'mercy': ['merciful', 'mercifulness', 'mercy'],
+                'patience': ['patient', 'patiently', 'patience'],
+                'knowledge': ['learn', 'learning', 'educated', 'knowledge'],
+                'family': ['familial', 'families', 'family'],
+                'inheritance': ['inherit', 'inherited', 'inheritance'],
+                'business': ['commercial', 'trade', 'trading', 'business'],
+                'wudu': ['ablution', 'clean', 'cleanliness', 'wudu'],
+                'rakat': ['rakats', 'rakaat', 'prayer unit', 'rakat'],
+                'surah': ['surahs', 'chapter', 'quran chapter', 'surah'],
+                'shahada': ['declaration', 'faith', 'testimony', 'shahada'],
+                'fajr': ['dawn', 'morning prayer', 'fajr'],
+                'dhuhr': ['noon', 'midday prayer', 'dhuhr'],
+                'asr': ['afternoon', 'late afternoon prayer', 'asr'],
+                'maghrib': ['sunset', 'evening prayer', 'maghrib'],
+                'isha': ['night', 'night prayer', 'isha'],
+                'new muslim': ['convert', 'revert', 'beginner', 'learning', 'new muslim'],
+                'what is islam': ['islam', 'muslim', 'religion', 'faith', 'belief', 'what is islam'],
+                'violence': ['violent', 'terrorism', 'terrorist', 'aggression', 'violence'],
+                'women': ['woman', 'female', 'girl', 'lady', 'women'],
+                'tolerance': ['tolerant', 'acceptance', 'respect', 'coexistence', 'tolerance'],
+                'science': ['scientific', 'research', 'technology', 'innovation', 'science'],
+                'democracy': ['democratic', 'freedom', 'rights', 'equality', 'democracy'],
+                'modern': ['contemporary', 'current', 'today', 'present', 'modern'],
+                'human rights': ['rights', 'dignity', 'freedom', 'justice', 'human rights'],
+                'education': ['learning', 'knowledge', 'study', 'school', 'education'],
+                'charity': ['helping', 'giving', 'donation', 'assistance', 'charity'],
+                'five pillars': ['pillars', 'shahada', 'salah', 'zakat', 'sawm', 'hajj', 'foundation', 'five pillars'],
+                'sunnah': ['prophet', 'muhammad', 'teachings', 'actions', 'sayings', 'daily', 'practices', 'sunnah'],
+                'shahada': ['declaration', 'faith', 'testimony', 'first pillar', 'shahada'],
+                'salah': ['prayer', 'prayers', 'worship', 'second pillar', 'salah'],
+                'zakat': ['charity', 'obligatory', '2.5%', 'third pillar', 'zakat'],
+                'sawm': ['fasting', 'ramadan', 'fourth pillar', 'sawm'],
+                'hajj': ['pilgrimage', 'mecca', 'kaaba', 'fifth pillar', 'hajj'],
+                'mercy': ['mercy', 'merciful', 'compassion', 'kindness'],
+                'patience': ['patience', 'patient', 'endurance', 'perseverance'],
+                'forgiveness': ['forgiveness', 'forgive', 'pardon', 'mercy'],
+                'kindness': ['kindness', 'kind', 'gentle', 'good'],
+                'justice': ['justice', 'just', 'fair', 'equality'],
+                'peace': ['peace', 'peaceful', 'tranquility', 'calm'],
+                'love': ['love', 'loving', 'affection', 'care'],
+                'hope': ['hope', 'hopeful', 'optimism', 'faith'],
+                'gratitude': ['gratitude', 'thankful', 'thanks', 'appreciation'],
+                'humility': ['humility', 'humble', 'modest', 'modesty'],
+                'honesty': ['honesty', 'honest', 'truthful', 'truth'],
+                'generosity': ['generosity', 'generous', 'giving', 'charitable'],
+                'wisdom': ['wisdom', 'wise', 'knowledge', 'understanding'],
+                'strength': ['strength', 'strong', 'power', 'might'],
+                'courage': ['courage', 'brave', 'bold', 'fearless'],
+                'faith': ['faith', 'belief', 'trust', 'confidence'],
+                'prayer': ['prayer', 'worship', 'devotion', 'salah'],
+                'fasting': ['fasting', 'fast', 'abstinence', 'sawm'],
+                'charity': ['charity', 'giving', 'donation', 'zakat'],
+                'pilgrimage': ['pilgrimage', 'hajj', 'journey', 'travel'],
+                'family': ['family', 'familial', 'household', 'home'],
+                'marriage': ['marriage', 'wedding', 'matrimony', 'nikah'],
+                'children': ['children', 'kids', 'offspring', 'descendants'],
+                'parents': ['parents', 'father', 'mother', 'guardian'],
+                'community': ['community', 'society', 'ummah', 'group'],
+                'friendship': ['friendship', 'friend', 'companion', 'ally'],
+                'neighbor': ['neighbor', 'neighbour', 'nearby', 'local'],
+                'business': ['business', 'trade', 'commerce', 'work'],
+                'money': ['money', 'wealth', 'riches', 'finance'],
+                'work': ['work', 'labor', 'employment', 'job'],
+                'education': ['education', 'learning', 'study', 'school'],
+                'health': ['health', 'healthy', 'wellness', 'medical'],
+                'food': ['food', 'eating', 'nutrition', 'diet'],
+                'clothing': ['clothing', 'dress', 'garment', 'attire'],
+                'home': ['home', 'house', 'residence', 'dwelling'],
+                'travel': ['travel', 'journey', 'trip', 'voyage'],
+                'time': ['time', 'temporal', 'moment', 'period'],
+                'nature': ['nature', 'natural', 'environment', 'creation'],
+                'animals': ['animals', 'creatures', 'beasts', 'wildlife'],
+                'plants': ['plants', 'vegetation', 'flora', 'growth'],
+                'water': ['water', 'liquid', 'drink', 'thirst'],
+                'fire': ['fire', 'flame', 'heat', 'burn'],
+                'earth': ['earth', 'ground', 'soil', 'land'],
+                'sky': ['sky', 'heaven', 'celestial', 'atmospheric'],
+                'sun': ['sun', 'solar', 'daylight', 'bright'],
+                'moon': ['moon', 'lunar', 'night', 'illumination'],
+                'stars': ['stars', 'stellar', 'astronomical', 'celestial'],
+                'day': ['day', 'daily', 'daylight', 'morning'],
+                'night': ['night', 'nocturnal', 'darkness', 'evening'],
+                'morning': ['morning', 'dawn', 'sunrise', 'early'],
+                'evening': ['evening', 'dusk', 'sunset', 'late'],
+                'week': ['week', 'weekly', 'seven days', 'period'],
+                'month': ['month', 'monthly', 'lunar', 'period'],
+                'year': ['year', 'annual', 'yearly', 'time'],
+                'season': ['season', 'seasonal', 'weather', 'climate'],
+                'spring': ['spring', 'vernal', 'growth', 'renewal'],
+                'summer': ['summer', 'warm', 'hot', 'season'],
+                'autumn': ['autumn', 'fall', 'harvest', 'season'],
+                'winter': ['winter', 'cold', 'frost', 'season'],
+                'rain': ['rain', 'rainy', 'precipitation', 'water'],
+                'snow': ['snow', 'snowy', 'frozen', 'winter'],
+                'wind': ['wind', 'windy', 'breeze', 'air'],
+                'storm': ['storm', 'stormy', 'tempest', 'weather'],
+                'calm': ['calm', 'peaceful', 'tranquil', 'quiet'],
+                'noise': ['noise', 'loud', 'sound', 'disturbance'],
+                'silence': ['silence', 'quiet', 'still', 'peaceful'],
+                'light': ['light', 'bright', 'illumination', 'radiance'],
+                'dark': ['dark', 'darkness', 'shadow', 'obscure'],
+                'color': ['color', 'colour', 'hue', 'shade'],
+                'beauty': ['beauty', 'beautiful', 'attractive', 'lovely'],
+                'ugly': ['ugly', 'unattractive', 'unsightly', 'hideous'],
+                'big': ['big', 'large', 'huge', 'enormous'],
+                'small': ['small', 'tiny', 'little', 'miniature'],
+                'long': ['long', 'lengthy', 'extended', 'prolonged'],
+                'short': ['short', 'brief', 'concise', 'abbreviated'],
+                'wide': ['wide', 'broad', 'expansive', 'spacious'],
+                'narrow': ['narrow', 'thin', 'slender', 'constricted'],
+                'high': ['high', 'tall', 'elevated', 'lofty'],
+                'low': ['low', 'short', 'depressed', 'sunken'],
+                'deep': ['deep', 'profound', 'intense', 'thorough'],
+                'shallow': ['shallow', 'superficial', 'surface', 'minor'],
+                'fast': ['fast', 'quick', 'rapid', 'swift'],
+                'slow': ['slow', 'gradual', 'leisurely', 'delayed'],
+                'strong': ['strong', 'powerful', 'mighty', 'robust'],
+                'weak': ['weak', 'feeble', 'fragile', 'delicate'],
+                'hard': ['hard', 'difficult', 'challenging', 'tough'],
+                'easy': ['easy', 'simple', 'effortless', 'straightforward'],
+                'good': ['good', 'excellent', 'superior', 'positive'],
+                'bad': ['bad', 'poor', 'inferior', 'negative'],
+                'right': ['right', 'correct', 'proper', 'accurate'],
+                'wrong': ['wrong', 'incorrect', 'improper', 'mistaken'],
+                'true': ['true', 'truthful', 'honest', 'genuine'],
+                'false': ['false', 'untrue', 'dishonest', 'fake'],
+                'new': ['new', 'fresh', 'recent', 'modern'],
+                'old': ['old', 'aged', 'ancient', 'elderly'],
+                'young': ['young', 'youthful', 'juvenile', 'immature'],
+                'mature': ['mature', 'grown', 'developed', 'adult'],
+                'clean': ['clean', 'pure', 'hygienic', 'sanitary'],
+                'dirty': ['dirty', 'filthy', 'soiled', 'contaminated'],
+                'rich': ['rich', 'wealthy', 'affluent', 'prosperous'],
+                'poor': ['poor', 'destitute', 'impoverished', 'needy'],
+                'happy': ['happy', 'joyful', 'cheerful', 'content'],
+                'sad': ['sad', 'sorrowful', 'melancholy', 'unhappy'],
+                'angry': ['angry', 'furious', 'irate', 'enraged'],
+                'calm': ['calm', 'peaceful', 'tranquil', 'serene'],
+                'fear': ['fear', 'afraid', 'scared', 'terrified'],
+                'courage': ['courage', 'brave', 'bold', 'fearless'],
+                'love': ['love', 'affection', 'fondness', 'adoration'],
+                'hate': ['hate', 'hatred', 'dislike', 'aversion'],
+                'friend': ['friend', 'companion', 'ally', 'buddy'],
+                'enemy': ['enemy', 'foe', 'adversary', 'opponent'],
+                'help': ['help', 'assist', 'aid', 'support'],
+                'hurt': ['hurt', 'harm', 'damage', 'injure'],
+                'give': ['give', 'donate', 'contribute', 'offer'],
+                'take': ['take', 'receive', 'accept', 'obtain'],
+                'buy': ['buy', 'purchase', 'acquire', 'obtain'],
+                'sell': ['sell', 'trade', 'exchange', 'market'],
+                'come': ['come', 'arrive', 'approach', 'reach'],
+                'go': ['go', 'leave', 'depart', 'travel'],
+                'stay': ['stay', 'remain', 'linger', 'wait'],
+                'move': ['move', 'travel', 'journey', 'proceed'],
+                'stop': ['stop', 'halt', 'cease', 'end'],
+                'start': ['start', 'begin', 'commence', 'initiate'],
+                'finish': ['finish', 'complete', 'end', 'conclude'],
+                'continue': ['continue', 'persist', 'endure', 'maintain'],
+                'change': ['change', 'alter', 'modify', 'transform'],
+                'keep': ['keep', 'maintain', 'preserve', 'retain'],
+                'lose': ['lose', 'misplace', 'forfeit', 'surrender'],
+                'find': ['find', 'discover', 'locate', 'uncover'],
+                'hide': ['hide', 'conceal', 'cover', 'obscure'],
+                'show': ['show', 'display', 'reveal', 'exhibit'],
+                'tell': ['tell', 'inform', 'notify', 'announce'],
+                'ask': ['ask', 'question', 'inquire', 'request'],
+                'answer': ['answer', 'respond', 'reply', 'respond'],
+                'listen': ['listen', 'hear', 'attend', 'heed'],
+                'speak': ['speak', 'talk', 'communicate', 'express'],
+                'read': ['read', 'study', 'peruse', 'examine'],
+                'write': ['write', 'compose', 'create', 'record'],
+                'learn': ['learn', 'study', 'acquire', 'gain'],
+                'teach': ['teach', 'instruct', 'educate', 'guide'],
+                'think': ['think', 'consider', 'reflect', 'contemplate'],
+                'know': ['know', 'understand', 'comprehend', 'realize'],
+                'believe': ['believe', 'trust', 'have faith', 'accept'],
+                'doubt': ['doubt', 'question', 'suspect', 'uncertain'],
+                'hope': ['hope', 'wish', 'desire', 'aspire'],
+                'worry': ['worry', 'concern', 'anxiety', 'fear'],
+                'plan': ['plan', 'prepare', 'organize', 'arrange'],
+                'decide': ['decide', 'choose', 'determine', 'resolve'],
+                'try': ['try', 'attempt', 'endeavor', 'strive'],
+                'succeed': ['succeed', 'achieve', 'accomplish', 'prevail'],
+                'fail': ['fail', 'lose', 'fall short', 'unsuccessful'],
+                'win': ['win', 'victory', 'triumph', 'prevail'],
+                'lose': ['lose', 'defeat', 'failure', 'loss'],
+                'play': ['play', 'game', 'entertainment', 'recreation'],
+                'work': ['work', 'labor', 'employment', 'job'],
+                'rest': ['rest', 'relax', 'sleep', 'repose'],
+                'sleep': ['sleep', 'slumber', 'rest', 'nap'],
+                'wake': ['wake', 'awaken', 'arise', 'rise'],
+                'eat': ['eat', 'consume', 'dine', 'feed'],
+                'drink': ['drink', 'consume', 'imbibe', 'sip'],
+                'cook': ['cook', 'prepare', 'make', 'create'],
+                'clean': ['clean', 'wash', 'purify', 'sanitize'],
+                'build': ['build', 'construct', 'create', 'make'],
+                'destroy': ['destroy', 'demolish', 'ruin', 'wreck'],
+                'create': ['create', 'make', 'form', 'produce'],
+                'destroy': ['destroy', 'ruin', 'demolish', 'wreck'],
+                'begin': ['begin', 'start', 'commence', 'initiate'],
+                'end': ['end', 'finish', 'conclude', 'terminate'],
+                'open': ['open', 'unlock', 'unseal', 'access'],
+                'close': ['close', 'shut', 'seal', 'lock'],
+                'enter': ['enter', 'go in', 'access', 'approach'],
+                'exit': ['exit', 'leave', 'depart', 'go out'],
+                'up': ['up', 'above', 'higher', 'elevated'],
+                'down': ['down', 'below', 'lower', 'descend'],
+                'in': ['in', 'inside', 'within', 'interior'],
+                'out': ['out', 'outside', 'exterior', 'external'],
+                'on': ['on', 'above', 'over', 'upon'],
+                'off': ['off', 'away', 'distant', 'separate'],
+                'near': ['near', 'close', 'proximate', 'adjacent'],
+                'far': ['far', 'distant', 'remote', 'away'],
+                'here': ['here', 'present', 'current', 'location'],
+                'there': ['there', 'that place', 'location', 'position'],
+                'now': ['now', 'present', 'current', 'immediate'],
+                'then': ['then', 'at that time', 'subsequently', 'after'],
+                'before': ['before', 'prior', 'earlier', 'preceding'],
+                'after': ['after', 'subsequent', 'following', 'later'],
+                'always': ['always', 'forever', 'eternally', 'perpetually'],
+                'never': ['never', 'not ever', 'at no time', 'impossible'],
+                'sometimes': ['sometimes', 'occasionally', 'periodically', 'intermittently'],
+                'often': ['often', 'frequently', 'regularly', 'commonly'],
+                'rarely': ['rarely', 'seldom', 'infrequently', 'uncommonly'],
+                'quickly': ['quickly', 'fast', 'rapidly', 'swiftly'],
+                'slowly': ['slowly', 'gradually', 'leisurely', 'deliberately'],
+                'well': ['well', 'good', 'properly', 'adequately'],
+                'badly': ['badly', 'poorly', 'inadequately', 'insufficiently'],
+                'much': ['much', 'many', 'a lot', 'abundant'],
+                'little': ['little', 'few', 'minimal', 'scant'],
+                'more': ['more', 'additional', 'extra', 'increased'],
+                'less': ['less', 'fewer', 'reduced', 'decreased'],
+                'all': ['all', 'every', 'entire', 'complete'],
+                'none': ['none', 'nothing', 'zero', 'empty'],
+                'some': ['some', 'several', 'few', 'partial'],
+                'many': ['many', 'numerous', 'multiple', 'various'],
+                'few': ['few', 'several', 'some', 'limited'],
+                'one': ['one', 'single', 'individual', 'unique'],
+                'two': ['two', 'pair', 'couple', 'duo'],
+                'three': ['three', 'triple', 'trio', 'trinity'],
+                'first': ['first', 'initial', 'primary', 'beginning'],
+                'second': ['second', 'secondary', 'next', 'following'],
+                'last': ['last', 'final', 'ultimate', 'ending'],
+                'next': ['next', 'following', 'subsequent', 'upcoming'],
+                'previous': ['previous', 'prior', 'earlier', 'preceding'],
+                'current': ['current', 'present', 'now', 'contemporary'],
+                'future': ['future', 'upcoming', 'forthcoming', 'prospective'],
+                'past': ['past', 'previous', 'former', 'historical'],
+                'today': ['today', 'now', 'present', 'current'],
+                'yesterday': ['yesterday', 'past', 'previous day', 'recent'],
+                'tomorrow': ['tomorrow', 'future', 'next day', 'upcoming'],
+                'morning': ['morning', 'dawn', 'sunrise', 'early'],
+                'afternoon': ['afternoon', 'midday', 'noon', 'middle'],
+                'evening': ['evening', 'dusk', 'sunset', 'late'],
+                'night': ['night', 'darkness', 'nocturnal', 'evening'],
+                'week': ['week', 'seven days', 'period', 'cycle'],
+                'month': ['month', 'lunar', 'period', 'cycle'],
+                'year': ['year', 'annual', 'yearly', 'cycle'],
+                'always': ['always', 'forever', 'eternally', 'perpetually'],
+                'never': ['never', 'not ever', 'at no time', 'impossible'],
+                'sometimes': ['sometimes', 'occasionally', 'periodically', 'intermittently'],
+                'often': ['often', 'frequently', 'regularly', 'commonly'],
+                'rarely': ['rarely', 'seldom', 'infrequently', 'uncommonly'],
+                'quickly': ['quickly', 'fast', 'rapidly', 'swiftly'],
+                'slowly': ['slowly', 'gradually', 'leisurely', 'deliberately'],
+                'well': ['well', 'good', 'properly', 'adequately'],
+                'badly': ['badly', 'poorly', 'inadequately', 'insufficiently'],
+                'much': ['much', 'many', 'a lot', 'abundant'],
+                'little': ['little', 'few', 'minimal', 'scant'],
+                'more': ['more', 'additional', 'extra', 'increased'],
+                'less': ['less', 'fewer', 'reduced', 'decreased'],
+                'all': ['all', 'every', 'entire', 'complete'],
+                'none': ['none', 'nothing', 'zero', 'empty'],
+                'some': ['some', 'several', 'few', 'partial'],
+                'many': ['many', 'numerous', 'multiple', 'various'],
+                'few': ['few', 'several', 'some', 'limited'],
+                'one': ['one', 'single', 'individual', 'unique'],
+                'two': ['two', 'pair', 'couple', 'duo'],
+                'three': ['three', 'triple', 'trio', 'trinity'],
+                'first': ['first', 'initial', 'primary', 'beginning'],
+                'second': ['second', 'secondary', 'next', 'following'],
+                'last': ['last', 'final', 'ultimate', 'ending'],
+                'next': ['next', 'following', 'subsequent', 'upcoming'],
+                'previous': ['previous', 'prior', 'earlier', 'preceding'],
+                'current': ['current', 'present', 'now', 'contemporary'],
+                'future': ['future', 'upcoming', 'forthcoming', 'prospective'],
+                'past': ['past', 'previous', 'former', 'historical'],
+                'today': ['today', 'now', 'present', 'current'],
+                'yesterday': ['yesterday', 'past', 'previous day', 'recent'],
+                'tomorrow': ['tomorrow', 'future', 'next day', 'upcoming'],
+                'morning': ['morning', 'dawn', 'sunrise', 'early'],
+                'afternoon': ['afternoon', 'midday', 'noon', 'middle'],
+                'evening': ['evening', 'dusk', 'sunset', 'late'],
+                'night': ['night', 'darkness', 'nocturnal', 'evening'],
+                'week': ['week', 'seven days', 'period', 'cycle'],
+                'month': ['month', 'lunar', 'period', 'cycle'],
+                'year': ['year', 'annual', 'yearly', 'cycle']
+            };
+            
+            for (const [stem, variations] of Object.entries(stems)) {
+                if (variations.includes(word.toLowerCase()) || word.toLowerCase().startsWith(stem)) {
+                    return stem;
+                }
+            }
+            return word;
+        }
+        
+        // Find matched terms for highlighting
+        function findMatchedTerms(item, tokens) {
+            const matched = [];
+            tokens.forEach(token => {
+                if (token.length > 2) {
+                    const stemmedToken = stemWord(token);
+                    if (item.keywords && item.keywords.some(keyword => 
+                        keyword.toLowerCase().includes(token) || keyword.toLowerCase().includes(stemmedToken))) {
+                        matched.push(token);
+                    }
+                }
+            });
+            return [...new Set(matched)];
         }
         
         function handleSearch(event) {
