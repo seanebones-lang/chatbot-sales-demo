@@ -1510,10 +1510,10 @@
                     'education': ['learning', 'knowledge', 'study', 'school'],
                     'charity': ['helping', 'giving', 'donation', 'assistance'],
                     'five pillars': ['pillars', 'shahada', 'salah', 'zakat', 'sawm', 'hajj', 'foundation'],
-                    'sunnah': ['prophet', 'muhammad', 'teachings", "actions", "sayings", "daily", "practices"],
+                    'sunnah': ['prophet', 'muhammad', 'teachings', 'actions', 'sayings', 'daily', 'practices'],
                     'shahada': ['declaration', 'faith', 'testimony', 'first pillar'],
                     'salah': ['prayer', 'prayers', 'worship', 'second pillar'],
-                    'zakat': ['charity', 'obligatory", "2.5%", "third pillar'],
+                    'zakat': ['charity', 'obligatory', '2.5%', 'third pillar'],
                     'sawm': ['fasting', 'ramadan', 'fourth pillar'],
                     'hajj': ['pilgrimage', 'mecca', 'kaaba', 'fifth pillar']
                 };
@@ -1626,7 +1626,95 @@
             }
         }
         
-        // Initialize AI system
+        // Strict Guardrails and Safety System
+        const safetyGuardrails = {
+            // Never allow these topics or responses
+            forbiddenTopics: [
+                'violence', 'terrorism', 'extremism', 'hate', 'discrimination', 
+                'political controversy', 'sectarian division', 'offensive language',
+                'inappropriate content', 'harmful advice', 'medical advice',
+                'financial advice', 'legal advice', 'personal attacks'
+            ],
+            
+            // Always maintain these qualities
+            requiredQualities: [
+                'polite', 'courteous', 'respectful', 'kind', 'patient',
+                'helpful', 'accurate', 'balanced', 'educational', 'encouraging'
+            ],
+            
+            // Response tone requirements
+            responseTone: {
+                always: ['respectful', 'kind', 'patient', 'helpful', 'accurate'],
+                never: ['angry', 'rude', 'impatient', 'judgmental', 'controversial']
+            },
+            
+            // Content validation
+            validateResponse: function(response) {
+                // Check for forbidden content
+                for (let topic of this.forbiddenTopics) {
+                    if (response.toLowerCase().includes(topic)) {
+                        return false;
+                    }
+                }
+                
+                // Check for required qualities
+                let hasRequiredQualities = true;
+                for (let quality of this.requiredQualities) {
+                    if (!response.toLowerCase().includes(quality) && !this.isPoliteResponse(response)) {
+                        hasRequiredQualities = false;
+                        break;
+                    }
+                }
+                
+                return hasRequiredQualities;
+            },
+            
+            // Ensure politeness
+            isPoliteResponse: function(response) {
+                const politeWords = [
+                    'please', 'thank you', 'kindly', 'respectfully', 'gently',
+                    'with respect', 'may Allah guide', 'insha Allah', 'masha Allah',
+                    'jazakAllah', 'barakAllah', 'salam', 'peace', 'blessings'
+                ];
+                
+                return politeWords.some(word => response.toLowerCase().includes(word));
+            },
+            
+            // Safety check for all responses
+            safetyCheck: function(query, response) {
+                // Never respond to harmful queries
+                if (this.isHarmfulQuery(query)) {
+                    return {
+                        safe: false,
+                        message: "I apologize, but I cannot provide information on that topic. I'm designed to help with Islamic knowledge, guidance, and positive learning. How may I assist you with Islamic teachings, Quran, Hadith, or general Islamic questions?"
+                    };
+                }
+                
+                // Ensure response is appropriate
+                if (!this.validateResponse(response)) {
+                    return {
+                        safe: false,
+                        message: "I apologize, but I need to provide a more appropriate response. Let me help you with accurate Islamic information in a respectful manner."
+                    };
+                }
+                
+                return { safe: true, response: response };
+            },
+            
+            // Check if query is harmful
+            isHarmfulQuery: function(query) {
+                const harmfulPatterns = [
+                    /harm|hurt|kill|attack|violence/i,
+                    /hate|discriminate|offend/i,
+                    /political|controversy|division/i,
+                    /inappropriate|offensive/i
+                ];
+                
+                return harmfulPatterns.some(pattern => pattern.test(query));
+            }
+        };
+        
+        // Initialize AI system with strict guardrails
         const islamicAI = new IslamicAI();
         
         // Main search function
