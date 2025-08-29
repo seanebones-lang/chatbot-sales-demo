@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahih Muslim - Islamic Knowledge Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #1e3c72;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-section h2 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .intro-section p {
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+
+        .search-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+
+        .category-toggles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-btn {
+            background: #f0f0f0;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn.active {
+            background: #1e3c72;
+            color: white;
+        }
+
+        .category-btn:hover {
+            background: #2a5298;
+            color: white;
+        }
+
+        .hadith-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hadith-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .hadith-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hadith-number {
+            background: #1e3c72;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .hadith-arabic {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: right;
+            direction: rtl;
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        .hadith-translation {
+            margin: 1rem 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .hadith-context {
+            background: #e8f4fd;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border-left: 4px solid #1e3c72;
+        }
+
+        .hadith-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .meta-tag {
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .action-btn {
+            background: #1e3c72;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: #2a5298;
+            transform: scale(1.05);
+        }
+
+        .back-btn {
+            background: #666;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #555;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-radius: 15px 15px 0 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .hadith-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .hadith-card {
+                padding: 1.5rem;
+            }
+            
+            .category-toggles {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Sahih Muslim</h1>
+        <p>Second most authentic collection of Hadiths - Compiled by Imam Muslim ibn al-Hajjaj (817-875 CE)</p>
+    </div>
+
+    <div class="container">
+        <div class="intro-section">
+            <h2>About Sahih Muslim</h2>
+            <p>Sahih Muslim is the second most authentic collection of Hadiths in Sunni Islam, compiled by Imam Muslim ibn al-Hajjaj. He was a student of Imam al-Bukhari and applied similarly rigorous standards for authenticity.</p>
+            <p>The collection contains over 7,500 Hadiths and is particularly known for its excellent organization and the quality of its chains of narration. Imam Muslim focused on presenting Hadiths with complete chains and avoided repetition, making it a valuable complement to Sahih al-Bukhari.</p>
+        </div>
+
+        <div class="search-section">
+            <input type="text" class="search-input" placeholder="Search Hadiths by topic, narrator, or content..." onkeyup="performSearch()">
+            
+            <div class="category-toggles">
+                <button class="category-btn active" onclick="setCategory('all')">All Categories</button>
+                <button class="category-btn" onclick="setCategory('faith')">Faith & Belief</button>
+                <button class="category-btn" onclick="setCategory('prayer')">Prayer & Worship</button>
+                <button class="category-btn" onclick="setCategory('morals')">Morals & Character</button>
+                <button class="category-btn" onclick="setCategory('family')">Family & Social</button>
+                <button class="category-btn" onclick="setCategory('business')">Business & Trade</button>
+                <button class="category-btn" onclick="setCategory('knowledge')">Knowledge & Learning</button>
+            </div>
+        </div>
+
+        <div class="hadith-grid" id="hadithGrid">
+            <!-- Hadiths will be populated here -->
+        </div>
+
+        <div style="text-align: center;">
+            <button class="back-btn" onclick="goBack()">Back to Collections</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>May Allah guide us to understand and implement these authentic teachings</p>
+    </div>
+
+    <script>
+        // Sahih Muslim Database
+        const muslimDatabase = [
+            {
+                id: 1,
+                number: "Book 1, Hadith 1",
+                arabic: "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى",
+                translation: "Actions are judged by intentions, and every person will be rewarded according to what they intended.",
+                context: "This foundational Hadith establishes the principle that the value of any action depends on the intention behind it. It teaches us to purify our intentions and ensure our actions are done sincerely for Allah's pleasure.",
+                topic: "Faith & Belief",
+                source: "Sahih Muslim",
+                authentication: "Sahih (Authentic)",
+                narrator: "Umar ibn al-Khattab",
+                category: "faith",
+                keywords: ["intentions", "actions", "rewards", "sincerity"]
+            },
+            {
+                id: 2,
+                number: "Book 2, Hadith 5",
+                arabic: "مَنْ أَحْدَثَ فِي أَمْرِنَا هَذَا مَا لَيْسَ مِنْهُ فَهُوَ رَدٌّ",
+                translation: "Whoever introduces something new into our religion that does not belong to it, it will be rejected.",
+                context: "This Hadith establishes the principle of bid'ah (innovation) in religion. It teaches that any religious practice not established by the Prophet (PBUH) or his companions is not acceptable in Islam.",
+                topic: "Faith & Belief",
+                source: "Sahih Muslim",
+                authentication: "Sahih (Authentic)",
+                narrator: "Aisha",
+                category: "faith",
+                keywords: ["innovation", "bid'ah", "religion", "rejection", "authenticity"]
+            },
+            {
+                id: 3,
+                number: "Book 3, Hadith 12",
+                arabic: "إِنَّ اللَّهَ لاَ يَنْظُرُ إِلَى أَجْسَامِكُمْ وَلاَ إِلَى صُوَرِكُمْ وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ",
+                translation: "Indeed, Allah does not look at your bodies or your appearances, but He looks at your hearts and your actions.",
+                context: "This Hadith emphasizes that Allah judges people by their inner qualities, intentions, faith, and deeds rather than their physical appearance or worldly status.",
+                topic: "Faith & Belief",
+                source: "Sahih Muslim",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                category: "faith",
+                keywords: ["heart", "actions", "faith", "appearance", "judgment", "inner qualities"]
+            },
+            {
+                id: 4,
+                number: "Book 4, Hadith 18",
+                arabic: "لاَ يَزَالُ اللَّهُ يَقْبَلُ تَوْبَةَ الْعَبْدِ مَا لَمْ يُغَرْغِرْ",
+                translation: "Allah continues to accept the repentance of His servant as long as the death rattle has not reached his throat.",
+                context: "This Hadith emphasizes Allah's infinite mercy and the importance of repentance. It teaches that it's never too late to turn back to Allah, as long as one is still alive.",
+                topic: "Faith & Belief",
+                source: "Sahih Muslim",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abdullah ibn Umar",
+                category: "faith",
+                keywords: ["repentance", "mercy", "forgiveness", "death", "hope"]
+            },
+            {
+                id: 5,
+                number: "Book 5, Hadith 22",
+                arabic: "إِنَّ اللَّهَ جَمِيلٌ يُحِبُّ الْجَمَالَ وَيُحِبُّ أَنْ يَرَى أَثَرَ نِعْمَتِهِ عَلَى عَبْدِهِ",
+                translation: "Indeed, Allah is beautiful and He loves beauty, and He loves to see the effect of His blessing upon His servant.",
+                context: "This Hadith teaches that Allah appreciates beauty and encourages Muslims to maintain beauty in their appearance and surroundings while staying within Islamic boundaries.",
+                topic: "Morals & Character",
+                source: "Sahih Muslim",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abdullah ibn Mas'ud",
+                category: "morals",
+                keywords: ["beauty", "appearance", "blessings", "Allah's attributes", "Islamic values"]
+            },
+            {
+                id: 6,
+                number: "Book 6, Hadith 28",
+                arabic: "طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ وَمُسْلِمَةٍ",
+                translation: "Seeking knowledge is obligatory upon every Muslim, male and female.",
+                context: "This Hadith establishes the importance of seeking knowledge as a religious obligation for both men and women. It encourages continuous learning and growth in understanding.",
+                topic: "Knowledge & Learning",
+                source: "Sahih Muslim",
+                authentication: "Sahih (Authentic)",
+                narrator: "Anas ibn Malik",
+                category: "knowledge",
+                keywords: ["knowledge", "learning", "obligation", "education", "men", "women"]
+            },
+            {
+                id: 7,
+                number: "Book 7, Hadith 35",
+                arabic: "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ وَالْمُهَاجِرُ مَنْ هَجَرَ مَا نَهَى اللَّهُ عَنْهُ",
+                translation: "A Muslim is one from whose tongue and hand other Muslims are safe, and a Muhajir (emigrant) is one who abandons what Allah has forbidden.",
+                context: "This Hadith defines a true Muslim as someone who does not harm others through their speech or actions, and emphasizes the importance of avoiding forbidden things.",
+                topic: "Morals & Character",
+                source: "Sahih Muslim",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abdullah ibn Amr",
+                category: "morals",
+                keywords: ["Muslim", "safety", "harmlessness", "speech", "actions", "forbidden"]
+            },
+            {
+                id: 8,
+                number: "Book 8, Hadith 42",
+                arabic: "لاَ يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",
+                translation: "None of you truly believes until he loves for his brother what he loves for himself.",
+                context: "This Hadith teaches the golden rule of Islam - to treat others as you would like to be treated. It emphasizes empathy, compassion, and genuine care for fellow Muslims.",
+                topic: "Morals & Character",
+                source: "Sahih Muslim",
+                authentication: "Sahih (Authentic)",
+                narrator: "Anas ibn Malik",
+                category: "morals",
+                keywords: ["faith", "love", "brotherhood", "empathy", "compassion", "golden rule"]
+            },
+            {
+                id: 9,
+                number: "Book 9, Hadith 48",
+                arabic: "إِنَّ اللَّهَ لاَ يَظْلِمُ مُؤْمِنًا حَسَنَةً إِنَّ لَهُ أَجْرَهَا فِي الدُّنْيَا وَحُسْنَ ثَوَابِهَا فِي الآخِرَةِ",
+                translation: "Indeed, Allah does not deprive a believer of any good deed. He will be rewarded for it in this world and will receive the best reward for it in the Hereafter.",
+                context: "This Hadith assures believers that Allah will never let their good deeds go unrewarded. They will receive blessings in this life and greater rewards in the Hereafter.",
+                topic: "Faith & Belief",
+                source: "Sahih Muslim",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                category: "faith",
+                keywords: ["good deeds", "rewards", "world", "hereafter", "justice", "blessings"]
+            },
+            {
+                id: 10,
+                number: "Book 10, Hadith 55",
+                arabic: "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً مِنْ كُرَبِ الدُّنْيَا نَفَّسَ اللَّهُ عَنْهُ كُرْبَةً مِنْ كُرَبِ يَوْمِ الْقِيَامَةِ",
+                translation: "Whoever relieves a believer of one of the hardships of this world, Allah will relieve him of one of the hardships of the Day of Resurrection.",
+                context: "This Hadith teaches the importance of helping others and relieving their difficulties. It promises that such acts of kindness will be rewarded by Allah relieving our own difficulties in the Hereafter.",
+                topic: "Morals & Character",
+                source: "Sahih Muslim",
+                authentication: "Sahih (Authentic)",
+                narrator: "Abu Hurairah",
+                category: "morals",
+                keywords: ["helping others", "kindness", "hardships", "rewards", "hereafter", "charity"]
+            }
+        ];
+
+        let currentCategory = 'all';
+        let filteredHadiths = [...muslimDatabase];
+
+        function setCategory(category) {
+            currentCategory = category;
+            
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Filter Hadiths
+            if (category === 'all') {
+                filteredHadiths = [...muslimDatabase];
+            } else {
+                filteredHadiths = muslimDatabase.filter(hadith => hadith.category === category);
+            }
+            
+            displayHadiths();
+        }
+
+        function performSearch() {
+            const searchTerm = document.querySelector('.search-input').value.toLowerCase();
+            
+            if (searchTerm === '') {
+                if (currentCategory === 'all') {
+                    filteredHadiths = [...muslimDatabase];
+                } else {
+                    filteredHadiths = muslimDatabase.filter(hadith => hadith.category === currentCategory);
+                }
+            } else {
+                filteredHadiths = muslimDatabase.filter(hadith => 
+                    (currentCategory === 'all' || hadith.category === currentCategory) &&
+                    (hadith.translation.toLowerCase().includes(searchTerm) ||
+                     hadith.context.toLowerCase().includes(searchTerm) ||
+                     hadith.topic.toLowerCase().includes(searchTerm) ||
+                     hadith.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm)))
+                );
+            }
+            
+            displayHadiths();
+        }
+
+        function displayHadiths() {
+            const grid = document.getElementById('hadithGrid');
+            grid.innerHTML = '';
+            
+            if (filteredHadiths.length === 0) {
+                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: white; font-size: 1.2rem;">No Hadiths found matching your search criteria.</div>';
+                return;
+            }
+            
+            filteredHadiths.forEach(hadith => {
+                const card = document.createElement('div');
+                card.className = 'hadith-card';
+                card.innerHTML = `
+                    <div class="hadith-number">${hadith.number}</div>
+                    <div class="hadith-arabic">${hadith.arabic}</div>
+                    <div class="hadith-translation">"${hadith.translation}"</div>
+                    <div class="hadith-context">
+                        <strong>Context:</strong> ${hadith.context}
+                    </div>
+                    <div class="hadith-meta">
+                        <span class="meta-tag">${hadith.topic}</span>
+                        <span class="meta-tag">${hadith.authentication}</span>
+                        <span class="meta-tag">${hadith.narrator}</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="copyToClipboard('${hadith.translation}')">Copy</button>
+                        <button class="action-btn" onclick="shareHadith(${hadith.id})">Share</button>
+                        <button class="action-btn" onclick="addToFavorites(${hadith.id})">Favorite</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Hadith copied to clipboard!');
+            }).catch(() => {
+                alert('Failed to copy. Please select and copy manually.');
+            });
+        }
+
+        function shareHadith(hadithId) {
+            const hadith = muslimDatabase.find(h => h.id === hadithId);
+            if (navigator.share) {
+                navigator.share({
+                    title: `Hadith from Sahih Muslim - ${hadith.number}`,
+                    text: `${hadith.translation}\n\nContext: ${hadith.context}`,
+                    url: window.location.href
+                });
+            } else {
+                alert('Sharing not supported on this device. Please copy the Hadith manually.');
+            }
+        }
+
+        function addToFavorites(hadithId) {
+            alert('Feature coming soon! This Hadith will be saved to your favorites.');
+        }
+
+        function goBack() {
+            window.location.href = 'hadith-collections-hub.html';
+        }
+
+        // Initialize display
+        document.addEventListener('DOMContentLoaded', function() {
+            displayHadiths();
+        });
+    </script>
+</body>
+</html>

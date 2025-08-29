@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadith Collections - Islamic Knowledge Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #1e3c72;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-section h2 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .intro-section p {
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .collection-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .collection-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .collection-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .collection-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .collection-stats span {
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .view-btn {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3);
+        }
+
+        .back-btn {
+            background: #666;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #555;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-radius: 15px 15px 0 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .collections-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .collection-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hadith Collections</h1>
+        <p>Complete collection of authentic Hadiths from major Islamic scholars</p>
+    </div>
+
+    <div class="container">
+        <div class="intro-section">
+            <h2>Authentic Hadith Collections</h2>
+            <p>The Hadith collections represent the second most important source of Islamic knowledge after the Quran. These collections contain the sayings, actions, and approvals of Prophet Muhammad (PBUH), carefully preserved and transmitted by generations of scholars.</p>
+            <p>Each collection has its own unique characteristics, authentication methods, and organizational structure. Scholars have dedicated their lives to preserving these precious teachings and ensuring their authenticity through rigorous chains of narration (isnad).</p>
+        </div>
+
+        <div class="collections-grid">
+            <div class="collection-card" onclick="goToCollection('sahih-bukhari')">
+                <h3>Sahih al-Bukhari</h3>
+                <p>The most authentic collection of Hadiths, compiled by Imam Muhammad ibn Ismail al-Bukhari (810-870 CE).</p>
+                <div class="collection-stats">
+                    <span>7,275 Hadiths</span>
+                    <span>9th Century</span>
+                    <span>Most Authentic</span>
+                </div>
+                <button class="view-btn">View Collection</button>
+            </div>
+
+            <div class="collection-card" onclick="goToCollection('sahih-muslim')">
+                <h3>Sahih Muslim</h3>
+                <p>Second most authentic collection, compiled by Imam Muslim ibn al-Hajjaj (817-875 CE).</p>
+                <div class="collection-stats">
+                    <span>7,500+ Hadiths</span>
+                    <span>9th Century</span>
+                    <span>Highly Authentic</span>
+                </div>
+                <button class="view-btn">View Collection</button>
+            </div>
+
+            <div class="collection-card" onclick="goToCollection('sunan-abu-dawud')">
+                <h3>Sunan Abu Dawud</h3>
+                <p>Collection focusing on legal Hadiths, compiled by Abu Dawud Sulayman ibn al-Ash'ath (817-889 CE).</p>
+                <div class="collection-stats">
+                    <span>5,274 Hadiths</span>
+                    <span>9th Century</span>
+                    <span>Legal Focus</span>
+                </div>
+                <button class="view-btn">View Collection</button>
+            </div>
+
+            <div class="collection-card" onclick="goToCollection('sunan-tirmidhi')">
+                <h3>Sunan al-Tirmidhi</h3>
+                <p>Comprehensive collection with detailed commentary, compiled by Abu Isa Muhammad ibn Isa (824-892 CE).</p>
+                <div class="collection-stats">
+                    <span>3,956 Hadiths</span>
+                    <span>9th Century</span>
+                    <span>With Commentary</span>
+                </div>
+                <button class="view-btn">View Collection</button>
+            </div>
+
+            <div class="collection-card" onclick="goToCollection('sunan-nasai')">
+                <h3>Sunan al-Nasai</h3>
+                <p>Collection known for its strict authentication criteria, compiled by Ahmad ibn Shu'ayb (829-915 CE).</p>
+                <div class="collection-stats">
+                    <span>5,662 Hadiths</span>
+                    <span>9th Century</span>
+                    <span>Strict Criteria</span>
+                </div>
+                <button class="view-btn">View Collection</button>
+            </div>
+
+            <div class="collection-card" onclick="goToCollection('sunan-ibn-majah')">
+                <h3>Sunan Ibn Majah</h3>
+                <p>Collection that completes the six major Hadith books, compiled by Muhammad ibn Yazid (824-887 CE).</p>
+                <div class="collection-stats">
+                    <span>4,341 Hadiths</span>
+                    <span>9th Century</span>
+                    <span>Sixth Major</span>
+                </div>
+                <button class="view-btn">View Collection</button>
+            </div>
+
+            <div class="collection-card" onclick="goToCollection('musnad-ahmad')">
+                <h3>Musnad Ahmad</h3>
+                <p>Largest Hadith collection organized by companions, compiled by Imam Ahmad ibn Hanbal (780-855 CE).</p>
+                <div class="collection-stats">
+                    <span>30,000+ Hadiths</span>
+                    <span>9th Century</span>
+                    <span>By Companions</span>
+                </div>
+                <button class="view-btn">View Collection</button>
+            </div>
+
+            <div class="collection-card" onclick="goToCollection('mishkat-masabih')">
+                <h3>Mishkat al-Masabih</h3>
+                <p>Compilation combining multiple collections, compiled by Waliuddin Abu Abdullah (1254-1342 CE).</p>
+                <div class="collection-stats">
+                    <span>5,000+ Hadiths</span>
+                    <span>14th Century</span>
+                    <span>Combined Sources</span>
+                </div>
+                <button class="view-btn">View Collection</button>
+            </div>
+
+            <div class="collection-card" onclick="goToCollection('riyadh-saliheen')">
+                <h3>Riyadh as-Saliheen</h3>
+                <p>Collection focusing on virtuous behavior and manners, compiled by Imam an-Nawawi (1233-1277 CE).</p>
+                <div class="collection-stats">
+                    <span>1,900+ Hadiths</span>
+                    <span>13th Century</span>
+                    <span>Virtues & Manners</span>
+                </div>
+                <button class="view-btn">View Collection</button>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="back-btn" onclick="goBack()">Back to Main Menu</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>May Allah guide us to understand and implement these authentic teachings</p>
+    </div>
+
+    <script>
+        function goToCollection(collectionName) {
+            window.location.href = `${collectionName}.html`;
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+
+        // Add touch support for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const collectionCards = document.querySelectorAll('.collection-card');
+            
+            collectionCards.forEach(card => {
+                card.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    this.style.transform = 'scale(0.95)';
+                    this.style.opacity = '0.8';
+                });
+                
+                card.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    this.style.transform = 'scale(1)';
+                    this.style.opacity = '1';
+                    const onclick = this.getAttribute('onclick');
+                    if (onclick) {
+                        eval(onclick);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
