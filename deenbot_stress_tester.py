@@ -162,7 +162,7 @@ class DeenBotStressTester:
         # Add punctuation variations
         variations.append(base_query + "??")
         variations.append(base_query + "!!!")
-        variations.append(base_query + "..."
+        variations.append(base_query + "...")
         
         return variations
     
