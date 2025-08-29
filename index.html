@@ -180,6 +180,88 @@
         .source-btn:hover {
             transform: translateY(-2px);
         }
+        
+        /* Topic Navigation Links */
+        .topic-navigation {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(18, 18, 18, 0.6);
+            border-radius: 15px;
+            border: 1px solid rgba(68, 68, 68, 0.3);
+        }
+        
+        .topic-navigation h4 {
+            color: #87CEEB;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        .topic-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .topic-category {
+            text-align: center;
+        }
+        
+        .topic-category h5 {
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        .topic-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .topic-link {
+            color: #87CEEB;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: rgba(30, 144, 255, 0.1);
+            border: 1px solid transparent;
+        }
+        
+        .topic-link:hover {
+            color: #1E90FF;
+            background: rgba(30, 144, 255, 0.2);
+            border-color: rgba(30, 144, 255, 0.3);
+            transform: translateX(5px);
+        }
+        
+        .topic-link.new-muslim {
+            color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+        }
+        
+        .topic-link.new-muslim:hover {
+            color: #FFA500;
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .topic-link.fiqh {
+            color: #98FB98;
+            background: rgba(152, 251, 152, 0.1);
+        }
+        
+        .topic-link.fiqh:hover {
+            color: #90EE90;
+            background: rgba(152, 251, 152, 0.2);
+            border-color: rgba(152, 251, 152, 0.3);
+        }
 
         .ai-summary {
             background: rgba(18, 18, 18, 0.8);
@@ -465,6 +547,24 @@
             .verse-actions {
                 flex-direction: column;
             }
+            
+            .topic-categories {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .topic-navigation {
+                padding: 15px;
+            }
+            
+            .topic-links {
+                gap: 6px;
+            }
+            
+            .topic-link {
+                font-size: 0.85rem;
+                padding: 6px 10px;
+            }
         }
     </style>
 </head>
@@ -497,6 +597,84 @@
                 <button class="source-btn" onclick="setSource('quran')">📖 Quran Only</button>
                 <button class="source-btn" onclick="setSource('hadith')">📜 Hadith Only</button>
                 <button class="source-btn" onclick="setSource('fiqh')">⚖️ Fiqh (Islamic Law)</button>
+            </div>
+            
+            <!-- Topic Navigation Links -->
+            <div class="topic-navigation">
+                <h4>🔗 Quick Access to Islamic Topics</h4>
+                <div class="topic-categories">
+                    <div class="topic-category">
+                        <h5>🌟 New Muslim Guide</h5>
+                        <div class="topic-links">
+                            <span class="topic-link new-muslim" onclick="searchTopic('shahada')">Shahada (Declaration of Faith)</span>
+                            <span class="topic-link new-muslim" onclick="searchTopic('five pillars')">Five Pillars of Islam</span>
+                            <span class="topic-link new-muslim" onclick="searchTopic('first prayer')">How to Pray</span>
+                            <span class="topic-link new-muslim" onclick="searchTopic('cleanliness')">Cleanliness & Wudu</span>
+                            <span class="topic-link new-muslim" onclick="searchTopic('arabic basics')">Basic Arabic Phrases</span>
+                            <span class="topic-link new-muslim" onclick="searchTopic('community')">Finding Muslim Community</span>
+                        </div>
+                    </div>
+                    
+                    <div class="topic-category">
+                        <h5>⚖️ Fiqh (Islamic Law)</h5>
+                        <div class="topic-links">
+                            <span class="topic-link fiqh" onclick="searchTopic('inheritance')">Inheritance Laws</span>
+                            <span class="topic-link fiqh" onclick="searchTopic('marriage')">Marriage & Family</span>
+                            <span class="topic-link fiqh" onclick="searchTopic('business')">Business Ethics</span>
+                            <span class="topic-link fiqh" onclick="searchTopic('financial')">Financial Laws</span>
+                            <span class="topic-link fiqh" onclick="searchTopic('criminal')">Criminal Law</span>
+                            <span class="topic-link fiqh" onclick="searchTopic('dietary')">Food & Dietary Laws</span>
+                        </div>
+                    </div>
+                    
+                    <div class="topic-category">
+                        <h5>📖 Core Islamic Topics</h5>
+                        <div class="topic-links">
+                            <span class="topic-link" onclick="searchTopic('tawheed')">Tawheed (Oneness of Allah)</span>
+                            <span class="topic-link" onclick="searchTopic('mercy')">Mercy & Compassion</span>
+                            <span class="topic-link" onclick="searchTopic('patience')">Patience & Perseverance</span>
+                            <span class="topic-link" onclick="searchTopic('kindness')">Kindness & Good Deeds</span>
+                            <span class="topic-link" onclick="searchTopic('knowledge')">Knowledge & Learning</span>
+                            <span class="topic-link" onclick="searchTopic('family')">Family & Relationships</span>
+                        </div>
+                    </div>
+                    
+                    <div class="topic-category">
+                        <h5>🕌 Worship & Spirituality</h5>
+                        <div class="topic-links">
+                            <span class="topic-link" onclick="searchTopic('prayer')">Prayer (Salah)</span>
+                            <span class="topic-link" onclick="searchTopic('fasting')">Fasting (Sawm)</span>
+                            <span class="topic-link" onclick="searchTopic('charity')">Charity (Zakat)</span>
+                            <span class="topic-link" onclick="searchTopic('pilgrimage')">Pilgrimage (Hajj)</span>
+                            <span class="topic-link" onclick="searchTopic('dua')">Supplications (Dua)</span>
+                            <span class="topic-link" onclick="searchTopic('dhikr')">Remembrance (Dhikr)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="topic-category">
+                        <h5>💎 Hadith & Sunnah</h5>
+                        <div class="topic-links">
+                            <span class="topic-link" onclick="searchTopic('intentions')">Importance of Intentions</span>
+                            <span class="topic-link" onclick="searchTopic('faith')">Strengthening Faith</span>
+                            <span class="topic-link" onclick="searchTopic('character')">Good Character</span>
+                            <span class="topic-link" onclick="searchTopic('speech')">Proper Speech</span>
+                            <span class="topic-link" onclick="searchTopic('hygiene')">Personal Hygiene</span>
+                            <span class="topic-link" onclick="searchTopic('manners')">Islamic Manners</span>
+                        </div>
+                    </div>
+                    
+                    <div class="topic-category">
+                        <h5>🌍 Daily Life & Society</h5>
+                        <div class="topic-links">
+                            <span class="topic-link" onclick="searchTopic('work')">Work & Ethics</span>
+                            <span class="topic-link" onclick="searchTopic('education')">Education & Learning</span>
+                            <span class="topic-link" onclick="searchTopic('health')">Health & Wellness</span>
+                            <span class="topic-link" onclick="searchTopic('environment')">Environmental Care</span>
+                            <span class="topic-link" onclick="searchTopic('social')">Social Responsibility</span>
+                            <span class="topic-link" onclick="searchTopic('technology')">Technology & Islam</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -993,6 +1171,20 @@
         
         // Initialize AI system
         const islamicAI = new IslamicAI();
+        
+        // Topic navigation search function
+        function searchTopic(topic) {
+            document.getElementById('searchInput').value = topic;
+            performSearch();
+            
+            // Scroll to results
+            setTimeout(() => {
+                document.getElementById('resultsSection').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 500);
+        }
         
         // Main search function
         function performSearch() {
