@@ -321,13 +321,13 @@
             line-height: 1.8;
             margin: 20px 0;
             padding: 20px;
-            background: rgba(255, 69, 0, 0.05);
+            background: rgba(152, 251, 152, 0.05);
             border-radius: 10px;
-            border-left: 4px solid #FF4500;
+            border-left: 4px solid #98FB98;
         }
 
         .tafsir-header {
-            color: #FF4500;
+            color: #98FB98;
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 15px;
@@ -384,6 +384,65 @@
         .search-button:hover {
             background: #004D61;
             transform: translateY(-2px);
+        }
+
+        .search-suggestions {
+            margin-top: 15px;
+            background: rgba(135, 206, 235, 0.1);
+            border: 1px solid rgba(135, 206, 235, 0.3);
+            border-radius: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .search-suggestion-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(135, 206, 235, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .search-suggestion-item:hover {
+            background: rgba(135, 206, 235, 0.2);
+            color: #87CEEB;
+        }
+
+        .search-suggestion-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-tips {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(135, 206, 235, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #87CEEB;
+        }
+
+        .search-tips h4 {
+            color: #87CEEB;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .search-tips ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .search-tips li {
+            color: #E0E0E0;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .search-tips li:before {
+            content: "•";
+            color: #87CEEB;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
@@ -444,8 +503,23 @@
         <div class="search-section">
             <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">🔍 Search Quran by Verse, Topic, or Reference</h3>
             <div class="search-input">
-                <input type="text" id="searchInput" placeholder="Search for specific verses, topics, or references..." onkeypress="handleSearch(event)">
+                <input type="text" id="searchInput" placeholder="Search for specific verses, topics, or references..." 
+                       onkeypress="handleSearch(event)" 
+                       oninput="handleSearchInput(event)"
+                       onfocus="showSearchTips()"
+                       autocomplete="off">
                 <button onclick="searchQuran()" class="search-button">Search Quran</button>
+            </div>
+            <div id="searchSuggestions" class="search-suggestions" style="display: none;"></div>
+            <div id="searchTips" class="search-tips" style="display: none;">
+                <h4>💡 Search Tips:</h4>
+                <ul>
+                    <li>Search by verse numbers (e.g., "1:1", "2:255")</li>
+                    <li>Search by surah names (e.g., "Fatiha", "Baqarah")</li>
+                    <li>Search by topics (e.g., "mercy", "prayer", "charity")</li>
+                    <li>Search by Arabic text or transliteration</li>
+                    <li>Search by Juz numbers (1-30) or Ahzab (1-7)</li>
+                </ul>
             </div>
         </div>
 
@@ -624,43 +698,300 @@
             }
         }
 
+        function handleSearchInput(event) {
+            const query = event.target.value.trim();
+            if (query.length >= 2) {
+                showRealTimeSuggestions(query);
+            } else {
+                hideSuggestions();
+            }
+        }
+
+        function showSearchTips() {
+            const tips = document.getElementById('searchTips');
+            if (tips) {
+                tips.style.display = 'block';
+            }
+        }
+
+        function hideSearchTips() {
+            const tips = document.getElementById('searchTips');
+            if (tips) {
+                tips.style.display = 'none';
+            }
+        }
+
+        function showRealTimeSuggestions(query) {
+            const suggestions = generateSearchSuggestions(query);
+            const suggestionsDiv = document.getElementById('searchSuggestions');
+            
+            if (suggestions.length > 0) {
+                let html = '';
+                suggestions.forEach(suggestion => {
+                    html += `<div class="search-suggestion-item" onclick="selectSuggestion('${suggestion}')">${suggestion}</div>`;
+                });
+                suggestionsDiv.innerHTML = html;
+                suggestionsDiv.style.display = 'block';
+            } else {
+                hideSuggestions();
+            }
+        }
+
+        function hideSuggestions() {
+            const suggestionsDiv = document.getElementById('searchSuggestions');
+            if (suggestionsDiv) {
+                suggestionsDiv.style.display = 'none';
+            }
+        }
+
+        function selectSuggestion(suggestion) {
+            document.getElementById('searchInput').value = suggestion;
+            hideSuggestions();
+            searchQuran();
+        }
+
         function searchQuran() {
-            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const query = document.getElementById('searchInput').value.trim();
             if (!query) {
                 alert('Please enter a search term');
                 return;
             }
 
-            // Search through all surahs and verses
+            // Enhanced search with typo tolerance and multiple search strategies
             let results = [];
+            const queryLower = query.toLowerCase();
             
+            // Search strategies: exact match, partial match, typo-tolerant, number search
+            const searchStrategies = [
+                // Strategy 1: Exact match (highest priority)
+                (text) => text.toLowerCase() === queryLower,
+                // Strategy 2: Contains match (high priority)
+                (text) => text.toLowerCase().includes(queryLower),
+                // Strategy 3: Typo-tolerant search (medium priority)
+                (text) => calculateSimilarity(text.toLowerCase(), queryLower) > 0.8,
+                // Strategy 4: Number-based search
+                (text) => searchByNumbers(text, query),
+                // Strategy 5: Arabic text search (even with typos)
+                (text) => searchArabicText(text, query)
+            ];
+
             Object.keys(quranDatabase).forEach(surahNumber => {
                 const surah = quranDatabase[surahNumber];
+                
+                // Search in surah metadata
+                if (searchInSurahMetadata(surah, query, searchStrategies)) {
+                    results.push({
+                        surahNumber,
+                        surah,
+                        verse: null,
+                        matchType: 'surah_metadata',
+                        relevance: 1.0
+                    });
+                }
+                
                 surah.content.forEach(verse => {
-                    if (verse.arabic.toLowerCase().includes(query) ||
-                        verse.transliteration.toLowerCase().includes(query) ||
-                        verse.translation.toLowerCase().includes(query) ||
-                        verse.tafsir.toLowerCase().includes(query)) {
-                        results.push({
-                            surahNumber,
-                            surah,
-                            verse
+                    let bestMatch = null;
+                    let bestScore = 0;
+                    
+                    // Search in verse content
+                    const searchableTexts = [
+                        { text: verse.arabic, type: 'arabic', weight: 1.2 },
+                        { text: verse.transliteration, type: 'transliteration', weight: 1.1 },
+                        { text: verse.translation, type: 'translation', weight: 1.0 },
+                        { text: verse.tafsir, type: 'tafsir', weight: 0.9 }
+                    ];
+                    
+                    searchableTexts.forEach(({ text, type, weight }) => {
+                        searchStrategies.forEach((strategy, strategyIndex) => {
+                            if (strategy(text)) {
+                                const score = (5 - strategyIndex) * weight; // Higher strategy = higher score
+                                if (score > bestScore) {
+                                    bestScore = score;
+                                    bestMatch = {
+                                        surahNumber,
+                                        surah,
+                                        verse,
+                                        matchType: type,
+                                        relevance: score
+                                    };
+                                }
+                            }
                         });
+                    });
+                    
+                    if (bestMatch) {
+                        results.push(bestMatch);
                     }
                 });
             });
 
+            // Sort results by relevance
+            results.sort((a, b) => b.relevance - a.relevance);
+
             if (results.length > 0) {
                 // Display first result
-                displaySurah(results[0].surahNumber);
+                const bestResult = results[0];
+                if (bestResult.verse) {
+                    displaySurah(bestResult.surahNumber);
+                    highlightSearchTerm(query);
+                } else {
+                    // If match was in surah metadata, show the surah
+                    displaySurah(bestResult.surahNumber);
+                }
                 
-                // Highlight search term in results
-                highlightSearchTerm(query);
-                
-                alert(`Found ${results.length} results. Displaying first match.`);
+                // Show enhanced results summary
+                showSearchResults(query, results);
             } else {
-                alert('No results found for your search term.');
+                // Try fuzzy search suggestions
+                const suggestions = generateSearchSuggestions(query);
+                if (suggestions.length > 0) {
+                    showSearchSuggestions(query, suggestions);
+                } else {
+                    alert('No results found for your search term. Try different keywords or check spelling.');
+                }
             }
+        }
+
+        // Enhanced search helper functions
+        function searchInSurahMetadata(surah, query, strategies) {
+            const searchableFields = [
+                surah.name,
+                surah.nameArabic,
+                surah.englishName,
+                surah.revelation,
+                surah.juz.toString(),
+                surah.verses.toString()
+            ];
+            
+            return searchableFields.some(field => 
+                strategies.some(strategy => strategy(field))
+            );
+        }
+
+        function calculateSimilarity(text1, text2) {
+            // Simple Levenshtein distance-based similarity
+            if (text1 === text2) return 1.0;
+            if (text1.length === 0) return 0.0;
+            if (text2.length === 0) return 0.0;
+            
+            const distance = levenshteinDistance(text1, text2);
+            const maxLength = Math.max(text1.length, text2.length);
+            return 1 - (distance / maxLength);
+        }
+
+        function levenshteinDistance(str1, str2) {
+            const matrix = [];
+            for (let i = 0; i <= str2.length; i++) {
+                matrix[i] = [i];
+            }
+            for (let j = 0; j <= str1.length; j++) {
+                matrix[0][j] = j;
+            }
+            for (let i = 1; i <= str2.length; i++) {
+                for (let j = 1; j <= str1.length; j++) {
+                    if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+                        matrix[i][j] = matrix[i - 1][j - 1];
+                    } else {
+                        matrix[i][j] = Math.min(
+                            matrix[i - 1][j - 1] + 1,
+                            matrix[i][j - 1] + 1,
+                            matrix[i - 1][j] + 1
+                        );
+                    }
+                }
+            }
+            return matrix[str2.length][str1.length];
+        }
+
+        function searchByNumbers(text, query) {
+            // Extract numbers from query and text
+            const queryNumbers = query.match(/\d+/g) || [];
+            const textNumbers = text.match(/\d+/g) || [];
+            
+            if (queryNumbers.length === 0) return false;
+            
+            return queryNumbers.some(qNum => 
+                textNumbers.some(tNum => tNum.includes(qNum) || qNum.includes(tNum))
+            );
+        }
+
+        function searchArabicText(text, query) {
+            // Handle Arabic text search with common transliteration variations
+            if (!/[\u0600-\u06FF]/.test(text)) return false; // Not Arabic text
+            
+            const arabicVariations = {
+                'allah': ['الله', 'اللہ', 'الله'],
+                'muhammad': ['محمد', 'محمد'],
+                'quran': ['قرآن', 'قرآن'],
+                'salah': ['صلاة', 'صلوة'],
+                'zakat': ['زكاة', 'زكوة'],
+                'hajj': ['حج', 'حج'],
+                'ramadan': ['رمضان', 'رمضان']
+            };
+            
+            const queryLower = query.toLowerCase();
+            return Object.entries(arabicVariations).some(([english, arabic]) => {
+                if (english.includes(queryLower) || queryLower.includes(english)) {
+                    return arabic.some(arabicText => text.includes(arabicText));
+                }
+                return false;
+            });
+        }
+
+        function generateSearchSuggestions(query) {
+            const suggestions = [];
+            const commonTerms = [
+                'allah', 'mercy', 'prayer', 'quran', 'prophet', 'faith', 'islam',
+                'muhammad', 'salah', 'zakat', 'hajj', 'ramadan', 'fasting',
+                'charity', 'kindness', 'patience', 'gratitude', 'forgiveness'
+            ];
+            
+            // Find similar terms
+            commonTerms.forEach(term => {
+                if (calculateSimilarity(query.toLowerCase(), term) > 0.6) {
+                    suggestions.push(term);
+                }
+            });
+            
+            // Add number-based suggestions
+            const numbers = query.match(/\d+/g);
+            if (numbers) {
+                numbers.forEach(num => {
+                    if (parseInt(num) <= 114) {
+                        suggestions.push(`Surah ${num}`);
+                    }
+                    if (parseInt(num) <= 30) {
+                        suggestions.push(`Juz ${num}`);
+                    }
+                });
+            }
+            
+            return suggestions.slice(0, 5); // Limit to 5 suggestions
+        }
+
+        function showSearchResults(query, results) {
+            const resultCount = results.length;
+            const bestMatch = results[0];
+            
+            let message = `Found ${resultCount} result${resultCount > 1 ? 's' : ''} for "${query}"\n\n`;
+            message += `Best match: ${bestMatch.surah ? bestMatch.surah.englishName : 'N/A'}`;
+            if (bestMatch.verse) {
+                message += ` - Verse ${bestMatch.verse.verse}`;
+            }
+            message += `\n\nShowing most relevant result.`;
+            
+            alert(message);
+        }
+
+        function showSearchSuggestions(query, suggestions) {
+            let message = `No exact results found for "${query}"\n\n`;
+            message += `Did you mean:\n`;
+            suggestions.forEach(suggestion => {
+                message += `• ${suggestion}\n`;
+            });
+            message += `\nTry one of these suggestions or refine your search.`;
+            
+            alert(message);
         }
 
         function highlightSearchTerm(term) {
