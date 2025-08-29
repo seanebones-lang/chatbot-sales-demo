@@ -796,7 +796,7 @@
                         <p>Get your daily dose of Islamic wisdom and inspiration</p>
                     </div>
                     
-                    <div class="menu-item" onclick="window.location.href='one-per-day.html'">
+                    <div class="menu-item" onclick="goToPage('one-per-day')">
                         <div class="menu-icon">Quran</div>
                         <h3>One Per Day</h3>
                         <p>Daily Quran verse with authentic tafsir, positive message, and daily dua</p>
@@ -808,47 +808,47 @@
                         <p>Chat with our AI-powered Islamic assistant for personalized guidance</p>
                     </div>
                     
-                    <div class="menu-item" onclick="window.location.href='authentic-fiqh.html'">
+                    <div class="menu-item" onclick="goToPage('fiqh')">
                         <div class="menu-icon">⚖️</div>
                         <h3>Complete Islamic Jurisprudence</h3>
                         <p>Comprehensive Islamic law library with 110+ sections covering every aspect of Islamic jurisprudence</p>
                     </div>
                     
-                    <div class="menu-item" onclick="window.location.href='enhanced-search.html'">
+                    <div class="menu-item" onclick="goToPage('enhanced-search')">
                         <div class="menu-icon">Search</div>
                         <h3>Enhanced Search</h3>
                         <p>Comprehensive search across all Islamic sources with PDF generation</p>
                     </div>
                     
-                                    <div class="menu-item" onclick="window.location.href='local-masjid.html'">
-                    <div class="menu-icon">Masjid</div>
-                    <h3>Local Masjid & Prayer Times</h3>
-                    <p>Find local Islamic centers, prayer times, and community resources</p>
-                </div>
-                
-                <div class="menu-item" onclick="window.location.href='quranic-arabic.html'">
-                    <div class="menu-icon">Arabic</div>
-                    <h3>Quranic Arabic Learning</h3>
-                    <p>Master Arabic with daily structured lessons, alphabet guide, and authentic Islamic content</p>
-                </div>
-                
-                <div class="menu-item" onclick="window.location.href='comprehensive-search.html'">
-                    <div class="menu-icon">Search</div>
-                    <h3>Comprehensive Islamic Search</h3>
-                    <p>Search across complete Quran, Hadith, Tafsir, and authentic Islamic sources</p>
-                </div>
-                
-                <div class="menu-item" onclick="window.location.href='quran-memorization.html'">
-                    <div class="menu-icon">Hifdh</div>
-                    <h3>Quran Memorization System</h3>
-                    <p>Master Hifdh with structured plans, daily goals, and proven memorization techniques</p>
-                </div>
-                
-                <div class="menu-item" onclick="window.location.href='tajweed-mastery.html'">
-                    <div class="menu-icon">Tajweed</div>
-                    <h3>Tajweed Mastery Center</h3>
+                    <div class="menu-item" onclick="goToPage('local-masjid')">
+                        <div class="menu-icon">Masjid</div>
+                        <h3>Local Masjid & Prayer Times</h3>
+                        <p>Find local Islamic centers, prayer times, and community resources</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('quranic-arabic')">
+                        <div class="menu-icon">Arabic</div>
+                        <h3>Quranic Arabic Learning</h3>
+                        <p>Master Arabic with daily structured lessons, alphabet guide, and authentic Islamic content</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('comprehensive-search')">
+                        <div class="menu-icon">Search</div>
+                        <h3>Comprehensive Islamic Search</h3>
+                        <p>Search across complete Quran, Hadith, Tafsir, and authentic Islamic sources</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('quran-memorization')">
+                        <div class="menu-icon">Hifdh</div>
+                        <h3>Quran Memorization System</h3>
+                        <p>Master Hifdh with structured plans, daily goals, and proven memorization techniques</p>
+                    </div>
+                    
+                    <div class="menu-item" onclick="goToPage('tajweed-mastery')">
+                        <div class="menu-icon">Tajweed</div>
+                        <h3>Tajweed Mastery Center</h3>
                         <p>Perfect your Quran recitation with interactive rules, practice exercises, and professional guidance</p>
-                </div>
+                    </div>
                     
                     <div class="menu-item" onclick="goToPage('five-pillars')">
                         <div class="menu-icon">Pillars</div>
@@ -904,7 +904,7 @@
                     <div class="tab-icon">🤖</div>
                     <span class="tab-label">DeenBot</span>
                 </div>
-                <div class="nav-tab" onclick="window.location.href='authentic-fiqh.html'">
+                <div class="nav-tab" onclick="goToPage('fiqh')">
                     <div class="tab-icon">⚖️</div>
                     <span class="tab-label">Fiqh</span>
                 </div>
@@ -2410,6 +2410,30 @@
                 case 'chat':
                     window.location.href = 'deenbot.html';
                     break;
+                case 'fiqh':
+                    window.location.href = 'authentic-fiqh.html';
+                    break;
+                case 'one-per-day':
+                    window.location.href = 'one-per-day.html';
+                    break;
+                case 'enhanced-search':
+                    window.location.href = 'enhanced-search.html';
+                    break;
+                case 'local-masjid':
+                    window.location.href = 'local-masjid.html';
+                    break;
+                case 'quranic-arabic':
+                    window.location.href = 'quranic-arabic.html';
+                    break;
+                case 'comprehensive-search':
+                    window.location.href = 'comprehensive-search.html';
+                    break;
+                case 'quran-memorization':
+                    window.location.href = 'quran-memorization.html';
+                    break;
+                case 'tajweed-mastery':
+                    window.location.href = 'tajweed-mastery.html';
+                    break;
                 case 'five-pillars':
                     window.location.href = 'five-pillars.html';
                     break;
@@ -2422,7 +2446,7 @@
                 case 'dedication':
                     window.location.href = 'dedication.html';
                     break;
-                            case 'hadith-collections-hub':
+                case 'hadith-collections-hub':
                     window.location.href = 'hadith-collections-hub.html';
                     break;
                 case 'recommended-surahs':
