@@ -98,6 +98,55 @@ class ComprehensiveIslamicKnowledge:
                         "category": "Knowledge & Education"
                     }
                 ],
+            },
+            "sorrow_and_sadness": {
+                "hadiths": [
+                    {
+                        "number": "Sahih Muslim 2999",
+                        "arabic": "مَا أَصَابَ أَحَدًا قَطُّ هَمٌّ وَلَا حُزْنٌ فَقَالَ: اللَّهُمَّ إِنِّي عَبْدُكَ، وَابْنُ عَبْدِكَ، وَابْنُ أَمَتِكَ، نَاصِيَتِي بِيَدِكَ، مَاضٍ فِيَّ حُكْمُكَ، عَدْلٌ فِيَّ قَضَاؤُكَ، أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ، سَمَّيْتَ بِهِ نَفْسَكَ، أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ، أَوْ عَلَّمْتَهُ أَحَدًا مِنْ خَلْقِكَ، أَوِ اسْتَأْثَرْتَ بِهِ فِي عِلْمِ الْغَيْبِ عِنْدَكَ، أَنْ تَجْعَلَ الْقُرْآنَ رَبِيعَ قَلْبِي، وَنُورَ صَدْرِي، وَجَلَاءَ حُزْنِي، وَذَهَابَ هَمِّي",
+                        "translation": "Whenever any person is afflicted with anxiety and grief, he should say: 'O Allah, I am Your servant, son of Your servant, son of Your maidservant. My forehead is in Your hand, Your command over me is forever executed, and Your decree over me is just. I ask You by every name belonging to You with which You have named Yourself, or which You have sent down in Your Book, or which You have taught to any of Your creation, or which You have kept to Yourself in the knowledge of the unseen, that You make the Quran the life of my heart, the light of my chest, the removal of my grief, and the departure of my anxiety.'",
+                        "context": "This hadith provides a comprehensive dua (supplication) for relief from sorrow, anxiety, and grief. It teaches Muslims to turn to Allah in times of emotional distress.",
+                        "narrator": "Abdullah ibn Mas'ud",
+                        "source": "Sahih Muslim",
+                        "authentication": "Sahih (Authentic)",
+                        "category": "Emotional Well-being & Supplication"
+                    },
+                    {
+                        "number": "Abu Dawud 1525",
+                        "arabic": "مَنْ لَزِمَ الِاسْتِغْفَارَ جَعَلَ اللَّهُ لَهُ مِنْ كُلِّ ضِيقٍ مَخْرَجًا، وَمِنْ كُلِّ هَمٍّ فَرَجًا، وَرَزَقَهُ مِنْ حَيْثُ لَا يَحْتَسِبُ",
+                        "translation": "Whoever persists in seeking forgiveness, Allah will provide him a way out of every difficulty, relief from every anxiety, and will provide for him from sources he could never imagine.",
+                        "context": "This hadith teaches that consistent istighfar (seeking forgiveness) helps overcome sorrow and anxiety, providing both spiritual and material relief.",
+                        "narrator": "Abu Hurairah",
+                        "source": "Abu Dawud",
+                        "authentication": "Hasan (Good)",
+                        "category": "Emotional Well-being & Supplication"
+                    },
+                    {
+                        "number": "Tirmidhi 3506",
+                        "arabic": "إِنَّ اللَّهَ لَا يَضَعُ حَزَنًا فِي قَلْبِ عَبْدٍ إِلَّا لِيُعْطِيَهُ مِنْهُ عِوَضًا",
+                        "translation": "Allah does not place sorrow in the heart of a servant except to give him compensation for it.",
+                        "context": "This hadith provides comfort by teaching that Allah's tests and trials come with blessings and compensation, helping Muslims understand the wisdom behind difficulties.",
+                        "narrator": "Abu Hurairah",
+                        "source": "Tirmidhi",
+                        "authentication": "Hasan (Good)",
+                        "category": "Emotional Well-being & Supplication"
+                    }
+                ],
+                "summary": "The Prophet Muhammad (PBUH) provided comprehensive guidance on dealing with sorrow and sadness through authentic hadith. Key teachings include: 1) Turning to Allah with specific duas for relief from grief, 2) The power of istighfar (seeking forgiveness) in overcoming emotional distress, 3) Understanding that Allah's tests come with compensation and blessings, 4) Using the Quran as a source of comfort and light for the heart, and 5) Recognizing that emotional difficulties are temporary and can be overcome through faith and supplication."
+            },
+            "knowledge": {
+                "hadiths": [
+                    {
+                        "number": "Ibn Majah 224",
+                        "arabic": "طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ",
+                        "translation": "Seeking knowledge is obligatory upon every Muslim.",
+                        "context": "This hadith establishes that seeking knowledge is a religious obligation for every Muslim, emphasizing the importance of education in Islam.",
+                        "narrator": "Anas ibn Malik",
+                        "source": "Ibn Majah",
+                        "authentication": "Hasan (Good)",
+                        "category": "Knowledge & Education"
+                    }
+                ],
                 "summary": "Islam places great emphasis on seeking knowledge as a religious obligation. The Prophet Muhammad (PBUH) taught that seeking knowledge is obligatory for every Muslim, highlighting the importance of education and continuous learning in Islamic tradition."
             }
         }

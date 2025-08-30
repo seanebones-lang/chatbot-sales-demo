@@ -26,6 +26,15 @@ except ImportError:
     COMPREHENSIVE_KNOWLEDGE_AVAILABLE = False
     logging.warning("⚠️ Comprehensive knowledge base not available - using fallback knowledge base")
 
+# Import content scanner for instant access to all Islamic knowledge
+try:
+    from content_scanner import content_scanner
+    CONTENT_SCANNER_AVAILABLE = True
+    logging.info("✅ Content scanner imported successfully - instant access to all Islamic knowledge enabled")
+except ImportError:
+    CONTENT_SCANNER_AVAILABLE = False
+    logging.warning("⚠️ Content scanner not available - limited knowledge access")
+
 # Configure comprehensive logging
 try:
     # Try to use supervisor log directory (production)
@@ -2250,7 +2259,21 @@ These pillars form the foundation of Islamic practice and are essential for spir
         
         logging.info(f"🔍 Processing query: '{user_message}'")
         
-        # FIRST: Direct topic matching with priority system
+        # FIRST: Instant content scanner access to ALL Islamic knowledge
+        if CONTENT_SCANNER_AVAILABLE:
+            try:
+                content_response, content_source = content_scanner.get_comprehensive_response(user_message)
+                if content_response:
+                    logging.info(f"✅ Found instant response from content scanner: {content_source}")
+                    return {
+                        "response": content_response,
+                        "references": ["Instant Islamic Knowledge Scanner"],
+                        "source": f"Content Scanner - {content_source}"
+                    }
+            except Exception as e:
+                logging.warning(f"⚠️ Content scanner error: {e}")
+        
+        # SECOND: Direct topic matching with priority system
         matched_topic = self.find_best_topic_match(message_lower)
         if matched_topic and matched_topic in self.islamic_knowledge:
             logging.info(f"✅ Found direct topic match: {matched_topic}")
@@ -2261,7 +2284,7 @@ These pillars form the foundation of Islamic practice and are essential for spir
                 "source": f"Direct Topic Match - {matched_topic}"
             }
         
-        # SECOND: Check comprehensive Islamic knowledge base for authentic responses
+        # THIRD: Check comprehensive Islamic knowledge base for authentic responses
         if COMPREHENSIVE_KNOWLEDGE_AVAILABLE:
             try:
                 comprehensive_response, comprehensive_source = comprehensive_knowledge.get_comprehensive_response(user_message)
@@ -2276,7 +2299,7 @@ These pillars form the foundation of Islamic practice and are essential for spir
             except Exception as e:
                 logging.warning(f"⚠️ Comprehensive knowledge base error: {e}")
         
-        # THIRD: Enhanced knowledge base search
+        # FOURTH: Enhanced knowledge base search
         for topic, content in self.enhanced_knowledge.items():
             if any(word in message_lower for word in topic.lower().split()):
                 logging.info(f"✅ Found enhanced knowledge match: {topic}")
@@ -2286,7 +2309,7 @@ These pillars form the foundation of Islamic practice and are essential for spir
                     "source": f"Enhanced Knowledge - {topic}"
                 }
         
-        # FOURTH: For non-Islamic queries, provide actual answers with online warning
+        # FIFTH: For non-Islamic queries, provide actual answers with online warning
         non_islamic_keywords = [
             "recipe", "cook", "food", "how to make", "how to cook",
             "weather", "temperature", "forecast", "climate",
@@ -2304,7 +2327,7 @@ These pillars form the foundation of Islamic practice and are essential for spir
             # Provide actual answer with online warning
             return self.get_online_answer_with_warning(user_message)
         
-        # FIFTH: Provide general Islamic guidance with references
+        # SIXTH: Provide general Islamic guidance with references
         if any(word in message_lower for word in ["islam", "muslim", "quran", "hadith", "prayer", "fasting", "charity", "family", "marriage", "children", "work", "business", "education", "health", "environment"]):
             return {
                 "response": """I can provide comprehensive Islamic guidance on many topics. Here are some areas I can help with:
