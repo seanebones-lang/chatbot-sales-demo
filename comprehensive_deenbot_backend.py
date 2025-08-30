@@ -2447,12 +2447,12 @@ These pillars form the foundation of Islamic practice and are essential for spir
             if keyword in message_lower:
                 # Check if the key exists in islamic_knowledge first
                 if key in self.islamic_knowledge:
-                data = self.islamic_knowledge[key]
-                return {
-                    "response": data["answer"],
-                    "references": data["references"],
-                    "source": "Comprehensive Islamic Knowledge Base"
-                }
+                    data = self.islamic_knowledge[key]
+                    return {
+                        "response": data["answer"],
+                        "references": data["references"],
+                        "source": "Comprehensive Islamic Knowledge Base"
+                    }
                 # If not in islamic_knowledge, check enhanced_knowledge
                 elif key in self.enhanced_knowledge:
                     return {
