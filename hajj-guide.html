@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hajj Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .hajj-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .hajj-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .hajj-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Hajj Guide</h1>
+            <p>Complete guide to the Hajj pilgrimage, including rituals, spiritual significance, and practical guidance for the journey of a lifetime</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Hajj</h2>
+            <p>Hajj is the fifth pillar of Islam and one of the most sacred acts of worship. It is a mandatory religious duty for Muslims who are physically and financially able to perform it at least once in their lifetime.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا</div>
+                <div class="translation">"And [due] to Allah from the people is a pilgrimage to the House - for whoever is able to find thereto a way." (Quran 3:97)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "Whoever performs Hajj for Allah's pleasure and does not have sexual relations with his wife, and does not do evil or sins then he will return (after Hajj free from all sins) as if he were born anew." (Sahih Bukhari)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Prerequisites for Hajj</h2>
+            
+            <div class="hajj-card">
+                <h4>Physical Requirements</h4>
+                <ul>
+                    <li><strong>Health:</strong> Must be physically capable of performing the rituals</li>
+                    <li><strong>Age:</strong> Should be mature enough to understand the significance</li>
+                    <li><strong>Mobility:</strong> Able to walk and perform physical acts</li>
+                    <li><strong>Medical Clearance:</strong> Consult with healthcare provider</li>
+                    <li><strong>Special Needs:</strong> Arrange assistance if required</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Financial Requirements</h4>
+                <ul>
+                    <li><strong>Travel Costs:</strong> Transportation, accommodation, and food</li>
+                    <li><strong>Personal Expenses:</strong> Clothing, supplies, and incidentals</li>
+                    <li><strong>Family Support:</strong> Ensuring family is provided for during absence</li>
+                    <li><strong>Debt-Free:</strong> Should not have outstanding debts</li>
+                    <li><strong>Emergency Funds:</strong> Having backup financial resources</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Spiritual Preparation</h4>
+                <ul>
+                    <li><strong>Knowledge:</strong> Understanding Hajj rituals and requirements</li>
+                    <li><strong>Intention:</strong> Sincere desire to perform Hajj for Allah</li>
+                    <li><strong>Repentance:</strong> Seeking forgiveness for past sins</li>
+                    <li><strong>Character:</strong> Improving behavior and relationships</li>
+                    <li><strong>Prayer:</strong> Increasing devotion and worship</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Types of Hajj</h2>
+            
+            <div class="hajj-card">
+                <h4>Hajj al-Tamattu' (Interrupted)</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Performing Umrah first, then Hajj separately</li>
+                    <li><strong>Process:</strong> Umrah during Shawwal, Hajj during Dhul Hijjah</li>
+                    <li><strong>Sacrifice:</strong> Must offer animal sacrifice</li>
+                    <li><strong>Benefits:</strong> Most flexible and recommended type</li>
+                    <li><strong>Requirements:</strong> Ihram for Umrah, then new Ihram for Hajj</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Hajj al-Qiran (Combined)</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Combining Umrah and Hajj in one Ihram</li>
+                    <li><strong>Process:</strong> Single Ihram for both rituals</li>
+                    <li><strong>Sacrifice:</strong> Must offer animal sacrifice</li>
+                    <li><strong>Benefits:</strong> More convenient for some travelers</li>
+                    <li><strong>Requirements:</strong> Single Ihram maintained throughout</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Hajj al-Ifrad (Isolated)</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Performing only Hajj without Umrah</li>
+                    <li><strong>Process:</strong> Single Ihram for Hajj only</li>
+                    <li><strong>Sacrifice:</strong> No animal sacrifice required</li>
+                    <li><strong>Benefits:</strong> Simplest form of Hajj</li>
+                    <li><strong>Requirements:</strong> Ihram only for Hajj rituals</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Pre-Hajj Preparation</h2>
+            
+            <div class="hajj-card">
+                <h4>Travel Arrangements</h4>
+                <ul>
+                    <li><strong>Visa and Documentation:</strong> Obtain necessary travel documents</li>
+                    <li><strong>Transportation:</strong> Book flights and local transportation</li>
+                    <li><strong>Accommodation:</strong> Reserve hotels in Mecca and Medina</li>
+                    <li><strong>Travel Insurance:</strong> Protect against travel disruptions</li>
+                    <li><strong>Group Tours:</strong> Consider joining organized Hajj groups</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Essential Items</h4>
+                <ul>
+                    <li><strong>Ihram Clothing:</strong> Two white sheets for men, modest dress for women</li>
+                    <li><strong>Comfortable Shoes:</strong> Walking shoes for long distances</li>
+                    <li><strong>Personal Care:</strong> Toiletries, medications, first aid</li>
+                    <li><strong>Spiritual Items:</strong> Quran, prayer mat, tasbih</li>
+                    <li><strong>Practical Items:</strong> Water bottle, snacks, umbrella</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Mental and Spiritual Preparation</h4>
+                <ul>
+                    <li><strong>Study Rituals:</strong> Learn all Hajj steps and requirements</li>
+                    <li><strong>Physical Training:</strong> Build stamina for walking and standing</li>
+                    <li><strong>Patience Practice:</strong> Develop patience for crowds and delays</li>
+                    <li><strong>Dua Memorization:</strong> Learn important supplications</li>
+                    <li><strong>Family Preparation:</strong> Arrange care for family during absence</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Hajj Rituals - Day by Day</h2>
+            
+            <div class="hajj-card">
+                <h4>Day 1 (8th Dhul Hijjah) - Entering Ihram</h4>
+                <ul>
+                    <li><strong>Morning:</strong> Perform Ghusl and wear Ihram</li>
+                    <li><strong>Prayer:</strong> Two rak'ahs of Ihram prayer</li>
+                    <li><strong>Intention:</strong> Make intention for Hajj</li>
+                    <li><strong>Talbiyah:</strong> Recite Talbiyah continuously</li>
+                    <li><strong>Travel:</strong> Proceed to Mina</li>
+                </ul>
+                
+                <div class="step-box">
+                    <h5>Talbiyah (Pilgrim's Chant)</h5>
+                    <div class="arabic-text">لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ</div>
+                    <div class="translation">"Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Verily all praise and blessings are Yours, and all sovereignty, You have no partner."</div>
+                </div>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Day 2 (9th Dhul Hijjah) - Day of Arafah</h4>
+                <ul>
+                    <li><strong>Morning:</strong> Depart from Mina to Arafah</li>
+                    <li><strong>Prayer:</strong> Combined Dhuhr and Asr prayers</li>
+                    <li><strong>Supplication:</strong> Spend time in dua and remembrance</li>
+                    <li><strong>Reflection:</strong> Contemplate on life and hereafter</li>
+                    <li><strong>Evening:</strong> Depart to Muzdalifah after sunset</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Prophetic Teaching</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "Hajj is Arafah." (Abu Dawud) This emphasizes the central importance of standing at Arafah.</p>
+                </div>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Day 3 (10th Dhul Hijjah) - Eid al-Adha</h4>
+                <ul>
+                    <li><strong>Morning:</strong> Collect pebbles in Muzdalifah</li>
+                    <li><strong>Stoning:</strong> Stone Jamrat al-Aqaba (the largest pillar)</li>
+                    <li><strong>Sacrifice:</strong> Offer animal sacrifice or arrange for it</li>
+                    <li><strong>Hair Cutting:</strong> Cut hair or shave head</li>
+                    <li><strong>Ihram Removal:</strong> Remove Ihram and wear regular clothes</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Days 4-6 (11th-13th Dhul Hijjah) - Tashreeq Days</h4>
+                <ul>
+                    <li><strong>Stoning:</strong> Stone all three Jamarat daily</li>
+                    <li><strong>Prayer:</strong> Perform prayers in Mina</li>
+                    <li><strong>Remembrance:</strong> Continue dhikr and dua</li>
+                    <li><strong>Farewell Tawaf:</strong> Perform Tawaf al-Wida on final day</li>
+                    <li><strong>Departure:</strong> Leave Mina and return home</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Essential Rituals and Their Significance</h2>
+            
+            <div class="hajj-card">
+                <h4>Tawaf (Circumambulation)</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Walking around the Kaaba seven times</li>
+                    <li><strong>Direction:</strong> Counterclockwise, starting from Hajar al-Aswad</li>
+                    <li><strong>Significance:</strong> Symbolizes unity and devotion to Allah</li>
+                    <li><strong>Prayers:</strong> Recite specific duas during each circuit</li>
+                    <li><strong>Requirements:</strong> Must be in state of purity (wudu)</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Sa'i (Walking Between Safa and Marwa)</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Walking seven times between Safa and Marwa</li>
+                    <li><strong>History:</strong> Commemorates Hajar's search for water</li>
+                    <li><strong>Significance:</strong> Demonstrates trust in Allah's provision</li>
+                    <li><strong>Prayers:</strong> Recite specific duas at each hill</li>
+                    <li><strong>Requirements:</strong> Must be performed after Tawaf</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Stoning the Jamarat</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Throwing pebbles at three stone pillars</li>
+                    <li><strong>History:</strong> Commemorates Ibrahim's rejection of Satan</li>
+                    <li><strong>Significance:</strong> Symbolizes rejecting evil and temptation</li>
+                    <li><strong>Timing:</strong> Specific times for each day</li>
+                    <li><strong>Requirements:</strong> Must use small pebbles, not large stones</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Spiritual Benefits of Hajj</h2>
+            
+            <div class="hajj-card">
+                <h4>Purification and Forgiveness</h4>
+                <ul>
+                    <li><strong>Sin Removal:</strong> Hajj removes all previous sins</li>
+                    <li><strong>Spiritual Renewal:</strong> Fresh start in spiritual journey</li>
+                    <li><strong>Character Improvement:</strong> Opportunity to develop patience and humility</li>
+                    <li><strong>Connection with Allah:</strong> Deepened relationship with Creator</li>
+                    <li><strong>Community Bonding:</strong> Unity with Muslims worldwide</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Historical and Cultural Connection</h4>
+                <ul>
+                    <li><strong>Prophetic Legacy:</strong> Following in footsteps of Prophet Muhammad</li>
+                    <li><strong>Ibrahimi Tradition:</strong> Continuing legacy of Prophet Ibrahim</li>
+                    <li><strong>Islamic History:</strong> Experiencing sacred Islamic sites</li>
+                    <li><strong>Global Unity:</strong> Meeting Muslims from all nations</li>
+                    <li><strong>Cultural Exchange:</strong> Learning about different Muslim cultures</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practical Tips for Hajj</h2>
+            
+            <div class="hajj-card">
+                <h4>Health and Safety</h4>
+                <ul>
+                    <li><strong>Hydration:</strong> Drink plenty of water, especially in hot weather</li>
+                    <li><strong>Rest:</strong> Take breaks when needed, don't overexert</li>
+                    <li><strong>Medical Care:</strong> Know location of medical facilities</li>
+                    <li><strong>Emergency Contacts:</strong> Keep important numbers handy</li>
+                    <li><strong>First Aid:</strong> Carry basic medical supplies</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Patience and Tolerance</h4>
+                <ul>
+                    <li><strong>Crowds:</strong> Be patient with large crowds and delays</li>
+                    <li><strong>Different Cultures:</strong> Respect diverse customs and practices</li>
+                    <li><strong>Language Barriers:</strong> Use gestures and basic phrases</li>
+                    <li><strong>Service Workers:</strong> Be kind to those serving pilgrims</li>
+                    <li><strong>Fellow Pilgrims:</strong> Help others when possible</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Spiritual Focus</h4>
+                <ul>
+                    <li><strong>Intention:</strong> Keep focus on spiritual purpose</li>
+                    <li><strong>Prayer:</strong> Maintain regular prayer schedule</li>
+                    <li><strong>Dhikr:</strong> Continue remembrance throughout journey</li>
+                    <li><strong>Reflection:</strong> Take time for personal contemplation</li>
+                    <li><strong>Gratitude:</strong> Thank Allah for the opportunity</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Mistakes to Avoid</h2>
+            
+            <div class="hajj-card">
+                <h4>Ritual Errors</h4>
+                <ul>
+                    <li><strong>Wrong Order:</strong> Performing rituals in incorrect sequence</li>
+                    <li><strong>Missing Requirements:</strong> Forgetting essential elements</li>
+                    <li><strong>Incorrect Timing:</strong> Performing rituals at wrong times</li>
+                    <li><strong>Incomplete Acts:</strong> Not completing required number of repetitions</li>
+                    <li><strong>Ignorance:</strong> Not learning proper procedures beforehand</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Behavioral Issues</h4>
+                <ul>
+                    <li><strong>Impatience:</strong> Getting angry with crowds or delays</li>
+                    <li><strong>Disrespect:</strong> Not respecting sacred sites and others</li>
+                    <li><strong>Waste:</strong> Wasting food, water, or resources</li>
+                    <li><strong>Littering:</strong> Leaving trash in holy places</li>
+                    <li><strong>Rudeness:</strong> Being impolite to fellow pilgrims</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Post-Hajj Actions</h2>
+            
+            <div class="hajj-card">
+                <h4>Returning Home</h4>
+                <ul>
+                    <li><strong>Family Reunion:</strong> Reconnect with family members</li>
+                    <li><strong>Community Sharing:</strong> Share experiences with community</li>
+                    <li><strong>Continued Worship:</strong> Maintain increased devotion</li>
+                    <li><strong>Charity:</strong> Give thanks through increased charity</li>
+                    <li><strong>Planning:</strong> Consider future spiritual goals</li>
+                </ul>
+            </div>
+
+            <div class="hajj-card">
+                <h4>Maintaining Spiritual Gains</h4>
+                <ul>
+                    <li><strong>Regular Prayer:</strong> Maintain punctual prayer schedule</li>
+                    <li><strong>Quran Reading:</strong> Continue daily Quran recitation</li>
+                    <li><strong>Dhikr:</strong> Keep up remembrance practices</li>
+                    <li><strong>Good Character:</strong> Maintain improved behavior</li>
+                    <li><strong>Community Service:</strong> Help others in community</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="ramadan-guide.html">Ramadan and Fasting Guide</a></li>
+                <li><a href="charity-guide.html">Charity and Zakat Guide</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="dua-guide.html">Dua and Supplication Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>
