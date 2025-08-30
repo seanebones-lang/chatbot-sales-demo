@@ -1,71 +1,107 @@
-# 🕌 Complete Islamic Knowledge - Quran & Hadith System
+# Islamic AI Assistant - React App
 
-A comprehensive Islamic knowledge system providing access to Quran verses, authentic Hadiths, and interactive learning features, powered by phi3:mini AI.
+A comprehensive Islamic AI chatbot built with React, providing knowledge about Quran, Hadith, Fiqh, and Islamic guidance.
 
-## 🌟 Features
+## Features
 
-- **Complete Quran Searchability** - Find any verse by topic, reference, or content
-- **Authentic Hadith Collection** - Sahih Bukhari, Muslim, and other authentic sources
-- **Interactive Learning** - Beautiful interface with Arabic text and translations
-- **AI-Powered Search** - phi3:mini model for intelligent Islamic knowledge responses
-- **Mobile Responsive** - Works perfectly on all devices
+- **AI-Powered Chat**: Intelligent responses to Islamic questions
+- **Comprehensive Knowledge Base**: Quran, Hadith, Fiqh, and more
+- **Beautiful UI**: Modern, responsive design with Islamic theme
+- **Search Functionality**: Find specific Islamic topics quickly
+- **Mobile Responsive**: Works perfectly on all devices
 
-## 🚀 Live Demo
+## Tech Stack
 
-- **Production Site**: [http://165.232.155.246](http://165.232.155.246) (DigitalOcean)
-- **GitHub Pages**: [https://seanebones-lang.github.io/chatbot-sales-demo/](https://seanebones-lang.github.io/chatbot-sales-demo/)
+- **Frontend**: React 18, Tailwind CSS
+- **Backend**: Python Flask (DeenBot)
+- **Icons**: Lucide React
+- **Styling**: Custom CSS with Islamic theme
 
-## 🧠 AI Backend
+## Quick Start
 
-- **Model**: phi3:mini (specialized for Islamic knowledge)
-- **Backend**: Python server with OpenWebUI integration
-- **Endpoints**: `/chat` for AI-powered responses
-- **Features**: Islamic Q&A, Quran interpretation, Hadith insights
+### Prerequisites
+- Node.js 16+ 
+- Python 3.8+
+- npm or yarn
 
-## 📚 What You Can Search
+### Installation
 
-- **Islamic Topics**: Mercy, kindness, prayer, patience, family, knowledge
-- **Quran Verses**: Complete verses with Arabic text and translations
-- **Hadiths**: Authentic prophetic traditions with authentication levels
-- **Context**: Detailed explanations and historical context
-- **AI Responses**: Intelligent answers from phi3:mini model
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-## 🛠️ Technology
+2. **Start the React App**
+   ```bash
+   npm start
+   ```
+   The app will open at `http://localhost:3000`
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Backend**: Python with phi3:mini AI integration
-- **Search**: AI-powered semantic search with Islamic knowledge
-- **Deployment**: Docker + Nginx + Supervisor
-- **Hosting**: DigitalOcean + GitHub Pages
+3. **Start the Backend** (in another terminal)
+   ```bash
+   source deenbot_env/bin/activate
+   python3 comprehensive_deenbot_backend.py
+   ```
+   Backend runs on `http://localhost:8080`
 
-## 🚀 Local Development
+### Build for Production
 
-1. **Start Frontend**: `python3 -m http.server 8001`
-2. **Start AI Backend**: `python3 webui_scraper_backend.py`
-3. **Access Site**: http://localhost:8001/
-4. **AI Chat**: http://localhost:8080/chat
+```bash
+npm run build
+```
 
-## 📖 Usage
+## Project Structure
 
-1. **Search by Topic**: Enter any Islamic topic (e.g., "mercy", "prayer")
-2. **AI Chat**: Ask questions about Islam, Quran, or Hadith
-3. **Filter Sources**: Choose Quran only, Hadith only, or both
-4. **Interactive Learning**: Click on search options for quick access
+```
+src/
+├── components/
+│   └── IslamicChatbot.jsx    # Main chatbot component
+├── App.js                     # Main app component
+├── App.css                    # App-specific styles
+├── index.js                   # React entry point
+└── index.css                  # Global styles + Tailwind
 
-## 🤲 Islamic Values
+public/
+└── index.html                 # HTML template
 
-This system is built with respect for Islamic tradition and provides authentic, verified Islamic knowledge from reliable sources, enhanced by AI-powered insights.
+Backend/
+├── comprehensive_deenbot_backend.py  # AI backend
+├── deenbot_env/                     # Python environment
+└── requirements.txt                  # Python dependencies
+```
 
-## 📱 Mobile Friendly
+## Available Scripts
 
-Optimized for all devices - desktop, tablet, and mobile phones.
+- `npm start` - Start development server
+- `npm run build` - Build for production
+- `npm test` - Run tests
+- `npm run eject` - Eject from Create React App
 
-## 🌍 Open Source
+## Islamic Knowledge Areas
 
-Contributions welcome! This project aims to make Islamic knowledge accessible to everyone through modern technology.
+- **Quran Study**: Verses, translations, tafsir
+- **Hadith Collections**: Authentic narrations
+- **Fiqh (Islamic Law)**: Rulings and guidance
+- **Islamic History**: Prophets, scholars, civilization
+- **Daily Life**: Family, business, health, education
+- **Modern Issues**: Technology, environment, finance
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+MIT License - see LICENSE file for details
+
+## Support
+
+For questions or support, please open an issue on GitHub.
 
 ---
 
-**Built with ❤️ for Islamic education and knowledge sharing**
-
-**AI Powered by phi3:mini for authentic Islamic knowledge**
+**Built with ❤️ for the Islamic community**
