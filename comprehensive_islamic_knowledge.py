@@ -183,19 +183,208 @@ class ComprehensiveIslamicKnowledge:
         }
     
     def initialize_fiqh_database(self):
-        """Initialize comprehensive fiqh database"""
+        """Initialize comprehensive fiqh database with extensive Islamic jurisprudence"""
         return {
+            # ===== WORSHIP & RITUALS =====
             "prayer": {
                 "title": "Prayer (Salah) - Islamic Jurisprudence",
                 "content": "Prayer is the second pillar of Islam and is obligatory for every Muslim. It must be performed five times daily at specific times: Fajr (dawn), Dhuhr (noon), Asr (afternoon), Maghrib (sunset), and Isha (night). Prayer requires wudu (ablution) and must be performed facing the Kaaba in Mecca. The prayer consists of specific movements and recitations that were taught by the Prophet Muhammad (PBUH).",
-                "source": "Islamic Fiqh",
-                "category": "Worship"
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Worship",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Obligatory (Fard)"
             },
             "fasting": {
                 "title": "Fasting (Sawm) - Islamic Jurisprudence",
                 "content": "Fasting during the month of Ramadan is the fourth pillar of Islam. It involves abstaining from food, drink, and marital relations from dawn until sunset. Fasting is obligatory for every adult Muslim who is physically and mentally capable. It teaches self-discipline, empathy for the poor, and spiritual purification. The Prophet Muhammad (PBUH) also recommended voluntary fasting on Mondays, Thursdays, and the 13th, 14th, and 15th of each month.",
-                "source": "Islamic Fiqh",
-                "category": "Worship"
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Worship",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Obligatory (Fard)"
+            },
+            "wudu": {
+                "title": "Ablution (Wudu) - Islamic Jurisprudence",
+                "content": "Wudu is the ritual washing required before prayer. It includes washing hands, face, arms, head, and feet in a specific order. Wudu breaks when using the bathroom, sleeping, or losing consciousness. The Prophet Muhammad (PBUH) emphasized the importance of proper wudu for prayer validity.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Worship",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Obligatory (Fard) for prayer"
+            },
+            "hajj": {
+                "title": "Pilgrimage (Hajj) - Islamic Jurisprudence",
+                "content": "Hajj is the annual pilgrimage to Mecca, obligatory once in a lifetime for those who are physically and financially able. It includes specific rituals performed during Dhul Hijjah. The Prophet Muhammad (PBUH) performed Hajj and taught its proper procedures.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Worship",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Obligatory (Fard) for capable Muslims"
+            },
+            "zakat": {
+                "title": "Charity (Zakat) - Islamic Jurisprudence",
+                "content": "Zakat is the annual giving of 2.5% of wealth to the poor and needy. It's obligatory for Muslims who meet the minimum wealth threshold (nisab). Zakat purifies wealth and helps maintain social justice in the community.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Worship",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Obligatory (Fard) for qualifying Muslims"
+            },
+            
+            # ===== FAMILY LAW =====
+            "marriage": {
+                "title": "Marriage (Nikah) - Islamic Jurisprudence",
+                "content": "Marriage in Islam is a sacred contract between a man and woman. It requires mutual consent, witnesses, and a marriage contract (nikah). The husband provides mahr (dowry) and both parties have rights and responsibilities. Divorce is permitted but discouraged.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Family Law",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Permissible (Halal) and recommended"
+            },
+            "divorce": {
+                "title": "Divorce (Talaq) - Islamic Jurisprudence",
+                "content": "Divorce in Islam is permitted but considered the most disliked permissible act. It follows specific procedures including waiting periods (iddah) and reconciliation attempts. The Prophet Muhammad (PBUH) emphasized treating women kindly during divorce proceedings.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Family Law",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Permissible (Halal) but disliked"
+            },
+            "inheritance": {
+                "title": "Inheritance (Mirath) - Islamic Jurisprudence",
+                "content": "Islamic inheritance law is detailed and precise, ensuring fair distribution of wealth after death. It considers relationships, gender, and specific shares for different family members. The Quran provides detailed guidance on inheritance shares.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Family Law",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Obligatory (Fard) to follow"
+            },
+            "parenting": {
+                "title": "Parenting - Islamic Jurisprudence",
+                "content": "Parents have rights over children and children have rights over parents. Parents must provide education, religious guidance, and proper upbringing. Children must respect and care for parents, especially in old age.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Family Law",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Obligatory (Fard) for both parties"
+            },
+            
+            # ===== BUSINESS & FINANCE =====
+            "interest": {
+                "title": "Interest (Riba) - Islamic Jurisprudence",
+                "content": "Interest (riba) is strictly forbidden in Islam as it exploits the poor and creates economic injustice. Islamic finance operates without interest, using profit-sharing, leasing, and other halal alternatives. The Quran and hadith strongly condemn riba.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Business & Finance",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Forbidden (Haram)"
+            },
+            "business": {
+                "title": "Business Ethics - Islamic Jurisprudence",
+                "content": "Islamic business practices emphasize honesty, fairness, and avoiding deception. Contracts must be clear, goods must be as described, and prices must be fair. The Prophet Muhammad (PBUH) was a merchant and set high standards for business conduct.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Business & Finance",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Permissible (Halal) with conditions"
+            },
+            "insurance": {
+                "title": "Insurance - Islamic Jurisprudence",
+                "content": "Conventional insurance with uncertainty (gharar) and interest is not permitted. Islamic alternatives include takaful (cooperative insurance) where participants share risks and profits. The focus is on mutual assistance rather than profit.",
+                "source": "Islamic Fiqh - Contemporary Scholars",
+                "category": "Business & Finance",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Conventional insurance: Haram, Takaful: Halal"
+            },
+            
+            # ===== FOOD & DIETARY LAWS =====
+            "halal_food": {
+                "title": "Halal Food - Islamic Jurisprudence",
+                "content": "Halal food includes all permissible foods and excludes pork, blood, carrion, and animals not properly slaughtered. Animals must be slaughtered with Allah's name and proper Islamic methods. Alcohol and intoxicants are forbidden.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Food & Dietary",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Halal foods: Permissible, Haram foods: Forbidden"
+            },
+            "slaughtering": {
+                "title": "Animal Slaughtering (Dhabihah) - Islamic Jurisprudence",
+                "content": "Animals must be slaughtered by cutting the throat, windpipe, and blood vessels while reciting 'Bismillah Allahu Akbar.' The animal must be alive and healthy at the time of slaughter. This ensures humane treatment and halal meat.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Food & Dietary",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Required for halal meat consumption"
+            },
+            
+            # ===== MEDICAL & HEALTH =====
+            "medical_treatment": {
+                "title": "Medical Treatment - Islamic Jurisprudence",
+                "content": "Seeking medical treatment is encouraged in Islam. The Prophet Muhammad (PBUH) said: 'Seek treatment, for Allah has not created a disease without creating a cure for it.' However, treatments must not involve haram substances or methods.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Medical & Health",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Recommended (Mustahabb)"
+            },
+            "contraception": {
+                "title": "Contraception - Islamic Jurisprudence",
+                "content": "Temporary contraception is generally permitted in Islam when both spouses agree, as long as it doesn't cause harm. Permanent sterilization is discouraged unless medically necessary. The method must be safe and not involve haram substances.",
+                "source": "Islamic Fiqh - Contemporary Scholars",
+                "category": "Medical & Health",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Temporary: Permissible, Permanent: Discouraged"
+            },
+            
+            # ===== SOCIAL INTERACTIONS =====
+            "modesty": {
+                "title": "Modesty (Haya) - Islamic Jurisprudence",
+                "content": "Modesty is a fundamental Islamic value covering dress, behavior, and interactions. Both men and women must dress modestly and avoid immodest behavior. The Quran and hadith provide specific guidelines for appropriate dress and conduct.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Social Interactions",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Obligatory (Fard)"
+            },
+            "gender_interaction": {
+                "title": "Gender Interaction - Islamic Jurisprudence",
+                "content": "Islam promotes respectful and professional interactions between genders while maintaining appropriate boundaries. Business and educational interactions are permitted but must be conducted with modesty and respect for Islamic values.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Social Interactions",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Permissible (Halal) with conditions"
+            },
+            
+            # ===== TECHNOLOGY & MODERN ISSUES =====
+            "social_media": {
+                "title": "Social Media - Islamic Jurisprudence",
+                "content": "Social media use is permitted in Islam but must follow Islamic guidelines. Users should avoid spreading false information, engaging in gossip, or sharing inappropriate content. It should be used for beneficial purposes and maintaining Islamic values.",
+                "source": "Islamic Fiqh - Contemporary Scholars",
+                "category": "Technology & Modern Issues",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Permissible (Halal) with Islamic guidelines"
+            },
+            "artificial_intelligence": {
+                "title": "Artificial Intelligence - Islamic Jurisprudence",
+                "content": "AI technology is generally permissible in Islam when used for beneficial purposes and doesn't involve haram activities. However, AI-generated content must not violate Islamic principles, and users must ensure it doesn't replace human judgment in religious matters.",
+                "source": "Islamic Fiqh - Contemporary Scholars",
+                "category": "Technology & Modern Issues",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Permissible (Halal) for beneficial use"
+            },
+            
+            # ===== ENVIRONMENTAL ISSUES =====
+            "environmental_protection": {
+                "title": "Environmental Protection - Islamic Jurisprudence",
+                "content": "Protecting the environment is an Islamic duty. The Earth is a trust from Allah and should be cared for responsibly. Muslims are encouraged to avoid waste, plant trees, and protect natural resources. Environmental harm is considered sinful.",
+                "source": "Islamic Fiqh - Contemporary Scholars",
+                "category": "Environmental Issues",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Obligatory (Fard) to protect environment"
+            },
+            
+            # ===== CRIMINAL LAW =====
+            "theft": {
+                "title": "Theft - Islamic Jurisprudence",
+                "content": "Theft is a major sin in Islam with severe consequences. The Quran prescribes specific punishments for theft, but these are subject to strict conditions and evidence requirements. Prevention through education and social justice is emphasized.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Criminal Law",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Forbidden (Haram) with severe penalties"
+            },
+            "justice": {
+                "title": "Justice - Islamic Jurisprudence",
+                "content": "Justice is a fundamental Islamic principle that must be applied equally to all people regardless of race, ethnicity, or social status. The Quran emphasizes standing firm in justice even against one's own interests. Islamic courts must be fair and impartial.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Criminal Law",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Obligatory (Fard) to establish justice"
             }
         }
     
