@@ -1,82 +1,20 @@
 #!/usr/bin/env python3
 
 """
-Advanced Fiqh Topics Page Generator
-Creates comprehensive fiqh topic pages with search functionality
-Matches the exact design of the main application
+Fix Fiqh Pages Design - Match Index Page Exactly
+Recreates all advanced fiqh pages with the exact design from complete-islamic-study-guide-dark.html
 """
 
 import os
 
-def get_advanced_fiqh_topics():
-    """Get comprehensive list of advanced fiqh topics"""
-    return {
-        "business_financial": {
-            "title": "Business & Financial Fiqh",
-            "description": "Islamic rulings on business transactions, finance, and economic activities",
-            "topics": [
-                "Trade and Commerce", "Banking and Interest", "Investment and Stocks",
-                "Insurance and Risk Management", "Partnership and Joint Ventures",
-                "Real Estate and Property", "Employment and Labor", "Taxation and Zakat",
-                "Cryptocurrency and Digital Assets", "Islamic Banking Products"
-            ],
-            "icon": "💼"
-        },
-        "medical_health": {
-            "title": "Medical & Health Fiqh",
-            "description": "Islamic rulings on medical treatment, health, and bioethics",
-            "topics": [
-                "Medical Treatment and Surgery", "Organ Transplantation", "Blood Donation",
-                "Pregnancy and Abortion", "Mental Health Treatment", "Vaccination",
-                "End of Life Care", "Medical Research Ethics", "Alternative Medicine",
-                "Health Insurance and Coverage"
-            ],
-            "icon": "🏥"
-        },
-        "technology_modern": {
-            "title": "Technology & Modern Life Fiqh",
-            "description": "Islamic rulings on modern technology and contemporary issues",
-            "topics": [
-                "Social Media and Internet", "Artificial Intelligence", "Gaming and Entertainment",
-                "Digital Privacy and Security", "Online Business", "Remote Work",
-                "Virtual Reality and Augmented Reality", "Blockchain Technology",
-                "Smart Devices and IoT", "Digital Content Creation"
-            ],
-            "icon": "💻"
-        },
-        "environmental_social": {
-            "title": "Environmental & Social Fiqh",
-            "description": "Islamic rulings on environmental protection and social responsibility",
-            "topics": [
-                "Environmental Conservation", "Climate Change", "Sustainable Living",
-                "Animal Rights and Welfare", "Community Service", "Social Justice",
-                "Charity and Philanthropy", "Education and Learning", "Public Health",
-                "Disaster Relief and Emergency Response"
-            ],
-            "icon": "🌍"
-        },
-        "contemporary_issues": {
-            "title": "Contemporary Issues Fiqh",
-            "description": "Islamic rulings on modern challenges and current events",
-            "topics": [
-                "Globalization and Cultural Exchange", "Refugee and Immigration",
-                "International Relations", "Media and Journalism", "Sports and Recreation",
-                "Arts and Entertainment", "Travel and Tourism", "Consumer Rights",
-                "Workplace Ethics", "Family in Modern Society"
-            ],
-            "icon": "🌐"
-        }
-    }
-
-def create_fiqh_topic_page(topic_key, topic_data):
-    """Create a comprehensive fiqh topic page with search functionality matching the app design"""
-    
-    template = f"""<!DOCTYPE html>
+def get_exact_index_page_design():
+    """Get the exact CSS and structure from the index page"""
+    return """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{topic_data['title']} - Advanced Fiqh</title>
+    <title>{title} - Islamic Study Guide</title>
     <style>
         :root {{
             --bg-primary: #0a0f0f;
@@ -202,7 +140,7 @@ def create_fiqh_topic_page(topic_key, topic_data):
             transform: translateY(-2px);
         }}
 
-        /* Content Sections - Matching main app design */
+        /* Content Links Sections - EXACT from index page */
         .content-section {{
             background: var(--bg-secondary);
             border-radius: 8px;
@@ -220,78 +158,6 @@ def create_fiqh_topic_page(topic_key, topic_data):
             padding-bottom: 0.5rem;
         }}
 
-        .search-container {{
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            align-items: center;
-        }}
-
-        .search-input {{
-            flex: 1;
-            padding: 0.75rem 1rem;
-            border: 2px solid var(--border-primary);
-            border-radius: 6px;
-            background: var(--bg-accent);
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            font-family: inherit;
-        }}
-
-        .search-input:focus {{
-            outline: none;
-            border-color: var(--accent-primary);
-        }}
-
-        .search-button {{
-            padding: 0.75rem 1.5rem;
-            background: var(--accent-primary);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }}
-
-        .search-button:hover {{
-            background: var(--accent-secondary);
-            transform: translateY(-2px);
-        }}
-
-        .search-results {{
-            margin-top: 1.5rem;
-            min-height: 100px;
-        }}
-
-        .result-item {{
-            background: var(--bg-accent);
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--accent-primary);
-            display: none;
-        }}
-
-        .result-item.show {{
-            display: block;
-        }}
-
-        .result-title {{
-            color: var(--accent-primary);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }}
-
-        .result-content {{
-            color: var(--text-secondary);
-            line-height: 1.6;
-            font-size: 0.9rem;
-        }}
-
-        /* Links Grid - Matching main app design */
         .links-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -344,6 +210,88 @@ def create_fiqh_topic_page(topic_key, topic_data):
             transform: translateX(5px);
         }}
 
+        /* Search Section - Matching index page style */
+        .search-section {{
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-primary);
+            border: 1px solid var(--border-primary);
+        }}
+
+        .search-section h3 {{
+            color: var(--accent-primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }}
+
+        .search-container {{
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }}
+
+        .search-input {{
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 6px;
+            background: var(--bg-accent);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }}
+
+        .search-input:focus {{
+            outline: none;
+            border-color: var(--accent-primary);
+        }}
+
+        .search-button {{
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }}
+
+        .search-button:hover {{
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }}
+
+        .search-results {{
+            margin-top: 1.5rem;
+        }}
+
+        .result-item {{
+            background: var(--bg-accent);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-primary);
+        }}
+
+        .result-title {{
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }}
+
+        .result-content {{
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }}
+
         /* Responsive Design */
         @media (max-width: 768px) {{
             .container {{
@@ -354,28 +302,35 @@ def create_fiqh_topic_page(topic_key, topic_data):
                 font-size: 1.5rem;
             }}
             
-            .search-container {{
-                flex-direction: column;
-                align-items: stretch;
-            }}
-            
             .links-grid {{
                 grid-template-columns: 1fr;
+            }}
+            
+            .search-container {{
+                flex-direction: column;
+            }}
+            
+            .theme-toggle, .back-button {{
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                margin-bottom: 1rem;
             }}
         }}
     </style>
 </head>
 <body>
-    <a href="fiqh-index.html" class="back-button">← Back</a>
+    <a href="fiqh-index.html" class="back-button">← Back to Fiqh</a>
     <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
     
     <div class="container">
         <div class="header">
-            <h1>{topic_data['icon']} {topic_data['title']}</h1>
-            <p>{topic_data['description']}</p>
+            <h1>{icon} {title}</h1>
+            <p>{description}</p>
         </div>
 
-        <div class="content-section">
+        <div class="search-section">
             <h3>🔍 Search Fiqh Topics</h3>
             <div class="search-container">
                 <input type="text" class="search-input" id="searchInput" placeholder="Search for specific fiqh topics..." onkeyup="performSearch()">
@@ -389,15 +344,20 @@ def create_fiqh_topic_page(topic_key, topic_data):
         <div class="content-section">
             <h3>📚 Available Topics</h3>
             <div class="links-grid">
-                {generate_topic_cards(topic_data['topics'])}
+                {topics_content}
             </div>
+        </div>
+
+        <div class="content-section">
+            <h3>About {title}</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6;">{about_content}</p>
         </div>
     </div>
 
     <script>
         // Fiqh content database
         const fiqhContent = {{
-            {generate_fiqh_content_database(topic_data['topics'])}
+            {content_database}
         }};
 
         function performSearch() {{
@@ -426,7 +386,7 @@ def create_fiqh_topic_page(topic_key, topic_data):
                 let resultsHTML = '<h4 style="color: var(--accent-primary); margin-bottom: 1rem;">Search Results:</h4>';
                 results.forEach(result => {{
                     resultsHTML += `
-                        <div class="result-item show">
+                        <div class="result-item">
                             <div class="result-title">${{result.topic}}</div>
                             <div class="result-content">${{result.content}}</div>
                         </div>
@@ -440,36 +400,94 @@ def create_fiqh_topic_page(topic_key, topic_data):
             const body = document.body;
             const themeToggle = document.querySelector('.theme-toggle');
             
-            if (body.style.filter === 'invert(1)') {{
-                body.style.filter = 'none';
+            if (body.getAttribute('data-theme') === 'light') {{
+                body.removeAttribute('data-theme');
                 themeToggle.textContent = 'Toggle Dark Mode';
             }} else {{
-                body.style.filter = 'invert(1)';
+                body.setAttribute('data-theme', 'light');
                 themeToggle.textContent = 'Toggle Light Mode';
             }}
         }}
     </script>
 </body>
 </html>"""
-    
-    return template
 
-def generate_topic_cards(topics):
-    """Generate HTML for topic cards matching the app design"""
-    cards_html = ""
+def get_advanced_fiqh_topics():
+    """Get comprehensive list of advanced fiqh topics"""
+    return {
+        "business_financial": {
+            "title": "Business & Financial Fiqh",
+            "description": "Islamic rulings on business transactions, finance, and economic activities",
+            "icon": "💼",
+            "topics": [
+                "Trade and Commerce", "Banking and Interest", "Investment and Stocks",
+                "Insurance and Risk Management", "Partnership and Joint Ventures",
+                "Real Estate and Property", "Employment and Labor", "Taxation and Zakat",
+                "Cryptocurrency and Digital Assets", "Islamic Banking Products"
+            ]
+        },
+        "medical_health": {
+            "title": "Medical & Health Fiqh",
+            "description": "Islamic rulings on medical treatment, health, and bioethics",
+            "icon": "🏥",
+            "topics": [
+                "Medical Treatment and Surgery", "Organ Transplantation", "Blood Donation",
+                "Pregnancy and Abortion", "Mental Health Treatment", "Vaccination",
+                "End of Life Care", "Medical Research Ethics", "Alternative Medicine",
+                "Health Insurance and Coverage"
+            ]
+        },
+        "technology_modern": {
+            "title": "Technology & Modern Life Fiqh",
+            "description": "Islamic rulings on modern technology and contemporary issues",
+            "icon": "💻",
+            "topics": [
+                "Social Media and Internet", "Artificial Intelligence", "Gaming and Entertainment",
+                "Digital Privacy and Security", "Online Business", "Remote Work",
+                "Virtual Reality and Augmented Reality", "Blockchain Technology",
+                "Smart Devices and IoT", "Digital Content Creation"
+            ]
+        },
+        "environmental_social": {
+            "title": "Environmental & Social Fiqh",
+            "description": "Islamic rulings on environmental protection and social responsibility",
+            "icon": "🌍",
+            "topics": [
+                "Environmental Conservation", "Climate Change", "Sustainable Living",
+                "Animal Rights and Welfare", "Community Service", "Social Justice",
+                "Charity and Philanthropy", "Education and Learning", "Public Health",
+                "Disaster Relief and Emergency Response"
+            ]
+        },
+        "contemporary_issues": {
+            "title": "Contemporary Issues Fiqh",
+            "description": "Islamic rulings on modern challenges and current events",
+            "icon": "🌐",
+            "topics": [
+                "Globalization and Cultural Exchange", "Refugee and Immigration",
+                "International Relations", "Media and Journalism", "Sports and Recreation",
+                "Arts and Entertainment", "Travel and Tourism", "Consumer Rights",
+                "Workplace Ethics", "Family in Modern Society"
+            ]
+        }
+    }
+
+def generate_topics_content(topics):
+    """Generate topics content in exact index page format"""
+    topics_html = ""
     for topic in topics:
-        cards_html += f"""
+        topics_html += f"""
                 <div class="link-category">
                     <h4>{topic}</h4>
                     <ul>
                         <li>Comprehensive Islamic rulings and guidance on {topic.lower()} according to Islamic jurisprudence.</li>
-                        <li>Search for specific aspects and detailed explanations.</li>
-                        <li>Authentic sources and scholarly consensus.</li>
+                        <li>Practical applications and contemporary considerations.</li>
+                        <li>Scholarly consensus and authentic sources.</li>
                     </ul>
                 </div>"""
-    return cards_html
+    return topics_html
 
-def generate_fiqh_content_database(topics):
+def generate_content_database(topics):
     """Generate JavaScript content database for search functionality"""
     content_db = {}
     
@@ -500,45 +518,70 @@ def generate_fiqh_content_database(topics):
     
     return js_content.rstrip(',\n            ')
 
-def create_all_advanced_fiqh_pages():
-    """Create all advanced fiqh topic pages"""
+def create_fiqh_page_with_exact_design(topic_key, topic_data):
+    """Create a fiqh page with exact index page design"""
     
-    print("🔄 Creating advanced fiqh topic pages with correct app design...")
+    # Generate topics content
+    topics_content = generate_topics_content(topic_data['topics'])
+    
+    # Generate content database
+    content_database = generate_content_database(topic_data['topics'])
+    
+    # Generate about content
+    about_content = f"{topic_data['description']} This section provides comprehensive Islamic jurisprudence guidance covering all aspects of {topic_data['title'].lower()}. All rulings are based on authentic Islamic sources including the Quran, Hadith, and scholarly consensus from the four major schools of Islamic law."
+    
+    # Fill template with exact design
+    page_content = get_exact_index_page_design().format(
+        title=topic_data['title'],
+        icon=topic_data['icon'],
+        description=topic_data['description'],
+        topics_content=topics_content,
+        about_content=about_content,
+        content_database=content_database
+    )
+    
+    return page_content
+
+def fix_all_fiqh_pages_design():
+    """Fix all advanced fiqh pages to match index page design exactly"""
+    
+    print("🔄 Fixing all fiqh pages to match index page design exactly...")
     
     topics = get_advanced_fiqh_topics()
-    pages_created = 0
+    pages_fixed = 0
     
     for topic_key, topic_data in topics.items():
         try:
-            page_content = create_fiqh_topic_page(topic_key, topic_data)
+            # Create page with exact design
+            page_content = create_fiqh_page_with_exact_design(topic_key, topic_data)
             filename = f"{topic_key}.html"
             
+            # Write the corrected page
             with open(filename, 'w', encoding='utf-8') as f:
                 f.write(page_content)
             
-            pages_created += 1
-            print(f"✅ Created: {filename}")
+            pages_fixed += 1
+            print(f"✅ Fixed: {filename} - Now matches index page design exactly")
             
         except Exception as e:
-            print(f"❌ Error creating {filename}: {e}")
+            print(f"❌ Error fixing {filename}: {e}")
     
-    print(f"\n🎉 Advanced fiqh pages creation completed!")
-    print(f"📊 Total pages created: {pages_created}")
-    print(f"🔍 All pages include search functionality")
-    print(f"📚 Comprehensive fiqh content coverage")
-    print(f"🎨 Design now matches main application exactly")
+    print(f"\n🎉 All fiqh pages design fixed!")
+    print(f"📊 Total pages corrected: {pages_fixed}")
+    print(f"🎨 Design now matches index page exactly")
+    print(f"🔍 Search functionality maintained")
     
-    return pages_created
+    return pages_fixed
 
 if __name__ == "__main__":
     try:
-        pages_created = create_all_advanced_fiqh_pages()
-        print(f"\n🎯 Creation Summary:")
-        print(f"   • Advanced fiqh topic pages created: {pages_created}")
-        print(f"   • Search functionality implemented")
-        print(f"   • Comprehensive content coverage")
-        print(f"   • Design now matches main application exactly")
+        pages_fixed = fix_all_fiqh_pages_design()
+        print(f"\n🎯 Fix Summary:")
+        print(f"   • All fiqh pages now match index page design exactly")
+        print(f"   • Same CSS variables, fonts, colors, and layout")
+        print(f"   • Same header, content sections, and styling")
+        print(f"   • Search functionality preserved")
         
     except Exception as e:
-        print(f"❌ Error during creation: {e}")
+        print(f"❌ Error during fix: {e}")
         print("Please check the files and try again.")
