@@ -1,0 +1,394 @@
+{
+  "total_questions": 64,
+  "successful": 64,
+  "failed": 0,
+  "errors": [],
+  "start_time": "2025-08-30T02:02:31.740108",
+  "end_time": "2025-08-30T02:02:38.552014",
+  "question_details": [
+    {
+      "question": "Can I pray if I'm bleeding from a cut?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "What if I miss Fajr prayer?",
+      "response_length": 3039,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "How do I know which direction to pray?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "Can I pray in my work clothes?",
+      "response_length": 6391,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "What should I do if I forget how many rakats I prayed?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "Is it okay to pray with nail polish?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "Can I pray if I have makeup on?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "What if I'm traveling and can't find a clean place to pray?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "What if I accidentally eat during fasting?",
+      "response_length": 1093,
+      "source": "General Islamic Guidance",
+      "status": "success"
+    },
+    {
+      "question": "Can I take medicine while fasting?",
+      "response_length": 160,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "What if I forget I'm fasting and drink water?",
+      "response_length": 1093,
+      "source": "General Islamic Guidance",
+      "status": "success"
+    },
+    {
+      "question": "Do I need to make up missed fasts from last year?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "Can I brush my teeth while fasting?",
+      "response_length": 1093,
+      "source": "General Islamic Guidance",
+      "status": "success"
+    },
+    {
+      "question": "What if I'm sick during Ramadan?",
+      "response_length": 166,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "Is it okay to exercise while fasting?",
+      "response_length": 121,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "What if I break my fast early by mistake?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "How should I treat my non-Muslim family?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "What if my parents don't approve of my Islamic practices?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "Can I marry someone from a different culture?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "How do I explain Islam to my children?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "What if my spouse doesn't pray?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "How should I handle family conflicts?",
+      "response_length": 4281,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "Can I attend non-Muslim family celebrations?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "What if my family doesn't understand my hijab?",
+      "response_length": 217,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "How do I handle riba in my job?",
+      "response_length": 6391,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "Can I work in a bank?",
+      "response_length": 6391,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "What if my boss asks me to lie?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "How do I maintain Islamic values at work?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "Can I shake hands with the opposite gender?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "What if my company serves alcohol at events?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "How do I handle interest-based loans?",
+      "response_length": 248,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "Can I work on Fridays?",
+      "response_length": 6391,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "Is it okay to use social media?",
+      "response_length": 102,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "How do I deal with Islamophobia online?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "Can I listen to music?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "What if my friends drink alcohol?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "How do I maintain modesty in modern society?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "Can I watch movies and TV shows?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "How do I handle dating apps?",
+      "response_length": 4440,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "What if I'm invited to a party with alcohol?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "Can I get a tattoo for medical reasons?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "What if I need a blood transfusion?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "How do I handle medical procedures during Ramadan?",
+      "response_length": 166,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "Can I take birth control?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "What if I need surgery?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "How do I maintain health while fasting?",
+      "response_length": 237,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "Can I use pain medication?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "What if I'm pregnant during Ramadan?",
+      "response_length": 166,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "How do I study Islam while in school?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "Can I attend a non-Muslim university?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "What if my teacher says something against Islam?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "How do I handle exams during Ramadan?",
+      "response_length": 166,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "Can I study with the opposite gender?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "What if my school serves non-halal food?",
+      "response_length": 108,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "How do I balance Islamic studies with other subjects?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "Can I participate in school sports?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "How do I find a good mosque?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "What if there's no mosque in my area?",
+      "response_length": 623,
+      "source": "DeenBot Assistant",
+      "status": "success"
+    },
+    {
+      "question": "How do I deal with cultural differences in Islam?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "Can I participate in community events?",
+      "response_length": 208,
+      "source": "Enhanced Local Knowledge",
+      "status": "success"
+    },
+    {
+      "question": "What if my neighbors are Islamophobic?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "How do I help new Muslims?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "Can I volunteer at non-Muslim organizations?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    },
+    {
+      "question": "What if my community doesn't understand Islam?",
+      "response_length": 1161,
+      "source": "Comprehensive Islamic Knowledge Base",
+      "status": "success"
+    }
+  ]
+}
