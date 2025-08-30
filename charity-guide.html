@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity and Zakat Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .charity-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .charity-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .charity-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Charity and Zakat Guide</h1>
+            <p>Complete guide to Islamic charity, zakat obligations, and voluntary giving for spiritual growth</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Understanding Islamic Charity</h2>
+            <p>Charity in Islam is not just about giving money; it's about purifying wealth, helping others, and strengthening the community. It includes both obligatory charity (Zakat) and voluntary charity (Sadaqah).</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ</div>
+                <div class="translation">"Never will you attain the good [reward] until you spend [in the way of Allah] from that which you love." (Quran 3:92)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "Charity does not decrease wealth, no one forgives another except that Allah increases his honor, and no one humbles himself for the sake of Allah except that Allah raises his status." (Sahih Muslim)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Zakat (Obligatory Charity)</h2>
+            
+            <div class="charity-card">
+                <h4>What is Zakat?</h4>
+                <p>Zakat is the third pillar of Islam and is an annual charitable payment that purifies wealth and helps those in need. The word "zakat" means "purification" and "growth."</p>
+                
+                <h4>Conditions for Zakat</h4>
+                <ul>
+                    <li><strong>Nisab:</strong> Minimum amount of wealth required (varies by asset type)</li>
+                    <li><strong>Ownership:</strong> Complete ownership of the wealth</li>
+                    <li><strong>Time:</strong> One lunar year of ownership</li>
+                    <li><strong>Growth:</strong> Wealth that can grow or increase</li>
+                    <li><strong>Free from Debt:</strong> After deducting necessary debts</li>
+                </ul>
+            </div>
+
+            <div class="charity-card">
+                <h4>Zakat Rates by Asset Type</h4>
+                <ul>
+                    <li><strong>Gold and Silver:</strong> 2.5% of total value</li>
+                    <li><strong>Cash and Bank Deposits:</strong> 2.5% of total amount</li>
+                    <li><strong>Business Inventory:</strong> 2.5% of market value</li>
+                    <li><strong>Agricultural Products:</strong> 5-10% depending on irrigation method</li>
+                    <li><strong>Livestock:</strong> Varies by type and number</li>
+                    <li><strong>Investment Properties:</strong> 2.5% of rental income</li>
+                </ul>
+                
+                <div class="step-box">
+                    <h5>Nisab Values (Current)</h5>
+                    <p>Gold: Approximately 87.48 grams of pure gold<br>
+                    Silver: Approximately 612.36 grams of pure silver<br>
+                    Cash equivalent: Value of 87.48 grams of gold</p>
+                </div>
+            </div>
+
+            <div class="charity-card">
+                <h4>Eight Categories of Zakat Recipients</h4>
+                <ul>
+                    <li><strong>Fuqara (The Poor):</strong> Those who have some wealth but not enough to meet basic needs</li>
+                    <li><strong>Masakeen (The Needy):</strong> Those who have no wealth at all</li>
+                    <li><strong>Aamileen (Zakat Collectors):</strong> Those employed to collect and distribute zakat</li>
+                    <li><strong>Muallafatul Quloob (New Muslims):</strong> Those whose hearts are to be reconciled to Islam</li>
+                    <li><strong>Ar-Riqab (Slaves):</strong> Those seeking freedom from slavery</li>
+                    <li><strong>Al-Gharimeen (Debtors):</strong> Those in debt who cannot repay</li>
+                    <li><strong>Fi Sabeelillah (In Allah's Cause):</strong> Those fighting for Islam or working for Islamic causes</li>
+                    <li><strong>Ibnus Sabeel (Travelers):</strong> Travelers in need of assistance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Voluntary Charity (Sadaqah)</h2>
+            
+            <div class="charity-card">
+                <h4>Types of Sadaqah</h4>
+                <ul>
+                    <li><strong>Financial:</strong> Giving money to those in need</li>
+                    <li><strong>Material:</strong> Donating food, clothing, or other items</li>
+                    <li><strong>Service:</strong> Volunteering time and skills</li>
+                    <li><strong>Knowledge:</strong> Teaching others beneficial knowledge</li>
+                    <li><strong>Physical:</strong> Helping with physical tasks</li>
+                    <li><strong>Emotional:</strong> Providing comfort and support</li>
+                </ul>
+            </div>
+
+            <div class="charity-card">
+                <h4>Best Times for Sadaqah</h4>
+                <ul>
+                    <li><strong>Ramadan:</strong> Month of increased blessings</li>
+                    <li><strong>Laylat al-Qadr:</strong> Night of Power</li>
+                    <strong>Friday:</strong> Blessed day of the week</li>
+                    <li><strong>Before Prayer:</strong> When entering mosque</li>
+                    <li><strong>During Travel:</strong> When away from home</li>
+                    <li><strong>When Sick:</strong> During illness or recovery</li>
+                </ul>
+            </div>
+
+            <div class="charity-card">
+                <h4>Hidden Charity (Sadaqah Jariyah)</h4>
+                <p>Charity that continues to benefit people even after your death:</p>
+                <ul>
+                    <li><strong>Building Mosques:</strong> Places of worship</li>
+                    <li><strong>Schools and Libraries:</strong> Educational institutions</li>
+                    <li><strong>Wells and Water Projects:</strong> Providing clean water</li>
+                    <li><strong>Planting Trees:</strong> Environmental benefits</li>
+                    <li><strong>Teaching Knowledge:</strong> Sharing beneficial information</li>
+                    <li><strong>Writing Books:</strong> Creating lasting knowledge</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>How to Calculate Zakat</h2>
+            
+            <div class="charity-card">
+                <h4>Step-by-Step Calculation</h4>
+                <ol>
+                    <li><strong>List All Assets:</strong> Cash, gold, silver, investments, business inventory</li>
+                    <li><strong>Determine Nisab:</strong> Check if you meet the minimum threshold</li>
+                    <li><strong>Calculate Total Value:</strong> Sum up all qualifying assets</li>
+                    <li><strong>Deduct Debts:</strong> Subtract any outstanding debts</li>
+                    <li><strong>Apply Rate:</strong> Multiply by 2.5% (0.025)</li>
+                    <li><strong>Pay Zakat:</strong> Distribute to eligible recipients</li>
+                </ol>
+            </div>
+
+            <div class="charity-card">
+                <h4>Example Calculation</h4>
+                <div class="step-box">
+                    <h5>Sample Zakat Calculation</h5>
+                    <p><strong>Assets:</strong><br>
+                    Cash: $5,000<br>
+                    Gold Jewelry: $3,000<br>
+                    Business Inventory: $2,000<br>
+                    <strong>Total Assets:</strong> $10,000<br>
+                    <strong>Debts:</strong> $1,000<br>
+                    <strong>Net Wealth:</strong> $9,000<br>
+                    <strong>Zakat Due:</strong> $9,000 × 0.025 = $225</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>When to Pay Zakat</h2>
+            
+            <div class="charity-card">
+                <h4>Timing of Zakat Payment</h4>
+                <ul>
+                    <li><strong>Annual:</strong> Once per lunar year from when you first meet nisab</li>
+                    <li><strong>Ramadan:</strong> Many choose to pay during this blessed month</li>
+                    <li><strong>Immediate:</strong> Pay as soon as you're able</li>
+                    <li><strong>Installments:</strong> Can be paid in smaller amounts throughout the year</li>
+                </ul>
+            </div>
+
+            <div class="charity-card">
+                <h4>Zakat al-Fitr</h4>
+                <p>Special charity paid at the end of Ramadan:</p>
+                <ul>
+                    <li><strong>Amount:</strong> Approximately one meal's worth of food per family member</li>
+                    <li><strong>Timing:</strong> Before Eid al-Fitr prayer</li>
+                    <li><strong>Recipients:</strong> Poor and needy Muslims</li>
+                    <li><strong>Purpose:</strong> Purify fasting and help the poor celebrate Eid</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Modern Zakat Considerations</h2>
+            
+            <div class="charity-card">
+                <h4>Contemporary Assets</h4>
+                <ul>
+                    <li><strong>Retirement Accounts:</strong> 401(k), IRA, pension plans</li>
+                    <li><strong>Stocks and Bonds:</strong> Investment portfolios</li>
+                    <li><strong>Real Estate:</strong> Investment properties (not primary residence)</li>
+                    <li><strong>Cryptocurrency:</strong> Digital assets</li>
+                    <li><strong>Business Shares:</strong> Ownership in companies</li>
+                    <li><strong>Insurance Policies:</strong> Cash value policies</li>
+                </ul>
+            </div>
+
+            <div class="charity-card">
+                <h4>Zakat on Business</h4>
+                <ul>
+                    <li><strong>Inventory:</strong> 2.5% of market value</li>
+                    <li><strong>Cash Reserves:</strong> 2.5% of business cash</li>
+                    <li><strong>Accounts Receivable:</strong> 2.5% of collectible amounts</li>
+                    <li><strong>Equipment:</strong> Generally not subject to zakat</li>
+                    <li><strong>Buildings:</strong> Not subject to zakat</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Benefits and Virtues of Charity</h2>
+            
+            <div class="charity-card">
+                <h4>Spiritual Benefits</h4>
+                <ul>
+                    <li><strong>Purification:</strong> Cleanses wealth and soul</li>
+                    <li><strong>Protection:</strong> Protects from calamities</li>
+                    <li><strong>Blessings:</strong> Increases barakah in wealth</li>
+                    <li><strong>Forgiveness:</strong> Helps attain Allah's forgiveness</li>
+                    <li><strong>Paradise:</strong> Path to eternal success</li>
+                </ul>
+            </div>
+
+            <div class="charity-card">
+                <h4>Social Benefits</h4>
+                <ul>
+                    <li><strong>Community Support:</strong> Helps those in need</li>
+                    <li><strong>Economic Balance:</strong> Redistributes wealth fairly</li>
+                    <li><strong>Social Harmony:</strong> Reduces poverty and inequality</li>
+                    <li><strong>Education:</strong> Funds schools and learning</li>
+                    <li><strong>Healthcare:</strong> Provides medical assistance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Questions About Charity</h2>
+            
+            <div class="charity-card">
+                <h4>Frequently Asked Questions</h4>
+                
+                <h4>Can I give zakat to non-Muslims?</h4>
+                <p>Zakat is specifically for Muslims, but you can give voluntary charity (sadaqah) to non-Muslims.</p>
+                
+                <h4>What if I can't afford to pay zakat?</h4>
+                <p>If you don't meet the nisab threshold, zakat is not obligatory. Focus on voluntary charity instead.</p>
+                
+                <h4>Can I give zakat to family members?</h4>
+                <p>Generally no, as family members are your responsibility. However, you can give them voluntary charity.</p>
+                
+                <h4>How do I know if an organization is trustworthy?</h4>
+                <p>Research the organization, check their transparency, and ensure they follow Islamic principles.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
+                <li><a href="ramadan-guide.html">Ramadan and Fasting Guide</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="sunnah-practices.html">Sunnah Practices</a></li>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan and Fasting Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .ramadan-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .ramadan-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .ramadan-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Ramadan and Fasting Guide</h1>
+            <p>Complete guide to the blessed month of Ramadan, fasting rules, spiritual practices, and maximizing blessings</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Understanding Ramadan</h2>
+            <p>Ramadan is the ninth month of the Islamic lunar calendar and is considered the most blessed month of the year. It is the month in which the Quran was first revealed to Prophet Muhammad sallallahu alayhi wa sallam.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ وَبَيِّنَاتٍ مِّنَ الْهُدَىٰ وَالْفُرْقَانِ</div>
+                <div class="translation">"The month of Ramadan [is that] in which was revealed the Quran, a guidance for the people and clear proofs of guidance and criterion." (Quran 2:185)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "When Ramadan enters, the gates of Paradise are opened, the gates of Hell are closed, and the devils are chained." (Sahih Bukhari and Sahih Muslim)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Fasting Rules and Requirements</h2>
+            
+            <div class="ramadan-card">
+                <h4>Basic Fasting Requirements</h4>
+                <ul>
+                    <li><strong>Intention:</strong> Must have the intention to fast before Fajr</li>
+                    <li><strong>Timing:</strong> From dawn (Fajr) until sunset (Maghrib)</li>
+                    <li><strong>Abstinence:</strong> No food, drink, or marital relations</li>
+                    <li><strong>Behavior:</strong> Avoid bad behavior, speech, and actions</li>
+                    <li><strong>Duration:</strong> 29-30 days depending on lunar calendar</li>
+                </ul>
+            </div>
+
+            <div class="ramadan-card">
+                <h4>What Breaks the Fast</h4>
+                <ul>
+                    <li><strong>Eating/Drinking:</strong> Any food or liquid consumed intentionally</li>
+                    <li><strong>Marital Relations:</strong> Sexual intercourse during fasting hours</li>
+                    <li><strong>Vomiting:</strong> Intentional vomiting</li>
+                    <li><strong>Menstruation:</strong> For women (fasting becomes invalid)</li>
+                    <li><strong>Loss of Consciousness:</strong> Fainting or becoming unconscious</li>
+                </ul>
+            </div>
+
+            <div class="ramadan-card">
+                <h4>What Does Not Break the Fast</h4>
+                <ul>
+                    <li><strong>Unintentional Eating:</strong> Forgetting you're fasting</li>
+                    <li><strong>Swallowing Saliva:</strong> Your own saliva</li>
+                    <li><strong>Brushing Teeth:</strong> Without swallowing toothpaste</li>
+                    <li><strong>Eye Drops:</strong> Medical eye drops</li>
+                    <li><strong>Injections:</strong> Medical injections (non-nutritional)</li>
+                    <li><strong>Blood Tests:</strong> Medical blood drawing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Daily Ramadan Schedule</h2>
+            
+            <div class="ramadan-card">
+                <h4>Pre-Dawn (Suhoor)</h4>
+                <p>The pre-dawn meal that provides energy for the day:</p>
+                <ul>
+                    <li><strong>Timing:</strong> Eat before Fajr prayer</li>
+                    <li><strong>Foods:</strong> Complex carbohydrates, proteins, healthy fats</li>
+                    <li><strong>Hydration:</strong> Drink plenty of water</li>
+                    <li><strong>Dua:</strong> Make dua for acceptance of fasting</li>
+                </ul>
+                <div class="step-box">
+                    <h5>Prophetic Guidance</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "Eat suhoor, for indeed there is blessing in suhoor." (Sahih Bukhari)</p>
+                </div>
+            </div>
+
+            <div class="ramadan-card">
+                <h4>During the Day</h4>
+                <p>Maximize your time during fasting hours:</p>
+                <ul>
+                    <li><strong>Prayer:</strong> Perform all obligatory prayers on time</li>
+                    <li><strong>Quran Recitation:</strong> Read and reflect on the Quran</li>
+                    <li><strong>Dhikr:</strong> Remember Allah throughout the day</li>
+                    <li><strong>Charity:</strong> Give in charity when possible</li>
+                    <li><strong>Good Deeds:</strong> Perform acts of kindness</li>
+                    <li><strong>Rest:</strong> Take short naps if needed</li>
+                </ul>
+            </div>
+
+            <div class="ramadan-card">
+                <h4>Breaking the Fast (Iftar)</h4>
+                <p>The meal to break your fast at sunset:</p>
+                <ul>
+                    <li><strong>Timing:</strong> Break fast immediately at Maghrib</li>
+                    <li><strong>Method:</strong> Break with dates and water (Sunnah)</li>
+                    <li><strong>Dua:</strong> Recite the dua for breaking fast</li>
+                    <li><strong>Moderation:</strong> Don't overeat</li>
+                </ul>
+                <div class="step-box">
+                    <h5>Breaking Fast Dua</h5>
+                    <div class="arabic-text">ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ</div>
+                    <div class="translation">"The thirst is gone, the veins are moistened, and the reward is confirmed, if Allah wills."</div>
+                </div>
+            </div>
+
+            <div class="ramadan-card">
+                <h4>Evening Activities</h4>
+                <p>Make the most of your evenings:</p>
+                <ul>
+                    <li><strong>Taraweeh:</strong> Attend night prayers at the mosque</li>
+                    <li><strong>Quran Study:</strong> Study and reflect on Quranic verses</li>
+                    <li><strong>Family Time:</strong> Spend quality time with family</li>
+                    <li><strong>Dua:</strong> Make personal supplications</li>
+                    <li><strong>Preparation:</strong> Prepare for the next day's fast</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Spiritual Practices in Ramadan</h2>
+            
+            <div class="ramadan-card">
+                <h4>Quran Recitation</h4>
+                <p>Ramadan is the month of the Quran:</p>
+                <ul>
+                    <li><strong>Daily Reading:</strong> Aim to read at least one juz per day</li>
+                    <li><strong>Understanding:</strong> Read with translation and tafsir</li>
+                    <li><strong>Memorization:</strong> Work on memorizing new verses</li>
+                    <li><strong>Reflection:</strong> Contemplate the meanings</li>
+                    <li><strong>Recitation:</strong> Practice proper tajweed</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Prophetic Practice</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam would review the entire Quran with Jibreel during Ramadan.</p>
+                </div>
+            </div>
+
+            <div class="ramadan-card">
+                <h4>Night Prayers (Taraweeh)</h4>
+                <p>Special night prayers during Ramadan:</p>
+                <ul>
+                    <li><strong>Timing:</strong> After Isha prayer</li>
+                    <li><strong>Duration:</strong> Usually 8-20 rak'ahs</li>
+                    <li><strong>Benefits:</strong> Additional rewards and blessings</li>
+                    <li><strong>Community:</strong> Pray with family or at mosque</li>
+                    <li><strong>Consistency:</strong> Try to attend regularly</li>
+                </ul>
+            </div>
+
+            <div class="ramadan-card">
+                <h4>Laylat al-Qadr (Night of Power)</h4>
+                <p>The most blessed night of the year:</p>
+                <ul>
+                    <li><strong>Timing:</strong> Usually in the last 10 nights of Ramadan</li>
+                    <li><strong>Significance:</strong> Better than 1000 months of worship</li>
+                    <li><strong>Activities:</strong> Increase in prayer, dua, and Quran recitation</li>
+                    <li><strong>Seeking:</strong> Look for signs of this special night</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ</div>
+                    <div class="translation">"The Night of Decree is better than a thousand months." (Quran 97:3)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Exemptions from Fasting</h2>
+            
+            <div class="ramadan-card">
+                <h4>Valid Excuses</h4>
+                <ul>
+                    <li><strong>Illness:</strong> When fasting would harm your health</li>
+                    <li><strong>Travel:</strong> When traveling long distances</li>
+                    <li><strong>Pregnancy:</strong> When it affects mother or child</li>
+                    <li><strong>Nursing:</strong> When it affects milk production</li>
+                    <li><strong>Old Age:</strong> When physically unable to fast</li>
+                    <li><strong>Menstruation:</strong> For women during their period</li>
+                </ul>
+            </div>
+
+            <div class="ramadan-card">
+                <h4>Making Up Missed Fasts</h4>
+                <p>If you miss fasts, you must make them up:</p>
+                <ul>
+                    <li><strong>Timing:</strong> Make up before next Ramadan</li>
+                    <li><strong>Method:</strong> Fast the same number of days missed</li>
+                    <li><strong>Fidyah:</strong> Feed a poor person for each missed day if unable to fast</li>
+                    <li><strong>Intention:</strong> Make intention for making up fasts</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Health and Nutrition</h2>
+            
+            <div class="ramadan-card">
+                <h4>Healthy Eating During Ramadan</h4>
+                <ul>
+                    <li><strong>Suhoor:</strong> Complex carbs, proteins, healthy fats</li>
+                    <li><strong>Iftar:</strong> Start with dates and water, then balanced meal</li>
+                    <li><strong>Hydration:</strong> Drink plenty of water between iftar and suhoor</li>
+                    <li><strong>Moderation:</strong> Don't overeat at iftar</li>
+                    <li><strong>Nutrients:</strong> Include fruits, vegetables, and whole grains</li>
+                </ul>
+            </div>
+
+            <div class="ramadan-card">
+                <h4>Managing Common Issues</h4>
+                <ul>
+                    <li><strong>Dehydration:</strong> Drink water gradually, not all at once</li>
+                    <li><strong>Headaches:</strong> Often due to dehydration or caffeine withdrawal</li>
+                    <li><strong>Low Energy:</strong> Ensure adequate sleep and nutrition</li>
+                    <li><strong>Digestive Issues:</strong> Eat slowly and avoid heavy foods</li>
+                    <li><strong>Sleep:</strong> Maintain regular sleep schedule</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Benefits and Virtues of Ramadan</h2>
+            
+            <div class="ramadan-card">
+                <h4>Spiritual Benefits</h4>
+                <ul>
+                    <li><strong>Purification:</strong> Cleanses the soul from sins</li>
+                    <li><strong>Self-Control:</strong> Develops willpower and discipline</li>
+                    <li><strong>Empathy:</strong> Understands the plight of the poor</li>
+                    <li><strong>Gratitude:</strong> Appreciates Allah's blessings</li>
+                    <li><strong>Connection:</strong> Strengthens relationship with Allah</li>
+                </ul>
+            </div>
+
+            <div class="ramadan-card">
+                <h4>Physical Benefits</h4>
+                <ul>
+                    <li><strong>Detoxification:</strong> Gives digestive system a break</li>
+                    <li><strong>Weight Management:</strong> Can help with weight control</li>
+                    <li><strong>Mental Clarity:</strong> Improves focus and concentration</li>
+                    <li><strong>Immune System:</strong> May boost immune function</li>
+                    <li><strong>Metabolism:</strong> Can improve metabolic health</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="quran-guide.html">Quran Study Guide</a></li>
+                <li><a href="charity-guide.html">Charity and Zakat Guide</a></li>
+                <li><a href="sunnah-practices.html">Sunnah Practices</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>
