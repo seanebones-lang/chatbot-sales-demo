@@ -171,49 +171,49 @@ class ComprehensiveIslamicKnowledge:
                         "arabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
                         "transliteration": "Bismillahi ar-Rahmani ar-Raheem",
                         "translation": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
-                        "context": "The opening verse of the Quran, invoking Allah's names of mercy."
+                        "tafsir": "This verse, known as the Basmalah, is the opening of the Quran and is recited at the beginning of every Surah except At-Tawbah. It teaches us to begin all our actions in the name of Allah, acknowledging His mercy and seeking His blessings. The two names of mercy (Ar-Rahman and Ar-Raheem) emphasize Allah's comprehensive and continuous mercy."
                     },
                     {
                         "ayah": 2,
                         "arabic": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
                         "transliteration": "Al-hamdu lillahi rabbi al-'alameen",
                         "translation": "[All] praise is [due] to Allah, Lord of the worlds.",
-                        "context": "Praising Allah as the Lord and Creator of all creation."
+                        "tafsir": "This verse establishes the fundamental principle of praising Allah alone. 'Al-hamdu' means all praise, 'lillahi' means belongs to Allah, and 'rabb al-alameen' means Lord of all worlds. This teaches us that Allah is the only one worthy of praise and that He is the Lord and Sustainer of all creation - humans, jinn, angels, and all other beings."
                     },
                     {
                         "ayah": 3,
                         "arabic": "الرَّحْمَٰنِ الرَّحِيمِ",
                         "transliteration": "Ar-Rahmani ar-Raheem",
                         "translation": "The Entirely Merciful, the Especially Merciful.",
-                        "context": "Emphasizing Allah's attributes of mercy and compassion."
+                        "tafsir": "This verse emphasizes Allah's two primary attributes of mercy. 'Ar-Rahman' refers to Allah's universal mercy that encompasses all creation, while 'Ar-Raheem' refers to His special mercy for believers. This teaches us that Allah's mercy is both comprehensive and specific, covering all aspects of existence and providing special care for those who believe in Him."
                     },
                     {
                         "ayah": 4,
                         "arabic": "مَالِكِ يَوْمِ الدِّينِ",
                         "transliteration": "Maliki yawmi ad-deen",
                         "translation": "Sovereign of the Day of Recompense.",
-                        "context": "Acknowledging Allah's sovereignty on the Day of Judgment."
+                        "tafsir": "This verse establishes Allah's complete authority over the Day of Judgment. 'Malik' means owner and sovereign, 'yawmi' means day, and 'ad-deen' means the recompense or judgment. This teaches us that Allah alone has the power to judge, reward, and punish on the Day of Judgment, and that we will be accountable to Him for all our actions."
                     },
                     {
                         "ayah": 5,
                         "arabic": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
                         "transliteration": "Iyyaka na'budu wa iyyaka nasta'een",
                         "translation": "It is You we worship and You we ask for help.",
-                        "context": "Declaring exclusive worship and seeking help from Allah alone."
+                        "tafsir": "This verse establishes the principle of exclusive worship and seeking help from Allah alone. 'Iyyaka' means 'You alone', 'na'budu' means 'we worship', and 'nasta'een' means 'we seek help'. This teaches us that worship and seeking assistance should be directed exclusively to Allah, establishing the foundation of monotheism (Tawheed) in Islam."
                     },
                     {
                         "ayah": 6,
                         "arabic": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
                         "transliteration": "Ihdina as-sirata al-mustaqeem",
                         "translation": "Guide us to the straight path.",
-                        "context": "Seeking guidance to the correct path of Islam."
+                        "tafsir": "This verse is a supplication for guidance. 'Ihdina' means 'guide us', 'as-sirata' means 'the path', and 'al-mustaqeem' means 'the straight'. This teaches us to constantly seek Allah's guidance to the straight path of Islam, acknowledging that without His help, we cannot find the correct way. It emphasizes the importance of seeking divine guidance in all matters."
                     },
                     {
                         "ayah": 7,
                         "arabic": "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
                         "transliteration": "Sirata alladheena an'amta 'alayhim ghayri al-maghdoobi 'alayhim wa la ad-daalleen",
                         "translation": "The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.",
-                        "context": "Seeking the path of the blessed, avoiding the path of those who earned Allah's anger or went astray."
+                        "tafsir": "This verse defines the straight path we seek. 'Alladheena an'amta alayhim' refers to those whom Allah has blessed (prophets, righteous people, martyrs). 'Al-maghdoobi alayhim' refers to those who earned Allah's anger (like the Jews who knew the truth but rejected it). 'Ad-daalleen' refers to those who went astray (like the Christians who followed false beliefs). This teaches us to follow the path of the blessed and avoid the paths of those who earned divine displeasure."
                     }
                 ],
                 "summary": "Al-Fatiha is the opening chapter of the Quran, consisting of 7 verses. It is recited in every prayer and contains the essence of Islamic belief: praising Allah, seeking His guidance, and asking for the straight path."
@@ -234,28 +234,28 @@ class ComprehensiveIslamicKnowledge:
                         "arabic": "الٓمٓ",
                         "transliteration": "Alif-Lam-Meem",
                         "translation": "Alif, Lam, Meem.",
-                        "context": "These are the opening letters of the surah, known as the muqatta'at."
+                        "tafsir": "These are the opening letters of the surah, known as the muqatta'at (disjointed letters). These letters appear at the beginning of 29 Surahs in the Quran. Their exact meaning is known only to Allah, but they serve as a reminder that the Quran is a miraculous revelation that cannot be replicated by humans. Scholars suggest they may indicate the divine origin of the Quran and challenge those who doubt its authenticity."
                     },
                     {
                         "ayah": 2,
                         "arabic": "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ",
                         "transliteration": "Dhalika al-kitabu la rayba feehi huda lil-muttaqeen",
                         "translation": "This is the Book about which there is no doubt, a guidance for those conscious of Allah.",
-                        "context": "Establishing the Quran as the divine book of guidance for the God-conscious."
+                        "tafsir": "This verse establishes the fundamental nature of the Quran. 'Dhalika al-kitab' means 'This is the Book', 'la rayba feehi' means 'there is no doubt in it', and 'huda lil-muttaqeen' means 'guidance for the God-conscious'. This teaches us that the Quran is the definitive divine revelation, free from any doubt or error, and serves as guidance specifically for those who have taqwa (God-consciousness and piety)."
                     },
                     {
                         "ayah": 255,
                         "arabic": "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۚ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
                         "transliteration": "Allahu la ilaha illa huwal-hayyul-qayyoom. La ta'khudhuhu sinatuw-wa la nawm. Lahu ma fis-samawati wa ma fil-ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih. Ya'lamu ma bayna aydeehim wa ma khalfahum. Wa la yuhituna bi-shay'in min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-ard. Wa la ya'ooduhu hifdhuhuma. Wa huwal-'aliyyul-'adheem",
                         "translation": "Allah - there is no deity except Him, the Ever-Living, the Self-Sustaining. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
-                        "context": "Ayat Al-Kursi, one of the most powerful verses describing Allah's attributes and sovereignty."
+                        "tafsir": "Ayat Al-Kursi (The Throne Verse) is one of the most powerful and comprehensive verses in the Quran. It describes Allah's absolute attributes: His oneness, eternal life, self-sustaining nature, omniscience, and omnipotence. The verse emphasizes that Allah never sleeps or tires, knows everything past and future, and that His knowledge encompasses all creation. It teaches us about Allah's supreme authority and the futility of seeking intercession without His permission."
                     },
                     {
                         "ayah": 286,
                         "arabic": "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
                         "transliteration": "La yukallifullahu nafsan illa wus'aha. Laha ma kasabat wa 'alayha ma iktasabat. Rabbana la tu'akhidhna in naseena aw akhta'na. Rabbana wa la tahmil 'alayna isran kama hamaltahu 'alalladheena min qablina. Rabbana wa la tuhammilna ma la taqata lana bih. Wa'fu 'anna waghfir lana warhamna. Anta mawlana fansurna 'alal-qawmil-kafireen",
                         "translation": "Allah does not charge a soul except [with that within] its capacity. It will have [the consequence of] what [good] it has gained, and it will bear [the consequence of] what [evil] it has earned. 'Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, and lay not upon us a burden like that which You laid upon those before us. Our Lord, and burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people.'",
-                        "context": "The final verse of Al-Baqarah, containing a comprehensive dua (supplication) for forgiveness and help."
+                        "tafsir": "This is the final verse of Al-Baqarah, containing a comprehensive dua (supplication) that covers all aspects of human needs. It teaches us about Allah's justice (not burdening us beyond our capacity), seeking forgiveness for forgetfulness and mistakes, asking for protection from excessive burdens, and seeking Allah's mercy and victory. This verse serves as a model for comprehensive supplication and teaches us to turn to Allah for all our needs."
                     }
                 ],
                 "summary": "Al-Baqarah is the longest chapter of the Quran with 286 verses. It covers various topics including faith, law, stories of previous prophets, and practical guidance for Muslims. It contains Ayat Al-Kursi (verse 255), one of the most powerful verses in the Quran."
@@ -276,14 +276,14 @@ class ComprehensiveIslamicKnowledge:
                         "arabic": "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ",
                         "transliteration": "Rabbana la tuzigh quloobana ba'da idh hadaytana wa hab lana min ladunka rahmah. Innaka antal-wahhab",
                         "translation": "Our Lord, let not our hearts deviate after You have guided us and grant us from Yourself mercy. Indeed, You are the Bestower.",
-                        "context": "A dua for steadfastness in faith and seeking Allah's mercy."
+                        "tafsir": "This verse is a beautiful dua (supplication) that teaches us to seek Allah's help in maintaining our faith. 'La tuzigh quloobana' means 'do not let our hearts deviate', 'ba'da idh hadaytana' means 'after You have guided us', and 'hab lana min ladunka rahmah' means 'grant us from Yourself mercy'. This teaches us to constantly seek Allah's help to remain steadfast in faith and to recognize that guidance and mercy come only from Him."
                     },
                     {
                         "ayah": 134,
                         "arabic": "الَّذِينَ يُنفِقُونَ فِي السَّرَّاءِ وَالضَّرَّاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ ۗ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ",
                         "transliteration": "Alladheena yunfiqoona fis-sarra'i wad-darra'i wal-kaadhiminal-ghaytha wal-'afina 'anin-naas. Wallahu yuhibbul-muhsineen",
                         "translation": "Who spend [in the cause of Allah] during ease and hardship and who restrain anger and who pardon the people. And Allah loves the doers of good.",
-                        "context": "Describing the characteristics of the righteous, including controlling anger and forgiving others."
+                        "tafsir": "This verse describes the characteristics of the righteous believers. 'Yunfiqoona fis-sarra'i wad-darra'i' means they spend in charity during both ease and hardship, 'kaadhiminal-ghaytha' means they restrain their anger, and 'afina anin-naas' means they pardon people. This teaches us that true righteousness involves generosity in all circumstances, self-control over emotions, and forgiveness towards others - qualities that Allah loves."
                     }
                 ],
                 "summary": "Aal-Imran discusses the family of Imran, including Maryam (Mary) and Isa (Jesus), and emphasizes the importance of faith, knowledge, and good character."
@@ -304,14 +304,14 @@ class ComprehensiveIslamicKnowledge:
                         "arabic": "يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُم مِّن نَّفْسٍۢ وَٰحِدَةٍۢ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًۭا كَثِيرًۭا وَنِسَآءًۭ ۚ وَٱتَّقُوا۟ ٱللَّهَ ٱلَّذِى تَسَآءَلُونَ بِهِۦ وَٱلْأَرْحَامَ ۚ إِنَّ ٱللَّهَ كَانَ عَلَيْكُمْ رَقِيبًۭا",
                         "transliteration": "Ya ayyuha an-nasuttaqoo rabbakum alladhi khalaqakum min nafsin wahidatin wa khalaqa minha zawjaha wa baththa minhuma rijalan katheeran wa nisaa. Wattaqullaha alladhi tasaaloona bihi wal-arham. Inna Allaha kana 'alaykum raqeeba",
                         "translation": "O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women. And fear Allah, through whom you ask one another, and the wombs. Indeed Allah is ever, over you, an Observer.",
-                        "context": "This verse emphasizes the unity of humanity and the importance of fearing Allah and maintaining family ties."
+                        "tafsir": "This verse establishes the fundamental unity of humanity. 'Khalaqakum min nafsin wahidatin' means 'created you from one soul', emphasizing that all humans share the same origin. 'Wa khalaqa minha zawjaha' means 'and created from it its mate', referring to the creation of Adam and Eve. This teaches us about human equality, the sanctity of family relationships, and the importance of maintaining family ties while fearing Allah."
                     },
                     {
                         "ayah": 103,
                         "arabic": "فَإِذَا قَضَيْتُمُ ٱلصَّلَوٰةَ فَٱذْكُرُوا۟ ٱللَّهَ قِيَٰمًۭا وَقُعُودًۭا وَعَلَىٰ جُنُوبِكُمْ ۚ فَإِذَا ٱطْمَأَنَّنتُمْ فَأَقِيمُوا۟ ٱلصَّلَوٰةَ ۚ إِنَّ ٱلصَّلَوٰةَ كَانَتْ عَلَى ٱلْمُؤْمِنِينَ كِتَابًۭا مَّوْقُوتًۭا",
                         "transliteration": "Fa-itha qadaytumus-salaata fadhkuroo Allaha qiyaman wa qu'oodan wa 'ala junoobikum. Fa-itha tma'annantum fa-aqeemus-salaah. Innas-salaata kaanat 'alal-mu'mineena kitaaban mawqoota",
                         "translation": "And when you have completed the prayer, remember Allah standing, sitting, or [lying] on your sides. But when you become secure, re-establish [regular] prayer. Indeed, prayer has been decreed upon the believers a [decreed] portion of time.",
-                        "context": "This verse establishes prayer as an obligatory act of worship with specific timings for believers."
+                        "tafsir": "This verse establishes the fundamental importance of prayer in Islam. 'Qadaytumus-salaata' means 'when you have completed the prayer', 'fadhkuroo Allaha' means 'remember Allah', and 'kitaaban mawqoota' means 'a decreed portion of time'. This teaches us that prayer is obligatory with specific timings, and that we should remember Allah in all positions (standing, sitting, lying down). The verse emphasizes the structured nature of Islamic worship."
                     }
                 ],
                 "summary": "An-Nisa deals with women's rights, family law, inheritance, and social justice. It emphasizes the importance of prayer and maintaining family relationships."
@@ -332,7 +332,7 @@ class ComprehensiveIslamicKnowledge:
                         "arabic": "مِنْ أَجْلِ ذَٰلِكَ كَتَبْنَا عَلَىٰ بَنِىٓ إِسْرَٰٓءِيلَ أَنَّهُۥ مَن قَتَلَ نَفْسًۢا بِغَيْرِ نَفْسٍ أَوْ فَسَادٍۢ فِى ٱلْأَرْضِ فَكَأَنَّمَا قَتَلَ ٱلنَّاسَ جَمِيعًۭا وَمَنْ أَحْيَاهَا فَكَأَنَّمَا أَحْيَا ٱلنَّاسَ جَمِيعًۭا ۚ وَلَقَدْ جَآءَتْهُمْ رُسُلُنَا بِٱلْبَيِّنَٰتِ ثُمَّ إِنَّ كَثِيرًۭا مِّنْهُم بَعْدَ ذَٰلِكَ فِى ٱلْأَرْضِ لَمُسْرِفُونَ",
                         "transliteration": "Min ajli dhalika katabna 'ala banee Isra'eela annahu man qatala nafsan bighayri nafsin aw fasaadin fil-ardi faka-annama qatalan-nasa jamee'a. Wa man ahyaaha faka-annama ahyaan-nasa jamee'a. Wa laqad ja'at-hum rusuluna bil-bayyinaati thumma inna katheeran minhum ba'da dhalika fil-ardi lamusrifoon",
                         "translation": "Because of that, We decreed upon the Children of Israel that whoever kills a soul unless for a soul or for corruption [done] in the land - it is as if he had slain mankind entirely. And whoever saves one - it is as if he had saved mankind entirely. And our messengers had certainly come to them with clear proofs. Then indeed many of them, [even] after that, throughout the land, were transgressors.",
-                        "context": "This verse emphasizes the sanctity of human life and the principle that saving one life is like saving all of humanity."
+                        "tafsir": "This verse establishes the fundamental sanctity of human life in Islam. 'Man qatala nafsan' means 'whoever kills a soul', 'bighayri nafsin' means 'without a soul (justification)', and 'faka-annama qatalan-nasa jamee'a' means 'it is as if he had slain all of humanity'. This teaches us that taking an innocent life is equivalent to killing all of humanity, emphasizing the gravity of murder. Conversely, saving one life is like saving all of humanity, highlighting the value of preserving life."
                     }
                 ],
                 "summary": "Al-Ma'idah contains important legal rulings, dietary laws, and ethical principles. It emphasizes the sanctity of human life and proper conduct."
@@ -773,7 +773,7 @@ class ComprehensiveIslamicKnowledge:
             elif quran_result['type'] == 'quran_verse':
                 results.append({
                     'title': f"Quran {quran_result['surah_number']}:{quran_result['ayah']} - {quran_result['surah_name']}",
-                    'content': f"{quran_result['translation']} - {quran_result['context']}",
+                    'content': f"{quran_result['translation']} - {quran_result['tafsir']}",
                     'source': quran_result['source'],
                     'relevance': quran_result['relevance'],
                     'type': 'quran_verse',
@@ -879,7 +879,7 @@ class ComprehensiveIslamicKnowledge:
         
         # Check context
         if 'context' in verse:
-            context_lower = verse['context'].lower()
+            context_lower = verse['tafsir'].lower()
             for word in query.split():
                 if word in context_lower:
                     score += 0.2
@@ -1051,7 +1051,7 @@ class ComprehensiveIslamicKnowledge:
                 if relevance > 0.05:  # Very low threshold
                     results.append({
                         'title': f"Quran {verse['source']}",
-                        'content': f"{verse['translation']} - {verse['context']}",
+                        'content': f"{verse['translation']} - {verse['tafsir']}",
                         'source': verse['source'],
                         'relevance': relevance,
                         'type': 'quran',
@@ -1277,7 +1277,7 @@ class ComprehensiveIslamicKnowledge:
             if quran_result['type'] == 'quran_verse':
                 results.append({
                     'title': f"Quran {quran_result['surah_number']}:{quran_result['ayah']} - {quran_result['surah_name']}",
-                    'content': f"{quran_result['translation']} - {quran_result['context']}",
+                    'content': f"{quran_result['translation']} - {quran_result['tafsir']}",
                     'source': quran_result['source'],
                     'relevance': quran_result['relevance'],
                     'type': 'quran',
@@ -1388,7 +1388,7 @@ class ComprehensiveIslamicKnowledge:
             # Search in individual verses
             verses_data = surah_data.get('verses_data', [])
             for verse in verses_data:
-                verse_text = f"{verse.get('translation', '')} {verse.get('transliteration', '')}".lower()
+                verse_text = f"{verse.get('translation', '')} {verse.get('transliteration', '')} {verse.get('tafsir', '')}".lower()
                 
                 if query_lower in verse_text:
                     results.append({
@@ -1400,7 +1400,7 @@ class ComprehensiveIslamicKnowledge:
                         'arabic': verse.get('arabic'),
                         'transliteration': verse.get('transliteration'),
                         'translation': verse.get('translation'),
-                        'context': verse.get('context'),
+                        'tafsir': verse.get('tafsir'),
                         'relevance': 0.8,
                         'source': f"Quran {surah_data.get('surah_number')}:{verse.get('ayah')} - {surah_data.get('surah_name')}"
                     })
@@ -1438,7 +1438,7 @@ class ComprehensiveIslamicKnowledge:
         for surah_key, surah_data in self.quran_database.items():
             verses_data = surah_data.get('verses_data', [])
             for verse in verses_data:
-                verse_text = f"{verse.get('translation', '')} {verse.get('context', '')}".lower()
+                verse_text = f"{verse.get('translation', '')} {verse.get('tafsir', '')}".lower()
                 
                 # Check if verse relates to any matching topic
                 for matching_topic in matching_topics:
@@ -1452,7 +1452,7 @@ class ComprehensiveIslamicKnowledge:
                             'arabic': verse.get('arabic'),
                             'transliteration': verse.get('transliteration'),
                             'translation': verse.get('translation'),
-                            'context': verse.get('context'),
+                            'tafsir': verse.get('tafsir'),
                             'topic': matching_topic,
                             'relevance': 0.9,
                             'source': f"Quran {surah_data.get('surah_number')}:{verse.get('ayah')} - {surah_data.get('surah_name')}"
