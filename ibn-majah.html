@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ibn Majah - Complete Islamic Study Guide</title>
+    <title>Sunan Ibn Majah - Complete Islamic Study Guide</title>
     <style>
 
         :root {
@@ -29,7 +29,6 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-accent: #f1f5f9;
-            --bg-glass: rgba(248, 250, 252, 0.8);
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-accent: #475569;
@@ -100,33 +99,33 @@
 
         .content-section h2 {
             color: var(--accent-primary);
-            margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            margin-bottom: 1rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
         .content-section h3 {
-            color: var(--accent-secondary);
-            margin: 1.5rem 0 1rem 0;
+            color: var(--accent-teal);
             font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
         }
 
         .content-section h4 {
-            color: var(--accent-teal);
-            margin: 1rem 0 0.5rem 0;
+            color: var(--accent-green);
             font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
         }
 
         .content-section p {
             margin-bottom: 1rem;
             line-height: 1.6;
-            text-align: justify;
+            color: var(--text-secondary);
         }
 
         .content-section ul, .content-section ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
         }
 
         .content-section li {
@@ -134,43 +133,100 @@
             line-height: 1.6;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
         }
 
-        .content-card {
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .hadith-card {
             background: var(--bg-secondary);
-            border: 2px solid var(--border-primary);
-            border-radius: 12px;
             padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
             transition: all 0.3s ease;
+        }
+
+        .hadith-card:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-secondary);
         }
 
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-            border-color: var(--accent-primary);
-        }
-
-        .content-card h4 {
+        .hadith-card h4 {
             color: var(--accent-primary);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
-        .content-card p {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+        .isnad {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+            font-style: italic;
+        }
+
+        .grading {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .sahih {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-primary);
+            border: 1px solid var(--accent-primary);
+        }
+
+        .hasan {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            border: 1px solid #3b82f6;
+        }
+
+        .daif {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
         }
 
         .back-link {
             display: inline-block;
-            margin: 2rem 0;
-            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
             background: var(--accent-primary);
             color: white;
             text-decoration: none;
@@ -182,7 +238,7 @@
         .back-link:hover {
             background: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-primary);
+            box-shadow: var(--shadow-secondary);
         }
 
         .theme-toggle {
@@ -190,14 +246,14 @@
             top: 2rem;
             right: 2rem;
             background: var(--accent-primary);
-            color: white;
             border: none;
-            border-radius: 50%;
+            color: white;
             width: 50px;
             height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
 
@@ -261,42 +317,254 @@
     
     <div class="container">
         <header class="header">
-            <h1>Ibn Majah</h1>
-            <p>Complete guide to ibn majah with comprehensive Islamic content and resources</p>
+            <h1>Sunan Ibn Majah</h1>
+            <p>Complete guide to one of the six major hadith collections, known for its comprehensive coverage and additional topics</p>
         </header>
         
         <div class="content-section">
+            <h2>Collection Information</h2>
+            <p>Sunan Ibn Majah is one of the six major hadith collections (Kutub al-Sittah) and is considered the sixth and final major collection. It was compiled by Abu Abdullah Muhammad ibn Yazid ibn Majah al-Rab'i al-Qazwini (d. 273 AH/887 CE) and contains approximately 4,341 hadith.</p>
             
-            <h3>Ibn Majah</h3>
-            <p>Complete guide to ibn majah with comprehensive Islamic content and resources</p>
-            
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>Overview</h4>
-                    <p>This section provides comprehensive information about ibn majah with detailed content and resources.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Key Topics</h4>
-                    <p>Explore the main topics and themes related to this subject area.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Resources</h4>
-                    <p>Access additional resources, references, and study materials.</p>
-                </div>
+            <div class="evidence-box">
+                <h5>Compilation Period</h5>
+                <p>Ibn Majah spent many years traveling throughout the Islamic world to collect and verify hadith, visiting scholars in Iraq, Egypt, Syria, and the Hijaz region. He was known for his comprehensive approach and inclusion of additional topics not covered in other major collections.</p>
             </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Methodology and Authenticity</h2>
             
-            <h3>Detailed Content</h3>
-            <p>This page contains comprehensive information about ibn majah. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            <div class="hadith-card">
+                <h4>Selection Criteria</h4>
+                <p>Ibn Majah applied rigorous standards in selecting hadith:</p>
+                <ul>
+                    <li><strong>Chain Verification:</strong> Thorough examination of isnad (chain of narrators)</li>
+                    <li><strong>Comprehensive Coverage:</strong> Inclusion of hadith from various categories</li>
+                    <li><strong>Additional Topics:</strong> Coverage of subjects not in other collections</li>
+                    <li><strong>Authenticity Assessment:</strong> Clear indication of hadith reliability</li>
+                    <li><strong>Practical Application:</strong> Focus on actionable guidance</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>Grading System</h4>
+                <p>Ibn Majah categorized hadith into different reliability levels:</p>
+                <ul>
+                    <li><strong>Sahih:</strong> Authentic and reliable hadith</li>
+                    <li><strong>Hasan:</strong> Good hadith with minor weaknesses</li>
+                    <li><strong>Daif:</strong> Weak hadith with significant issues</li>
+                    <li><strong>Munkar:</strong> Rejected hadith with major problems</li>
+                    <li><strong>Mawdu':</strong> Fabricated hadith</li>
+                </ul>
+                <p>He often provided his own grading and commentary on the reliability of narrators and chains.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Famous Hadith from Sunan Ibn Majah</h2>
             
-            <h4>Main Sections:</h4>
+            <div class="hadith-card">
+                <h4>1. The Virtue of Seeking Knowledge</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'Whoever travels a path in search of knowledge, Allah will make easy for him a path to Paradise.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Ibn Majah</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This hadith encourages seeking Islamic knowledge and promises divine assistance in attaining Paradise.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>2. Kindness to Parents</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهِ عَلَيْهِ وَسَلَّمَ رَغِمَ أَنْفُ رَجُلٍ أَدْرَكَ عِنْدَهُ أَبَوَاهُ أَوْ أَحَدُهُمَا ثُمَّ لَمْ يَدْخُلِ الْجَنَّةَ</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'May his nose be rubbed in the dust, a man who finds his parents (or one of them) in old age and does not enter Paradise.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Ibn Majah</div>
+                <div class="grading hasan">Hasan (Good)</div>
+                <p><strong>Significance:</strong> This hadith emphasizes the importance of caring for elderly parents and the severe consequences of neglecting them.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>3. The Virtue of Good Character</h4>
+                <div class="arabic-text">عَنْ أَبِي الدَّرْدَاءِ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ مَا مِنْ شَيْءٍ أَثْقَلُ فِي مِيزَانِ الْمُؤْمِنِ يَوْمَ الْقِيَامَةِ مِنْ حُسْنِ الْخُلُقِ</div>
+                <div class="translation">"Abu al-Darda reported: The Messenger of Allah, peace and blessings be upon him, said: 'Nothing is heavier on the believer's scale on the Day of Resurrection than good character.'"</div>
+                <div class="isnad">Narrated by: Abu al-Darda → Ibn Majah</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This hadith highlights the importance of good character and its weight in the Hereafter.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>4. The Virtue of Remembrance</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ مَنْ قَرَأَ حَرْفًا مِنْ كِتَابِ اللَّهِ فَلَهُ بِهِ حَسَنَةٌ وَالْحَسَنَةُ بِعَشْرِ أَمْثَالِهَا لَا أَقُولُ الم حَرْفٌ وَلَكِنْ أَلِفٌ حَرْفٌ وَلَامٌ حَرْفٌ وَمِيمٌ حَرْفٌ</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'Whoever recites a letter from the Book of Allah, he will have a reward for it, and the reward is multiplied by ten. I do not say that Alif-Lam-Mim is one letter, but Alif is a letter, Lam is a letter, and Mim is a letter.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Ibn Majah</div>
+                <div class="grading hasan">Hasan (Good)</div>
+                <p><strong>Significance:</strong> This hadith encourages reading the Quran and explains the great reward for each letter recited.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>5. Sincerity in Actions</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى أَجْسَامِكُمْ وَلَا إِلَى صُوَرِكُمْ وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'Allah does not look at your bodies or your appearances, but He looks at your hearts and your actions.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Ibn Majah</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This hadith teaches that Allah values sincerity and good deeds over outward appearance.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Major Categories</h2>
+            <p>Sunan Ibn Majah is organized into several major categories, providing comprehensive coverage:</p>
+            
+            <div class="hadith-card">
+                <h4>1. Purification and Prayer</h4>
+                <p>Hadith related to ritual purity and worship:</p>
+                <ul>
+                    <li>Wudu (ablution) procedures and requirements</li>
+                    <li>Ghusl (full bath) and its conditions</li>
+                    <li>Five daily prayers and their times</li>
+                    <li>Prayer prerequisites and conditions</li>
+                    <li>Special prayers and supplications</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>2. Fasting and Zakat</h4>
+                <p>Guidance on fasting and charity:</p>
+                <ul>
+                    <li>Ramadan fasting requirements</li>
+                    <li>Voluntary fasting and its virtues</li>
+                    <li>Zakat calculation and distribution</li>
+                    <li>Charity and its benefits</li>
+                    <li>Breaking fast and suhoor</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>3. Marriage and Family</h4>
+                <p>Islamic guidance on family matters:</p>
+                <ul>
+                    <li>Marriage contracts and conditions</li>
+                    <li>Rights and responsibilities of spouses</li>
+                    <li>Divorce procedures and regulations</li>
+                    <li>Child custody and support</li>
+                    <li>Family harmony and communication</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>4. Business and Transactions</h4>
+                <p>Islamic business ethics and financial matters:</p>
+                <ul>
+                    <li>Halal and haram business practices</li>
+                    <li>Contract validity and conditions</li>
+                    <li>Interest-free transactions (riba-free)</li>
+                    <li>Partnership and investment guidelines</li>
+                    <li>Consumer rights and responsibilities</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>5. Social Relations and Ethics</h4>
+                <p>Guidance on interpersonal relationships:</p>
+                <ul>
+                    <li>Neighborly rights and duties</li>
+                    <li>Greetings and social etiquette</li>
+                    <li>Visiting and hospitality</li>
+                    <li>Conflict resolution</li>
+                    <li>Community cooperation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Unique Features of Ibn Majah</h2>
+            
+            <div class="hadith-card">
+                <h4>Additional Topics</h4>
+                <p>Ibn Majah includes topics not covered in other major collections:</p>
+                <ul>
+                    <li><strong>Medical Traditions:</strong> Hadith related to health and medicine</li>
+                    <li><strong>Dreams and Interpretation:</strong> Guidance on dream meanings</li>
+                    <li><strong>Astronomy and Time:</strong> Islamic perspective on celestial matters</li>
+                    <li><strong>Animal Rights:</strong> Treatment of animals in Islam</li>
+                    <li><strong>Environmental Ethics:</strong> Care for the natural world</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>Comprehensive Coverage</h4>
+                <p>The collection covers a wide range of Islamic topics:</p>
+                <ul>
+                    <li><strong>Legal Traditions:</strong> Hadith related to Islamic law and practice</li>
+                    <li><strong>Ethical Guidance:</strong> Moral and character teachings</li>
+                    <li><strong>Practical Applications:</strong> Real-world implementation of Islamic principles</li>
+                    <li><strong>Historical Accounts:</strong> Events from Islamic history</li>
+                    <li><strong>Contemporary Relevance:</strong> Guidance applicable to modern life</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Comparison with Other Collections</h2>
+            
+            <div class="hadith-card">
+                <h4>Sunan Ibn Majah vs. Sahih Bukhari</h4>
+                <ul>
+                    <li><strong>Scope:</strong> Ibn Majah covers broader topics, Bukhari focuses on authenticity</li>
+                    <li><strong>Additional Content:</strong> Ibn Majah includes topics not in Bukhari</li>
+                    <li><strong>Organization:</strong> Both organize by legal topics</li>
+                    <li><strong>Authenticity:</strong> Bukhari has stricter authenticity criteria</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>Sunan Ibn Majah vs. Other Sunan Collections</h4>
+                <ul>
+                    <li><strong>Coverage:</strong> Ibn Majah includes more diverse topics</li>
+                    <li><strong>Additional Subjects:</strong> Unique coverage of medical and scientific topics</li>
+                    <li><strong>Practical Focus:</strong> Emphasis on daily life applications</li>
+                    <li><strong>Modern Relevance:</strong> More contemporary applications</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Virtues and Benefits</h2>
+            
+            <div class="hadith-card">
+                <h4>Studying Sunan Ibn Majah</h4>
+                <p>Benefits of studying this collection:</p>
+                <ul>
+                    <li><strong>Comprehensive Understanding:</strong> Broad coverage of Islamic topics</li>
+                    <li><strong>Additional Knowledge:</strong> Access to unique subjects not in other collections</li>
+                    <li><strong>Practical Guidance:</strong> Clear instructions for daily Islamic practice</li>
+                    <li><strong>Contemporary Relevance:</strong> Guidance applicable to modern life</li>
+                    <li><strong>Scholar Recognition:</strong> Widely accepted by Islamic scholars</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>Application in Daily Life</h4>
+                <p>How to use these hadith in practice:</p>
+                <ul>
+                    <li><strong>Worship Practice:</strong> Proper performance of religious duties</li>
+                    <li><strong>Family Relations:</strong> Building harmonious family relationships</li>
+                    <li><strong>Business Ethics:</strong> Conducting affairs according to Islamic principles</li>
+                    <li><strong>Social Conduct:</strong> Maintaining good relations with others</li>
+                    <li><strong>Personal Development:</strong> Improving character and behavior</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
             <ul>
-                <li><strong>Introduction:</strong> Basic concepts and overview</li>
-                <li><strong>Core Topics:</strong> Essential information and principles</li>
-                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
-                <li><strong>Practical Applications:</strong> Real-world implementation</li>
-                <li><strong>References:</strong> Sources and additional reading</li>
+                <li><a href="sahih-bukhari.html">Sahih Bukhari</a></li>
+                <li><a href="sahih-muslim.html">Sahih Muslim</a></li>
+                <li><a href="abu-dawud.html">Sunan Abu Dawud</a></li>
+                <li><a href="tirmidhi.html">Sunan Tirmidhi</a></li>
+                <li><a href="nasai.html">Sunan Nasai</a></li>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
             </ul>
-        
         </div>
         
         <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
