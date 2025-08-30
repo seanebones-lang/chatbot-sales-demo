@@ -2286,9 +2286,6 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "prophet": "prophet_muhammad",
             
             # Five pillars
-            "five pillars": "five_pillars",
-            "five pillars of islam": "five_pillars",
-            "pillars of islam": "five_pillars",
             "shahada": "shahada_significance",
             "significance of shahada": "shahada_significance",
             "prayer": "prayer_importance",
@@ -2317,6 +2314,27 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "sunnah": "sunnah",
             "hadith": "hadith",
             "quran": "quran",
+            
+            # Anger management
+            "anger": "anger_management",
+            "hadith on anger": "hadith_anger",
+            "hadith about anger": "hadith_anger",
+            "anger hadith": "hadith_anger",
+            "anger management": "anger_management",
+            "control anger": "anger_management",
+            "restrain anger": "anger_management",
+            "anger islam": "anger_management",
+            
+            # Anxiety and mental health
+            "anxiety": "anxiety_and_worry",
+            "anxious": "anxiety_and_worry",
+            "worry": "anxiety_and_worry",
+            "worried": "anxiety_and_worry",
+            "stress": "anxiety_and_worry",
+            "stressed": "anxiety_and_worry",
+            "nervous": "anxiety_and_worry",
+            "fear": "anxiety_and_worry",
+            "afraid": "anxiety_and_worry",
             
             # Advanced Islamic topics
             "aqeedah": "aqeedah",
@@ -2418,15 +2436,6 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "unhappy": "grief_and_sadness",
             "melancholy": "grief_and_sadness",
             "sorrow": "grief_and_sadness",
-            "anxiety": "anxiety_and_worry",
-            "anxious": "anxiety_and_worry",
-            "worry": "anxiety_and_worry",
-            "worried": "anxiety_and_worry",
-            "stress": "anxiety_and_worry",
-            "stressed": "anxiety_and_worry",
-            "nervous": "anxiety_and_worry",
-            "fear": "anxiety_and_worry",
-            "afraid": "anxiety_and_worry",
             "depression": "depression_and_mental_health",
             "mental health": "depression_and_mental_health",
             "mental illness": "depression_and_mental_health",
@@ -2477,32 +2486,24 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "split up": "divorce_and_separation"
         }
         
-        # Check priority keywords first
-        for keyword, key in priority_keywords.items():
-            if keyword in message_lower:
-                # Check if the key exists in islamic_knowledge first
-                if key in self.islamic_knowledge:
-                    data = self.islamic_knowledge[key]
+        for keyword, topic in priority_keywords.items():
+            if keyword.lower() in message_lower:
+                if topic in self.islamic_knowledge:
+                    logging.info(f"✅ Found priority keyword match: {keyword} -> {topic}")
                     return {
-                        "response": data["answer"],
-                        "references": data["references"],
-                        "source": "Comprehensive Islamic Knowledge Base"
-                    }
-                # If not in islamic_knowledge, check enhanced_knowledge
-                elif key in self.enhanced_knowledge:
-                    return {
-                        "response": self.enhanced_knowledge[key],
-                        "references": ["Islamic Knowledge Base"],
-                        "source": "Enhanced Local Knowledge"
+                        "response": self.islamic_knowledge[topic],
+                        "references": ["Built-in Islamic Knowledge Base"],
+                        "source": f"Priority Keyword Match - {topic}"
                     }
         
-        # Check enhanced knowledge
-        for topic, info in self.enhanced_knowledge.items():
-            if topic in message_lower:
+        # THIRD: Search enhanced knowledge base
+        for topic, content in self.enhanced_knowledge.items():
+            if any(word in user_message.lower() for word in topic.lower().split()):
+                logging.info(f"✅ Found enhanced knowledge match: {topic}")
                 return {
-                    "response": info,
-                    "references": ["Islamic Knowledge Base"],
-                    "source": "Enhanced Local Knowledge"
+                    "response": content,
+                    "references": ["Enhanced Islamic Knowledge Base"],
+                    "source": f"Enhanced Knowledge - {topic}"
                 }
         
         # Provide general Islamic guidance with references

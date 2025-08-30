@@ -331,6 +331,40 @@ class ComprehensiveIslamicKnowledge:
             logging.error(f"❌ Comprehensive search error: {e}")
             return None, None
     
+    def get_comprehensive_response_with_scanning(self, query):
+        """Get comprehensive response with instant content scanning"""
+        try:
+            # FIRST: Search comprehensive knowledge base (fastest)
+            comprehensive_results = self.search_comprehensive_knowledge(query, max_results=5)
+            
+            if comprehensive_results:
+                # Format comprehensive response from knowledge base
+                response = f"**Found in Islamic Knowledge Base:**\n\n"
+                
+                for i, result in enumerate(comprehensive_results, 1):
+                    response += f"**{i}. {result['title']}**\n"
+                    
+                    if result['type'] == 'hadith':
+                        response += f"*{result['authentication']}*\n"
+                        if result['arabic']:
+                            response += f"*Arabic: {result['arabic']}*\n"
+                    
+                    if result['type'] == 'quran':
+                        if result['arabic']:
+                            response += f"*Arabic: {result['arabic']}*\n"
+                    
+                    response += f"{result['content']}\n"
+                    response += f"*Source: {result['source']}*\n\n"
+                
+                return response, "Islamic Knowledge Base"
+            
+            # If no results found in knowledge base, return None to trigger online search
+            return None, None
+            
+        except Exception as e:
+            logging.error(f"❌ Content scanning error: {e}")
+            return None, None
+    
     def get_status(self):
         """Get knowledge base status"""
         return {
