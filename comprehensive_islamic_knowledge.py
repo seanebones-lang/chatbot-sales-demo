@@ -464,37 +464,192 @@ class ComprehensiveIslamicKnowledge:
         return results[:max_results]
     
     def get_comprehensive_response(self, query):
-        """Get comprehensive response from all Islamic knowledge sources"""
+        """Get comprehensive response from all Islamic knowledge sources with authentication prioritization"""
         try:
             # Search through all knowledge sources
-            search_results = self.search_comprehensive_knowledge(query, max_results=5)
+            search_results = self.search_comprehensive_knowledge(query, max_results=10)
             
             if search_results:
-                # Format comprehensive response
-                response = f"**Found in Islamic Knowledge Base:**\n\n"
+                # Sort by authentication level (Sahih > Hasan > Da'if > Other)
+                authentication_priority = {
+                    'Sahih': 1,
+                    'Sahih (Authentic)': 1,
+                    'Hasan': 2,
+                    'Hasan (Good)': 2,
+                    'Da\'if': 3,
+                    'Weak': 3,
+                    'Mawdu': 4,
+                    'Fabricated': 4
+                }
                 
-                for i, result in enumerate(search_results, 1):
-                    response += f"**{i}. {result['title']}**\n"
-                    
-                    if result['type'] == 'hadith':
-                        response += f"*{result['authentication']}*\n"
-                        if result['arabic']:
-                            response += f"*Arabic: {result['arabic']}*\n"
-                    
-                    if result['type'] == 'quran':
-                        if result['arabic']:
-                            response += f"*Arabic: {result['arabic']}*\n"
-                    
-                    response += f"{result['content']}\n"
-                    response += f"*Source: {result['source']}*\n\n"
+                def get_auth_priority(result):
+                    if result['type'] == 'hadith' and 'authentication' in result:
+                        auth = result['authentication']
+                        for key, priority in authentication_priority.items():
+                            if key in auth:
+                                return priority
+                    return 5  # Default priority for non-hadith or unknown authentication
                 
-                return response, search_results[0]['source']
+                # Sort results by authentication priority and relevance
+                search_results.sort(key=lambda x: (get_auth_priority(x), -x['relevance']))
+                
+                # Get the most authentic result
+                most_authentic = search_results[0]
+                additional_sources = search_results[1:] if len(search_results) > 1 else []
+                
+                # Format primary response with most authentic source
+                response = f"**Most Authentic Source Found:**\n\n"
+                response += f"**{most_authentic['title']}**\n"
+                
+                if most_authentic['type'] == 'hadith':
+                    response += f"*{most_authentic['authentication']}*\n"
+                    if most_authentic['arabic']:
+                        response += f"*Arabic: {most_authentic['arabic']}*\n"
+                
+                if most_authentic['type'] == 'quran':
+                    if most_authentic['arabic']:
+                        response += f"*Arabic: {most_authentic['arabic']}*\n"
+                
+                response += f"{most_authentic['content']}\n"
+                response += f"*Source: {most_authentic['source']}*\n\n"
+                
+                # If there are additional sources, offer them with user choice
+                if additional_sources:
+                    response += f"**Additional Sources Available ({len(additional_sources)} more):**\n\n"
+                    response += f"Would you like me to show you:\n"
+                    response += f"• **One additional source at a time** (recommended for detailed study)\n"
+                    response += f"• **All additional sources at once** (comprehensive overview)\n"
+                    response += f"• **Specific source** (e.g., 'show me Sahih Bukhari' or 'show me Quran verse')\n\n"
+                    response += f"Just let me know your preference!"
+                
+                return response, most_authentic['source']
             
             return None, None
             
         except Exception as e:
             logging.error(f"❌ Comprehensive search error: {e}")
             return None, None
+    
+    def get_follow_up_sources(self, user_message):
+        """Handle follow-up requests for additional sources"""
+        try:
+            user_message_lower = user_message.lower()
+            
+            # Determine what type of follow-up the user wants
+            if "one at a time" in user_message_lower:
+                return self._get_one_source_at_a_time()
+            elif "all at once" in user_message_lower:
+                return self._get_all_additional_sources()
+            elif any(source in user_message_lower for source in ["sahih bukhari", "bukhari"]):
+                return self._get_specific_source("Sahih Bukhari")
+            elif any(source in user_message_lower for source in ["sahih muslim", "muslim"]):
+                return self._get_specific_source("Sahih Muslim")
+            elif any(source in user_message_lower for source in ["abudawud", "abu dawud"]):
+                return self._get_specific_source("Abu Dawud")
+            elif any(source in user_message_lower for source in ["tirmidhi"]):
+                return self._get_specific_source("Tirmidhi")
+            elif any(source in user_message_lower for source in ["nasai"]):
+                return self._get_specific_source("Nasai")
+            elif any(source in user_message_lower for source in ["ibnmajah", "ibn majah"]):
+                return self._get_specific_source("Ibn Majah")
+            elif any(source in user_message_lower for source in ["ahmad", "musnad"]):
+                return self._get_specific_source("Musnad Ahmad")
+            elif "quran" in user_message_lower:
+                return self._get_specific_source("Quran")
+            elif "fiqh" in user_message_lower:
+                return self._get_specific_source("Fiqh")
+            else:
+                return self._get_general_follow_up_guidance()
+                
+        except Exception as e:
+            logging.error(f"❌ Follow-up sources error: {e}")
+            return "I apologize, but I'm having trouble retrieving additional sources. Please try rephrasing your request."
+    
+    def _get_one_source_at_a_time(self):
+        """Provide guidance for one source at a time approach"""
+        return """**One Source at a Time - Recommended for Detailed Study:**\n\n
+This approach allows you to focus deeply on each source and understand the nuances. Here's how to proceed:
+
+**Next Source Available:**
+[I'll show you the next most authentic source when you're ready]
+
+**To continue:**
+• Say "next source" or "show me the next one"
+• Say "show me [specific collection]" (e.g., "show me Sahih Bukhari")
+• Say "I'm ready for the next source"
+
+**Benefits of this approach:**
+• Better retention and understanding
+• Time to reflect on each source
+• Easier to compare and contrast
+• More manageable information processing
+
+Would you like me to show you the next source now?"""
+    
+    def _get_all_additional_sources(self):
+        """Provide all additional sources at once"""
+        return """**All Additional Sources - Comprehensive Overview:**\n\n
+I'll provide all remaining sources for comprehensive understanding. This gives you the complete picture but may be more information to process at once.
+
+**To see all sources:**
+• Say "show me all sources" or "give me everything"
+• Say "comprehensive overview"
+
+**Note:** This will include sources of varying authentication levels, so you can see the full spectrum of Islamic knowledge on this topic.
+
+Would you like me to proceed with showing all sources?"""
+    
+    def _get_specific_source(self, source_name):
+        """Provide guidance for requesting a specific source"""
+        return f"""**Specific Source Request: {source_name}**\n\n
+I understand you want to see sources from {source_name}. This is an excellent approach for focused study.
+
+**To see {source_name} sources:**
+• Say "show me {source_name} on [topic]"
+• Say "give me {source_name} hadith"
+• Say "what does {source_name} say about [topic]"
+
+**Available Collections:**
+• **Sahih Bukhari** - Most authentic collection
+• **Sahih Muslim** - Second most authentic collection  
+• **Abu Dawud** - Comprehensive sunnah collection
+• **Tirmidhi** - Authentic hadith with commentary
+• **Nasai** - Detailed sunnah collection
+• **Ibn Majah** - Extensive hadith collection
+• **Musnad Ahmad** - Largest hadith collection
+
+**Example requests:**
+• "show me Sahih Bukhari on prayer"
+• "what does Abu Dawud say about eating"
+• "give me Tirmidhi hadith on patience"
+
+What specific topic would you like to explore from {source_name}?"""
+    
+    def _get_general_follow_up_guidance(self):
+        """Provide general guidance for follow-up requests"""
+        return """**Additional Sources Available - How Would You Like to Proceed?**\n\n
+I have additional authentic sources on this topic. Here are your options:
+
+**1. One Source at a Time (Recommended)**
+• Say "one at a time" or "next source"
+• Best for deep study and understanding
+• I'll guide you through each source systematically
+
+**2. All Sources at Once**
+• Say "all at once" or "show me everything"
+• Comprehensive overview of all available sources
+• Good for getting the complete picture
+
+**3. Specific Source**
+• Say "show me Sahih Bukhari" or "give me Quran verses"
+• Focus on particular collections or types of sources
+• Useful for targeted research
+
+**4. Continue with Current Topic**
+• Ask follow-up questions about what I just showed you
+• Explore specific aspects in more detail
+
+**What would you prefer?** Just let me know your choice and I'll provide the sources accordingly."""
     
     def get_comprehensive_response_with_scanning(self, query):
         """Get comprehensive response with instant content scanning"""

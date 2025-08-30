@@ -2256,7 +2256,7 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "grief": "**Dealing with Grief and Loss in Islam - Authentic Hadith Guidance:**\n\n**1. Hadith from Sahih Bukhari 1283:**\n*Narrated by Anas ibn Malik*\n*Translation:* 'The Prophet (PBUH) said: The eyes shed tears and the heart grieves, but we do not say anything except what pleases our Lord.'\n\n**2. Hadith from Sahih Muslim 2999:**\n*Narrated by Abdullah ibn Mas'ud*\n*Translation:* 'How wonderful is the affair of the believer, for his affairs are all good, and this applies to no one except the believer.'\n\n**Islamic Guidance for Grief:**\n- It's natural and acceptable to feel sadness and cry\n- Turn to Allah in prayer and supplication\n- Remember that this life is temporary and a test\n- Seek comfort in the Quran and authentic hadith\n- Lean on family and community for support\n- Understand that Allah never burdens a soul beyond what it can bear\n\n*Sources: Sahih Bukhari, Sahih Muslim*",
             
             # Comprehensive Islamic topics for ANY query
-            "hadith": "**Comprehensive Hadith Database Available:**\n\nDeenBot has access to authentic hadith from:\n- **Sahih Bukhari** - Most authentic collection\n- **Sahih Muslim** - Second most authentic collection\n- **Abu Dawud** - Comprehensive sunnah collection\n- **Tirmidhi** - Authentic hadith with commentary\n- **Nasai** - Detailed sunnah collection\n- **Ibn Majah** - Extensive hadith collection\n- **Musnad Ahmad** - Largest hadith collection\n- **Malik's Muwatta** - Early hadith collection\n\n**Ask any hadith question:**\n- 'hadith on [topic]' (e.g., 'hadith on prayer', 'hadith on patience')\n- 'sunnah about [topic]' (e.g., 'sunnah about eating', 'sunnah about sleeping')\n- 'prophet muhammad on [topic]' (e.g., 'prophet muhammad on kindness')\n\n*All hadith include Arabic text, translation, context, narrator, source, and authentication level*",
+            "hadith": "**Comprehensive Hadith Database Available:**\n\nDeenBot has access to authentic hadith from:\n- **Sahih Bukhari** - Most authentic collection\n- **Sahih Muslim** - Second most authentic collection\n- **Abu Dawud** - Comprehensive sunnah collection\n- **Tirmidhi** - Authentic hadith with commentary\n- **Nasai** - Detailed sunnah collection\n- **Ibn Majah** - Extensive hadith collection\n- **Musnad Ahmad** - Largest hadith collection\n- **Malik's Muwatta** - Early hadith collection\n\n**Ask any hadith question:**\n- 'hadith on [topic]' (e.g., 'hadith on prayer', 'hadith on patience')\n- 'sunnah about [topic]' (e.g., 'sunnah about eating', 'sunnah about sleeping')\n- 'prophet muhammad on [topic]' (e.g., 'prophet muhammad on kindness')\n\n**After getting an answer, you can:**\n- Say 'one at a time' for systematic study\n- Say 'all at once' for comprehensive overview\n- Say 'show me Sahih Bukhari' for specific collections\n\n*All hadith include Arabic text, translation, context, narrator, source, and authentication level*",
             
             "quran": "**Comprehensive Quran Database Available:**\n\nDeenBot has access to:\n- **Complete Quran text** in Arabic\n- **English translations** with multiple interpretations\n- **Tafsir (exegesis)** from authentic scholars\n- **Context and revelation circumstances**\n- **Surah and verse references**\n- **Thematic organization** by topics\n\n**Ask any Quran question:**\n- 'quran verse about [topic]' (e.g., 'quran verse about patience')\n- 'what does quran say about [topic]' (e.g., 'what does quran say about marriage')\n- 'tafsir of [surah:verse]' (e.g., 'tafsir of al-fatiha:1')\n- 'quran on [topic]' (e.g., 'quran on forgiveness')\n\n*All responses include Arabic text, translation, and authentic tafsir*",
             
@@ -2319,6 +2319,29 @@ These pillars form the foundation of Islamic practice and are essential for spir
                     }
             except Exception as e:
                 logging.warning(f"⚠️ Comprehensive knowledge base error: {e}")
+        
+        # Handle follow-up requests for additional sources
+        follow_up_patterns = [
+            "show me", "show", "give me", "display", "show additional", "show more",
+            "one at a time", "all at once", "specific source", "sahih bukhari",
+            "sahih muslim", "abudawud", "tirmidhi", "nasai", "ibnmajah", "ahmad"
+        ]
+        
+        if any(pattern in message_lower for pattern in follow_up_patterns):
+            # This is a follow-up request for additional sources
+            if COMPREHENSIVE_KNOWLEDGE_AVAILABLE:
+                try:
+                    # Extract the original query context from recent conversation
+                    # For now, we'll provide a general response about additional sources
+                    follow_up_response = comprehensive_knowledge.get_follow_up_sources(user_message)
+                    if follow_up_response:
+                        return {
+                            "response": follow_up_response,
+                            "references": ["Follow-up Source Request"],
+                            "source": "Additional Islamic Sources"
+                        }
+                except Exception as e:
+                    logging.warning(f"⚠️ Follow-up source error: {e}")
         
         # SECOND: Check comprehensive Islamic knowledge base for authentic responses
         if COMPREHENSIVE_KNOWLEDGE_AVAILABLE:
