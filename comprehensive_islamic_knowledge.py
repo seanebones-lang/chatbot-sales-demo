@@ -185,6 +185,32 @@ class ComprehensiveIslamicKnowledge:
     def initialize_fiqh_database(self):
         """Initialize comprehensive fiqh database with extensive Islamic jurisprudence"""
         return {
+            # ===== ISLAMIC VALUES & ETHICS =====
+            "patience": {
+                "title": "Patience (Sabr) - Islamic Jurisprudence",
+                "content": "Patience (sabr) is a fundamental Islamic virtue that encompasses endurance, perseverance, and self-control. It includes patience in difficulties, patience in worship, and patience in avoiding sins. The Quran and hadith emphasize patience as a key to success and Paradise. The Prophet Muhammad (PBUH) said: 'Patience is light' and 'Whoever remains patient, Allah will make him patient.'",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Islamic Values & Ethics",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Highly recommended and rewarded"
+            },
+            "kindness": {
+                "title": "Kindness (Ihsan) - Islamic Jurisprudence",
+                "content": "Kindness and excellence in all actions is a core Islamic principle. The Prophet Muhammad (PBUH) said: 'Allah loves when one of you does something, he does it well.' This applies to worship, work, relationships, and all aspects of life. Kindness to parents, neighbors, and even animals is emphasized.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Islamic Values & Ethics",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Highly recommended and rewarded"
+            },
+            "forgiveness": {
+                "title": "Forgiveness (Afw) - Islamic Jurisprudence",
+                "content": "Forgiveness is a noble Islamic trait that brings peace and spiritual elevation. The Quran describes Allah as 'The Most Forgiving' and encourages believers to forgive others. The Prophet Muhammad (PBUH) exemplified forgiveness even when he had the power to retaliate.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Islamic Values & Ethics",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Highly recommended and rewarded"
+            },
+            
             # ===== WORSHIP & RITUALS =====
             "prayer": {
                 "title": "Prayer (Salah) - Islamic Jurisprudence",
@@ -235,6 +261,22 @@ class ComprehensiveIslamicKnowledge:
                 "category": "Family Law",
                 "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
                 "ruling": "Permissible (Halal) and recommended"
+            },
+            "wife": {
+                "title": "Wife (Zawja) - Islamic Jurisprudence",
+                "content": "A wife in Islam has specific rights including financial support, kind treatment, and protection. The Prophet Muhammad (PBUH) emphasized treating wives with kindness and respect. Wives have the right to be provided for, treated fairly, and protected from harm. The Quran describes the relationship as one of 'love and mercy' between spouses.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Family Law",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Has specific rights and protections"
+            },
+            "wives": {
+                "title": "Wives (Plural) - Islamic Jurisprudence",
+                "content": "Islam permits up to four wives under specific conditions of fairness and equal treatment. The Quran states: 'If you fear that you will not be just, then [marry only] one.' The Prophet Muhammad (PBUH) emphasized that a man must treat all wives equally in time, attention, and financial support.",
+                "source": "Islamic Fiqh - Four Schools Consensus",
+                "category": "Family Law",
+                "schools": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"],
+                "ruling": "Permitted up to four with conditions"
             },
             "divorce": {
                 "title": "Divorce (Talaq) - Islamic Jurisprudence",
@@ -919,6 +961,184 @@ class ComprehensiveIslamicKnowledge:
         except Exception as e:
             logging.error(f"❌ Comprehensive search error: {e}")
             return None, None
+    
+    def get_comprehensive_multi_source_response(self, query):
+        """Get comprehensive response from all Islamic knowledge sources for single-word queries"""
+        try:
+            query_lower = query.lower().strip()
+            all_results = []
+            
+            # Search through all knowledge sources
+            hadith_results = self._search_hadith_for_single_word(query_lower)
+            quran_results = self._search_quran_for_single_word(query_lower)
+            fiqh_results = self._search_fiqh_for_single_word(query_lower)
+            guidance_results = self._search_guidance_for_single_word(query_lower)
+            
+            # Combine all results
+            all_results.extend(hadith_results)
+            all_results.extend(quran_results)
+            all_results.extend(fiqh_results)
+            all_results.extend(guidance_results)
+            
+            if all_results:
+                # Sort by relevance
+                all_results.sort(key=lambda x: x['relevance'], reverse=True)
+                
+                # Create comprehensive response
+                response = f"**Comprehensive Islamic Information for '{query.title()}':**\n\n"
+                
+                # Group by source type
+                source_groups = {}
+                for result in all_results:
+                    source_type = result['type']
+                    if source_type not in source_groups:
+                        source_groups[source_type] = []
+                    source_groups[source_type].append(result)
+                
+                # Present information by source type
+                for source_type, results in source_groups.items():
+                    if source_type == 'hadith':
+                        response += f"**📚 Hadith & Sunnah:**\n"
+                        for result in results[:2]:  # Show top 2 hadith
+                            response += f"• {result['content'][:150]}...\n"
+                            response += f"  *Source: {result['source']}*\n\n"
+                    
+                    elif source_type == 'quran':
+                        response += f"**📖 Quran & Tafsir:**\n"
+                        for result in results[:2]:  # Show top 2 Quran verses
+                            response += f"• {result['content'][:150]}...\n"
+                            response += f"  *Source: {result['source']}*\n\n"
+                    
+                    elif source_type == 'fiqh':
+                        response += f"**⚖️ Islamic Law (Fiqh):**\n"
+                        for result in results[:2]:  # Show top 2 fiqh rulings
+                            response += f"• {result['content'][:150]}...\n"
+                            response += f"  *Source: {result['source']}*\n\n"
+                    
+                    elif source_type == 'guidance':
+                        response += f"**💡 Islamic Guidance:**\n"
+                        for result in results[:2]:  # Show top 2 guidance items
+                            response += f"• {result['content'][:150]}...\n"
+                            response += f"  *Source: {result['source']}*\n\n"
+                
+                # Ask user for specific preference
+                response += f"**🤔 What specific information would you like to explore?**\n\n"
+                response += f"You can ask me to:\n"
+                response += f"• **Show more Hadith** about {query.title()}\n"
+                response += f"• **Show Quran verses** about {query.title()}\n"
+                response += f"• **Show Fiqh rulings** about {query.title()}\n"
+                response += f"• **Show Islamic guidance** about {query.title()}\n"
+                response += f"• **Show everything** about {query.title()}\n\n"
+                response += f"Just let me know what interests you most!"
+                
+                return response
+            
+            # If no results found, provide a helpful response
+            if not all_results:
+                return f"**I couldn't find specific Islamic information for '{query.title()}'**\n\n**🤔 What would you like to know about?**\n\nYou can ask me about:\n• **Islamic concepts** (prayer, fasting, charity, etc.)\n• **Islamic practices** (halal, haram, sunnah, etc.)\n• **Islamic values** (patience, kindness, honesty, etc.)\n• **Islamic rulings** (marriage, business, family, etc.)\n\n**Try asking:**\n• 'What is the ruling on [topic]?'\n• 'Tell me about [Islamic concept]'\n• 'What does Islam say about [topic]?'\n\n**Or ask about specific topics like:**\n• Prayer, fasting, zakat, hajj\n• Marriage, family, business\n• Halal, haram, sunnah\n• Patience, kindness, forgiveness"
+            
+            return response
+            
+        except Exception as e:
+            logging.error(f"❌ Multi-source response error: {e}")
+            return None
+    
+    def _search_hadith_for_single_word(self, query):
+        """Search hadith database for single-word queries"""
+        results = []
+        for topic, topic_data in self.hadith_database.items():
+            # Check topic name
+            if query in topic.lower():
+                for hadith in topic_data.get('hadiths', [])[:2]:  # Limit to 2 hadith per topic
+                    relevance = self.calculate_hadith_relevance(query, hadith)
+                    if relevance > 0.1:
+                        results.append({
+                            'title': f"Hadith {hadith['number']}",
+                            'content': f"{hadith['translation']} - {hadith['context']}",
+                            'source': f"{hadith['source']} - {hadith['narrator']}",
+                            'relevance': relevance,
+                            'type': 'hadith'
+                        })
+            
+            # Check hadith content more thoroughly
+            for hadith in topic_data.get('hadiths', []):
+                hadith_text = f"{hadith.get('translation', '')} {hadith.get('context', '')}".lower()
+                if query in hadith_text:
+                    relevance = self.calculate_hadith_relevance(query, hadith)
+                    if relevance > 0.05:  # Lower threshold for content search
+                        results.append({
+                            'title': f"Hadith {hadith['number']}",
+                            'content': f"{hadith['translation']} - {hadith['context']}",
+                            'source': f"{hadith['source']} - {hadith['narrator']}",
+                            'relevance': relevance,
+                            'type': 'hadith'
+                        })
+                        if len(results) >= 4:  # Limit total results
+                            break
+        return results
+    
+    def _search_quran_for_single_word(self, query):
+        """Search Quran database for single-word queries"""
+        results = []
+        for topic, topic_data in self.quran_database.items():
+            if query in topic.lower() or any(query in verse.get('translation', '').lower() for verse in topic_data.get('verses', [])):
+                for verse in topic_data.get('verses', [])[:2]:  # Limit to 2 verses per topic
+                    relevance = self.calculate_quran_relevance(query, verse)
+                    if relevance > 0.1:
+                        results.append({
+                            'title': f"Quran {verse['source']}",
+                            'content': f"{verse['translation']} - {verse['context']}",
+                            'source': verse['source'],
+                            'relevance': relevance,
+                            'type': 'quran'
+                        })
+        return results
+    
+    def _search_fiqh_for_single_word(self, query):
+        """Search fiqh database for single-word queries"""
+        results = []
+        for topic, topic_data in self.fiqh_database.items():
+            # Check topic name
+            if query in topic.lower():
+                relevance = self.calculate_content_relevance(query, topic_data)
+                if relevance > 0.1:
+                    results.append({
+                        'title': topic_data['title'],
+                        'content': topic_data['content'],
+                        'source': topic_data['source'],
+                        'relevance': relevance,
+                        'type': 'fiqh'
+                    })
+            
+            # Check content more thoroughly
+            content_text = f"{topic_data.get('title', '')} {topic_data.get('content', '')}".lower()
+            if query in content_text:
+                relevance = self.calculate_content_relevance(query, topic_data)
+                if relevance > 0.05:  # Lower threshold for content search
+                    results.append({
+                        'title': topic_data['title'],
+                        'content': topic_data['content'],
+                        'source': topic_data['source'],
+                        'relevance': relevance,
+                        'type': 'fiqh'
+                    })
+        return results
+    
+    def _search_guidance_for_single_word(self, query):
+        """Search Islamic guidance for single-word queries"""
+        results = []
+        for topic, topic_data in self.islamic_guidance.items():
+            if query in topic.lower() or query in topic_data.get('content', '').lower():
+                relevance = self.calculate_content_relevance(query, topic_data)
+                if relevance > 0.1:
+                    results.append({
+                        'title': topic_data['title'],
+                        'content': topic_data['content'],
+                        'source': f"Islamic Guidance - {', '.join(topic_data['sources'])}",
+                        'relevance': relevance,
+                        'type': 'guidance'
+                    })
+        return results
     
     def get_follow_up_sources(self, user_message):
         """Handle follow-up requests for additional sources"""

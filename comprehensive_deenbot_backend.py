@@ -2320,6 +2320,21 @@ These pillars form the foundation of Islamic practice and are essential for spir
             except Exception as e:
                 logging.warning(f"⚠️ Comprehensive knowledge base error: {e}")
         
+        # FIRST: Handle single-word or short phrase queries with comprehensive multi-source response
+        if len(message_lower.split()) <= 3:  # Single word or short phrase
+            if COMPREHENSIVE_KNOWLEDGE_AVAILABLE:
+                try:
+                    comprehensive_response = comprehensive_knowledge.get_comprehensive_multi_source_response(user_message)
+                    if comprehensive_response:
+                        logging.info(f"✅ Found comprehensive multi-source response for single-word query: {user_message}")
+                        return {
+                            "response": comprehensive_response,
+                            "references": ["Multi-Source Islamic Knowledge"],
+                            "source": "Comprehensive Islamic Knowledge Base"
+                        }
+                except Exception as e:
+                    logging.warning(f"⚠️ Multi-source response error: {e}")
+        
         # Handle follow-up requests for additional sources
         follow_up_patterns = [
             "show me", "show", "give me", "display", "show additional", "show more",
