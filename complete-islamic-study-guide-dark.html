@@ -1226,25 +1226,56 @@
         // DeenBot Embedded Chat Functionality
         class DeenBotChat {
             constructor() {
+                // Prevent multiple instances
+                if (window.deenbotChatInstance) {
+                    console.log('DeenBot chat instance already exists, returning existing instance');
+                    return window.deenbotChatInstance;
+                }
+                
                 this.chatMessages = document.getElementById('chatMessages');
                 this.chatInput = document.getElementById('chatInput');
                 this.sendButton = document.getElementById('sendButton');
                 this.typingIndicator = document.getElementById('typingIndicator');
                 this.serverUrl = 'http://localhost:8080';
+                this.isProcessing = false; // Prevent duplicate requests
+                
+                // Store instance globally to prevent duplicates
+                window.deenbotChatInstance = this;
                 
                 this.initializeChat();
             }
 
             initializeChat() {
+                // Prevent duplicate initialization
+                if (this.initialized) {
+                    console.log('Chat already initialized, skipping...');
+                    return;
+                }
+                
                 // Show typing indicator and type out initial message
                 this.showTypingIndicator();
                 this.typeMessage("As-salamu alaykum, May I assist you in your search?", 50);
                 
-                // Add event listeners
-                this.sendButton.addEventListener('click', () => this.sendMessage());
-                this.chatInput.addEventListener('keypress', (e) => {
+                // Remove any existing event listeners to prevent duplicates
+                if (this.boundSendMessage) {
+                    this.sendButton.removeEventListener('click', this.boundSendMessage);
+                }
+                if (this.boundKeyPress) {
+                    this.chatInput.removeEventListener('keypress', this.boundKeyPress);
+                }
+                
+                // Bind methods to prevent duplicate event handling
+                this.boundSendMessage = this.sendMessage.bind(this);
+                this.boundKeyPress = (e) => {
                     if (e.key === 'Enter') this.sendMessage();
-                });
+                };
+                
+                // Add event listeners
+                this.sendButton.addEventListener('click', this.boundSendMessage);
+                this.chatInput.addEventListener('keypress', this.boundKeyPress);
+                
+                // Mark as initialized
+                this.initialized = true;
             }
 
             showTypingIndicator() {
@@ -1285,8 +1316,17 @@
             }
 
             async sendMessage() {
+                // Prevent duplicate requests
+                if (this.isProcessing) {
+                    console.log('Request already in progress, ignoring duplicate send');
+                    return;
+                }
+                
                 const message = this.chatInput.value.trim();
                 if (!message) return;
+
+                // Set processing flag
+                this.isProcessing = true;
 
                 // Add user message
                 this.addUserMessage(message);
@@ -1313,8 +1353,12 @@
                         throw new Error('Failed to get response');
                     }
                 } catch (error) {
+                    console.error('DeenBot chat error:', error);
                     this.hideTypingIndicator();
                     this.typeMessage("I apologize, but I'm having trouble connecting to my knowledge base right now. Please try again in a moment.", 30);
+                } finally {
+                    // Reset processing flag
+                    this.isProcessing = false;
                 }
             }
 
@@ -1331,13 +1375,34 @@
                 this.chatMessages.appendChild(messageDiv);
                 this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
             }
+            
+            // Cleanup method to prevent memory leaks
+            cleanup() {
+                if (this.boundSendMessage) {
+                    this.sendButton.removeEventListener('click', this.boundSendMessage);
+                }
+                if (this.boundKeyPress) {
+                    this.chatInput.removeEventListener('keypress', this.boundKeyPress);
+                }
+                this.isProcessing = false;
+            }
         }
 
-        // Initialize DeenBot Chat when page loads
+        // Initialize DeenBot Chat when page loads - SINGLE INSTANCE ONLY
+        let deenbotInstance = null;
+        
         document.addEventListener('DOMContentLoaded', function() {
+            // Prevent multiple initializations
+            if (deenbotInstance) {
+                console.log('DeenBot already initialized, skipping...');
+                return;
+            }
+            
             // Check if DeenBot chat container exists
-            if (document.querySelector('.deenbot-chat-container')) {
-                new DeenBotChat();
+            const chatContainer = document.querySelector('.deenbot-chat-container');
+            if (chatContainer && !deenbotInstance) {
+                console.log('Initializing DeenBot chat...');
+                deenbotInstance = new DeenBotChat();
             }
         });
     </script>
