@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surah Al-Baqarah - Islamic Study Guide Application</title>
+    <style>
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            box-shadow: var(--shadow-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .header-text h1 {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header-text .arabic-title {
+            font-family: 'Amiri', 'Arial', serif;
+            font-size: 1.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+            direction: rtl;
+        }
+
+        .header-text p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .back-button {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--accent-teal);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .surah-info {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-primary);
+            border: 1px solid var(--border-primary);
+        }
+
+        .surah-info h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .info-item {
+            background: var(--bg-accent);
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid var(--border-primary);
+        }
+
+        .info-label {
+            color: var(--accent-secondary);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .verses-container {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-primary);
+            border: 1px solid var(--border-primary);
+        }
+
+        .verses-container h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .verse {
+            background: var(--bg-accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-primary);
+            transition: all 0.3s ease;
+        }
+
+        .verse:hover {
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .verse-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .verse-number {
+            background: var(--accent-primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .verse-reference {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .verse-arabic {
+            font-family: 'Amiri', 'Arial', serif;
+            font-size: 1.8rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1.5rem 0;
+            line-height: 2.5;
+            color: var(--text-primary);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border-right: 4px solid var(--accent-primary);
+        }
+
+        .verse-transliteration {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .verse-translation {
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .nav-button {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .nav-button:disabled {
+            background: var(--border-primary);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-primary);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .verse-arabic {
+                font-size: 1.4rem;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-button" onclick="window.location.href='quran-complete.html'">← Back to Quran</button>
+        <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+        
+        <div class="header">
+            <div class="header-text">
+                <h1>Surah Al-Baqarah</h1>
+                <div class="arabic-title">البقرة</div>
+                <p>The Cow - The second chapter of the Quran, consisting of 286 verses. This is the longest Surah and contains many important Islamic laws and stories.</p>
+            </div>
+        </div>
+
+        <div class="surah-info">
+            <h3>Surah Information</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Surah Number</div>
+                    <div class="info-value">2</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Number of Verses</div>
+                    <div class="info-value">286</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Revelation</div>
+                    <div class="info-value">Medinan</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Juz</div>
+                    <div class="info-value">1-3</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Pages</div>
+                    <div class="info-value">2-49</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Rukus</div>
+                    <div class="info-value">40</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verses-container">
+            <h3>First Verses (Sample)</h3>
+            
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">1</div>
+                    <div class="verse-reference">Al-Baqarah 2:1</div>
+                </div>
+                <div class="verse-arabic">الٓمٓ</div>
+                <div class="verse-transliteration">Alif-Lām-Mīm</div>
+                <div class="verse-translation">Alif, Lam, Meem.</div>
+            </div>
+
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">2</div>
+                    <div class="verse-reference">Al-Baqarah 2:2</div>
+                </div>
+                <div class="verse-arabic">ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ</div>
+                <div class="verse-transliteration">Dhālika l-kitābu lā rayba fīhi hudan li l-muttaqīn</div>
+                <div class="verse-translation">This is the Book about which there is no doubt, a guidance for those conscious of Allah</div>
+            </div>
+
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">3</div>
+                    <div class="verse-reference">Al-Baqarah 2:3</div>
+                </div>
+                <div class="verse-arabic">الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ</div>
+                <div class="verse-transliteration">Alladhīna yuʾminūna bi l-ghaybi wa yuqīmūna ṣ-ṣalāta wa mimmā razaqnāhum yunfiqūn</div>
+                <div class="verse-translation">Who believe in the unseen, establish prayer, and spend out of what We have provided for them</div>
+            </div>
+
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">4</div>
+                    <div class="verse-reference">Al-Baqarah 2:4</div>
+                </div>
+                <div class="verse-arabic">وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ</div>
+                <div class="verse-transliteration">Wa lladhīna yuʾminūna bi mā unzila ilayka wa bi mā unzila min qablika wa bi l-ākhirati hum yūqinūn</div>
+                <div class="verse-translation">And who believe in what has been revealed to you, and what was revealed before you, and of the Hereafter they are certain</div>
+            </div>
+
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">5</div>
+                    <div class="verse-reference">Al-Baqarah 2:5</div>
+                </div>
+                <div class="verse-arabic">أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ ۖ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ</div>
+                <div class="verse-transliteration">Ulāika ʿalā hudan min rabbihim wa ulāika humu l-mufliḥūn</div>
+                <div class="verse-translation">Those are upon guidance from their Lord, and it is those who are the successful</div>
+            </div>
+
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">255</div>
+                    <div class="verse-reference">Al-Baqarah 2:255 - Ayat Al-Kursi</div>
+                </div>
+                <div class="verse-arabic">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ</div>
+                <div class="verse-transliteration">Allāhu lā ilāha illā huwa l-ḥayyu l-qayyūm lā taʾkhudhuhu sinatuw wa lā nawm lahu mā fī s-samāwāti wa mā fī l-arḍ man dhā lladhī yashfaʿu ʿindahu illā bi idhnihi yaʿlamu mā bayna aydīhim wa mā khalfahum wa lā yuḥīṭūna bi shayʾin min ʿilmihi illā bi mā shāʾa wasiʿa kursiyyuhu s-samāwāti wa l-arḍa wa lā yaʾūduhu ḥifẓuhumā wa huwa l-ʿaliyyu l-ʿaẓīm</div>
+                <div class="verse-translation">Allah - there is no deity except Him, the Ever-Living, the Self-Sustaining. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.</div>
+            </div>
+
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">286</div>
+                    <div class="verse-reference">Al-Baqarah 2:286 - Last Verse</div>
+                </div>
+                <div class="verse-arabic">لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ</div>
+                <div class="verse-transliteration">Lā yukallifu llāhu nafsan illā wusʿahā lahā mā kasabat wa ʿalayhā mā ktasabat rabbanā lā tuʾākhidhnā in nasīnā aw akhṭaʾnā rabbanā wa lā taḥmil ʿalaynā iṣran kamā ḥamaltahu ʿalā lladhīna min qablinā rabbanā wa lā tuḥammilnā mā lā ṭāqata lanā bihi wa ʿfu ʿannā wa ghfir lanā wa rḥamnā anta mawlānā fanṣurnā ʿalā l-qawmi l-kāfirīn</div>
+                <div class="verse-translation">Allah does not charge a soul except [with that within] its capacity. It will have [the consequence of] what [good] it has gained, and it will bear [the consequence of] what [evil] it has earned. "Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, and do not lay upon us a burden like that which You laid upon those before us. Our Lord, and do not burden us with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people."</div>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button class="nav-button" onclick="window.location.href='surah-1-al-fatiha.html'">← Previous Surah</button>
+            <button class="nav-button" onclick="window.location.href='quran-complete.html'">Next Surah →</button>
+        </div>
+
+        <div class="footer">
+            <p>Surah Al-Baqarah - The Cow</p>
+            <p>Complete with Arabic text, transliteration, and Saheeh International English translation</p>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>

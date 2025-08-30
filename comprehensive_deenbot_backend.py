@@ -3742,14 +3742,44 @@ class DeenBotHandler(BaseHTTPRequestHandler):
             }
             self.wfile.write(json.dumps(response).encode())
             
-        else:
-            self.send_response(404)
-            self.send_header('Content-Type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
+        elif parsed_url.path == '/':
+            # Serve the main application
+            self.serve_static_file('complete-islamic-study-guide-dark.html', 'text/html')
             
-            response = {"error": "Endpoint not found", "available_endpoints": ["/health", "/status", "/chat"]}
-            self.wfile.write(json.dumps(response).encode())
+        elif parsed_url.path.endswith('.html'):
+            # Serve HTML files
+            filename = parsed_url.path[1:]  # Remove leading slash
+            if os.path.exists(filename):
+                self.serve_static_file(filename, 'text/html')
+            else:
+                self.send_404_response()
+                
+        elif parsed_url.path.endswith('.css'):
+            # Serve CSS files
+            filename = parsed_url.path[1:]
+            if os.path.exists(filename):
+                self.serve_static_file(filename, 'text/css')
+            else:
+                self.send_404_response()
+                
+        elif parsed_url.path.endswith('.js'):
+            # Serve JavaScript files
+            filename = parsed_url.path[1:]
+            if os.path.exists(filename):
+                self.serve_static_file(filename, 'application/javascript')
+            else:
+                self.send_404_response()
+                
+        elif parsed_url.path.endswith('.svg'):
+            # Serve SVG files
+            filename = parsed_url.path[1:]
+            if os.path.exists(filename):
+                self.serve_static_file(filename, 'image/svg+xml')
+            else:
+                self.send_404_response()
+            
+        else:
+            self.send_404_response()
     
     def do_POST(self):
         """Handle POST requests"""
@@ -3799,6 +3829,38 @@ class DeenBotHandler(BaseHTTPRequestHandler):
             
             response = {"error": "Endpoint not found", "available_endpoints": ["/health", "/status", "/chat"]}
             self.wfile.write(json.dumps(response).encode())
+    
+    def serve_static_file(self, filename, content_type):
+        """Serve static files with proper content type"""
+        try:
+            with open(filename, 'rb') as file:
+                content = file.read()
+                
+            self.send_response(200)
+            self.send_header('Content-Type', content_type)
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.send_header('Content-Length', str(len(content)))
+            self.end_headers()
+            
+            self.wfile.write(content)
+            logging.info(f"✅ Served static file: {filename}")
+            
+        except FileNotFoundError:
+            logging.warning(f"⚠️ File not found: {filename}")
+            self.send_404_response()
+        except Exception as e:
+            logging.error(f"❌ Error serving file {filename}: {e}")
+            self.send_404_response()
+    
+    def send_404_response(self):
+        """Send 404 response for not found resources"""
+        self.send_response(404)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        
+        response = {"error": "Resource not found", "available_endpoints": ["/health", "/status", "/chat"]}
+        self.wfile.write(json.dumps(response).encode())
     
     def send_error_response(self, status_code, message):
         """Send error response"""
