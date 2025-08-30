@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Logo Test - Islamic Study Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f1a1a 0%, #142020 100%);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 40px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(20, 32, 32, 0.9);
+            border: 2px solid #2d4a4a;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .logo-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .logo-test {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #2d4a4a;
+            border-radius: 10px;
+            background: rgba(20, 32, 32, 0.5);
+        }
+        .logo-test img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+        .logo-test svg {
+            width: 120px;
+            height: 120px;
+        }
+        h1 {
+            color: #4ade80;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        .status {
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid #4ade80;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .button {
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 222, 128, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Direct Logo Test - Islamic Study Guide</h1>
+        
+        <div class="status">
+            <strong>✅ Testing Different Logo Display Methods</strong><br>
+            This page tests various ways to display your logo
+        </div>
+        
+        <div class="logo-container">
+            <!-- Method 1: Direct SVG Embed -->
+            <div class="logo-test">
+                <h3>Method 1: Direct SVG</h3>
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Background Circle with enhanced depth -->
+                  <circle cx="100" cy="100" r="95" fill="url(#greenGradient)" stroke="#1a2a2a" stroke-width="4"/>
+                  
+                  <!-- Mosque Dome with enhanced 3D effect -->
+                  <path
+                    d="M50 90 Q100 40 150 90 L150 110 Q100 60 50 110 Z"
+                    fill="url(#domeGradient)"
+                    stroke="#d4af37"
+                    stroke-width="2"
+                  />
+                  
+                  <!-- Dome highlight for 3D effect -->
+                  <path
+                    d="M60 95 Q100 45 140 95 L140 105 Q100 55 60 105 Z"
+                    fill="url(#domeHighlight)"
+                    opacity="0.3"
+                  />
+                  
+                  <!-- Crescent Moon with enhanced detail -->
+                  <path
+                    d="M90 36 Q100 30 110 36 Q116 44 110 52 Q100 58 90 52 Q84 44 90 36"
+                    fill="url(#moonGradient)"
+                    stroke="#d4af37"
+                    stroke-width="1"
+                  />
+                  
+                  <!-- Moon highlight -->
+                  <path
+                    d="M92 38 Q100 32 108 38 Q112 42 108 48 Q100 54 92 48 Q88 42 92 38"
+                    fill="url(#moonHighlight)"
+                    opacity="0.4"
+                  />
+                  
+                  <!-- Open Book with enhanced 3D effect -->
+                  <rect x="60" y="100" width="80" height="50" rx="4" fill="url(#bookGradient)" stroke="#d4af37" stroke-width="2"/>
+                  <rect x="64" y="104" width="72" height="42" rx="2" fill="url(#pageGradient)"/>
+                  
+                  <!-- Book spine shadow -->
+                  <rect x="60" y="100" width="8" height="50" rx="4" fill="url(#spineGradient)"/>
+                  
+                  <!-- Book Pages with enhanced detail -->
+                  <line x1="70" y1="116" x2="130" y2="116" stroke="#d4af37" stroke-width="1" opacity="0.8"/>
+                  <line x1="70" y1="124" x2="130" y2="124" stroke="#d4af37" stroke-width="1" opacity="0.8"/>
+                  <line x1="70" y1="132" x2="130" y2="132" stroke="#d4af37" stroke-width="1" opacity="0.8"/>
+                  
+                  <!-- Page curl effect -->
+                  <path
+                    d="M130 104 L140 104 L140 146 L130 146 Z"
+                    fill="url(#pageCurlGradient)"
+                    opacity="0.6"
+                  />
+                  
+                  <!-- Enhanced Gradients -->
+                  <defs>
+                    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#0f1a1a"/>
+                      <stop offset="30%" stop-color="#142020"/>
+                      <stop offset="70%" stop-color="#1a2a2a"/>
+                      <stop offset="100%" stop-color="#0a0f0f"/>
+                    </linearGradient>
+                    
+                    <linearGradient id="domeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ffd700"/>
+                      <stop offset="30%" stop-color="#ffed4e"/>
+                      <stop offset="70%" stop-color="#d4af37"/>
+                      <stop offset="100%" stop-color="#b8860b"/>
+                    </linearGradient>
+                    
+                    <linearGradient id="domeHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#ffffff"/>
+                      <stop offset="100%" stop-color="#ffed4e"/>
+                    </linearGradient>
+                    
+                    <linearGradient id="moonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ffd700"/>
+                      <stop offset="50%" stop-color="#ffed4e"/>
+                      <stop offset="100%" stop-color="#d4af37"/>
+                    </linearGradient>
+                    
+                    <linearGradient id="moonHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#ffffff"/>
+                      <stop offset="100%" stop-color="#ffed4e"/>
+                    </linearGradient>
+                    
+                    <linearGradient id="bookGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#d4af37"/>
+                      <stop offset="50%" stop-color="#b8860b"/>
+                      <stop offset="100%" stop-color="#8b6914"/>
+                    </linearGradient>
+                    
+                    <linearGradient id="spineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#b8860b"/>
+                      <stop offset="100%" stop-color="#8b6914"/>
+                    </linearGradient>
+                    
+                    <linearGradient id="pageGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#f5f5dc"/>
+                      <stop offset="50%" stop-color="#f0f0e0"/>
+                      <stop offset="100%" stop-color="#e8e8d0"/>
+                    </linearGradient>
+                    
+                    <linearGradient id="pageCurlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#e8e8d0"/>
+                      <stop offset="100%" stop-color="#d0d0c0"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <p>Direct SVG Embed</p>
+            </div>
+            
+            <!-- Method 2: Image Tag -->
+            <div class="logo-test">
+                <h3>Method 2: Image Tag</h3>
+                <img src="logo.svg" alt="Islamic Study Guide Logo" width="120" height="120">
+                <p>Image Tag (logo.svg)</p>
+            </div>
+            
+            <!-- Method 3: Relative Path -->
+            <div class="logo-test">
+                <h3>Method 3: Relative Path</h3>
+                <img src="./logo.svg" alt="Islamic Study Guide Logo" width="120" height="120">
+                <p>Relative Path (./logo.svg)</p>
+            </div>
+        </div>
+        
+        <div class="status">
+            <strong>Expected Result:</strong><br>
+            All three methods should show the same logo: a dark green circle with golden mosque dome, crescent moon, and open book
+        </div>
+        
+        <div style="margin: 30px 0;">
+            <a href="test-logo.html" class="button">
+                🔍 Go to Logo Test Page
+            </a>
+            
+            <a href="http://localhost:8080" class="button">
+                📱 Open Main Application
+            </a>
+        </div>
+        
+        <div class="status">
+            <strong>If you see different results:</strong><br>
+            • Method 1 should always work (direct SVG)<br>
+            • Methods 2 & 3 test file loading<br>
+            • Check browser console for errors
+        </div>
+    </div>
+</body>
+</html>

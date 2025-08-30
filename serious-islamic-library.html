@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Study Library - Academic Edition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        /* Academic Header */
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 1.5rem 0;
+            border-bottom: 4px solid #8b4513;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+        }
+        
+        .brand-text h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ecf0f1;
+            margin: 0;
+            font-family: 'Georgia', serif;
+        }
+        
+        .brand-text p {
+            font-size: 1rem;
+            color: #bdc3c7;
+            margin: 0;
+            font-style: italic;
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            border: 1px solid transparent;
+        }
+        
+        .nav-link:hover {
+            color: #f39c12;
+            border-color: #f39c12;
+            background: rgba(243, 156, 18, 0.1);
+        }
+        
+        /* Main Layout */
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 100px);
+        }
+        
+        /* Academic Sidebar */
+        .sidebar {
+            width: 350px;
+            background: #34495e;
+            color: white;
+            padding: 2rem 0;
+            overflow-y: auto;
+            position: fixed;
+            left: 0;
+            top: 100px;
+            bottom: 0;
+            z-index: 900;
+            border-right: 3px solid #8b4513;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2.5rem;
+            padding: 0 1.5rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #f39c12;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #8b4513;
+            font-family: 'Georgia', serif;
+        }
+        
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            color: #ecf0f1;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .sidebar-item:hover {
+            background: rgba(243, 156, 18, 0.15);
+            border-color: #f39c12;
+            color: #f39c12;
+            transform: translateX(5px);
+        }
+        
+        .sidebar-item.active {
+            background: rgba(243, 156, 18, 0.2);
+            border-color: #f39c12;
+            color: #f39c12;
+            box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+        }
+        
+        .sidebar-item-text {
+            flex: 1;
+        }
+        
+        .sidebar-item-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .sidebar-item-subtitle {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            font-style: italic;
+        }
+        
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            margin-left: 350px;
+            padding: 3rem;
+            background: #ffffff;
+        }
+        
+        .content-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #ecf0f1;
+        }
+        
+        .content-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+        }
+        
+        .content-subtitle {
+            font-size: 1.25rem;
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .content-description {
+            font-size: 1.1rem;
+            color: #34495e;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+        
+        /* Academic Cards */
+        .card {
+            background: #ffffff;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            border-color: #f39c12;
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .card-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Georgia', serif;
+        }
+        
+        .card-content {
+            color: #34495e;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Academic Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, #a0522d, #8b4513);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 8px 25px rgba(52, 73, 94, 0.4);
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #8b4513;
+            border: 2px solid #8b4513;
+        }
+        
+        .btn-outline:hover {
+            background: #8b4513;
+            color: white;
+        }
+        
+        /* Academic Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 4px solid #8b4513;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 2rem;
+        }
+        
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+        }
+        
+        .footer-subtitle {
+            color: #bdc3c7;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-divider {
+            width: 100px;
+            height: 3px;
+            background: #f39c12;
+            margin: 2rem auto;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #f39c12;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Logo SVG - Embedded Directly */
+        .logo svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Academic Typography */
+        .academic-text {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+        }
+        
+        .section-divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8b4513, transparent);
+            margin: 3rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Academic Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <!-- Your Logo Embedded Directly - No File Loading Issues! -->
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background Circle with enhanced depth -->
+                        <circle cx="100" cy="100" r="95" fill="url(#greenGradient)" stroke="#1a2a2a" stroke-width="4"/>
+                        
+                        <!-- Mosque Dome with enhanced 3D effect -->
+                        <path
+                            d="M50 90 Q100 40 150 90 L150 110 Q100 60 50 110 Z"
+                            fill="url(#domeGradient)"
+                            stroke="#d4af37"
+                            stroke-width="2"
+                        />
+                        
+                        <!-- Dome highlight for 3D effect -->
+                        <path
+                            d="M60 95 Q100 45 140 95 L140 105 Q100 55 60 105 Z"
+                            fill="url(#domeHighlight)"
+                            opacity="0.3"
+                        />
+                        
+                        <!-- Crescent Moon with enhanced detail -->
+                        <path
+                            d="M90 36 Q100 30 110 36 Q116 44 110 52 Q100 58 90 52 Q84 44 90 36"
+                            fill="url(#moonGradient)"
+                            stroke="#d4af37"
+                            stroke-width="1"
+                        />
+                        
+                        <!-- Moon highlight -->
+                        <path
+                            d="M92 38 Q100 32 108 38 Q112 42 108 48 Q100 54 92 48 Q88 42 92 38"
+                            fill="url(#moonHighlight)"
+                            opacity="0.4"
+                        />
+                        
+                        <!-- Open Book with enhanced 3D effect -->
+                        <rect x="60" y="100" width="80" height="50" rx="4" fill="url(#bookGradient)" stroke="#d4af37" stroke-width="2"/>
+                        <rect x="64" y="104" width="72" height="42" rx="2" fill="url(#pageGradient)"/>
+                        
+                        <!-- Book spine shadow -->
+                        <rect x="60" y="100" width="8" height="50" rx="4" fill="url(#spineGradient)"/>
+                        
+                        <!-- Book Pages with enhanced detail -->
+                        <line x1="70" y1="116" x2="130" y2="116" stroke="#d4af37" stroke-width="1" opacity="0.8"/>
+                        <line x1="70" y1="124" x2="130" y2="124" stroke="#d4af37" stroke-width="1" opacity="0.8"/>
+                        <line x1="70" y1="132" x2="130" y2="132" stroke="#d4af37" stroke-width="1" opacity="0.8"/>
+                        
+                        <!-- Page curl effect -->
+                        <path
+                            d="M130 104 L140 104 L140 146 L130 146 Z"
+                            fill="url(#pageCurlGradient)"
+                            opacity="0.6"
+                        />
+                        
+                        <!-- Enhanced Gradients -->
+                        <defs>
+                            <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0f1a1a"/>
+                                <stop offset="30%" stop-color="#142020"/>
+                                <stop offset="70%" stop-color="#1a2a2a"/>
+                                <stop offset="100%" stop-color="#0a0f0f"/>
+                            </linearGradient>
+                            
+                            <linearGradient id="domeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ffd700"/>
+                                <stop offset="30%" stop-color="#ffed4e"/>
+                                <stop offset="70%" stop-color="#d4af37"/>
+                                <stop offset="100%" stop-color="#b8860b"/>
+                            </linearGradient>
+                            
+                            <linearGradient id="domeHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#ffffff"/>
+                                <stop offset="100%" stop-color="#ffed4e"/>
+                            </linearGradient>
+                            
+                            <linearGradient id="moonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ffd700"/>
+                                <stop offset="50%" stop-color="#ffed4e"/>
+                                <stop offset="100%" stop-color="#d4af37"/>
+                            </linearGradient>
+                            
+                            <linearGradient id="moonHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#ffffff"/>
+                                <stop offset="100%" stop-color="#ffed4e"/>
+                            </linearGradient>
+                            
+                            <linearGradient id="bookGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#d4af37"/>
+                                <stop offset="50%" stop-color="#b8860b"/>
+                                <stop offset="100%" stop-color="#8b6914"/>
+                            </linearGradient>
+                            
+                            <linearGradient id="spineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#b8860b"/>
+                                <stop offset="100%" stop-color="#8b6914"/>
+                            </linearGradient>
+                            
+                            <linearGradient id="pageGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f5f5dc"/>
+                                <stop offset="50%" stop-color="#f0f0e0"/>
+                                <stop offset="100%" stop-color="#e8e8d0"/>
+                            </linearGradient>
+                            
+                            <linearGradient id="pageCurlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#e8e8d0"/>
+                                <stop offset="100%" stop-color="#d0d0c0"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>Islamic Study Library</h1>
+                    <p>Academic Edition - Scholarly Islamic Knowledge</p>
+                </div>
+            </div>
+            
+            <nav class="header-nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="mobile-toggle" onclick="toggleSidebar()">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-container">
+        <!-- Academic Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Core Islamic Knowledge</div>
+                <a href="#deenbot" class="sidebar-item active">
+                    <div class="sidebar-item-text">
+                        <div class="sidebar-item-title">DeenBot AI Assistant</div>
+                        <div class="sidebar-item-subtitle">Authentic Islamic Knowledge Base</div>
+                    </div>
+                </a>
+                <a href="#quran" class="sidebar-item">
+                    <div class="sidebar-item-text">
+                        <div class="sidebar-item-title">Quran & Tafsir</div>
+                        <div class="sidebar-item-subtitle">Complete Quranic Studies</div>
+                    </div>
+                </a>
+                <a href="#hadith" class="sidebar-item">
+                    <div class="sidebar-item-text">
+                        <div class="sidebar-item-title">Hadith Collections</div>
+                        <div class="sidebar-item-subtitle">Authentic Narrations & Sources</div>
+                    </div>
+                </a>
+                <a href="#fiqh" class="sidebar-item">
+                    <div class="sidebar-item-text">
+                        <div class="sidebar-item-title">Fiqh Knowledge</div>
+                        <div class="sidebar-item-subtitle">Islamic Jurisprudence & Law</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="sidebar-section">
+                <div class="sidebar-title">Daily Islamic Practice</div>
+                <a href="#prayer" class="sidebar-item">
+                    <div class="sidebar-item-text">
+                        <div class="sidebar-item-title">Prayer Guide</div>
+                        <div class="sidebar-item-subtitle">Complete Prayer Instructions</div>
+                    </div>
+                </a>
+                <a href="#daily" class="sidebar-item">
+                    <div class="sidebar-item-text">
+                        <div class="sidebar-item-title">Daily Islamic Wisdom</div>
+                        <div class="sidebar-item-subtitle">Scholarly Islamic Guidance</div>
+                    </div>
+                </a>
+                <a href="#new-muslim" class="sidebar-item">
+                    <div class="sidebar-item-text">
+                        <div class="sidebar-item-title">New Muslim Resources</div>
+                        <div class="sidebar-item-subtitle">Essential Islamic Foundation</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="sidebar-section">
+                <div class="sidebar-title">Advanced Islamic Studies</div>
+                <a href="#tajweed" class="sidebar-item">
+                    <div class="sidebar-item-text">
+                        <div class="sidebar-item-title">Tajweed Mastery</div>
+                        <div class="sidebar-item-subtitle">Quranic Recitation Rules</div>
+                    </div>
+                </a>
+                <a href="#arabic" class="sidebar-item">
+                    <div class="sidebar-item-text">
+                        <div class="sidebar-item-title">Quranic Arabic</div>
+                        <div class="sidebar-item-subtitle">Classical Arabic Studies</div>
+                    </div>
+                </a>
+                <a href="#community" class="sidebar-item">
+                    <div class="sidebar-item-text">
+                        <div class="sidebar-item-title">Islamic Community</div>
+                        <div class="sidebar-item-subtitle">Local Masjid & Resources</div>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1 class="content-title">Welcome to Islamic Study Library</h1>
+                <p class="content-subtitle">Academic Edition - Comprehensive Islamic Knowledge for Serious Study</p>
+                <p class="content-description">
+                    This library serves as a comprehensive resource for Islamic studies, providing authentic knowledge 
+                    from reliable sources. Our collection encompasses Quranic studies, Hadith collections, Fiqh knowledge, 
+                    and practical Islamic guidance for both new Muslims and advanced students of Islamic sciences.
+                </p>
+            </div>
+
+            <!-- DeenBot AI Section -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">AI</div>
+                    <h2 class="card-title">DeenBot AI - Islamic Knowledge Assistant</h2>
+                </div>
+                <div class="card-content">
+                    <p>
+                        DeenBot represents the integration of modern technology with traditional Islamic scholarship. 
+                        This AI assistant provides access to authenticated Islamic knowledge, drawing from reliable sources 
+                        including Quran, Hadith, and scholarly works. Each response is backed by authentic references, 
+                        allowing users to verify information and deepen their understanding of Islamic principles.
+                    </p>
+                    <p>
+                        The knowledge base is designed to address contemporary questions while maintaining the integrity 
+                        of traditional Islamic scholarship. Users are encouraged to verify all information through the 
+                        provided sources and consult with qualified Islamic scholars for complex matters.
+                    </p>
+                </div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn">Access DeenBot</button>
+                    <button class="btn btn-secondary">View Knowledge Base</button>
+                    <button class="btn btn-outline">Source Verification</button>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Quran Section -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">Q</div>
+                    <h2 class="card-title">Complete Quran with Scholarly Tafsir</h2>
+                </div>
+                <div class="card-content">
+                    <p>
+                        Access the complete Quran with authentic translations and scholarly tafsir (commentary). 
+                        Our collection includes multiple translations to facilitate understanding across different 
+                        languages and interpretations. Each verse is accompanied by scholarly commentary that provides 
+                        historical context, linguistic analysis, and practical applications.
+                    </p>
+                    <p>
+                        The tafsir collection draws from respected classical and contemporary scholars, ensuring 
+                        that users have access to well-established interpretations while being aware of different 
+                        scholarly perspectives within the Islamic tradition.
+                    </p>
+                </div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn">Browse Quran</button>
+                    <button class="btn btn-secondary">Search Verses</button>
+                    <button class="btn btn-outline">Tafsir Studies</button>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Hadith Section -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">H</div>
+                    <h2 class="card-title">Authentic Hadith Collections</h2>
+                </div>
+                <div class="card-content">
+                    <p>
+                        Explore comprehensive collections of authenticated Hadith from major sources including 
+                        Sahih Bukhari, Sahih Muslim, Sunan Abu Dawud, and other reliable collections. Each Hadith 
+                        includes proper authentication chains (isnad), grading information, and scholarly commentary.
+                    </p>
+                    <p>
+                        The collection emphasizes the importance of source verification and understanding the context 
+                        of each narration. Users can access both Arabic text and translations, along with scholarly 
+                        analysis that helps distinguish between authentic and weak narrations.
+                    </p>
+                </div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn">Browse Hadith</button>
+                    <button class="btn btn-secondary">Search Collections</button>
+                    <button class="btn btn-outline">Authentication Guide</button>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Academic Footer -->
+            <div class="footer">
+                <div class="footer-content">
+                    <h3 class="footer-title">Islamic Study Library - Academic Edition</h3>
+                    <p class="footer-subtitle">
+                        Dedicated to providing authentic Islamic knowledge through scholarly research and reliable sources
+                    </p>
+                    <div class="footer-divider"></div>
+                    <p style="color: #bdc3c7; font-size: 0.9rem;">
+                        Complete Islamic Knowledge Base | Authentic Sources | Scholarly Approach<br>
+                        DeenBot donated by NextEleven
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+        
+        // Add smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add active state to sidebar items
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

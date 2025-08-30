@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Study Guide - Auto Start</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f1a1a 0%, #142020 100%);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(20, 32, 32, 0.9);
+            border: 2px solid #2d4a4a;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #0f1a1a, #142020);
+            border-radius: 50%;
+            border: 3px solid #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #d4af37;
+        }
+        h1 {
+            color: #4ade80;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        .status {
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid #4ade80;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .button {
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 222, 128, 0.3);
+        }
+        .info {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid #3b82f6;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .countdown {
+            font-size: 24px;
+            color: #fbbf24;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+          <img src="logo.svg" alt="Islamic Study Guide Logo" width="80" height="80">
+        </div>
+        <h1>Islamic Study Guide</h1>
+        
+        <div class="status">
+            <strong>✅ Application Ready!</strong><br>
+            Your Islamic Study Guide is now available
+        </div>
+        
+        <div class="countdown" id="countdown">Opening in 5 seconds...</div>
+        
+        <div class="info">
+            <strong>What's included:</strong><br>
+            • DeenBot AI Assistant<br>
+            • Daily Islamic Messages<br>
+            • Prayer Guide<br>
+            • New Muslim Resources<br>
+            • Complete Islamic Knowledge
+        </div>
+        
+        <a href="http://localhost:8080" class="button" id="openButton">
+            🚀 Open Islamic Study Guide Now
+        </a>
+        
+        <button class="button" onclick="openInNewTab()">
+            📱 Open in New Tab
+        </button>
+        
+        <div class="info">
+            <strong>If the app doesn't open automatically:</strong><br>
+            1. Click the green button above<br>
+            2. Or copy this link: <strong>http://localhost:8080</strong><br>
+            3. Paste it into your browser address bar
+        </div>
+    </div>
+
+    <script>
+        let countdown = 5;
+        const countdownElement = document.getElementById('countdown');
+        const openButton = document.getElementById('openButton');
+        
+        // Countdown timer
+        const timer = setInterval(() => {
+            countdown--;
+            if (countdown > 0) {
+                countdownElement.textContent = `Opening in ${countdown} seconds...`;
+            } else {
+                countdownElement.textContent = 'Opening now...';
+                clearInterval(timer);
+                // Auto-open the application
+                setTimeout(() => {
+                    window.location.href = 'http://localhost:8080';
+                }, 500);
+            }
+        }, 1000);
+        
+        // Function to open in new tab
+        function openInNewTab() {
+            window.open('http://localhost:8080', '_blank');
+        }
+        
+        // Also try to open when page loads
+        window.onload = function() {
+            // Wait a moment then try to open
+            setTimeout(() => {
+                try {
+                    window.location.href = 'http://localhost:8080';
+                } catch (e) {
+                    console.log('Auto-open failed, user can click button');
+                }
+            }, 6000);
+        };
+    </script>
+</body>
+</html>
