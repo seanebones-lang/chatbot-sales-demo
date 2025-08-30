@@ -29,7 +29,6 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-accent: #f1f5f9;
-            --bg-glass: rgba(248, 250, 252, 0.8);
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-accent: #475569;
@@ -100,33 +99,33 @@
 
         .content-section h2 {
             color: var(--accent-primary);
-            margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            margin-bottom: 1rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
         .content-section h3 {
-            color: var(--accent-secondary);
-            margin: 1.5rem 0 1rem 0;
+            color: var(--accent-teal);
             font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
         }
 
         .content-section h4 {
-            color: var(--accent-teal);
-            margin: 1rem 0 0.5rem 0;
+            color: var(--accent-green);
             font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
         }
 
         .content-section p {
             margin-bottom: 1rem;
             line-height: 1.6;
-            text-align: justify;
+            color: var(--text-secondary);
         }
 
         .content-section ul, .content-section ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
         }
 
         .content-section li {
@@ -134,43 +133,100 @@
             line-height: 1.6;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
         }
 
-        .content-card {
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .hadith-card {
             background: var(--bg-secondary);
-            border: 2px solid var(--border-primary);
-            border-radius: 12px;
             padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
             transition: all 0.3s ease;
+        }
+
+        .hadith-card:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-secondary);
         }
 
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-            border-color: var(--accent-primary);
-        }
-
-        .content-card h4 {
+        .hadith-card h4 {
             color: var(--accent-primary);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
-        .content-card p {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+        .isnad {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+            font-style: italic;
+        }
+
+        .grading {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .sahih {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-primary);
+            border: 1px solid var(--accent-primary);
+        }
+
+        .hasan {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            border: 1px solid #3b82f6;
+        }
+
+        .daif {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
         }
 
         .back-link {
             display: inline-block;
-            margin: 2rem 0;
-            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
             background: var(--accent-primary);
             color: white;
             text-decoration: none;
@@ -182,7 +238,7 @@
         .back-link:hover {
             background: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-primary);
+            box-shadow: var(--shadow-secondary);
         }
 
         .theme-toggle {
@@ -190,14 +246,14 @@
             top: 2rem;
             right: 2rem;
             background: var(--accent-primary);
-            color: white;
             border: none;
-            border-radius: 50%;
+            color: white;
             width: 50px;
             height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
 
@@ -261,42 +317,224 @@
     
     <div class="container">
         <header class="header">
-            <h1>Abu Dawud</h1>
-            <p>Complete guide to abu dawud with comprehensive Islamic content and resources</p>
+            <h1>Sunan Abu Dawud</h1>
+            <p>Complete guide to one of the six major hadith collections, focusing on legal traditions and Islamic jurisprudence</p>
         </header>
         
         <div class="content-section">
+            <h2>Collection Information</h2>
+            <p>Sunan Abu Dawud is one of the six major hadith collections (Kutub al-Sittah) and is considered the third most authentic collection after Sahih Bukhari and Sahih Muslim. It was compiled by Abu Dawud Sulayman ibn al-Ash'ath al-Sijistani (d. 275 AH/889 CE) and contains approximately 5,274 hadith.</p>
             
-            <h3>Abu Dawud</h3>
-            <p>Complete guide to abu dawud with comprehensive Islamic content and resources</p>
-            
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>Overview</h4>
-                    <p>This section provides comprehensive information about abu dawud with detailed content and resources.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Key Topics</h4>
-                    <p>Explore the main topics and themes related to this subject area.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Resources</h4>
-                    <p>Access additional resources, references, and study materials.</p>
-                </div>
+            <div class="evidence-box">
+                <h5>Compilation Period</h5>
+                <p>Abu Dawud spent 20 years traveling throughout the Islamic world to collect and verify hadith, visiting scholars in Iraq, Egypt, Syria, and the Hijaz region. He was known for his strict criteria in accepting hadith and his focus on legal traditions.</p>
             </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Methodology and Authenticity</h2>
             
-            <h3>Detailed Content</h3>
-            <p>This page contains comprehensive information about abu dawud. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            <div class="hadith-card">
+                <h4>Selection Criteria</h4>
+                <p>Abu Dawud applied rigorous standards in selecting hadith:</p>
+                <ul>
+                    <li><strong>Chain Verification:</strong> Thorough examination of isnad (chain of narrators)</li>
+                    <li><strong>Legal Focus:</strong> Emphasis on hadith related to Islamic law and practice</li>
+                    <li><strong>Authenticity Grading:</strong> Clear indication of hadith reliability</li>
+                    <li><strong>Source Verification:</strong> Cross-referencing with other collections</li>
+                    <li><strong>Practical Application:</strong> Focus on actionable legal guidance</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>Grading System</h4>
+                <p>Abu Dawud categorized hadith into different reliability levels:</p>
+                <ul>
+                    <li><strong>Sahih:</strong> Authentic and reliable hadith</li>
+                    <li><strong>Hasan:</strong> Good hadith with minor weaknesses</li>
+                    <li><strong>Daif:</strong> Weak hadith with significant issues</li>
+                    <li><strong>Munkar:</strong> Rejected hadith with major problems</li>
+                </ul>
+                <p>He often provided his own grading and commentary on the reliability of narrators and chains.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Famous Hadith from Sunan Abu Dawud</h2>
             
-            <h4>Main Sections:</h4>
+            <div class="hadith-card">
+                <h4>1. The Five Daily Prayers</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ خَمْسُ صَلَوَاتٍ كَتَبَهُنَّ اللَّهُ عَلَى الْعِبَادِ فَمَنْ جَاءَ بِهِنَّ لَمْ يُضَيِّعْ مِنْهُنَّ شَيْئًا اسْتِخْفَافًا بِحَقِّهِنَّ كَانَ لَهُ عِنْدَ اللَّهِ عَهْدٌ أَنْ يُدْخِلَهُ الْجَنَّةَ</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'Allah has prescribed five prayers for the servants. Whoever performs them without neglecting any of them out of contempt for their rights, he will have a covenant with Allah to admit him into Paradise.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Abu Dawud</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This hadith emphasizes the importance of the five daily prayers and the promise of Paradise for those who perform them properly.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>2. Kindness to Parents</h4>
+                <div class="arabic-text">عَنْ أَبِي الدَّرْدَاءِ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ الْوَالِدُ أَوْسَطُ أَبْوَابِ الْجَنَّةِ فَإِنْ شِئْتَ فَأَضِعْ ذَلِكَ الْبَابَ أَوْ احْفَظْهُ</div>
+                <div class="translation">"Abu al-Darda reported: The Messenger of Allah, peace and blessings be upon him, said: 'The parent is the middle gate of Paradise. If you wish, you may lose that gate or preserve it.'"</div>
+                <div class="isnad">Narrated by: Abu al-Darda → Abu Dawud</div>
+                <div class="grading hasan">Hasan (Good)</div>
+                <p><strong>Significance:</strong> This hadith highlights the importance of treating parents well as a means to enter Paradise.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>3. Seeking Knowledge</h4>
+                <div class="arabic-text">عَنْ أَبِي الدَّرْدَاءِ قَالَ سَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ مَنْ سَلَكَ طَرِيقًا يَطْلُبُ فِيهِ عِلْمًا سَلَكَ اللَّهُ بِهِ طَرِيقًا مِنْ طُرُقِ الْجَنَّةِ</div>
+                <div class="translation">"Abu al-Darda reported: I heard the Messenger of Allah, peace and blessings be upon him, say: 'Whoever travels a path in search of knowledge, Allah will make easy for him a path to Paradise.'"</div>
+                <div class="isnad">Narrated by: Abu al-Darda → Abu Dawud</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This hadith encourages seeking Islamic knowledge and promises divine assistance in attaining Paradise.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>4. Good Character</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ إِنَّ مِنْ أَحَبِّكُمْ إِلَيَّ وَأَقْرَبِكُمْ مِنِّي مَجْلِسًا يَوْمَ الْقِيَامَةِ أَحَاسِنَكُمْ أَخْلَاقًا</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'The most beloved of you to me and the closest to me in the Hereafter are those with the best character.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Abu Dawud</div>
+                <div class="grading hasan">Hasan (Good)</div>
+                <p><strong>Significance:</strong> This hadith emphasizes the importance of good character in Islam and its reward in the Hereafter.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>5. Sincerity in Actions</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'Allah does not look at your appearance or wealth, but He looks at your hearts and actions.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Abu Dawud</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This hadith teaches that Allah values sincerity and good deeds over outward appearance and material wealth.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Major Categories</h2>
+            <p>Sunan Abu Dawud is organized into several major categories, focusing primarily on legal traditions:</p>
+            
+            <div class="hadith-card">
+                <h4>1. Purification (Taharah)</h4>
+                <p>Hadith related to ritual purity, ablution, and cleanliness:</p>
+                <ul>
+                    <li>Wudu (ablution) procedures</li>
+                    <li>Ghusl (full bath) requirements</li>
+                    <li>Tayammum (dry ablution)</li>
+                    <li>Purification from impurities</li>
+                    <li>Cleanliness in prayer</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>2. Prayer (Salah)</h4>
+                <p>Comprehensive coverage of prayer-related topics:</p>
+                <ul>
+                    <li>Five daily prayers</li>
+                    <li>Prayer times and conditions</li>
+                    <li>Prayer movements and recitations</li>
+                    <li>Congregational prayer</li>
+                    <li>Friday prayer and Eid prayers</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>3. Marriage and Family</h4>
+                <p>Guidance on family matters and relationships:</p>
+                <ul>
+                    <li>Marriage contracts and conditions</li>
+                    <li>Rights and responsibilities of spouses</li>
+                    <li>Divorce procedures and regulations</li>
+                    <li>Child custody and support</li>
+                    <li>Family harmony and communication</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>4. Business and Transactions</h4>
+                <p>Islamic business ethics and financial transactions:</p>
+                <ul>
+                    <li>Halal and haram business practices</li>
+                    <li>Contract validity and conditions</li>
+                    <li>Interest-free transactions</li>
+                    <li>Partnership and investment</li>
+                    <li>Consumer rights and responsibilities</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>5. Social Relations</h4>
+                <p>Guidance on interpersonal relationships:</p>
+                <ul>
+                    <li>Neighborly rights and duties</li>
+                    <li>Visiting and hospitality</li>
+                    <li>Greetings and social etiquette</li>
+                    <li>Conflict resolution</li>
+                    <li>Community cooperation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Comparison with Other Collections</h2>
+            
+            <div class="hadith-card">
+                <h4>Sunan Abu Dawud vs. Sahih Bukhari</h4>
+                <ul>
+                    <li><strong>Focus:</strong> Abu Dawud focuses on legal traditions, Bukhari on comprehensive coverage</li>
+                    <li><strong>Authenticity:</strong> Bukhari has stricter authenticity criteria</li>
+                    <li><strong>Organization:</strong> Abu Dawud is organized by legal topics</li>
+                    <li><strong>Commentary:</strong> Abu Dawud includes more explanatory notes</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>Sunan Abu Dawud vs. Sahih Muslim</h4>
+                <ul>
+                    <li><strong>Scope:</strong> Muslim covers broader topics, Abu Dawud is more focused</li>
+                    <li><strong>Legal Emphasis:</strong> Abu Dawud prioritizes legal applications</li>
+                    <li><strong>Narrator Analysis:</strong> Muslim provides more detailed narrator information</li>
+                    <li><strong>Practical Guidance:</strong> Abu Dawud offers more practical legal advice</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Virtues and Benefits</h2>
+            
+            <div class="hadith-card">
+                <h4>Studying Sunan Abu Dawud</h4>
+                <p>Benefits of studying this collection:</p>
+                <ul>
+                    <li><strong>Legal Understanding:</strong> Deep insight into Islamic jurisprudence</li>
+                    <li><strong>Practical Guidance:</strong> Clear instructions for daily Islamic practice</li>
+                    <li><strong>Authentic Sources:</strong> Reliable hadith for legal rulings</li>
+                    <li><strong>Comprehensive Coverage:</strong> Addresses most aspects of Islamic law</li>
+                    <li><strong>Scholar Recognition:</strong> Widely accepted by Islamic scholars</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>Application in Daily Life</h4>
+                <p>How to use these hadith in practice:</p>
+                <ul>
+                    <li><strong>Prayer Guidance:</strong> Proper performance of daily prayers</li>
+                    <li><strong>Family Relations:</strong> Building harmonious family relationships</li>
+                    <li><strong>Business Ethics:</strong> Conducting business according to Islamic principles</li>
+                    <li><strong>Social Conduct:</strong> Maintaining good relations with others</li>
+                    <li><strong>Personal Development:</strong> Improving character and behavior</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
             <ul>
-                <li><strong>Introduction:</strong> Basic concepts and overview</li>
-                <li><strong>Core Topics:</strong> Essential information and principles</li>
-                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
-                <li><strong>Practical Applications:</strong> Real-world implementation</li>
-                <li><strong>References:</strong> Sources and additional reading</li>
+                <li><a href="sahih-bukhari.html">Sahih Bukhari</a></li>
+                <li><a href="sahih-muslim.html">Sahih Muslim</a></li>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="family-values.html">Islamic Family Values</a></li>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
             </ul>
-        
         </div>
         
         <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>

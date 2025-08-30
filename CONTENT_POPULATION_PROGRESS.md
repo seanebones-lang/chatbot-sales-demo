@@ -1,6 +1,6 @@
 # Content Population Progress
 
-## Completed Files (11/260+)
+## Completed Files (13/260+)
 
 ### 1. surah-1-al-fatiha.html ✅
 - **Status**: Complete
@@ -57,11 +57,21 @@
 - **Features**: Marriage guidance, parenting principles, extended family relations, communication, family activities, challenges and solutions, and related topics
 - **Content**: Comprehensive guide to Islamic family values
 
+### 12. abu-dawud.html ✅
+- **Status**: Complete
+- **Features**: Collection information, methodology, famous hadith with Arabic text, translation, isnad, grading, major categories, comparison with other collections, and related topics
+- **Content**: Comprehensive guide to Sunan Abu Dawud
+
+### 13. tirmidhi.html ✅
+- **Status**: Complete
+- **Features**: Collection information, methodology, famous hadith with Arabic text, translation, isnad, grading, major categories, unique features, comparison with other collections, and related topics
+- **Content**: Comprehensive guide to Sunan Tirmidhi
+
 ## Next Priorities
 
 ### Week 1: Core Islamic Content (CRITICAL)
 - [ ] Continue populating Quran surah files (111 remaining, 3/114 completed)
-- [ ] Complete major hadith books (Abu Dawud, Tirmidhi, Nasai, Majah - 2/15+ collections completed)
+- [ ] Complete remaining major hadith books (Nasai, Majah - 4/15+ collections completed)
 - [ ] Create comprehensive fiqh guides (1/20+ topics completed)
 - [ ] Finish core belief content (aqeedah - 2/10+ topics completed)
 
@@ -85,10 +95,10 @@
 
 ## Progress Metrics
 
-- **Overall Progress**: 11/260+ files = 4.2% complete
-- **Critical Priority**: 11/50+ files = 22% complete
+- **Overall Progress**: 13/260+ files = 5.0% complete
+- **Critical Priority**: 13/50+ files = 26% complete
 - **Quran Files**: 3/114 surahs = 2.6% complete
-- **Hadith Files**: 2/15+ collections = 13.3% complete
+- **Hadith Files**: 4/15+ collections = 26.7% complete
 - **Core Islamic Files**: 6/20+ topics = 30% complete
 
 ## Content Standards Met
