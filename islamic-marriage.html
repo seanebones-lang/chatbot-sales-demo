@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Marriage Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .marriage-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .marriage-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .marriage-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Marriage Guide</h1>
+            <p>Complete guide to Islamic marriage principles, rights, responsibilities, and guidance based on Quranic teachings and prophetic wisdom</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Marriage</h2>
+            <p>Marriage in Islam is a sacred contract (nikah) between a man and woman, established by Allah as a means of finding tranquility, love, and mercy. It is considered half of one's faith and a foundation for building a righteous family and society.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+                <div class="translation">"And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy." (Quran 30:21)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "When a man marries, he has fulfilled half of his religion, so let him fear Allah regarding the remaining half." (Bayhaqi)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Purpose and Benefits of Marriage</h2>
+            
+            <div class="marriage-card">
+                <h4>Spiritual Benefits</h4>
+                <ul>
+                    <li><strong>Completion of Faith:</strong> Marriage completes half of one's religious obligations</li>
+                    <li><strong>Protection from Sin:</strong> Helps maintain chastity and avoid unlawful relationships</li>
+                    <li><strong>Increased Worship:</strong> Married couples can support each other in religious practices</li>
+                    <li><strong>Divine Blessing:</strong> Marriage brings Allah's blessings and mercy</li>
+                    <li><strong>Spiritual Growth:</strong> Partners help each other grow in faith and character</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Social Benefits</h4>
+                <ul>
+                    <li><strong>Family Foundation:</strong> Creates the basic unit of society</li>
+                    <li><strong>Procreation:</strong> Allows for the continuation of human race</li>
+                    <li><strong>Social Stability:</strong> Contributes to community harmony and order</li>
+                    <li><strong>Mutual Support:</strong> Partners support each other in life's challenges</li>
+                    <li><strong>Community Building:</strong> Strengthens social bonds and relationships</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Personal Benefits</h4>
+                <ul>
+                    <li><strong>Emotional Support:</strong> Provides companionship and emotional security</li>
+                    <li><strong>Physical Intimacy:</strong> Fulfills natural human needs in a lawful way</li>
+                    <li><strong>Personal Growth:</strong> Helps develop patience, understanding, and compromise</li>
+                    <li><strong>Life Partnership:</strong> Share life's journey with a committed partner</li>
+                    <li><strong>Legacy Building:</strong> Create a family that continues after you</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Marriage Requirements and Conditions</h2>
+            
+            <div class="marriage-card">
+                <h4>Essential Requirements</h4>
+                <ul>
+                    <li><strong>Consent:</strong> Both parties must freely agree to the marriage</li>
+                    <li><strong>Witnesses:</strong> Two Muslim witnesses must be present</li>
+                    <li><strong>Mahr (Dowry):</strong> Gift from groom to bride (obligatory)</li>
+                    <li><strong>Guardian (Wali):</strong> Bride's guardian must approve (for first marriage)</li>
+                    <li><strong>Public Announcement:</strong> Marriage should be publicly known</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <4>Prohibited Marriages</h4>
+                <ul>
+                    <li><strong>Blood Relations:</strong> Parents, children, siblings, grandparents, aunts, uncles</li>
+                    <li><strong>Milk Relations:</strong> Those related through breastfeeding</li>
+                    <li><strong>In-Laws:</strong> Step-parents, step-children, in-laws</li>
+                    <li><strong>Multiple Sisters:</strong> Cannot marry two sisters simultaneously</li>
+                    <li><strong>Iddah Period:</strong> Cannot marry a woman in her waiting period</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Age and Maturity</h4>
+                <ul>
+                    <li><strong>Physical Maturity:</strong> Both parties must be physically mature</li>
+                    <li><strong>Mental Maturity:</strong> Ability to understand marriage responsibilities</li>
+                    <li><strong>Legal Age:</strong> Must meet minimum legal age requirements</li>
+                    <li><strong>Emotional Readiness:</strong> Prepared for emotional and social responsibilities</li>
+                    <li><strong>Financial Capability:</strong> Ability to provide for family needs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Choosing a Spouse</h2>
+            
+            <div class="marriage-card">
+                <h4>Religious Criteria</h4>
+                <ul>
+                    <li><strong>Faith and Piety:</strong> Strong religious commitment and character</li>
+                    <li><strong>Religious Practice:</strong> Regular prayer, fasting, and good deeds</li>
+                    <li><strong>Islamic Knowledge:</strong> Understanding of Islamic principles</li>
+                    <li><strong>Moral Character:</strong> Good reputation and ethical behavior</li>
+                    <li><strong>Religious Compatibility:</strong> Similar level of religious commitment</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Prophetic Guidance</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "A woman is married for four reasons: her wealth, her lineage, her beauty, and her religion. So choose the religious one, may your hands be rubbed with dust." (Sahih Bukhari)</p>
+                </div>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Character and Personality</h4>
+                <ul>
+                    <li><strong>Good Manners:</strong> Polite, respectful, and kind behavior</li>
+                    <li><strong>Communication Skills:</strong> Ability to express thoughts and feelings</li>
+                    <li><strong>Emotional Intelligence:</strong> Understanding and managing emotions</li>
+                    <li><strong>Patience and Tolerance:</strong> Ability to handle differences and conflicts</li>
+                    <li><strong>Sense of Humor:</strong> Ability to bring joy and lightness to life</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Practical Considerations</h4>
+                <ul>
+                    <li><strong>Financial Stability:</strong> Ability to provide for family needs</li>
+                    <li><strong>Educational Background:</strong> Similar educational and intellectual level</li>
+                    <li><strong>Cultural Compatibility:</strong> Understanding of each other's background</li>
+                    <li><strong>Life Goals:</strong> Similar aspirations and future plans</li>
+                    <li><strong>Family Background:</strong> Compatibility with each other's families</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <2>Marriage Rights and Responsibilities</h2>
+            
+            <div class="marriage-card">
+                <h4>Husband's Rights</h4>
+                <ul>
+                    <li><strong>Obedience in Lawful Matters:</strong> Wife should obey in matters that don't conflict with Islamic law</li>
+                    <li><strong>Sexual Relations:</strong> Right to intimate relations within marriage</li>
+                    <li><strong>Home Management:</strong> Wife should manage household affairs</li>
+                    <li><strong>Respect and Honor:</strong> Wife should respect and honor her husband</li>
+                    <li><strong>Privacy Protection:</strong> Wife should protect family privacy and honor</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Husband's Responsibilities</h4>
+                <ul>
+                    <li><strong>Financial Support:</strong> Provide food, clothing, shelter, and basic needs</li>
+                    <li><strong>Fair Treatment:</strong> Treat wife with kindness and fairness</li>
+                    <li><strong>Protection:</strong> Protect wife from harm and provide security</li>
+                    <li><strong>Education and Guidance:</strong> Help wife in religious and worldly matters</li>
+                    <li><strong>Emotional Support:</strong> Provide love, care, and emotional security</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Prophetic Teaching</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "The best of you is the best to his family, and I am the best to my family." (Tirmidhi)</p>
+                </div>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Wife's Rights</h4>
+                <ul>
+                    <li><strong>Financial Support:</strong> Right to maintenance and financial security</li>
+                    <li><strong>Fair Treatment:</strong> Equal treatment with other wives (if polygamous)</li>
+                    <li><strong>Respect and Dignity:</strong> Right to be treated with respect and honor</li>
+                    <li><strong>Privacy and Independence:</strong> Right to personal space and independence</li>
+                    <li><strong>Protection from Harm:</strong> Right to be protected from physical and emotional harm</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Wife's Responsibilities</h4>
+                <ul>
+                    <li><strong>Obedience in Lawful Matters:</strong> Obey husband in matters that don't conflict with Islamic law</li>
+                    <li><strong>Home Management:</strong> Manage household affairs efficiently</li>
+                    <li><strong>Childcare:</strong> Care for and raise children properly</li>
+                    <li><strong>Respect and Honor:</strong> Respect and honor her husband</li>
+                    <li><strong>Protection of Honor:</strong> Protect family privacy and honor</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Marriage Ceremony and Traditions</h2>
+            
+            <div class="marriage-card">
+                <h4>Nikah Ceremony</h4>
+                <ul>
+                    <li><strong>Khutbah al-Hajah:</strong> Opening sermon praising Allah</li>
+                    <li><strong>Proposal and Acceptance:</strong> Clear offer and acceptance</li>
+                    <li><strong>Mahr Declaration:</strong> Announcement of the dowry amount</li>
+                    <li><strong>Witness Testimony:</strong> Two witnesses confirm the marriage</li>
+                    <li><strong>Dua and Blessings:</strong> Prayers for the new couple</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Cultural Traditions</h4>
+                <ul>
+                    <li><strong>Engagement (Khitbah):</strong> Formal engagement period</li>
+                    <li><strong>Henna Night (Laylat al-Hinna):</strong> Traditional celebration before wedding</li>
+                    <li><strong>Wedding Feast (Walimah):</strong> Celebration meal after marriage</li>
+                    <li><strong>Family Gatherings:</strong> Bringing families together</li>
+                    <li><strong>Gift Exchange:</strong> Traditional gifts and blessings</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Building a Successful Marriage</h2>
+            
+            <div class="marriage-card">
+                <h4>Communication Skills</h4>
+                <ul>
+                    <li><strong>Active Listening:</strong> Listen with full attention and understanding</li>
+                    <li><strong>Open Dialogue:</strong> Encourage honest and open communication</li>
+                    <li><strong>Respectful Language:</strong> Use kind and respectful words</li>
+                    <li><strong>Conflict Resolution:</strong> Address issues calmly and constructively</li>
+                    <li><strong>Regular Check-ins:</strong> Regular conversations about relationship</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Emotional Intelligence</h4>
+                <ul>
+                    <li><strong>Understanding Emotions:</strong> Recognize and understand feelings</li>
+                    <li><strong>Empathy:</strong> Put yourself in partner's shoes</li>
+                    <li><strong>Emotional Regulation:</strong> Manage emotions during conflicts</li>
+                    <li><strong>Support and Comfort:</strong> Provide emotional support when needed</li>
+                    <li><strong>Celebration of Joy:</strong> Share and celebrate happy moments</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Spiritual Growth Together</h4>
+                <ul>
+                    <li><strong>Joint Worship:</strong> Pray together and attend religious gatherings</li>
+                    <li><strong>Religious Learning:</strong> Study Islamic texts together</li>
+                    <li><strong>Charitable Activities:</strong> Give charity and help others together</li>
+                    <li><strong>Religious Discussions:</strong> Discuss religious matters and questions</li>
+                    <li><strong>Spiritual Goals:</strong> Set and work toward spiritual objectives</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Marriage Challenges</h2>
+            
+            <div class="marriage-card">
+                <h4>Communication Issues</h4>
+                <ul>
+                    <li><strong>Misunderstandings:</strong> Clear communication to avoid confusion</li>
+                    <li><strong>Emotional Distance:</strong> Regular emotional connection and intimacy</li>
+                    <li><strong>Conflict Avoidance:</strong> Address issues rather than avoiding them</li>
+                    <li><strong>Different Communication Styles:</strong> Understand and adapt to each other</li>
+                    <li><strong>Technology Interference:</strong> Limit screen time for quality interaction</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Financial Challenges</h4>
+                <ul>
+                    <li><strong>Budget Planning:</strong> Create and follow a family budget</li>
+                    <li><strong>Financial Goals:</strong> Set and work toward financial objectives</li>
+                    <li><strong>Debt Management:</strong> Avoid unnecessary debt and manage existing debt</li>
+                    <li><strong>Emergency Savings:</strong> Build emergency fund for unexpected expenses</li>
+                    <li><strong>Financial Transparency:</strong> Open communication about finances</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Family and In-Law Issues</h4>
+                <ul>
+                    <li><strong>Boundary Setting:</strong> Establish clear boundaries with extended family</li>
+                    <li><strong>Unified Front:</strong> Present united front to family members</li>
+                    <li><strong>Respect and Courtesy:</strong> Treat in-laws with respect and kindness</li>
+                    <li><strong>Communication:</strong> Open communication about family matters</li>
+                    <li><strong>Compromise:</strong> Find middle ground in family situations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Divorce in Islam</h2>
+            
+            <div class="marriage-card">
+                <h4>When Divorce is Permissible</h4>
+                <ul>
+                    <li><strong>Irreconcilable Differences:</strong> When marriage cannot be saved</li>
+                    <li><strong>Abuse or Harm:</strong> Physical, emotional, or financial abuse</li>
+                    <li><strong>Religious Incompatibility:</strong> Major differences in religious practice</li>
+                    <li><strong>Infidelity:</strong> Adultery or betrayal of trust</li>
+                    <li><strong>Neglect of Rights:</strong> Failure to fulfill basic marital obligations</li>
+                </ul>
+            </div>
+
+            <div class="marriage-card">
+                <h4>Divorce Process</h4>
+                <ul>
+                    <li><strong>Cooling Off Period:</strong> Time for reflection and reconciliation</li>
+                    <li><strong>Mediation:</strong> Attempt to resolve issues through mediation</li>
+                    <li><strong>Fair Division:</strong> Fair division of assets and responsibilities</li>
+                    <li><strong>Child Custody:</strong> Best interests of children considered</li>
+                    <li><strong>Financial Support:</strong> Appropriate financial arrangements</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Polygamy in Islam</h2>
+            
+            <div class="marriage-card">
+                <h4>Conditions for Polygamy</h4>
+                <ul>
+                    <li><strong>Maximum Four Wives:</strong> Islamic limit on number of wives</li>
+                    <li><strong>Equal Treatment:</strong> Must treat all wives equally and fairly</li>
+                    <li><strong>Financial Capability:</strong> Must be able to support all wives</li>
+                    <li><strong>Just Treatment:</strong> Equal time, attention, and resources</li>
+                    <li><strong>First Wife's Consent:</strong> Consideration of first wife's feelings</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Guidance</h5>
+                    <div class="arabic-text">فَإِنْ خِفْتُمْ أَلَّا تَعْدِلُوا فَوَاحِدَةً</div>
+                    <div class="translation">"But if you fear that you will not be just, then [marry only] one." (Quran 4:3)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="islamic-family-values.html">Islamic Family Values</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+                <li><a href="islamic-finance.html">Islamic Finance Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>

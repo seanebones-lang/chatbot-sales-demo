@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Business Ethics Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .business-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .business-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .business-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Business Ethics Guide</h1>
+            <p>Complete guide to Islamic business principles, ethical practices, and workplace guidelines based on Quranic teachings and prophetic guidance</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Business Ethics</h2>
+            <p>Islam provides comprehensive guidelines for conducting business ethically and fairly. Business is not just about profit, but about serving humanity while earning a halal livelihood and contributing to society's well-being.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ</div>
+                <div class="translation">"O you who have believed, do not consume one another's wealth unjustly." (Quran 4:29)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "The truthful and trustworthy merchant will be with the prophets, the truthful, and the martyrs." (Tirmidhi)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Core Principles of Islamic Business</h2>
+            
+            <div class="business-card">
+                <h4>Honesty and Truthfulness</h4>
+                <ul>
+                    <li><strong>Complete Disclosure:</strong> Reveal all relevant information about products/services</li>
+                    <li><strong>Accurate Descriptions:</strong> Provide truthful product descriptions and specifications</li>
+                    <li><strong>Pricing Transparency:</strong> Clear and honest pricing without hidden fees</li>
+                    <li><strong>Quality Standards:</strong> Deliver what is promised and advertised</li>
+                    <li><strong>Error Correction:</strong> Immediately correct any mistakes or misrepresentations</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Prophetic Guidance</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "The seller and the buyer have the right to keep or return goods as long as they have not parted or till they part; and if both the parties spoke the truth and described the defects and qualities (of the goods), then they would be blessed in their transaction." (Sahih Bukhari)</p>
+                </div>
+            </div>
+
+            <div class="business-card">
+                <h4>Trustworthiness and Reliability</h4>
+                <ul>
+                    <li><strong>Fulfilling Promises:</strong> Keep all business commitments and agreements</li>
+                    <li><strong>Meeting Deadlines:</strong> Deliver products/services on time</li>
+                    <li><strong>Quality Assurance:</strong> Maintain consistent quality standards</li>
+                    <li><strong>After-Sales Service:</strong> Provide support after transactions</li>
+                    <li><strong>Customer Care:</strong> Address concerns and complaints promptly</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Fairness and Justice</h4>
+                <ul>
+                    <li><strong>Just Pricing:</strong> Fair prices that reflect true value</li>
+                    <li><strong>Equal Treatment:</strong> Treat all customers and employees fairly</li>
+                    <li><strong>No Discrimination:</strong> Serve all customers regardless of background</li>
+                    <li><strong>Conflict Resolution:</strong> Fair resolution of disputes</li>
+                    <li><strong>Transparent Policies:</strong> Clear and fair business policies</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Social Responsibility</h4>
+                <ul>
+                    <li><strong>Community Benefit:</strong> Business should benefit society</li>
+                    <li><strong>Environmental Care:</strong> Minimize environmental impact</li>
+                    <li><strong>Charitable Giving:</strong> Contribute to community welfare</li>
+                    <li><strong>Employee Welfare:</strong> Fair wages and working conditions</li>
+                    <li><strong>Ethical Sourcing:</strong> Use suppliers who follow ethical practices</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Prohibited Business Practices</h2>
+            
+            <div class="business-card">
+                <h4>Riba (Interest)</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Any excess or increase in loans or debts</li>
+                    <li><strong>Prohibition:</strong> Strictly forbidden in all forms</li>
+                    <li><strong>Alternatives:</strong> Profit-sharing, leasing, and partnership arrangements</li>
+                    <li><strong>Modern Applications:</strong> Islamic banking and finance solutions</li>
+                    <li><strong>Business Impact:</strong> Affects financing and investment decisions</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Prohibition</h5>
+                    <div class="arabic-text">يَمْحَقُ اللَّهُ الرِّبَا وَيُرْبِي الصَّدَقَاتِ</div>
+                    <div class="translation">"Allah destroys interest and gives increase for charities." (Quran 2:276)</div>
+                </div>
+            </div>
+
+            <div class="business-card">
+                <h4>Gharar (Uncertainty)</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Excessive uncertainty or ambiguity in contracts</li>
+                    <li><strong>Examples:</strong> Selling unborn animals, unknown quantities</li>
+                    <li><strong>Solutions:</strong> Clear terms and conditions in all contracts</li>
+                    <li><strong>Risk Management:</strong> Proper risk assessment and disclosure</li>
+                    <li><strong>Contract Clarity:</strong> Well-defined rights and obligations</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Maysir (Gambling)</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Games of chance and speculation</li>
+                    <li><strong>Prohibition:</strong> Forbidden as it involves uncertainty and waste</li>
+                    <li><strong>Business Applications:</strong> Avoid speculative investments</li>
+                    <li><strong>Risk Management:</strong> Focus on productive economic activities</li>
+                    <li><strong>Investment Strategy:</strong> Asset-backed and productive investments</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Haram Products and Services</h4>
+                <ul>
+                    <li><strong>Alcohol and Drugs:</strong> Production, sale, or distribution</li>
+                    <li><strong>Pork Products:</strong> Any products containing pork</li>
+                    <li><strong>Adult Entertainment:</strong> Pornography and related services</li>
+                    <li><strong>Weapons Trade:</strong> Illegal or unethical weapon sales</li>
+                    <li><strong>Harmful Substances:</strong> Products that harm health or environment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Ethical Business Practices</h2>
+            
+            <div class="business-card">
+                <h4>Customer Relations</h4>
+                <ul>
+                    <li><strong>Respect and Courtesy:</strong> Treat customers with dignity</li>
+                    <li><strong>Product Knowledge:</strong> Understand and explain products honestly</li>
+                    <li><strong>Return Policies:</strong> Fair and reasonable return procedures</li>
+                    <li><strong>Privacy Protection:</strong> Safeguard customer information</li>
+                    <li><strong>Feedback Systems:</strong> Encourage and respond to customer input</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Employee Relations</h4>
+                <ul>
+                    <li><strong>Fair Wages:</strong> Just compensation for work performed</li>
+                    <li><strong>Safe Environment:</strong> Healthy and safe working conditions</li>
+                    <li><strong>Equal Opportunity:</strong> No discrimination in hiring or promotion</li>
+                    <li><strong>Professional Development:</strong> Training and growth opportunities</li>
+                    <li><strong>Work-Life Balance:</strong> Reasonable working hours and conditions</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Supplier Relations</h4>
+                <ul>
+                    <li><strong>Fair Payment:</strong> Pay suppliers on time and fairly</li>
+                    <li><strong>Ethical Standards:</strong> Work with ethical suppliers</li>
+                    <li><strong>Long-term Relationships:</strong> Build sustainable partnerships</li>
+                    <li><strong>Quality Requirements:</strong> Set and maintain quality standards</li>
+                    <li><strong>Conflict Resolution:</strong> Fair handling of disputes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Business Contracts</h2>
+            
+            <div class="business-card">
+                <h4>Contract Principles</h4>
+                <ul>
+                    <li><strong>Mutual Consent:</strong> Both parties must agree freely</li>
+                    <li><strong>Clear Terms:</strong> All conditions must be clearly stated</li>
+                    <li><strong>Fair Exchange:</strong> Value must be equivalent on both sides</li>
+                    <li><strong>Written Documentation:</strong> Important contracts should be in writing</li>
+                    <li><strong>Witness Requirements:</strong> Use witnesses for significant agreements</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Types of Business Contracts</h4>
+                <ul>
+                    <li><strong>Murabaha:</strong> Cost-plus financing arrangements</li>
+                    <li><strong>Ijara:</strong> Leasing and rental agreements</li>
+                    <li><strong>Musharakah:</strong> Partnership and joint venture contracts</li>
+                    <li><strong>Mudarabah:</strong> Investment partnership agreements</li>
+                    <li><strong>Standard Contracts:</strong> Employment, service, and sales agreements</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Workplace Ethics</h2>
+            
+            <div class="business-card">
+                <h4>Professional Conduct</h4>
+                <ul>
+                    <li><strong>Punctuality:</strong> Arrive on time for work and meetings</li>
+                    <li><strong>Dress Code:</strong> Modest and professional appearance</li>
+                    <li><strong>Communication:</strong> Respectful and professional language</li>
+                    <li><strong>Confidentiality:</strong> Protect company and customer information</li>
+                    <li><strong>Conflict Resolution:</strong> Handle disagreements professionally</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Teamwork and Collaboration</h4>
+                <ul>
+                    <li><strong>Mutual Respect:</strong> Respect colleagues and their contributions</li>
+                    <li><strong>Knowledge Sharing:</strong> Share expertise and help others</li>
+                    <li><strong>Conflict Management:</strong> Resolve disputes amicably</li>
+                    <li><strong>Support System:</strong> Help colleagues in need</li>
+                    <li><strong>Celebration:</strong> Recognize team achievements</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Leadership Ethics</h4>
+                <ul>
+                    <li><strong>Leading by Example:</strong> Model ethical behavior</li>
+                    <li><strong>Fair Decision Making:</strong> Make decisions based on merit</li>
+                    <li><strong>Transparency:</strong> Open communication about decisions</li>
+                    <li><strong>Accountability:</strong> Take responsibility for outcomes</li>
+                    <li><strong>Employee Development:</strong> Invest in team growth</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Marketing and Advertising Ethics</h2>
+            
+            <div class="business-card">
+                <h4>Truthful Advertising</h4>
+                <ul>
+                    <li><strong>Accurate Claims:</strong> All claims must be verifiable</li>
+                    <li><strong>No Deception:</strong> Avoid misleading or false information</li>
+                    <li><strong>Product Benefits:</strong> Focus on genuine product advantages</li>
+                    <li><strong>Price Transparency:</strong> Clear and honest pricing</li>
+                    <li><strong>Comparison Standards:</strong> Fair and accurate comparisons</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Responsible Marketing</h4>
+                <ul>
+                    <li><strong>Target Audience:</strong> Appropriate targeting and messaging</li>
+                    <li><strong>Cultural Sensitivity:</strong> Respect diverse cultures and beliefs</li>
+                    <li><strong>Environmental Claims:</strong> Honest environmental impact statements</li>
+                    <li><strong>Social Responsibility:</strong> Promote positive social values</li>
+                    <li><strong>Children's Advertising:</strong> Special care for young audiences</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Financial Ethics</h2>
+            
+            <div class="business-card">
+                <h4>Accounting and Reporting</h4>
+                <ul>
+                    <li><strong>Accurate Records:</strong> Maintain truthful financial records</li>
+                    <li><strong>Transparent Reporting:</strong> Clear and honest financial statements</li>
+                    <li><strong>No Fraud:</strong> Avoid any form of financial deception</li>
+                    <li><strong>Tax Compliance:</strong> Pay all required taxes honestly</li>
+                    <li><strong>Audit Cooperation:</strong> Cooperate with legitimate audits</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Investment Ethics</h4>
+                <ul>
+                    <li><strong>Halal Investments:</strong> Only invest in permissible activities</li>
+                    <li><strong>Risk Disclosure:</strong> Clear explanation of investment risks</li>
+                    <li><strong>Social Impact:</strong> Consider social and environmental effects</li>
+                    <li><strong>Long-term Thinking:</strong> Focus on sustainable returns</li>
+                    <li><strong>Due Diligence:</strong> Thorough research before investing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Building an Ethical Business Culture</h2>
+            
+            <div class="business-card">
+                <h4>Organizational Values</h4>
+                <ul>
+                    <li><strong>Mission Statement:</strong> Clear ethical business purpose</li>
+                    <li><strong>Code of Conduct:</strong> Written ethical guidelines</li>
+                    <li><strong>Training Programs:</strong> Regular ethics training for employees</li>
+                    <li><strong>Reporting Systems:</strong> Safe ways to report ethical concerns</li>
+                    <li><strong>Recognition Programs:</strong> Reward ethical behavior</li>
+                </ul>
+            </div>
+
+            <div class="business-card">
+                <h4>Continuous Improvement</h4>
+                <ul>
+                    <li><strong>Regular Assessment:</strong> Periodic review of ethical practices</li>
+                    <li><strong>Feedback Integration:</strong> Incorporate stakeholder feedback</li>
+                    <li><strong>Industry Standards:</strong> Stay updated with best practices</li>
+                    <li><strong>Benchmarking:</strong> Compare with ethical business leaders</li>
+                    <li><strong>Innovation:</strong> Find new ways to improve ethics</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="islamic-finance.html">Islamic Finance Guide</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="charity-guide.html">Charity and Zakat Guide</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>
