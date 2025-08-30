@@ -1661,14 +1661,10 @@
                 this.serverUrl = 'http://localhost:8080';
                 this.isProcessing = false; // Prevent duplicate requests
                 
-                // Initialize stability system
-                this.stabilitySystem = new DeenBotStabilitySystem();
-                
                 // Store instance globally to prevent duplicates
                 window.deenbotChatInstance = this;
                 
                 this.initializeChat();
-                this.setupStabilityEvents();
             }
 
             initializeChat() {
@@ -1758,10 +1754,22 @@
                 this.showTypingIndicator();
 
                 try {
-                    // Use stability system for reliable message sending
-                    const data = await this.stabilitySystem.sendMessageWithStability(message);
-                    this.hideTypingIndicator();
-                    this.typeMessage(data.response, 30);
+                    // Direct communication with DeenBot backend for instant responses
+                    const response = await fetch(`${this.serverUrl}/chat`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ message: message })
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.hideTypingIndicator();
+                        this.typeMessage(data.response, 30);
+                    } else {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
                     
                 } catch (error) {
                     console.error('DeenBot chat error:', error);
@@ -1787,20 +1795,7 @@
                 this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
             }
             
-            // Setup stability system event handlers
-            setupStabilityEvents() {
-                // Listen for connection restored events
-                document.addEventListener('deenbotConnectionRestored', (event) => {
-                    console.log('✅ DeenBot connection restored');
-                    this.addConnectionMessage('✅ DeenBot is back online and ready to help!', 'connection-restored');
-                });
-                
-                // Listen for connection lost events
-                document.addEventListener('deenbotConnectionLost', (event) => {
-                    console.log('❌ DeenBot connection lost');
-                    this.addConnectionMessage('⚠️ DeenBot is currently offline. Attempting to reconnect...', 'connection-lost');
-                });
-            }
+
             
             // Add connection status messages to chat
             addConnectionMessage(message, type) {
@@ -1829,9 +1824,6 @@
                 }
                 if (this.boundKeyPress) {
                     this.chatInput.removeEventListener('keypress', this.boundKeyPress);
-                }
-                if (this.stabilitySystem) {
-                    this.stabilitySystem.cleanup();
                 }
                 this.isProcessing = false;
             }

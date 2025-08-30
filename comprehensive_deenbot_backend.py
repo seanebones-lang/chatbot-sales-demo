@@ -2246,9 +2246,22 @@ These pillars form the foundation of Islamic practice and are essential for spir
         """Provide comprehensive Islamic guidance with proper references"""
         
         # Convert to lowercase for matching
-        message_lower = user_message.lower()
+        message_lower = user_message.lower().strip()
         
-        # FIRST: Check comprehensive Islamic knowledge base for authentic responses
+        logging.info(f"🔍 Processing query: '{user_message}'")
+        
+        # FIRST: Direct topic matching with priority system
+        matched_topic = self.find_best_topic_match(message_lower)
+        if matched_topic and matched_topic in self.islamic_knowledge:
+            logging.info(f"✅ Found direct topic match: {matched_topic}")
+            topic_data = self.islamic_knowledge[matched_topic]
+            return {
+                "response": topic_data["answer"],
+                "references": topic_data.get("references", ["Islamic Knowledge Base"]),
+                "source": f"Direct Topic Match - {matched_topic}"
+            }
+        
+        # SECOND: Check comprehensive Islamic knowledge base for authentic responses
         if COMPREHENSIVE_KNOWLEDGE_AVAILABLE:
             try:
                 comprehensive_response, comprehensive_source = comprehensive_knowledge.get_comprehensive_response(user_message)
@@ -2259,71 +2272,210 @@ These pillars form the foundation of Islamic practice and are essential for spir
                         "references": ["Authentic Islamic Knowledge Base"],
                         "source": f"Comprehensive Islamic Knowledge - {comprehensive_source}"
                     }
+                        
             except Exception as e:
                 logging.warning(f"⚠️ Comprehensive knowledge base error: {e}")
         
-        # SECOND: Check priority keywords in built-in knowledge base
+        # THIRD: Enhanced knowledge base search
+        for topic, content in self.enhanced_knowledge.items():
+            if any(word in message_lower for word in topic.lower().split()):
+                logging.info(f"✅ Found enhanced knowledge match: {topic}")
+                return {
+                    "response": content,
+                    "references": ["Enhanced Islamic Knowledge Base"],
+                    "source": f"Enhanced Knowledge - {topic}"
+                }
         
-        # Priority matching for specific topics with flexible word matching
+        # FOURTH: For non-Islamic queries, provide actual answers with online warning
+        non_islamic_keywords = [
+            "recipe", "cook", "food", "how to make", "how to cook",
+            "weather", "temperature", "forecast", "climate",
+            "programming", "code", "software", "computer", "technology",
+            "capital", "population", "country", "city", "geography",
+            "music", "instrument", "guitar", "piano", "singing",
+            "restaurant", "food", "dining", "cuisine",
+            "repair", "fix", "broken", "maintenance", "car", "phone", "device",
+            "game", "sport", "exercise", "fitness", "health"
+        ]
+        
+        is_non_islamic_query = any(keyword in message_lower for keyword in non_islamic_keywords)
+        
+        if is_non_islamic_query:
+            # Provide actual answer with online warning
+            return self.get_online_answer_with_warning(user_message)
+        
+        # FIFTH: Provide general Islamic guidance with references
+        if any(word in message_lower for word in ["islam", "muslim", "quran", "hadith", "prayer", "fasting", "charity", "family", "marriage", "children", "work", "business", "education", "health", "environment"]):
+            return {
+                "response": """I can provide comprehensive Islamic guidance on many topics. Here are some areas I can help with:
+
+**Core Islamic Concepts:**
+- Five Pillars of Islam (Shahada, Salah, Zakat, Sawm, Hajj)
+- Islamic beliefs and principles
+- Quranic teachings and Hadith
+
+**Worship and Spirituality:**
+- Prayer (Salah) and ablution (Wudu)
+- Fasting during Ramadan
+- Charity (Zakat and Sadaqah)
+- Pilgrimage (Hajj and Umrah)
+
+**Daily Life and Ethics:**
+- Family relationships and marriage
+- Business and financial matters
+- Health and wellness
+- Environmental stewardship
+- Social justice and community service
+
+**Islamic History and Culture:**
+- Life of Prophet Muhammad (PBUH)
+- Islamic civilization and contributions
+- Islamic art and architecture
+- Muslim communities worldwide
+
+**Contemporary Issues:**
+- Modern challenges and Islamic solutions
+- Interfaith dialogue and understanding
+- Technology and Islamic ethics
+- Global citizenship and responsibility
+
+Please ask me about any specific topic, and I'll provide detailed guidance with proper Quranic references, Hadith support, and practical Islamic wisdom.""",
+                "references": ["Quran 2:185", "Quran 3:97", "Quran 2:267", "Quran 33:21", "Quran 5:5", "Quran 3:133", "Quran 2:4"],
+                "source": "General Islamic Guidance"
+            }
+        
+        # If no specific topic found, provide a helpful response
+        return {
+            "response": """Assalamu alaikum! I'm here to help you with any questions about Islam, the Quran, Hadith, and Islamic guidance.
+
+**What would you like to learn about today?**
+
+I can help with:
+• Islamic beliefs and practices
+• Quranic verses and their meanings
+• Authentic Hadith and their context
+• Islamic history and culture
+• Daily life and Islamic ethics
+• Family and social matters
+• Business and financial guidance
+• Health and wellness from Islamic perspective
+• And much more!
+
+Just ask me any question, and I'll provide comprehensive guidance with proper references from the Quran, authentic Hadith, and reliable Islamic sources.""",
+            "references": ["Islamic Guidance System"],
+            "source": "DeenBot Assistant"
+        }
+    
+
+    
+    def find_best_topic_match(self, message_lower):
+        """Find the best topic match using priority-based keyword matching"""
+        
+        logging.info(f"🔍 Searching for topic match in: '{message_lower}'")
+        
+        # Enhanced priority matching for specific topics with flexible word matching
         priority_keywords = {
-            # Five pillars - MUST come before general "islam" keyword
+            # Five pillars - HIGHEST PRIORITY - MUST come before general "islam" keyword
             "five pillars of islam": "five_pillars",
             "five pillars": "five_pillars",
             "pillars of islam": "five_pillars",
+            "5 pillars": "five_pillars",
+            "5 pillars of islam": "five_pillars",
+            "what are the five pillars": "five_pillars",
+            "what are the 5 pillars": "five_pillars",
+            "list the five pillars": "five_pillars",
+            "list the 5 pillars": "five_pillars",
+            "explain the five pillars": "five_pillars",
+            "explain the 5 pillars": "five_pillars",
             
             # Core Islamic concepts
             "islam": "islam_basics",
             "what is islam": "islam_basics",
+            "what islam": "islam_basics",
             "muslim": "islam_basics",
+            "muslims": "islam_basics",
             "taqwa": "taqwa_concept",
             "concept of taqwa": "taqwa_concept",
             "explain taqwa": "taqwa_concept",
+            "what is taqwa": "taqwa_concept",
             
             # Prophet and leadership
             "prophet muhammad": "prophet_muhammad",
             "muhammad pbuh": "prophet_muhammad",
             "muhammad (pbuh)": "prophet_muhammad",
             "prophet": "prophet_muhammad",
+            "muhammad": "prophet_muhammad",
+            "rasool": "prophet_muhammad",
+            "messenger": "prophet_muhammad",
             
-            # Five pillars
+            # Five pillars individual components
             "shahada": "shahada_significance",
+            "shahadah": "shahada_significance",
             "significance of shahada": "shahada_significance",
+            "what is shahada": "shahada_significance",
             "prayer": "prayer_importance",
+            "prayers": "prayer_importance",
             "prayer importance": "prayer_importance",
             "importance of prayer": "prayer_importance",
             "salah": "prayer_importance",
+            "salaah": "prayer_importance",
+            "namaz": "prayer_importance",
             "fasting": "fasting_ramadan",
+            "fast": "fasting_ramadan",
             "ramadan": "fasting_ramadan",
+            "ramadhan": "fasting_ramadan",
+            "sawm": "fasting_ramadan",
             "zakat": "zakat_charity",
+            "zakaat": "zakat_charity",
             "charity": "zakat_charity",
             "hajj": "hajj_pilgrimage",
+            "haj": "hajj_pilgrimage",
             "pilgrimage": "hajj_pilgrimage",
+            "umrah": "hajj_pilgrimage",
             
             # Worship practices
             "wudu": "wudu",
+            "wudhu": "wudu",
             "ablution": "wudu",
             "how to perform wudu": "wudu",
+            "how to do wudu": "wudu",
             "how to pray": "prayer_guidance",
             "prayer guidance": "prayer_guidance",
+            "how to perform prayer": "prayer_guidance",
+            "how to do prayer": "prayer_guidance",
             
             # Islamic concepts
             "mercy": "mercy",
+            "merciful": "mercy",
             "quran on mercy": "mercy",
+            "quran about mercy": "mercy",
             "halal": "halal",
+            "halaal": "halal",
             "haram": "haram",
+            "haraam": "haram",
             "sunnah": "sunnah",
             "hadith": "hadith",
+            "hadis": "hadith",
+            "hadeeth": "hadith",
             "quran": "quran",
+            "koran": "quran",
+            "qur'an": "quran",
             
             # Anger management
             "anger": "anger_management",
+            "angry": "anger_management",
             "hadith on anger": "hadith_anger",
             "hadith about anger": "hadith_anger",
+            "hadis on anger": "hadith_anger",
+            "hadis about anger": "hadith_anger",
             "anger hadith": "hadith_anger",
+            "anger hadis": "hadith_anger",
             "anger management": "anger_management",
             "control anger": "anger_management",
             "restrain anger": "anger_management",
             "anger islam": "anger_management",
+            "how to control anger": "anger_management",
+            "how to manage anger": "anger_management",
             
             # Anxiety and mental health
             "anxiety": "anxiety_and_worry",
@@ -2335,6 +2487,37 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "nervous": "anxiety_and_worry",
             "fear": "anxiety_and_worry",
             "afraid": "anxiety_and_worry",
+            "hadith on anxiety": "anxiety_and_worry",
+            "hadith about anxiety": "anxiety_and_worry",
+            "hadis on anxiety": "anxiety_and_worry",
+            "hadis about anxiety": "anxiety_and_worry",
+            "anxiety hadith": "anxiety_and_worry",
+            "anxiety hadis": "anxiety_and_worry",
+            "how to deal with anxiety": "anxiety_and_worry",
+            "how to handle anxiety": "anxiety_and_worry",
+            "anxiety islam": "anxiety_and_worry",
+            
+            # Patience and gratitude
+            "patience": "patience_and_gratitude",
+            "patient": "patience_and_gratitude",
+            "sabr": "patience_and_gratitude",
+            "sabir": "patience_and_gratitude",
+            "gratitude": "patience_and_gratitude",
+            "grateful": "patience_and_gratitude",
+            "thankful": "patience_and_gratitude",
+            "hadith on patience": "patience_and_gratitude",
+            "hadith about patience": "patience_and_gratitude",
+            "patience hadith": "patience_and_gratitude",
+            
+            # Forgiveness and repentance
+            "forgiveness": "forgiveness_and_repentance",
+            "forgive": "forgiveness_and_repentance",
+            "repentance": "forgiveness_and_repentance",
+            "repent": "forgiveness_and_repentance",
+            "tawbah": "forgiveness_and_repentance",
+            "istighfar": "forgiveness_and_repentance",
+            "hadith on forgiveness": "forgiveness_and_repentance",
+            "forgiveness hadith": "forgiveness_and_repentance",
             
             # Advanced Islamic topics
             "aqeedah": "aqeedah",
@@ -2448,7 +2631,6 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "job loss": "job_loss_and_financial_struggles",
             "fired": "job_loss_and_financial_struggles",
             "laid off": "job_loss_and_financial_struggles",
-            "unemployed": "job_loss_and_financial_struggles",
             
             # Financial matters
             "financial problems": "job_loss_and_financial_struggles",
@@ -2486,107 +2668,408 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "split up": "divorce_and_separation"
         }
         
+        # Try exact matches first
         for keyword, topic in priority_keywords.items():
             if keyword.lower() in message_lower:
-                if topic in self.islamic_knowledge:
-                    logging.info(f"✅ Found priority keyword match: {keyword} -> {topic}")
-                    return {
-                        "response": self.islamic_knowledge[topic],
-                        "references": ["Built-in Islamic Knowledge Base"],
-                        "source": f"Priority Keyword Match - {topic}"
-                    }
+                return topic
         
-        # THIRD: Search enhanced knowledge base
-        for topic, content in self.enhanced_knowledge.items():
-            if any(word in user_message.lower() for word in topic.lower().split()):
-                logging.info(f"✅ Found enhanced knowledge match: {topic}")
-                return {
-                    "response": content,
-                    "references": ["Enhanced Islamic Knowledge Base"],
-                    "source": f"Enhanced Knowledge - {topic}"
-                }
+        # Try expanded queries for better matching (disabled for now)
+        # for expanded_query in expanded_queries:
+        #     for keyword, topic in priority_keywords.items():
+        #         if keyword.lower() in expanded_query.lower():
+        #             return topic
         
-        # FOURTH: For non-Islamic queries, provide actual answers with online warning
-        # Check if this is a non-Islamic query that needs an actual answer
-        non_islamic_keywords = [
-            "recipe", "cook", "food", "how to make", "how to cook",
-            "weather", "temperature", "forecast", "climate",
-            "programming", "code", "software", "computer", "technology",
-            "capital", "population", "country", "city", "geography",
-            "music", "instrument", "guitar", "piano", "singing",
-            "restaurant", "food", "dining", "cuisine",
-            "repair", "fix", "broken", "maintenance", "car", "phone", "device",
-            "game", "sport", "exercise", "fitness", "health"
-        ]
+        # Try partial matching (check if any part of the keyword is in the message)
+        for keyword, topic in priority_keywords.items():
+            keyword_words = keyword.lower().split()
+            if len(keyword_words) > 1:
+                # Check if at least 2 words from the keyword are in the message
+                matches = sum(1 for word in keyword_words if word in message_lower)
+                if matches >= 2:
+                    return topic
         
-        is_non_islamic_query = any(keyword in message_lower for keyword in non_islamic_keywords)
+        # Try single word matching for very short queries
+        message_words = message_lower.split()
+        for word in message_words:
+            if len(word) > 3:  # Only consider words longer than 3 characters
+                for keyword, topic in priority_keywords.items():
+                    if word in keyword.lower() or keyword.lower() in word:
+                        return topic
         
-        if is_non_islamic_query:
-            # Provide actual answer with online warning
-            return self.get_online_answer_with_warning(user_message)
-        
-        # FIFTH: Provide general Islamic guidance with references
-        if any(word in message_lower for word in ["islam", "muslim", "quran", "hadith", "prayer", "fasting", "charity", "family", "marriage", "children", "work", "business", "education", "health", "environment"]):
-            return {
-                "response": """I can provide comprehensive Islamic guidance on many topics. Here are some areas I can help with:
-
-**Core Islamic Concepts:**
-- Five Pillars of Islam (Shahada, Salah, Zakat, Sawm, Hajj)
-- Islamic beliefs and principles
-- Quranic teachings and Hadith
-
-**Worship and Spirituality:**
-- Prayer (Salah) and ablution (Wudu)
-- Fasting during Ramadan
-- Charity (Zakat and Sadaqah)
-- Pilgrimage (Hajj and Umrah)
-
-**Daily Life and Ethics:**
-- Family relationships and marriage
-- Business and financial matters
-- Health and wellness
-- Environmental stewardship
-- Social justice and community service
-
-**Islamic History and Culture:**
-- Life of Prophet Muhammad (PBUH)
-- Islamic civilization and contributions
-- Islamic art and architecture
-- Muslim communities worldwide
-
-**Contemporary Issues:**
-- Modern challenges and Islamic solutions
-- Interfaith dialogue and understanding
-- Technology and Islamic ethics
-- Global citizenship and responsibility
-
-Please ask me about any specific topic, and I'll provide detailed guidance with proper Quranic references, Hadith support, and practical Islamic wisdom.""",
-                "references": ["Quran 2:185", "Quran 3:97", "Quran 2:267", "Quran 33:21", "Quran 5:5", "Quran 3:133", "Quran 2:4"],
-                "source": "General Islamic Guidance"
-            }
-        
-        # If no specific topic found, provide a helpful response
-        return {
-            "response": """Assalamu alaikum! I'm here to help you with any questions about Islam, the Quran, Hadith, and Islamic guidance.
-
-**What would you like to learn about today?**
-
-I can help with:
-• Islamic beliefs and practices
-• Quranic verses and their meanings
-• Authentic Hadith and their context
-• Islamic history and culture
-• Daily life and Islamic ethics
-• Family and social matters
-• Business and financial guidance
-• Health and wellness from Islamic perspective
-• And much more!
-
-Just ask me any question, and I'll provide comprehensive guidance with proper references from the Quran, authentic Hadith, and reliable Islamic sources.""",
-            "references": ["Islamic Guidance System"],
-            "source": "DeenBot Assistant"
-        }
+        return None
     
+    def normalize_query(self, user_message):
+        """Normalize query by handling common misspellings and variations"""
+        message_lower = user_message.lower()
+        
+        # Common misspellings and variations
+        misspellings = {
+            "hadis": "hadith",
+            "hadeeth": "hadith", 
+            "hadees": "hadith",
+            "anxity": "anxiety",
+            "anxous": "anxious",
+            "woried": "worried",
+            "stres": "stress",
+            "stresed": "stressed",
+            "angry": "anger",
+            "angr": "anger",
+            "prayer": "prayer",
+            "prayers": "prayer",
+            "salah": "prayer",
+            "salaah": "prayer",
+            "namaz": "prayer",
+            "fasting": "fasting",
+            "fast": "fasting",
+            "ramadan": "ramadan",
+            "ramadhan": "ramadan",
+            "ramazan": "ramadan",
+            "quran": "quran",
+            "koran": "quran",
+            "qur'an": "quran",
+            "islam": "islam",
+            "muslim": "muslim",
+            "muslims": "muslim",
+            "shahada": "shahada",
+            "shahadah": "shahada",
+            "wudu": "wudu",
+            "wudhu": "wudu",
+            "ablution": "wudu",
+            "halal": "halal",
+            "halaal": "halal",
+            "haram": "haram",
+            "haraam": "haram",
+            "zakat": "zakat",
+            "zakaat": "zakat",
+            "zakaah": "zakat",
+            "hajj": "hajj",
+            "haj": "hajj",
+            "pilgrimage": "hajj"
+        }
+        
+        # Replace misspellings
+        normalized = message_lower
+        for misspelled, correct in misspellings.items():
+            normalized = normalized.replace(misspelled, correct)
+        
+        return normalized
+    
+    def find_topic_with_misspellings(self, normalized_message):
+        """Find topic match with misspelling handling"""
+        
+        # Enhanced priority matching for specific topics with flexible word matching
+        priority_keywords = {
+            # Five pillars - MUST come before general "islam" keyword
+            "five pillars of islam": "five_pillars",
+            "five pillars": "five_pillars",
+            "pillars of islam": "five_pillars",
+            "5 pillars": "five_pillars",
+            "5 pillars of islam": "five_pillars",
+            
+            # Core Islamic concepts
+            "islam": "islam_basics",
+            "what is islam": "islam_basics",
+            "what islam": "islam_basics",
+            "muslim": "islam_basics",
+            "muslims": "islam_basics",
+            "taqwa": "taqwa_concept",
+            "concept of taqwa": "taqwa_concept",
+            "explain taqwa": "taqwa_concept",
+            "what is taqwa": "taqwa_concept",
+            
+            # Prophet and leadership
+            "prophet muhammad": "prophet_muhammad",
+            "muhammad pbuh": "prophet_muhammad",
+            "muhammad (pbuh)": "prophet_muhammad",
+            "prophet": "prophet_muhammad",
+            "muhammad": "prophet_muhammad",
+            "rasool": "prophet_muhammad",
+            "messenger": "prophet_muhammad",
+            
+            # Five pillars
+            "shahada": "shahada_significance",
+            "shahadah": "shahada_significance",
+            "significance of shahada": "shahada_significance",
+            "what is shahada": "shahada_significance",
+            "prayer": "prayer_importance",
+            "prayers": "prayer_importance",
+            "prayer importance": "prayer_importance",
+            "importance of prayer": "prayer_importance",
+            "salah": "prayer_importance",
+            "salaah": "prayer_importance",
+            "namaz": "prayer_importance",
+            "fasting": "fasting_ramadan",
+            "fast": "fasting_ramadan",
+            "ramadan": "fasting_ramadan",
+            "ramadhan": "fasting_ramadan",
+            "sawm": "fasting_ramadan",
+            "zakat": "zakat_charity",
+            "zakaat": "zakat_charity",
+            "charity": "zakat_charity",
+            "hajj": "hajj_pilgrimage",
+            "haj": "hajj_pilgrimage",
+            "pilgrimage": "hajj_pilgrimage",
+            "umrah": "hajj_pilgrimage",
+            
+            # Worship practices
+            "wudu": "wudu",
+            "wudhu": "wudu",
+            "ablution": "wudu",
+            "how to perform wudu": "wudu",
+            "how to do wudu": "wudu",
+            "how to pray": "prayer_guidance",
+            "prayer guidance": "prayer_guidance",
+            "how to perform prayer": "prayer_guidance",
+            "how to do prayer": "prayer_guidance",
+            
+            # Islamic concepts
+            "mercy": "mercy",
+            "merciful": "mercy",
+            "quran on mercy": "mercy",
+            "quran about mercy": "mercy",
+            "halal": "halal",
+            "halaal": "halal",
+            "haram": "haram",
+            "haraam": "haram",
+            "sunnah": "sunnah",
+            "hadith": "hadith",
+            "hadis": "hadith",
+            "hadeeth": "hadith",
+            "quran": "quran",
+            "koran": "quran",
+            "qur'an": "quran",
+            
+            # Anger management
+            "anger": "anger_management",
+            "angry": "anger_management",
+            "hadith on anger": "hadith_anger",
+            "hadith about anger": "hadith_anger",
+            "hadis on anger": "hadith_anger",
+            "hadis about anger": "hadith_anger",
+            "anger hadith": "hadith_anger",
+            "anger hadis": "hadith_anger",
+            "anger management": "anger_management",
+            "control anger": "anger_management",
+            "restrain anger": "anger_management",
+            "anger islam": "anger_management",
+            "how to control anger": "anger_management",
+            "how to manage anger": "anger_management",
+            
+            # Anxiety and mental health
+            "anxiety": "anxiety_and_worry",
+            "anxious": "anxiety_and_worry",
+            "worry": "anxiety_and_worry",
+            "worried": "anxiety_and_worry",
+            "stress": "anxiety_and_worry",
+            "stressed": "anxiety_and_worry",
+            "nervous": "anxiety_and_worry",
+            "fear": "anxiety_and_worry",
+            "afraid": "anxiety_and_worry",
+            "hadith on anxiety": "anxiety_and_worry",
+            "hadith about anxiety": "anxiety_and_worry",
+            "hadis on anxiety": "anxiety_and_worry",
+            "hadis about anxiety": "anxiety_and_worry",
+            "anxiety hadith": "anxiety_and_worry",
+            "anxiety hadis": "anxiety_and_worry",
+            "how to deal with anxiety": "anxiety_and_worry",
+            "how to handle anxiety": "anxiety_and_worry",
+            "anxiety islam": "anxiety_and_worry",
+            
+            # Patience and gratitude
+            "patience": "patience_and_gratitude",
+            "patient": "patience_and_gratitude",
+            "sabr": "patience_and_gratitude",
+            "sabir": "patience_and_gratitude",
+            "gratitude": "patience_and_gratitude",
+            "grateful": "patience_and_gratitude",
+            "thankful": "patience_and_gratitude",
+            "hadith on patience": "patience_and_gratitude",
+            "hadith about patience": "patience_and_gratitude",
+            "patience hadith": "patience_and_gratitude",
+            
+            # Forgiveness and repentance
+            "forgiveness": "forgiveness_and_repentance",
+            "forgive": "forgiveness_and_repentance",
+            "repentance": "forgiveness_and_repentance",
+            "repent": "forgiveness_and_repentance",
+            "tawbah": "forgiveness_and_repentance",
+            "istighfar": "forgiveness_and_repentance",
+            "hadith on forgiveness": "forgiveness_and_repentance",
+            "forgiveness hadith": "forgiveness_and_repentance",
+            
+            # Advanced Islamic topics
+            "aqeedah": "aqeedah",
+            "beliefs": "aqeedah",
+            "theology": "aqeedah",
+            "fiqh": "fiqh",
+            "jurisprudence": "fiqh",
+            "islamic law": "fiqh",
+            "seerah": "seerah",
+            "prophet biography": "seerah",
+            "prophet life": "seerah",
+            "sufism": "sufism",
+            "spirituality": "sufism",
+            "tasawwuf": "sufism",
+            
+            # Islamic history
+            "islamic history": "islamic_history",
+            "muslim history": "islamic_history",
+            "golden age": "golden_age",
+            "islamic civilization": "golden_age",
+            "andalusia": "andalusia",
+            "al andalus": "andalusia",
+            "ottoman": "ottoman_empire",
+            "ottoman empire": "ottoman_empire",
+            
+            # Contemporary issues
+            "modern challenges": "modern_challenges",
+            "contemporary islam": "modern_challenges",
+            "interfaith": "interfaith_dialogue",
+            "dialogue": "interfaith_dialogue",
+            "islamic finance": "islamic_finance",
+            "halal banking": "islamic_finance",
+            "environment": "environmental_islam",
+            "environmental protection": "environmental_islam",
+            
+            # Personal development
+            "islamic psychology": "islamic_psychology",
+            "mental health islam": "islamic_psychology",
+            "emotional intelligence": "emotional_intelligence",
+            "emotions": "emotional_intelligence",
+            "stress management": "stress_management",
+            "coping": "stress_management",
+            "goal setting": "goal_setting",
+            "objectives": "goal_setting",
+            
+            # Advanced worship
+            "tahajjud": "tahajjud",
+            "night prayer": "tahajjud",
+            "advanced dhikr": "dhikr_advanced",
+            "dhikr methods": "dhikr_advanced",
+            "dua collections": "dua_collections",
+            "supplications": "dua_collections",
+            "quran memorization": "quran_memorization",
+            "hifz": "quran_memorization",
+            
+            # Islamic culture
+            "islamic art": "islamic_art",
+            "muslim art": "islamic_art",
+            "islamic architecture": "islamic_architecture",
+            "mosque design": "islamic_architecture",
+            "islamic literature": "islamic_literature",
+            "muslim literature": "islamic_literature",
+            "islamic music": "islamic_music",
+            "nasheeds": "islamic_music",
+            
+            # Quranic knowledge
+            "quranic verses": "quranic_verses",
+            "important verses": "quranic_verses",
+            "essential verses": "quranic_verses",
+            "hadith collections": "hadith_collection",
+            "hadith books": "hadith_collection",
+            "authentic hadith": "hadith_collection",
+            
+            # Conversion and faith
+            "how to become muslim": "becoming_muslim",
+            "become muslim": "becoming_muslim",
+            "convert to islam": "becoming_muslim",
+            "revert to islam": "becoming_muslim",
+            
+            # Family and relationships
+            "family problems": "family_issues",
+            "family conflicts": "family_issues",
+            "marriage problems": "family_issues",
+            "marriage": "marriage_and_relationships",
+            "relationships": "marriage_and_relationships",
+            "dating": "marriage_and_relationships",
+            "parenting": "parenting_and_children",
+            "children": "parenting_and_children",
+            "raising kids": "parenting_and_children",
+            "child rearing": "parenting_and_children",
+            
+            # Mental health and emotions
+            "grief": "grief_and_sadness",
+            "sadness": "grief_and_sadness",
+            "grieving": "grief_and_sadness",
+            "loss": "grief_and_sadness",
+            "sad": "grief_and_sadness",
+            "depressed": "grief_and_sadness",
+            "unhappy": "grief_and_sadness",
+            "melancholy": "grief_and_sadness",
+            "sorrow": "grief_and_sadness",
+            "depression": "depression_and_mental_health",
+            "mental health": "depression_and_mental_health",
+            "mental illness": "depression_and_mental_health",
+            
+            # Work and career
+            "work": "work_and_career",
+            "career": "work_and_career",
+            "job": "work_and_career",
+            "business": "work_and_career",
+            "job loss": "job_loss_and_financial_struggles",
+            "fired": "job_loss_and_financial_struggles",
+            "laid off": "job_loss_and_financial_struggles",
+            
+            # Financial matters
+            "financial problems": "job_loss_and_financial_struggles",
+            "money problems": "job_loss_and_financial_struggles",
+            "broke": "job_loss_and_financial_struggles",
+            "debt": "job_loss_and_financial_struggles",
+            "inheritance": "inheritance_laws",
+            "inheritance laws": "inheritance_laws",
+            
+            # Personal development
+            "addiction": "addiction_and_habits",
+            "habits": "addiction_and_habits",
+            "smoking": "addiction_and_habits",
+            "motivation": "motivation_and_encouragement",
+            "encouragement": "motivation_and_encouragement",
+            "inspired": "motivation_and_encouragement",
+            "good day": "motivation_and_encouragement",
+            "happy": "motivation_and_encouragement",
+            "joy": "motivation_and_encouragement",
+            "blessed": "motivation_and_encouragement",
+            "grateful": "motivation_and_encouragement",
+            "thankful": "motivation_and_encouragement",
+            "self improvement": "self_improvement",
+            "personal growth": "self_improvement",
+            
+            # Life events
+            "death": "death_and_loss",
+            "died": "death_and_loss",
+            "passed away": "death_and_loss",
+            "lost": "death_and_loss",
+            "funeral": "death_and_loss",
+            "divorce": "divorce_and_separation",
+            "separated": "divorce_and_separation",
+            "marriage ended": "divorce_and_separation",
+            "split up": "divorce_and_separation"
+        }
+        
+        # Try exact matches first
+        for keyword, topic in priority_keywords.items():
+            if keyword.lower() in normalized_message:
+                return topic
+        
+        # Try partial matching (check if any part of the keyword is in the message)
+        for keyword, topic in priority_keywords.items():
+            keyword_words = keyword.lower().split()
+            if len(keyword_words) > 1:
+                # Check if at least 2 words from the keyword are in the message
+                matches = sum(1 for word in keyword_words if word in normalized_message)
+                if matches >= 2:
+                    return topic
+        
+        # Try single word matching for very short queries
+        message_words = normalized_message.split()
+        for word in message_words:
+            if len(word) > 3:  # Only consider words longer than 3 characters
+                for keyword, topic in priority_keywords.items():
+                    if word in keyword.lower() or keyword.lower() in word:
+                        return topic
+        
+        return None
+
     def get_online_answer_with_warning(self, user_message):
         """Provide actual answers for non-Islamic queries with online warning"""
         message_lower = user_message.lower()
