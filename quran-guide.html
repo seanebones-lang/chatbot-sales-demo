@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Study Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .quran-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .quran-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .quran-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Quran Study Guide</h1>
+            <p>Complete guide to studying, understanding, and memorizing the Holy Quran with effective methods and spiritual insights</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Understanding the Quran</h2>
+            <p>The Quran is the divine revelation from Allah to Prophet Muhammad sallallahu alayhi wa sallam, serving as the primary source of Islamic guidance and the final revelation to humanity.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ</div>
+                <div class="translation">"Indeed, it is We who sent down the Quran and indeed, We will be its guardian." (Quran 15:9)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "The best of you are those who learn the Quran and teach it to others." (Sahih Bukhari)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Structure of the Quran</h2>
+            
+            <div class="quran-card">
+                <h4>Basic Organization</h4>
+                <ul>
+                    <li><strong>114 Surahs:</strong> Chapters of varying lengths</li>
+                    <li><strong>30 Juz:</strong> Parts for daily reading during Ramadan</li>
+                    <li><strong>6,236 Verses:</strong> Individual ayahs</li>
+                    <li><strong>Meccan/Medinan:</strong> Based on revelation period</li>
+                    <li><strong>Length Categories:</strong> Long, medium, and short surahs</li>
+                </ul>
+            </div>
+
+            <div class="quran-card">
+                <h4>Types of Surahs</h4>
+                <ul>
+                    <li><strong>Meccan Surahs:</strong> Revealed in Makkah (86 surahs)</li>
+                    <li><strong>Medinan Surahs:</strong> Revealed in Madinah (28 surahs)</li>
+                    <li><strong>Thematic Focus:</strong> Belief, law, stories, guidance</li>
+                    <li><strong>Revelation Order:</strong> Different from current arrangement</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Study Methods and Approaches</h2>
+            
+            <div class="quran-card">
+                <h4>Daily Reading Plan</h4>
+                <ul>
+                    <li><strong>Consistency:</strong> Read daily, even if just a few verses</li>
+                    <li><strong>Timing:</strong> Choose a time that works for you</li>
+                    <li><strong>Quantity:</strong> Start small and gradually increase</li>
+                    <li><strong>Quality:</strong> Focus on understanding over speed</li>
+                    <li><strong>Reflection:</strong> Take time to ponder the meanings</li>
+                </ul>
+                
+                <div class="step-box">
+                    <h5>Recommended Daily Reading</h5>
+                    <p>Begin with 1-2 pages daily, gradually increasing to 1 juz per day during Ramadan</p>
+                </div>
+            </div>
+
+            <div class="quran-card">
+                <h4>Understanding the Text</h4>
+                <ul>
+                    <li><strong>Translation:</strong> Read in your native language</li>
+                    <li><strong>Tafsir:</strong> Study authentic commentaries</li>
+                    <li><strong>Context:</strong> Understand historical background</li>
+                    <li><strong>Theme:</strong> Identify main messages</li>
+                    <li><strong>Application:</strong> Connect to daily life</li>
+                </ul>
+            </div>
+
+            <div class="quran-card">
+                <h4>Memorization Techniques</h4>
+                <ul>
+                    <li><strong>Repetition:</strong> Read verses multiple times</li>
+                    <li><strong>Listening:</strong> Listen to recitations</li>
+                    <li><strong>Writing:</strong> Write verses to reinforce memory</li>
+                    <li><strong>Review:</strong> Regularly review memorized portions</li>
+                    <li><strong>Understanding:</strong> Memorize with meaning</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Essential Study Tools</h2>
+            
+            <div class="quran-card">
+                <h4>Physical Resources</h4>
+                <ul>
+                    <li><strong>Mushaf:</strong> Physical copy of the Quran</li>
+                    <li><strong>Translation:</strong> Reliable translation in your language</li>
+                    <li><strong>Tafsir Books:</strong> Authentic commentaries</li>
+                    <li><strong>Notebook:</strong> For taking notes and reflections</li>
+                    <li><strong>Bookmarks:</strong> To mark important verses</li>
+                </ul>
+            </div>
+
+            <div class="quran-card">
+                <h4>Digital Resources</h4>
+                <ul>
+                    <li><strong>Quran Apps:</strong> Mobile applications with translations</li>
+                    <li><strong>Audio Recitations:</strong> Listen to beautiful recitations</li>
+                    <li><strong>Online Tafsir:</strong> Digital commentaries and explanations</li>
+                    <li><strong>Study Groups:</strong> Online communities for learning</li>
+                    <li><strong>Video Lectures:</strong> Visual explanations of verses</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Memorization (Hifz) Guide</h2>
+            
+            <div class="quran-card">
+                <h4>Getting Started with Hifz</h4>
+                <ul>
+                    <li><strong>Intention:</strong> Make sincere intention for Allah</li>
+                    <li><strong>Start Small:</strong> Begin with short surahs</li>
+                    <li><strong>Daily Practice:</strong> Consistent daily memorization</li>
+                    <li><strong>Proper Pronunciation:</strong> Learn correct tajweed</li>
+                    <li><strong>Regular Review:</strong> Maintain what you've memorized</li>
+                </ul>
+            </div>
+
+            <div class="quran-card">
+                <h4>Effective Memorization Steps</h4>
+                <ol>
+                    <li><strong>Listen:</strong> Listen to the verse multiple times</li>
+                    <li><strong>Read:</strong> Read the verse while looking at the text</li>
+                    <li><strong>Memorize:</strong> Memorize verse by verse</li>
+                    <li><strong>Recite:</strong> Recite from memory</li>
+                    <li><strong>Review:</strong> Review regularly to maintain</li>
+                </ol>
+            </div>
+
+            <div class="quran-card">
+                <h4>Maintaining Memorization</h4>
+                <ul>
+                    <li><strong>Daily Review:</strong> Review memorized portions daily</li>
+                    <li><strong>Weekly Review:</strong> Comprehensive review weekly</li>
+                    <li><strong>Monthly Review:</strong> Full review monthly</li>
+                    <li><strong>Prayer Integration:</strong> Use in daily prayers</li>
+                    <li><strong>Teaching Others:</strong> Teach to reinforce memory</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Tajweed (Proper Recitation)</h2>
+            
+            <div class="quran-card">
+                <h4>Importance of Tajweed</h4>
+                <p>Tajweed is the science of reciting the Quran correctly, ensuring proper pronunciation and beautiful recitation.</p>
+                
+                <h4>Basic Tajweed Rules</h4>
+                <ul>
+                    <li><strong>Makharij:</strong> Points of articulation for letters</li>
+                    <li><strong>Sifaat:</strong> Characteristics of letters</li>
+                    <li><strong>Rules of Noon and Meem:</strong> Ghunnah, idghaam, ikhfaa</li>
+                    <li><strong>Rules of Ra:</strong> Tafkheem and tarqeeq</li>
+                    <li><strong>Stopping Rules:</strong> Waqf and its types</li>
+                </ul>
+            </div>
+
+            <div class="quran-card">
+                <h4>Learning Tajweed</h4>
+                <ul>
+                    <li><strong>Find a Teacher:</strong> Learn from qualified instructors</li>
+                    <li><strong>Practice Regularly:</strong> Daily practice is essential</li>
+                    <li><strong>Record Yourself:</strong> Listen to your own recitation</li>
+                    <li><strong>Compare with Experts:</strong> Listen to master reciters</li>
+                    <li><strong>Be Patient:</strong> Mastery takes time and practice</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Understanding and Reflection</h2>
+            
+            <div class="quran-card">
+                <h4>Tadabbur (Deep Reflection)</h4>
+                <ul>
+                    <li><strong>Slow Reading:</strong> Read slowly to absorb meaning</li>
+                    <li><strong>Pause and Think:</strong> Stop to reflect on verses</li>
+                    <li><strong>Ask Questions:</strong> Question what you're reading</li>
+                    <li><strong>Personal Application:</strong> Connect to your life</li>
+                    <li><strong>Seek Knowledge:</strong> Research unclear concepts</li>
+                </ul>
+            </div>
+
+            <div class="quran-card">
+                <h4>Study Themes</h4>
+                <ul>
+                    <li><strong>Belief in Allah:</strong> Tawheed and divine attributes</li>
+                    <li><strong>Prophet Stories:</strong> Lessons from prophetic narratives</li>
+                    <li><strong>Ethics and Morality:</strong> Islamic values and principles</li>
+                    <li><strong>Social Justice:</strong> Rights and responsibilities</li>
+                    <li><strong>Spiritual Development:</strong> Purification of the soul</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Challenges and Solutions</h2>
+            
+            <div class="quran-card">
+                <h4>Overcoming Obstacles</h4>
+                
+                <h4>Lack of Time</h4>
+                <p><strong>Solution:</strong> Start with just 5-10 minutes daily, gradually increase</p>
+                
+                <h4>Difficulty Understanding</h4>
+                <p><strong>Solution:</strong> Use multiple translations, study tafsir, join study groups</p>
+                
+                <h4>Memorization Struggles</h4>
+                <p><strong>Solution:</strong> Break into smaller portions, use audio, practice regularly</p>
+                
+                <h4>Maintaining Consistency</h4>
+                <p><strong>Solution:</strong> Set realistic goals, create routines, track progress</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Benefits of Quran Study</h2>
+            
+            <div class="quran-card">
+                <h4>Spiritual Benefits</h4>
+                <ul>
+                    <li><strong>Guidance:</strong> Clear direction for life</li>
+                    <li><strong>Peace:</strong> Inner tranquility and calm</li>
+                    <li><strong>Wisdom:</strong> Understanding of life's purpose</li>
+                    <li><strong>Protection:</strong> Spiritual protection from evil</li>
+                    <li><strong>Blessings:</strong> Increased barakah in life</li>
+                </ul>
+            </div>
+
+            <div class="quran-card">
+                <h4>Intellectual Benefits</h4>
+                <ul>
+                    <li><strong>Knowledge:</strong> Vast knowledge and wisdom</li>
+                    <li><strong>Critical Thinking:</strong> Analytical skills development</li>
+                    <li><strong>Memory:</strong> Improved memory and concentration</li>
+                    <li><strong>Language:</strong> Arabic language skills</li>
+                    <li><strong>Understanding:</strong> Deep comprehension abilities</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="al-fatiha.html">Surah Al-Fatiha</a></li>
+                <li><a href="al-baqarah.html">Surah Al-Baqarah</a></li>
+                <li><a href="al-imran.html">Surah Al-Imran</a></li>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="ramadan-guide.html">Ramadan and Fasting Guide</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>

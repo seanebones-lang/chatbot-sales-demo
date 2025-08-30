@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dua (Supplication) Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .dua-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .dua-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .dua-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Dua (Supplication) Guide</h1>
+            <p>Complete collection of authentic Islamic supplications for daily life, with meanings and proper usage</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Understanding Dua</h2>
+            <p>Dua (supplication) is the act of calling upon Allah, asking for His help, guidance, and blessings. It is a direct connection between the believer and Allah, demonstrating our dependence on Him.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ</div>
+                <div class="translation">"And your Lord says: 'Call upon Me; I will respond to you.'" (Quran 40:60)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "Dua is worship." (Abu Dawud, Tirmidhi)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Daily Morning and Evening Duas</h2>
+            
+            <div class="dua-card">
+                <h4>Morning Remembrance (Adhkar as-Sabah)</h4>
+                <div class="arabic-text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ</div>
+                <div class="translation">"We have reached the morning and at this very time all sovereignty belongs to Allah. All praise is for Allah."</div>
+                
+                <h4>Evening Remembrance (Adhkar al-Masa)</h4>
+                <div class="arabic-text">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ</div>
+                <div class="translation">"We have reached the evening and at this very time all sovereignty belongs to Allah. All praise is for Allah."</div>
+                
+                <div class="step-box">
+                    <h5>When to Recite</h5>
+                    <p>Recite morning duas after Fajr prayer until sunrise, and evening duas after Asr prayer until sunset</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h4>Ayat al-Kursi (Verse of the Throne)</h4>
+                <div class="arabic-text">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ</div>
+                <div class="translation">"Allah - there is no deity except Him, the Ever-Living, the Self-Sustaining. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great." (Quran 2:255)</div>
+                
+                <div class="step-box">
+                    <h5>Benefits</h5>
+                    <p>Recite in the morning, evening, and before sleeping for protection and blessings</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Duas for Daily Activities</h2>
+            
+            <div class="dua-card">
+                <h4>Before Eating</h4>
+                <div class="arabic-text">بِسْمِ اللَّهِ</div>
+                <div class="translation">"In the name of Allah"</div>
+                
+                <h4>After Eating</h4>
+                <div class="arabic-text">الْحَمْدُ لِلَّهِ</div>
+                <div class="translation">"Praise be to Allah"</div>
+                
+                <div class="step-box">
+                    <h5>Prophetic Guidance</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "When one of you eats, let him mention the name of Allah."</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h4>Entering Home</h4>
+                <div class="arabic-text">بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا</div>
+                <div class="translation">"In the name of Allah we enter, and in the name of Allah we leave, and upon our Lord we place our trust."</div>
+                
+                <h4>Leaving Home</h4>
+                <div class="arabic-text">بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</div>
+                <div class="translation">"In the name of Allah, I place my trust in Allah, and there is no power and no strength except with Allah."</div>
+            </div>
+
+            <div class="dua-card">
+                <h4>Entering Mosque</h4>
+                <div class="arabic-text">اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ</div>
+                <div class="translation">"O Allah, open for me the gates of Your mercy."</div>
+                
+                <h4>Leaving Mosque</h4>
+                <div class="arabic-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ</div>
+                <div class="translation">"O Allah, I ask You of Your bounty."</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Duas for Protection and Blessings</h2>
+            
+            <div class="dua-card">
+                <h4>Protection from Evil</h4>
+                <div class="arabic-text">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ الَّتِي لَا يُجَاوِزُهُنَّ بَرٌّ وَلَا فَاجِرٌ</div>
+                <div class="translation">"I seek refuge in the perfect words of Allah, which neither the upright nor the corrupt can overcome."</div>
+                
+                <div class="step-box">
+                    <h5>When to Recite</h5>
+                    <p>Recite in the morning and evening for protection from harm and evil</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h4>Protection from Shaytan</h4>
+                <div class="arabic-text">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</div>
+                <div class="translation">"I seek refuge in Allah from the accursed Satan."</div>
+                
+                <h4>Before Reading Quran</h4>
+                <div class="arabic-text">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</div>
+                <div class="translation">"I seek refuge in Allah from the accursed Satan."</div>
+            </div>
+
+            <div class="dua-card">
+                <h4>Seeking Forgiveness</h4>
+                <div class="arabic-text">رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ</div>
+                <div class="translation">"My Lord, forgive me and accept my repentance, for You are the Ever-Accepting of repentance, the Most Merciful."</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Duas for Specific Situations</h2>
+            
+            <div class="dua-card">
+                <h4>When Sneezing</h4>
+                <div class="arabic-text">الْحَمْدُ لِلَّهِ</div>
+                <div class="translation">"Praise be to Allah"</div>
+                
+                <h4>Response to Sneezing</h4>
+                <div class="arabic-text">يَرْحَمُكَ اللَّهُ</div>
+                <div class="translation">"May Allah have mercy on you"</div>
+                
+                <h4>Response to "Yarhamuk Allah"</h4>
+                <div class="arabic-text">يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ</div>
+                <div class="translation">"May Allah guide you and set your affairs right"</div>
+            </div>
+
+            <div class="dua-card">
+                <h4>When Visiting the Sick</h4>
+                <div class="arabic-text">لَا بَأْسَ طَهُورٌ إِنْ شَاءَ اللَّهُ</div>
+                <div class="translation">"No harm, it will be purification, if Allah wills."</div>
+                
+                <h4>When Hearing Bad News</h4>
+                <div class="arabic-text">إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَأَخْلِفْ لِي خَيْرًا مِنْهَا</div>
+                <div class="translation">"Indeed, we belong to Allah and indeed, to Him we will return. O Allah, reward me in my calamity and replace it with something better."</div>
+            </div>
+
+            <div class="dua-card">
+                <h4>When Traveling</h4>
+                <div class="arabic-text">اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى وَمِنَ الْعَمَلِ مَا تَرْضَى اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ</div>
+                <div class="translation">"O Allah, we ask You on this journey of ours for righteousness and piety, and for deeds that are pleasing to You. O Allah, make this journey easy for us and fold up for us its distance."</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Duas for Spiritual Growth</h2>
+            
+            <div class="dua-card">
+                <h4>Increasing Knowledge</h4>
+                <div class="arabic-text">رَبِّ زِدْنِي عِلْمًا</div>
+                <div class="translation">"My Lord, increase me in knowledge." (Quran 20:114)</div>
+                
+                <h4>Guidance and Righteousness</h4>
+                <div class="arabic-text">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</div>
+                <div class="translation">"Our Lord, grant us good in this world and good in the Hereafter, and protect us from the punishment of the Fire." (Quran 2:201)</div>
+            </div>
+
+            <div class="dua-card">
+                <h4>Patience and Gratitude</h4>
+                <div class="arabic-text">رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا وَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ</div>
+                <div class="translation">"Our Lord, pour upon us patience and plant firmly our feet and give us victory over the disbelieving people." (Quran 2:250)</div>
+                
+                <h4>Seeking Allah's Love</h4>
+                <div class="arabic-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ حُبَّكَ وَحُبَّ مَنْ يُحِبُّكَ وَالْعَمَلَ الَّذِي يُبَلِّغُنِي حُبَّكَ</div>
+                <div class="translation">"O Allah, I ask You for Your love and the love of those who love You, and for the action that will cause me to attain Your love."</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Duas for Family and Relationships</h2>
+            
+            <div class="dua-card">
+                <h4>For Parents</h4>
+                <div class="arabic-text">رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا</div>
+                <div class="translation">"My Lord, have mercy upon them as they brought me up when I was small." (Quran 17:24)</div>
+                
+                <h4>For Children</h4>
+                <div class="arabic-text">رَبِّ هَبْ لِي مِن لَّدُنكَ ذُرِّيَّةً طَيِّبَةً ۖ إِنَّكَ سَمِيعُ الدُّعَاءِ</div>
+                <div class="translation">"My Lord, grant me from Yourself a good offspring. Indeed, You are the Hearer of supplication." (Quran 3:38)</div>
+            </div>
+
+            <div class="dua-card">
+                <h4>For Spouse</h4>
+                <div class="arabic-text">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</div>
+                <div class="translation">"Our Lord, grant us from among our spouses and offspring comfort to our eyes and make us an example for the righteous." (Quran 25:74)</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Etiquette of Making Dua</h2>
+            
+            <div class="dua-card">
+                <h4>Proper Manners</h4>
+                <ul>
+                    <li><strong>Face Qiblah:</strong> Face the direction of the Kaaba when possible</li>
+                    <li><strong>Raise Hands:</strong> Raise your hands in supplication</li>
+                    <li><strong>Begin with Praise:</strong> Start by praising Allah</li>
+                    <li><strong>Send Blessings:</strong> Send blessings on the Prophet</li>
+                    <li><strong>Be Sincere:</strong> Make dua with full concentration</li>
+                    <li><strong>Be Patient:</strong> Don't rush for immediate answers</li>
+                </ul>
+            </div>
+
+            <div class="dua-card">
+                <h4>Best Times for Dua</h4>
+                <ul>
+                    <li><strong>Last Third of Night:</strong> Especially during Tahajjud</li>
+                    <li><strong>Between Adhan and Iqamah:</strong> When calling to prayer</li>
+                    <li><strong>During Prostration:</strong> While in sujood</li>
+                    <li><strong>Friday Afternoon:</strong> Special time on Fridays</li>
+                    <li><strong>Laylat al-Qadr:</strong> Night of Power in Ramadan</li>
+                    <li><strong>While Traveling:</strong> Duas are more likely accepted</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Mistakes to Avoid</h2>
+            
+            <div class="dua-card">
+                <h4>What to Avoid</h4>
+                <ul>
+                    <li><strong>Rushing:</strong> Don't rush through duas</li>
+                    <li><strong>Distractions:</strong> Avoid making dua while distracted</li>
+                    <li><strong>Impatience:</strong> Don't give up if not answered immediately</li>
+                    <li><strong>Inappropriate Requests:</strong> Don't ask for harmful things</li>
+                    <li><strong>Lack of Sincerity:</strong> Don't make dua without meaning it</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Benefits of Making Dua</h2>
+            
+            <div class="dua-card">
+                <h4>Spiritual Benefits</h4>
+                <ul>
+                    <li><strong>Connection with Allah:</strong> Strengthens relationship with Creator</li>
+                    <li><strong>Humility:</strong> Reminds us of our dependence on Allah</li>
+                    <li><strong>Patience:</strong> Develops patience and trust in Allah</li>
+                    <li><strong>Gratitude:</strong> Increases thankfulness for blessings</li>
+                    <li><strong>Protection:</strong> Provides spiritual and physical protection</li>
+                </ul>
+            </div>
+
+            <div class="dua-card">
+                <h4>Practical Benefits</h4>
+                <ul>
+                    <li><strong>Stress Relief:</strong> Sharing concerns with Allah reduces anxiety</li>
+                    <li><strong>Focus:</strong> Helps clarify what we truly need</li>
+                    <li><strong>Perspective:</strong> Reminds us of what's truly important</li>
+                    <li><strong>Community:</strong> Unites Muslims in common supplications</li>
+                    <li><strong>Guidance:</strong> Helps us make better decisions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="ramadan-guide.html">Ramadan and Fasting Guide</a></li>
+                <li><a href="quran-guide.html">Quran Study Guide</a></li>
+                <li><a href="sunnah-practices.html">Sunnah Practices</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>

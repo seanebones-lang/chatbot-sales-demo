@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Family Values - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .family-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .family-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .family-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Family Values</h1>
+            <p>Complete guide to building strong Islamic families based on Quranic teachings and prophetic guidance</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Family</h2>
+            <p>The family is the cornerstone of Islamic society, serving as the primary institution for nurturing faith, character, and social values. Islamic family values are rooted in divine guidance and prophetic teachings.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+                <div class="translation">"And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy." (Quran 30:21)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "The best of you is the best to his family, and I am the best to my family." (Tirmidhi)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Marriage in Islam</h2>
+            
+            <div class="family-card">
+                <h4>Purpose of Marriage</h4>
+                <ul>
+                    <li><strong>Spiritual Growth:</strong> Partnership in worship and righteousness</li>
+                    <li><strong>Emotional Support:</strong> Companionship and emotional security</li>
+                    <li><strong>Procreation:</strong> Raising righteous children</li>
+                    <li><strong>Social Stability:</strong> Foundation of stable society</li>
+                    <li><strong>Protection:</strong> Safeguarding chastity and modesty</li>
+                </ul>
+            </div>
+
+            <div class="family-card">
+                <h4>Choosing a Spouse</h4>
+                <ul>
+                    <li><strong>Religious Commitment:</strong> Strong faith and Islamic practice</li>
+                    <li><strong>Good Character:</strong> Moral integrity and kindness</li>
+                    <li><strong>Compatibility:</strong> Shared values and life goals</li>
+                    <li><strong>Family Background:</strong> Respectable and honorable family</li>
+                    <li><strong>Physical Attraction:</strong> Natural attraction and compatibility</li>
+                </ul>
+                
+                <div class="step-box">
+                    <h5>Prophetic Guidance</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "A woman is married for four things: her wealth, her lineage, her beauty, and her religion. So marry the religious woman, lest you be a loser." (Bukhari)</p>
+                </div>
+            </div>
+
+            <div class="family-card">
+                <h4>Marriage Rights and Responsibilities</h4>
+                
+                <h4>Husband's Responsibilities</h4>
+                <ul>
+                    <li><strong>Financial Support:</strong> Provide for family's basic needs</li>
+                    <li><strong>Protection:</strong> Ensure family's safety and security</li>
+                    <li><strong>Kind Treatment:</strong> Treat wife with kindness and respect</li>
+                    <li><strong>Guidance:</strong> Provide religious and moral guidance</li>
+                    <li><strong>Fairness:</strong> Treat all wives equally if polygamous</li>
+                </ul>
+                
+                <h4>Wife's Responsibilities</h4>
+                <ul>
+                    <li><strong>Obedience:</strong> Obey husband in reasonable matters</li>
+                    <li><strong>Home Management:</strong> Care for home and children</li>
+                    <li><strong>Loyalty:</strong> Maintain marital fidelity</li>
+                    <li><strong>Respect:</strong> Respect husband's authority</li>
+                    <li><strong>Support:</strong> Support husband's religious goals</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Parent-Child Relationships</h2>
+            
+            <div class="family-card">
+                <h4>Rights of Parents</h4>
+                <ul>
+                    <li><strong>Respect and Obedience:</strong> Children must respect and obey parents</li>
+                    <li><strong>Financial Support:</strong> Children should support parents when needed</li>
+                    <li><strong>Kind Treatment:</strong> Treat parents with gentleness and care</li>
+                    <li><strong>Prayer for Them:</strong> Make dua for parents' well-being</li>
+                    <li><strong>Maintaining Contact:</strong> Stay connected and visit regularly</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Command</h5>
+                    <div class="arabic-text">وَقَضَىٰ رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا</div>
+                    <div class="translation">"And your Lord has decreed that you worship none but Him, and that you be dutiful to your parents." (Quran 17:23)</div>
+                </div>
+            </div>
+
+            <div class="family-card">
+                <h4>Rights of Children</h4>
+                <ul>
+                    <li><strong>Proper Naming:</strong> Give children good Islamic names</li>
+                    <li><strong>Education:</strong> Provide religious and worldly education</li>
+                    <li><strong>Equal Treatment:</strong> Treat all children fairly</li>
+                    <li><strong>Protection:</strong> Protect from harm and evil influences</li>
+                    <li><strong>Spiritual Guidance:</strong> Teach Islamic values and practices</li>
+                </ul>
+            </div>
+
+            <div class="family-card">
+                <h4>Raising Righteous Children</h4>
+                <ul>
+                    <li><strong>Lead by Example:</strong> Practice what you preach</li>
+                    <li><strong>Early Education:</strong> Start teaching from early age</li>
+                    <li><strong>Consistent Discipline:</strong> Fair and consistent rules</li>
+                    <li><strong>Quality Time:</strong> Spend meaningful time together</li>
+                    <li><strong>Prayer and Worship:</strong> Involve children in religious activities</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Extended Family Relationships</h2>
+            
+            <div class="family-card">
+                <h4>Relatives and Kinship</h4>
+                <ul>
+                    <li><strong>Maintaining Ties:</strong> Keep in touch with extended family</li>
+                    <li><strong>Mutual Support:</strong> Help relatives in times of need</li>
+                    <li><strong>Respect for Elders:</strong> Honor and respect older relatives</li>
+                    <li><strong>Care for Young:</strong> Look after younger family members</li>
+                    <li><strong>Family Gatherings:</strong> Organize regular family meetings</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Prophetic Teaching</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "Whoever believes in Allah and the Last Day, let him maintain good relations with his relatives." (Bukhari)</p>
+                </div>
+            </div>
+
+            <div class="family-card">
+                <h4>In-Law Relationships</h4>
+                <ul>
+                    <li><strong>Respect and Kindness:</strong> Treat in-laws with respect</li>
+                    <li><strong>Maintaining Boundaries:</strong> Respect privacy and space</li>
+                    <li><strong>Support and Cooperation:</strong> Help when possible</li>
+                    <li><strong>Communication:</strong> Open and honest communication</li>
+                    <li><strong>Conflict Resolution:</strong> Resolve disputes peacefully</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Family Communication</h2>
+            
+            <div class="family-card">
+                <h4>Effective Communication</h4>
+                <ul>
+                    <li><strong>Active Listening:</strong> Listen without interrupting</li>
+                    <li><strong>Respectful Speech:</strong> Use kind and respectful words</li>
+                    <li><strong>Regular Family Meetings:</strong> Discuss family matters together</li>
+                    <li><strong>Open Dialogue:</strong> Encourage honest expression</li>
+                    <li><strong>Conflict Resolution:</strong> Address issues calmly and fairly</li>
+                </ul>
+            </div>
+
+            <div class="family-card">
+                <h4>Resolving Family Conflicts</h4>
+                <ul>
+                    <li><strong>Calm Discussion:</strong> Talk when emotions are calm</li>
+                    <li><strong>Seek Mediation:</strong> Involve trusted family members</li>
+                    <li><strong>Focus on Solutions:</strong> Work toward resolution</li>
+                    <li><strong>Forgiveness:</strong> Be willing to forgive and forget</li>
+                    <li><strong>Prayer:</strong> Seek Allah's guidance in conflicts</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Family Worship and Spirituality</h2>
+            
+            <div class="family-card">
+                <h4>Family Prayer</h4>
+                <ul>
+                    <li><strong>Group Prayer:</strong> Pray together when possible</li>
+                    <li><strong>Teaching Children:</strong> Show children how to pray</li>
+                    <li><strong>Prayer Times:</strong> Establish regular prayer schedules</li>
+                    <li><strong>Mosque Visits:</strong> Visit mosque as a family</li>
+                    <li><strong>Quran Reading:</strong> Read Quran together regularly</li>
+                </ul>
+            </div>
+
+            <div class="family-card">
+                <h4>Religious Education</h4>
+                <ul>
+                    <li><strong>Islamic Stories:</strong> Share stories of prophets and companions</li>
+                    <li><strong>Quran Memorization:</strong> Help children memorize Quran</li>
+                    <li><strong>Islamic Etiquette:</strong> Teach proper Islamic manners</li>
+                    <li><strong>Religious Celebrations:</strong> Celebrate Islamic holidays together</li>
+                    <li><strong>Learning Together:</strong> Study Islamic topics as a family</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Family Values and Ethics</h2>
+            
+            <div class="family-card">
+                <h4>Core Islamic Values</h4>
+                <ul>
+                    <li><strong>Honesty:</strong> Always tell the truth</li>
+                    <li><strong>Trustworthiness:</strong> Keep promises and be reliable</li>
+                    <li><strong>Generosity:</strong> Share with others in need</li>
+                    <li><strong>Patience:</strong> Endure difficulties with patience</li>
+                    <li><strong>Gratitude:</strong> Be thankful for blessings</li>
+                    <li><strong>Humility:</strong> Avoid arrogance and pride</li>
+                </ul>
+            </div>
+
+            <div class="family-card">
+                <h4>Social Responsibility</h4>
+                <ul>
+                    <li><strong>Community Service:</strong> Help neighbors and community</li>
+                    <li><strong>Charity:</strong> Give to those in need</li>
+                    <li><strong>Environmental Care:</strong> Protect and preserve environment</li>
+                    <li><strong>Social Justice:</strong> Stand up for what's right</li>
+                    <li><strong>Interfaith Relations:</strong> Respect people of other faiths</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Modern Family Challenges</h2>
+            
+            <div class="family-card">
+                <h4>Technology and Family</h4>
+                <ul>
+                    <li><strong>Screen Time Limits:</strong> Set reasonable limits on devices</li>
+                    <li><strong>Family Activities:</strong> Plan device-free family time</li>
+                    <li><strong>Online Safety:</strong> Monitor children's internet use</li>
+                    <li><strong>Digital Balance:</strong> Balance technology with real interaction</li>
+                    <li><strong>Educational Use:</strong> Use technology for learning</li>
+                </ul>
+            </div>
+
+            <div class="family-card">
+                <h4>Work-Life Balance</h4>
+                <ul>
+                    <li><strong>Quality Time:</strong> Make time for family despite busy schedules</li>
+                    <li><strong>Family Meals:</strong> Eat together when possible</li>
+                    <li><strong>Weekend Activities:</strong> Plan family activities on weekends</li>
+                    <li><strong>Communication:</strong> Stay connected even when busy</li>
+                    <li><strong>Priorities:</strong> Put family before work when possible</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Building Strong Family Bonds</h2>
+            
+            <div class="family-card">
+                <h4>Family Traditions</h4>
+                <ul>
+                    <li><strong>Islamic Holidays:</strong> Celebrate Eid and other Islamic occasions</li>
+                    <li><strong>Family Dinners:</strong> Regular family meals together</li>
+                    <li><strong>Family Trips:</strong> Travel and explore together</li>
+                    <li><strong>Family Projects:</strong> Work on projects together</li>
+                    <li><strong>Storytelling:</strong> Share family stories and history</li>
+                </ul>
+            </div>
+
+            <div class="family-card">
+                <h4>Creating Memories</h4>
+                <ul>
+                    <li><strong>Photo Albums:</strong> Document family moments</li>
+                    <li><strong>Family Videos:</strong> Record special occasions</li>
+                    <li><strong>Family Journal:</strong> Write about family experiences</li>
+                    <li><strong>Celebrations:</strong> Celebrate achievements and milestones</li>
+                    <li><strong>Family Songs:</strong> Create family traditions and songs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="dua-guide.html">Dua (Supplication) Guide</a></li>
+                <li><a href="sunnah-practices.html">Sunnah Practices</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>
