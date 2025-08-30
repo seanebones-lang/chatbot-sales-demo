@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Islamic Study Guide - Main Index</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #2d2d2d;
+            --accent-color: #4CAF50;
+            --text-color: #ffffff;
+            --border-color: #444;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: var(--secondary-color);
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 6px 12px var(--shadow-color);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .subject-card {
+            background: var(--secondary-color);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 6px solid var(--accent-color);
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .subject-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px var(--shadow-color);
+        }
+
+        .subject-card h2 {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subject-card p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .subject-link {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .subject-link:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--secondary-color);
+            border-radius: 15px;
+            opacity: 0.8;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subjects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="complete-islamic-study-guide-dark.html" class="back-button">← Back to DeenBot</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Theme</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>📚 Complete Islamic Study Guide</h1>
+            <p>Comprehensive Islamic knowledge covering all aspects of faith, worship, and daily life. Explore the vast resources below to deepen your understanding of Islam.</p>
+        </div>
+
+        <div class="subjects-grid">
+            {generate_main_subject_cards()}
+        </div>
+
+        <div class="footer">
+            <p><strong>Complete Islamic Study Guide</strong> • Comprehensive Islamic Knowledge • All Content Independently Available</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (body.style.filter === 'invert(1)') {
+                body.style.filter = 'none';
+                themeToggle.textContent = '🌙 Theme';
+            } else {
+                body.style.filter = 'invert(1)';
+                themeToggle.textContent = '☀️ Theme';
+            }
+        }
+    </script>
+</body>
+</html>

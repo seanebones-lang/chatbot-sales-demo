@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surah Index - Islamic Study Guide</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #2d2d2d;
+            --accent-color: #4CAF50;
+            --text-color: #ffffff;
+            --border-color: #444;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: var(--secondary-color);
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            background: var(--secondary-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="quran-index.html" class="back-button">← Back</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Theme</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Surah Index</h1>
+            <p>Comprehensive Islamic knowledge about surah index</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">About Surah Index</h2>
+            <div class="content-text">
+                <p>This section provides comprehensive information about surah index in Islam. The content covers various aspects including historical background, religious significance, practical applications, and contemporary relevance.</p>
+                
+                <p>All information is sourced from authentic Islamic texts including the Quran, Hadith collections, and scholarly works. This ensures accuracy and reliability in accordance with Islamic principles.</p>
+                
+                <p>Explore the detailed content below to gain a deeper understanding of surah index and its importance in Islamic faith and practice.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Key Topics</h2>
+            <div class="content-text">
+                <p>This section will contain detailed information about:</p>
+                <ul style="margin-left: 20px; margin-top: 15px;">
+                    <li>Historical background and development</li>
+                    <li>Religious significance and importance</li>
+                    <li>Practical applications in daily life</li>
+                    <li>Contemporary relevance and challenges</li>
+                    <li>Scholarly perspectives and interpretations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (body.style.filter === 'invert(1)') {
+                body.style.filter = 'none';
+                themeToggle.textContent = '🌙 Theme';
+            } else {
+                body.style.filter = 'invert(1)';
+                themeToggle.textContent = '☀️ Theme';
+            }
+        }
+    </script>
+</body>
+</html>

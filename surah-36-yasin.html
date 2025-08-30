@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ya-Sin - يس</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #2d2d2d;
+            --accent-color: #4CAF50;
+            --text-color: #ffffff;
+            --border-color: #444;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: var(--secondary-color);
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            background: var(--secondary-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .verse-container {
+            background: var(--primary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .verse-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .verse-number {
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .verse-reference {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .verse-arabic {
+            font-size: 1.4rem;
+            text-align: right;
+            margin: 15px 0;
+            line-height: 2;
+            direction: rtl;
+        }
+
+        .verse-transliteration {
+            font-size: 1.1rem;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 5px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .verse-translation {
+            font-size: 1.1rem;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+        }
+
+        .verse-tafsir {
+            font-size: 1rem;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(76, 175, 80, 0.05);
+            border-radius: 5px;
+            border-left: 3px solid var(--accent-color);
+            font-style: italic;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--secondary-color);
+            border-radius: 10px;
+        }
+
+        .nav-button {
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-button:hover {
+            background: #45a049;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--secondary-color);
+            border-radius: 10px;
+            opacity: 0.8;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .verse-arabic {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Theme</button>
+    <a href="complete-islamic-study-guide-dark.html" class="back-button">← Back</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Ya-Sin</h1>
+            <p>يس • Ya-Sin</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Surah Information</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div><strong>Surah Number:</strong> 36</div>
+                <div><strong>Number of Verses:</strong> 83</div>
+                <div><strong>Revelation:</strong> Meccan</div>
+                <div><strong>Juz:</strong> 22-23</div>
+                <div><strong>Pages:</strong> 71-72</div>
+                <div><strong>Rukus:</strong> 3</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Complete Verses</h2>
+            
+            <div class="verse-container">
+                <div class="verse-header">
+                    <span class="verse-number">Verse 1</span>
+                    <span class="verse-reference">Ya-Sin 1</span>
+                </div>
+                <div class="verse-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                <div class="verse-transliteration">Bismillahi ar-Rahmani ar-Raheem</div>
+                <div class="verse-translation">In the name of Allah, the Entirely Merciful, the Especially Merciful.</div>
+                <div class="verse-tafsir">This is the opening verse of Ya-Sin. The Basmalah teaches us to begin all our actions in the name of Allah, acknowledging His mercy and seeking His blessings.</div>
+            </div>
+        
+        </div>
+
+        <div class="navigation">
+            <a href="surah-35-fatir.html" class="nav-button">← Previous Surah</a><a href="surah-37-as-saffat.html" class="nav-button">Next Surah →</a>
+        </div>
+
+        <div class="footer">
+            <p><strong>Ya-Sin</strong> • يس • 83 verses • Meccan revelation</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (body.style.filter === 'invert(1)') {
+                body.style.filter = 'none';
+                themeToggle.textContent = '🌙 Theme';
+            } else {
+                body.style.filter = 'invert(1)';
+                themeToggle.textContent = '☀️ Theme';
+            }
+        }
+    </script>
+</body>
+</html>
