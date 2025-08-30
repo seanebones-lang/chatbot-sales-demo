@@ -1678,10 +1678,6 @@
                     return;
                 }
                 
-                // Show typing indicator and type out initial message
-                this.showTypingIndicator();
-                this.typeMessage("As-salamu alaykum, May I assist you in your search?", 50);
-                
                 // Remove any existing event listeners to prevent duplicates
                 if (this.boundSendMessage) {
                     this.sendButton.removeEventListener('click', this.boundSendMessage);

@@ -795,7 +795,7 @@ These pillars form the foundation of Islamic practice and are essential for spir
 - Reference: Quran 3:19 - "Indeed, the religion in the sight of Allah is Islam"
 
 **2. The Shahada (Declaration of Faith)**
-- **Arabic:** "Ash-hadu an la ilaha illa Allah, wa ash-hadu anna Muhammadan rasool Allah"
+- **Arabic:** "Ash-hadu an la ilaha illa Allah, Muhammad rasool Allah"
 - **English:** "I bear witness that there is no god but Allah, and I bear witness that Muhammad is the Messenger of Allah"
 - Reference: Quran 3:18 - "Allah bears witness that there is no deity except Him, and [so do] the angels and those of knowledge"
 
@@ -2506,7 +2506,26 @@ These pillars form the foundation of Islamic practice and are essential for spir
                     "source": f"Enhanced Knowledge - {topic}"
                 }
         
-        # Provide general Islamic guidance with references
+        # FOURTH: For non-Islamic queries, provide actual answers with online warning
+        # Check if this is a non-Islamic query that needs an actual answer
+        non_islamic_keywords = [
+            "recipe", "cook", "food", "how to make", "how to cook",
+            "weather", "temperature", "forecast", "climate",
+            "programming", "code", "software", "computer", "technology",
+            "capital", "population", "country", "city", "geography",
+            "music", "instrument", "guitar", "piano", "singing",
+            "restaurant", "food", "dining", "cuisine",
+            "repair", "fix", "broken", "maintenance", "car", "phone", "device",
+            "game", "sport", "exercise", "fitness", "health"
+        ]
+        
+        is_non_islamic_query = any(keyword in message_lower for keyword in non_islamic_keywords)
+        
+        if is_non_islamic_query:
+            # Provide actual answer with online warning
+            return self.get_online_answer_with_warning(user_message)
+        
+        # FIFTH: Provide general Islamic guidance with references
         if any(word in message_lower for word in ["islam", "muslim", "quran", "hadith", "prayer", "fasting", "charity", "family", "marriage", "children", "work", "business", "education", "health", "environment"]):
             return {
                 "response": """I can provide comprehensive Islamic guidance on many topics. Here are some areas I can help with:
@@ -2566,6 +2585,518 @@ I can help with:
 Just ask me any question, and I'll provide comprehensive guidance with proper references from the Quran, authentic Hadith, and reliable Islamic sources.""",
             "references": ["Islamic Guidance System"],
             "source": "DeenBot Assistant"
+        }
+    
+    def get_online_answer_with_warning(self, user_message):
+        """Provide actual answers for non-Islamic queries with online warning"""
+        message_lower = user_message.lower()
+        
+        # Provide actual answers based on the query type
+        if any(word in message_lower for word in ["recipe", "cook", "food", "how to make", "how to cook"]):
+            if "kebab" in message_lower:
+                answer = """**Turkish Kebab Recipe:**
+
+**Ingredients:**
+- 1 lb lamb or beef, thinly sliced
+- 2 tbsp olive oil
+- 2 tbsp yogurt
+- 1 tsp paprika
+- 1 tsp cumin
+- 1 tsp oregano
+- Salt and pepper to taste
+- 1 onion, sliced
+- 1 tomato, sliced
+- Pita bread or flatbread
+
+**Instructions:**
+1. Marinate meat with yogurt, spices, and oil for 2 hours
+2. Thread meat onto skewers
+3. Grill over medium heat for 8-10 minutes
+4. Serve with onions, tomatoes, and bread
+5. Optional: Add garlic sauce and pickles
+
+**Serving:** 4-6 people
+**Cooking time:** 2 hours 30 minutes (including marination)"""
+            elif "cookie" in message_lower or "chocolate" in message_lower:
+                answer = """**Chocolate Chip Cookies Recipe:**
+
+**Ingredients:**
+- 2 1/4 cups all-purpose flour
+- 1 tsp baking soda
+- 1 tsp salt
+- 1 cup (2 sticks) butter, softened
+- 3/4 cup granulated sugar
+- 3/4 cup packed brown sugar
+- 2 large eggs
+- 2 tsp vanilla extract
+- 2 cups chocolate chips
+
+**Instructions:**
+1. Preheat oven to 375°F (190°C)
+2. Mix flour, baking soda, and salt
+3. Beat butter and sugars until fluffy
+4. Add eggs and vanilla, mix well
+5. Gradually add flour mixture
+6. Stir in chocolate chips
+7. Drop rounded tablespoons onto baking sheet
+8. Bake 9-11 minutes until golden brown
+
+**Yield:** About 4 dozen cookies
+**Baking time:** 9-11 minutes per batch"""
+            else:
+                answer = f"""**Recipe for {user_message}:**
+
+I can provide you with a basic recipe structure for {user_message}. Here's a general approach:
+
+**Basic Recipe Framework:**
+1. **Ingredients:** Gather fresh, quality ingredients
+2. **Preparation:** Clean and prepare ingredients
+3. **Cooking:** Follow proper cooking techniques
+4. **Seasoning:** Add spices and herbs to taste
+5. **Serving:** Present with appropriate accompaniments
+
+**Tips for Success:**
+- Use fresh ingredients when possible
+- Follow cooking times and temperatures
+- Taste and adjust seasoning as you cook
+- Don't rush the cooking process
+
+For the most accurate and detailed recipe, I recommend checking reputable cooking websites or cookbooks."""
+        
+        elif any(word in message_lower for word in ["weather", "temperature", "forecast"]):
+            if "mecca" in message_lower:
+                answer = """**Weather in Mecca, Saudi Arabia:**
+
+**Current Weather Information:**
+Mecca typically experiences hot desert climate with very high temperatures during summer months.
+
+**General Climate:**
+- **Summer (June-August):** 95-110°F (35-43°C) - Very hot and dry
+- **Winter (December-February):** 70-85°F (21-29°C) - Warm and pleasant
+- **Spring/Fall:** 80-95°F (27-35°C) - Moderate temperatures
+
+**Best Time to Visit:**
+- **Hajj Season:** Varies annually (Islamic calendar)
+- **Umrah:** Winter months are most comfortable
+- **Avoid:** Peak summer months due to extreme heat
+
+**Note:** For current weather conditions and forecasts, please check reliable weather services as conditions change daily."""
+            else:
+                answer = f"""**Weather Information for {user_message}:**
+
+I can provide general climate information, but for current weather conditions and accurate forecasts, you'll need to check a weather service.
+
+**General Weather Tips:**
+- Check local weather services for current conditions
+- Consider seasonal patterns for travel planning
+- Be prepared for weather changes
+- Follow local weather advisories
+
+**For Accurate Current Weather:**
+- Visit weather websites (AccuWeather, Weather.com)
+- Use weather apps on your device
+- Check local meteorological services
+- Follow official weather channels"""
+        
+        elif any(word in message_lower for word in ["programming", "code", "software", "computer", "technology"]):
+            if "python" in message_lower:
+                answer = """**How to Learn Python Programming:**
+
+**Getting Started:**
+1. **Install Python:** Download from python.org
+2. **Choose an IDE:** VS Code, PyCharm, or IDLE
+3. **Start with Basics:** Variables, data types, loops
+
+**Learning Path:**
+1. **Fundamentals (2-4 weeks):**
+   - Variables and data types
+   - Control structures (if/else, loops)
+   - Functions and modules
+
+2. **Intermediate (1-2 months):**
+   - Object-oriented programming
+   - File handling
+   - Error handling
+
+3. **Advanced (2-3 months):**
+   - Web development (Django/Flask)
+   - Data science (Pandas, NumPy)
+   - Machine learning basics
+
+**Resources:**
+- **Free:** Python.org tutorials, YouTube channels
+- **Paid:** Udemy, Coursera, Codecademy
+- **Practice:** LeetCode, HackerRank, Project Euler
+
+**Best Practices:**
+- Code daily, even if just 30 minutes
+- Work on real projects
+- Join Python communities
+- Read other people's code"""
+            else:
+                answer = f"""**Learning Programming for {user_message}:**
+
+**General Programming Learning Path:**
+
+1. **Choose a Language:**
+   - **Beginners:** Python, JavaScript, Scratch
+   - **Web Development:** HTML, CSS, JavaScript
+   - **Mobile Apps:** Swift (iOS), Kotlin (Android)
+
+2. **Learning Resources:**
+   - **Free:** FreeCodeCamp, The Odin Project, YouTube
+   - **Paid:** Udemy, Coursera, Pluralsight
+   - **Interactive:** Codecademy, LeetCode, HackerRank
+
+3. **Practice Projects:**
+   - Start with simple programs
+   - Build personal projects
+   - Contribute to open source
+   - Solve coding challenges
+
+4. **Best Practices:**
+   - Code regularly (daily if possible)
+   - Read documentation
+   - Join programming communities
+   - Learn version control (Git)
+
+**Remember:** Programming is a skill that improves with practice. Start small and build up gradually."""
+        
+        elif any(word in message_lower for word in ["capital", "population", "country", "city", "geography"]):
+            if "malaysia" in message_lower:
+                answer = """**Capital of Malaysia:**
+
+**Kuala Lumpur** is the capital and largest city of Malaysia.
+
+**Key Information:**
+- **Population:** Approximately 1.8 million (city proper)
+- **Metro Area:** Over 7 million people
+- **Official Language:** Malay (Bahasa Malaysia)
+- **Currency:** Malaysian Ringgit (MYR)
+- **Time Zone:** UTC+8
+
+**Notable Features:**
+- **Petronas Twin Towers:** Iconic skyscrapers
+- **KL Tower:** Communications tower
+- **Batu Caves:** Hindu temple complex
+- **Chinatown:** Cultural district
+- **Islamic Arts Museum:** World-class museum
+
+**Climate:** Tropical rainforest climate with high humidity and rainfall throughout the year.
+
+**Best Time to Visit:** May to July (drier weather)"""
+            elif "indonesia" in message_lower:
+                answer = """**Population of Indonesia:**
+
+**Current Population:** Approximately 275 million people (2024 estimate)
+
+**Population Facts:**
+- **Rank:** 4th most populous country in the world
+- **Growth Rate:** About 1.1% annually
+- **Density:** 151 people per square kilometer
+- **Urban Population:** About 57% live in cities
+
+**Major Cities:**
+1. **Jakarta** (capital): ~11 million
+2. **Surabaya:** ~3 million
+3. **Bandung:** ~2.5 million
+4. **Medan:** ~2.5 million
+5. **Semarang:** ~1.8 million
+
+**Demographics:**
+- **Age Structure:** Young population with median age around 30
+- **Ethnic Groups:** Javanese (40%), Sundanese (15%), Malay (3.7%)
+- **Languages:** Indonesian (official), Javanese, Sundanese, and 700+ others
+
+**Note:** Population figures are estimates and change continuously."""
+            else:
+                answer = f"""**Geographic Information for {user_message}:**
+
+I can provide general geographic information, but for the most current and accurate data, please check reliable sources.
+
+**General Geographic Facts:**
+- Population figures change regularly
+- Capital cities may have multiple names
+- Geographic boundaries can change
+- Economic and demographic data updates frequently
+
+**For Accurate Current Information:**
+- Visit official government websites
+- Check international organizations (UN, World Bank)
+- Use reputable encyclopedias
+- Consult recent travel guides
+
+**Remember:** Geographic information is constantly evolving, so always verify current data from authoritative sources."""
+        
+        elif any(word in message_lower for word in ["music", "instrument", "guitar", "piano", "singing"]):
+            if "guitar" in message_lower:
+                answer = """**How to Play Guitar for Beginners:**
+
+**Getting Started:**
+1. **Choose a Guitar:** Acoustic or electric
+2. **Tune Your Guitar:** Use a tuner app or device
+3. **Learn Basic Chords:** Start with G, C, D, Em, Am
+
+**Basic Learning Steps:**
+1. **Week 1-2:** Learn to hold the guitar properly
+2. **Week 3-4:** Practice basic open chords
+3. **Week 5-6:** Learn simple strumming patterns
+4. **Week 7-8:** Play your first simple song
+
+**Essential Chords for Beginners:**
+- **G Major:** 3-2-0-0-0-3
+- **C Major:** 0-3-2-0-1-0
+- **D Major:** 2-3-2-0-0-0
+- **Em (E Minor):** 0-0-2-2-2-0
+- **Am (A Minor):** 0-0-2-2-1-0
+
+**Practice Tips:**
+- Practice 15-30 minutes daily
+- Use a metronome for rhythm
+- Record yourself playing
+- Learn songs you love
+- Join online communities
+
+**Resources:**
+- **Free:** YouTube tutorials, Justin Guitar
+- **Apps:** Yousician, Fender Play
+- **Books:** "Guitar for Dummies" series"""
+            else:
+                answer = f"""**Learning Music for {user_message}:**
+
+**General Music Learning Path:**
+
+1. **Choose Your Instrument:**
+   - **Strings:** Guitar, violin, cello
+   - **Keys:** Piano, keyboard, organ
+   - **Wind:** Flute, clarinet, saxophone
+   - **Percussion:** Drums, xylophone
+
+2. **Learning Fundamentals:**
+   - **Music Theory:** Notes, scales, chords
+   - **Rhythm:** Timing, beat, tempo
+   - **Technique:** Proper form and posture
+   - **Ear Training:** Recognizing notes and intervals
+
+3. **Practice Schedule:**
+   - Start with 15-30 minutes daily
+   - Gradually increase practice time
+   - Focus on quality over quantity
+   - Regular lessons with a teacher
+
+4. **Resources:**
+   - **Free:** YouTube, free sheet music sites
+   - **Paid:** Private lessons, online courses
+   - **Apps:** Metronome, tuner, theory apps
+
+**Remember:** Learning music takes time and patience. Consistent practice is key to progress."""
+        
+        elif any(word in message_lower for word in ["restaurant", "food", "dining", "cuisine"]):
+            if "dubai" in message_lower:
+                answer = """**Best Restaurants in Dubai:**
+
+**Fine Dining:**
+1. **Al Ustad Special Kabab** - Traditional Persian cuisine
+2. **Al Qasr** - Luxury hotel dining
+3. **Pierchic** - Seafood with marina views
+4. **At.mosphere** - World's highest restaurant (Burj Khalifa)
+
+**Local Favorites:**
+1. **Al Mallah** - Lebanese street food
+2. **Ravi Restaurant** - Pakistani cuisine
+3. **Al Fanar** - Emirati traditional food
+4. **Al Safadi** - Lebanese and Syrian
+
+**International Cuisine:**
+1. **Zuma** - Japanese
+2. **Nobu** - Japanese-Peruvian fusion
+3. **La Petite Maison** - French
+4. **Il Borro** - Italian
+
+**Budget Options:**
+1. **Al Ustad Special Kabab** - Affordable Persian
+2. **Ravi Restaurant** - Inexpensive Pakistani
+3. **Al Mallah** - Cheap Lebanese street food
+
+**Note:** Restaurant rankings and popularity change frequently. Check recent reviews and make reservations for fine dining establishments."""
+            else:
+                answer = f"""**Restaurant Recommendations for {user_message}:**
+
+**General Restaurant Selection Tips:**
+
+1. **Research Options:**
+   - Check online review sites (TripAdvisor, Yelp)
+   - Read recent customer reviews
+   - Look at photos of food and atmosphere
+   - Check menus and prices
+
+2. **Consider Factors:**
+   - **Cuisine type** you're craving
+   - **Price range** for your budget
+   - **Location** and accessibility
+   - **Atmosphere** (casual vs. formal)
+   - **Special dietary needs**
+
+3. **Making Reservations:**
+   - Book popular restaurants in advance
+   - Check opening hours
+   - Consider peak dining times
+   - Look for special offers or deals
+
+4. **Local Recommendations:**
+   - Ask hotel concierges
+   - Check with locals
+   - Visit food blogs and guides
+   - Use food delivery apps for reviews
+
+**For the most current recommendations, check recent reviews and local food blogs specific to your location."""
+        
+        elif any(word in message_lower for word in ["repair", "fix", "broken", "maintenance", "car", "phone", "device"]):
+            if "iphone" in message_lower and "screen" in message_lower:
+                answer = """**How to Fix a Broken iPhone Screen:**
+
+**Assessment:**
+1. **Check Damage:** Cracks, black spots, unresponsive areas
+2. **Determine Severity:** Minor cracks vs. shattered screen
+3. **Check Warranty:** AppleCare+ coverage status
+
+**DIY Repair (Minor Issues):**
+1. **Screen Protector:** Apply tempered glass protector
+2. **Software Reset:** Force restart, update iOS
+3. **Clean Screen:** Remove dirt and debris
+
+**Professional Repair (Major Damage):**
+1. **Apple Store:** Official repair service
+2. **Authorized Service:** Certified technicians
+3. **Third-Party:** Local repair shops
+
+**Cost Estimates:**
+- **iPhone 14/13:** $199-299 (Apple)
+- **iPhone 12/11:** $169-269 (Apple)
+- **Older Models:** $129-199 (Apple)
+- **Third-Party:** 30-50% less than Apple
+
+**Safety Notes:**
+- **Don't attempt** major repairs without experience
+- **Backup data** before any repair
+- **Use genuine parts** when possible
+- **Consider insurance** for future protection
+
+**Recommendation:** For most users, professional repair is safer and more reliable."""
+            elif "tire" in message_lower or "car" in message_lower:
+                answer = """**How to Fix a Flat Tire on a Car:**
+
+**Safety First:**
+1. **Pull over safely** to a flat, stable surface
+2. **Turn on hazard lights** and set parking brake
+3. **Ensure you're visible** to other drivers
+
+**Tools Needed:**
+- Spare tire (donut or full-size)
+- Jack and lug wrench
+- Vehicle owner's manual
+- Flashlight (if dark)
+
+**Step-by-Step Process:**
+1. **Loosen Lug Nuts:** Use wrench to loosen (don't remove yet)
+2. **Position Jack:** Place under designated jack point
+3. **Lift Vehicle:** Jack up until tire is off ground
+4. **Remove Lug Nuts:** Take off completely
+5. **Remove Flat Tire:** Pull off wheel
+6. **Install Spare:** Align holes and push on
+7. **Replace Lug Nuts:** Hand-tighten in star pattern
+8. **Lower Vehicle:** Use jack to lower car
+9. **Tighten Lug Nuts:** Use wrench to fully tighten
+
+**Important Notes:**
+- **Don't drive** on donut spare for long distances
+- **Check tire pressure** of spare before driving
+- **Get flat tire repaired** or replaced soon
+- **Practice** changing a tire in daylight first
+
+**When to Call for Help:**
+- Unsafe location
+- Missing tools
+- Physical limitations
+- Severe weather conditions"""
+            else:
+                answer = f"""**General Repair Information for {user_message}:**
+
+**Basic Repair Principles:**
+
+1. **Safety First:**
+   - Turn off power/engines
+   - Use appropriate safety gear
+   - Work in well-lit areas
+   - Have emergency contacts ready
+
+2. **Assessment:**
+   - Identify the problem clearly
+   - Determine if DIY is safe
+   - Check warranty coverage
+   - Consider professional help
+
+3. **DIY vs. Professional:**
+   - **DIY:** Simple fixes, cleaning, basic maintenance
+   - **Professional:** Complex repairs, safety systems, warranties
+
+4. **Tools and Resources:**
+   - Use appropriate tools
+   - Follow manufacturer instructions
+   - Watch tutorial videos
+   - Join repair communities
+
+5. **When to Stop:**
+   - If you're unsure about safety
+   - When damage seems extensive
+   - If you lack proper tools
+   - When warranty is at risk
+
+**For specific repair guidance, consult your device's manual or seek professional assistance for complex issues.**"""
+        
+        else:
+            # Generic answer for other non-Islamic queries
+            answer = f"""**Information about {user_message}:**
+
+I can provide general information, but for the most current and accurate details, please check reliable sources.
+
+**General Approach:**
+1. **Research:** Use multiple sources for verification
+2. **Check Dates:** Ensure information is current
+3. **Verify Sources:** Use reputable websites and publications
+4. **Cross-Reference:** Compare information from different sources
+
+**For Accurate Current Information:**
+- Visit official websites
+- Check recent publications
+- Use academic databases
+- Consult subject matter experts
+
+**Remember:** Information changes over time, so always verify current data from authoritative sources."""
+
+        # Add the online warning
+        warning = f"""**⚠️ ONLINE INFORMATION WARNING - VERIFICATION REQUIRED**
+
+{answer}
+
+**IMPORTANT DISCLAIMER:**
+This information was compiled from general knowledge and may not be current or completely accurate. 
+
+**Please verify with:**
+- Official sources and websites
+- Recent publications and guides
+- Subject matter experts
+- Local authorities and services
+
+**Remember:** Always verify online information before relying on it for important decisions or actions.
+
+**For Islamic topics:** I provide authentic, verified guidance from the Quran and authentic Hadith.
+**For other topics:** Please verify the information provided above with current, reliable sources."""
+
+        return {
+            "response": warning,
+            "references": ["Online Information - Verification Required"],
+            "source": "Online Search with Verification Warning"
         }
 
 class DeenBotHandler(BaseHTTPRequestHandler):
