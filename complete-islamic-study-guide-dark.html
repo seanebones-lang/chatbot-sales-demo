@@ -28,7 +28,13 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete Islamic Study Guide - Professional Edition</title>
+    <title>Complete Islamic Study Guide Extended Edition</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Islamic Guide">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
     <style>
         :root {
             --bg-primary: #0a0f0f;
@@ -1881,7 +1887,77 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
             
             const button = document.querySelector('.theme-toggle');
             button.textContent = savedTheme === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+            
+            // PWA Installation
+            registerServiceWorker();
+            setupPWAInstall();
         });
+        
+        // Register Service Worker
+        function registerServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            }
+        }
+        
+        // PWA Install Prompt
+        function setupPWAInstall() {
+            let deferredPrompt;
+            
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                
+                // Show install button if not already installed
+                if (!window.matchMedia('(display-mode: standalone)').matches) {
+                    showInstallButton();
+                }
+            });
+            
+            window.addEventListener('appinstalled', () => {
+                console.log('PWA installed successfully');
+                hideInstallButton();
+            });
+        }
+        
+        function showInstallButton() {
+            // Create install button if it doesn't exist
+            if (!document.getElementById('installButton')) {
+                const installBtn = document.createElement('button');
+                installBtn.id = 'installButton';
+                installBtn.className = 'theme-toggle';
+                installBtn.style.left = '1.5rem';
+                installBtn.style.top = '5rem';
+                installBtn.textContent = 'Install App';
+                installBtn.onclick = installPWA;
+                document.body.appendChild(installBtn);
+            }
+        }
+        
+        function hideInstallButton() {
+            const installBtn = document.getElementById('installButton');
+            if (installBtn) {
+                installBtn.remove();
+            }
+        }
+        
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted PWA installation');
+                    }
+                    deferredPrompt = null;
+                });
+            }
+        }
 
         // DeenBot Embedded Chat Functionality with Stability System
         class DeenBotChat {
