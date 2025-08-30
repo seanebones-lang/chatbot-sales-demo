@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Community Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .community-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .community-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Community Guide</h1>
+            <p>Complete guide to Islamic community building, social responsibility, and fostering unity and cooperation among Muslims</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Community</h2>
+            <p>Islam emphasizes the importance of community (ummah) and social responsibility. Muslims are encouraged to build strong, supportive communities that embody Islamic values of brotherhood, cooperation, and mutual assistance.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ</div>
+                <div class="translation">"The believers are but brothers, so make settlement between your brothers." (Quran 49:10)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "The believers in their mutual kindness, compassion and sympathy are just like one body. When one of the limbs suffers, the whole body responds to it with wakefulness and fever." (Sahih Bukhari)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Core Principles of Islamic Community</h2>
+            
+            <div class="community-card">
+                <h4>Brotherhood and Unity</h4>
+                <ul>
+                    <li><strong>Spiritual Bond:</strong> Muslims are united by faith and belief in Allah</li>
+                    <li><strong>Equal Status:</strong> All Muslims are equal regardless of race, ethnicity, or social status</li>
+                    <li><strong>Mutual Support:</strong> Supporting each other in times of need</li>
+                    <li><strong>Collective Identity:</strong> Strong sense of belonging to the Muslim ummah</li>
+                    <li><strong>Shared Values:</strong> Common commitment to Islamic principles and values</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Social Responsibility</h4>
+                <ul>
+                    <li><strong>Collective Welfare:</strong> Working for the benefit of the entire community</li>
+                    <li><strong>Charity and Zakat:</strong> Supporting those in need through obligatory and voluntary charity</li>
+                    <li><strong>Social Justice:</strong> Promoting fairness and justice in society</li>
+                    <li><strong>Environmental Care:</strong> Protecting and preserving the environment</li>
+                    <li><strong>Education:</strong> Promoting knowledge and learning for all</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Cooperation and Collaboration</h4>
+                <ul>
+                    <li><strong>Joint Projects:</strong> Working together on community initiatives</li>
+                    <li><strong>Resource Sharing:</strong> Sharing knowledge, skills, and resources</li>
+                    <li><strong>Collective Decision Making:</strong> Involving community members in important decisions</li>
+                    <li><strong>Conflict Resolution:</strong> Resolving disputes through consultation and mediation</li>
+                    <li><strong>Mutual Consultation:</strong> Seeking advice and input from community members</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Building Islamic Community</h2>
+            
+            <div class="community-card">
+                <h4>Mosque as Community Center</h4>
+                <ul>
+                    <li><strong>Prayer Services:</strong> Regular congregational prayers</li>
+                    <li><strong>Educational Programs:</strong> Islamic classes, Quran study, and religious education</li>
+                    <li><strong>Social Activities:</strong> Community gatherings, celebrations, and events</li>
+                    <li><strong>Counseling Services:</strong> Religious and personal counseling</li>
+                    <li><strong>Charity Distribution:</strong> Organizing and distributing zakat and sadaqah</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Community Organizations</h4>
+                <ul>
+                    <li><strong>Islamic Centers:</strong> Multi-purpose community facilities</li>
+                    <li><strong>Youth Groups:</strong> Programs and activities for young Muslims</li>
+                    <li><strong>Women's Organizations:</strong> Support groups and activities for Muslim women</li>
+                    <li><strong>Educational Institutions:</strong> Islamic schools and educational programs</li>
+                    <li><strong>Charitable Organizations:</strong> NGOs and charities serving the community</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Communication and Networking</h4>
+                <ul>
+                    <li><strong>Regular Meetings:</strong> Community council and committee meetings</li>
+                    <li><strong>Newsletters and Publications:</strong> Community newsletters and information sharing</li>
+                    <li><strong>Social Media:</strong> Online platforms for community communication</li>
+                    <li><strong>Inter-Community Relations:</strong> Building relationships with other Muslim communities</li>
+                    <li><strong>Public Relations:</strong> Engaging with the broader society</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Social Responsibility in Islam</h2>
+            
+            <div class="community-card">
+                <h4>Rights of Neighbors</h4>
+                <ul>
+                    <li><strong>Kindness and Respect:</strong> Treating neighbors with kindness and respect</li>
+                    <li><strong>Mutual Assistance:</strong> Helping neighbors in times of need</li>
+                    <li><strong>Sharing Resources:</strong> Sharing food and other resources with neighbors</li>
+                    <li><strong>Respecting Privacy:</strong> Respecting neighbors' privacy and property</li>
+                    <li><strong>Conflict Resolution:</strong> Resolving disputes amicably</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Prophetic Guidance</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "Jibril kept recommending treating neighbors with kindness until I thought he would assign a share of inheritance." (Sahih Bukhari)</p>
+                </div>
+            </div>
+
+            <div class="community-card">
+                <h4>Care for the Elderly</h4>
+                <ul>
+                    <li><strong>Respect and Honor:</strong> Treating elderly with respect and dignity</li>
+                    <li><strong>Physical Care:</strong> Providing physical care and assistance</li>
+                    <li><strong>Emotional Support:</strong> Offering emotional support and companionship</li>
+                    <li><strong>Financial Support:</strong> Providing financial assistance when needed</li>
+                    <li><strong>Inclusion:</strong> Including elderly in community activities</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Support for the Poor and Needy</h4>
+                <ul>
+                    <li><strong>Zakat Distribution:</strong> Proper distribution of obligatory charity</li>
+                    <li><strong>Sadaqah:</strong> Voluntary charity and donations</li>
+                    <li><strong>Food Assistance:</strong> Providing food and basic necessities</li>
+                    <li><strong>Employment Support:</strong> Helping with job training and employment</li>
+                    <li><strong>Education Support:</strong> Providing educational opportunities</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Community Leadership and Governance</h2>
+            
+            <div class="community-card">
+                <h4>Principles of Islamic Leadership</h4>
+                <ul>
+                    <li><strong>Servant Leadership:</strong> Leaders serve the community, not rule over it</li>
+                    <li><strong>Consultation (Shura):</strong> Making decisions through consultation</li>
+                    <li><strong>Justice and Fairness:</strong> Treating all community members fairly</li>
+                    <li><strong>Transparency:</strong> Open and transparent decision-making</li>
+                    <li><strong>Accountability:</strong> Leaders are accountable to the community</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Community Governance</h4>
+                <ul>
+                    <li><strong>Community Council:</strong> Elected or appointed community leaders</li>
+                    <li><strong>Committees:</strong> Specialized committees for different functions</li>
+                    <li><strong>Regular Meetings:</strong> Regular community meetings and consultations</li>
+                    <li><strong>Conflict Resolution:</strong> Mechanisms for resolving disputes</li>
+                    <li><strong>Resource Management:</strong> Proper management of community resources</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Decision Making Process</h4>
+                <ul>
+                    <li><strong>Consultation:</strong> Seeking input from community members</li>
+                    <li><strong>Consensus Building:</strong> Working toward consensus when possible</li>
+                    <li><strong>Majority Rule:</strong> Using majority vote when consensus is not possible</li>
+                    <li><strong>Implementation:</strong> Implementing decisions effectively</li>
+                    <li><strong>Review and Evaluation:</strong> Regular review of decisions and their outcomes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Interfaith and Intercultural Relations</h2>
+            
+            <div class="community-card">
+                <h4>Principles of Interfaith Relations</h4>
+                <ul>
+                    <li><strong>Respect for All Religions:</strong> Respecting the right of others to practice their faith</li>
+                    <li><strong>Dialogue and Understanding:</strong> Engaging in respectful dialogue</li>
+                    <li><strong>Common Values:</strong> Finding common ground and shared values</li>
+                    <li><strong>Cooperation:</strong> Working together on common social issues</li>
+                    <li><strong>Peaceful Coexistence:</strong> Living peacefully with people of other faiths</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Cultural Integration</h4>
+                <ul>
+                    <li><strong>Preserving Islamic Identity:</strong> Maintaining Islamic values and practices</li>
+                    <li><strong>Cultural Adaptation:</strong> Adapting to local culture while preserving Islamic principles</li>
+                    <li><strong>Language Learning:</strong> Learning local languages for better communication</li>
+                    <li><strong>Cultural Exchange:</strong> Sharing Islamic culture with others</li>
+                    <li><strong>Community Participation:</strong> Participating in broader community activities</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Social Engagement</h4>
+                <ul>
+                    <li><strong>Civic Participation:</strong> Participating in civic and community activities</li>
+                    <li><strong>Volunteer Work:</strong> Volunteering for community service</li>
+                    <li><strong>Social Justice Advocacy:</strong> Advocating for social justice and human rights</li>
+                    <li><strong>Environmental Protection:</strong> Participating in environmental protection efforts</li>
+                    <li><strong>Educational Outreach:</strong> Sharing Islamic knowledge and values</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Community Challenges and Solutions</h2>
+            
+            <div class="community-card">
+                <h4>Common Challenges</h4>
+                <ul>
+                    <li><strong>Diversity Management:</strong> Managing diversity within the community</li>
+                    <li><strong>Communication Barriers:</strong> Overcoming language and cultural barriers</li>
+                    <li><strong>Resource Limitations:</strong> Limited financial and human resources</li>
+                    <li><strong>Leadership Issues:</strong> Finding and developing good leaders</li>
+                    <li><strong>External Pressures:</strong> Dealing with external pressures and discrimination</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Solutions and Strategies</h4>
+                <ul>
+                    <li><strong>Inclusive Leadership:</strong> Developing inclusive and representative leadership</li>
+                    <li><strong>Capacity Building:</strong> Investing in community capacity building</li>
+                    <li><strong>Resource Mobilization:</strong> Mobilizing community resources effectively</li>
+                    <li><strong>Partnership Building:</strong> Building partnerships with other organizations</li>
+                    <li><strong>Continuous Learning:</strong> Learning from experiences and best practices</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Long-term Sustainability</h4>
+                <ul>
+                    <li><strong>Youth Engagement:</strong> Engaging young people in community activities</li>
+                    <li><strong>Succession Planning:</strong> Planning for leadership succession</li>
+                    <li><strong>Financial Sustainability:</strong> Ensuring long-term financial stability</li>
+                    <li><strong>Program Evaluation:</strong> Regular evaluation of community programs</li>
+                    <li><strong>Adaptation:</strong> Adapting to changing circumstances and needs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Community Development Projects</h2>
+            
+            <div class="community-card">
+                <h4>Educational Initiatives</h4>
+                <ul>
+                    <li><strong>Islamic Schools:</strong> Establishing and supporting Islamic schools</li>
+                    <li><strong>Adult Education:</strong> Providing adult education and literacy programs</li>
+                    <li><strong>Vocational Training:</strong> Offering vocational and skills training</li>
+                    <li><strong>Scholarship Programs:</strong> Providing scholarships for higher education</li>
+                    <li><strong>Library Services:</strong> Establishing community libraries and resource centers</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Health and Social Services</h4>
+                <ul>
+                    <li><strong>Health Clinics:</strong> Establishing community health clinics</li>
+                    <li><strong>Mental Health Services:</strong> Providing mental health counseling and support</li>
+                    <li><strong>Elderly Care:</strong> Establishing elderly care facilities and programs</li>
+                    <li><strong>Food Banks:</strong> Operating food banks and meal programs</li>
+                    <li><strong>Emergency Assistance:</strong> Providing emergency assistance and disaster relief</li>
+                </ul>
+            </div>
+
+            <div class="community-card">
+                <h4>Economic Development</h4>
+                <ul>
+                    <li><strong>Microfinance Programs:</strong> Providing small loans for business development</li>
+                    <li><strong>Job Training:</strong> Offering job training and placement services</li>
+                    <li><strong>Business Development:</strong> Supporting small business development</li>
+                    <li><strong>Financial Literacy:</strong> Providing financial education and counseling</li>
+                    <li><strong>Cooperative Programs:</strong> Establishing cooperative business ventures</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="islamic-family-values.html">Islamic Family Values</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="charity-guide.html">Charity and Zakat Guide</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>

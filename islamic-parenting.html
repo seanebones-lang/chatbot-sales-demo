@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Parenting Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .parenting-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .parenting-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .parenting-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Parenting Guide</h1>
+            <p>Complete guide to Islamic parenting principles, child development, and raising children according to Islamic values and prophetic guidance</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Parenting</h2>
+            <p>Parenting in Islam is a sacred trust (amanah) from Allah. Children are a blessing and a test, and parents are responsible for their physical, emotional, intellectual, and spiritual development according to Islamic principles.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">يَا أَيُّهَا الَّذِينَ آمَنُوا قُوا أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًا</div>
+                <div class="translation">"O you who have believed, protect yourselves and your families from a Fire." (Quran 66:6)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "Every child is born upon fitrah (natural disposition to Islam). It is his parents who make him a Jew, a Christian, or a Magian." (Sahih Bukhari)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Goals of Islamic Parenting</h2>
+            
+            <div class="parenting-card">
+                <h4>Spiritual Development</h4>
+                <ul>
+                    <li><strong>Faith Foundation:</strong> Instill strong Islamic beliefs and values</li>
+                    <li><strong>Religious Practice:</strong> Teach and encourage prayer, fasting, and other acts of worship</li>
+                    <li><strong>Quran Connection:</strong> Help children develop love for the Quran</li>
+                    <li><strong>Islamic Identity:</strong> Build strong Muslim identity and pride</li>
+                    <li><strong>Moral Character:</strong> Develop good character and ethical behavior</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Physical and Mental Development</h4>
+                <ul>
+                    <li><strong>Physical Health:</strong> Ensure proper nutrition, exercise, and healthcare</li>
+                    <li><strong>Mental Well-being:</strong> Support emotional and psychological development</li>
+                    <li><strong>Education:</strong> Provide quality education in both religious and worldly matters</li>
+                    <li><strong>Life Skills:</strong> Teach practical skills for independent living</li>
+                    <li><strong>Safety:</strong> Protect children from harm and provide safe environment</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Social Development</h4>
+                <ul>
+                    <li><strong>Family Values:</strong> Teach respect for family and elders</li>
+                    <li><strong>Community Involvement:</strong> Encourage participation in Muslim community</li>
+                    <li><strong>Social Skills:</strong> Develop communication and interpersonal skills</li>
+                    <li><strong>Responsibility:</strong> Teach accountability and responsibility</li>
+                    <li><strong>Leadership:</strong> Develop leadership qualities and initiative</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Parenting Principles</h2>
+            
+            <div class="parenting-card">
+                <h4>Love and Mercy</h4>
+                <ul>
+                    <li><strong>Unconditional Love:</strong> Love children regardless of their behavior</li>
+                    <li><strong>Physical Affection:</strong> Show love through hugs, kisses, and kind words</li>
+                    <li><strong>Emotional Support:</strong> Be there for children during difficult times</li>
+                    <li><strong>Patience:</strong> Exercise patience with children's mistakes and learning</li>
+                    <li><strong>Forgiveness:</strong> Forgive children's mistakes and teach them to forgive</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Prophetic Example</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam was known for his love and kindness to children. He would play with them, carry them, and show great affection.</p>
+                </div>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Discipline and Guidance</h4>
+                <ul>
+                    <li><strong>Gentle Discipline:</strong> Use kind but firm discipline methods</li>
+                    <li><strong>Clear Expectations:</strong> Set clear rules and expectations</li>
+                    <li><strong>Consistent Application:</strong> Apply rules consistently and fairly</li>
+                    <li><strong>Positive Reinforcement:</strong> Praise good behavior and achievements</li>
+                    <li><strong>Teaching Moments:</strong> Use mistakes as learning opportunities</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Role Modeling</h4>
+                <ul>
+                    <li><strong>Lead by Example:</strong> Model the behavior you want to see</li>
+                    <li><strong>Religious Practice:</strong> Let children see you praying and reading Quran</li>
+                    <li><strong>Good Character:</strong> Demonstrate honesty, kindness, and patience</li>
+                    <li><strong>Continuous Learning:</strong> Show that learning is lifelong</li>
+                    <li><strong>Admitting Mistakes:</strong> Show children how to handle mistakes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Age-Specific Parenting</h2>
+            
+            <div class="parenting-card">
+                <h4>Early Childhood (0-5 years)</h4>
+                <ul>
+                    <li><strong>Basic Islamic Concepts:</strong> Introduce Allah, Prophet Muhammad, and basic duas</li>
+                    <li><strong>Prayer Introduction:</strong> Let children see and participate in prayer</li>
+                    <li><strong>Islamic Stories:</strong> Tell stories of prophets and Islamic history</li>
+                    <li><strong>Good Manners:</strong> Teach basic manners and etiquette</li>
+                    <li><strong>Safety and Health:</strong> Ensure physical safety and health</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Middle Childhood (6-12 years)</h4>
+                <ul>
+                    <li><strong>Religious Education:</strong> Formal Islamic education and Quran memorization</li>
+                    <li><strong>Prayer Training:</strong> Teach proper prayer and encourage regular prayer</li>
+                    <li><strong>Islamic Identity:</strong> Strengthen Muslim identity and pride</li>
+                    <li><strong>Social Skills:</strong> Develop friendships and social interactions</li>
+                    <li><strong>Academic Excellence:</strong> Support educational achievement</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Adolescence (13-18 years)</h4>
+                <ul>
+                    <li><strong>Religious Maturity:</strong> Deepen understanding of Islamic principles</li>
+                    <li><strong>Independent Practice:</strong> Encourage independent religious practice</li>
+                    <li><strong>Critical Thinking:</strong> Help develop Islamic critical thinking</li>
+                    <li><strong>Identity Formation:</strong> Support positive Muslim identity</li>
+                    <li><strong>Future Planning:</strong> Guide educational and career choices</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Education at Home</h2>
+            
+            <div class="parenting-card">
+                <h4>Quran Teaching</h4>
+                <ul>
+                    <li><strong>Memorization:</strong> Encourage Quran memorization from early age</li>
+                    <li><strong>Understanding:</strong> Teach meaning and interpretation of verses</li>
+                    <li><strong>Regular Reading:</strong> Establish daily Quran reading routine</li>
+                    <li><strong>Tajweed:</strong> Teach proper Quran recitation</li>
+                    <li><strong>Love for Quran:</strong> Develop emotional connection with Quran</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Hadith and Sunnah</h4>
+                <ul>
+                    <li><strong>Prophetic Stories:</strong> Share stories from Prophet's life</li>
+                    <li><strong>Daily Practices:</strong> Teach and practice prophetic traditions</li>
+                    <li><strong>Moral Lessons:</strong> Extract moral lessons from hadith</li>
+                    <li><strong>Authentic Sources:</strong> Use authentic hadith collections</li>
+                    <li><strong>Practical Application:</strong> Apply hadith teachings in daily life</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Islamic History</h4>
+                <ul>
+                    <li><strong>Prophet's Life:</strong> Teach comprehensive biography of Prophet Muhammad</li>
+                    <li><strong>Companions:</strong> Share stories of Sahabah and their virtues</li>
+                    <li><strong>Islamic Civilization:</strong> Teach about Islamic achievements</li>
+                    <li><strong>Muslim Heroes:</strong> Introduce Muslim scholars and leaders</li>
+                    <li><strong>Cultural Pride:</strong> Build pride in Islamic heritage</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Character Building</h2>
+            
+            <div class="parenting-card">
+                <h4>Core Islamic Values</h4>
+                <ul>
+                    <li><strong>Honesty:</strong> Teach truthfulness in all situations</li>
+                    <li><strong>Trustworthiness:</strong> Develop reliability and trustworthiness</li>
+                    <li><strong>Kindness:</strong> Encourage compassion and kindness to others</li>
+                    <li><strong>Respect:</strong> Teach respect for elders, teachers, and others</li>
+                    <li><strong>Humility:</strong> Develop modesty and humility</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Social Skills</h4>
+                <ul>
+                    <li><strong>Communication:</strong> Teach effective communication skills</li>
+                    <li><strong>Conflict Resolution:</strong> Help develop problem-solving abilities</li>
+                    <li><strong>Empathy:</strong> Encourage understanding of others' feelings</li>
+                    <li><strong>Cooperation:</strong> Teach teamwork and collaboration</li>
+                    <li><strong>Leadership:</strong> Develop leadership qualities</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Work Ethic</h4>
+                <ul>
+                    <li><strong>Diligence:</strong> Encourage hard work and perseverance</li>
+                    <li><strong>Responsibility:</strong> Teach accountability for actions</li>
+                    <li><strong>Time Management:</strong> Develop good time management skills</li>
+                    <li><strong>Goal Setting:</strong> Help set and achieve goals</li>
+                    <li><strong>Excellence:</strong> Encourage striving for excellence in all endeavors</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Challenges and Solutions</h2>
+            
+            <div class="parenting-card">
+                <h4>Modern Challenges</h4>
+                <ul>
+                    <li><strong>Technology:</strong> Manage screen time and online influences</li>
+                    <li><strong>Peer Pressure:</strong> Help children resist negative peer pressure</li>
+                    <li><strong>Cultural Identity:</strong> Balance Islamic and Western cultures</li>
+                    <li><strong>Academic Pressure:</strong> Support academic success while maintaining Islamic values</li>
+                    <li><strong>Social Media:</strong> Guide responsible social media use</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Solutions and Strategies</h4>
+                <ul>
+                    <li><strong>Open Communication:</strong> Maintain open dialogue with children</li>
+                    <li><strong>Islamic Community:</strong> Connect with strong Muslim community</li>
+                    <li><strong>Education:</strong> Provide Islamic education alongside secular education</li>
+                    <li><strong>Role Models:</strong> Connect children with positive Muslim role models</li>
+                    <li><strong>Prayer and Dua:</strong> Rely on Allah's help and guidance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Special Considerations</h2>
+            
+            <div class="parenting-card">
+                <h4>Single Parenting</h4>
+                <ul>
+                    <li><strong>Community Support:</strong> Seek support from Muslim community</li>
+                    <li><strong>Extended Family:</strong> Involve extended family in child-rearing</li>
+                    <li><strong>Role Models:</strong> Find positive role models for children</li>
+                    <li><strong>Self-Care:</strong> Take care of your own physical and emotional needs</li>
+                    <li><strong>Islamic Guidance:</strong> Seek Islamic counseling when needed</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Blended Families</h4>
+                <ul>
+                    <li><strong>Unified Approach:</strong> Develop consistent parenting approach</li>
+                    <li><strong>Respect for All:</strong> Teach respect for all family members</li>
+                    <li><strong>Open Communication:</strong> Maintain open communication with all children</li>
+                    <li><strong>Islamic Values:</strong> Apply Islamic values consistently</li>
+                    <li><strong>Professional Help:</strong> Seek professional counseling if needed</li>
+                </ul>
+            </div>
+
+            <div class="parenting-card">
+                <h4>Children with Special Needs</h4>
+                <ul>
+                    <li><strong>Patience and Understanding:</strong> Exercise extra patience and understanding</li>
+                    <li><strong>Islamic Accommodation:</strong> Adapt Islamic practices to child's abilities</li>
+                    <li><strong>Professional Support:</strong> Seek appropriate professional help</li>
+                    <li><strong>Community Inclusion:</strong> Include child in Muslim community activities</li>
+                    <li><strong>Dua and Trust:</strong> Rely on Allah's help and guidance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="islamic-family-values.html">Islamic Family Values</a></li>
+                <li><a href="islamic-marriage.html">Islamic Marriage Guide</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>
