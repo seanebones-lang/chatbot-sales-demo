@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surah 112 Al Ikhlas - Complete Islamic Study Guide</title>
+    <title>Surah Al-Ikhlas (The Sincerity) - Complete Islamic Study Guide</title>
     <style>
 
         :root {
@@ -29,7 +29,6 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-accent: #f1f5f9;
-            --bg-glass: rgba(248, 250, 252, 0.8);
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-accent: #475569;
@@ -100,33 +99,33 @@
 
         .content-section h2 {
             color: var(--accent-primary);
-            margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            margin-bottom: 1rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
         .content-section h3 {
-            color: var(--accent-secondary);
-            margin: 1.5rem 0 1rem 0;
+            color: var(--accent-teal);
             font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
         }
 
         .content-section h4 {
-            color: var(--accent-teal);
-            margin: 1rem 0 0.5rem 0;
+            color: var(--accent-green);
             font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
         }
 
         .content-section p {
             margin-bottom: 1rem;
             line-height: 1.6;
-            text-align: justify;
+            color: var(--text-secondary);
         }
 
         .content-section ul, .content-section ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
         }
 
         .content-section li {
@@ -134,43 +133,63 @@
             line-height: 1.6;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .content-card {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border-primary);
-            border-radius: 12px;
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 2rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
             padding: 1.5rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-secondary);
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
         }
 
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-            border-color: var(--accent-primary);
+        .transliteration {
+            font-style: italic;
+            color: var(--text-accent);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-secondary);
         }
 
-        .content-card h4 {
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .tafsir {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-secondary);
+            margin: 1rem 0;
+        }
+
+        .verse-info {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .verse-info h4 {
             color: var(--accent-primary);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .content-card p {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
         .back-link {
             display: inline-block;
-            margin: 2rem 0;
-            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
             background: var(--accent-primary);
             color: white;
             text-decoration: none;
@@ -182,7 +201,7 @@
         .back-link:hover {
             background: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-primary);
+            box-shadow: var(--shadow-secondary);
         }
 
         .theme-toggle {
@@ -190,14 +209,14 @@
             top: 2rem;
             right: 2rem;
             background: var(--accent-primary);
-            color: white;
             border: none;
-            border-radius: 50%;
+            color: white;
             width: 50px;
             height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
 
@@ -261,42 +280,110 @@
     
     <div class="container">
         <header class="header">
-            <h1>Surah 112 Al Ikhlas</h1>
-            <p>Complete guide to surah 112 al ikhlas with comprehensive Islamic content and resources</p>
+            <h1>Surah Al-Ikhlas (The Sincerity)</h1>
+            <p>Complete guide to Surah Al-Ikhlas with Arabic text, transliteration, translation, and comprehensive tafsir</p>
         </header>
         
         <div class="content-section">
+            <h2>Surah Al-Ikhlas - The Sincerity</h2>
+            <p>Surah Al-Ikhlas is one of the most important chapters of the Quran. It is often called "the essence of the Quran" because it contains the purest expression of Tawheed (Islamic monotheism). Despite being only four verses, it carries profound theological significance.</p>
             
-            <h3>Surah 112 Al Ikhlas</h3>
-            <p>Complete guide to surah 112 al ikhlas with comprehensive Islamic content and resources</p>
+            <div class="verse-info">
+                <h4>Verse Information</h4>
+                <p><strong>Number of Verses:</strong> 4</p>
+                <p><strong>Revelation:</strong> Makki (revealed in Makkah)</p>
+                <p><strong>Position:</strong> 112th Surah</p>
+                <p><strong>Alternative Names:</strong> At-Tawheed (The Monotheism), Al-Ikhlas (The Sincerity), Al-Muqashqishah (The Curing One)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Complete Text with Translation</h3>
             
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>Overview</h4>
-                    <p>This section provides comprehensive information about surah 112 al ikhlas with detailed content and resources.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Key Topics</h4>
-                    <p>Explore the main topics and themes related to this subject area.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Resources</h4>
-                    <p>Access additional resources, references, and study materials.</p>
+            <div class="verse-info">
+                <h4>Verse 1</h4>
+                <div class="arabic-text">قُلْ هُوَ اللَّهُ أَحَدٌ</div>
+                <div class="transliteration">Qul huwa Allahu ahad</div>
+                <div class="translation">Say: He is Allah, [who is] One</div>
+                <div class="tafsir">
+                    <p><strong>Tafsir:</strong> This verse establishes the fundamental principle of monotheism. "Qul" (Say) is a command to Prophet Muhammad sallallahu alayhi wa sallam to declare this truth. "Huwa Allahu ahad" means Allah is absolutely One - unique, singular, and indivisible. This refutes all forms of polytheism and establishes pure monotheism.</p>
                 </div>
             </div>
-            
-            <h3>Detailed Content</h3>
-            <p>This page contains comprehensive information about surah 112 al ikhlas. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
-            
-            <h4>Main Sections:</h4>
+
+            <div class="verse-info">
+                <h4>Verse 2</h4>
+                <div class="arabic-text">اللَّهُ الصَّمَدُ</div>
+                <div class="transliteration">Allahu as-samad</div>
+                <div class="translation">Allah, the Eternal Refuge</div>
+                <div class="tafsir">
+                    <p><strong>Tafsir:</strong> "As-Samad" means the Eternal Refuge - the One upon whom all depend while He depends on none. He is the Master who is sought for all needs, the One who is complete and perfect in all His attributes. This verse emphasizes Allah's self-sufficiency and His role as the ultimate source of all help and support.</p>
+                </div>
+            </div>
+
+            <div class="verse-info">
+                <h4>Verse 3</h4>
+                <div class="arabic-text">لَمْ يَلِدْ وَلَمْ يُولَدْ</div>
+                <div class="transliteration">Lam yalid wa lam yoolad</div>
+                <div class="translation">He neither begets nor is born</div>
+                <div class="tafsir">
+                    <p><strong>Tafsir:</strong> This verse refutes the Christian belief in the Trinity and the concept of God having a son. It also refutes pagan beliefs about gods having children. Allah is beyond human concepts of reproduction and family relationships. He is the First and the Last, with no beginning or end, and no equals or offspring.</p>
+                </div>
+            </div>
+
+            <div class="verse-info">
+                <h4>Verse 4</h4>
+                <div class="arabic-text">وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</div>
+                <div class="transliteration">Wa lam yakun lahu kufuwan ahad</div>
+                <div class="translation">Nor is there to Him any equivalent</div>
+                <div class="tafsir">
+                    <p><strong>Tafsir:</strong> This final verse emphasizes that nothing and no one is equal to Allah in any way. He has no partners, no equals, no rivals, and no competitors. This completes the comprehensive definition of Tawheed by establishing Allah's absolute uniqueness and incomparability.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Virtues and Significance</h3>
             <ul>
-                <li><strong>Introduction:</strong> Basic concepts and overview</li>
-                <li><strong>Core Topics:</strong> Essential information and principles</li>
-                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
-                <li><strong>Practical Applications:</strong> Real-world implementation</li>
-                <li><strong>References:</strong> Sources and additional reading</li>
+                <li><strong>Equal to One-Third of the Quran:</strong> Prophet Muhammad sallallahu alayhi wa sallam said that reciting this surah is equivalent to reciting one-third of the Quran</li>
+                <li><strong>Protection from Shirk:</strong> Reciting it regularly protects from polytheism and strengthens monotheistic belief</li>
+                <li><strong>Healing Properties:</strong> Known as "Al-Muqashqishah" (the Curing One) for its spiritual healing effects</li>
+                <li><strong>Essential for Prayer:</strong> Often recited in daily prayers and recommended for various occasions</li>
+                <li><strong>Foundation of Faith:</strong> Contains the purest expression of Islamic monotheism</li>
             </ul>
-        
+        </div>
+
+        <div class="content-section">
+            <h3>Key Themes and Lessons</h3>
+            <ul>
+                <li><strong>Pure Monotheism:</strong> Establishes the absolute oneness of Allah</li>
+                <li><strong>Refutation of False Beliefs:</strong> Directly addresses Christian Trinity and pagan polytheism</li>
+                <li><strong>Allah's Perfection:</strong> Emphasizes Allah's completeness and self-sufficiency</li>
+                <li><strong>Uniqueness:</strong> Establishes that Allah has no equals or partners</li>
+                <li><strong>Simplicity and Clarity:</strong> Demonstrates how profound truths can be expressed simply</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>When to Recite</h3>
+            <ul>
+                <li><strong>Daily Prayers:</strong> Recommended in various units of prayer</li>
+                <li><strong>Morning and Evening:</strong> For protection and blessings</li>
+                <li><strong>Before Sleep:</strong> For spiritual protection during the night</li>
+                <li><strong>During Distress:</strong> For comfort and spiritual strength</li>
+                <li><strong>Teaching Children:</strong> Often one of the first surahs taught to children</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>Related Topics</h3>
+            <ul>
+                <li><a href="tawheed.html">Tawheed (Islamic Monotheism)</a></li>
+                <li><a href="surah-1-al-fatiha.html">Surah Al-Fatiha (The Opening)</a></li>
+                <li><a href="surah-113-al-falaq.html">Surah Al-Falaq (The Daybreak)</a></li>
+                <li><a href="surah-114-an-nas.html">Surah An-Nas (Mankind)</a></li>
+                <li><a href="quran-memorization.html">Quran Memorization</a></li>
+                <li><a href="tajweed-mastery.html">Tajweed Rules</a></li>
+            </ul>
         </div>
         
         <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>

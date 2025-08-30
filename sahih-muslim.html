@@ -29,7 +29,6 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-accent: #f1f5f9;
-            --bg-glass: rgba(248, 250, 252, 0.8);
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-accent: #475569;
@@ -100,33 +99,33 @@
 
         .content-section h2 {
             color: var(--accent-primary);
-            margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            margin-bottom: 1rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
         .content-section h3 {
-            color: var(--accent-secondary);
-            margin: 1.5rem 0 1rem 0;
+            color: var(--accent-teal);
             font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
         }
 
         .content-section h4 {
-            color: var(--accent-teal);
-            margin: 1rem 0 0.5rem 0;
+            color: var(--accent-green);
             font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
         }
 
         .content-section p {
             margin-bottom: 1rem;
             line-height: 1.6;
-            text-align: justify;
+            color: var(--text-secondary);
         }
 
         .content-section ul, .content-section ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
         }
 
         .content-section li {
@@ -134,43 +133,71 @@
             line-height: 1.6;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .content-card {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border-primary);
-            border-radius: 12px;
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
             padding: 1.5rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-secondary);
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
         }
 
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-            border-color: var(--accent-primary);
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
         }
 
-        .content-card h4 {
+        .hadith-info {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-secondary);
+            margin: 1rem 0;
+        }
+
+        .hadith-info h4 {
             color: var(--accent-primary);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
         }
 
-        .content-card p {
-            margin-bottom: 1rem;
+        .isnad {
+            font-style: italic;
+            color: var(--text-accent);
+            margin: 0.5rem 0;
             font-size: 0.9rem;
+        }
+
+        .grading {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .grading.sahih {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .grading.hasan {
+            background: var(--accent-teal);
+            color: white;
         }
 
         .back-link {
             display: inline-block;
-            margin: 2rem 0;
-            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
             background: var(--accent-primary);
             color: white;
             text-decoration: none;
@@ -182,7 +209,7 @@
         .back-link:hover {
             background: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-primary);
+            box-shadow: var(--shadow-secondary);
         }
 
         .theme-toggle {
@@ -190,14 +217,14 @@
             top: 2rem;
             right: 2rem;
             background: var(--accent-primary);
-            color: white;
             border: none;
-            border-radius: 50%;
+            color: white;
             width: 50px;
             height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
 
@@ -262,41 +289,142 @@
     <div class="container">
         <header class="header">
             <h1>Sahih Muslim</h1>
-            <p>Complete guide to sahih muslim with comprehensive Islamic content and resources</p>
+            <p>Complete collection of authentic hadith from Sahih Muslim with Arabic text, translations, and scholarly commentary</p>
         </header>
         
         <div class="content-section">
+            <h2>Sahih Muslim - The Second Most Authentic Hadith Collection</h2>
+            <p>Sahih Muslim is the second most authentic collection of hadith after Sahih Bukhari. Compiled by Imam Muslim ibn al-Hajjaj (821-875 CE), it contains over 7,000 hadith carefully selected from over 300,000 narrations.</p>
             
-            <h3>Sahih Muslim</h3>
-            <p>Complete guide to sahih muslim with comprehensive Islamic content and resources</p>
-            
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>Overview</h4>
-                    <p>This section provides comprehensive information about sahih muslim with detailed content and resources.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Key Topics</h4>
-                    <p>Explore the main topics and themes related to this subject area.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Resources</h4>
-                    <p>Access additional resources, references, and study materials.</p>
-                </div>
+            <div class="hadith-info">
+                <h4>Collection Information</h4>
+                <p><strong>Compiler:</strong> Imam Muslim ibn al-Hajjaj al-Naysaburi</p>
+                <p><strong>Period:</strong> 821-875 CE (206-261 AH)</p>
+                <p><strong>Total Hadith:</strong> Over 7,000 (with repetitions)</p>
+                <p><strong>Unique Hadith:</strong> Approximately 3,000</p>
+                <p><strong>Authenticity Level:</strong> Second highest among all hadith collections</p>
+                <p><strong>Methodology:</strong> Rigorous chain of narration verification</p>
             </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Famous Hadith from Sahih Muslim</h3>
             
-            <h3>Detailed Content</h3>
-            <p>This page contains comprehensive information about sahih muslim. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
-            
-            <h4>Main Sections:</h4>
+            <div class="hadith-info">
+                <h4>Hadith 1: The Definition of Islam</h4>
+                <div class="isnad">Narrated by Umar ibn al-Khattab (may Allah be pleased with him)</div>
+                <div class="arabic-text">أَخْبَرَنَا رَسُولُ اللَّهِ ﷺ فِيمَا يَرْوِي عَنْ رَبِّهِ عَزَّ وَجَلَّ أَنَّهُ قَالَ إِذَا أَحَبَّ عَبْدِي لِقَائِي أَحْبَبْتُ لِقَاءَهُ وَإِذَا كَرِهَ لِقَائِي كَرِهْتُ لِقَاءَهُ</div>
+                <div class="translation">"The Messenger of Allah (peace be upon him) narrated from his Lord, the Mighty and Majestic: 'When My servant loves meeting Me, I love meeting him. When My servant hates meeting Me, I hate meeting him.'"</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This hadith qudsi (divine hadith) teaches that Allah's love for His servant is directly proportional to the servant's love for meeting Him. It emphasizes the importance of having a positive relationship with Allah.</p>
+            </div>
+
+            <div class="hadith-info">
+                <h4>Hadith 2: The Virtue of Seeking Knowledge</h4>
+                <div class="isnad">Narrated by Abu Hurairah (may Allah be pleased with him)</div>
+                <div class="arabic-text">مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ</div>
+                <div class="translation">"Whoever takes a path in search of knowledge, Allah will make easy for him a path to Paradise."</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Lesson:</strong> This hadith encourages seeking Islamic knowledge and promises divine assistance for those who pursue education. It shows that learning is a form of worship that leads to Paradise.</p>
+            </div>
+
+            <div class="hadith-info">
+                <h4>Hadith 3: The Rights of Neighbors</h4>
+                <div class="isnad">Narrated by Abu Hurairah (may Allah be pleased with him)</div>
+                <div class="arabic-text">مَا زَالَ جِبْرِيلُ يُوصِينِي بِالْجَارِ حَتَّى ظَنَنْتُ أَنَّهُ سَيُوَرِّثُهُ</div>
+                <div class="translation">"Jibreel kept recommending me to treat the neighbor well until I thought he would make him my heir."</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Importance:</strong> This hadith emphasizes the great importance of treating neighbors well in Islam. The repetition of this advice by Angel Jibreel shows how seriously Allah takes neighborly rights.</p>
+            </div>
+
+            <div class="hadith-info">
+                <h4>Hadith 4: The Virtue of Smiling</h4>
+                <div class="isnad">Narrated by Abu Dharr (may Allah be pleased with him)</div>
+                <div class="arabic-text">تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ لَكَ صَدَقَةٌ</div>
+                <div class="translation">"Your smiling in the face of your brother is charity for you."</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Lesson:</strong> This hadith teaches that even simple acts of kindness like smiling are considered acts of charity in Islam. It encourages positive social interactions and spreading happiness.</p>
+            </div>
+
+            <div class="hadith-info">
+                <h4>Hadith 5: The Importance of Intention</h4>
+                <div class="isnad">Narrated by Umar ibn al-Khattab (may Allah be pleased with him)</div>
+                <div class="arabic-text">إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى</div>
+                <div class="translation">"Actions are only by intentions, and every person will have only what they intended."</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This is one of the most important hadith in Islam, teaching that the value of actions depends on the intention behind them. It emphasizes the importance of having pure intentions in all deeds.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Major Categories in Sahih Muslim</h3>
             <ul>
-                <li><strong>Introduction:</strong> Basic concepts and overview</li>
-                <li><strong>Core Topics:</strong> Essential information and principles</li>
-                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
-                <li><strong>Practical Applications:</strong> Real-world implementation</li>
-                <li><strong>References:</strong> Sources and additional reading</li>
+                <li><strong>Book of Faith:</strong> Core Islamic beliefs and principles</li>
+                <li><strong>Book of Purification:</strong> Ritual cleanliness and ablution</li>
+                <li><strong>Book of Prayer:</strong> Detailed prayer instructions and rulings</li>
+                <li><strong>Book of Zakat:</strong> Charity and financial obligations</li>
+                <li><strong>Book of Fasting:</strong> Ramadan and other fasting practices</li>
+                <li><strong>Book of Hajj:</strong> Pilgrimage rituals and requirements</li>
+                <li><strong>Book of Marriage:</strong> Family life and marital relations</li>
+                <li><strong>Book of Business:</strong> Commercial transactions and ethics</li>
+                <li><strong>Book of Good Manners:</strong> Character, etiquette, and social conduct</li>
+                <li><strong>Book of Destiny:</strong> Divine decree and human free will</li>
+                <li><strong>Book of Paradise and Hell:</strong> Afterlife descriptions and warnings</li>
+                <li><strong>Book of Repentance:</strong> Seeking forgiveness and spiritual renewal</li>
             </ul>
-        
+        </div>
+
+        <div class="content-section">
+            <h3>Methodology and Authenticity</h3>
+            <p>Imam Muslim's methodology for collecting hadith was extremely rigorous and included:</p>
+            <ul>
+                <li><strong>Chain Verification:</strong> Every narrator in the chain was thoroughly investigated</li>
+                <li><strong>Memory Assessment:</strong> Narrators' memory and reliability were evaluated</li>
+                <li><strong>Character Investigation:</strong> Personal character and piety were considered</li>
+                <li><strong>Cross-Reference:</strong> Hadith were verified against multiple sources</li>
+                <li><strong>Meeting Verification:</strong> Confirmed that narrators actually met their teachers</li>
+                <li><strong>Time Period Verification:</strong> Ensured narrators lived in the same time period</li>
+                <li><strong>Geographic Verification:</strong> Confirmed narrators' locations and travel patterns</li>
+            </ul>
+            
+            <p>This rigorous methodology earned Sahih Muslim the reputation of being the second most authentic book after the Quran. Scholars consider it nearly equal to Sahih Bukhari in authenticity.</p>
+        </div>
+
+        <div class="content-section">
+            <h3>Comparison with Sahih Bukhari</h3>
+            <p>While both collections are considered the most authentic, they have some differences:</p>
+            <ul>
+                <li><strong>Organization:</strong> Muslim organized by topic, Bukhari by chain of narration</li>
+                <li><strong>Repetition:</strong> Muslim includes more repetitions of the same hadith</li>
+                <li><strong>Length:</strong> Muslim's hadith are often longer and more detailed</li>
+                <li><strong>Focus:</strong> Muslim emphasizes practical application, Bukhari emphasizes authenticity</li>
+                <li><strong>Acceptance:</strong> Both are universally accepted by all Islamic schools</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>Virtues and Benefits</h3>
+            <ul>
+                <li><strong>High Authenticity:</strong> Second most reliable hadith collection</li>
+                <li><strong>Comprehensive Coverage:</strong> Covers all major aspects of Islamic life</li>
+                <li><strong>Scholarly Recognition:</strong> Universally accepted by all Islamic schools</li>
+                <li><strong>Educational Value:</strong> Essential for Islamic studies and scholarship</li>
+                <li><strong>Spiritual Guidance:</strong> Provides authentic guidance for daily life</li>
+                <li><strong>Legal Foundation:</strong> Forms the basis for Islamic jurisprudence</li>
+                <li><strong>Practical Application:</strong> Emphasizes real-world implementation</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>Related Topics</h3>
+            <ul>
+                <li><a href="sahih-bukhari.html">Sahih Bukhari</a></li>
+                <li><a href="abu-dawud.html">Sunan Abu Dawud</a></li>
+                <li><a href="tirmidhi.html">Jami at-Tirmidhi</a></li>
+                <li><a href="nasai.html">Sunan an-Nasai</a></li>
+                <li><a href="hadith-collections-hub.html">Hadith Collections Hub</a></li>
+                <li><a href="islamic-study-index.html">Islamic Study Index</a></li>
+            </ul>
         </div>
         
         <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
