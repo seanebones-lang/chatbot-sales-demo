@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nasai - Complete Islamic Study Guide</title>
+    <title>Sunan Nasai - Complete Islamic Study Guide</title>
     <style>
 
         :root {
@@ -29,7 +29,6 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-accent: #f1f5f9;
-            --bg-glass: rgba(248, 250, 252, 0.8);
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-accent: #475569;
@@ -100,33 +99,33 @@
 
         .content-section h2 {
             color: var(--accent-primary);
-            margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            margin-bottom: 1rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
         .content-section h3 {
-            color: var(--accent-secondary);
-            margin: 1.5rem 0 1rem 0;
+            color: var(--accent-teal);
             font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
         }
 
         .content-section h4 {
-            color: var(--accent-teal);
-            margin: 1rem 0 0.5rem 0;
+            color: var(--accent-green);
             font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
         }
 
         .content-section p {
             margin-bottom: 1rem;
             line-height: 1.6;
-            text-align: justify;
+            color: var(--text-secondary);
         }
 
         .content-section ul, .content-section ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
         }
 
         .content-section li {
@@ -134,43 +133,100 @@
             line-height: 1.6;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
         }
 
-        .content-card {
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .hadith-card {
             background: var(--bg-secondary);
-            border: 2px solid var(--border-primary);
-            border-radius: 12px;
             padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
             transition: all 0.3s ease;
+        }
+
+        .hadith-card:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-secondary);
         }
 
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-            border-color: var(--accent-primary);
-        }
-
-        .content-card h4 {
+        .hadith-card h4 {
             color: var(--accent-primary);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
-        .content-card p {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+        .isnad {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+            font-style: italic;
+        }
+
+        .grading {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .sahih {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-primary);
+            border: 1px solid var(--accent-primary);
+        }
+
+        .hasan {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            border: 1px solid #3b82f6;
+        }
+
+        .daif {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
         }
 
         .back-link {
             display: inline-block;
-            margin: 2rem 0;
-            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
             background: var(--accent-primary);
             color: white;
             text-decoration: none;
@@ -182,7 +238,7 @@
         .back-link:hover {
             background: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-primary);
+            box-shadow: var(--shadow-secondary);
         }
 
         .theme-toggle {
@@ -190,14 +246,14 @@
             top: 2rem;
             right: 2rem;
             background: var(--accent-primary);
-            color: white;
             border: none;
-            border-radius: 50%;
+            color: white;
             width: 50px;
             height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
 
@@ -261,42 +317,253 @@
     
     <div class="container">
         <header class="header">
-            <h1>Nasai</h1>
-            <p>Complete guide to nasai with comprehensive Islamic content and resources</p>
+            <h1>Sunan Nasai</h1>
+            <p>Complete guide to one of the six major hadith collections, known for its strict authenticity criteria and comprehensive coverage</p>
         </header>
         
         <div class="content-section">
+            <h2>Collection Information</h2>
+            <p>Sunan Nasai, also known as Al-Sunan al-Sughra (The Small Sunan), is one of the six major hadith collections (Kutub al-Sittah) and is considered one of the most authentic collections. It was compiled by Abu Abd al-Rahman Ahmad ibn Shu'ayb ibn Ali ibn Sinan ibn Bahr ibn Dinar al-Nasai (d. 303 AH/915 CE) and contains approximately 5,662 hadith.</p>
             
-            <h3>Nasai</h3>
-            <p>Complete guide to nasai with comprehensive Islamic content and resources</p>
-            
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>Overview</h4>
-                    <p>This section provides comprehensive information about nasai with detailed content and resources.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Key Topics</h4>
-                    <p>Explore the main topics and themes related to this subject area.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Resources</h4>
-                    <p>Access additional resources, references, and study materials.</p>
-                </div>
+            <div class="evidence-box">
+                <h5>Compilation Period</h5>
+                <p>Nasai spent many years traveling throughout the Islamic world to collect and verify hadith, visiting scholars in Iraq, Egypt, Syria, and the Hijaz region. He was known for his extremely strict criteria in accepting hadith and his focus on authentic traditions.</p>
             </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Methodology and Authenticity</h2>
             
-            <h3>Detailed Content</h3>
-            <p>This page contains comprehensive information about nasai. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            <div class="hadith-card">
+                <h4>Selection Criteria</h4>
+                <p>Nasai applied extremely rigorous standards in selecting hadith:</p>
+                <ul>
+                    <li><strong>Strict Chain Verification:</strong> Thorough examination of isnad (chain of narrators)</li>
+                    <li><strong>Authenticity Focus:</strong> Emphasis on sahih (authentic) hadith</li>
+                    <li><strong>Narrator Reliability:</strong> Strict assessment of narrator credibility</li>
+                    <li><strong>Cross-Referencing:</strong> Verification with other collections</li>
+                    <li><strong>Quality Over Quantity:</strong> Preferring fewer, high-quality hadith</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>Grading System</h4>
+                <p>Nasai categorized hadith into different reliability levels:</p>
+                <ul>
+                    <li><strong>Sahih:</strong> Authentic and reliable hadith</li>
+                    <li><strong>Hasan:</strong> Good hadith with minor weaknesses</li>
+                    <li><strong>Daif:</strong> Weak hadith with significant issues</li>
+                    <li><strong>Munkar:</strong> Rejected hadith with major problems</li>
+                    <li><strong>Mawdu':</strong> Fabricated hadith</li>
+                </ul>
+                <p>He was known for rejecting hadith that other collectors might accept.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Famous Hadith from Sunan Nasai</h2>
             
-            <h4>Main Sections:</h4>
+            <div class="hadith-card">
+                <h4>1. The Virtue of Prayer</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ إِنَّ أَوَّلَ مَا يُحَاسَبُ بِهِ الْعَبْدُ يَوْمَ الْقِيَامَةِ مِنْ عَمَلِهِ صَلَاتُهُ فَإِنْ صَلُّحَتْ فَقَدْ أَفْلَحَ وَأَنْجَحَ وَإِنْ فَسَدَتْ فَقَدْ خَابَ وَخَسِرَ</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'The first thing for which a person will be held accountable on the Day of Resurrection is his prayer. If it is sound, he will have succeeded and prospered. If it is defective, he will have failed and lost.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Nasai</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This hadith emphasizes the importance of prayer and its central role in a person's accountability on the Day of Judgment.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>2. Kindness to Parents</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ لَا يَجْزِي وَلَدٌ وَالِدَهُ إِلَّا أَنْ يَجِدَهُ مَمْلُوكًا فَيَشْتَرِيَهُ فَيُعْتِقَهُ</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'A child cannot repay his parent unless he finds him as a slave and then buys him and sets him free.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Nasai</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This hadith illustrates the immense debt children owe to their parents and the difficulty of fully repaying them.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>3. The Virtue of Knowledge</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ مَنْ يُرِدِ اللَّهُ بِهِ خَيْرًا يُفَقِّهْهُ فِي الدِّينِ</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'Whoever Allah intends good for, He gives him understanding of the religion.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Nasai</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This hadith indicates that understanding Islamic knowledge is a sign of Allah's favor and guidance.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>4. Good Character</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ إِنَّ مِنْ أَكْمَلِ الْمُؤْمِنِينَ إِيمَانًا أَحْسَنُهُمْ خُلُقًا</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'Among the believers with the most complete faith are those with the best character.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Nasai</div>
+                <div class="grading hasan">Hasan (Good)</div>
+                <p><strong>Significance:</strong> This hadith connects faith with good character, showing that true faith manifests in excellent behavior.</p>
+            </div>
+
+            <div class="hadith-card">
+                <h4>5. Sincerity in Actions</h4>
+                <div class="arabic-text">عَنْ أَبِي هُرَيْرَةَ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى أَجْسَامِكُمْ وَلَا إِلَى صُوَرِكُمْ وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ</div>
+                <div class="translation">"Abu Hurairah reported: The Messenger of Allah, peace and blessings be upon him, said: 'Allah does not look at your bodies or your appearances, but He looks at your hearts and your actions.'"</div>
+                <div class="isnad">Narrated by: Abu Hurairah → Nasai</div>
+                <div class="grading sahih">Sahih (Authentic)</div>
+                <p><strong>Significance:</strong> This hadith teaches that Allah values sincerity and good deeds over outward appearance.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Major Categories</h2>
+            <p>Sunan Nasai is organized into several major categories, focusing on authentic traditions:</p>
+            
+            <div class="hadith-card">
+                <h4>1. Purification (Taharah)</h4>
+                <p>Hadith related to ritual purity and cleanliness:</p>
+                <ul>
+                    <li>Wudu (ablution) procedures and requirements</li>
+                    <li>Ghusl (full bath) and its conditions</li>
+                    <li>Tayammum (dry ablution) when water is unavailable</li>
+                    <li>Purification from various impurities</li>
+                    <li>Cleanliness in prayer and worship</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>2. Prayer (Salah)</h4>
+                <p>Comprehensive coverage of prayer-related topics:</p>
+                <ul>
+                    <li>Five daily prayers and their times</li>
+                    <li>Prayer prerequisites and conditions</li>
+                    <li>Prayer movements and recitations</li>
+                    <li>Congregational prayer and leadership</li>
+                    <li>Friday prayer and special prayers</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>3. Fasting (Sawm)</h4>
+                <p>Guidance on fasting and Ramadan:</p>
+                <ul>
+                    <li>Ramadan fasting requirements</li>
+                    <li>Voluntary fasting and its virtues</li>
+                    <li>Fasting prohibitions and exceptions</li>
+                    <li>Breaking fast and suhoor</li>
+                    <li>Laylat al-Qadr (Night of Power)</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>4. Marriage and Family</h4>
+                <p>Islamic guidance on family matters:</p>
+                <ul>
+                    <li>Marriage contracts and conditions</li>
+                    <li>Rights and responsibilities of spouses</li>
+                    <li>Divorce procedures and regulations</li>
+                    <li>Child custody and support</li>
+                    <li>Family harmony and communication</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>5. Business and Transactions</h4>
+                <p>Islamic business ethics and financial matters:</p>
+                <ul>
+                    <li>Halal and haram business practices</li>
+                    <li>Contract validity and conditions</li>
+                    <li>Interest-free transactions (riba-free)</li>
+                    <li>Partnership and investment guidelines</li>
+                    <li>Consumer rights and responsibilities</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Unique Features of Nasai</h2>
+            
+            <div class="hadith-card">
+                <h4>Strict Authenticity Standards</h4>
+                <p>Nasai is known for his extremely strict criteria:</p>
+                <ul>
+                    <li><strong>Narrator Reliability:</strong> Only accepts narrators of the highest integrity</li>
+                    <li><strong>Chain Verification:</strong> Thorough examination of transmission chains</li>
+                    <li><strong>Cross-Referencing:</strong> Verification with multiple sources</li>
+                    <li><strong>Quality Control:</strong> Prefers fewer, high-quality hadith</li>
+                    <li><strong>Rejection of Weak:</strong> Often rejects hadith accepted by others</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>Comprehensive Coverage</h4>
+                <p>The collection covers essential Islamic topics:</p>
+                <ul>
+                    <li><strong>Legal Traditions:</strong> Hadith related to Islamic law and practice</li>
+                    <li><strong>Worship Guidelines:</strong> Detailed instructions for religious practices</li>
+                    <li><strong>Ethical Teachings:</strong> Moral and character guidance</li>
+                    <li><strong>Social Relations:</strong> Interpersonal relationship guidelines</li>
+                    <li><strong>Practical Applications:</strong> Real-world implementation of Islamic principles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Comparison with Other Collections</h2>
+            
+            <div class="hadith-card">
+                <h4>Sunan Nasai vs. Sahih Bukhari</h4>
+                <ul>
+                    <li><strong>Authenticity:</strong> Both have very high standards, but Nasai is often stricter</li>
+                    <li><strong>Scope:</strong> Bukhari covers broader topics, Nasai focuses on essential practices</li>
+                    <li><strong>Organization:</strong> Bukhari organizes by themes, Nasai by legal topics</li>
+                    <li><strong>Commentary:</strong> Bukhari includes more explanatory notes</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>Sunan Nasai vs. Sunan Abu Dawud</h4>
+                <ul>
+                    <li><strong>Standards:</strong> Nasai has stricter authenticity criteria</li>
+                    <li><strong>Focus:</strong> Both focus on legal traditions, but Nasai is more selective</li>
+                    <li><strong>Quantity:</strong> Abu Dawud includes more hadith, Nasai focuses on quality</li>
+                    <li><strong>Acceptance:</strong> Nasai is more widely accepted by scholars</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Virtues and Benefits</h2>
+            
+            <div class="hadith-card">
+                <h4>Studying Sunan Nasai</h4>
+                <p>Benefits of studying this collection:</p>
+                <ul>
+                    <li><strong>High Authenticity:</strong> Access to the most reliable hadith</li>
+                    <li><strong>Legal Guidance:</strong> Clear instructions for Islamic practice</li>
+                    <li><strong>Quality Assurance:</strong> Confidence in the authenticity of content</li>
+                    <li><strong>Comprehensive Coverage:</strong> Addresses most aspects of Islamic life</li>
+                    <li><strong>Scholar Recognition:</strong> Widely accepted by Islamic scholars</li>
+                </ul>
+            </div>
+
+            <div class="hadith-card">
+                <h4>Application in Daily Life</h4>
+                <p>How to use these hadith in practice:</p>
+                <ul>
+                    <li><strong>Worship Practice:</strong> Proper performance of religious duties</li>
+                    <li><strong>Legal Decisions:</strong> Guidance for Islamic legal matters</li>
+                    <li><strong>Character Building:</strong> Improving personal qualities and behavior</li>
+                    <li><strong>Family Relations:</strong> Building harmonious family relationships</li>
+                    <li><strong>Business Ethics:</strong> Conducting affairs according to Islamic principles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
             <ul>
-                <li><strong>Introduction:</strong> Basic concepts and overview</li>
-                <li><strong>Core Topics:</strong> Essential information and principles</li>
-                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
-                <li><strong>Practical Applications:</strong> Real-world implementation</li>
-                <li><strong>References:</strong> Sources and additional reading</li>
+                <li><a href="sahih-bukhari.html">Sahih Bukhari</a></li>
+                <li><a href="sahih-muslim.html">Sahih Muslim</a></li>
+                <li><a href="abu-dawud.html">Sunan Abu Dawud</a></li>
+                <li><a href="tirmidhi.html">Sunan Tirmidhi</a></li>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
             </ul>
-        
         </div>
         
         <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
