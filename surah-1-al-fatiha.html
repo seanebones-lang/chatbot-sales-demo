@@ -29,7 +29,6 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-accent: #f1f5f9;
-            --bg-glass: rgba(248, 250, 252, 0.8);
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-accent: #475569;
@@ -100,33 +99,33 @@
 
         .content-section h2 {
             color: var(--accent-primary);
-            margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            margin-bottom: 1rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
         .content-section h3 {
-            color: var(--accent-secondary);
-            margin: 1.5rem 0 1rem 0;
+            color: var(--accent-teal);
             font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
         }
 
         .content-section h4 {
-            color: var(--accent-teal);
-            margin: 1rem 0 0.5rem 0;
+            color: var(--accent-green);
             font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
         }
 
         .content-section p {
             margin-bottom: 1rem;
             line-height: 1.6;
-            text-align: justify;
+            color: var(--text-secondary);
         }
 
         .content-section ul, .content-section ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
         }
 
         .content-section li {
@@ -134,43 +133,63 @@
             line-height: 1.6;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .content-card {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border-primary);
-            border-radius: 12px;
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 2rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
             padding: 1.5rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-secondary);
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
         }
 
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-            border-color: var(--accent-primary);
+        .transliteration {
+            font-style: italic;
+            color: var(--text-accent);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-secondary);
         }
 
-        .content-card h4 {
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .tafsir {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-secondary);
+            margin: 1rem 0;
+        }
+
+        .verse-info {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .verse-info h4 {
             color: var(--accent-primary);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .content-card p {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
         .back-link {
             display: inline-block;
-            margin: 2rem 0;
-            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
             background: var(--accent-primary);
             color: white;
             text-decoration: none;
@@ -182,7 +201,7 @@
         .back-link:hover {
             background: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-primary);
+            box-shadow: var(--shadow-secondary);
         }
 
         .theme-toggle {
@@ -190,14 +209,14 @@
             top: 2rem;
             right: 2rem;
             background: var(--accent-primary);
-            color: white;
             border: none;
-            border-radius: 50%;
+            color: white;
             width: 50px;
             height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
 
@@ -261,42 +280,129 @@
     
     <div class="container">
         <header class="header">
-            <h1>Surah 1 Al Fatiha</h1>
-            <p>Complete guide to surah 1 al fatiha with comprehensive Islamic content and resources</p>
+            <h1>Surah Al-Fatiha (The Opening)</h1>
+            <p>Complete guide to Surah Al-Fatiha with Arabic text, transliteration, translation, and comprehensive tafsir</p>
         </header>
         
         <div class="content-section">
+            <h2>Surah Al-Fatiha - The Opening</h2>
+            <p>Surah Al-Fatiha is the first chapter of the Quran and is considered the essence of the entire book. It is recited in every unit of prayer and contains the fundamental principles of Islamic belief and worship.</p>
             
-            <h3>Surah 1 Al Fatiha</h3>
-            <p>Complete guide to surah 1 al fatiha with comprehensive Islamic content and resources</p>
+            <div class="verse-info">
+                <h4>Verse Information</h4>
+                <p><strong>Number of Verses:</strong> 7</p>
+                <p><strong>Revelation:</strong> Makki (revealed in Makkah)</p>
+                <p><strong>Position:</strong> 1st Surah</p>
+                <p><strong>Alternative Names:</strong> Umm al-Kitab (Mother of the Book), As-Sab' al-Mathani (The Seven Oft-Repeated)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Complete Text with Translation</h3>
             
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>Overview</h4>
-                    <p>This section provides comprehensive information about surah 1 al fatiha with detailed content and resources.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Key Topics</h4>
-                    <p>Explore the main topics and themes related to this subject area.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Resources</h4>
-                    <p>Access additional resources, references, and study materials.</p>
+            <div class="verse-info">
+                <h4>Verse 1</h4>
+                <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                <div class="transliteration">Bismillahi ar-Rahmani ar-Raheem</div>
+                <div class="translation">In the name of Allah, the Entirely Merciful, the Especially Merciful</div>
+                <div class="tafsir">
+                    <p><strong>Tafsir:</strong> This verse, known as the Basmalah, is the opening of every surah except Surah At-Tawbah. It teaches us to begin all our actions in the name of Allah, seeking His blessings and mercy. The two names of mercy (Ar-Rahman and Ar-Raheem) emphasize Allah's comprehensive and continuous mercy.</p>
                 </div>
             </div>
-            
-            <h3>Detailed Content</h3>
-            <p>This page contains comprehensive information about surah 1 al fatiha. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
-            
-            <h4>Main Sections:</h4>
+
+            <div class="verse-info">
+                <h4>Verse 2</h4>
+                <div class="arabic-text">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</div>
+                <div class="transliteration">Al-hamdu lillahi rabbi al-'alameen</div>
+                <div class="translation">All praise is due to Allah, Lord of the worlds</div>
+                <div class="tafsir">
+                    <p><strong>Tafsir:</strong> This verse establishes the fundamental principle of praising Allah alone. "Lord of the worlds" refers to Allah's sovereignty over all creation - humans, jinn, angels, animals, and the entire universe. It teaches us that all praise belongs to Allah alone.</p>
+                </div>
+            </div>
+
+            <div class="verse-info">
+                <h4>Verse 3</h4>
+                <div class="arabic-text">الرَّحْمَٰنِ الرَّحِيمِ</div>
+                <div class="transliteration">Ar-Rahmani ar-Raheem</div>
+                <div class="translation">The Entirely Merciful, the Especially Merciful</div>
+                <div class="tafsir">
+                    <p><strong>Tafsir:</strong> This verse repeats the names of mercy, emphasizing Allah's compassion. Ar-Rahman refers to Allah's universal mercy to all creation, while Ar-Raheem refers to His special mercy to the believers. This repetition highlights the central theme of mercy in Islam.</p>
+                </div>
+            </div>
+
+            <div class="verse-info">
+                <h4>Verse 4</h4>
+                <div class="arabic-text">مَالِكِ يَوْمِ الدِّينِ</div>
+                <div class="transliteration">Maliki yawmi ad-deen</div>
+                <div class="translation">Master of the Day of Judgment</div>
+                <div class="tafsir">
+                    <p><strong>Tafsir:</strong> This verse reminds us of the Day of Judgment when all people will be held accountable for their actions. Allah alone is the Master and Judge on that day. This serves as a reminder to live righteously and be mindful of our actions.</p>
+                </div>
+            </div>
+
+            <div class="verse-info">
+                <h4>Verse 5</h4>
+                <div class="arabic-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
+                <div class="transliteration">Iyyaka na'budu wa iyyaka nasta'een</div>
+                <div class="translation">It is You we worship and You we ask for help</div>
+                <div class="tafsir">
+                    <p><strong>Tafsir:</strong> This verse establishes the core principle of monotheism (Tawheed). We worship Allah alone and seek help from Him alone. It teaches us that all acts of worship must be directed to Allah and that we should rely on Him for all our needs.</p>
+                </div>
+            </div>
+
+            <div class="verse-info">
+                <h4>Verse 6</h4>
+                <div class="arabic-text">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</div>
+                <div class="transliteration">Ihdina as-sirata al-mustaqeem</div>
+                <div class="translation">Guide us to the straight path</div>
+                <div class="tafsir">
+                    <p><strong>Tafsir:</strong> This verse is a prayer for guidance to the straight path - the path of Islam, the path of the prophets and righteous people. It shows that guidance is a gift from Allah and that we must continuously seek it through prayer and righteous actions.</p>
+                </div>
+            </div>
+
+            <div class="verse-info">
+                <h4>Verse 7</h4>
+                <div class="arabic-text">صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</div>
+                <div class="transliteration">Sirata alladheena an'amta 'alayhim ghayri al-maghdoobi 'alayhim wa la ad-daalleen</div>
+                <div class="translation">The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray</div>
+                <div class="tafsir">
+                    <p><strong>Tafsir:</strong> This verse specifies the straight path as the path of those whom Allah has blessed - the prophets, the truthful, the martyrs, and the righteous. It also asks Allah to protect us from the path of those who have earned His anger (like the Jews who knew the truth but rejected it) and those who are astray (like the Christians who followed false beliefs).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Key Themes and Lessons</h3>
             <ul>
-                <li><strong>Introduction:</strong> Basic concepts and overview</li>
-                <li><strong>Core Topics:</strong> Essential information and principles</li>
-                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
-                <li><strong>Practical Applications:</strong> Real-world implementation</li>
-                <li><strong>References:</strong> Sources and additional reading</li>
+                <li><strong>Monotheism (Tawheed):</strong> The surah establishes the fundamental belief in one God</li>
+                <li><strong>Allah's Mercy:</strong> Emphasizes Allah's compassion and mercy to all creation</li>
+                <li><strong>Worship and Dependence:</strong> Teaches that we should worship Allah alone and depend on Him</li>
+                <li><strong>Guidance:</strong> Shows that guidance is a gift from Allah that we must seek</li>
+                <li><strong>Accountability:</strong> Reminds us of the Day of Judgment and our responsibility</li>
+                <li><strong>Prayer Structure:</strong> Provides a model for how to address Allah in prayer</li>
             </ul>
-        
+        </div>
+
+        <div class="content-section">
+            <h3>Virtues and Significance</h3>
+            <ul>
+                <li><strong>Mother of the Quran:</strong> Called Umm al-Kitab because it contains the essence of the entire Quran</li>
+                <li><strong>Required in Prayer:</strong> Must be recited in every unit of prayer</li>
+                <li><strong>Healing:</strong> Prophet Muhammad sallallahu alayhi wa sallam used it for healing</li>
+                <li><strong>Protection:</strong> Provides spiritual protection when recited with sincerity</li>
+                <li><strong>Comprehensive Prayer:</strong> Covers all aspects of human needs and relationship with Allah</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>Related Topics</h3>
+            <ul>
+                <li><a href="tawheed.html">Tawheed (Islamic Monotheism)</a></li>
+                <li><a href="prayer-guide.html">Prayer Guide</a></li>
+                <li><a href="quran-memorization.html">Quran Memorization</a></li>
+                <li><a href="tajweed-mastery.html">Tajweed Rules</a></li>
+                <li><a href="surah-2-al-baqarah.html">Next: Surah Al-Baqarah</a></li>
+            </ul>
         </div>
         
         <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>

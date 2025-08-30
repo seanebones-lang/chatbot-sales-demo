@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Five Pillars - Complete Islamic Study Guide</title>
+    <title>Five Pillars of Islam - Complete Islamic Study Guide</title>
     <style>
 
         :root {
@@ -29,7 +29,6 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-accent: #f1f5f9;
-            --bg-glass: rgba(248, 250, 252, 0.8);
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-accent: #475569;
@@ -100,33 +99,33 @@
 
         .content-section h2 {
             color: var(--accent-primary);
-            margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            margin-bottom: 1rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
         .content-section h3 {
-            color: var(--accent-secondary);
-            margin: 1.5rem 0 1rem 0;
+            color: var(--accent-teal);
             font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
         }
 
         .content-section h4 {
-            color: var(--accent-teal);
-            margin: 1rem 0 0.5rem 0;
+            color: var(--accent-green);
             font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
         }
 
         .content-section p {
             margin-bottom: 1rem;
             line-height: 1.6;
-            text-align: justify;
+            color: var(--text-secondary);
         }
 
         .content-section ul, .content-section ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
         }
 
         .content-section li {
@@ -134,43 +133,65 @@
             line-height: 1.6;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
         }
 
-        .content-card {
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .pillar-card {
             background: var(--bg-secondary);
-            border: 2px solid var(--border-primary);
-            border-radius: 12px;
             padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
             transition: all 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-secondary);
         }
 
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-            border-color: var(--accent-primary);
-        }
-
-        .content-card h4 {
+        .pillar-card h4 {
             color: var(--accent-primary);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
-        .content-card p {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
         }
 
         .back-link {
             display: inline-block;
-            margin: 2rem 0;
-            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
             background: var(--accent-primary);
             color: white;
             text-decoration: none;
@@ -182,7 +203,7 @@
         .back-link:hover {
             background: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-primary);
+            box-shadow: var(--shadow-secondary);
         }
 
         .theme-toggle {
@@ -190,14 +211,14 @@
             top: 2rem;
             right: 2rem;
             background: var(--accent-primary);
-            color: white;
             border: none;
-            border-radius: 50%;
+            color: white;
             width: 50px;
             height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
 
@@ -261,42 +282,150 @@
     
     <div class="container">
         <header class="header">
-            <h1>Five Pillars</h1>
-            <p>Complete guide to five pillars with comprehensive Islamic content and resources</p>
+            <h1>The Five Pillars of Islam</h1>
+            <p>Complete guide to the fundamental pillars that form the foundation of Islamic faith and practice</p>
         </header>
         
         <div class="content-section">
+            <h2>Introduction to the Five Pillars</h2>
+            <p>The Five Pillars of Islam are the fundamental acts of worship and practice that every Muslim must fulfill. These pillars were established by Prophet Muhammad sallallahu alayhi wa sallam and are mentioned in authentic hadith collections.</p>
             
-            <h3>Five Pillars</h3>
-            <p>Complete guide to five pillars with comprehensive Islamic content and resources</p>
-            
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>Overview</h4>
-                    <p>This section provides comprehensive information about five pillars with detailed content and resources.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Key Topics</h4>
-                    <p>Explore the main topics and themes related to this subject area.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Resources</h4>
-                    <p>Access additional resources, references, and study materials.</p>
-                </div>
+            <div class="evidence-box">
+                <h5>Evidence from Hadith</h5>
+                <p><strong>Narrated by Abdullah ibn Umar (may Allah be pleased with him):</strong></p>
+                <div class="arabic-text">بُنِيَ الإِسْلاَمُ عَلَى خَمْسٍ شَهَادَةِ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ وَإِقَامِ الصَّلاَةِ وَإِيتَاءِ الزَّكَاةِ وَالْحَجِّ وَصَوْمِ رَمَضَانَ</div>
+                <div class="translation">"Islam is built upon five: testifying that there is no deity except Allah and that Muhammad is the Messenger of Allah, establishing prayer, giving zakat, performing Hajj, and fasting Ramadan."</div>
+                <p><em>Source: Sahih Bukhari and Sahih Muslim</em></p>
             </div>
+        </div>
+
+        <div class="content-section">
+            <h2>The Five Pillars in Detail</h2>
             
-            <h3>Detailed Content</h3>
-            <p>This page contains comprehensive information about five pillars. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
-            
-            <h4>Main Sections:</h4>
+            <div class="pillar-card">
+                <h4>1. Shahadah (Declaration of Faith)</h4>
+                <p>The Shahadah is the fundamental declaration that establishes a person as a Muslim. It consists of two parts:</p>
+                <ul>
+                    <li><strong>La ilaha illa Allah:</strong> There is no deity except Allah</li>
+                    <li><strong>Muhammadur rasoolu Allah:</strong> Muhammad is the Messenger of Allah</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ</div>
+                    <div class="translation">"Indeed, Allah does not forgive association with Him, but He forgives what is less than that for whom He wills." (Quran 4:48)</div>
+                </div>
+                
+                <p><strong>Requirements:</strong> Must be recited with sincerity, understanding, and conviction. It should be the first thing taught to new Muslims and the last thing a person says before death.</p>
+            </div>
+
+            <div class="pillar-card">
+                <h4>2. Salah (Prayer)</h4>
+                <p>Prayer is the second pillar and the most important act of worship after the Shahadah. Muslims are required to perform five daily prayers:</p>
+                <ul>
+                    <li><strong>Fajr:</strong> Dawn prayer (before sunrise)</li>
+                    <li><strong>Dhuhr:</strong> Noon prayer (after sun passes zenith)</li>
+                    <li><strong>Asr:</strong> Afternoon prayer (mid-afternoon)</li>
+                    <li><strong>Maghrib:</strong> Sunset prayer (after sunset)</li>
+                    <li><strong>Isha:</strong> Night prayer (after twilight)</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا</div>
+                    <div class="translation">"Indeed, prayer has been decreed upon the believers a decree of specified times." (Quran 4:103)</div>
+                </div>
+                
+                <p><strong>Benefits:</strong> Prayer purifies the soul, maintains connection with Allah, provides discipline, and serves as a reminder of one's purpose in life.</p>
+            </div>
+
+            <div class="pillar-card">
+                <h4>3. Zakat (Charity)</h4>
+                <p>Zakat is the obligatory charity that purifies wealth and helps those in need. It is calculated as 2.5% of one's wealth above the nisab (minimum threshold).</p>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ</div>
+                    <div class="translation">"And establish prayer and give zakat and bow with those who bow [in worship and obedience]." (Quran 2:43)</div>
+                </div>
+                
+                <p><strong>Conditions:</strong> Must be Muslim, sane, free, and possess wealth above the nisab for one lunar year. Recipients include the poor, needy, debtors, travelers, and those working for Allah's cause.</p>
+            </div>
+
+            <div class="pillar-card">
+                <h4>4. Sawm (Fasting)</h4>
+                <p>Fasting during the month of Ramadan is the fourth pillar. Muslims abstain from food, drink, and marital relations from dawn to sunset for 29-30 days.</p>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ</div>
+                    <div class="translation">"O you who have believed, decreed upon you is fasting as it was decreed upon those before you that you may become righteous." (Quran 2:183)</div>
+                </div>
+                
+                <p><strong>Benefits:</strong> Fasting develops self-discipline, increases empathy for the poor, purifies the soul, and brings one closer to Allah. It also has numerous health benefits.</p>
+            </div>
+
+            <div class="pillar-card">
+                <h4>5. Hajj (Pilgrimage)</h4>
+                <p>Hajj is the annual pilgrimage to Makkah that every able-bodied Muslim must perform at least once in their lifetime if they can afford it.</p>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا</div>
+                    <div class="translation">"And [due] to Allah from the people is a pilgrimage to the House - for whoever is able to find thereto a way." (Quran 3:97)</div>
+                </div>
+                
+                <p><strong>Significance:</strong> Hajj symbolizes unity, equality, and submission to Allah. It commemorates the trials of Prophet Ibrahim (Abraham) and his family, and serves as a reminder of the Day of Judgment.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Interconnectedness of the Pillars</h3>
+            <p>The Five Pillars are not isolated practices but form an integrated system that strengthens faith and character:</p>
             <ul>
-                <li><strong>Introduction:</strong> Basic concepts and overview</li>
-                <li><strong>Core Topics:</strong> Essential information and principles</li>
-                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
-                <li><strong>Practical Applications:</strong> Real-world implementation</li>
-                <li><strong>References:</strong> Sources and additional reading</li>
+                <li><strong>Shahadah:</strong> Establishes the foundation of belief</li>
+                <li><strong>Salah:</strong> Maintains daily connection with Allah</li>
+                <li><strong>Zakat:</strong> Purifies wealth and helps community</li>
+                <li><strong>Sawm:</strong> Develops self-discipline and empathy</li>
+                <li><strong>Hajj:</strong> Unites the global Muslim community</li>
             </ul>
-        
+        </div>
+
+        <div class="content-section">
+            <h3>Conditions and Exemptions</h3>
+            <p>While the Five Pillars are obligatory, Islam provides reasonable exemptions for those unable to fulfill them:</p>
+            <ul>
+                <li><strong>Physical Disability:</strong> Those physically unable to pray standing may pray sitting or lying down</li>
+                <li><strong>Financial Hardship:</strong> Those without sufficient wealth are exempt from zakat</li>
+                <li><strong>Health Issues:</strong> Sick people may be exempt from fasting and can make it up later</li>
+                <li><strong>Travel and Hardship:</strong> Travelers may combine prayers and have shorter fasts</li>
+                <li><strong>Old Age:</strong> Elderly people may be exempt from certain obligations</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>Spiritual Benefits</h3>
+            <p>Fulfilling the Five Pillars brings numerous spiritual benefits:</p>
+            <ul>
+                <li><strong>Purification:</strong> Cleanses the soul from sins and impurities</li>
+                <li><strong>Discipline:</strong> Develops self-control and willpower</li>
+                <li><strong>Community:</strong> Strengthens bonds with fellow Muslims</li>
+                <li><strong>Gratitude:</strong> Fosters appreciation for Allah's blessings</li>
+                <li><strong>Humility:</strong> Reminds us of our dependence on Allah</li>
+                <li><strong>Purpose:</strong> Provides clear direction and meaning in life</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>Related Topics</h3>
+            <ul>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="ramadan-fasting.html">Ramadan and Fasting Guide</a></li>
+                <li><a href="hajj-umrah.html">Hajj and Umrah Guide</a></li>
+                <li><a href="zakat-charity.html">Zakat and Charity Guide</a></li>
+                <li><a href="tawheed.html">Tawheed (Islamic Monotheism)</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
         </div>
         
         <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>

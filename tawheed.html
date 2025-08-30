@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tawheed - Complete Islamic Study Guide</title>
+    <title>Tawheed (Islamic Monotheism) - Complete Islamic Study Guide</title>
     <style>
 
         :root {
@@ -29,7 +29,6 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-accent: #f1f5f9;
-            --bg-glass: rgba(248, 250, 252, 0.8);
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-accent: #475569;
@@ -100,33 +99,33 @@
 
         .content-section h2 {
             color: var(--accent-primary);
-            margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            margin-bottom: 1rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
         .content-section h3 {
-            color: var(--accent-secondary);
-            margin: 1.5rem 0 1rem 0;
+            color: var(--accent-teal);
             font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
         }
 
         .content-section h4 {
-            color: var(--accent-teal);
-            margin: 1rem 0 0.5rem 0;
+            color: var(--accent-green);
             font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
         }
 
         .content-section p {
             margin-bottom: 1rem;
             line-height: 1.6;
-            text-align: justify;
+            color: var(--text-secondary);
         }
 
         .content-section ul, .content-section ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
         }
 
         .content-section li {
@@ -134,43 +133,78 @@
             line-height: 1.6;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
         }
 
-        .content-card {
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .tawheed-card {
             background: var(--bg-secondary);
-            border: 2px solid var(--border-primary);
-            border-radius: 12px;
             padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
             transition: all 0.3s ease;
+        }
+
+        .tawheed-card:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-secondary);
         }
 
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-            border-color: var(--accent-primary);
-        }
-
-        .content-card h4 {
+        .tawheed-card h4 {
             color: var(--accent-primary);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
-        .content-card p {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid #ef4444;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .warning-box h5 {
+            color: #ef4444;
+            margin-bottom: 0.5rem;
         }
 
         .back-link {
             display: inline-block;
-            margin: 2rem 0;
-            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
             background: var(--accent-primary);
             color: white;
             text-decoration: none;
@@ -182,7 +216,7 @@
         .back-link:hover {
             background: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-primary);
+            box-shadow: var(--shadow-secondary);
         }
 
         .theme-toggle {
@@ -190,14 +224,14 @@
             top: 2rem;
             right: 2rem;
             background: var(--accent-primary);
-            color: white;
             border: none;
-            border-radius: 50%;
+            color: white;
             width: 50px;
             height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
 
@@ -261,42 +295,173 @@
     
     <div class="container">
         <header class="header">
-            <h1>Tawheed</h1>
-            <p>Complete guide to tawheed with comprehensive Islamic content and resources</p>
+            <h1>Tawheed (Islamic Monotheism)</h1>
+            <p>Complete guide to the fundamental Islamic belief in the Oneness of Allah and its three categories</p>
         </header>
         
         <div class="content-section">
+            <h2>What is Tawheed?</h2>
+            <p>Tawheed is the fundamental Islamic concept of monotheism - the belief in the absolute Oneness of Allah. It is the foundation of Islamic faith and the first pillar of Islam. Tawheed means to affirm that Allah is One in His Lordship, His Worship, and His Names and Attributes.</p>
             
-            <h3>Tawheed</h3>
-            <p>Complete guide to tawheed with comprehensive Islamic content and resources</p>
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾</div>
+                <div class="translation">"Say: He is Allah, [who is] One, Allah, the Eternal Refuge. He neither begets nor is born, nor is there to Him any equivalent." (Quran 112:1-4)</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>The Three Categories of Tawheed</h2>
             
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>Overview</h4>
-                    <p>This section provides comprehensive information about tawheed with detailed content and resources.</p>
+            <div class="tawheed-card">
+                <h4>1. Tawheed ar-Rububiyyah (Oneness of Lordship)</h4>
+                <p>This category affirms that Allah alone is the Creator, Sustainer, and Controller of all creation. He alone manages the affairs of the universe and all that exists within it.</p>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">اللَّهُ خَالِقُ كُلِّ شَيْءٍ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ وَكِيلٌ</div>
+                    <div class="translation">"Allah is the Creator of all things, and He is, over all things, Disposer of affairs." (Quran 39:62)</div>
                 </div>
-                <div class="content-card">
-                    <h4>Key Topics</h4>
-                    <p>Explore the main topics and themes related to this subject area.</p>
+                
+                <p><strong>Key Aspects:</strong></p>
+                <ul>
+                    <li>Allah alone creates everything</li>
+                    <li>Allah alone provides sustenance</li>
+                    <li>Allah alone controls life and death</li>
+                    <li>Allah alone manages the universe</li>
+                    <li>Allah alone answers prayers</li>
+                </ul>
+            </div>
+
+            <div class="tawheed-card">
+                <h4>2. Tawheed al-Uluhiyyah (Oneness of Worship)</h4>
+                <p>This category affirms that Allah alone deserves to be worshipped. All acts of worship must be directed exclusively to Him, and no one else should be worshipped alongside Him.</p>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا</div>
+                    <div class="translation">"Worship Allah and associate nothing with Him." (Quran 4:36)</div>
                 </div>
-                <div class="content-card">
-                    <h4>Resources</h4>
-                    <p>Access additional resources, references, and study materials.</p>
+                
+                <p><strong>Forms of Worship Include:</strong></p>
+                <ul>
+                    <li>Prayer (Salah)</li>
+                    <li>Fasting (Sawm)</li>
+                    <li>Charity (Zakat)</li>
+                    <li>Pilgrimage (Hajj)</li>
+                    <li>Supplication (Dua)</li>
+                    <li>Sacrifice</li>
+                    <li>Trust and reliance</li>
+                    <li>Fear and hope</li>
+                </ul>
+            </div>
+
+            <div class="tawheed-card">
+                <h4>3. Tawheed al-Asma' wa as-Sifat (Oneness of Names and Attributes)</h4>
+                <p>This category affirms that Allah has the most beautiful names and perfect attributes, and no one shares these with Him. We must believe in all His names and attributes without distortion, denial, or comparison.</p>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا</div>
+                    <div class="translation">"And to Allah belong the best names, so invoke Him by them." (Quran 7:180)</div>
                 </div>
+                
+                <p><strong>Principles:</strong></p>
+                <ul>
+                    <li>Allah's names and attributes are perfect</li>
+                    <li>They are unique to Allah alone</li>
+                    <li>We must believe in them without distortion</li>
+                    <li>We cannot compare them to creation</li>
+                    <li>We cannot deny any of them</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Violations of Tawheed (Shirk)</h3>
+            <p>Shirk (associating partners with Allah) is the greatest sin in Islam and nullifies all good deeds. Understanding violations of Tawheed helps protect our faith.</p>
+            
+            <div class="warning-box">
+                <h5>Major Shirk (Shirk Akbar)</h5>
+                <ul>
+                    <li><strong>Worshipping idols or false gods</strong></li>
+                    <li><strong>Seeking help from the dead or jinn</strong></li>
+                    <li><strong>Believing in multiple creators</strong></li>
+                    <li><strong>Denying Allah's existence</strong></li>
+                    <li><strong>Worshipping nature or objects</strong></li>
+                </ul>
             </div>
             
-            <h3>Detailed Content</h3>
-            <p>This page contains comprehensive information about tawheed. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
-            
-            <h4>Main Sections:</h4>
+            <div class="evidence-box">
+                <h5>Quranic Warning</h5>
+                <div class="arabic-text">إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ</div>
+                <div class="translation">"Indeed, Allah does not forgive association with Him, but He forgives what is less than that for whom He wills." (Quran 4:48)</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Benefits of Tawheed</h3>
+            <p>Understanding and implementing Tawheed brings numerous spiritual and practical benefits:</p>
             <ul>
-                <li><strong>Introduction:</strong> Basic concepts and overview</li>
-                <li><strong>Core Topics:</strong> Essential information and principles</li>
-                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
-                <li><strong>Practical Applications:</strong> Real-world implementation</li>
-                <li><strong>References:</strong> Sources and additional reading</li>
+                <li><strong>Purification of Faith:</strong> Cleanses the heart from polytheism and false beliefs</li>
+                <li><strong>Inner Peace:</strong> Provides tranquility and contentment</li>
+                <li><strong>Correct Worship:</strong> Ensures all acts of worship are directed to Allah alone</li>
+                <li><strong>Protection from Shirk:</strong> Guards against major and minor forms of polytheism</li>
+                <li><strong>Unified Purpose:</strong> Gives clear direction and meaning to life</li>
+                <li><strong>Divine Protection:</strong> Allah protects those who maintain pure Tawheed</li>
+                <li><strong>Success in Hereafter:</strong> Guarantees salvation and Paradise</li>
             </ul>
-        
+        </div>
+
+        <div class="content-section">
+            <h3>Practical Applications</h3>
+            <p>How to implement Tawheed in daily life:</p>
+            
+            <div class="tawheed-card">
+                <h4>Daily Reminders</h4>
+                <ul>
+                    <li>Begin all actions with "Bismillah" (In the name of Allah)</li>
+                    <li>Remember Allah throughout the day with dhikr</li>
+                    <li>Seek help only from Allah in difficulties</li>
+                    <li>Trust in Allah's plan and decree</li>
+                    <li>Show gratitude for Allah's blessings</li>
+                </ul>
+            </div>
+            
+            <div class="tawheed-card">
+                <h4>Worship Practices</h4>
+                <ul>
+                    <li>Perform all prayers with full attention and devotion</li>
+                    <li>Make dua directly to Allah without intermediaries</li>
+                    <li>Give charity seeking only Allah's pleasure</li>
+                    <li>Fast with the intention of pleasing Allah alone</li>
+                    <li>Perform Hajj with pure intentions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Common Misconceptions</h3>
+            <p>Understanding and avoiding common misconceptions about Tawheed:</p>
+            <ul>
+                <li><strong>Intercession:</strong> Seeking intercession through righteous people is allowed, but not worshipping them</li>
+                <li><strong>Visiting Graves:</strong> Visiting graves to remember death is permissible, but not to worship the dead</li>
+                <li><strong>Natural Laws:</strong> Believing in natural laws doesn't contradict Tawheed if we understand Allah created them</li>
+                <li><strong>Technology:</strong> Using technology and medicine doesn't contradict Tawheed</li>
+                <li><strong>Social Customs:</strong> Cultural practices are acceptable unless they involve shirk</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h3>Related Topics</h3>
+            <ul>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
+                <li><a href="aqeedah-index.html">Islamic Beliefs (Aqeedah)</a></li>
+                <li><a href="surah-112-al-ikhlas.html">Surah Al-Ikhlas (The Sincerity)</a></li>
+                <li><a href="surah-1-al-fatiha.html">Surah Al-Fatiha (The Opening)</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+                <li><a href="islamic-study-index.html">Islamic Study Index</a></li>
+            </ul>
         </div>
         
         <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
