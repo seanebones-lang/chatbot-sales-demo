@@ -1,6 +1,6 @@
 <!--
 ================================================================================
-🚨 CRITICAL DESIGN POLICY - NO EXCEPTIONS 🚨
+CRITICAL DESIGN POLICY - NO EXCEPTIONS
 
 UNDER NO CIRCUMSTANCES IS THE DESIGN ALLOWED TO DEVIATE IN THE SLIGHTEST
 
@@ -802,7 +802,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
             <!-- Embedded DeenBot Chat Interface -->
             <div class="deenbot-chat-container">
                 <div class="chat-header">
-                    <div class="chat-avatar">🕌</div>
+                    <div class="chat-avatar">Mosque</div>
                     <div class="chat-info">
                         <h3>DeenBot</h3>
                         <p>Islamic AI Assistant</p>
@@ -976,11 +976,11 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
                 <div class="link-category">
                     <h4>Advanced Fiqh Topics</h4>
                     <ul>
-                        <li><a href="business_financial.html">💼 Business & Financial Fiqh</a></li>
-                        <li><a href="medical_health.html">🏥 Medical & Health Fiqh</a></li>
-                        <li><a href="technology_modern.html">💻 Technology & Modern Life Fiqh</a></li>
-                        <li><a href="environmental_social.html">🌍 Environmental & Social Fiqh</a></li>
-                        <li><a href="contemporary_issues.html">🌐 Contemporary Issues Fiqh</a></li>
+                        <li><a href="business_financial.html">Business & Financial Fiqh</a></li>
+                        <li><a href="medical_health.html">Medical & Health Fiqh</a></li>
+                        <li><a href="technology_modern.html">Technology & Modern Life Fiqh</a></li>
+                        <li><a href="environmental_social.html">Environmental & Social Fiqh</a></li>
+                        <li><a href="contemporary_issues.html">Contemporary Issues Fiqh</a></li>
                     </ul>
                 </div>
             </div>
@@ -988,12 +988,12 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
 
         <!-- Complete Surah Access -->
         <div class="content-section">
-            <h3>📖 Complete Quran - All 114 Surahs</h3>
+                                <h3>Complete Quran - All 114 Surahs</h3>
             <p>Access every Surah of the Quran with standardized format: Original Arabic, Transliteration, Saheeh Translation, and Tafsir.</p>
             
             <div class="links-grid">
                 <div class="link-category">
-                    <h4>🌙 First 30 Surahs</h4>
+                                            <h4>First 30 Surahs</h4>
                     <ul>
                         <li><a href="surah-1-al-fatiha.html">Al-Fatiha (The Opening)</a></li>
                         <li><a href="surah-2-al-baqarah.html">Al-Baqarah (The Cow)</a></li>
@@ -1029,7 +1029,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
                 </div>
                 
                 <div class="link-category">
-                    <h4>🌙 Surahs 31-60</h4>
+                                            <h4>Surahs 31-60</h4>
                     <ul>
                         <li><a href="surah-31-luqman.html">Luqman</a></li>
                         <li><a href="surah-32-as-sajdah.html">As-Sajdah (The Prostration)</a></li>
@@ -1065,7 +1065,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
                 </div>
                 
                 <div class="link-category">
-                    <h4>🌙 Surahs 61-90</h4>
+                                            <h4>Surahs 61-90</h4>
                     <ul>
                         <li><a href="surah-61-as-saff.html">As-Saff (The Ranks)</a></li>
                         <li><a href="surah-62-al-jumuah.html">Al-Jumu'ah (The Congregation)</a></li>
@@ -1101,7 +1101,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
                 </div>
                 
                 <div class="link-category">
-                    <h4>🌙 Final Surahs 91-114</h4>
+                                            <h4>Final Surahs 91-114</h4>
                     <ul>
                         <li><a href="surah-91-ash-shams.html">Ash-Shams (The Sun)</a></li>
                         <li><a href="surah-92-al-layl.html">Al-Layl (The Night)</a></li>
@@ -1492,7 +1492,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
             }
             
             initializeStabilitySystem() {
-                console.log('🔄 Initializing DeenBot Stability System...');
+                console.log('Initializing DeenBot Stability System...');
                 
                 // Start connection monitoring
                 this.startConnectionMonitoring();
@@ -1506,7 +1506,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
                 // Initialize fallback responses
                 this.initializeFallbackResponses();
                 
-                console.log('✅ DeenBot Stability System initialized');
+                console.log('DeenBot Stability System initialized');
             }
             
             startConnectionMonitoring() {
@@ -1586,7 +1586,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
                 this.state.isReconnecting = true;
                 this.state.connectionAttempts++;
                 
-                console.log(`🔄 Attempting reconnection (${this.state.connectionAttempts}/${this.config.reconnectAttempts})...`);
+                console.log(`Attempting reconnection (${this.state.connectionAttempts}/${this.config.reconnectAttempts})...`);
                 
                 try {
                     // Test connection
@@ -1600,7 +1600,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
                         this.state.connectionAttempts = 0;
                         this.state.isReconnecting = false;
                         
-                        console.log('✅ Successfully reconnected to DeenBot');
+                        console.log('Successfully reconnected to DeenBot');
                         this.logConnectionEvent('reconnection_success');
                         
                         // Notify chat interface
@@ -1611,7 +1611,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
                     }
                     
                 } catch (error) {
-                    console.log(`❌ Reconnection attempt ${this.state.connectionAttempts} failed: ${error.message}`);
+                                            console.log(`Reconnection attempt ${this.state.connectionAttempts} failed: ${error.message}`);
                     this.logConnectionEvent('reconnection_failed', { error: error.message });
                     
                     // Schedule next reconnection attempt
@@ -1678,7 +1678,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
             
             enableFallbackMode() {
                 this.config.fallbackMode = true;
-                console.log('🔄 Enabling fallback mode - DeenBot offline');
+                console.log('Enabling fallback mode - DeenBot offline');
                 
                 // Update UI for fallback mode
                 this.updateConnectionUI(false, 'fallback_mode');
@@ -1689,7 +1689,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
             
             disableFallbackMode() {
                 this.config.fallbackMode = false;
-                console.log('✅ Disabling fallback mode - DeenBot restored');
+                console.log('Disabling fallback mode - DeenBot restored');
             }
             
             showFallbackNotification() {
@@ -1729,7 +1729,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
                         }
                         
                     } catch (error) {
-                        console.log(`❌ Message send attempt ${attempt} failed: ${error.message}`);
+                        console.log(`Message send attempt ${attempt} failed: ${error.message}`);
                         
                         if (attempt === this.config.maxRetries) {
                             // All retries failed, enable fallback mode
@@ -1835,12 +1835,12 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
                 
                 // Listen for online/offline events
                 window.addEventListener('online', () => {
-                    console.log('🌐 Internet connection restored');
+                    console.log('Internet connection restored');
                     this.attemptReconnection();
                 });
                 
                 window.addEventListener('offline', () => {
-                    console.log('🌐 Internet connection lost');
+                    console.log('Internet connection lost');
                     this.updateConnectionStatus(false, 'internet_offline');
                 });
             }
@@ -1857,7 +1857,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
                     clearInterval(this.connectionMonitor);
                 }
                 
-                console.log('🧹 DeenBot Stability System cleaned up');
+                console.log('DeenBot Stability System cleaned up');
             }
         }
 
@@ -2029,14 +2029,14 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
             setupStabilityEvents() {
                 // Listen for connection restored events
                 document.addEventListener('deenbotConnectionRestored', (event) => {
-                    console.log('✅ DeenBot connection restored');
-                    this.addConnectionMessage('✅ DeenBot is back online and ready to help!', 'connection-restored');
+                    console.log('DeenBot connection restored');
+                    this.addConnectionMessage('DeenBot is back online and ready to help!', 'connection-restored');
                 });
                 
                 // Listen for connection lost events
                 document.addEventListener('deenbotConnectionLost', (event) => {
-                    console.log('❌ DeenBot connection lost');
-                    this.addConnectionMessage('⚠️ DeenBot is currently offline. Attempting to reconnect...', 'connection-lost');
+                    console.log('DeenBot connection lost');
+                    this.addConnectionMessage('DeenBot is currently offline. Attempting to reconnect...', 'connection-lost');
                 });
             }
             
@@ -2057,7 +2057,7 @@ SEE DESIGN_POLICY.md FOR COMPLETE DETAILS
             
             // Add fallback message when DeenBot is offline
             addFallbackMessage() {
-                this.addConnectionMessage('🔄 DeenBot is currently offline. I\'ll provide basic guidance while reconnecting...', 'fallback-mode');
+                                    this.addConnectionMessage('DeenBot is currently offline. I\'ll provide basic guidance while reconnecting...', 'fallback-mode');
             }
             
             // Cleanup method to prevent memory leaks
