@@ -742,7 +742,20 @@ class ComprehensiveIslamicKnowledge:
             if query_type == 'quran':
                 quran_result['relevance'] *= 1.5
             
-            if quran_result['type'] == 'quran_surah':
+            if quran_result['type'] == 'quran_general':
+                results.append({
+                    'title': quran_result['title'],
+                    'content': quran_result['content'],
+                    'source': quran_result['source'],
+                    'relevance': quran_result['relevance'],
+                    'type': 'quran_general',
+                    'summary': quran_result['summary'],
+                    'verses_count': quran_result['verses_count'],
+                    'surahs_count': quran_result['surahs_count'],
+                    'revelation_period': quran_result['revelation_period'],
+                    'language': quran_result['language']
+                })
+            elif quran_result['type'] == 'quran_surah':
                 results.append({
                     'title': f"Quran - {quran_result['surah_name']} ({quran_result['arabic_name']})",
                     'content': f"{quran_result['translation']} - {quran_result['summary']}",
@@ -1331,6 +1344,22 @@ class ComprehensiveIslamicKnowledge:
         """Comprehensive Quran search across all Surahs and verses"""
         results = []
         query_lower = query.lower()
+        
+        # Handle general Quran queries
+        if query_lower in ['quran', 'koran', 'qur\'an', 'holy book', 'divine book']:
+            # Return general Quran information
+            results.append({
+                'type': 'quran_general',
+                'title': 'The Holy Quran - Divine Revelation',
+                'content': 'The Quran is the holy book of Islam, revealed to Prophet Muhammad (PBUH) over 23 years. It contains 114 Surahs (chapters) with over 6,000 verses covering all aspects of life including faith, worship, morality, law, history, and guidance for humanity.',
+                'source': 'Quran - Divine Revelation',
+                'relevance': 1.0,
+                'summary': 'The Quran is the final divine revelation, the word of Allah, and the primary source of Islamic law and guidance.',
+                'verses_count': 'Over 6,000 verses',
+                'surahs_count': 114,
+                'revelation_period': '23 years',
+                'language': 'Arabic'
+            })
         
         for surah_key, surah_data in self.quran_database.items():
             # Search in surah name and translation
