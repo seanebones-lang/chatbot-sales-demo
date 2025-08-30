@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Technology Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .tech-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .tech-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Technology Guide</h1>
+            <p>Complete guide to Islamic perspectives on technology, digital ethics, and navigating the modern technological world according to Islamic principles</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Technology Ethics</h2>
+            <p>Islam encourages the pursuit of knowledge and beneficial technology while maintaining ethical boundaries. Technology should serve humanity, promote good, and not lead to harm or sinful behavior.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">وَقُل رَّبِّ زِدْنِي عِلْمًا</div>
+                <div class="translation">"And say, 'My Lord, increase me in knowledge.'" (Quran 20:114)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "Seeking knowledge is obligatory upon every Muslim." (Ibn Majah)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Core Principles of Islamic Technology Use</h2>
+            
+            <div class="tech-card">
+                <h4>Beneficial Purpose</h4>
+                <ul>
+                    <li><strong>Positive Impact:</strong> Technology should benefit humanity and society</li>
+                    <li><strong>Knowledge Enhancement:</strong> Use technology to increase beneficial knowledge</li>
+                    <li><strong>Communication Improvement:</strong> Enhance communication and relationships</li>
+                    <li><strong>Problem Solving:</strong> Use technology to solve real problems</li>
+                    <li><strong>Efficiency:</strong> Improve efficiency in daily tasks and worship</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>Ethical Boundaries</h4>
+                <ul>
+                    <li><strong>Halal Content:</strong> Avoid accessing or sharing inappropriate content</li>
+                    <li><strong>Privacy Protection:</strong> Respect privacy of others and protect your own</li>
+                    <li><strong>Truth and Honesty:</strong> Share only truthful and verified information</li>
+                    <li><strong>Respect for Others:</strong> Treat others with respect online</li>
+                    <li><strong>Time Management:</strong> Don't let technology consume excessive time</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>Balance and Moderation</h4>
+                <ul>
+                    <li><strong>Digital Detox:</strong> Take regular breaks from technology</li>
+                    <li><strong>Real Relationships:</strong> Maintain face-to-face relationships</li>
+                    <li><strong>Physical Activity:</strong> Balance screen time with physical activity</li>
+                    <li><strong>Spiritual Connection:</strong> Don't let technology interfere with worship</li>
+                    <li><strong>Family Time:</strong> Prioritize family time over screen time</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Social Media and Digital Communication</h2>
+            
+            <div class="tech-card">
+                <h4>Islamic Social Media Guidelines</h4>
+                <ul>
+                    <li><strong>Truthful Sharing:</strong> Only share verified and truthful information</li>
+                    <li><strong>Respectful Communication:</strong> Communicate with respect and kindness</li>
+                    <li><strong>Privacy Respect:</strong> Respect others' privacy and don't share personal information</li>
+                    <li><strong>Positive Content:</strong> Share content that benefits others</li>
+                    <li><strong>Time Management:</strong> Limit time spent on social media</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Prophetic Guidance</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "Whoever believes in Allah and the Last Day, let him speak good or remain silent." (Sahih Bukhari)</p>
+                </div>
+            </div>
+
+            <div class="tech-card">
+                <h4>Digital Etiquette</h4>
+                <ul>
+                    <li><strong>Response Time:</strong> Respond to messages in a reasonable time</li>
+                    <li><strong>Professional Communication:</strong> Maintain professional tone in work communications</li>
+                    <li><strong>Group Chat Etiquette:</strong> Be respectful in group conversations</li>
+                    <li><strong>Content Sharing:</strong> Think before sharing content</li>
+                    <li><strong>Digital Footprint:</strong> Be mindful of your online reputation</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>Online Safety and Security</h4>
+                <ul>
+                    <li><strong>Password Security:</strong> Use strong, unique passwords</li>
+                    <li><strong>Two-Factor Authentication:</strong> Enable additional security measures</li>
+                    <li><strong>Privacy Settings:</strong> Review and adjust privacy settings</li>
+                    <li><strong>Scam Awareness:</strong> Be aware of online scams and fraud</li>
+                    <li><strong>Data Protection:</strong> Protect personal and financial information</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Technology in Islamic Education</h2>
+            
+            <div class="tech-card">
+                <h4>Digital Learning Tools</h4>
+                <ul>
+                    <li><strong>Online Quran Apps:</strong> Use apps for Quran memorization and recitation</li>
+                    <li><strong>Islamic Learning Platforms:</strong> Access online Islamic courses and lectures</li>
+                    <li><strong>Digital Libraries:</strong> Access Islamic books and resources online</li>
+                    <li><strong>Virtual Classes:</strong> Participate in online Islamic education</li>
+                    <li><strong>Educational Videos:</strong> Watch Islamic educational content</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>Technology-Enhanced Worship</h4>
+                <ul>
+                    <li><strong>Prayer Apps:</strong> Use apps for prayer times and qibla direction</li>
+                    <li><strong>Digital Quran:</strong> Access Quran on digital devices</li>
+                    <li><strong>Islamic Calendars:</strong> Track Islamic dates and events</li>
+                    <li><strong>Dua Collections:</strong> Access collections of authentic duas</li>
+                    <li><strong>Islamic Reminders:</strong> Set reminders for Islamic practices</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>Online Islamic Communities</h4>
+                <ul>
+                    <li><strong>Virtual Study Groups:</strong> Join online Islamic study circles</li>
+                    <li><strong>Islamic Forums:</strong> Participate in Islamic discussion forums</li>
+                    <li><strong>Social Media Groups:</strong> Join Islamic social media groups</li>
+                    <li><strong>Online Events:</strong> Attend virtual Islamic events and conferences</li>
+                    <li><strong>Digital Networking:</strong> Connect with Muslims worldwide</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Artificial Intelligence and Emerging Technologies</h2>
+            
+            <div class="tech-card">
+                <h4>Islamic Perspectives on AI</h4>
+                <ul>
+                    <li><strong>Beneficial Applications:</strong> Use AI for beneficial purposes</li>
+                    <li><strong>Ethical Considerations:</strong> Ensure AI follows ethical guidelines</li>
+                    <li><strong>Human Dignity:</strong> Maintain human dignity and autonomy</li>
+                    <li><strong>Accountability:</strong> Ensure human accountability for AI decisions</li>
+                    <li><strong>Transparency:</strong> Promote transparency in AI systems</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>Emerging Technology Ethics</h4>
+                <ul>
+                    <li><strong>Biotechnology:</strong> Consider ethical implications of biotech</li>
+                    <li><strong>Virtual Reality:</strong> Use VR for beneficial purposes</li>
+                    <li><strong>Cryptocurrency:</strong> Understand Islamic perspectives on digital currency</li>
+                    <li><strong>Internet of Things:</strong> Consider privacy and security implications</li>
+                    <li><strong>Blockchain:</strong> Explore halal applications of blockchain technology</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Digital Privacy and Data Ethics</h2>
+            
+            <div class="tech-card">
+                <h4>Islamic Privacy Principles</h4>
+                <ul>
+                    <li><strong>Personal Privacy:</strong> Protect personal information and privacy</li>
+                    <li><strong>Others' Privacy:</strong> Respect privacy of others</li>
+                    <li><strong>Confidentiality:</strong> Maintain confidentiality of sensitive information</li>
+                    <li><strong>Data Protection:</strong> Protect data from unauthorized access</li>
+                    <li><strong>Consent:</strong> Obtain consent before sharing personal information</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>Data Ethics</h4>
+                <ul>
+                    <li><strong>Truthful Data:</strong> Ensure data accuracy and truthfulness</li>
+                    <li><strong>Fair Use:</strong> Use data fairly and justly</li>
+                    <li><strong>Transparency:</strong> Be transparent about data collection and use</li>
+                    <li><strong>Accountability:</strong> Take responsibility for data handling</li>
+                    <li><strong>Beneficial Purpose:</strong> Use data only for beneficial purposes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Technology Addiction and Digital Wellness</h2>
+            
+            <div class="tech-card">
+                <h4>Recognizing Technology Addiction</h4>
+                <ul>
+                    <li><strong>Excessive Use:</strong> Spending excessive time on devices</li>
+                    <li><strong>Neglected Responsibilities:</strong> Neglecting work, family, or worship</li>
+                    <li><strong>Withdrawal Symptoms:</strong> Feeling anxious when away from devices</li>
+                    <li><strong>Sleep Disruption:</strong> Technology interfering with sleep</li>
+                    <li><strong>Social Isolation:</strong> Preferring online interaction over real relationships</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>Digital Wellness Strategies</h4>
+                <ul>
+                    <li><strong>Screen Time Limits:</strong> Set daily screen time limits</li>
+                    <li><strong>Digital Detox:</strong> Take regular breaks from technology</li>
+                    <li><strong>Mindful Usage:</strong> Be mindful of how you use technology</li>
+                    <li><strong>Alternative Activities:</strong> Engage in offline activities</li>
+                    <li><strong>Family Time:</strong> Dedicate device-free family time</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>Balanced Technology Use</h4>
+                <ul>
+                    <li><strong>Purposeful Usage:</strong> Use technology with clear purpose</li>
+                    <li><strong>Quality Over Quantity:</strong> Focus on quality content over quantity</li>
+                    <li><strong>Real Connections:</strong> Prioritize real human connections</li>
+                    <li><strong>Physical Activity:</strong> Balance screen time with physical activity</li>
+                    <strong>Spiritual Growth:</strong> Don't let technology interfere with spiritual practices</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Technology in Islamic Business and Finance</h2>
+            
+            <div class="tech-card">
+                <h4>Digital Islamic Finance</h4>
+                <ul>
+                    <li><strong>Islamic Banking Apps:</strong> Use apps for Islamic banking services</li>
+                    <li><strong>Halal Investment Platforms:</strong> Access halal investment opportunities</li>
+                    <li><strong>Zakat Calculators:</strong> Use digital tools for zakat calculation</li>
+                    <li><strong>Islamic Financial Education:</strong> Access online Islamic finance courses</li>
+                    <li><strong>Digital Payment Solutions:</strong> Use halal payment methods</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>E-Commerce and Online Business</h4>
+                <ul>
+                    <li><strong>Halal Product Verification:</strong> Verify halal status of products online</li>
+                    <li><strong>Islamic Business Platforms:</strong> Use platforms that follow Islamic principles</li>
+                    <li><strong>Digital Marketing Ethics:</strong> Follow ethical marketing practices</li>
+                    <li><strong>Customer Privacy:</strong> Protect customer data and privacy</li>
+                    <li><strong>Transparent Pricing:</strong> Provide clear and honest pricing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Future of Islamic Technology</h2>
+            
+            <div class="tech-card">
+                <h4>Emerging Trends</h4>
+                <ul>
+                    <li><strong>Islamic Fintech:</strong> Islamic financial technology innovations</li>
+                    <li><strong>Halal Tech Startups:</strong> Technology companies following Islamic principles</li>
+                    <li><strong>Digital Islamic Education:</strong> Advanced online Islamic learning platforms</li>
+                    <li><strong>Smart Islamic Apps:</strong> Intelligent apps for Islamic practices</li>
+                    <li><strong>Virtual Islamic Communities:</strong> Advanced virtual Islamic community platforms</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>Preparing for the Future</h4>
+                <ul>
+                    <li><strong>Digital Literacy:</strong> Develop digital literacy skills</li>
+                    <li><strong>Ethical Awareness:</strong> Stay informed about technology ethics</li>
+                    <li><strong>Skill Development:</strong> Develop relevant technology skills</li>
+                    <li><strong>Community Engagement:</strong> Engage with Islamic technology communities</li>
+                    <li><strong>Continuous Learning:</strong> Keep learning about new technologies</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="islamic-business.html">Islamic Business Ethics</a></li>
+                <li><a href="islamic-finance.html">Islamic Finance Guide</a></li>
+                <li><a href="islamic-education.html">Islamic Education Guide</a></li>
+                <li><a href="islamic-community.html">Islamic Community Guide</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>

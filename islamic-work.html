@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Work and Career Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .work-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .work-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Work and Career Guide</h1>
+            <p>Complete guide to Islamic work ethics, career development, and professional conduct based on Quranic teachings and prophetic guidance</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Work Ethics</h2>
+            <p>Work in Islam is considered a form of worship (ibadah) when done with the right intention and in accordance with Islamic principles. It is a means of earning halal livelihood while serving humanity and contributing to society's well-being.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ</div>
+                <div class="translation">"And say, 'Work [righteousness]: Soon will Allah observe your work, and His Messenger, and the Believers.'" (Quran 9:105)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "The best earnings are those earned by a man's own hands." (Sahih Bukhari)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Core Principles of Islamic Work</h2>
+            
+            <div class="work-card">
+                <h4>Intention and Purpose</h4>
+                <ul>
+                    <li><strong>Divine Purpose:</strong> Work to please Allah and serve humanity</li>
+                    <li><strong>Halal Livelihood:</strong> Earn income through lawful means</li>
+                    <li><strong>Self-Sufficiency:</strong> Avoid dependency on others</li>
+                    <li><strong>Family Support:</strong> Provide for family needs</li>
+                    <li><strong>Community Benefit:</strong> Contribute to society's welfare</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Excellence and Quality</h4>
+                <ul>
+                    <li><strong>Best Effort:</strong> Always give your best effort</li>
+                    <li><strong>Quality Work:</strong> Maintain high standards of quality</li>
+                    <li><strong>Continuous Improvement:</strong> Strive to improve skills and performance</li>
+                    <li><strong>Attention to Detail:</strong> Pay attention to small details</li>
+                    <li><strong>Professional Pride:</strong> Take pride in your work</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Prophetic Guidance</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "Allah loves that when one of you does something, he does it well." (Tabarani)</p>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <h4>Honesty and Integrity</h4>
+                <ul>
+                    <li><strong>Truthfulness:</strong> Always be honest in all dealings</li>
+                    <li><strong>Trustworthiness:</strong> Be reliable and trustworthy</li>
+                    <li><strong>Transparency:</strong> Be open and transparent in work</li>
+                    <li><strong>Accountability:</strong> Take responsibility for your actions</li>
+                    <li><strong>Ethical Behavior:</strong> Follow ethical standards in all situations</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Fairness and Justice</h4>
+                <ul>
+                    <li><strong>Equal Treatment:</strong> Treat all colleagues fairly</li>
+                    <li><strong>No Discrimination:</strong> Avoid discrimination based on any factor</li>
+                    <li><strong>Merit-Based Decisions:</strong> Make decisions based on merit</li>
+                    <li><strong>Conflict Resolution:</strong> Resolve conflicts fairly and justly</li>
+                    <li><strong>Respect for Rights:</strong> Respect the rights of all stakeholders</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Choosing a Career Path</h2>
+            
+            <div class="work-card">
+                <h4>Islamic Criteria for Career Choice</h4>
+                <ul>
+                    <li><strong>Halal Nature:</strong> Work must be lawful and permissible</li>
+                    <li><strong>Social Benefit:</strong> Work should benefit society</li>
+                    <li><strong>Personal Interest:</strong> Choose work that interests you</li>
+                    <li><strong>Skill Match:</strong> Work should match your abilities</li>
+                    <li><strong>Financial Viability:</strong> Work should provide adequate income</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Prohibited Professions</h4>
+                <ul>
+                    <li><strong>Interest-Based Finance:</strong> Banking with interest</li>
+                    <li><strong>Gambling and Gaming:</strong> Casinos and gambling establishments</li>
+                    <li><strong>Alcohol and Drugs:</strong> Production, sale, or distribution</li>
+                    <li><strong>Adult Entertainment:</strong> Pornography and related services</li>
+                    <li><strong>Weapons Trade:</strong> Illegal or unethical weapon sales</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Recommended Professions</h4>
+                <ul>
+                    <li><strong>Healthcare:</strong> Medicine, nursing, pharmacy, therapy</li>
+                    <li><strong>Education:</strong> Teaching, research, administration</li>
+                    <li><strong>Technology:</strong> Software development, IT services</li>
+                    <li><strong>Business:</strong> Entrepreneurship, management, consulting</li>
+                    <li><strong>Public Service:</strong> Government, non-profit organizations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Workplace Ethics and Conduct</h2>
+            
+            <div class="work-card">
+                <h4>Professional Behavior</h4>
+                <ul>
+                    <li><strong>Punctuality:</strong> Arrive on time for work and meetings</li>
+                    <li><strong>Dress Code:</strong> Maintain professional and modest appearance</li>
+                    <li><strong>Communication:</strong> Use respectful and professional language</li>
+                    <li><strong>Confidentiality:</strong> Protect company and client information</li>
+                    <li><strong>Conflict Resolution:</strong> Handle disagreements professionally</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Teamwork and Collaboration</h4>
+                <ul>
+                    <li><strong>Mutual Respect:</strong> Respect colleagues and their contributions</li>
+                    <li><strong>Knowledge Sharing:</strong> Share expertise and help others</li>
+                    <li><strong>Conflict Management:</strong> Resolve disputes amicably</li>
+                    <li><strong>Support System:</strong> Help colleagues in need</li>
+                    <li><strong>Celebration:</strong> Recognize team achievements</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Leadership Ethics</h4>
+                <ul>
+                    <li><strong>Servant Leadership:</strong> Serve your team, don't rule over them</li>
+                    <li><strong>Fair Decision Making:</strong> Make decisions based on merit</li>
+                    <li><strong>Transparency:</strong> Be open about decisions and processes</li>
+                    <li><strong>Accountability:</strong> Take responsibility for outcomes</li>
+                    <li><strong>Employee Development:</strong> Invest in team growth and development</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Career Development and Growth</h2>
+            
+            <div class="work-card">
+                <h4>Continuous Learning</h4>
+                <ul>
+                    <li><strong>Skill Development:</strong> Continuously improve your skills</li>
+                    <li><strong>Professional Certifications:</strong> Obtain relevant certifications</li>
+                    <li><strong>Higher Education:</strong> Pursue advanced degrees when beneficial</li>
+                    <li><strong>Industry Knowledge:</strong> Stay updated with industry trends</li>
+                    <li><strong>Cross-Training:</strong> Learn skills outside your immediate role</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Networking and Relationships</h4>
+                <ul>
+                    <li><strong>Professional Networks:</strong> Build professional relationships</li>
+                    <li><strong>Mentorship:</strong> Seek mentors and be a mentor</li>
+                    <li><strong>Industry Events:</strong> Attend conferences and seminars</li>
+                    <li><strong>Online Presence:</strong> Maintain professional online presence</li>
+                    <li><strong>Community Involvement:</strong> Participate in professional communities</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Career Planning</h4>
+                <ul>
+                    <li><strong>Goal Setting:</strong> Set clear career goals</li>
+                    <li><strong>Action Plans:</strong> Create actionable plans to achieve goals</li>
+                    <li><strong>Regular Review:</strong> Regularly review and adjust plans</li>
+                    <li><strong>Skill Gap Analysis:</strong> Identify and fill skill gaps</li>
+                    <li><strong>Long-term Vision:</strong> Develop long-term career vision</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Work-Life Balance</h2>
+            
+            <div class="work-card">
+                <h4>Islamic Perspective on Balance</h4>
+                <ul>
+                    <li><strong>Moderation:</strong> Islam teaches moderation in all things</li>
+                    <li><strong>Family Priority:</strong> Family should not be neglected for work</li>
+                    <li><strong>Health Maintenance:</strong> Physical and mental health are important</li>
+                    <li><strong>Spiritual Growth:</strong> Maintain spiritual practices alongside work</li>
+                    <li><strong>Community Involvement:</strong> Stay connected with community</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Practical Strategies</h4>
+                <ul>
+                    <li><strong>Time Management:</strong> Effective time management techniques</li>
+                    <li><strong>Boundary Setting:</strong> Set clear boundaries between work and personal life</li>
+                    <li><strong>Delegation:</strong> Learn to delegate tasks effectively</li>
+                    <li><strong>Stress Management:</strong> Develop stress management techniques</li>
+                    <li><strong>Regular Breaks:</strong> Take regular breaks and vacations</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Family Integration</h4>
+                <ul>
+                    <li><strong>Family Time:</strong> Dedicate quality time to family</li>
+                    <li><strong>Work Discussion:</strong> Share work experiences with family</li>
+                    <li><strong>Family Support:</strong> Seek family support for career decisions</li>
+                    <li><strong>Role Modeling:</strong> Be a good role model for children</li>
+                    <li><strong>Shared Goals:</strong> Align career goals with family goals</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Financial Management in Career</h2>
+            
+            <div class="work-card">
+                <h4>Islamic Financial Principles</h4>
+                <ul>
+                    <li><strong>Halal Income:</strong> Ensure all income is from lawful sources</li>
+                    <li><strong>Zakat Payment:</strong> Pay zakat on accumulated wealth</li>
+                    <li><strong>Sadaqah:</strong> Give voluntary charity regularly</li>
+                    <li><strong>Debt Avoidance:</strong> Avoid unnecessary debt</li>
+                    <li><strong>Investment Ethics:</strong> Invest only in halal ventures</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Salary Negotiation</h4>
+                <ul>
+                    <li><strong>Market Research:</strong> Research market rates for your position</li>
+                    <li><strong>Value Demonstration:</strong> Demonstrate your value to the organization</li>
+                    <li><strong>Fair Compensation:</strong> Seek fair and just compensation</li>
+                    <li><strong>Benefits Consideration:</strong> Consider total compensation package</li>
+                    <li><strong>Professional Approach:</strong> Maintain professional demeanor during negotiations</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Financial Planning</h4>
+                <ul>
+                    <li><strong>Budget Creation:</strong> Create and maintain a budget</li>
+                    <li><strong>Emergency Fund:</strong> Build emergency savings fund</li>
+                    <li><strong>Retirement Planning:</strong> Plan for retirement early</li>
+                    <li><strong>Insurance Coverage:</strong> Maintain adequate insurance coverage</li>
+                    <li><strong>Investment Strategy:</strong> Develop long-term investment strategy</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Challenges and Solutions</h2>
+            
+            <div class="work-card">
+                <h4>Common Workplace Challenges</h4>
+                <ul>
+                    <li><strong>Discrimination:</strong> Handle discrimination professionally and legally</li>
+                    <li><strong>Workplace Politics:</strong> Navigate workplace politics ethically</li>
+                    <li><strong>Workload Management:</strong> Manage excessive workload effectively</li>
+                    <li><strong>Career Plateaus:</strong> Overcome career stagnation</li>
+                    <li><strong>Work-Life Imbalance:</strong> Address work-life balance issues</li>
+                </ul>
+            </div>
+
+            <div class="work-card">
+                <h4>Islamic Solutions</h4>
+                <ul>
+                    <li><strong>Prayer and Dua:</strong> Seek Allah's help in difficult situations</li>
+                    <li><strong>Patience and Perseverance:</strong> Exercise patience during challenges</li>
+                    <li><strong>Seeking Advice:</strong> Consult with knowledgeable people</li>
+                    <li><strong>Professional Development:</strong> Use challenges as growth opportunities</li>
+                    <li><strong>Alternative Paths:</strong> Consider alternative career paths when necessary</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="islamic-business.html">Islamic Business Ethics</a></li>
+                <li><a href="islamic-finance.html">Islamic Finance Guide</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="islamic-community.html">Islamic Community Guide</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>
