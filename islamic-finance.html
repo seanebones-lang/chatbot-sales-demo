@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Finance Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .finance-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .finance-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .finance-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Finance Guide</h1>
+            <p>Complete guide to halal banking, investment principles, and Islamic financial ethics based on Quranic teachings and prophetic guidance</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Finance</h2>
+            <p>Islamic finance is based on the principles of Shariah (Islamic law), which prohibits interest (riba), excessive uncertainty (gharar), and gambling (maysir). Instead, it promotes risk-sharing, asset-backed transactions, and ethical business practices.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">يَمْحَقُ اللَّهُ الرِّبَا وَيُرْبِي الصَّدَقَاتِ</div>
+                <div class="translation">"Allah destroys interest and gives increase for charities." (Quran 2:276)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "Gold for gold, silver for silver, wheat for wheat, barley for barley, dates for dates, salt for salt - like for like, equal for equal, and hand to hand. If anyone gives more or asks for more, he has dealt in riba." (Muslim)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Core Principles of Islamic Finance</h2>
+            
+            <div class="finance-card">
+                <h4>Prohibition of Riba (Interest)</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Any excess or increase in a loan or debt</li>
+                    <li><strong>Types:</strong> Riba al-Nasiyah (interest on loans) and Riba al-Fadl (excess in exchange)</li>
+                    <li><strong>Prohibition:</strong> Strictly forbidden in all forms</li>
+                    <li><strong>Alternative:</strong> Profit-sharing and asset-backed financing</li>
+                    <li><strong>Benefits:</strong> Promotes fair and ethical financial practices</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Prohibition</h5>
+                    <div class="arabic-text">يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَأْكُلُوا الرِّبَا أَضْعَافًا مُّضَاعَفَةً</div>
+                    <div class="translation">"O you who have believed, do not consume usury, doubled and multiplied." (Quran 3:130)</div>
+                </div>
+            </div>
+
+            <div class="finance-card">
+                <h4>Risk-Sharing (Musharakah)</h4>
+                <ul>
+                    <li><strong>Principle:</strong> Both parties share in profits and losses</li>
+                    <li><strong>Application:</strong> Partnership-based financing arrangements</li>
+                    <li><strong>Benefits:</strong> Fair distribution of risk and reward</li>
+                    <li><strong>Examples:</strong> Joint business ventures, real estate partnerships</li>
+                    <li><strong>Ethics:</strong> Promotes cooperation and mutual benefit</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>Asset-Backed Transactions</h4>
+                <ul>
+                    <li><strong>Principle:</strong> All transactions must be backed by real assets</li>
+                    <li><strong>Purpose:</strong> Prevents speculation and gambling</li>
+                    <li><strong>Types:</strong> Real estate, commodities, business assets</li>
+                    <li><strong>Benefits:</strong> Stable and sustainable financial system</li>
+                    <li><strong>Regulation:</strong> Ensures transparency and accountability</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>Prohibition of Gharar (Uncertainty)</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Excessive uncertainty or ambiguity in contracts</li>
+                    <li><strong>Examples:</strong> Selling unborn animals, unknown quantities</li>
+                    <li><strong>Solution:</strong> Clear terms and conditions in all contracts</li>
+                    <li><strong>Benefits:</strong> Reduces disputes and promotes fairness</li>
+                    <li><strong>Application:</strong> Insurance, derivatives, and complex financial products</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Banking Products</h2>
+            
+            <div class="finance-card">
+                <h4>Current Accounts</h4>
+                <ul>
+                    <li><strong>Wadiah:</strong> Safe-keeping account with bank's permission to use funds</li>
+                    <li><strong>No Interest:</strong> No interest paid on deposits</li>
+                    <li><strong>Services:</strong> Check writing, ATM access, online banking</li>
+                    <li><strong>Fees:</strong> May charge service fees for account maintenance</li>
+                    <li><strong>Benefits:</strong> Halal banking services for daily needs</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>Savings Accounts</h4>
+                <ul>
+                    <li><strong>Mudarabah:</strong> Profit-sharing investment account</li>
+                    <li><strong>Risk-Sharing:</strong> Bank invests funds and shares profits</li>
+                    <li><strong>No Guaranteed Returns:</strong> Returns depend on investment performance</li>
+                    <li><strong>Transparency:</strong> Clear disclosure of investment activities</li>
+                    <li><strong>Flexibility:</strong> Various terms and conditions available</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>Investment Accounts</h4>
+                <ul>
+                    <li><strong>Musharakah:</strong> Partnership-based investment accounts</li>
+                    <li><strong>Profit-Sharing:</strong> Share in actual profits and losses</li>
+                    <li><strong>Asset-Backed:</strong> Investments in real economic activities</li>
+                    <li><strong>Transparency:</strong> Regular reporting on investment performance</li>
+                    <li><strong>Diversification:</strong> Various investment options available</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Financing Methods</h2>
+            
+            <div class="finance-card">
+                <h4>Murabaha (Cost-Plus Financing)</h4>
+                <ul>
+                    <li><strong>Process:</strong> Bank purchases asset and sells to customer at marked-up price</li>
+                    <li><strong>Payment:</strong> Customer pays in installments or lump sum</li>
+                    <li><strong>Transparency:</strong> Clear disclosure of cost and profit margin</li>
+                    <li><strong>Applications:</strong> Vehicle financing, home purchases, business equipment</li>
+                    <li><strong>Benefits:</strong> Halal alternative to conventional loans</li>
+                </ul>
+                
+                <div class="step-box">
+                    <h5>How Murabaha Works</h5>
+                    <p>1. Customer requests financing for specific asset<br>2. Bank purchases the asset<br>3. Bank sells asset to customer at cost plus profit<br>4. Customer pays in agreed installments</p>
+                </div>
+            </div>
+
+            <div class="finance-card">
+                <h4>Ijara (Leasing)</h4>
+                <ul>
+                    <li><strong>Principle:</strong> Bank owns asset and leases it to customer</li>
+                    <li><strong>Ownership:</strong> Customer can purchase asset at end of lease</li>
+                    <li><strong>Risks:</strong> Bank bears ownership risks and responsibilities</li>
+                    <li><strong>Applications:</strong> Vehicle leasing, equipment leasing, property leasing</li>
+                    <li><strong>Benefits:</strong> Flexible financing with option to purchase</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>Musharakah (Partnership)</h4>
+                <ul>
+                    <li><strong>Structure:</strong> Bank and customer become partners in venture</li>
+                    <li><strong>Profit-Sharing:</strong> Share profits according to agreed ratio</li>
+                    <li><strong>Loss-Sharing:</strong> Share losses according to capital contribution</li>
+                    <li><strong>Applications:</strong> Business financing, real estate development</li>
+                    <li><strong>Benefits:</strong> True partnership with shared risks and rewards</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>Sukuk (Islamic Bonds)</h4>
+                <ul>
+                    <li><strong>Definition:</strong> Asset-backed investment certificates</li>
+                    <li><strong>Structure:</strong> Ownership in underlying assets or projects</li>
+                    <li><strong>Returns:</strong> Based on actual asset performance</li>
+                    <li><strong>Types:</strong> Government, corporate, and project-specific sukuk</li>
+                    <li><strong>Benefits:</strong> Halal investment in diversified portfolios</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Investment Principles</h2>
+            
+            <div class="finance-card">
+                <h4>Halal Investment Criteria</h4>
+                <ul>
+                    <li><strong>Business Activities:</strong> Must be halal and ethical</li>
+                    <li><strong>Financial Ratios:</strong> Debt-to-equity limits</li>
+                    <li><strong>Interest Income:</strong> Must be below acceptable thresholds</li>
+                    <li><strong>Prohibited Sectors:</strong> Alcohol, gambling, pork, adult entertainment</li>
+                    <li><strong>Screening Process:</strong> Multiple levels of Islamic compliance</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>ESG Integration</h4>
+                <ul>
+                    <li><strong>Environmental:</strong> Sustainable and eco-friendly practices</li>
+                    <li><strong>Social:</strong> Fair labor practices and community benefit</li>
+                    <li><strong>Governance:</strong> Ethical business practices and transparency</li>
+                    <li><strong>Alignment:</strong> Natural fit with Islamic values</li>
+                    <li><strong>Benefits:</strong> Long-term sustainable returns</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>Portfolio Diversification</h4>
+                <ul>
+                    <li><strong>Asset Classes:</strong> Equities, real estate, commodities</li>
+                    <li><strong>Geographic Spread:</strong> Global investment opportunities</li>
+                    <li><strong>Sector Allocation:</strong> Balanced across different industries</li>
+                    <li><strong>Risk Management:</strong> Appropriate risk-return profiles</li>
+                    <li><strong>Islamic Funds:</strong> Professionally managed halal portfolios</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Insurance (Takaful)</h2>
+            
+            <div class="finance-card">
+                <h4>Principles of Takaful</h4>
+                <ul>
+                    <li><strong>Mutual Protection:</strong> Participants protect each other</li>
+                    <li><strong>Risk-Sharing:</strong> Collective sharing of risks and losses</li>
+                    <li><strong>No Interest:</strong> No riba in insurance operations</li>
+                    <li><strong>Transparency:</strong> Clear disclosure of operations and costs</li>
+                    <li><strong>Charitable Component:</strong> Surplus shared with participants</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>Types of Takaful</h4>
+                <ul>
+                    <li><strong>Family Takaful:</strong> Life insurance and savings</li>
+                    <li><strong>General Takaful:</strong> Property, vehicle, and health insurance</li>
+                    <li><strong>Retakaful:</strong> Reinsurance for takaful companies</li>
+                    <li><strong>Micro Takaful:</strong> Insurance for low-income individuals</li>
+                    <li><strong>Corporate Takaful:</strong> Business and employee benefits</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Business Ethics</h2>
+            
+            <div class="finance-card">
+                <h4>Fair Business Practices</h4>
+                <ul>
+                    <li><strong>Honesty:</strong> Complete transparency in all dealings</li>
+                    <li><strong>Fair Pricing:</strong> Reasonable profit margins</li>
+                    <li><strong>Quality Standards:</strong> High-quality products and services</li>
+                    <li><strong>Customer Service:</strong> Excellent service and support</li>
+                    <li><strong>Social Responsibility:</strong> Contribution to community welfare</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>Employee Rights</h4>
+                <ul>
+                    <li><strong>Fair Wages:</strong> Just compensation for work performed</li>
+                    <li><strong>Safe Environment:</strong> Safe and healthy workplace</li>
+                    <li><strong>Equal Treatment:</strong> No discrimination based on religion, race, or gender</li>
+                    <li><strong>Professional Development:</strong> Training and growth opportunities</li>
+                    <li><strong>Work-Life Balance:</strong> Reasonable working hours and conditions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Modern Islamic Finance</h2>
+            
+            <div class="finance-card">
+                <h4>Digital Islamic Banking</h4>
+                <ul>
+                    <li><strong>Online Banking:</strong> Full digital banking services</li>
+                    <li><strong>Mobile Apps:</strong> Banking on smartphones and tablets</li>
+                    <li><strong>Digital Payments:</strong> Halal payment solutions</li>
+                    <li><strong>Cryptocurrency:</strong> Islamic-compliant digital currencies</li>
+                    <li><strong>Fintech Integration:</strong> Modern technology solutions</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>Islamic Fintech</h4>
+                <ul>
+                    <li><strong>Peer-to-Peer Lending:</strong> Direct lending platforms</li>
+                    <li><strong>Crowdfunding:</strong> Islamic crowdfunding platforms</li>
+                    <li><strong>Digital Wallets:</strong> Halal digital payment solutions</li>
+                    <li><strong>Investment Apps:</strong> Mobile investment platforms</li>
+                    <li><strong>Blockchain:</strong> Transparent and secure transactions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Benefits of Islamic Finance</h2>
+            
+            <div class="finance-card">
+                <h4>Economic Benefits</h4>
+                <ul>
+                    <li><strong>Stability:</strong> Asset-backed transactions reduce speculation</li>
+                    <li><strong>Transparency:</strong> Clear terms and conditions</li>
+                    <li><strong>Risk-Sharing:</strong> Fair distribution of risks and rewards</li>
+                    <li><strong>Real Economy:</strong> Focus on productive economic activities</li>
+                    <li><strong>Inclusion:</strong> Access to finance for underserved communities</li>
+                </ul>
+            </div>
+
+            <div class="finance-card">
+                <h4>Social Benefits</h4>
+                <ul>
+                    <li><strong>Ethical Investing:</strong> Aligns with moral and religious values</li>
+                    <li><strong>Community Development:</strong> Supports local and global communities</li>
+                    <li><strong>Environmental Protection:</strong> Promotes sustainable practices</li>
+                    <li><strong>Fair Distribution:</strong> Equitable distribution of wealth</li>
+                    <li><strong>Financial Literacy:</strong> Educates about responsible finance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="charity-guide.html">Charity and Zakat Guide</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>

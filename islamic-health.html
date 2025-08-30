@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Health Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .health-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .health-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .health-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Health Guide</h1>
+            <p>Complete guide to Islamic health practices, medical traditions, and wellness based on Quranic teachings and prophetic guidance</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Health</h2>
+            <p>Islam places great emphasis on maintaining good health and well-being. The Prophet sallallahu alayhi wa sallam taught that health is one of the greatest blessings from Allah, and Muslims are encouraged to take care of their bodies and seek medical treatment when needed.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ</div>
+                <div class="translation">"And do not throw yourselves into destruction." (Quran 2:195)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "There is no disease that Allah has created, except that He also has created its treatment." (Sahih Bukhari)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Health Principles</h2>
+            
+            <div class="health-card">
+                <h4>Prevention Over Cure</h4>
+                <ul>
+                    <li><strong>Cleanliness:</strong> Maintain personal and environmental hygiene</li>
+                    <li><strong>Healthy Diet:</strong> Eat nutritious and halal foods</li>
+                    <li><strong>Regular Exercise:</strong> Physical activity for fitness</li>
+                    <li><strong>Mental Health:</strong> Maintain emotional and spiritual well-being</li>
+                    <li><strong>Preventive Care:</strong> Regular health check-ups</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Prophetic Guidance</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "Cleanliness is half of faith." (Muslim)</p>
+                </div>
+            </div>
+
+            <div class="health-card">
+                <h4>Balance and Moderation</h4>
+                <ul>
+                    <li><strong>Moderate Eating:</strong> Avoid overeating and waste</li>
+                    <li><strong>Balanced Lifestyle:</strong> Work, rest, and worship in balance</li>
+                    <li><strong>Emotional Balance:</strong> Control anger and negative emotions</li>
+                    <li><strong>Spiritual Balance:</strong> Maintain connection with Allah</li>
+                    <li><strong>Social Balance:</strong> Healthy relationships and community</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Seeking Medical Treatment</h4>
+                <ul>
+                    <li><strong>Obligation:</strong> Muslims must seek treatment for illness</li>
+                    <li><strong>Professional Care:</strong> Consult qualified healthcare providers</li>
+                    <li><strong>Trust in Allah:</strong> Combine medical treatment with dua</li>
+                    <li><strong>Prevention:</strong> Take preventive measures seriously</li>
+                    <li><strong>Compliance:</strong> Follow medical advice and treatment plans</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Prophetic Medicine (Tibb al-Nabawi)</h2>
+            
+            <div class="health-card">
+                <h4>Honey (Asal)</h4>
+                <ul>
+                    <li><strong>Benefits:</strong> Natural sweetener with healing properties</li>
+                    <li><strong>Uses:</strong> Sore throat, digestive issues, wound healing</li>
+                    <li><strong>Prophetic Teaching:</strong> "Honey is a remedy for every illness"</li>
+                    <li><strong>Modern Science:</strong> Antibacterial and anti-inflammatory properties</li>
+                    <li><strong>Consumption:</strong> One spoonful daily for general health</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Reference</h5>
+                    <div class="arabic-text">يَخْرُجُ مِن بُطُونِهَا شَرَابٌ مُّخْتَلِفٌ أَلْوَانُهُ فِيهِ شِفَاءٌ لِّلنَّاسِ</div>
+                    <div class="translation">"From their bellies comes a drink of varying colors, in which there is healing for people." (Quran 16:69)</div>
+                </div>
+            </div>
+
+            <div class="health-card">
+                <h4>Black Seed (Habbat al-Sawda)</h4>
+                <ul>
+                    <li><strong>Benefits:</strong> Immune system support and healing</li>
+                    <li><strong>Uses:</strong> Respiratory issues, digestive problems, skin conditions</li>
+                    <li><strong>Prophetic Teaching:</strong> "Black seed is a cure for every disease except death"</li>
+                    <li><strong>Consumption:</strong> One teaspoon daily with honey</li>
+                    <li><strong>Oil Form:</strong> Can be used topically for skin issues</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Dates (Tamar)</h4>
+                <ul>
+                    <li><strong>Benefits:</strong> Natural energy source and nutrients</li>
+                    <li><strong>Uses:</strong> Breaking fast, energy boost, digestive health</li>
+                    <li><strong>Prophetic Practice:</strong> Prophet broke fast with dates</li>
+                    <li><strong>Nutritional Value:</strong> High in fiber, vitamins, and minerals</li>
+                    <li><strong>Consumption:</strong> 3-7 dates daily for optimal health</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Olive Oil (Zayt al-Zaytun)</h4>
+                <ul>
+                    <li><strong>Benefits:</strong> Heart health and anti-inflammatory properties</li>
+                    <li><strong>Uses:</strong> Cooking, skin care, hair care</li>
+                    <li><strong>Prophetic Teaching:</strong> "Eat olive oil and apply it, for it is blessed"</li>
+                    <li><strong>Modern Science:</strong> Rich in healthy fats and antioxidants</li>
+                    <li><strong>Consumption:</strong> 1-2 tablespoons daily</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Dietary Guidelines</h2>
+            
+            <div class="health-card">
+                <h4>Halal Food Principles</h4>
+                <ul>
+                    <li><strong>Permitted Animals:</strong> Cattle, sheep, goats, chickens, fish</li>
+                    <li><strong>Slaughter Method:</strong> Zabihah (Islamic method)</li>
+                    <li><strong>Prohibited Foods:</strong> Pork, blood, carrion, alcohol</li>
+                    <li><strong>Food Safety:</strong> Clean, fresh, and wholesome foods</li>
+                    <li><strong>Gratitude:</strong> Thank Allah before and after eating</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Healthy Eating Practices</h4>
+                <ul>
+                    <li><strong>Moderation:</strong> Eat to satisfy hunger, not to fill stomach</li>
+                    <li><strong>Portion Control:</strong> One-third for food, one-third for water, one-third for air</li>
+                    <li><strong>Meal Timing:</strong> Regular meal times and avoid late-night eating</li>
+                    <li><strong>Chewing:</strong> Chew food thoroughly for better digestion</li>
+                    <li><strong>Variety:</strong> Eat diverse foods for balanced nutrition</li>
+                </ul>
+                
+                <div class="step-box">
+                    <h5>Prophetic Eating Etiquette</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam taught: "Eat together and do not eat separately, for the blessing is in the company."</p>
+                </div>
+            </div>
+
+            <div class="health-card">
+                <h4>Fasting Benefits</h4>
+                <ul>
+                    <li><strong>Physical Benefits:</strong> Detoxification and weight management</li>
+                    <li><strong>Mental Benefits:</strong> Improved focus and self-discipline</li>
+                    <li><strong>Spiritual Benefits:</strong> Increased gratitude and empathy</li>
+                    <li><strong>Health Benefits:</strong> Lower blood pressure and cholesterol</li>
+                    <li><strong>Digestive Health:</strong> Rest for digestive system</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Physical Health and Exercise</h2>
+            
+            <div class="health-card">
+                <h4>Islamic Perspective on Exercise</h4>
+                <ul>
+                    <li><strong>Obligation:</strong> Taking care of the body is a religious duty</li>
+                    <li><strong>Types:</strong> Walking, swimming, archery, horseback riding</li>
+                    <li><strong>Moderation:</strong> Exercise should not interfere with religious duties</li>
+                    <li><strong>Purpose:</strong> Maintain health and strength for worship</li>
+                    <li><strong>Community:</strong> Exercise with family and community</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Walking and Physical Activity</h4>
+                <ul>
+                    <li><strong>Daily Walking:</strong> Walk to mosque and daily activities</li>
+                    <li><strong>Benefits:</strong> Cardiovascular health and mental well-being</li>
+                    <li><strong>Prophetic Practice:</strong> Prophet walked extensively</li>
+                    <li><strong>Modern Application:</strong> Use stairs, walk to nearby places</li>
+                    <li><strong>Family Activity:</strong> Walk together as a family</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Sports and Recreation</h4>
+                <ul>
+                    <li><strong>Permitted Sports:</strong> Swimming, archery, horseback riding</li>
+                    <li><strong>Benefits:</strong> Physical fitness and skill development</li>
+                    <li><strong>Modesty:</strong> Maintain Islamic dress and behavior</li>
+                    <li><strong>Safety:</strong> Ensure safe equipment and environment</li>
+                    <li><strong>Balance:</strong> Don't let sports interfere with religious duties</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Mental and Spiritual Health</h2>
+            
+            <div class="health-card">
+                <h4>Stress Management</h4>
+                <ul>
+                    <li><strong>Prayer:</strong> Regular prayer provides peace and tranquility</li>
+                    <li><strong>Dhikr:</strong> Remembrance of Allah calms the heart</li>
+                    <li><strong>Dua:</strong> Seeking help from Allah reduces anxiety</li>
+                    <li><strong>Community:</strong> Social support from Muslim community</li>
+                    <li><strong>Gratitude:</strong> Thankfulness improves mental well-being</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Emotional Well-being</h4>
+                <ul>
+                    <li><strong>Patience:</strong> Sabr (patience) in difficult times</li>
+                    <li><strong>Forgiveness:</strong> Letting go of anger and resentment</li>
+                    <li><strong>Positive Thinking:</strong> Focus on blessings and good</li>
+                    <li><strong>Self-Care:</strong> Take time for personal well-being</li>
+                    <li><strong>Professional Help:</strong> Seek counseling when needed</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Spiritual Health</h4>
+                <ul>
+                    <li><strong>Connection with Allah:</strong> Regular worship and dua</li>
+                    <li><strong>Quran Recitation:</strong> Reading and reflecting on Quran</li>
+                    <li><strong>Community Service:</strong> Helping others and giving charity</li>
+                    <li><strong>Learning:</strong> Continuous Islamic education</li>
+                    <li><strong>Purpose:</strong> Understanding life's meaning and purpose</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Medical Ethics</h2>
+            
+            <div class="health-card">
+                <h4>Patient Rights</h4>
+                <ul>
+                    <li><strong>Dignity:</strong> Treat patients with respect and dignity</li>
+                    <li><strong>Privacy:</strong> Maintain patient confidentiality</li>
+                    <li><strong>Informed Consent:</strong> Explain treatments and get permission</li>
+                    <li><strong>Quality Care:</strong> Provide the best possible treatment</li>
+                    <li><strong>Cultural Sensitivity:</strong> Respect religious and cultural beliefs</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Healthcare Provider Ethics</h4>
+                <ul>
+                    <li><strong>Competence:</strong> Maintain professional skills and knowledge</li>
+                    <li><strong>Honesty:</strong> Be truthful about treatments and outcomes</li>
+                    <li><strong>Compassion:</strong> Show empathy and care for patients</li>
+                    <li><strong>Justice:</strong> Treat all patients fairly and equally</li>
+                    <li><strong>Continuous Learning:</strong> Stay updated with medical advances</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>End-of-Life Care</h4>
+                <ul>
+                    <li><strong>Dignity:</strong> Maintain patient dignity until death</li>
+                    <li><strong>Pain Management:</strong> Alleviate suffering appropriately</li>
+                    <li><strong>Family Support:</strong> Support family members during difficult times</li>
+                    <li><strong>Spiritual Care:</strong> Provide religious support and guidance</li>
+                    <li><strong>Natural Death:</strong> Allow natural death when appropriate</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Modern Health Integration</h2>
+            
+            <div class="health-card">
+                <h4>Conventional Medicine</h4>
+                <ul>
+                    <li><strong>Acceptance:</strong> Islam encourages seeking medical treatment</li>
+                    <li><strong>Integration:</strong> Combine modern medicine with Islamic practices</li>
+                    <li><strong>Evidence-Based:</strong> Use treatments proven to be effective</li>
+                    <li><strong>Professional Care:</strong> Consult qualified healthcare providers</li>
+                    <li><strong>Balance:</strong> Use both traditional and modern approaches</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Alternative Medicine</h4>
+                <ul>
+                    <li><strong>Herbal Medicine:</strong> Natural remedies from Islamic tradition</li>
+                    <li><strong>Acupuncture:</strong> Traditional Chinese medicine techniques</li>
+                    <li><strong>Homeopathy:</strong> Natural healing approaches</li>
+                    <li><strong>Yoga and Meditation:</strong> Physical and mental wellness practices</li>
+                    <li><strong>Consultation:</strong> Discuss with healthcare providers</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Technology and Health</h4>
+                <ul>
+                    <li><strong>Health Apps:</strong> Use technology for health monitoring</li>
+                    <li><strong>Telemedicine:</strong> Remote healthcare consultations</li>
+                    <li><strong>Wearable Devices:</strong> Track health metrics and activity</li>
+                    <li><strong>Online Resources:</strong> Access health information and support</li>
+                    <li><strong>Privacy:</strong> Ensure data security and privacy</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Family and Community Health</h2>
+            
+            <div class="health-card">
+                <h4>Family Health Practices</h4>
+                <ul>
+                    <li><strong>Regular Check-ups:</strong> Annual health examinations</li>
+                    <li><strong>Vaccinations:</strong> Protect against preventable diseases</li>
+                    <li><strong>Healthy Lifestyle:</strong> Model healthy behaviors for children</li>
+                    <li><strong>Mental Health:</strong> Support family members' emotional well-being</li>
+                    <li><strong>Emergency Preparedness:</strong> Plan for health emergencies</li>
+                </ul>
+            </div>
+
+            <div class="health-card">
+                <h4>Community Health</h4>
+                <ul>
+                    <li><strong>Public Health:</strong> Support community health initiatives</li>
+                    <li><strong>Charity:</strong> Contribute to healthcare for the needy</li>
+                    <li><strong>Education:</strong> Share health knowledge with community</li>
+                    <li><strong>Support Groups:</strong> Participate in health support groups</li>
+                    <li><strong>Volunteer:</strong> Help with community health programs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="ramadan-guide.html">Ramadan and Fasting Guide</a></li>
+                <li><a href="wudu-guide.html">Wudu (Ablution) Guide</a></li>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="dua-guide.html">Dua (Supplication) Guide</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>

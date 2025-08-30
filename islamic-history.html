@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic History Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .history-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .history-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .history-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic History Guide</h1>
+            <p>Complete guide to Islamic history, the life of Prophet Muhammad sallallahu alayhi wa sallam, and the achievements of Islamic civilization</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic History</h2>
+            <p>Islamic history begins with the revelation of the Quran to Prophet Muhammad sallallahu alayhi wa sallam in 610 CE. This marked the beginning of a new era that would transform the Arabian Peninsula and eventually influence the entire world.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ</div>
+                <div class="translation">"Indeed, it is We who sent down the message, and indeed, We will be its guardian." (Quran 15:9)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Historical Significance</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "The best of people are those who are most beneficial to people." (Al-Tabarani)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Pre-Islamic Arabia (Jahiliyyah)</h2>
+            
+            <div class="history-card">
+                <h4>Social Conditions</h4>
+                <ul>
+                    <li><strong>Tribal Society:</strong> Organized around family and tribal affiliations</li>
+                    <li><strong>Polytheism:</strong> Worship of multiple gods and idols</li>
+                    <li><strong>Social Injustice:</strong> Slavery, female infanticide, and tribal warfare</li>
+                    <li><strong>Economic System:</strong> Trade-based economy with caravans</li>
+                    <li><strong>Cultural Practices:</strong> Poetry, storytelling, and oral traditions</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Religious Practices</h4>
+                <ul>
+                    <li><strong>Idol Worship:</strong> 360 idols around the Kaaba</li>
+                    <li><strong>Pilgrimage:</strong> Annual pilgrimage to Mecca for trade and worship</li>
+                    <li><strong>Superstitions:</strong> Belief in omens and supernatural forces</li>
+                    <li><strong>Sacred Months:</strong> Four months of peace for trade</li>
+                    <li><strong>Mixed Beliefs:</strong> Some monotheistic influences from Judaism and Christianity</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Economic and Cultural Life</h4>
+                <ul>
+                    <li><strong>Trade Routes:</strong> Strategic location between East and West</li>
+                    <li><strong>Caravan Trade:</strong> Transport of goods across the peninsula</li>
+                    <li><strong>Poetry:</strong> Highly valued art form and means of communication</li>
+                    <li><strong>Hospitality:</strong> Strong tradition of welcoming guests</li>
+                    <li><strong>Honor System:</strong> Code of conduct based on tribal honor</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Life of Prophet Muhammad sallallahu alayhi wa sallam</h2>
+            
+            <div class="history-card">
+                <h4>Early Life (570-610 CE)</h4>
+                <ul>
+                    <li><strong>Birth:</strong> Born in Mecca in the Year of the Elephant (570 CE)</li>
+                    <li><strong>Family:</strong> Member of the respected Quraysh tribe</li>
+                    <li><strong>Orphanhood:</strong> Father died before birth, mother at age 6</li>
+                    <li><strong>Upbringing:</strong> Raised by grandfather and uncle</li>
+                    <li><strong>Character:</strong> Known as "Al-Amin" (The Trustworthy)</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Prophetic Character</h5>
+                    <p>Even before prophethood, Muhammad sallallahu alayhi wa sallam was known for his honesty, trustworthiness, and excellent character among the people of Mecca.</p>
+                </div>
+            </div>
+
+            <div class="history-card">
+                <h4>First Revelation (610 CE)</h4>
+                <ul>
+                    <li><strong>Location:</strong> Cave of Hira near Mecca</li>
+                    <li><strong>Angel Jibreel:</strong> Brought first verses of Quran</li>
+                    <li><strong>First Words:</strong> "Iqra" (Read) - beginning of Surah Al-Alaq</li>
+                    <li><strong>Reaction:</strong> Initial fear and uncertainty</li>
+                    <li><strong>Support:</strong> Khadijah and Waraqah provided comfort</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Meccan Period (610-622 CE)</h4>
+                <ul>
+                    <li><strong>Early Converts:</strong> Khadijah, Ali, Abu Bakr, and others</li>
+                    <li><strong>Public Proclamation:</strong> Open invitation to Islam after 3 years</li>
+                    <li><strong>Persecution:</strong> Increasing opposition from Quraysh</li>
+                    <li><strong>Boycott:</strong> Social and economic boycott of Muslims</li>
+                    <li><strong>Year of Sorrow:</strong> Death of Khadijah and Abu Talib (619 CE)</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Migration to Medina (622 CE)</h4>
+                <ul>
+                    <li><strong>Hijrah:</strong> Migration from Mecca to Medina</li>
+                    <li><strong>Significance:</strong> Beginning of Islamic calendar</li>
+                    <li><strong>Welcome:</strong> Warm reception from Ansar (Helpers)</li>
+                    <li><strong>Unity:</strong> Brotherhood between Muhajirun and Ansar</li>
+                    <li><strong>New Beginning:</strong> Establishment of first Islamic state</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Medinan Period (622-632 CE)</h4>
+                <ul>
+                    <li><strong>Constitution of Medina:</strong> First written constitution</li>
+                    <li><strong>Major Battles:</strong> Badr, Uhud, and Khandaq</li>
+                    <li><strong>Treaty of Hudaybiyyah:</strong> Peace agreement with Quraysh</li>
+                    <li><strong>Conquest of Mecca:</strong> Bloodless victory in 630 CE</li>
+                    <li><strong>Farewell Pilgrimage:</strong> Final Hajj and sermon in 632 CE</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Rightly Guided Caliphs (632-661 CE)</h2>
+            
+            <div class="history-card">
+                <h4>Abu Bakr al-Siddiq (632-634 CE)</h4>
+                <ul>
+                    <li><strong>Selection:</strong> Chosen by consensus of companions</li>
+                    <li><strong>Challenges:</strong> Apostasy wars and false prophets</li>
+                    <li><strong>Compilation:</strong> Began collection of Quran</li>
+                    <li><strong>Expansion:</strong> Started campaigns against Byzantine and Persian empires</li>
+                    <li><strong>Legacy:</strong> Established strong foundation for Islamic state</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Umar ibn al-Khattab (634-644 CE)</h4>
+                <ul>
+                    <li><strong>Conquests:</strong> Major expansion of Islamic empire</li>
+                    <li><strong>Administration:</strong> Established organized government system</li>
+                    <li><strong>Justice:</strong> Known for strict adherence to justice</li>
+                    <li><strong>Innovations:</strong> Introduced many administrative reforms</li>
+                    <li><strong>Martyrdom:</strong> Assassinated by a Persian slave</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Uthman ibn Affan (644-656 CE)</h4>
+                <ul>
+                    <li><strong>Quran Compilation:</strong> Standardized Quran text</li>
+                    <li><strong>Naval Power:</strong> Built first Islamic navy</li>
+                    <li><strong>Expansion:</strong> Continued territorial expansion</li>
+                    <li><strong>Challenges:</strong> Faced internal opposition and rebellion</li>
+                    <li><strong>Martyrdom:</strong> Killed during internal strife</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Ali ibn Abi Talib (656-661 CE)</h4>
+                <ul>
+                    <li><strong>Challenges:</strong> Faced multiple rebellions and civil war</li>
+                    <li><strong>Battle of Siffin:</strong> Conflict with Muawiyah</li>
+                    <li><strong>Arbitration:</strong> Attempted peaceful resolution</li>
+                    <li><strong>Legacy:</strong> Known for knowledge and justice</li>
+                    <li><strong>Martyrdom:</strong> Assassinated by Kharijite</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Umayyad Caliphate (661-750 CE)</h2>
+            
+            <div class="history-card">
+                <h4>Establishment and Expansion</h4>
+                <ul>
+                    <li><strong>Muawiyah:</strong> First Umayyad caliph</li>
+                    <li><strong>Capital:</strong> Moved capital to Damascus</li>
+                    <li><strong>Expansion:</strong> Reached Spain in the West and India in the East</li>
+                    <li><strong>Administration:</strong> Centralized government system</li>
+                    <li><strong>Cultural Integration:</strong> Blended Arab and local cultures</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Major Achievements</h4>
+                <ul>
+                    <li><strong>Architecture:</strong> Built magnificent mosques and palaces</li>
+                    <li><strong>Art:</strong> Developed distinctive Islamic art style</li>
+                    <li><strong>Literature:</strong> Flourishing of Arabic poetry and prose</li>
+                    <li><strong>Science:</strong> Began translation of Greek and Persian works</li>
+                    <li><strong>Trade:</strong> Extensive trade networks across three continents</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Challenges and Decline</h4>
+                <ul>
+                    <li><strong>Internal Conflicts:</strong> Family disputes and succession problems</li>
+                    <li><strong>Opposition:</strong> Growing discontent among various groups</li>
+                    <li><strong>Abbasid Revolution:</strong> Overthrown by Abbasid movement</li>
+                    <li><strong>Legacy:</strong> Established foundation for Islamic civilization</li>
+                    <li><strong>Cultural Impact:</strong> Lasting influence on Islamic culture</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Abbasid Caliphate (750-1258 CE)</h2>
+            
+            <div class="history-card">
+                <h4>Golden Age of Islam</h4>
+                <ul>
+                    <li><strong>Capital:</strong> Baghdad became center of learning</li>
+                    <li><strong>House of Wisdom:</strong> Major center for translation and research</li>
+                    <li><strong>Scientific Advancement:</strong> Breakthroughs in various fields</li>
+                    <li><strong>Cultural Flourishing:</strong> Literature, art, and architecture</li>
+                    <li><strong>Global Influence:</strong> Center of world civilization</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Scientific and Cultural Achievements</h4>
+                <ul>
+                    <li><strong>Mathematics:</strong> Development of algebra and algorithms</li>
+                    <li><strong>Medicine:</strong> Advanced medical knowledge and hospitals</li>
+                    <li><strong>Astronomy:</strong> Astronomical observations and instruments</li>
+                    <li><strong>Philosophy:</strong> Integration of Greek and Islamic thought</li>
+                    <li><strong>Literature:</strong> Thousand and One Nights and other works</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Decline and Fall</h4>
+                <ul>
+                    <li><strong>Internal Weakness:</strong> Caliphs became figureheads</li>
+                    <li><strong>Regional Powers:</strong> Rise of independent dynasties</li>
+                    <li><strong>Mongol Invasion:</strong> Destruction of Baghdad in 1258</li>
+                    <li><strong>Legacy:</strong> Preserved and advanced human knowledge</li>
+                    <li><strong>Cultural Impact:</strong> Lasting influence on world civilization</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Regional Islamic Dynasties</h2>
+            
+            <div class="history-card">
+                <h4>Al-Andalus (Islamic Spain)</h4>
+                <ul>
+                    <li><strong>Duration:</strong> 711-1492 CE</li>
+                    <li><strong>Capital:</strong> Cordoba became major cultural center</li>
+                    <li><strong>Achievements:</strong> Advanced architecture, science, and literature</li>
+                    <li><strong>Cultural Exchange:</strong> Bridge between Islamic and European cultures</li>
+                    <li><strong>Legacy:</strong> Lasting influence on Spanish culture</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Ottoman Empire (1299-1922 CE)</h4>
+                <ul>
+                    <li><strong>Expansion:</strong> Controlled three continents</li>
+                    <li><strong>Military Power:</strong> Advanced army and navy</li>
+                    <li><strong>Cultural Heritage:</strong> Rich architectural and artistic legacy</li>
+                    <li><strong>Religious Tolerance:</strong> Protected various religious communities</li>
+                    <li><strong>Modernization:</strong> Attempted reforms in 19th century</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Mughal Empire (1526-1857 CE)</h4>
+                <ul>
+                    <li><strong>Territory:</strong> Controlled most of South Asia</li>
+                    <li><strong>Architecture:</strong> Built Taj Mahal and other monuments</li>
+                    <li><strong>Cultural Fusion:</strong> Blended Islamic and Indian cultures</li>
+                    <li><strong>Economic Prosperity:</strong> Rich trade and agriculture</li>
+                    <li><strong>Legacy:</strong> Lasting impact on Indian subcontinent</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Civilization Contributions</h2>
+            
+            <div class="history-card">
+                <h4>Science and Technology</h4>
+                <ul>
+                    <li><strong>Mathematics:</strong> Algebra, algorithms, and decimal system</li>
+                    <li><strong>Medicine:</strong> Hospitals, medical textbooks, and surgical techniques</li>
+                    <li><strong>Astronomy:</strong> Astronomical instruments and observations</li>
+                    <li><strong>Chemistry:</strong> Distillation, acids, and chemical processes</li>
+                    <li><strong>Engineering:</strong> Advanced architecture and mechanical devices</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Arts and Architecture</h4>
+                <ul>
+                    <li><strong>Mosque Architecture:</strong> Domes, minarets, and geometric patterns</li>
+                    <li><strong>Calligraphy:</strong> Beautiful Arabic script as art form</li>
+                    <li><strong>Geometric Patterns:</strong> Complex mathematical designs</li>
+                    <li><strong>Garden Design:</strong> Paradise gardens and water features</li>
+                    <li><strong>Textile Arts:</strong> Carpets, tapestries, and clothing</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Literature and Philosophy</h4>
+                <ul>
+                    <li><strong>Poetry:</strong> Rich tradition of Arabic and Persian poetry</li>
+                    <li><strong>Philosophy:</strong> Integration of Greek and Islamic thought</li>
+                    <li><strong>History:</strong> Detailed historical chronicles</li>
+                    <li><strong>Travel Literature:</strong> Accounts of journeys and discoveries</li>
+                    <li><strong>Religious Texts:</strong> Extensive commentary and interpretation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Modern Islamic History</h2>
+            
+            <div class="history-card">
+                <h4>Colonial Period</h4>
+                <ul>
+                    <li><strong>European Expansion:</strong> Colonization of Muslim lands</li>
+                    <li><strong>Resistance Movements:</strong> Various anti-colonial struggles</li>
+                    <li><strong>Cultural Impact:</strong> Influence of Western ideas and systems</li>
+                    <li><strong>Nationalism:</strong> Rise of national independence movements</li>
+                    <li><strong>Modernization:</strong> Attempts to modernize Islamic societies</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Independence and Development</h4>
+                <ul>
+                    <li><strong>National States:</strong> Formation of independent Muslim countries</li>
+                    <li><strong>Economic Development:</strong> Modernization of economies</li>
+                    <li><strong>Education:</strong> Expansion of educational systems</li>
+                    <li><strong>Technology:</strong> Adoption of modern technology</li>
+                    <li><strong>Global Integration:</strong> Participation in international affairs</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Contemporary Challenges</h4>
+                <ul>
+                    <li><strong>Political Stability:</strong> Challenges in governance and democracy</li>
+                    <li><strong>Economic Development:</strong> Balancing tradition and modernity</li>
+                    <li><strong>Cultural Identity:</strong> Preserving Islamic values in modern world</li>
+                    <li><strong>Global Relations:</strong> Building bridges with other cultures</li>
+                    <li><strong>Future Vision:</strong> Shaping Islamic civilization for 21st century</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Lessons from Islamic History</h2>
+            
+            <div class="history-card">
+                <h4>Unity and Cooperation</h4>
+                <ul>
+                    <li><strong>Strength in Unity:</strong> Success comes through cooperation</li>
+                    <li><strong>Diversity:</strong> Islamic civilization embraced various cultures</li>
+                    <li><strong>Knowledge Sharing:</strong> Progress through open exchange of ideas</li>
+                    <li><strong>Justice:</strong> Fair governance leads to stability</li>
+                    <li><strong>Service:</strong> Success measured by benefit to humanity</li>
+                </ul>
+            </div>
+
+            <div class="history-card">
+                <h4>Adaptation and Innovation</h4>
+                <ul>
+                    <li><strong>Learning from Others:</strong> Adopting useful knowledge from various sources</li>
+                    <li><strong>Innovation:</strong> Building upon existing knowledge</li>
+                    <li><strong>Cultural Exchange:</strong> Enriching civilization through diversity</li>
+                    <li><strong>Practical Application:</strong> Using knowledge for human benefit</li>
+                    <li><strong>Continuous Improvement:</strong> Always striving for better</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="quran-guide.html">Quran Study Guide</a></li>
+                <li><a href="hadith-guide.html">Hadith Study Guide</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="islamic-education.html">Islamic Education Guide</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>
