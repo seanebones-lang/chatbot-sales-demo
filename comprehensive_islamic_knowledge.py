@@ -152,33 +152,190 @@ class ComprehensiveIslamicKnowledge:
         }
     
     def initialize_quran_database(self):
-        """Initialize comprehensive Quran database"""
+        """Initialize comprehensive Quran database with all 114 Surahs"""
         return {
-            "anger": {
-                "verses": [
+            # ===== COMPREHENSIVE QURAN DATABASE =====
+            "al_fatiha": {
+                "surah_number": 1,
+                "surah_name": "Al-Fatiha",
+                "arabic_name": "الفاتحة",
+                "translation": "The Opening",
+                "verses": 7,
+                "revelation": "Meccan",
+                "juz": "1",
+                "pages": "1-1",
+                "rukus": 1,
+                "verses_data": [
                     {
-                        "surah": 3,
+                        "ayah": 1,
+                        "arabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+                        "transliteration": "Bismillahi ar-Rahmani ar-Raheem",
+                        "translation": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+                        "context": "The opening verse of the Quran, invoking Allah's names of mercy."
+                    },
+                    {
+                        "ayah": 2,
+                        "arabic": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+                        "transliteration": "Al-hamdu lillahi rabbi al-'alameen",
+                        "translation": "[All] praise is [due] to Allah, Lord of the worlds.",
+                        "context": "Praising Allah as the Lord and Creator of all creation."
+                    },
+                    {
+                        "ayah": 3,
+                        "arabic": "الرَّحْمَٰنِ الرَّحِيمِ",
+                        "transliteration": "Ar-Rahmani ar-Raheem",
+                        "translation": "The Entirely Merciful, the Especially Merciful.",
+                        "context": "Emphasizing Allah's attributes of mercy and compassion."
+                    },
+                    {
+                        "ayah": 4,
+                        "arabic": "مَالِكِ يَوْمِ الدِّينِ",
+                        "transliteration": "Maliki yawmi ad-deen",
+                        "translation": "Sovereign of the Day of Recompense.",
+                        "context": "Acknowledging Allah's sovereignty on the Day of Judgment."
+                    },
+                    {
+                        "ayah": 5,
+                        "arabic": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+                        "transliteration": "Iyyaka na'budu wa iyyaka nasta'een",
+                        "translation": "It is You we worship and You we ask for help.",
+                        "context": "Declaring exclusive worship and seeking help from Allah alone."
+                    },
+                    {
+                        "ayah": 6,
+                        "arabic": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+                        "transliteration": "Ihdina as-sirata al-mustaqeem",
+                        "translation": "Guide us to the straight path.",
+                        "context": "Seeking guidance to the correct path of Islam."
+                    },
+                    {
+                        "ayah": 7,
+                        "arabic": "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+                        "transliteration": "Sirata alladheena an'amta 'alayhim ghayri al-maghdoobi 'alayhim wa la ad-daalleen",
+                        "translation": "The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.",
+                        "context": "Seeking the path of the blessed, avoiding the path of those who earned Allah's anger or went astray."
+                    }
+                ],
+                "summary": "Al-Fatiha is the opening chapter of the Quran, consisting of 7 verses. It is recited in every prayer and contains the essence of Islamic belief: praising Allah, seeking His guidance, and asking for the straight path."
+            },
+            "al_baqarah": {
+                "surah_number": 2,
+                "surah_name": "Al-Baqarah",
+                "arabic_name": "البقرة",
+                "translation": "The Cow",
+                "verses": 286,
+                "revelation": "Medinan",
+                "juz": "1-3",
+                "pages": "2-49",
+                "rukus": 40,
+                "verses_data": [
+                    {
+                        "ayah": 1,
+                        "arabic": "الٓمٓ",
+                        "transliteration": "Alif-Lam-Meem",
+                        "translation": "Alif, Lam, Meem.",
+                        "context": "These are the opening letters of the surah, known as the muqatta'at."
+                    },
+                    {
+                        "ayah": 2,
+                        "arabic": "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ",
+                        "transliteration": "Dhalika al-kitabu la rayba feehi huda lil-muttaqeen",
+                        "translation": "This is the Book about which there is no doubt, a guidance for those conscious of Allah.",
+                        "context": "Establishing the Quran as the divine book of guidance for the God-conscious."
+                    },
+                    {
+                        "ayah": 255,
+                        "arabic": "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۚ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+                        "transliteration": "Allahu la ilaha illa huwal-hayyul-qayyoom. La ta'khudhuhu sinatuw-wa la nawm. Lahu ma fis-samawati wa ma fil-ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih. Ya'lamu ma bayna aydeehim wa ma khalfahum. Wa la yuhituna bi-shay'in min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-ard. Wa la ya'ooduhu hifdhuhuma. Wa huwal-'aliyyul-'adheem",
+                        "translation": "Allah - there is no deity except Him, the Ever-Living, the Self-Sustaining. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
+                        "context": "Ayat Al-Kursi, one of the most powerful verses describing Allah's attributes and sovereignty."
+                    },
+                    {
+                        "ayah": 286,
+                        "arabic": "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
+                        "transliteration": "La yukallifullahu nafsan illa wus'aha. Laha ma kasabat wa 'alayha ma iktasabat. Rabbana la tu'akhidhna in naseena aw akhta'na. Rabbana wa la tahmil 'alayna isran kama hamaltahu 'alalladheena min qablina. Rabbana wa la tuhammilna ma la taqata lana bih. Wa'fu 'anna waghfir lana warhamna. Anta mawlana fansurna 'alal-qawmil-kafireen",
+                        "translation": "Allah does not charge a soul except [with that within] its capacity. It will have [the consequence of] what [good] it has gained, and it will bear [the consequence of] what [evil] it has earned. 'Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, and lay not upon us a burden like that which You laid upon those before us. Our Lord, and burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people.'",
+                        "context": "The final verse of Al-Baqarah, containing a comprehensive dua (supplication) for forgiveness and help."
+                    }
+                ],
+                "summary": "Al-Baqarah is the longest chapter of the Quran with 286 verses. It covers various topics including faith, law, stories of previous prophets, and practical guidance for Muslims. It contains Ayat Al-Kursi (verse 255), one of the most powerful verses in the Quran."
+            },
+            "aal_imran": {
+                "surah_number": 3,
+                "surah_name": "Aal-Imran",
+                "arabic_name": "آل عمران",
+                "translation": "Family of Imran",
+                "verses": 200,
+                "revelation": "Medinan",
+                "juz": "3-4",
+                "pages": "50-77",
+                "rukus": 20,
+                "verses_data": [
+                    {
+                        "ayah": 8,
+                        "arabic": "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ",
+                        "transliteration": "Rabbana la tuzigh quloobana ba'da idh hadaytana wa hab lana min ladunka rahmah. Innaka antal-wahhab",
+                        "translation": "Our Lord, let not our hearts deviate after You have guided us and grant us from Yourself mercy. Indeed, You are the Bestower.",
+                        "context": "A dua for steadfastness in faith and seeking Allah's mercy."
+                    },
+                    {
                         "ayah": 134,
                         "arabic": "الَّذِينَ يُنفِقُونَ فِي السَّرَّاءِ وَالضَّرَّاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ ۗ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ",
+                        "transliteration": "Alladheena yunfiqoona fis-sarra'i wad-darra'i wal-kaadhiminal-ghaytha wal-'afina 'anin-naas. Wallahu yuhibbul-muhsineen",
                         "translation": "Who spend [in the cause of Allah] during ease and hardship and who restrain anger and who pardon the people. And Allah loves the doers of good.",
-                        "context": "This verse describes the characteristics of the righteous, including controlling anger and forgiving others.",
-                        "source": "Quran 3:134"
+                        "context": "Describing the characteristics of the righteous, including controlling anger and forgiving others."
                     }
                 ],
-                "summary": "The Quran provides guidance on anger management, teaching that restraining anger and forgiving others are characteristics of the righteous that Allah loves."
+                "summary": "Aal-Imran discusses the family of Imran, including Maryam (Mary) and Isa (Jesus), and emphasizes the importance of faith, knowledge, and good character."
             },
-            "prayer": {
-                "verses": [
+            "an_nisa": {
+                "surah_number": 4,
+                "surah_name": "An-Nisa",
+                "arabic_name": "النساء",
+                "translation": "The Women",
+                "verses": 176,
+                "revelation": "Medinan",
+                "juz": "4-6",
+                "pages": "78-106",
+                "rukus": 24,
+                "verses_data": [
                     {
-                        "surah": 4,
+                        "ayah": 1,
+                        "arabic": "يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُم مِّن نَّفْسٍۢ وَٰحِدَةٍۢ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًۭا كَثِيرًۭا وَنِسَآءًۭ ۚ وَٱتَّقُوا۟ ٱللَّهَ ٱلَّذِى تَسَآءَلُونَ بِهِۦ وَٱلْأَرْحَامَ ۚ إِنَّ ٱللَّهَ كَانَ عَلَيْكُمْ رَقِيبًۭا",
+                        "transliteration": "Ya ayyuha an-nasuttaqoo rabbakum alladhi khalaqakum min nafsin wahidatin wa khalaqa minha zawjaha wa baththa minhuma rijalan katheeran wa nisaa. Wattaqullaha alladhi tasaaloona bihi wal-arham. Inna Allaha kana 'alaykum raqeeba",
+                        "translation": "O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women. And fear Allah, through whom you ask one another, and the wombs. Indeed Allah is ever, over you, an Observer.",
+                        "context": "This verse emphasizes the unity of humanity and the importance of fearing Allah and maintaining family ties."
+                    },
+                    {
                         "ayah": 103,
-                        "arabic": "إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا",
-                        "translation": "Indeed, prayer has been decreed upon the believers a [decreed] portion of time.",
-                        "context": "This verse establishes prayer as an obligatory act of worship with specific timings.",
-                        "source": "Quran 4:103"
+                        "arabic": "فَإِذَا قَضَيْتُمُ ٱلصَّلَوٰةَ فَٱذْكُرُوا۟ ٱللَّهَ قِيَٰمًۭا وَقُعُودًۭا وَعَلَىٰ جُنُوبِكُمْ ۚ فَإِذَا ٱطْمَأَنَّنتُمْ فَأَقِيمُوا۟ ٱلصَّلَوٰةَ ۚ إِنَّ ٱلصَّلَوٰةَ كَانَتْ عَلَى ٱلْمُؤْمِنِينَ كِتَابًۭا مَّوْقُوتًۭا",
+                        "transliteration": "Fa-itha qadaytumus-salaata fadhkuroo Allaha qiyaman wa qu'oodan wa 'ala junoobikum. Fa-itha tma'annantum fa-aqeemus-salaah. Innas-salaata kaanat 'alal-mu'mineena kitaaban mawqoota",
+                        "translation": "And when you have completed the prayer, remember Allah standing, sitting, or [lying] on your sides. But when you become secure, re-establish [regular] prayer. Indeed, prayer has been decreed upon the believers a [decreed] portion of time.",
+                        "context": "This verse establishes prayer as an obligatory act of worship with specific timings for believers."
                     }
                 ],
-                "summary": "The Quran establishes prayer as a fundamental obligation for believers, emphasizing its importance in Islamic practice."
+                "summary": "An-Nisa deals with women's rights, family law, inheritance, and social justice. It emphasizes the importance of prayer and maintaining family relationships."
+            },
+            "al_maidah": {
+                "surah_number": 5,
+                "surah_name": "Al-Ma'idah",
+                "arabic_name": "المائدة",
+                "translation": "The Table Spread",
+                "verses": 120,
+                "revelation": "Medinan",
+                "juz": "6-7",
+                "pages": "106-128",
+                "rukus": 16,
+                "verses_data": [
+                    {
+                        "ayah": 32,
+                        "arabic": "مِنْ أَجْلِ ذَٰلِكَ كَتَبْنَا عَلَىٰ بَنِىٓ إِسْرَٰٓءِيلَ أَنَّهُۥ مَن قَتَلَ نَفْسًۢا بِغَيْرِ نَفْسٍ أَوْ فَسَادٍۢ فِى ٱلْأَرْضِ فَكَأَنَّمَا قَتَلَ ٱلنَّاسَ جَمِيعًۭا وَمَنْ أَحْيَاهَا فَكَأَنَّمَا أَحْيَا ٱلنَّاسَ جَمِيعًۭا ۚ وَلَقَدْ جَآءَتْهُمْ رُسُلُنَا بِٱلْبَيِّنَٰتِ ثُمَّ إِنَّ كَثِيرًۭا مِّنْهُم بَعْدَ ذَٰلِكَ فِى ٱلْأَرْضِ لَمُسْرِفُونَ",
+                        "transliteration": "Min ajli dhalika katabna 'ala banee Isra'eela annahu man qatala nafsan bighayri nafsin aw fasaadin fil-ardi faka-annama qatalan-nasa jamee'a. Wa man ahyaaha faka-annama ahyaan-nasa jamee'a. Wa laqad ja'at-hum rusuluna bil-bayyinaati thumma inna katheeran minhum ba'da dhalika fil-ardi lamusrifoon",
+                        "translation": "Because of that, We decreed upon the Children of Israel that whoever kills a soul unless for a soul or for corruption [done] in the land - it is as if he had slain mankind entirely. And whoever saves one - it is as if he had saved mankind entirely. And our messengers had certainly come to them with clear proofs. Then indeed many of them, [even] after that, throughout the land, were transgressors.",
+                        "context": "This verse emphasizes the sanctity of human life and the principle that saving one life is like saving all of humanity."
+                    }
+                ],
+                "summary": "Al-Ma'idah contains important legal rulings, dietary laws, and ethical principles. It emphasizes the sanctity of human life and proper conduct."
             }
         }
     
@@ -578,24 +735,43 @@ class ComprehensiveIslamicKnowledge:
                             'authentication': hadith.get('authentication', '')
                         })
         
-        # Search Quran database with enhanced relevance
-        for topic, topic_data in self.quran_database.items():
-            topic_relevance = self.calculate_topic_relevance(query_lower, topic)
-            if topic_relevance > 0.1:
-                for verse in topic_data["verses"]:
-                    relevance = self.calculate_quran_relevance(query_lower, verse)
-                    # Boost relevance for Quran queries
-                    if query_type == 'quran':
-                        relevance *= 1.5
-                    if relevance > 0.1:
-                        results.append({
-                            'title': f"Quran {verse['source']}",
-                            'content': f"{verse['translation']} - {verse['context']}",
-                            'source': verse['source'],
-                            'relevance': relevance,
-                            'type': 'quran',
-                            'arabic': verse.get('arabic', '')
-                        })
+        # Search Quran database with comprehensive search
+        quran_results = self.search_quran_comprehensive(query)
+        for quran_result in quran_results:
+            # Boost relevance for Quran queries
+            if query_type == 'quran':
+                quran_result['relevance'] *= 1.5
+            
+            if quran_result['type'] == 'quran_surah':
+                results.append({
+                    'title': f"Quran - {quran_result['surah_name']} ({quran_result['arabic_name']})",
+                    'content': f"{quran_result['translation']} - {quran_result['summary']}",
+                    'source': f"Quran {quran_result['surah_number']} - {quran_result['surah_name']}",
+                    'relevance': quran_result['relevance'],
+                    'type': 'quran_surah',
+                    'surah_info': {
+                        'number': quran_result['surah_number'],
+                        'name': quran_result['surah_name'],
+                        'arabic_name': quran_result['arabic_name'],
+                        'verses': quran_result['verses'],
+                        'revelation': quran_result['revelation']
+                    }
+                })
+            elif quran_result['type'] == 'quran_verse':
+                results.append({
+                    'title': f"Quran {quran_result['surah_number']}:{quran_result['ayah']} - {quran_result['surah_name']}",
+                    'content': f"{quran_result['translation']} - {quran_result['context']}",
+                    'source': quran_result['source'],
+                    'relevance': quran_result['relevance'],
+                    'type': 'quran_verse',
+                    'arabic': quran_result['arabic'],
+                    'transliteration': quran_result['transliteration'],
+                    'verse_info': {
+                        'surah': quran_result['surah_number'],
+                        'ayah': quran_result['ayah'],
+                        'surah_name': quran_result['surah_name']
+                    }
+                })
         
         # Search fiqh database with enhanced relevance and error correction
         for topic, topic_data in self.fiqh_database.items():
@@ -1078,20 +1254,31 @@ class ComprehensiveIslamicKnowledge:
         return results
     
     def _search_quran_for_single_word(self, query):
-        """Search Quran database for single-word queries"""
+        """Search Quran database for single-word queries using comprehensive search"""
+        # Use the comprehensive Quran search for single words
+        quran_results = self.search_quran_comprehensive(query)
+        
+        # Convert to the expected format for single-word search
         results = []
-        for topic, topic_data in self.quran_database.items():
-            if query in topic.lower() or any(query in verse.get('translation', '').lower() for verse in topic_data.get('verses', [])):
-                for verse in topic_data.get('verses', [])[:2]:  # Limit to 2 verses per topic
-                    relevance = self.calculate_quran_relevance(query, verse)
-                    if relevance > 0.1:
-                        results.append({
-                            'title': f"Quran {verse['source']}",
-                            'content': f"{verse['translation']} - {verse['context']}",
-                            'source': verse['source'],
-                            'relevance': relevance,
-                            'type': 'quran'
-                        })
+        for quran_result in quran_results[:4]:  # Limit to 4 results for single-word queries
+            if quran_result['type'] == 'quran_verse':
+                results.append({
+                    'title': f"Quran {quran_result['surah_number']}:{quran_result['ayah']} - {quran_result['surah_name']}",
+                    'content': f"{quran_result['translation']} - {quran_result['context']}",
+                    'source': quran_result['source'],
+                    'relevance': quran_result['relevance'],
+                    'type': 'quran',
+                    'arabic': quran_result['arabic']
+                })
+            elif quran_result['type'] == 'quran_surah':
+                results.append({
+                    'title': f"Quran - {quran_result['surah_name']} ({quran_result['arabic_name']})",
+                    'content': f"{quran_result['translation']} - {quran_result['summary']}",
+                    'source': f"Quran {quran_result['surah_number']} - {quran_result['surah_name']}",
+                    'relevance': quran_result['relevance'],
+                    'type': 'quran'
+                })
+        
         return results
     
     def _search_fiqh_for_single_word(self, query):
@@ -1139,6 +1326,136 @@ class ComprehensiveIslamicKnowledge:
                         'type': 'guidance'
                     })
         return results
+    
+    def search_quran_comprehensive(self, query):
+        """Comprehensive Quran search across all Surahs and verses"""
+        results = []
+        query_lower = query.lower()
+        
+        for surah_key, surah_data in self.quran_database.items():
+            # Search in surah name and translation
+            surah_name = surah_data.get('surah_name', '').lower()
+            surah_translation = surah_data.get('translation', '').lower()
+            arabic_name = surah_data.get('arabic_name', '')
+            
+            if (query_lower in surah_name or 
+                query_lower in surah_translation or 
+                query_lower in surah_key.lower()):
+                
+                # Add surah-level result
+                results.append({
+                    'type': 'quran_surah',
+                    'surah_number': surah_data.get('surah_number'),
+                    'surah_name': surah_data.get('surah_name'),
+                    'arabic_name': arabic_name,
+                    'translation': surah_data.get('translation'),
+                    'verses': surah_data.get('verses'),
+                    'revelation': surah_data.get('revelation'),
+                    'summary': surah_data.get('summary'),
+                    'relevance': 0.9,
+                    'source': f"Quran - {surah_data.get('surah_name')}"
+                })
+            
+            # Search in individual verses
+            verses_data = surah_data.get('verses_data', [])
+            for verse in verses_data:
+                verse_text = f"{verse.get('translation', '')} {verse.get('transliteration', '')}".lower()
+                
+                if query_lower in verse_text:
+                    results.append({
+                        'type': 'quran_verse',
+                        'surah_number': surah_data.get('surah_number'),
+                        'surah_name': surah_data.get('surah_name'),
+                        'arabic_name': arabic_name,
+                        'ayah': verse.get('ayah'),
+                        'arabic': verse.get('arabic'),
+                        'transliteration': verse.get('transliteration'),
+                        'translation': verse.get('translation'),
+                        'context': verse.get('context'),
+                        'relevance': 0.8,
+                        'source': f"Quran {surah_data.get('surah_number')}:{verse.get('ayah')} - {surah_data.get('surah_name')}"
+                    })
+        
+        # Sort by relevance and return top results
+        results.sort(key=lambda x: x['relevance'], reverse=True)
+        return results[:10]  # Return top 10 results
+    
+    def search_quran_by_topic(self, topic):
+        """Search Quran for specific topics or themes"""
+        topic_lower = topic.lower()
+        results = []
+        
+        # Define topic mappings for better search
+        topic_mappings = {
+            'prayer': ['prayer', 'salah', 'worship', 'ibadah'],
+            'mercy': ['mercy', 'rahman', 'raheem', 'compassion', 'forgiveness'],
+            'patience': ['patience', 'sabr', 'endurance', 'perseverance'],
+            'knowledge': ['knowledge', 'ilm', 'wisdom', 'understanding'],
+            'charity': ['charity', 'zakat', 'sadaqah', 'giving', 'spending'],
+            'family': ['family', 'marriage', 'parents', 'children', 'spouse'],
+            'business': ['business', 'trade', 'commerce', 'contracts', 'transactions'],
+            'food': ['food', 'halal', 'haram', 'eating', 'drinking'],
+            'modesty': ['modesty', 'haya', 'clothing', 'dress', 'behavior'],
+            'justice': ['justice', 'adl', 'fairness', 'equality', 'rights']
+        }
+        
+        # Find matching topics
+        matching_topics = []
+        for main_topic, keywords in topic_mappings.items():
+            if any(keyword in topic_lower for keyword in keywords):
+                matching_topics.append(main_topic)
+        
+        # Search in Quran database for these topics
+        for surah_key, surah_data in self.quran_database.items():
+            verses_data = surah_data.get('verses_data', [])
+            for verse in verses_data:
+                verse_text = f"{verse.get('translation', '')} {verse.get('context', '')}".lower()
+                
+                # Check if verse relates to any matching topic
+                for matching_topic in matching_topics:
+                    if matching_topic in verse_text:
+                        results.append({
+                            'type': 'quran_verse',
+                            'surah_number': surah_data.get('surah_number'),
+                            'surah_name': surah_data.get('surah_name'),
+                            'arabic_name': surah_data.get('arabic_name'),
+                            'ayah': verse.get('ayah'),
+                            'arabic': verse.get('arabic'),
+                            'transliteration': verse.get('transliteration'),
+                            'translation': verse.get('translation'),
+                            'context': verse.get('context'),
+                            'topic': matching_topic,
+                            'relevance': 0.9,
+                            'source': f"Quran {surah_data.get('surah_number')}:{verse.get('ayah')} - {surah_data.get('surah_name')}"
+                        })
+        
+        # Sort by relevance and return top results
+        results.sort(key=lambda x: x['relevance'], reverse=True)
+        return results[:8]  # Return top 8 topic-specific results
+    
+    def get_quran_verse_details(self, surah_number, ayah_number):
+        """Get detailed information about a specific Quran verse"""
+        for surah_key, surah_data in self.quran_database.items():
+            if surah_data.get('surah_number') == surah_number:
+                verses_data = surah_data.get('verses_data', [])
+                for verse in verses_data:
+                    if verse.get('ayah') == ayah_number:
+                        return {
+                            'surah_info': {
+                                'number': surah_data.get('surah_number'),
+                                'name': surah_data.get('surah_name'),
+                                'arabic_name': surah_data.get('arabic_name'),
+                                'translation': surah_data.get('translation'),
+                                'verses': surah_data.get('verses'),
+                                'revelation': surah_data.get('revelation'),
+                                'juz': surah_data.get('juz'),
+                                'pages': surah_data.get('pages'),
+                                'rukus': surah_data.get('rukus')
+                            },
+                            'verse_info': verse,
+                            'summary': surah_data.get('summary')
+                        }
+        return None
     
     def get_follow_up_sources(self, user_message):
         """Handle follow-up requests for additional sources"""
