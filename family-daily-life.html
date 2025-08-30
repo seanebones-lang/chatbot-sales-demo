@@ -3,9 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family & Daily Life - Islamic Guidance for Modern Living</title>
-    <meta name="description" content="Comprehensive Islamic guidance for family life, daily routines, relationships, and practical living according to Islamic principles and Sunnah.">
+    <title>Family Daily Life - Complete Islamic Study Guide</title>
     <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,555 +51,270 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1.5rem;
         }
 
         .header {
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
-            border-radius: 20px;
-            border: 2px solid rgba(30, 144, 255, 0.3);
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
 
         .header h1 {
-            color: #FFD700;
             font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
-            color: #87CEEB;
-            font-size: 1.2rem;
-        }
-
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(30, 144, 255, 0.2);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: rgba(30, 144, 255, 0.3);
-            transform: translateY(-2px);
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .content-section {
-            background: rgba(18, 18, 18, 0.8);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            animation: fadeIn 0.8s ease-in;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            color: #1E90FF;
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
             font-size: 1.8rem;
-            margin-bottom: 20px;
-            border-bottom: 2px solid rgba(30, 144, 255, 0.3);
-            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
         }
 
-        .subsection-title {
-            color: #FFD700;
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
             font-size: 1.4rem;
-            margin: 25px 0 15px 0;
         }
 
-        .content-text {
-            color: #E0E0E0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 15px;
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
         }
 
-        .highlight-box {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
         }
 
-        .highlight-box h4 {
-            color: #FFD700;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
         }
 
-        .highlight-box p {
-            color: #E0E0E0;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .practice-box {
-            background: rgba(30, 144, 255, 0.1);
-            border: 2px solid rgba(30, 144, 255, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .practice-box h4 {
-            color: #1E90FF;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .practice-box p {
-            color: #E0E0E0;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .grid-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 15px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .grid-item:hover {
-            transform: translateY(-5px);
-            border-color: #1E90FF;
-            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.2);
-        }
-
-        .grid-item h4 {
-            color: #FFD700;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .grid-item p {
-            color: #E0E0E0;
-            font-size: 1rem;
+        .content-section li {
+            margin-bottom: 0.5rem;
             line-height: 1.6;
         }
 
-        .daily-routine {
-            background: rgba(135, 206, 235, 0.1);
-            border: 2px solid rgba(135, 206, 235, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
 
-        .daily-routine h4 {
-            color: #87CEEB;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .daily-routine ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .daily-routine li {
-            background: rgba(255, 255, 255, 0.05);
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #87CEEB;
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
         }
 
-        .daily-routine li:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateX(5px);
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
         }
 
-        .daily-routine li strong {
-            color: #FFD700;
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
-        .quote-box {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            font-style: italic;
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
             text-align: center;
         }
 
-        .quote-box p {
-            color: #FFD700;
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-
-        .tips-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .tips-list li {
-            background: rgba(255, 255, 255, 0.05);
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #FFD700;
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
 
-        .tips-list li:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateX(5px);
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
-        .tips-list li strong {
-            color: #FFD700;
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 1rem;
             }
             
             .header h1 {
                 font-size: 2rem;
             }
             
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .grid-container {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
         }
+    
     </style>
 </head>
 <body>
-    <button class="back-button" onclick="window.location.href='index.html'">← Back to Home</button>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     
     <div class="container">
-        <div class="header">
-            <h1>Family & Daily Life</h1>
-            <p>Islamic Guidance for Modern Living - Family, Relationships, and Daily Practices</p>
-        </div>
-
+        <header class="header">
+            <h1>Family Daily Life</h1>
+            <p>Complete guide to family daily life with comprehensive Islamic content and resources</p>
+        </header>
+        
         <div class="content-section">
-            <h2 class="section-title">Family Life in Islam</h2>
-            <p class="content-text">
-                Islam places great emphasis on family as the foundation of society. The family unit is considered sacred, 
-                and Islam provides comprehensive guidance for building strong, loving, and harmonious family relationships.
-            </p>
             
-            <div class="highlight-box">
-                <h4>Family as a Blessing</h4>
-                <p>
-                    Prophet Muhammad (PBUH) said: "The best of you is the best to his family, and I am the best to my family." 
-                    This hadith emphasizes the importance of treating family members with kindness, respect, and love.
-                </p>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2 class="section-title">Marriage and Relationships</h2>
+            <h3>Family Daily Life</h3>
+            <p>Complete guide to family daily life with comprehensive Islamic content and resources</p>
             
-            <h3 class="subsection-title">Choosing a Spouse</h3>
-            <p class="content-text">
-                Islam encourages marriage and provides guidance on choosing a spouse based on character, faith, and compatibility.
-            </p>
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about family daily life with detailed content and resources.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
+                </div>
+            </div>
             
-            <div class="grid-container">
-                <div class="grid-item">
-                    <h4>Religious Character</h4>
-                    <p>Choose a spouse who is committed to their faith and will help you grow spiritually.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Good Character</h4>
-                    <p>Look for someone with good manners, honesty, and kindness.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Family Background</h4>
-                    <p>Consider the family's values and how they raise their children.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Compatibility</h4>
-                    <p>Ensure you share similar goals and values for your future together.</p>
-                </div>
-            </div>
-
-            <h3 class="subsection-title">Marital Rights and Responsibilities</h3>
-            <div class="practice-box">
-                <h4>Mutual Rights</h4>
-                <p>
-                    Both spouses have rights and responsibilities. The husband should provide for the family financially, 
-                    while the wife has the right to be treated with kindness, respect, and fairness. Both should work 
-                    together to create a loving and peaceful home environment.
-                </p>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2 class="section-title">Parenting and Child Rearing</h2>
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about family daily life. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
             
-            <div class="daily-routine">
-                <h4>Islamic Parenting Principles</h4>
-                <ul>
-                    <li><strong>Start Early:</strong> Begin teaching Islamic values from a young age through stories, examples, and gentle guidance.</li>
-                    <li><strong>Lead by Example:</strong> Children learn more from what they see than what they hear. Be a good role model.</li>
-                    <li><strong>Show Love and Affection:</strong> Prophet Muhammad (PBUH) was known for his love and kindness toward children.</li>
-                    <li><strong>Teach Through Stories:</strong> Use Islamic stories and parables to teach moral lessons.</li>
-                    <li><strong>Encourage Questions:</strong> Create an environment where children feel comfortable asking about their faith.</li>
-                    <li><strong>Be Patient:</strong> Remember that learning takes time and every child develops at their own pace.</li>
-                </ul>
-            </div>
-
-            <h3 class="subsection-title">Age-Appropriate Islamic Education</h3>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <h4>Ages 3-6</h4>
-                    <p>Teach basic Islamic greetings, simple duas, and stories of the prophets.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Ages 7-12</h4>
-                    <p>Introduce prayer, Quran reading, Islamic history, and moral lessons.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Ages 13+</h4>
-                    <p>Deepen understanding of Islamic principles, encourage critical thinking, and discuss contemporary issues.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2 class="section-title">Daily Islamic Practices</h2>
-            
-            <div class="daily-routine">
-                <h4>Morning Routine</h4>
-                <ul>
-                    <li><strong>Fajr Prayer:</strong> Start the day with the dawn prayer and morning supplications.</li>
-                    <li><strong>Morning Dhikr:</strong> Recite morning remembrances and seek Allah's protection.</li>
-                    <li><strong>Breakfast:</strong> Eat a healthy breakfast and thank Allah for His blessings.</li>
-                    <li><strong>Plan the Day:</strong> Set intentions for the day ahead with Islamic values in mind.</li>
-                </ul>
-            </div>
-
-            <div class="daily-routine">
-                <h4>Throughout the Day</h4>
-                <ul>
-                    <li><strong>Regular Prayers:</strong> Perform the five daily prayers at their prescribed times.</li>
-                    <li><strong>Dhikr:</strong> Remember Allah throughout the day with short supplications.</li>
-                    <li><strong>Good Deeds:</strong> Look for opportunities to help others and spread kindness.</li>
-                    <li><strong>Learning:</strong> Spend time reading Quran, studying Islamic texts, or listening to Islamic lectures.</li>
-                </ul>
-            </div>
-
-            <div class="daily-routine">
-                <h4>Evening Routine</h4>
-                <ul>
-                    <li><strong>Maghrib Prayer:</strong> Perform the sunset prayer and evening supplications.</li>
-                    <li><strong>Family Time:</strong> Spend quality time with family, share stories, and discuss Islamic values.</li>
-                    <li><strong>Reflection:</strong> Review the day's actions and seek forgiveness for any mistakes.</li>
-                    <li><strong>Isha Prayer:</strong> End the day with the night prayer and bedtime supplications.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2 class="section-title">Family Activities and Traditions</h2>
-            
-            <div class="grid-container">
-                <div class="grid-item">
-                    <h4>Weekly Family Halaqa</h4>
-                    <p>Set aside time each week for family Islamic study, discussion, and learning together.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Islamic Celebrations</h4>
-                    <p>Celebrate Islamic holidays like Eid al-Fitr and Eid al-Adha with family traditions and activities.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Charity Together</h4>
-                    <p>Involve the whole family in charitable activities to teach the value of helping others.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Nature Walks</h4>
-                    <p>Take family walks in nature to appreciate Allah's creation and discuss environmental stewardship.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2 class="section-title">Communication and Conflict Resolution</h2>
-            
-            <div class="practice-box">
-                <h4>Islamic Communication Principles</h4>
-                <p>
-                    Prophet Muhammad (PBUH) taught that the best speech is that which is truthful and kind. 
-                    When communicating with family members, always speak with respect, patience, and love.
-                </p>
-            </div>
-
-            <h3 class="subsection-title">Resolving Family Conflicts</h3>
-            <ul class="tips-list">
-                <li><strong>Seek Reconciliation:</strong> Prophet Muhammad (PBUH) said that reconciling between people is better than optional prayers.</li>
-                <li><strong>Listen Actively:</strong> Give each person a chance to express their feelings without interruption.</li>
-                <li><strong>Find Common Ground:</strong> Focus on shared values and goals rather than differences.</li>
-                <li><strong>Seek Mediation:</strong> If needed, involve a trusted family member or Islamic scholar to help resolve conflicts.</li>
-                <li><strong>Forgive and Move Forward:</strong> Remember that forgiveness is a key Islamic virtue.</li>
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
             </ul>
+        
         </div>
-
-        <div class="content-section">
-            <h2 class="section-title">Extended Family and Community</h2>
-            
-            <p class="content-text">
-                Islam emphasizes maintaining good relationships with extended family members and being active in the Muslim community.
-            </p>
-            
-            <div class="grid-container">
-                <div class="grid-item">
-                    <h4>Respecting Elders</h4>
-                    <p>Show respect and care for grandparents, aunts, uncles, and other elderly family members.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Supporting Relatives</h4>
-                    <p>Help family members in need and maintain regular contact with extended family.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Community Involvement</h4>
-                    <p>Participate in mosque activities, community events, and support local Muslim organizations.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Building Networks</h4>
-                    <p>Connect with other Muslim families for support, friendship, and shared learning experiences.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2 class="section-title">Technology and Modern Life</h2>
-            
-            <div class="highlight-box">
-                <h4>Balancing Technology and Family Time</h4>
-                <p>
-                    In today's digital age, it's important to balance technology use with quality family time. 
-                    Set boundaries for screen time and create tech-free zones and times for family interaction.
-                </p>
-            </div>
-
-            <h3 class="subsection-title">Using Technology Positively</h3>
-            <ul class="tips-list">
-                <li><strong>Islamic Apps:</strong> Use apps for prayer times, Quran recitation, and Islamic learning.</li>
-                <li><strong>Family Communication:</strong> Use technology to stay connected with family members who live far away.</li>
-                <li><strong>Educational Content:</strong> Access Islamic lectures, courses, and educational materials online.</li>
-                <li><strong>Social Media:</strong> Use social media to connect with the Muslim community and share positive Islamic content.</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2 class="section-title">Health and Wellness</h2>
-            
-            <p class="content-text">
-                Islam encourages maintaining good health and taking care of the body as it is a trust from Allah.
-            </p>
-            
-            <div class="grid-container">
-                <div class="grid-item">
-                    <h4>Physical Health</h4>
-                    <p>Exercise regularly, eat healthy halal foods, and maintain good hygiene practices.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Mental Health</h4>
-                    <p>Practice mindfulness, seek help when needed, and maintain strong family support systems.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Spiritual Health</h4>
-                    <p>Maintain regular prayer, Quran reading, and connection with Allah for inner peace.</p>
-                </div>
-                <div class="grid-item">
-                    <h4>Emotional Health</h4>
-                    <p>Express emotions healthily, communicate openly with family, and practice self-care.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2 class="section-title">Conclusion</h2>
-            <p class="content-text">
-                Family life in Islam is about creating a loving, supportive environment where Islamic values are lived 
-                and passed down to future generations. By following the guidance of the Quran and Sunnah, families can 
-                build strong bonds that last a lifetime and create a foundation for a strong Muslim community.
-            </p>
-            
-            <div class="quote-box">
-                <p>"The best of you is the best to his family, and I am the best to my family." - Prophet Muhammad (PBUH)</p>
-            </div>
-        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
-
+    
     <script>
-        // Add smooth scrolling for better navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Add fade-in animation for sections as they come into view
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

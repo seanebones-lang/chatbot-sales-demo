@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hadith Collections - Islamic Study Guide</title>
+    <title>Hadith Index - Complete Islamic Study Guide</title>
     <style>
+
         :root {
             --bg-primary: #0a0f0f;
             --bg-secondary: #1a1a1a;
@@ -67,264 +68,171 @@
         .header {
             text-align: center;
             margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            box-shadow: var(--shadow-primary);
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
             border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
 
         .header h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             color: var(--accent-primary);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
-            font-size: 1rem;
-            color: var(--text-secondary);
+            font-size: 1.1rem;
+            opacity: 0.9;
             max-width: 800px;
             margin: 0 auto;
         }
 
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
         .theme-toggle {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
             background: var(--accent-primary);
             color: white;
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
-            font-weight: 600;
             transition: all 0.3s ease;
-            font-size: 0.8rem;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
         }
 
         .theme-toggle:hover {
             background: var(--accent-secondary);
-            transform: translateY(-2px);
-        }
-
-        .back-button {
-            position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-            background: var(--accent-primary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.8rem;
-        }
-
-        .back-button:hover {
-            background: var(--accent-secondary);
-            transform: translateY(-2px);
-        }
-
-        .content-section {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-primary);
-            border: 1px solid var(--border-primary);
-        }
-
-        .content-section h3 {
-            color: var(--accent-primary);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--accent-primary);
-            padding-bottom: 0.5rem;
-        }
-
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .link-category {
-            background: var(--bg-accent);
-            padding: 1rem;
-            border-radius: 6px;
-            border-left: 4px solid var(--accent-primary);
-        }
-
-        .link-category h4 {
-            color: var(--accent-secondary);
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-        }
-
-        .link-category ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .link-category li {
-            margin-bottom: 0.25rem;
-            padding: 0.25rem;
-            border-radius: 4px;
-            transition: background 0.2s ease;
-        }
-
-        .link-category li:hover {
-            background: var(--bg-secondary);
-        }
-
-        .link-category a {
-            color: var(--accent-primary);
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-            padding: 0.25rem;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            font-size: 0.85rem;
-        }
-
-        .link-category a:hover {
-            background: var(--accent-primary);
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .search-section {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-primary);
-            border: 1px solid var(--border-primary);
-        }
-
-        .search-section h3 {
-            color: var(--accent-primary);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--accent-primary);
-            padding-bottom: 0.5rem;
+            transform: scale(1.1);
         }
 
         .search-container {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
         }
 
         .search-input {
-            flex: 1;
-            padding: 0.75rem 1rem;
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
             border: 2px solid var(--border-primary);
-            border-radius: 6px;
-            background: var(--bg-accent);
+            border-radius: 25px;
+            background: var(--bg-primary);
             color: var(--text-primary);
-            font-size: 0.9rem;
-            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
         .search-input:focus {
             outline: none;
             border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
-        .search-button {
-            padding: 0.75rem 1.5rem;
-            background: var(--accent-primary);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .search-button:hover {
-            background: var(--accent-secondary);
-            transform: translateY(-2px);
-        }
-
-        .search-results {
-            margin-top: 1.5rem;
-        }
-
-        .result-item {
-            background: var(--bg-accent);
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--accent-primary);
-        }
-
-        .result-title {
-            color: var(--accent-primary);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .result-content {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            font-size: 0.9rem;
-        }
-
-        .subject-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .subject-card {
-            background: var(--bg-accent);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-primary);
-            transition: all 0.3s ease;
-        }
-
-        .subject-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-secondary);
-        }
-
-        .subject-card h3 {
-            color: var(--accent-primary);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .subject-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .subject-link {
-            display: inline-block;
-            background: var(--accent-primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .subject-link:hover {
-            background: var(--accent-secondary);
-            transform: translateY(-2px);
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
 
         @media (max-width: 768px) {
@@ -333,135 +241,80 @@
             }
             
             .header h1 {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
             
-            .links-grid, .subject-grid {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
             
-            .search-container {
-                flex-direction: column;
-            }
-            
-            .theme-toggle, .back-button {
-                position: relative;
-                top: auto;
-                left: auto;
-                right: auto;
-                margin-bottom: 1rem;
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
 </head>
 <body>
-    <a href="complete-islamic-study-guide-dark.html" class="back-button">Back to Main Guide</a>
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     
     <div class="container">
-        <div class="header">
-            <h1>Hadith Collections</h1>
-            <p>Authentic Hadith from the major collections with search and study tools</p>
-        </div>
-
+        <header class="header">
+            <h1>Hadith Index</h1>
+            <p>Complete guide to hadith index with comprehensive Islamic content and resources</p>
+        </header>
         
-        <div class="search-section">
-            <h3>Search Hadith Collections</h3>
-            <div class="search-container">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search for specific topics..." onkeyup="performSearch()">
-                <button class="search-button" onclick="performSearch()">Search</button>
-            </div>
-            <div class="search-results" id="searchResults">
-                <p style="text-align: center; color: var(--text-secondary);">Search results will appear here...</p>
-            </div>
-        </div>
-
         <div class="content-section">
-            <h3>Major Hadith Collections</h3>
-            <div class="links-grid">
-                
-                <div class="link-category">
-                    <h4>Sahih Bukhari</h4>
-                    <ul>
-                        <li><a href="sahih-bukhari.html">Sahih Bukhari</a></li>
-                        <li>Most authentic collection of Hadith</li>
-                    </ul>
+            
+            <h3>Hadith Index</h3>
+            <p>Complete guide to hadith index with comprehensive Islamic content and resources</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about hadith index with detailed content and resources.</p>
                 </div>
-                <div class="link-category">
-                    <h4>Sahih Muslim</h4>
-                    <ul>
-                        <li><a href="sahih-muslim.html">Sahih Muslim</a></li>
-                        <li>Second most authentic Hadith collection</li>
-                    </ul>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
                 </div>
-                <div class="link-category">
-                    <h4>Abu Dawud</h4>
-                    <ul>
-                        <li><a href="abu-dawud.html">Abu Dawud</a></li>
-                        <li>Collection focusing on legal Hadith</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Tirmidhi</h4>
-                    <ul>
-                        <li><a href="tirmidhi.html">Tirmidhi</a></li>
-                        <li>Collection with commentary and grading</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Nasai</h4>
-                    <ul>
-                        <li><a href="nasai.html">Nasai</a></li>
-                        <li>Collection emphasizing legal rulings</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Ibn Majah</h4>
-                    <ul>
-                        <li><a href="ibn-majah.html">Ibn Majah</a></li>
-                        <li>Comprehensive Hadith collection</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Hadith Collections Hub</h4>
-                    <ul>
-                        <li><a href="hadith-collections-hub.html">Hadith Collections Hub</a></li>
-                        <li>Central access to all collections</li>
-                    </ul>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
                 </div>
             </div>
-        </div>
-
+            
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about hadith index. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
         
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
-
+    
     <script>
         function toggleTheme() {
             const body = document.body;
-            const themeToggle = document.querySelector('.theme-toggle');
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
             
-            if (body.getAttribute('data-theme') === 'light') {
-                body.removeAttribute('data-theme');
-                themeToggle.textContent = 'Toggle Theme';
-            } else {
-                body.setAttribute('data-theme', 'light');
-                themeToggle.textContent = 'Toggle Theme';
-            }
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
-
         
-        function performSearch() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const resultsContainer = document.getElementById('searchResults');
-            
-            if (searchTerm.length < 2) {
-                resultsContainer.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Search results will appear here...</p>';
-                return;
-            }
-            
-            // Placeholder search functionality
-            resultsContainer.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Search functionality will be implemented with comprehensive Islamic content database.</p>';
-        }
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

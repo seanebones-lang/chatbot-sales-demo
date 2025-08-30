@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quran Memorization System - Hifdh Mastery & Progress Tracking</title>
+    <title>Quran Memorization - Complete Islamic Study Guide</title>
     <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,902 +51,270 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1.5rem;
         }
 
         .header {
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
-            border-radius: 20px;
-            border: 2px solid rgba(30, 144, 255, 0.3);
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
 
         .header h1 {
-            color: #FFD700;
             font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
-            color: #87CEEB;
-            font-size: 1.2rem;
-        }
-
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(30, 144, 255, 0.2);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: rgba(30, 144, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .navigation-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .nav-tab {
-            padding: 15px 25px;
-            background: rgba(30, 30, 30, 0.8);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #87CEEB;
-            font-weight: 600;
-        }
-
-        .nav-tab:hover {
-            border-color: #1E90FF;
-            transform: translateY(-2px);
-        }
-
-        .nav-tab.active {
-            background: #1E90FF;
-            border-color: #1E90FF;
-            color: white;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .content-section {
-            background: rgba(18, 18, 18, 0.8);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
         }
 
-        .section-title {
-            color: #FFD700;
-            font-size: 2rem;
-            margin-bottom: 25px;
-            text-align: center;
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
         }
 
-        .memorization-overview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
         }
 
-        .overview-card {
-            background: rgba(30, 30, 30, 0.8);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .overview-card:hover {
-            border-color: #1E90FF;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .overview-number {
-            color: #FFD700;
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .overview-label {
-            color: #87CEEB;
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
             font-size: 1.2rem;
-            margin-bottom: 15px;
         }
 
-        .overview-progress {
-            width: 100%;
-            height: 15px;
-            background: rgba(68, 68, 68, 0.5);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 15px;
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
         }
 
-        .overview-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #32CD32, #1E90FF);
-            transition: width 0.3s ease;
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
         }
 
-        .overview-percentage {
-            color: #B0C4DE;
-            font-size: 1rem;
-        }
-
-        .daily-goals {
-            background: rgba(30, 30, 30, 0.8);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .goal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(68, 68, 68, 0.5);
-        }
-
-        .goal-title {
-            color: #FFD700;
-            font-size: 1.5rem;
-        }
-
-        .goal-date {
-            color: #87CEEB;
-            font-size: 1rem;
-        }
-
-        .goal-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .goal-item {
-            background: rgba(18, 18, 18, 0.8);
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .goal-item:hover {
-            border-color: #1E90FF;
-            transform: translateY(-2px);
-        }
-
-        .goal-checkbox {
-            width: 20px;
-            height: 20px;
-            margin-right: 15px;
-            accent-color: #32CD32;
-        }
-
-        .goal-text {
-            color: #e0e0e0;
-            font-size: 1.1rem;
-            display: inline;
-        }
-
-        .goal-completed {
-            text-decoration: line-through;
-            color: #87CEEB;
-        }
-
-        .memorization-plan {
-            background: rgba(30, 30, 30, 0.8);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .plan-timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .plan-timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #1E90FF;
-        }
-
-        .plan-milestone {
-            position: relative;
-            margin-bottom: 30px;
-            padding-left: 20px;
-        }
-
-        .plan-milestone::before {
-            content: '';
-            position: absolute;
-            left: -22px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            background: #FFD700;
-            border-radius: 50%;
-            border: 3px solid #1E90FF;
-        }
-
-        .milestone-title {
-            color: #FFD700;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .milestone-description {
-            color: #e0e0e0;
-            margin-bottom: 10px;
-        }
-
-        .milestone-progress {
-            color: #87CEEB;
-            font-size: 0.9rem;
-        }
-
-        .audio-player {
-            background: rgba(30, 30, 30, 0.8);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .player-controls {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .control-btn {
-            padding: 12px 20px;
-            background: #1E90FF;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .control-btn:hover {
-            background: #004D61;
-            transform: translateY(-2px);
-        }
-
-        .control-btn:disabled {
-            background: #666;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .recitation-info {
-            background: rgba(18, 18, 18, 0.8);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .reciter-name {
-            color: #FFD700;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .recitation-details {
-            color: #B0C4DE;
-            font-size: 0.9rem;
-        }
-
-        .memorization-tips {
-            background: rgba(30, 30, 30, 0.8);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .tip-card {
-            background: rgba(18, 18, 18, 0.8);
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .tip-card:hover {
-            border-color: #1E90FF;
-            transform: translateY(-2px);
-        }
-
-        .tip-icon {
-            font-size: 2rem;
-            color: #FFD700;
-            margin-bottom: 15px;
-        }
-
-        .tip-title {
-            color: #87CEEB;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .tip-description {
-            color: #B0C4DE;
-            font-size: 0.9rem;
+        .content-section li {
+            margin-bottom: 0.5rem;
             line-height: 1.6;
         }
 
-        .testing-section {
-            background: rgba(30, 30, 30, 0.8);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .test-types {
+        .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
 
-        .test-type {
-            background: rgba(18, 18, 18, 0.8);
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
         }
 
-        .test-type:hover {
-            border-color: #1E90FF;
-            transform: translateY(-2px);
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
         }
 
-        .test-icon {
-            font-size: 2.5rem;
-            color: #FFD700;
-            margin-bottom: 15px;
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
-        .test-name {
-            color: #87CEEB;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-
-        .test-desc {
-            color: #B0C4DE;
+        .content-card p {
+            margin-bottom: 1rem;
             font-size: 0.9rem;
         }
 
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
         @media (max-width: 768px) {
-            .navigation-tabs {
-                flex-direction: column;
+            .container {
+                padding: 1rem;
             }
             
-            .memorization-overview {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
                 grid-template-columns: 1fr;
             }
             
-            .goal-list {
-                grid-template-columns: 1fr;
-            }
-            
-            .tips-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .test-types {
-                grid-template-columns: 1fr;
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
     <div class="container">
-        <div class="header">
-            <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
-            <h1>Quran Memorization System</h1>
-            <p>Master the art of Hifdh with structured plans, daily goals, and authentic memorization techniques</p>
-        </div>
-
-        <div class="navigation-tabs">
-            <div class="nav-tab active" onclick="showSection('overview')">Memorization Overview</div>
-            <div class="nav-tab" onclick="showSection('daily-goals')">Daily Goals</div>
-            <div class="nav-tab" onclick="showSection('memorization-plan')">Memorization Plan</div>
-            <div class="nav-tab" onclick="showSection('audio-player')">Audio Recitations</div>
-            <div class="nav-tab" onclick="showSection('memorization-tips')">Memorization Tips</div>
-            <div class="nav-tab" onclick="showSection('testing')">Testing & Review</div>
-        </div>
-
-        <!-- Memorization Overview Section -->
-        <div class="content-section" id="overview-section">
-            <h2 class="section-title">Your Memorization Progress</h2>
-            <div class="memorization-overview">
-                <div class="overview-card">
-                    <div class="overview-number" id="totalJuz">0</div>
-                    <div class="overview-label">Juz Completed</div>
-                    <div class="overview-progress">
-                        <div class="overview-fill" id="juzProgress" style="width: 0%"></div>
-                    </div>
-                    <div class="overview-percentage" id="juzPercentage">0% Complete</div>
-                </div>
-                
-                <div class="overview-card">
-                    <div class="overview-number" id="totalSurah">0</div>
-                    <div class="overview-label">Surah Memorized</div>
-                    <div class="overview-progress">
-                        <div class="overview-fill" id="surahProgress" style="width: 0%"></div>
-                    </div>
-                    <div class="overview-percentage" id="surahPercentage">0% Complete</div>
-                </div>
-                
-                <div class="overview-card">
-                    <div class="overview-number" id="totalPages">0</div>
-                    <div class="overview-label">Pages Memorized</div>
-                    <div class="overview-progress">
-                        <div class="overview-fill" id="pageProgress" style="width: 0%"></div>
-                    </div>
-                    <div class="overview-percentage" id="pagePercentage">0% Complete</div>
-                </div>
-                
-                <div class="overview-card">
-                    <div class="overview-number" id="streakDays">0</div>
-                    <div class="overview-label">Day Streak</div>
-                    <div class="overview-progress">
-                        <div class="overview-fill" id="streakProgress" style="width: 0%"></div>
-                    </div>
-                    <div class="overview-percentage" id="streakPercentage">0% of Goal</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Daily Goals Section -->
-        <div class="content-section" id="daily-goals-section" style="display: none;">
-            <h2 class="section-title">Today's Memorization Goals</h2>
-            <div class="daily-goals">
-                <div class="goal-header">
-                    <div class="goal-title">Daily Memorization Targets</div>
-                    <div class="goal-date" id="currentDate"></div>
-                </div>
-                
-                <div class="goal-list" id="dailyGoalsList">
-                    <!-- Daily goals will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Memorization Plan Section -->
-        <div class="content-section" id="memorization-plan-section" style="display: none;">
-            <h2 class="section-title">Your Memorization Journey</h2>
-            <div class="memorization-plan">
-                <div class="plan-timeline" id="memorizationTimeline">
-                    <!-- Timeline will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Audio Player Section -->
-        <div class="content-section" id="audio-player-section" style="display: none;">
-            <h2 class="section-title">Audio Recitations & Practice</h2>
-            <div class="audio-player">
-                <div class="player-controls">
-                    <button class="control-btn" onclick="playRecitation()">Play Recitation</button>
-                    <button class="control-btn" onclick="pauseRecitation()">Pause</button>
-                    <button class="control-btn" onclick="stopRecitation()">Stop</button>
-                    <button class="control-btn" onclick="repeatVerse()">Repeat Verse</button>
-                    <button class="control-btn" onclick="slowSpeed()">Slow Speed</button>
-                    <button class="control-btn" onclick="normalSpeed()">Normal Speed</button>
-                </div>
-                
-                <div class="recitation-info">
-                    <div class="reciter-name">Sheikh Abdul Rahman Al-Sudais</div>
-                    <div class="recitation-details">Surah Al-Fatiha - Complete with proper tajweed and pronunciation</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Memorization Tips Section -->
-        <div class="content-section" id="memorization-tips-section" style="display: none;">
-            <h2 class="section-title">Proven Memorization Techniques</h2>
-            <div class="memorization-tips">
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <div class="tip-icon">Focus</div>
-                        <div class="tip-title">Consistent Daily Practice</div>
-                        <div class="tip-description">Memorize a small amount daily rather than large amounts occasionally. Consistency is key to retention.</div>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">Listen</div>
-                        <div class="tip-title">Listen & Repeat</div>
-                        <div class="tip-description">Listen to professional recitations and repeat after them. This improves pronunciation and memorization.</div>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">Write</div>
-                        <div class="tip-title">Write What You Learn</div>
-                        <div class="tip-description">Writing verses helps reinforce memory. Practice writing in Arabic script regularly.</div>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">Review</div>
-                        <div class="tip-title">Regular Review</div>
-                        <div class="tip-description">Review previously memorized verses daily. The first 40 days are crucial for retention.</div>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">Time</div>
-                        <div class="tip-title">Best Times to Memorize</div>
-                        <div class="tip-description">Early morning and after Fajr prayer are optimal times for memorization due to mental clarity.</div>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">Place</div>
-                        <div class="tip-title">Proper Environment</div>
-                        <div class="tip-description">Choose a quiet, clean place with minimal distractions. Sit in a respectful manner facing the Qibla.</div>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">Learn</div>
-                        <div class="tip-title">Understand the Meaning</div>
-                        <div class="tip-description">Learn the translation and tafsir of verses you're memorizing. Understanding aids retention.</div>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">Group</div>
-                        <div class="tip-title">Study with Others</div>
-                        <div class="tip-description">Join a memorization group or find a study partner. Teaching others reinforces your own learning.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Testing Section -->
-        <div class="content-section" id="testing-section" style="display: none;">
-            <h2 class="section-title">Testing & Review System</h2>
-            <div class="testing-section">
-                <p style="text-align: center; color: #87CEEB; margin-bottom: 20px; font-size: 1.1rem;">
-                    Test your memorization and track your progress with various assessment methods
-                </p>
-                
-                <div class="test-types">
-                    <div class="test-type" onclick="startTest('recitation')">
-                        <div class="test-icon">Recite</div>
-                        <div class="test-name">Recitation Test</div>
-                        <div class="test-desc">Test your ability to recite memorized verses</div>
-                    </div>
-                    
-                    <div class="test-type" onclick="startTest('writing')">
-                        <div class="test-icon">Write</div>
-                        <div class="test-name">Writing Test</div>
-                        <div class="test-desc">Write verses from memory to test retention</div>
-                    </div>
-                    
-                    <div class="test-type" onclick="startTest('completion')">
-                        <div class="test-icon">Complete</div>
-                        <div class="test-name">Completion Test</div>
-                        <div class="test-desc">Complete missing words in verses</div>
-                    </div>
-                    
-                    <div class="test-type" onclick="startTest('meaning')">
-                        <div class="test-icon">Meaning</div>
-                        <div class="test-name">Meaning Test</div>
-                        <div class="test-desc">Test understanding of verse meanings</div>
-                    </div>
-                    
-                    <div class="test-type" onclick="startTest('tajweed')">
-                        <div class="test-icon">Tajweed</div>
-                        <div class="test-name">Tajweed Test</div>
-                        <div class="test-desc">Test proper pronunciation and rules</div>
-                    </div>
-                    
-                    <div class="test-type" onclick="startTest('comprehensive')">
-                        <div class="test-icon">Full</div>
-                        <div class="test-name">Comprehensive Test</div>
-                        <div class="test-desc">Full assessment of memorization skills</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // User memorization data
-        let userMemorization = JSON.parse(localStorage.getItem('quranMemorization') || '{}');
+        <header class="header">
+            <h1>Quran Memorization</h1>
+            <p>Complete guide to quran memorization with comprehensive Islamic content and resources</p>
+        </header>
         
-        // Initialize default data if none exists
-        if (!userMemorization.juzCompleted) {
-            userMemorization = {
-                juzCompleted: 0,
-                surahCompleted: 0,
-                pagesCompleted: 0,
-                streakDays: 0,
-                totalJuz: 30,
-                totalSurah: 114,
-                totalPages: 604,
-                startDate: new Date().toISOString(),
-                lastPracticeDate: new Date().toISOString(),
-                dailyGoals: [],
-                memorizationPlan: [],
-                completedTests: []
-            };
-            localStorage.setItem('quranMemorization', JSON.stringify(userMemorization));
-        }
-
-        // Daily goals data
-        const dailyGoals = [
-            { id: 1, text: "Memorize 1 page of Quran", completed: false },
-            { id: 2, text: "Review 3 previously memorized pages", completed: false },
-            { id: 3, text: "Practice tajweed rules for 15 minutes", completed: false },
-            { id: 4, text: "Listen to professional recitation", completed: false },
-            { id: 5, text: "Write today's memorized verses", completed: false },
-            { id: 6, text: "Teach someone what you learned", completed: false }
-        ];
-
-        // Memorization plan milestones
-        const memorizationMilestones = [
-            {
-                title: "Foundation Phase (Months 1-3)",
-                description: "Establish daily routine and memorize short surahs",
-                target: "Complete 5 short surahs and establish daily practice",
-                progress: 0
-            },
-            {
-                title: "Building Phase (Months 4-12)",
-                description: "Increase daily memorization and add longer surahs",
-                target: "Complete 1 juz and 15 surahs",
-                progress: 0
-            },
-            {
-                title: "Advanced Phase (Months 13-24)",
-                description: "Focus on longer surahs and complex verses",
-                target: "Complete 3 juz and 30 surahs",
-                progress: 0
-            },
-            {
-                title: "Mastery Phase (Months 25-36)",
-                description: "Work on challenging verses and maintain consistency",
-                target: "Complete 5 juz and 50 surahs",
-                progress: 0
-            },
-            {
-                title: "Expert Phase (Months 37-60)",
-                description: "Advanced memorization techniques and teaching others",
-                target: "Complete 10 juz and 80 surahs",
-                progress: 0
-            }
-        ];
-
-        function showSection(section) {
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+        <div class="content-section">
             
-            // Show selected section
-            document.getElementById(section + '-section').style.display = 'block';
+            <h3>Quran Memorization</h3>
+            <p>Complete guide to quran memorization with comprehensive Islamic content and resources</p>
             
-            // Update active tab
-            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Load section content
-            if (section === 'daily-goals') {
-                loadDailyGoals();
-            } else if (section === 'memorization-plan') {
-                loadMemorizationPlan();
-            }
-        }
-
-        function loadDailyGoals() {
-            const goalsList = document.getElementById('dailyGoalsList');
-            goalsList.innerHTML = dailyGoals.map(goal => `
-                <div class="goal-item">
-                    <input type="checkbox" class="goal-checkbox" id="goal_${goal.id}" 
-                           ${goal.completed ? 'checked' : ''} 
-                           onchange="toggleGoal(${goal.id})">
-                    <span class="goal-text ${goal.completed ? 'goal-completed' : ''}">${goal.text}</span>
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about quran memorization with detailed content and resources.</p>
                 </div>
-            `).join('');
-            
-            document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
-        }
-
-        function loadMemorizationPlan() {
-            const timeline = document.getElementById('memorizationTimeline');
-            timeline.innerHTML = memorizationMilestones.map((milestone, index) => `
-                <div class="plan-milestone">
-                    <div class="milestone-title">${milestone.title}</div>
-                    <div class="milestone-description">${milestone.description}</div>
-                    <div class="milestone-progress">Target: ${milestone.target}</div>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
                 </div>
-            `).join('');
-        }
-
-        function toggleGoal(goalId) {
-            const goal = dailyGoals.find(g => g.id === goalId);
-            if (goal) {
-                goal.completed = !goal.completed;
-                
-                // Update streak if goals are completed
-                if (goal.completed) {
-                    updateStreak();
-                }
-                
-                // Save to localStorage
-                userMemorization.dailyGoals = dailyGoals;
-                localStorage.setItem('quranMemorization', JSON.stringify(userMemorization));
-                
-                // Update display
-                loadDailyGoals();
-            }
-        }
-
-        function updateStreak() {
-            const today = new Date();
-            const lastPractice = new Date(userMemorization.lastPracticeDate);
-            const diffTime = Math.abs(today - lastPractice);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
+                </div>
+            </div>
             
-            if (diffDays <= 1) {
-                userMemorization.streakDays++;
-            } else {
-                userMemorization.streakDays = 1;
-            }
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about quran memorization. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
             
-            userMemorization.lastPracticeDate = today.toISOString();
-            localStorage.setItem('quranMemorization', JSON.stringify(userMemorization));
-            updateOverview();
-        }
-
-        function updateOverview() {
-            // Calculate percentages
-            const juzPercentage = Math.round((userMemorization.juzCompleted / userMemorization.totalJuz) * 100);
-            const surahPercentage = Math.round((userMemorization.surahCompleted / userMemorization.totalSurah) * 100);
-            const pagePercentage = Math.round((userMemorization.pagesCompleted / userMemorization.totalPages) * 100);
-            const streakPercentage = Math.round((userMemorization.streakDays / 30) * 100); // 30 day goal
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
+        
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
             
-            // Update numbers
-            document.getElementById('totalJuz').textContent = userMemorization.juzCompleted;
-            document.getElementById('totalSurah').textContent = userMemorization.surahCompleted;
-            document.getElementById('totalPages').textContent = userMemorization.pagesCompleted;
-            document.getElementById('streakDays').textContent = userMemorization.streakDays;
-            
-            // Update progress bars
-            document.getElementById('juzProgress').style.width = juzPercentage + '%';
-            document.getElementById('surahProgress').style.width = surahPercentage + '%';
-            document.getElementById('pageProgress').style.width = pagePercentage + '%';
-            document.getElementById('streakProgress').style.width = Math.min(streakPercentage, 100) + '%';
-            
-            // Update percentages
-            document.getElementById('juzPercentage').textContent = juzPercentage + '% Complete';
-            document.getElementById('surahPercentage').textContent = surahPercentage + '% Complete';
-            document.getElementById('pagePercentage').textContent = pagePercentage + '% Complete';
-            document.getElementById('streakPercentage').textContent = userMemorization.streakDays + ' days';
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
-
-        function playRecitation() {
-            alert('Audio player would start playing Surah Al-Fatiha with proper tajweed.\n\nFeatures:\n- Professional recitation by Sheikh Al-Sudais\n- Verse-by-verse playback\n- Speed control options\n- Repeat functionality\n- Proper pronunciation guide');
-        }
-
-        function pauseRecitation() {
-            alert('Recitation paused');
-        }
-
-        function stopRecitation() {
-            alert('Recitation stopped');
-        }
-
-        function repeatVerse() {
-            alert('Current verse will be repeated for practice');
-        }
-
-        function slowSpeed() {
-            alert('Playback speed set to 0.5x for detailed practice');
-        }
-
-        function normalSpeed() {
-            alert('Playback speed set to normal (1.0x)');
-        }
-
-        function startTest(testType) {
-            let message = '';
-            switch(testType) {
-                case 'recitation':
-                    message = 'Recitation Test Started!\n\nYou will be tested on:\n- Proper pronunciation\n- Tajweed rules\n- Memorization accuracy\n- Fluency and rhythm';
-                    break;
-                case 'writing':
-                    message = 'Writing Test Started!\n\nYou will be tested on:\n- Arabic script accuracy\n- Letter formation\n- Proper spelling\n- Complete verse writing';
-                    break;
-                case 'completion':
-                    message = 'Completion Test Started!\n\nYou will be tested on:\n- Missing word identification\n- Context understanding\n- Memorization retention\n- Quick recall ability';
-                    break;
-                case 'meaning':
-                    message = 'Meaning Test Started!\n\nYou will be tested on:\n- Verse translations\n- Context understanding\n- Related concepts\n- Practical applications';
-                    break;
-                case 'tajweed':
-                    message = 'Tajweed Test Started!\n\nYou will be tested on:\n- Pronunciation rules\n- Letter characteristics\n- Proper articulation\n- Rhythm and flow';
-                    break;
-                case 'comprehensive':
-                    message = 'Comprehensive Test Started!\n\nYou will be tested on:\n- All aspects of memorization\n- Overall progress assessment\n- Skill level evaluation\n- Areas for improvement';
-                    break;
-            }
-            alert(message);
-        }
-
-        // Initialize page
-        window.addEventListener('load', () => {
-            updateOverview();
-            loadDailyGoals();
-            loadMemorizationPlan();
-            
-            // Check if user practiced today
-            const today = new Date();
-            const lastPractice = new Date(userMemorization.lastPracticeDate);
-            const diffTime = Math.abs(today - lastPractice);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            
-            if (diffDays > 1) {
-                // Reset streak if more than 1 day has passed
-                userMemorization.streakDays = 0;
-                localStorage.setItem('quranMemorization', JSON.stringify(userMemorization));
-                updateOverview();
-            }
-        });
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

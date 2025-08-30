@@ -3,111 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo Test - Islamic Study Guide</title>
+    <title>Test Logo - Complete Islamic Study Guide</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0f1a1a 0%, #142020 100%);
-            color: #e2e8f0;
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
             margin: 0;
-            padding: 40px;
-            text-align: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
         .container {
-            background: rgba(20, 32, 32, 0.9);
-            border: 2px solid #2d4a4a;
-            border-radius: 15px;
-            padding: 40px;
-            max-width: 600px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
         }
-        .logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-        h1 {
-            color: #4ade80;
-            margin-bottom: 20px;
-            font-size: 28px;
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .status {
-            background: rgba(74, 222, 128, 0.1);
-            border: 1px solid #4ade80;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
         }
-        .button {
-            background: linear-gradient(135deg, #4ade80, #22c55e);
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 18px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
-            margin: 10px;
-            text-decoration: none;
-            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
-        .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(74, 222, 128, 0.3);
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
     <div class="container">
-        <div class="logo">
-            <img src="logo.svg" alt="Islamic Study Guide Logo" width="120" height="120">
-        </div>
+        <header class="header">
+            <h1>Test Logo</h1>
+            <p>Complete guide to test logo with comprehensive Islamic content and resources</p>
+        </header>
         
-        <h1>Logo Test - Islamic Study Guide</h1>
-        
-        <div class="status">
-            <strong>✅ Logo Display Test</strong><br>
-            If you can see the logo above, it's working perfectly!
-        </div>
-        
-        <p>This is your custom logo featuring:</p>
-        <ul style="text-align: left; display: inline-block;">
-            <li>🌙 Dark green circle background</li>
-            <li>🕌 Golden mosque dome</li>
-            <li>🌙 Golden crescent moon</li>
-            <li>📖 Golden open book</li>
-        </ul>
-        
-        <div style="margin: 30px 0;">
-            <a href="auto-start-islamic-guide.html" class="button">
-                🚀 Go to Auto-Start Page
-            </a>
+        <div class="content-section">
             
-            <a href="http://localhost:8080" class="button">
-                📱 Open Main Application
-            </a>
+            <h3>Test Logo</h3>
+            <p>Complete guide to test logo with comprehensive Islamic content and resources</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about test logo with detailed content and resources.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
+                </div>
+            </div>
+            
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about test logo. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
+        
         </div>
         
-        <div class="status">
-            <strong>Logo Details:</strong><br>
-            • File: logo.svg<br>
-            • Size: 200x200 pixels<br>
-            • Format: Scalable Vector Graphics<br>
-            • Colors: Dark green, gold, and cream
-        </div>
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
 </body>
 </html>

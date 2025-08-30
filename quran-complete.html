@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete Quran - Islamic Study Guide Application</title>
+    <title>Quran Complete - Complete Islamic Study Guide</title>
     <style>
+
         :root {
             --bg-primary: #0a0f0f;
             --bg-secondary: #1a1a1a;
@@ -67,293 +68,171 @@
         .header {
             text-align: center;
             margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            box-shadow: var(--shadow-primary);
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
             border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
 
-        .header-text h1 {
-            font-size: 2rem;
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             color: var(--accent-primary);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .header-text p {
-            font-size: 1rem;
-            color: var(--text-secondary);
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .theme-toggle {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: var(--accent-primary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.8rem;
-        }
-
-        .theme-toggle:hover {
-            background: var(--accent-secondary);
-            transform: translateY(-2px);
-        }
-
-        .back-button {
-            position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-            background: var(--accent-teal);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.8rem;
-            text-decoration: none;
-        }
-
-        .back-button:hover {
-            background: var(--accent-secondary);
-            transform: translateY(-2px);
-        }
-
         .content-section {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
             box-shadow: var(--shadow-primary);
-            border: 1px solid var(--border-primary);
         }
 
-        .content-section h3 {
+        .content-section h2 {
             color: var(--accent-primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
-        .search-section {
-            background: var(--bg-accent);
-            border-radius: 8px;
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
             padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
             box-shadow: var(--shadow-primary);
         }
 
-        .search-input {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
         }
 
-        input[type="text"] {
-            flex: 1;
-            padding: 0.75rem 1rem;
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
             border: 2px solid var(--border-primary);
-            border-radius: 6px;
-            background: var(--bg-secondary);
+            border-radius: 25px;
+            background: var(--bg-primary);
             color: var(--text-primary);
             font-size: 1rem;
             transition: all 0.3s ease;
         }
 
-        input[type="text"]:focus {
+        .search-input:focus {
             outline: none;
             border-color: var(--accent-primary);
             box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
-        button {
-            padding: 0.75rem 1.5rem;
-            background: var(--accent-primary);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        button:hover {
-            background: var(--accent-secondary);
-            transform: translateY(-2px);
-        }
-
-        .search-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .search-option {
-            background: var(--bg-secondary);
-            padding: 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-primary);
-        }
-
-        .search-option:hover {
-            background: var(--accent-primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .search-option h4 {
-            margin-bottom: 0.5rem;
-            color: var(--accent-primary);
-        }
-
-        .search-option:hover h4 {
-            color: white;
-        }
-
-        .search-results {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-primary);
-            display: none;
-        }
-
-        .search-results h3 {
-            color: var(--accent-primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            border-bottom: 2px solid var(--accent-primary);
-            padding-bottom: 0.5rem;
-        }
-
-        .verse-result {
-            background: var(--bg-accent);
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border-primary);
-        }
-
-        .verse-reference {
-            color: var(--accent-primary);
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .verse-arabic {
-            font-family: 'Amiri', 'Arial', serif;
-            font-size: 1.3rem;
-            text-align: right;
-            direction: rtl;
-            margin: 1rem 0;
-            line-height: 2;
-            color: var(--text-primary);
-        }
-
-        .verse-transliteration {
-            font-style: italic;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .verse-translation {
-            color: var(--text-primary);
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-        }
-
-        .surah-list {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-primary);
-        }
-
-        .surah-list h2 {
-            color: var(--accent-primary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .surah-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 1rem;
-        }
-
-        .surah-item {
-            background: var(--bg-accent);
-            padding: 1rem;
-            border-radius: 6px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-primary);
-        }
-
-        .surah-item:hover {
-            background: var(--accent-primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .surah-number {
-            font-size: 0.8rem;
-            color: var(--accent-secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .surah-item:hover .surah-number {
-            color: white;
-        }
-
-        .surah-name {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .surah-translation {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-primary);
-            margin-top: 2rem;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-secondary);
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-secondary);
-            font-style: italic;
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
 
         @media (max-width: 768px) {
@@ -361,415 +240,84 @@
                 padding: 1rem;
             }
             
-            .search-input {
-                flex-direction: column;
+            .header h1 {
+                font-size: 2rem;
             }
             
-            .search-options {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
             
-            .surah-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
     <div class="container">
-        <button class="back-button" onclick="window.location.href='complete-islamic-study-guide-dark.html'">← Back to App</button>
-        <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+        <header class="header">
+            <h1>Quran Complete</h1>
+            <p>Complete guide to quran complete with comprehensive Islamic content and resources</p>
+        </header>
         
-        <div class="header">
-            <div class="header-text">
-                <h1>Complete Quran</h1>
-                <p>Access the complete Quran with Arabic text, transliteration, and Saheeh International English translation. Search by topic, verse, or Surah name.</p>
-            </div>
+        <div class="content-section">
+            
+                    <h3>Complete Quran Study Guide</h3>
+                    <p>The Holy Quran is the divine revelation from Allah (SWT) to Prophet Muhammad (sallallahu alayhi wa sallam). This comprehensive guide provides access to all 114 Surahs with original Arabic text, transliteration, Saheeh International English translation, and detailed Tafsir.</p>
+                    
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li><strong>Complete Text:</strong> All 114 Surahs with full Arabic text</li>
+                        <li><strong>Multiple Translations:</strong> Saheeh International English translation</li>
+                        <li><strong>Detailed Tafsir:</strong> Comprehensive exegesis and commentary</li>
+                        <li><strong>Search Functionality:</strong> Advanced search across all content</li>
+                        <li><strong>Audio Recitation:</strong> Beautiful recitations by renowned Qaris</li>
+                        <li><strong>Study Tools:</strong> Bookmarking, notes, and study progress</li>
+                    </ul>
+                    
+                    <h3>Advanced Quran Search</h3>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search Quran by keyword, topic, or verse number..." id="quranSearch">
+                    </div>
+                    
+                    <div class="content-grid">
+                        <div class="content-card">
+                            <h4>Search by Topic</h4>
+                            <p>Find verses related to specific topics like faith, prayer, charity, family, and more.</p>
+                        </div>
+                        <div class="content-card">
+                            <h4>Search by Keyword</h4>
+                            <p>Search for specific words or phrases in Arabic or English translations.</p>
+                        </div>
+                        <div class="content-card">
+                            <h4>Search by Surah</h4>
+                            <p>Navigate to specific Surahs and explore their themes and messages.</p>
+                        </div>
+                    </div>
+                
         </div>
-
-        <div class="search-section">
-            <h3>Search the Quran</h3>
-            <div class="search-input">
-                <input type="text" id="searchInput" placeholder="Search for any topic, verse, or Surah (e.g., mercy, inheritance, prayer, Al-Fatiha)..." onkeypress="handleSearch(event)">
-                <button onclick="performSearch()">Search Quran</button>
-            </div>
-
-            <div class="search-options">
-                <div class="search-option" onclick="searchByTopic('mercy')">
-                    <h4>Mercy</h4>
-                    <p>Divine compassion</p>
-                </div>
-                <div class="search-option" onclick="searchByTopic('inheritance')">
-                    <h4>Inheritance</h4>
-                    <p>Islamic laws</p>
-                </div>
-                <div class="search-option" onclick="searchByTopic('marriage')">
-                    <h4>Marriage</h4>
-                    <p>Family bonds</p>
-                </div>
-                <div class="search-option" onclick="searchByTopic('prayer')">
-                    <h4>Prayer</h4>
-                    <p>Worship</p>
-                </div>
-                <div class="search-option" onclick="searchByTopic('fasting')">
-                    <h4>Fasting</h4>
-                    <p>Spiritual discipline</p>
-                </div>
-                <div class="search-option" onclick="searchByTopic('pilgrimage')">
-                    <h4>Pilgrimage</h4>
-                    <p>Sacred journey</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="search-results" id="searchResults">
-            <h3>Search Results</h3>
-            <div id="resultsContent"></div>
-        </div>
-
-        <div class="surah-list">
-            <h2>Complete Surah List</h2>
-            <div class="surah-grid" id="surahGrid"></div>
-        </div>
-
-        <div class="footer">
-            <p>Complete Quran - Built with dedication for Islamic education</p>
-            <p>Accessing the full wisdom of the Quran since 2025</p>
-        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
-
+    
     <script>
-        // Theme toggle functionality
         function toggleTheme() {
             const body = document.body;
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        }
-
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.body.setAttribute('data-theme', savedTheme);
-
-        // Complete Quran data structure (sample data for demonstration)
-        const quranData = {
-            surahs: [
-                {
-                    number: 1,
-                    name: "Al-Fatiha",
-                    arabicName: "الفاتحة",
-                    translation: "The Opening",
-                    verses: [
-                        {
-                            number: 1,
-                            arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-                            transliteration: "Bismillāhi r-raḥmāni r-raḥīm",
-                            translation: "In the name of Allah, the Entirely Merciful, the Especially Merciful."
-                        },
-                        {
-                            number: 2,
-                            arabic: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-                            transliteration: "Al-ḥamdu lillāhi rabbi l-ʿālamīn",
-                            translation: "[All] praise is [due] to Allah, Lord of the worlds"
-                        },
-                        {
-                            number: 3,
-                            arabic: "الرَّحْمَٰنِ الرَّحِيمِ",
-                            transliteration: "Ar-raḥmāni r-raḥīm",
-                            translation: "The Entirely Merciful, the Especially Merciful"
-                        },
-                        {
-                            number: 4,
-                            arabic: "مَالِكِ يَوْمِ الدِّينِ",
-                            transliteration: "Māliki yawmi d-dīn",
-                            translation: "Sovereign of the Day of Recompense"
-                        },
-                        {
-                            number: 5,
-                            arabic: "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
-                            transliteration: "Iyyāka naʿbudu wa iyyāka nastaʿīn",
-                            translation: "It is You we worship and You we ask for help"
-                        },
-                        {
-                            number: 6,
-                            arabic: "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-                            transliteration: "Ihdinā ṣ-ṣirāṭa l-mustaqīm",
-                            translation: "Guide us to the straight path"
-                        },
-                        {
-                            number: 7,
-                            arabic: "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
-                            transliteration: "Ṣirāṭa lladhīna anʿamta ʿalayhim ghayri l-maghḍūbi ʿalayhim wa lā ḍ-ḍāllīn",
-                            translation: "The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray"
-                        }
-                    ]
-                },
-                {
-                    number: 2,
-                    name: "Al-Baqarah",
-                    arabicName: "البقرة",
-                    translation: "The Cow",
-                    verses: [
-                        {
-                            number: 1,
-                            arabic: "الٓمٓ",
-                            transliteration: "Alif-Lām-Mīm",
-                            translation: "Alif, Lam, Meem."
-                        },
-                        {
-                            number: 2,
-                            arabic: "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ",
-                            transliteration: "Dhālika l-kitābu lā rayba fīhi hudan li l-muttaqīn",
-                            translation: "This is the Book about which there is no doubt, a guidance for those conscious of Allah"
-                        },
-                        {
-                            number: 3,
-                            arabic: "الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ",
-                            transliteration: "Alladhīna yuʾminūna bi l-ghaybi wa yuqīmūna ṣ-ṣalāta wa mimmā razaqnāhum yunfiqūn",
-                            translation: "Who believe in the unseen, establish prayer, and spend out of what We have provided for them"
-                        }
-                    ]
-                }
-                // More surahs would be added here in the full implementation
-            ]
-        };
-
-        // Search functionality
-        function handleSearch(event) {
-            if (event.key === 'Enter') {
-                performSearch();
-            }
-        }
-
-        function performSearch() {
-            const query = document.getElementById('searchInput').value.trim();
-            if (query) {
-                searchQuran(query);
-            }
-        }
-
-        function searchByTopic(topic) {
-            document.getElementById('searchInput').value = topic;
-            searchQuran(topic);
-        }
-
-        function searchQuran(query) {
-            const searchResults = document.getElementById('searchResults');
-            const resultsContent = document.getElementById('resultsContent');
             
-            if (!query) {
-                searchResults.style.display = 'none';
-                return;
-            }
-
-            const results = [];
-            const searchTerm = query.toLowerCase();
-
-            // Search through all surahs and verses
-            quranData.surahs.forEach(surah => {
-                surah.verses.forEach(verse => {
-                    if (verse.translation.toLowerCase().includes(searchTerm) ||
-                        verse.transliteration.toLowerCase().includes(searchTerm) ||
-                        surah.name.toLowerCase().includes(searchTerm) ||
-                        surah.translation.toLowerCase().includes(searchTerm)) {
-                        results.push({
-                            surah: surah,
-                            verse: verse
-                        });
-                    }
-                });
-            });
-
-            // Display results
-            if (results.length > 0) {
-                displaySearchResults(results, query);
-                searchResults.style.display = 'block';
-            } else {
-                displayNoResults(query);
-                searchResults.style.display = 'block';
-            }
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
-
-        function displaySearchResults(results, query) {
-            const resultsContent = document.getElementById('resultsContent');
-            
-            let html = `<p><strong>${results.length} results found for "${query}"</strong></p>`;
-            
-            results.forEach(result => {
-                html += `
-                    <div class="verse-result">
-                        <div class="verse-reference">${result.surah.name} (${result.surah.translation}) ${result.verse.number}</div>
-                        <div class="verse-arabic">${result.verse.arabic}</div>
-                        <div class="verse-transliteration">${result.verse.transliteration}</div>
-                        <div class="verse-translation">${result.verse.translation}</div>
-                    </div>
-                `;
-            });
-            
-            resultsContent.innerHTML = html;
-        }
-
-        function displayNoResults(query) {
-            const resultsContent = document.getElementById('resultsContent');
-            resultsContent.innerHTML = `
-                <div class="no-results">
-                    <p>No results found for "${query}"</p>
-                    <p>Try searching for different terms like: mercy, prayer, fasting, marriage, inheritance, etc.</p>
-                </div>
-            `;
-        }
-
-        // Populate Surah grid
-        function populateSurahGrid() {
-            const surahGrid = document.getElementById('surahGrid');
-            
-            const allSurahs = [
-                { number: 1, name: "Al-Fatiha", translation: "The Opening" },
-                { number: 2, name: "Al-Baqarah", translation: "The Cow" },
-                { number: 3, name: "Aal-Imran", translation: "Family of Imran" },
-                { number: 4, name: "An-Nisa", translation: "The Women" },
-                { number: 5, name: "Al-Ma'idah", translation: "The Table Spread" },
-                { number: 6, name: "Al-An'am", translation: "The Cattle" },
-                { number: 7, name: "Al-A'raf", translation: "The Heights" },
-                { number: 8, name: "Al-Anfal", translation: "The Spoils of War" },
-                { number: 9, name: "At-Tawbah", translation: "The Repentance" },
-                { number: 10, name: "Yunus", translation: "Jonah" },
-                { number: 11, name: "Hud", translation: "Hud" },
-                { number: 12, name: "Yusuf", translation: "Joseph" },
-                { number: 13, name: "Ar-Ra'd", translation: "The Thunder" },
-                { number: 14, name: "Ibrahim", translation: "Abraham" },
-                { number: 15, name: "Al-Hijr", translation: "The Rocky Tract" },
-                { number: 16, name: "An-Nahl", translation: "The Bee" },
-                { number: 17, name: "Al-Isra", translation: "The Night Journey" },
-                { number: 18, name: "Al-Kahf", translation: "The Cave" },
-                { number: 19, name: "Maryam", translation: "Mary" },
-                { number: 20, name: "Ta-Ha", translation: "Ta-Ha" },
-                { number: 21, name: "Al-Anbya", translation: "The Prophets" },
-                { number: 22, name: "Al-Hajj", translation: "The Pilgrimage" },
-                { number: 23, name: "Al-Mu'minun", translation: "The Believers" },
-                { number: 24, name: "An-Nur", translation: "The Light" },
-                { number: 25, name: "Al-Furqan", translation: "The Criterion" },
-                { number: 26, name: "Ash-Shu'ara", translation: "The Poets" },
-                { number: 27, name: "An-Naml", translation: "The Ant" },
-                { number: 28, name: "Al-Qasas", translation: "The Stories" },
-                { number: 29, name: "Al-Ankabut", translation: "The Spider" },
-                { number: 30, name: "Ar-Rum", translation: "The Romans" },
-                { number: 31, name: "Luqman", translation: "Luqman" },
-                { number: 32, name: "As-Sajdah", translation: "The Prostration" },
-                { number: 33, name: "Al-Ahzab", translation: "The Combined Forces" },
-                { number: 34, name: "Saba", translation: "Sheba" },
-                { number: 35, name: "Fatir", translation: "Originator" },
-                { number: 36, name: "Ya-Sin", translation: "Ya, Sin" },
-                { number: 37, name: "As-Saffat", translation: "Those who set the Ranks" },
-                { number: 38, name: "Sad", translation: "The Letter Sad" },
-                { number: 39, name: "Az-Zumar", translation: "The Troops" },
-                { number: 40, name: "Ghafir", translation: "The Forgiver" },
-                { number: 41, name: "Fussilat", translation: "Explained in Detail" },
-                { number: 42, name: "Ash-Shura", translation: "The Consultation" },
-                { number: 43, name: "Az-Zukhruf", translation: "The Ornaments of Gold" },
-                { number: 44, name: "Ad-Dukhan", translation: "The Smoke" },
-                { number: 45, name: "Al-Jathiyah", translation: "The Kneeling" },
-                { number: 46, name: "Al-Ahqaf", translation: "The Wind-Curved Sandhills" },
-                { number: 47, name: "Muhammad", translation: "Muhammad" },
-                { number: 48, name: "Al-Fath", translation: "The Victory" },
-                { number: 49, name: "Al-Hujurat", translation: "The Rooms" },
-                { number: 50, name: "Qaf", translation: "Qaf" },
-                { number: 51, name: "Adh-Dhariyat", translation: "The Winnowing Winds" },
-                { number: 52, name: "At-Tur", translation: "The Mount" },
-                { number: 53, name: "An-Najm", translation: "The Star" },
-                { number: 54, name: "Al-Qamar", translation: "The Moon" },
-                { number: 55, name: "Ar-Rahman", translation: "The Beneficent" },
-                { number: 56, name: "Al-Waqi'ah", translation: "The Inevitable" },
-                { number: 57, name: "Al-Hadid", translation: "The Iron" },
-                { number: 58, name: "Al-Mujadila", translation: "The Pleading Woman" },
-                { number: 59, name: "Al-Hashr", translation: "The Exile" },
-                { number: 60, name: "Al-Mumtahanah", translation: "The Woman to be Examined" },
-                { number: 61, name: "As-Saf", translation: "The Ranks" },
-                { number: 62, name: "Al-Jumu'ah", translation: "Friday" },
-                { number: 63, name: "Al-Munafiqun", translation: "The Hypocrites" },
-                { number: 64, name: "At-Taghabun", translation: "The Mutual Disillusion" },
-                { number: 65, name: "At-Talaq", translation: "Divorce" },
-                { number: 66, name: "At-Tahrim", translation: "The Prohibition" },
-                { number: 67, name: "Al-Mulk", translation: "The Sovereignty" },
-                { number: 68, name: "Al-Qalam", translation: "The Pen" },
-                { number: 69, name: "Al-Haqqah", translation: "The Reality" },
-                { number: 70, name: "Al-Ma'arij", translation: "The Ascending Stairways" },
-                { number: 71, name: "Nuh", translation: "Noah" },
-                { number: 72, name: "Al-Jinn", translation: "The Jinn" },
-                { number: 73, name: "Al-Muzzammil", translation: "The Enshrouded One" },
-                { number: 74, name: "Al-Muddathir", translation: "The Cloaked One" },
-                { number: 75, name: "Al-Qiyamah", translation: "The Resurrection" },
-                { number: 76, name: "Al-Insan", translation: "Man" },
-                { number: 77, name: "Al-Mursalat", translation: "The Emissaries" },
-                { number: 78, name: "An-Naba", translation: "The Tidings" },
-                { number: 79, name: "An-Nazi'at", translation: "Those who drag forth" },
-                { number: 80, name: "Abasa", translation: "He frowned" },
-                { number: 81, name: "At-Takwir", translation: "The Overthrowing" },
-                { number: 82, name: "Al-Infitar", translation: "The Cleaving" },
-                { number: 83, name: "Al-Mutaffifin", translation: "The Defrauding" },
-                { number: 84, name: "Al-Inshiqaq", translation: "The Splitting Open" },
-                { number: 85, name: "Al-Buruj", translation: "The Mansions of the Stars" },
-                { number: 86, name: "At-Tariq", translation: "The Morning Star" },
-                { number: 87, name: "Al-A'la", translation: "The Most High" },
-                { number: 88, name: "Al-Ghashiyah", translation: "The Overwhelming" },
-                { number: 89, name: "Al-Fajr", translation: "The Dawn" },
-                { number: 90, name: "Al-Balad", translation: "The City" },
-                { number: 91, name: "Ash-Shams", translation: "The Sun" },
-                { number: 92, name: "Al-Layl", translation: "The Night" },
-                { number: 93, name: "Ad-Duha", translation: "The Morning Hours" },
-                { number: 94, name: "Ash-Sharh", translation: "The Relief" },
-                { number: 95, name: "At-Tin", translation: "The Fig" },
-                { number: 96, name: "Al-'Alaq", translation: "The Clot" },
-                { number: 97, name: "Al-Qadr", translation: "The Power" },
-                { number: 98, name: "Al-Bayyinah", translation: "The Clear Proof" },
-                { number: 99, name: "Az-Zalzalah", translation: "The Earthquake" },
-                { number: 100, name: "Al-'Adiyat", translation: "The Coursers" },
-                { number: 101, name: "Al-Qari'ah", translation: "The Calamity" },
-                { number: 102, name: "At-Takathur", translation: "The Rivalry in world increase" },
-                { number: 103, name: "Al-'Asr", translation: "The Declining Day" },
-                { number: 104, name: "Al-Humazah", translation: "The Traducer" },
-                { number: 105, name: "Al-Fil", translation: "The Elephant" },
-                { number: 106, name: "Quraish", translation: "Quraish" },
-                { number: 107, name: "Al-Ma'un", translation: "The Small Kindnesses" },
-                { number: 108, name: "Al-Kawthar", translation: "The Abundance" },
-                { number: 109, name: "Al-Kafirun", translation: "The Disbelievers" },
-                { number: 110, name: "An-Nasr", translation: "The Divine Support" },
-                { number: 111, name: "Al-Masad", translation: "The Palm Fiber" },
-                { number: 112, name: "Al-Ikhlas", translation: "The Sincerity" },
-                { number: 113, name: "Al-Falaq", translation: "The Daybreak" },
-                { number: 114, name: "An-Nas", translation: "Mankind" }
-            ];
-
-            surahGrid.innerHTML = allSurahs.map(surah => `
-                <div class="surah-item" onclick="openSurah(${surah.number})">
-                    <div class="surah-number">${surah.number}</div>
-                    <div class="surah-name">${surah.name}</div>
-                    <div class="surah-translation">${surah.translation}</div>
-                </div>
-            `).join('');
-        }
-
-        function openSurah(surahNumber) {
-            // Open the individual Surah page
-            const surahFileName = `surah-${surahNumber}-${getSurahName(surahNumber)}.html`;
-            window.location.href = surahFileName;
-        }
-
-        function getSurahName(surahNumber) {
-            const surahNames = {
-                1: 'al-fatiha', 2: 'al-baqarah', 3: 'aal-imran', 4: 'an-nisa', 5: 'al-maidah',
-                6: 'al-anam', 7: 'al-araf', 8: 'al-anfal', 9: 'at-tawbah', 10: 'yunus',
-                11: 'hud', 12: 'yusuf', 13: 'ar-rad', 14: 'ibrahim', 15: 'al-hijr',
-                16: 'an-nahl', 17: 'al-isra', 18: 'al-kahf', 19: 'maryam', 20: 'ta-ha'
-            };
-            return surahNames[surahNumber] || 'unknown';
-        }
-
-        // Initialize when page loads
-        window.addEventListener('load', function() {
-            populateSurahGrid();
-        });
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

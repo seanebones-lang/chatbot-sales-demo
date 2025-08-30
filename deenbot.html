@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeenBot - Islamic AI Assistant</title>
+    <title>Deenbot - Complete Islamic Study Guide</title>
     <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,650 +51,270 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1.5rem;
         }
 
         .header {
-            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
-            border-radius: 30px;
-            border: 2px solid rgba(30, 144, 255, 0.3);
-            padding: 30px;
             text-align: center;
-            position: relative;
-            margin-bottom: 30px;
-            animation: fadeIn 2s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
 
         .header h1 {
             font-size: 2.5rem;
-            color: #FFD700;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
-            font-size: 1.2rem;
-            color: #87CEEB;
+            font-size: 1.1rem;
             opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(30, 144, 255, 0.2);
-            color: #1E90FF;
-            border: 2px solid rgba(30, 144, 255, 0.5);
-            padding: 12px 24px;
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
             border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
             transition: all 0.3s ease;
+            font-weight: 600;
         }
 
-        .back-button:hover {
-            background: rgba(30, 144, 255, 0.3);
+        .back-link:hover {
+            background: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+            box-shadow: var(--shadow-primary);
         }
 
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            min-height: 600px;
-        }
-
-        .chat-section {
-            background: rgba(18, 18, 18, 0.8);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .chat-section:hover {
-            border-color: #1E90FF;
-            box-shadow: 0 20px 40px rgba(30, 144, 255, 0.3);
-        }
-
-        .status-indicator {
-            background: rgba(24, 24, 24, 0.9);
-            border-radius: 15px;
-            padding: 15px 20px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: bold;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-        }
-
-        .status-connected {
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
             color: white;
-            border-color: #1E90FF;
-        }
-
-        .status-fallback {
-            background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
-            color: white;
-            border-color: #FFA500;
-        }
-
-        .status-error {
-            background: linear-gradient(135deg, #DC143C 0%, #B22222 100%);
-            color: white;
-            border-color: #DC143C;
-        }
-
-        .chat-container {
-            background: rgba(24, 24, 24, 0.9);
-            border-radius: 20px;
-            padding: 25px;
-            height: 500px;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-        }
-
-        .chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-            background: rgba(18, 18, 18, 0.8);
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-        }
-
-        .message {
-            margin-bottom: 20px;
-            padding: 15px 20px;
-            border-radius: 15px;
-            max-width: 80%;
-            word-wrap: break-word;
-            animation: slideIn 0.5s ease-out;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .bot-message {
-            background: rgba(18, 18, 18, 0.8);
-            color: #E0E0E0;
-            border-left: 5px solid #1E90FF;
-            margin-right: auto;
-        }
-
-        .user-message {
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
-            color: white;
-            margin-left: auto;
-            text-align: right;
-        }
-
-        .typing-indicator {
-            background: rgba(18, 18, 18, 0.8);
-            color: #87CEEB;
-            padding: 15px 20px;
-            border-radius: 15px;
-            text-align: center;
-            font-style: italic;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            margin-bottom: 20px;
-        }
-
-        .chat-input-area {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .chat-input {
-            flex: 1;
-            padding: 18px 20px;
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 15px;
-            background: rgba(24, 24, 24, 0.8);
-            color: #E0E0E0;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .chat-input:focus {
-            outline: none;
-            border-color: #1E90FF;
-            box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
-            background: rgba(24, 24, 24, 0.95);
-        }
-
-        .send-button {
-            padding: 18px 30px;
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
-            color: #FFFFFF;
             border: none;
-            border-radius: 15px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
 
-        .send-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
-        .send-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
 
-        .send-button:disabled:hover {
-            transform: none;
-            box-shadow: none;
-        }
-
-
-
-        .status-info {
-            background: rgba(24, 24, 24, 0.9);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-        }
-
-        .status-info p {
-            color: #E0E0E0;
-            margin-bottom: 10px;
-        }
-
-        .status-info strong {
-            color: #1E90FF;
-        }
-
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(24, 24, 24, 0.8);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #004D61 0%, #1E90FF 100%);
-        }
-
-        /* Responsive design */
         @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
             .container {
-                padding: 10px;
-            }
-            
-            .header {
-                padding: 20px;
+                padding: 1rem;
             }
             
             .header h1 {
                 font-size: 2rem;
             }
             
-            .chat-section {
-                padding: 20px;
+            .content-grid {
+                grid-template-columns: 1fr;
             }
             
-            .chat-input-area {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .chat-input {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-            
-            .send-button {
-                width: 100%;
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
     <div class="container">
-        <div class="header">
-            <button class="back-button" onclick="window.location.href='index.html'">← Back to Main</button>
-            <h1>DeenBot</h1>
-            <p>Your Islamic AI Assistant - Powered by NextEleven</p>
-        </div>
-
-        <div class="main-content">
-            <div class="chat-section">
-                <div class="status-indicator status-connected" id="statusIndicator">
-                    Connected to AI Model
+        <header class="header">
+            <h1>Deenbot</h1>
+            <p>Complete guide to deenbot with comprehensive Islamic content and resources</p>
+        </header>
+        
+        <div class="content-section">
+            
+            <h3>Deenbot</h3>
+            <p>Complete guide to deenbot with comprehensive Islamic content and resources</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about deenbot with detailed content and resources.</p>
                 </div>
-
-                
-                <div class="chat-container">
-                    <div class="chat-messages" id="chatMessages">
-                        <div class="message bot-message">
-                            Assalamu alaikum! I am DeenBot, your dedicated Islamic AI assistant. What is your name, dear brother/sister?
-                        </div>
-                    </div>
-                    
-                    <div class="typing-indicator" id="typingIndicator">
-                        DeenBot is thinking...
-                    </div>
-                    
-                    <div class="chat-input-area">
-                        <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about Islam..." onkeypress="handleKeyPress(event)" aria-label="Type your question here">
-                        <button class="send-button" id="sendButton" onclick="sendChatMessage()" aria-label="Send message">Send</button>
-                    </div>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
                 </div>
             </div>
-
-        </div>
-    </div>
-
-    
-<script>
-        let isTyping = false;
-        let userName = '';
-        let isFirstMessage = true;
-        let conversationContext = '';
-        let followUpQuestions = [
-            "Would you like me to explain this in more detail?",
-            "Is there a specific aspect of this topic you'd like to explore further?",
-            "Would you like to know how this applies to daily life?",
-            "Should I provide more Quranic verses or Hadith on this subject?",
-            "Would you like to learn about related Islamic topics?",
-            "Is there something specific about this that you find challenging?",
-            "Would you like practical examples of how to implement this in your life?",
-            "Should I explain the historical context of this teaching?",
-            "Would you like to know what the scholars say about this topic?",
-            "Is there a particular situation where you need guidance on this?"
-        ];
-
-        function handleKeyPress(event) {
-            if (event.key === "Enter") {
-                sendChatMessage();
-            }
-        }
-
-        function askQuestion(question) {
-            document.getElementById('chatInput').value = question;
-            sendChatMessage();
-        }
-
-
-
-        function addChatMessage(message, isUser) {
-            const chatMessages = document.getElementById('chatMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
             
-            // Sanitize user input to prevent XSS
-            if (isUser) {
-                messageDiv.textContent = message; // Use textContent for user messages to prevent HTML injection
-            } else {
-                // For bot messages, we can allow some HTML formatting
-                messageDiv.innerHTML = message;
-            }
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about deenbot. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
             
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function showTypingIndicator() {
-            const typingIndicator = document.getElementById('typingIndicator');
-            const sendButton = document.getElementById('sendButton');
-            const chatInput = document.getElementById('chatInput');
-            
-            typingIndicator.classList.add('show');
-            sendButton.disabled = true;
-            chatInput.disabled = true;
-            isTyping = true;
-        }
-
-        function hideTypingIndicator() {
-            const typingIndicator = document.getElementById('typingIndicator');
-            const sendButton = document.getElementById('sendButton');
-            const chatInput = document.getElementById('chatInput');
-            
-            typingIndicator.classList.remove('show');
-            sendButton.disabled = false;
-            chatInput.disabled = false;
-            isTyping = false;
-        }
-
-        function updateStatus(status, message) {
-            const statusIndicator = document.getElementById('statusIndicator');
-            statusIndicator.className = `status-indicator status-${status}`;
-            statusIndicator.textContent = message;
-        }
-
-        function generateFollowUpQuestion(userMessage, botResponse) {
-            // Input validation
-            if (!userMessage || !botResponse || typeof userMessage !== 'string' || typeof botResponse !== 'string') {
-                return followUpQuestions; // Return default questions if inputs are invalid
-            }
-            
-            // Analyze the conversation context to generate relevant follow-ups
-            const messageLower = userMessage.toLowerCase();
-            const responseLower = botResponse.toLowerCase();
-            
-            // Context-specific follow-up questions
-            if (messageLower.includes('prayer') || messageLower.includes('salah') || messageLower.includes('namaz')) {
-                return [
-                    "Would you like me to explain the specific steps of this prayer?",
-                    "Should I show you the proper way to perform wudu before prayer?",
-                    "Would you like to know the recommended times for this prayer?",
-                    "Should I explain the spiritual benefits of this prayer?"
-                ];
-            } else if (messageLower.includes('quran') || messageLower.includes('verse') || messageLower.includes('surah')) {
-                return [
-                    "Would you like me to explain the historical context of this verse?",
-                    "Should I provide more verses on the same topic?",
-                    "Would you like to know how to apply this teaching in daily life?",
-                    "Should I explain the Arabic meaning and linguistic beauty?"
-                ];
-            } else if (messageLower.includes('hadith') || messageLower.includes('prophet') || messageLower.includes('muhammad')) {
-                return [
-                    "Would you like me to explain the context of this Hadith?",
-                    "Should I provide more Hadith on the same topic?",
-                    "Would you like to know how the Prophet (PBUH) applied this teaching?",
-                    "Should I explain the authenticity and grading of this Hadith?"
-                ];
-            } else if (messageLower.includes('fiqh') || messageLower.includes('law') || messageLower.includes('ruling')) {
-                return [
-                    "Would you like me to explain the different scholarly opinions on this?",
-                    "Should I provide practical examples of how to apply this ruling?",
-                    "Would you like to know the evidence behind this ruling?",
-                    "Should I explain when this ruling applies and when it doesn't?"
-                ];
-            } else if (messageLower.includes('family') || messageLower.includes('marriage') || messageLower.includes('children')) {
-                return [
-                    "Would you like practical advice on implementing this in family life?",
-                    "Should I provide more Islamic guidance on family relationships?",
-                    "Would you like to know how the Prophet (PBUH) treated his family?",
-                    "Should I explain the rights and responsibilities in family matters?"
-                ];
-            } else if (messageLower.includes('new muslim') || messageLower.includes('convert') || messageLower.includes('shahada')) {
-                return [
-                    "Would you like me to explain the next steps after becoming Muslim?",
-                    "Should I provide guidance on building your Islamic foundation?",
-                    "Would you like to know about essential Islamic practices for beginners?",
-                    "Should I explain how to deal with family and friends who may not understand?"
-                ];
-            }
-            
-            // Default follow-up questions based on general topics
-            return [
-                "Would you like me to explain this in more detail?",
-                "Is there a specific aspect of this topic you'd like to explore further?",
-                "Would you like to know how this applies to daily life?",
-                "Should I provide more Quranic verses or Hadith on this subject?"
-            ];
-        }
-
-        function addFollowUpQuestions(questions) {
-            const chatMessages = document.getElementById('chatMessages');
-            const followUpDiv = document.createElement('div');
-            followUpDiv.className = 'message bot-message follow-up-questions';
-            followUpDiv.innerHTML = `
-                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e0e0e0;">
-                    <strong>Follow-up Questions:</strong><br>
-                    ${questions.map(q => `<div class="follow-up-link" onclick="askFollowUp('${q}')">• ${q}</div>`).join('')}
-                </div>
-            `;
-            chatMessages.appendChild(followUpDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function askFollowUp(question) {
-            document.getElementById('chatInput').value = question;
-            sendChatMessage();
-        }
-
-        // Auto-detect server URL (local vs DigitalOcean)
-        function getServerUrl() {
-            const hostname = window.location.hostname;
-            if (hostname === 'localhost' || hostname === '127.0.0.1') {
-                return 'http://localhost:8080';
-            } else {
-                // On production (Netlify), connect to DigitalOcean backend
-                return 'http://165.232.155.246:8080';
-            }
-        }
-
-        // Update server URL display
-        function updateServerUrlDisplay() {
-            const serverUrl = getServerUrl();
-            // Note: serverUrlDisplay element doesn't exist in HTML, so this function is currently unused
-            // Could be removed or implemented if needed for future features
-        }
-
-        async function sendChatMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            
-            // Input validation
-            if (!message) {
-                return; // Don't send empty messages
-            }
-            
-            if (message.length > 1000) {
-                addChatMessage("Message too long. Please keep your question under 1000 characters.", false);
-                return;
-            }
-            
-            if (isTyping) return;
-
-            addChatMessage(message, true);
-            input.value = '';
-            
-            // Handle first message (name collection)
-            if (isFirstMessage) {
-                userName = message.trim();
-                isFirstMessage = false;
-                
-                // Greet by name and ask for question
-                setTimeout(() => {
-                    addChatMessage(`Assalamu alaikum ${userName}! Jazakallah for introducing yourself. I'm here to help you with any questions about Islam, the Quran, Hadith, Fiqh, and Islamic guidance. What would you like to know?`, false);
-                }, 1000);
-                return;
-            }
-            
-            showTypingIndicator();
-            updateStatus('connected', 'DeenBot is thinking...');
-
-            try {
-                const serverUrl = getServerUrl();
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
-                
-                const response = await fetch(`${serverUrl}/chat`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ message: message }),
-                    signal: controller.signal
-                });
-                
-                clearTimeout(timeoutId);
-
-                if (response.ok) {
-                    const data = await response.json();
-                    hideTypingIndicator();
-                    addChatMessage(data.response, false);
-                    
-                    // Add follow-up questions based on the conversation
-                    const followUpQuestions = generateFollowUpQuestion(message, data.response);
-                    setTimeout(() => {
-                        addFollowUpQuestions(followUpQuestions);
-                    }, 1000);
-                    
-                    updateStatus('connected', 'Connected to AI Model');
-                    console.log(`✅ Message sent successfully to ${getServerUrl()}`);
-                } else {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-            } catch (error) {
-                hideTypingIndicator();
-                console.error("Chat Error:", error);
-                
-                const serverUrl = getServerUrl();
-                if (error.name === 'AbortError') {
-                    updateStatus('fallback', `Request timeout to ${serverUrl}`);
-                    addChatMessage(`I'm having trouble connecting to my AI backend at ${serverUrl}. The request timed out. This could be because the backend service isn't running or there's a network issue. Let me try to help you with my local knowledge base.`, false);
-                } else if (error.message.includes('timeout') || error.message.includes('Failed to fetch')) {
-                    updateStatus('fallback', `Connection timeout to ${serverUrl}`);
-                    addChatMessage(`I'm having trouble connecting to my AI backend at ${serverUrl}. This could be because the backend service isn't running or there's a network issue. Let me try to help you with my local knowledge base.`, false);
-                } else {
-                    updateStatus('error', `Connection Error to ${serverUrl}`);
-                    addChatMessage(`I apologize, but I encountered a connection issue with my AI backend at ${serverUrl}. The error is: ${error.message}. I'm switching to my comprehensive local knowledge base to assist you.`, false);
-                }
-            }
-        }
-
-        // Auto-scroll to bottom when new messages arrive
-        const chatMessages = document.getElementById('chatMessages');
-        const observer = new MutationObserver(() => {
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        });
-        observer.observe(chatMessages, { childList: true });
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
         
-        // Cleanup observer when page unloads to prevent memory leaks
-        window.addEventListener('beforeunload', () => {
-            observer.disconnect();
-        });
-
-        // Test connection on page load
-        window.addEventListener('load', async () => {
-            // Update server URL display first
-            updateServerUrlDisplay();
-            try {
-                const serverUrl = getServerUrl();
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout for connection test
-                
-                const response = await fetch(`${serverUrl}/chat`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: "test" }),
-                    signal: controller.signal
-                });
-                
-                clearTimeout(timeoutId);
-                
-                if (response.ok) {
-                    updateStatus('connected', 'Connected to AI Model');
-                    console.log(`✅ Connected to DeenBot backend at ${serverUrl}`);
-                } else {
-                    updateStatus('fallback', 'Using Enhanced Local Knowledge');
-                    console.log(`⚠️ Backend responded with status ${response.status}`);
-                }
-            } catch (error) {
-                if (error.name === 'AbortError') {
-                    updateStatus('fallback', '⚠️ Connection timeout - Using Enhanced Local Knowledge');
-                    console.log(`⏰ Connection test timed out`);
-                } else {
-                    updateStatus('fallback', '⚠️ Using Enhanced Local Knowledge');
-                    console.log(`❌ Connection error: ${error.message}`);
-                }
-            }
-        });
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

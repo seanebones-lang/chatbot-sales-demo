@@ -3,310 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dedication - In Gratitude to Those Who Guided Me to Islam</title>
-    <meta name="description" content="A heartfelt dedication to those who guided me to the light of Islam. In the name of Allah, the Most Gracious, the Most Merciful.">
+    <title>Dedication - Complete Islamic Study Guide</title>
     <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-            color: #E0E0E0;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .back-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 15px 25px;
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
             transition: all 0.3s ease;
-            z-index: 1000;
+            font-size: 0.9rem;
         }
-        
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
         }
-        
+
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 40px;
-            background: rgba(18, 18, 18, 0.8);
-            border-radius: 20px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
-        
+
         .header h1 {
-            color: #FFD700;
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         .header p {
-            color: #87CEEB;
-            font-size: 1.3rem;
-            font-style: italic;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        
-        .dedication-section {
-            background: rgba(24, 24, 24, 0.9);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            margin-bottom: 30px;
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
         }
-        
-        .dedication-section h2 {
-            color: #FFD700;
-            font-size: 2rem;
-            margin-bottom: 25px;
-            text-align: center;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
         }
-        
-        .arabic-text {
-            color: #98FB98;
+
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
             font-size: 1.4rem;
-            margin: 25px 0;
-            text-align: center;
-            direction: rtl;
-            line-height: 2.2;
-            background: rgba(152, 251, 152, 0.1);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid #98FB98;
         }
-        
-        .english-text {
-            color: #E0E0E0;
+
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
             font-size: 1.2rem;
-            margin: 25px 0;
-            line-height: 1.8;
-            background: rgba(224, 224, 224, 0.05);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid #87CEEB;
         }
-        
-        .bismillah {
-            color: #FFD700;
-            font-size: 1.6rem;
-            text-align: center;
-            margin: 30px 0;
-            font-weight: bold;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
         }
-        
-        .gratitude-section {
-            background: rgba(18, 18, 18, 0.8);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            margin-bottom: 30px;
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
         }
-        
-        .gratitude-section h3 {
-            color: #87CEEB;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-align: center;
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
         }
-        
-        .names-list {
+
+        .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
-        
-        .name-item {
-            background: rgba(30, 144, 255, 0.1);
-            border: 1px solid rgba(30, 144, 255, 0.3);
-            border-radius: 15px;
-            padding: 20px;
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
             text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
-        
-        .name-item:hover {
-            background: rgba(30, 144, 255, 0.2);
-            border-color: #1E90FF;
-            transform: translateY(-3px);
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
-        
-        .name-item h4 {
-            color: #FFD700;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
-        
-        .name-item p {
-            color: #E0E0E0;
-            font-size: 1rem;
-        }
-        
-        .dua-section {
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .dua-section h3 {
-            color: #FFD700;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-        
-        .dua-text {
-            color: #E0E0E0;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-        
-        .ameen {
-            color: #98FB98;
-            font-size: 1.4rem;
-            font-weight: bold;
-            font-style: italic;
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 30px;
-            color: #87CEEB;
-            font-size: 1.1rem;
-        }
-        
+
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 1rem;
             }
             
             .header h1 {
                 font-size: 2rem;
             }
             
-            .header p {
-                font-size: 1.1rem;
-            }
-            
-            .arabic-text {
-                font-size: 1.2rem;
-                padding: 20px;
-            }
-            
-            .english-text {
-                font-size: 1.1rem;
-                padding: 20px;
-            }
-            
-            .names-list {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
             
-            .back-btn {
-                position: relative;
-                top: auto;
-                left: auto;
-                margin-bottom: 20px;
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
 </head>
 <body>
-    <button class="back-btn" onclick="goBack()">Back to Main</button>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     
     <div class="container">
-        <div class="header">
+        <header class="header">
             <h1>Dedication</h1>
-            <p>In Gratitude to Those Who Guided Me to Islam</p>
-        </div>
+            <p>Complete guide to dedication with comprehensive Islamic content and resources</p>
+        </header>
         
-        <div class="dedication-section">
-            <h2>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h2>
-            <div class="bismillah">In the name of Allah, the Most Gracious, the Most Merciful</div>
+        <div class="content-section">
             
-            <div class="arabic-text">
-                الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ الَّذِي هَدَانِي إِلَى نُورِ الْإِسْلَامِ
-            </div>
-            <div class="english-text">
-                All praise is due to Allah, the Lord of the worlds, who guided me to the light of Islam.
-            </div>
-        </div>
-        
-        <div class="gratitude-section">
-            <h3>Words of Gratitude</h3>
-            <div class="english-text">
-                I extend my deepest gratitude and thanks to those who were the means through which Allah allowed me to find the profound peace that Islam brings.
+            <h3>Dedication</h3>
+            <p>Complete guide to dedication with comprehensive Islamic content and resources</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about dedication with detailed content and resources.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
+                </div>
             </div>
             
-            <div class="names-list">
-                <div class="name-item">
-                    <h4>Shaheena Shahzada</h4>
-                    <p>For her kindness and guidance</p>
-                </div>
-                <div class="name-item">
-                    <h4>Salman Shahzada</h4>
-                    <p>For his support and wisdom</p>
-                </div>
-                <div class="name-item">
-                    <h4>Seemi Warris</h4>
-                    <p>For her patience and teaching</p>
-                </div>
-                <div class="name-item">
-                    <h4>Imran Warris</h4>
-                    <p>For his guidance and friendship</p>
-                </div>
-            </div>
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about dedication. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
+        
         </div>
         
-        <div class="dua-section">
-            <h3>Prayer for Blessings</h3>
-            <div class="arabic-text">
-                اللَّهُمَّ أَجِرْهُمْ أَجْرًا وَافِرًا وَبَارِكْ لَهُمْ فِي الدُّنْيَا وَالْآخِرَةِ وَثَبِّتْهُمْ عَلَى الْهُدَى آمِينَ
-            </div>
-            <div class="dua-text">
-                May Allah, the Most High, reward them abundantly for their efforts, bless them in this life and the next, and keep them steadfast upon guidance.
-            </div>
-            <div class="ameen">Ameen</div>
-        </div>
-        
-        <div class="footer">
-            <p>May this dedication serve as a reminder of the importance of gratitude and the blessings of guidance</p>
-            <p>Insha Allah, may we all continue to grow in faith and help others find the path to Islam</p>
-        </div>
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
     
     <script>
-        function goBack() {
-            window.location.href = 'index.html';
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

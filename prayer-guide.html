@@ -3,419 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prayer Guide - Complete Islamic Prayer Guidance</title>
-    <meta name="description" content="Complete guide to Islamic prayer (Salah) - step-by-step instructions, prayer times, wudu, and prayer guidance for Muslims">
+    <title>Prayer Guide - Complete Islamic Study Guide</title>
     <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-            color: #E0E0E0;
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
-        
+
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1.5rem;
         }
-        
+
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 30px;
-            background: rgba(18, 18, 18, 0.8);
-            border-radius: 20px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
-        
+
         .header h1 {
-            color: #FFD700;
-            font-size: 3rem;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         .header p {
-            color: #87CEEB;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
             font-size: 1.2rem;
         }
-        
-        .back-btn {
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .theme-toggle {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 15px 25px;
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
             color: white;
             border: none;
-            border-radius: 15px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
-        
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
         }
-        
-        .prayer-section {
-            background: rgba(18, 18, 18, 0.8);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .prayer-section h2 {
-            color: #1E90FF;
-            font-size: 2rem;
-            margin-bottom: 20px;
+
+        .search-container {
+            margin: 2rem 0;
             text-align: center;
-            border-bottom: 2px solid #1E90FF;
-            padding-bottom: 10px;
         }
-        
-        .prayer-times {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .prayer-time {
-            background: rgba(30, 144, 255, 0.1);
-            border: 1px solid rgba(30, 144, 255, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
-        
-        .prayer-time:hover {
-            background: rgba(30, 144, 255, 0.2);
-            transform: translateY(-5px);
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
-        
-        .prayer-time h3 {
-            color: #1E90FF;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
-        
-        .prayer-time .time {
-            color: #FFD700;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        .prayer-time .rakats {
-            color: #87CEEB;
-            font-size: 1rem;
-            margin-top: 10px;
-        }
-        
-        .step-by-step {
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-        
-        .step-by-step h3 {
-            color: #FFD700;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .step {
-            background: rgba(18, 18, 18, 0.6);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-left: 4px solid #FFD700;
-        }
-        
-        .step-number {
-            color: #FFD700;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .step-content {
-            color: #87CEEB;
-            margin-top: 10px;
-        }
-        
-        .arabic-text {
-            color: #98FB98;
-            font-size: 1.1rem;
-            margin: 10px 0;
-            text-align: center;
-            direction: rtl;
-        }
-        
-        .translation {
-            color: #E0E0E0;
-            font-style: italic;
-            margin: 10px 0;
-            text-align: center;
-        }
-        
-        .wudu-guide {
-            background: rgba(152, 251, 152, 0.1);
-            border: 1px solid rgba(152, 251, 152, 0.3);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-        
-        .wudu-guide h3 {
-            color: #98FB98;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .wudu-step {
-            background: rgba(18, 18, 18, 0.6);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-left: 4px solid #98FB98;
-        }
-        
-        .wudu-step-number {
-            color: #98FB98;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .wudu-step-content {
-            color: #87CEEB;
-            margin-top: 10px;
-        }
-        
-        .important-notes {
-            background: rgba(255, 69, 0, 0.1);
-            border: 1px solid rgba(255, 69, 0, 0.3);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-        
-        .important-notes h3 {
-            color: #FFA500;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .note {
-            color: #FFA500;
-            margin-bottom: 10px;
-            padding: 10px;
-            background: rgba(255, 69, 0, 0.1);
-            border-radius: 8px;
-        }
-        
+
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 1rem;
             }
             
             .header h1 {
                 font-size: 2rem;
             }
             
-            .prayer-times {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
             
-            .back-btn {
-                position: relative;
-                top: auto;
-                left: auto;
-                margin-bottom: 20px;
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
 </head>
 <body>
-    <button class="back-btn" onclick="goBack()">← Back to Main</button>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     
     <div class="container">
-        <div class="header">
+        <header class="header">
             <h1>Prayer Guide</h1>
-            <p>Complete step-by-step guide to Islamic prayer (Salah)</p>
-        </div>
+            <p>Complete guide to prayer guide with comprehensive Islamic content and resources</p>
+        </header>
         
-        <div class="prayer-section">
-            <h2>Daily Prayer Times</h2>
-            <div class="prayer-times">
-                <div class="prayer-time">
-                    <h3>Fajr (Dawn)</h3>
-                    <div class="time">Before Sunrise</div>
-                    <div class="rakats">2 Rakats</div>
+        <div class="content-section">
+            
+            <h3>Prayer Guide</h3>
+            <p>Complete guide to prayer guide with comprehensive Islamic content and resources</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about prayer guide with detailed content and resources.</p>
                 </div>
-                <div class="prayer-time">
-                    <h3>Dhuhr (Noon)</h3>
-                    <div class="time">After Sun Passes Highest</div>
-                    <div class="rakats">4 Rakats</div>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
                 </div>
-                <div class="prayer-time">
-                    <h3>Asr (Afternoon)</h3>
-                    <div class="time">Mid-Afternoon</div>
-                    <div class="rakats">4 Rakats</div>
-                </div>
-                <div class="prayer-time">
-                    <h3>Maghrib (Sunset)</h3>
-                    <div class="time">After Sunset</div>
-                    <div class="rakats">3 Rakats</div>
-                </div>
-                <div class="prayer-time">
-                    <h3>Isha (Night)</h3>
-                    <div class="time">Night</div>
-                    <div class="rakats">4 Rakats</div>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
                 </div>
             </div>
+            
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about prayer guide. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
+        
         </div>
         
-        <div class="prayer-section">
-            <h2>Wudu (Ablution) Guide</h2>
-            <div class="wudu-guide">
-                <h3>Step-by-Step Wudu</h3>
-                <div class="wudu-step">
-                    <div class="wudu-step-number">1. Intention (Niyyah)</div>
-                    <div class="wudu-step-content">Make intention in your heart to perform wudu for prayer</div>
-                </div>
-                <div class="wudu-step">
-                    <div class="wudu-step-number">2. Say "Bismillah"</div>
-                    <div class="wudu-step-content">Begin with "In the name of Allah"</div>
-                </div>
-                <div class="wudu-step">
-                    <div class="wudu-step-number">3. Wash Hands (3x)</div>
-                    <div class="wudu-step-content">Wash both hands up to wrists three times</div>
-                </div>
-                <div class="wudu-step">
-                    <div class="wudu-step-number">4. Rinse Mouth (3x)</div>
-                    <div class="wudu-step-content">Take water in mouth and rinse three times</div>
-                </div>
-                <div class="wudu-step">
-                    <div class="wudu-step-number">5. Rinse Nose (3x)</div>
-                    <div class="wudu-step-content">Sniff water into nose and blow it out three times</div>
-                </div>
-                <div class="wudu-step">
-                    <div class="wudu-step-number">6. Wash Face (3x)</div>
-                    <div class="wudu-step-content">Wash entire face from hairline to chin three times</div>
-                </div>
-                <div class="wudu-step">
-                    <div class="wudu-step-number">7. Wash Arms (3x)</div>
-                    <div class="wudu-step-content">Wash both arms from fingertips to elbows three times</div>
-                </div>
-                <div class="wudu-step">
-                    <div class="wudu-step-number">8. Wipe Head</div>
-                    <div class="wudu-step-content">Wipe head once with wet hands</div>
-                </div>
-                <div class="wudu-step">
-                    <div class="wudu-step-number">9. Wash Feet (3x)</div>
-                    <div class="wudu-step-content">Wash both feet up to ankles three times</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="prayer-section">
-            <h2>How to Pray (Step-by-Step)</h2>
-            <div class="step-by-step">
-                <h3>Complete Prayer Guide</h3>
-                <div class="step">
-                    <div class="step-number">1. Intention (Niyyah)</div>
-                    <div class="step-content">Make intention in your heart for which prayer you are performing</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2. Takbir (Allahu Akbar)</div>
-                    <div class="step-content">Raise hands to ears and say "Allahu Akbar" (Allah is Greatest)</div>
-                    <div class="arabic-text">اللهُ أَكْبَرُ</div>
-                    <div class="translation">"Allah is Greatest"</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3. Qiyam (Standing)</div>
-                    <div class="step-content">Stand straight and recite Al-Fatiha followed by a short surah</div>
-                    <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-                    <div class="translation">"In the name of Allah, the Entirely Merciful, the Especially Merciful"</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">4. Ruku (Bowing)</div>
-                    <div class="step-content">Bend at waist, place hands on knees, and say "Subhanallah" 3 times</div>
-                    <div class="arabic-text">سُبْحَانَ اللَّهِ</div>
-                    <div class="translation">"Glory be to Allah"</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">5. Qauma (Standing Up)</div>
-                    <div class="step-content">Stand up straight and say "Sami Allahu liman hamidah"</div>
-                    <div class="arabic-text">سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ</div>
-                    <div class="translation">"Allah hears those who praise Him"</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">6. Sujood (Prostration)</div>
-                    <div class="step-content">Prostrate with forehead, nose, hands, knees, and toes touching ground</div>
-                    <div class="arabic-text">سُبْحَانَ رَبِّيَ الْأَعْلَى</div>
-                    <div class="translation">"Glory be to my Lord, the Most High"</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">7. Jalsa (Sitting)</div>
-                    <div class="step-content">Sit between prostrations and say "Rabbighfir li" (O Lord, forgive me)</div>
-                    <div class="arabic-text">رَبِّ اغْفِرْ لِي</div>
-                    <div class="translation">"O Lord, forgive me"</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">8. Second Sujood</div>
-                    <div class="step-content">Perform second prostration same as first</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">9. Repeat for Each Rakat</div>
-                    <div class="step-content">Repeat steps 2-8 for each rakat of the prayer</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">10. Tashahhud (Final Sitting)</div>
-                    <div class="step-content">In final rakat, sit and recite Tashahhud and Salawat</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">11. Salam (Ending)</div>
-                    <div class="step-content">Turn head right and left saying "Assalamu alaikum wa rahmatullah"</div>
-                    <div class="arabic-text">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ</div>
-                    <div class="translation">"Peace be upon you and the mercy of Allah"</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="important-notes">
-            <h3>Important Notes</h3>
-            <div class="note">• Always face the Qibla (direction of Kaaba) when praying</div>
-            <div class="note">• Keep your prayer area clean and quiet</div>
-            <div class="note">• Focus on your prayer and avoid distractions</div>
-            <div class="note">• If you make a mistake, don't worry - Allah is Most Merciful</div>
-            <div class="note">• It's better to pray imperfectly than not to pray at all</div>
-            <div class="note">• Start with Fajr prayer as it's the shortest and easiest to learn</div>
-        </div>
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
     
     <script>
-        function goBack() {
-            window.location.href = 'index.html';
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

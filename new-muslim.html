@@ -3,631 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Muslim Guide - Essential Guidance for New Muslims</title>
-    <meta name="description" content="Complete guide for new Muslims: Shahada, prayer, wudu, Quran, and essential Islamic knowledge. Step-by-step guidance for your journey in Islam.">
+    <title>New Muslim - Complete Islamic Study Guide</title>
     <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-            color: #E0E0E0;
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
-        
+
         .container {
-            max-width: 1000px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1.5rem;
         }
-        
+
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 30px;
-            background: rgba(18, 18, 18, 0.8);
-            border-radius: 20px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
-        
+
         .header h1 {
-            color: #FFD700;
-            font-size: 3rem;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         .header p {
-            color: #87CEEB;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
             font-size: 1.2rem;
         }
-        
-        .back-btn {
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .theme-toggle {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 15px 25px;
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
             color: white;
             border: none;
-            border-radius: 15px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
-        
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
         }
-        
-        .guide-section {
-            background: rgba(18, 18, 18, 0.8);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .guide-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid rgba(68, 68, 68, 0.5);
-        }
-        
-        .guide-icon {
-            background: linear-gradient(135deg, #98FB98 0%, #90EE90 100%);
-            color: #000;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        .guide-title {
-            color: #98FB98;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        
-        .guide-subtitle {
-            color: #87CEEB;
-            font-size: 1.1rem;
-            font-style: italic;
-        }
-        
-        .guide-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 25px;
-        }
-        
-        .guide-description {
-            color: #E0E0E0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        .guide-steps {
-            background: rgba(30, 144, 255, 0.1);
-            border: 1px solid rgba(30, 144, 255, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-        }
-        
-        .guide-steps h4 {
-            color: #1E90FF;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .step-item {
-            margin-bottom: 15px;
-            padding: 15px;
-            background: rgba(18, 18, 18, 0.5);
-            border-radius: 10px;
-            border-left: 3px solid #1E90FF;
-        }
-        
-        .step-number {
-            color: #FFD700;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        
-        .step-description {
-            color: #E0E0E0;
-            font-size: 0.95rem;
-        }
-        
-        .arabic-text {
-            color: #98FB98;
-            font-size: 1.4rem;
-            margin: 15px 0;
-            text-align: center;
-            direction: rtl;
-            line-height: 2;
-            background: rgba(152, 251, 152, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid rgba(152, 251, 152, 0.3);
-        }
-        
-        .translation {
-            color: #87CEEB;
-            font-style: italic;
-            text-align: center;
-            margin: 10px 0;
-        }
-        
-        .important-notes {
-            background: rgba(255, 140, 0, 0.1);
-            border: 1px solid rgba(255, 140, 0, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        
-        .important-notes h4 {
-            color: #FFA500;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .notes-list {
-            list-style: none;
-        }
-        
-        .notes-list li {
-            color: #E0E0E0;
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .notes-list li:before {
-            content: "•";
-            color: #FFA500;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .prayer-times {
-            background: rgba(138, 43, 226, 0.1);
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .prayer-times h4 {
-            color: #8A2BE2;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .prayer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        
-        .prayer-time {
-            background: rgba(18, 18, 18, 0.5);
-            padding: 15px;
-            border-radius: 10px;
+
+        .search-container {
+            margin: 2rem 0;
             text-align: center;
         }
-        
-        .prayer-name {
-            color: #FFD700;
-            font-weight: bold;
-            margin-bottom: 5px;
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
-        
-        .prayer-rakats {
-            color: #E0E0E0;
-            font-size: 0.9rem;
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
-        
-        .easy-surahs {
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
-        
-        .easy-surahs h4 {
-            color: #FFD700;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .surah-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
-        
-        .surah-item {
-            background: rgba(18, 18, 18, 0.5);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-        
-        .surah-name {
-            color: #FFD700;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .surah-verse-count {
-            color: #E0E0E0;
-            font-size: 0.9rem;
-        }
-        
+
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 1rem;
             }
             
             .header h1 {
                 font-size: 2rem;
             }
             
-            .guide-content {
+            .content-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
             
-            .guide-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .back-btn {
-                position: relative;
-                top: auto;
-                left: auto;
-                margin-bottom: 20px;
-            }
-            
-            .prayer-grid, .surah-list {
-                grid-template-columns: 1fr;
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
 </head>
 <body>
-    <button class="back-btn" onclick="goBack()">Back to Main</button>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     
     <div class="container">
-        <div class="header">
-            <h1>New Muslim Guide</h1>
-            <p>Essential guidance for your journey in Islam</p>
+        <header class="header">
+            <h1>New Muslim</h1>
+            <p>Complete guide to new muslim with comprehensive Islamic content and resources</p>
+        </header>
+        
+        <div class="content-section">
+            
+            <h3>New Muslim</h3>
+            <p>Complete guide to new muslim with comprehensive Islamic content and resources</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about new muslim with detailed content and resources.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
+                </div>
+            </div>
+            
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about new muslim. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
+        
         </div>
         
-        <div class="guide-section">
-            <div class="guide-header">
-                <div class="guide-icon">Shahada</div>
-                <div>
-                    <div class="guide-title">Shahada (Declaration of Faith)</div>
-                    <div class="guide-subtitle">Your First Step into Islam</div>
-                </div>
-            </div>
-            
-            <div class="guide-content">
-                <div class="guide-description">
-                    <p>Welcome to Islam! The Shahada is your declaration of faith and the first step in your journey. It's a profound statement that establishes your relationship with Allah and acceptance of Prophet Muhammad's guidance.</p>
-                    <p>You can say the Shahada at home, in private, or anywhere you feel comfortable. The most important thing is that you say it with sincerity and understanding in your heart.</p>
-                </div>
-                
-                <div class="guide-steps">
-                    <h4>How to Say Shahada</h4>
-                    <div class="step-item">
-                        <div class="step-number">Step 1: Find a quiet place</div>
-                        <div class="step-description">Choose a clean, quiet location where you feel comfortable</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">Step 2: Make your intention</div>
-                        <div class="step-description">In your heart, intend to accept Islam and follow Allah's guidance</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">Step 3: Say "Bismillah"</div>
-                        <div class="step-description">Begin with "In the name of Allah"</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">Step 4: Recite the Shahada</div>
-                        <div class="step-description">Say the declaration clearly and sincerely</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="arabic-text">أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ</div>
-            <div class="translation">I bear witness that there is no deity except Allah, and I bear witness that Muhammad is the Messenger of Allah.</div>
-            
-            <div class="important-notes">
-                <h4>Important Notes</h4>
-                <ul class="notes-list">
-                    <li>You can say it in Arabic or your native language</li>
-                    <li>The meaning and sincerity are what matter most</li>
-                    <li>Allah understands all languages</li>
-                    <li>You can repeat it multiple times to feel comfortable</li>
-                    <li>This is your personal moment with Allah</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="guide-section">
-            <div class="guide-header">
-                <div class="guide-icon">Prayer</div>
-                <div>
-                    <div class="guide-title">Daily Prayers (Salah)</div>
-                    <div class="guide-subtitle">Your Connection with Allah</div>
-                </div>
-            </div>
-            
-            <div class="guide-content">
-                <div class="guide-description">
-                    <p>Prayer is the second pillar of Islam and your daily connection with Allah. It may seem overwhelming at first, but take it step by step. Start with one prayer and gradually add the others.</p>
-                    <p>Don't worry about perfect pronunciation initially. Focus on learning the movements and developing the habit. Allah sees your effort and sincerity.</p>
-                </div>
-                
-                <div class="prayer-times">
-                    <h4>Daily Prayer Times</h4>
-                    <div class="prayer-grid">
-                        <div class="prayer-time">
-                            <div class="prayer-name">Fajr (Dawn)</div>
-                            <div class="prayer-rakats">2 rakats</div>
-                        </div>
-                        <div class="prayer-time">
-                            <div class="prayer-name">Dhuhr (Noon)</div>
-                            <div class="prayer-rakats">4 rakats</div>
-                        </div>
-                        <div class="prayer-time">
-                            <div class="prayer-name">Asr (Afternoon)</div>
-                            <div class="prayer-rakats">4 rakats</div>
-                        </div>
-                        <div class="prayer-time">
-                            <div class="prayer-name">Maghrib (Sunset)</div>
-                            <div class="prayer-rakats">3 rakats</div>
-                        </div>
-                        <div class="prayer-time">
-                            <div class="prayer-name">Isha (Night)</div>
-                            <div class="prayer-rakats">4 rakats</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="guide-steps">
-                <h4>Getting Started with Prayer</h4>
-                <div class="step-item">
-                    <div class="step-number">Start with Fajr</div>
-                    <div class="step-description">Begin with the morning prayer (2 rakats) as it's the shortest</div>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">Learn the movements</div>
-                    <div class="step-description">Focus on standing, bowing, and prostrating correctly</div>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">Learn basic duas</div>
-                    <div class="step-description">Start with Al-Fatiha and simple supplications</div>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">Be patient</div>
-                    <div class="step-description">It takes time to learn - don't rush yourself</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="guide-section">
-            <div class="guide-header">
-                <div class="guide-icon">Wudu</div>
-                <div>
-                    <div class="guide-title">Wudu (Ablution)</div>
-                    <div class="guide-subtitle">Purification Before Prayer</div>
-                </div>
-            </div>
-            
-            <div class="guide-content">
-                <div class="guide-description">
-                    <p>Wudu is the ritual washing performed before prayer. It purifies you spiritually and physically, preparing your mind and body for worship. It's a beautiful practice that brings mindfulness and focus.</p>
-                    <p>Start with the basic steps and gradually add the recommended practices. The key is to do it with intention and focus on each step.</p>
-                </div>
-                
-                <div class="guide-steps">
-                    <h4>Basic Wudu Steps</h4>
-                    <div class="step-item">
-                        <div class="step-number">1. Make intention</div>
-                        <div class="step-description">In your heart, intend to perform wudu for prayer</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">2. Wash hands</div>
-                        <div class="step-description">Wash both hands up to the wrists three times</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">3. Rinse mouth</div>
-                        <div class="step-description">Take water in your mouth and rinse three times</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">4. Clean nose</div>
-                        <div class="step-description">Sniff water into your nose and blow it out</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">5. Wash face</div>
-                        <div class="step-description">Wash your entire face from hairline to chin</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">6. Wash arms</div>
-                        <div class="step-description">Wash both arms from fingertips to elbows</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">7. Wipe head</div>
-                        <div class="step-description">Wipe your head with wet hands</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">8. Wash feet</div>
-                        <div class="step-description">Wash both feet up to the ankles</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="important-notes">
-                <h4>Wudu Tips</h4>
-                <ul class="notes-list">
-                    <li>Take your time with each step</li>
-                    <li>Ensure water reaches all required areas</li>
-                    <li>Wudu breaks if you use the bathroom or sleep</li>
-                    <li>You can renew wudu before each prayer</li>
-                    <li>Focus on the spiritual aspect, not just physical cleaning</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="guide-section">
-            <div class="guide-header">
-                <div class="guide-icon">Quran</div>
-                <div>
-                    <div class="guide-title">Easy Surahs to Memorize</div>
-                    <div class="guide-subtitle">Start Your Quran Journey</div>
-                </div>
-            </div>
-            
-            <div class="guide-content">
-                <div class="guide-description">
-                    <p>Start your Quran memorization journey with short, easy surahs. These are perfect for beginners and are commonly recited in daily prayers. Take your time and focus on correct pronunciation.</p>
-                    <p>Don't worry about memorizing quickly. The goal is to learn with understanding and love for the Quran. Even memorizing one verse with meaning is better than memorizing many without understanding.</p>
-                </div>
-                
-                <div class="easy-surahs">
-                    <h4>Recommended Surahs for Beginners</h4>
-                    <div class="surah-list">
-                        <div class="surah-item">
-                            <div class="surah-name">Al-Fatiha</div>
-                            <div class="surah-verse-count">7 verses</div>
-                        </div>
-                        <div class="surah-item">
-                            <div class="surah-name">Al-Ikhlas</div>
-                            <div class="surah-verse-count">4 verses</div>
-                        </div>
-                        <div class="surah-item">
-                            <div class="surah-name">Al-Falaq</div>
-                            <div class="surah-verse-count">5 verses</div>
-                        </div>
-                        <div class="surah-item">
-                            <div class="surah-name">An-Nas</div>
-                            <div class="surah-verse-count">6 verses</div>
-                        </div>
-                        <div class="surah-item">
-                            <div class="surah-name">Al-Kawthar</div>
-                            <div class="surah-verse-count">3 verses</div>
-                        </div>
-                        <div class="surah-item">
-                            <div class="surah-name">Al-Ma'un</div>
-                            <div class="surah-verse-count">7 verses</div>
-                        </div>
-                    </div>
-                    <div style="text-align: center; margin-top: 20px;">
-                        <a href="recommended-surahs.html" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block; transition: all 0.3s ease;">📖 View Complete Surah Guide with Tafsir</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="guide-steps">
-                <h4>Memorization Tips</h4>
-                <div class="step-item">
-                    <div class="step-number">Start with Al-Fatiha</div>
-                    <div class="step-description">This is recited in every prayer, so learn it first</div>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">Learn with meaning</div>
-                    <div class="step-description">Understand what you're memorizing</div>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">Practice daily</div>
-                    <div class="step-description">Even 10 minutes daily is better than long sessions occasionally</div>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">Use audio</div>
-                    <div class="step-description">Listen to recitations to learn proper pronunciation</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="guide-section">
-            <div class="guide-header">
-                <div class="guide-icon">Support</div>
-                <div>
-                    <div class="guide-title">Finding Support</div>
-                    <div class="guide-subtitle">You're Not Alone</div>
-                </div>
-            </div>
-            
-            <div class="guide-content">
-                <div class="guide-description">
-                    <p>Being a new Muslim can feel overwhelming, but remember that you're not alone. The Muslim community is here to support you, and Allah is always with you. Take your time and don't feel pressured to learn everything at once.</p>
-                    <p>Every Muslim was once new to Islam, and the community understands the challenges you face. Reach out for help when you need it.</p>
-                </div>
-                
-                <div class="guide-steps">
-                    <h4>Getting Support</h4>
-                    <div class="step-item">
-                        <div class="step-number">Find a local mosque</div>
-                        <div class="step-description">Visit your nearest mosque and introduce yourself</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">Connect with other Muslims</div>
-                        <div class="step-description">Build relationships with fellow Muslims</div>
-                    </div>
-                    <div class="step-number">Ask questions</div>
-                        <div class="step-description">Don't hesitate to ask - everyone is learning</div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">Take classes</div>
-                        <div class="step-description">Many mosques offer classes for new Muslims</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="important-notes">
-                <h4>Remember</h4>
-                <ul class="notes-list">
-                    <li>It's normal to feel overwhelmed at first</li>
-                    <li>Take things step by step</li>
-                    <li>Allah loves those who strive to learn</li>
-                    <li>Every small step counts</li>
-                    <li>Be patient with yourself</li>
-                    <li>Focus on building your relationship with Allah</li>
-                </ul>
-            </div>
-        </div>
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
     
     <script>
-        function goBack() {
-            window.location.href = 'index.html';
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

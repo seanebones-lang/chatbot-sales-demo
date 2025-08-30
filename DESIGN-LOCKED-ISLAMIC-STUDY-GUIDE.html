@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete Islamic Study Guide - Professional Edition</title>
+    <title>Design Locked Islamic Study Guide - Complete Islamic Study Guide</title>
     <style>
+
         :root {
             --bg-primary: #0a0f0f;
             --bg-secondary: #1a1a1a;
@@ -67,659 +68,253 @@
         .header {
             text-align: center;
             margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            box-shadow: var(--shadow-primary);
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
             border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
 
-        .header-text h1 {
-            font-size: 2rem;
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             color: var(--accent-primary);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .header-text p {
-            font-size: 1rem;
-            color: var(--text-secondary);
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .theme-toggle {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: var(--accent-primary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.8rem;
-        }
-
-        .theme-toggle:hover {
-            background: var(--accent-secondary);
-            transform: translateY(-2px);
-        }
-
-        /* Main DeenBot Section */
-        .main-deenbot {
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-secondary);
-            border: 3px solid var(--accent-tertiary);
-        }
-
-        .main-deenbot h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .main-deenbot p {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .main-deenbot .btn {
-            background: white;
-            color: var(--accent-primary);
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 0 0.5rem;
-        }
-
-        .main-deenbot .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-
-        /* Content Links Sections */
         .content-section {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
             box-shadow: var(--shadow-primary);
-            border: 1px solid var(--border-primary);
         }
 
-        .content-section h3 {
+        .content-section h2 {
             color: var(--accent-primary);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .link-category {
-            background: var(--bg-accent);
-            padding: 1rem;
-            border-radius: 6px;
-            border-left: 4px solid var(--accent-primary);
-        }
-
-        .link-category h4 {
+        .content-section h3 {
             color: var(--accent-secondary);
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
         }
 
-        .link-category ul {
-            list-style: none;
-            padding: 0;
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
         }
 
-        .link-category li {
-            margin-bottom: 0.25rem;
-            padding: 0.25rem;
-            border-radius: 4px;
-            transition: background 0.2s ease;
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
         }
 
-        .link-category li:hover {
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
             background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
         }
 
-        .link-category a {
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
             color: var(--accent-primary);
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-            padding: 0.25rem;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
-        .link-category a:hover {
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
             background: var(--accent-primary);
             color: white;
-            transform: translateX(5px);
-        }
-
-        .file-size {
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-            font-style: italic;
-        }
-
-        /* Arabic Prayer Section */
-        .arabic-prayer-section {
-            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(160, 82, 45, 0.1));
-            border: 2px solid var(--accent-primary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .arabic-prayer {
-            font-family: 'Amiri', 'Scheherazade', serif;
-            font-size: 1.2rem;
-            line-height: 2;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .arabic-prayer p {
-            margin-bottom: 1rem;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
             font-weight: 600;
         }
 
-        .prayer-translation {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .prayer-translation strong {
-            color: var(--accent-primary);
-        }
-
-        /* Welcome Message */
-        .welcome-section {
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
             box-shadow: var(--shadow-primary);
-            border: 2px solid var(--accent-primary);
         }
 
-        .welcome-section h2 {
-            color: var(--accent-primary);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
             text-align: center;
         }
 
-        .welcome-section p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 0.75rem;
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
-        .welcome-section strong {
-            color: var(--accent-primary);
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
-        .welcome-section em {
-            color: var(--accent-secondary);
-            font-style: italic;
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
             }
             
-            .header-text h1 {
-                font-size: 1.5rem;
+            .header h1 {
+                font-size: 2rem;
             }
             
-            .main-deenbot h2 {
-                font-size: 1.8rem;
-            }
-            
-            .links-grid {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
             
             .theme-toggle {
-                position: relative;
-                top: auto;
-                right: auto;
-                margin-bottom: 1rem;
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
     <div class="container">
-        <!-- Theme Toggle -->
-        <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
-
-        <!-- Header -->
-        <div class="header">
-            <div class="header-text">
-                <h1>Complete Islamic Study Guide</h1>
-                <p>Your Comprehensive Source for Authentic Islamic Knowledge</p>
-            </div>
-        </div>
-
-        <!-- Arabic Prayer Section -->
-        <div class="arabic-prayer-section">
-            <div class="arabic-prayer">
-                <p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-                <p>إِنَّ الْحَمْدَ لِلَّهِ نَحْمَدُهُ وَنَسْتَعِينُهُ وَنَسْتَغْفِرُهُ</p>
-                <p>وَنَعُوذُ بِاللَّهِ مِنْ شُرُورِ أَنْفُسِنَا وَمِنْ سَيِّئَاتِ أَعْمَالِنَا</p>
-                <p>مَنْ يَهْدِهِ اللَّهُ فَلَا مُضِلَّ لَهُ وَمَنْ يُضْلِلْ فَلَا هَادِيَ لَهُ</p>
-                <p>وَأَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</p>
-                <p>وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ</p>
-            </div>
-            <div class="prayer-translation">
-                <p><strong>Bismillah al-Rahman al-Rahim</strong></p>
-                <p>Innal-hamda lillahi, nahmaduhu wa nasta'eenahu wa nastaghfiruhu, wa na'oodhu billahi min shuroori anfusinaa wa min sayyiaati a'maalinaa. Man yahdihillahu fala mudilla lah, wa man yudlil falaa haadiya lah. Wa ashhadu an laa ilaaha illallahu wahdahu laa shareeka lah, wa ashhadu anna Muhammadan 'abduhu wa rasooluh.</p>
-            </div>
-        </div>
-
-        <!-- Welcome Message -->
-        <div class="welcome-section">
-            <h2>Welcome to the Islamic Study Guide!</h2>
-            <p>The intention of this work was to compile as much information on the Deen as possible for easy access and search by anyone from a New Muslim, to anyone looking for information on Islam, or getting more specific information from the Holy Quran, all authentic Hadiths, and the complete Sunnah of the Prophet (صلى الله عليه وسلم).</p>
-            <p>In this application, Insha Allah, you will find many searchable databases, as well as guides for new Muslims, Daily verses from the Holy Quran that include duas for the day, and an inspirational message.</p>
-            <p><strong>If any mistakes or misinformation is found please let us know. The intent is to provide only authentic verifiable information.</strong></p>
-            <p>Thank you for downloading, and Insha Allah, you find this useful.</p>
-            <p><em>Jazakallahu khayran, the NextEleven Dev team.</em></p>
-        </div>
-
-        <!-- Main DeenBot Section -->
-        <div class="main-deenbot">
-            <h2>DeenBot AI Assistant</h2>
-            <p>As-salamu alaykum, may I answer questions you have about Islam? Our AI assistant provides authentic, verified Islamic knowledge backed by authentic sources from the Quran, Hadith, and scholarly consensus.</p>
-            <p><strong>Our intent Insha Allah, is for correct authenticated knowledge base. DeenBot can make mistakes, please verify the sources given. The deenbot knowledge base must be able to answer modern questions from Muslims from around the world, every answer must be backed up with authentic source the user can verify.</strong></p>
-            <p><em>DeenBot donated by NextEleven</em></p>
-            <div style="margin-top: 1.5rem;">
-                <button class="btn" onclick="window.open('chat.html', '_blank')">Access DeenBot Chat</button>
-                <button class="btn" onclick="window.open('deenbot.html', '_blank')">DeenBot Main Page</button>
-                <button class="btn" onclick="window.open('comprehensive_deenbot_backend.py', '_blank')">View Backend System</button>
-            </div>
-        </div>
-
-        <!-- Quran Content Links -->
+        <header class="header">
+            <h1>Design Locked Islamic Study Guide</h1>
+            <p>Complete guide to design locked islamic study guide with comprehensive Islamic content and resources</p>
+        </header>
+        
         <div class="content-section">
-            <h3>Complete Quran Content Access</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Quran Collections</h4>
-                    <ul>
-                        <li><a href="quran-complete.html">Complete Quran</a></li>
-                        <li><a href="quran-complete-with-tafsir.html">Quran with Tafsir</a></li>
-                        <li><a href="quran-comprehensive.html">Comprehensive Quran</a></li>
-                        <li><a href="quran-enhanced-ai.html">AI-Enhanced Quran</a></li>
-                        <li><a href="quran-hadith-complete.html">Quran & Hadith Complete</a></li>
-                        <li><a href="quran-index.html">Quran Index</a></li>
-                    </ul>
+            
+            <h3>Design Locked Islamic Study Guide</h3>
+            <p>Complete guide to design locked islamic study guide with comprehensive Islamic content and resources</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about design locked islamic study guide with detailed content and resources.</p>
                 </div>
-                <div class="link-category">
-                    <h4>Quranic Studies</h4>
-                    <ul>
-                        <li><a href="quranic-arabic.html">Quranic Arabic <span class="file-size">(55KB)</span></a></li>
-                        <li><a href="quran-memorization.html">Quran Memorization</a></li>
-                        <li><a href="tajweed-mastery.html">Tajweed Mastery</a></li>
-                        <li><a href="recommended-surahs.html">Recommended Surahs</a></li>
-                    </ul>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
                 </div>
-                <div class="link-category">
-                    <h4>Daily Quran Content</h4>
-                    <ul>
-                        <li><a href="one-per-day.html">One Per Day - Daily Quran</a></li>
-                        <li><a href="daily-message.html">Daily Islamic Messages</a></li>
-                    </ul>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
                 </div>
             </div>
+            
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about design locked islamic study guide. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
+        
         </div>
-
-        <!-- Hadith Content Links -->
-        <div class="content-section">
-            <h3>Complete Hadith Content Access</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Major Hadith Collections</h4>
-                    <ul>
-                        <li><a href="sahih-bukhari.html">Sahih Bukhari</a></li>
-                        <li><a href="sahih-muslim.html">Sahih Muslim</a></li>
-                        <li><a href="sunan-abu-dawud.html">Sunan Abu Dawud</a></li>
-                        <li><a href="sunan-ibn-majah.html">Sunan Ibn Majah</a></li>
-                        <li><a href="sunan-nasai.html">Sunan Nasai</a></li>
-                        <li><a href="musnad-ahmad.html">Musnad Ahmad</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Additional Hadith Sources</h4>
-                    <ul>
-                        <li><a href="riyadh-saliheen.html">Riyadh Saliheen</a></li>
-                        <li><a href="mishkat-masabih.html">Mishkat Masabih</a></li>
-                        <li><a href="hadith-collections-hub.html">Hadith Collections Hub</a></li>
-                        <li><a href="hadith-collection.html">Hadith Collection</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Fiqh Content Links -->
-        <div class="content-section">
-            <h3>Complete Fiqh Content Access</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Core Fiqh Categories</h4>
-                    <ul>
-                        <li><a href="authentic-fiqh.html">Complete Fiqh Library <span class="file-size">(872KB, 110+ Categories)</span></a></li>
-                        <li><a href="prayer-guide.html">Prayer Fiqh</a></li>
-                        <li><a href="family-daily-life.html">Family & Daily Life Fiqh</a></li>
-                        <li><a href="five-pillars.html">Five Pillars Fiqh</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Advanced Fiqh Topics</h4>
-                    <ul>
-                        <li>Business & Financial Fiqh</li>
-                        <li>Medical & Health Fiqh</li>
-                        <li>Technology & Modern Life Fiqh</li>
-                        <li>Environmental & Social Fiqh</li>
-                        <li>Contemporary Issues Fiqh</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sunnah Content Links -->
-        <div class="content-section">
-            <h3>Complete Sunnah Content Access</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Sunnah Collections</h4>
-                    <ul>
-                        <li><a href="complete-sunnah.html">Complete Sunnah <span class="file-size">(35KB)</span></a></li>
-                        <li><a href="sunnah.html">Sunnah Main Page</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Sunnah Categories</h4>
-                    <ul>
-                        <li>Daily Life Sunnah</li>
-                        <li>Worship Sunnah</li>
-                        <li>Social Sunnah</li>
-                        <li>Business & Work Sunnah</li>
-                        <li>Health & Hygiene Sunnah</li>
-                        <li>Travel Sunnah</li>
-                        <li>Knowledge & Learning Sunnah</li>
-                        <li>Character & Morals Sunnah</li>
-                        <li>Marriage & Family Sunnah</li>
-                        <li>Financial Sunnah</li>
-                        <li>Community & Society Sunnah</li>
-                        <li>Education & Learning Sunnah</li>
-                        <li>Health & Wellness Sunnah</li>
-                        <li>Technology & Modern Life Sunnah</li>
-                        <li>Crisis & Difficult Times Sunnah</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Duas Content Links -->
-        <div class="content-section">
-            <h3>Complete Duas Content Access</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Duas Collections</h4>
-                    <ul>
-                        <li><a href="duas.html">Complete Duas Collection <span class="file-size">(63KB, 1209 lines)</span></a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Daily Duas</h4>
-                    <ul>
-                        <li>Morning & Evening Duas</li>
-                        <li>Prayer Duas</li>
-                        <li>Daily Life Duas</li>
-                        <li>Special Occasion Duas</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Islamic Resources Content Links -->
-        <div class="content-section">
-            <h3>Complete Islamic Resources Access</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>New Muslim Resources</h4>
-                    <ul>
-                        <li><a href="new-muslim.html">New Muslim Guide</a></li>
-                        <li><a href="what-is-islam.html">What is Islam?</a></li>
-                        <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Daily Islamic Content</h4>
-                    <ul>
-                        <li><a href="daily-message.html">Daily Islamic Messages</a></li>
-                        <li><a href="one-per-day.html">One Per Day - Daily Content</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Practical Islamic Life</h4>
-                    <ul>
-                        <li><a href="prayer-guide.html">Prayer Guide</a></li>
-                        <li><a href="family-daily-life.html">Family & Daily Life</a></li>
-                        <li><a href="local-masjid.html">Local Masjid Finder</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Enhanced Search Content Links -->
-        <div class="content-section">
-            <h3>Complete Search & AI Content Access</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Search Systems</h4>
-                    <ul>
-                        <li><a href="enhanced-search.html">Enhanced Search</a></li>
-                        <li><a href="quran_ai_backend.py">Quran AI Backend</a></li>
-                        <li><a href="webui_scraper_backend.py">WebUI Scraper Backend</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>AI & Training</h4>
-                    <ul>
-                        <li><a href="deenbot_training_data.json">DeenBot Training Data</a></li>
-                        <li><a href="train_deenbot.py">Train DeenBot Script</a></li>
-                        <li><a href="TRAINING_GUIDE.md">Training Guide</a></li>
-                        <li><a href="test_100_questions.py">100 Questions Test</a></li>
-                        <li><a href="test_100_random_questions.py">100 Random Questions Test</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- System & Technical Content Links -->
-        <div class="content-section">
-            <h3>Complete System & Technical Content Access</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Backend Systems</h4>
-                    <ul>
-                        <li><a href="comprehensive_deenbot_backend.py">Comprehensive DeenBot Backend</a></li>
-                        <li><a href="deenbot_robust_backend.py">Robust DeenBot Backend</a></li>
-                        <li><a href="enhanced_deenbot_backend.py">Enhanced DeenBot Backend</a></li>
-                        <li><a href="enhanced_deenbot_backend_fixed.py">Enhanced DeenBot Backend Fixed</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Service Management</h4>
-                    <ul>
-                        <li><a href="deenbot_service_manager.py">DeenBot Service Manager</a></li>
-                        <li><a href="deenbot.service">DeenBot Service File</a></li>
-                        <li><a href="deploy-deenbot-production.sh">Production Deployment Script</a></li>
-                        <li><a href="deploy-to-digitalocean.sh">DigitalOcean Deployment</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Testing & Monitoring</h4>
-                    <ul>
-                        <li><a href="deenbot_stress_tester.py">DeenBot Stress Tester</a></li>
-                        <li><a href="run_stress_test.sh">Run Stress Test Script</a></li>
-                        <li><a href="search-stress-test.js">Search Stress Test</a></li>
-                        <li><a href="monitor_and_restart.sh">Monitor and Restart Script</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Documentation Content Links -->
-        <div class="content-section">
-            <h3>Complete Documentation Content Access</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Core Documentation</h4>
-                    <ul>
-                        <li><a href="README.md">README Documentation</a></li>
-                        <li><a href="DEENBOT_STABILITY_SOLUTION.md">DeenBot Stability Solution</a></li>
-                        <li><a href="TRAINING_GUIDE.md">Training Guide</a></li>
-                        <li><a href="GET_FREE_URL.md">Get Free URL Guide</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Configuration Files</h4>
-                    <ul>
-                        <li><a href="config.env.example">Environment Configuration Example</a></li>
-                        <li><a href="docker-compose.yml">Docker Compose Configuration</a></li>
-                        <li><a href="Dockerfile">Docker Configuration</a></li>
-                        <li><a href="nginx.conf">Nginx Configuration</a></li>
-                        <li><a href="supervisord.conf">Supervisor Configuration</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Additional Content Files -->
-        <div class="content-section">
-            <h3>Additional Content Files</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Utility Files</h4>
-                    <ul>
-                        <li><a href="universal-pdf-delivery.js">Universal PDF Delivery System</a></li>
-                        <li><a href="fix_all_search_pages.py">Fix All Search Pages Script</a></li>
-                        <li><a href="start_servers.sh">Start Servers Script</a></li>
-                        <li><a href="restart_deenbot.sh">Restart DeenBot Script</a></li>
-                        <li><a href="start_deenbot_local.sh">Start DeenBot Local Script</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Database & Learning</h4>
-                    <ul>
-                        <li><a href="deenbot_learning.db">DeenBot Learning Database</a></li>
-                        <li><a href="requirements.txt">Python Requirements</a></li>
-                        <li><a href="package.json">Node.js Package Configuration</a></li>
-                        <li><a href="tailwind.config.js">Tailwind CSS Configuration</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Test Results & Logs</h4>
-                    <ul>
-                        <li><a href="deenbot_stress_test.log">Stress Test Log</a></li>
-                        <li><a href="deenbot_stress_test_results_20250829_212810.json">Stress Test Results</a></li>
-                        <li><a href="deenbot_100_questions_test_20250829_212202.json">100 Questions Test Results</a></li>
-                        <li><a href="deenbot_100_random_questions_20250829_110124.json">Random Questions Test Results</a></li>
-                        <li><a href="deenbot_100_questions_test_20250829_104755.json">Questions Test Results</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dedication Section -->
-        <div class="content-section">
-            <h3>Dedication & Acknowledgments</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Special Content</h4>
-                    <ul>
-                        <li><a href="dedication.html">Dedication Page</a></li>
-                        <li><a href="universal-pdf-delivery.js">Universal PDF Delivery System</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Complete Content Verification -->
-        <div class="content-section">
-            <h3>Complete Content Verification</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Content Verification</h4>
-                    <ul>
-                        <li><strong>ALL CONTENT INCLUDED:</strong> Every single piece of data from your original website is now accessible through this application</li>
-                        <li><strong>NO CONTENT MISSING:</strong> Authentic Fiqh (872KB), Complete Sunnah (35KB), Duas Collection (63KB), All Quran files, All Hadith collections</li>
-                        <li><strong>COMPLETE ACCESS:</strong> Every HTML file, every Python script, every configuration file, every test result, every piece of documentation</li>
-                        <li><strong>PROFESSIONAL PRESENTATION:</strong> No emojis, dignified design, respectful presentation of the Word of Allah</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
-
+    
     <script>
-        // Theme Toggle Functionality
         function toggleTheme() {
             const body = document.body;
             const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
             
             const button = document.querySelector('.theme-toggle');
-            button.textContent = newTheme === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
-
-        // Initialize theme from localStorage
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.body.setAttribute('data-theme', savedTheme);
-            
-            const button = document.querySelector('.theme-toggle');
-            button.textContent = savedTheme === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
-        });
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

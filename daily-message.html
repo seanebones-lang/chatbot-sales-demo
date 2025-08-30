@@ -3,1348 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Islamic Message - Daily Wisdom & Inspiration</title>
-    <meta name="description" content="Get your daily dose of Islamic wisdom, Quran verses, and Hadiths for spiritual growth and inspiration">
+    <title>Daily Message - Complete Islamic Study Guide</title>
     <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-            color: #E0E0E0;
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
-        
+
         .container {
-            max-width: 1000px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1.5rem;
         }
-        
+
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 30px;
-            background: rgba(18, 18, 18, 0.8);
-            border-radius: 20px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
-        
+
         .header h1 {
-            color: #FFD700;
-            font-size: 3rem;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         .header p {
-            color: #87CEEB;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
             font-size: 1.2rem;
         }
-        
-        .back-btn {
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .theme-toggle {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 15px 25px;
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
             color: white;
             border: none;
-            border-radius: 15px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
-        
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
         }
-        
-        .daily-message {
-            background: rgba(18, 18, 18, 0.8);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+        .search-container {
+            margin: 2rem 0;
             text-align: center;
         }
-        
-        .message-date {
-            color: #87CEEB;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        
-        .message-title {
-            color: #1E90FF;
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-        
-        .quran-verse {
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-        }
-        
-        .quran-verse h3 {
-            color: #FFD700;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .arabic-text {
-            color: #98FB98;
-            font-size: 1.8rem;
-            margin: 20px 0;
-            text-align: center;
-            direction: rtl;
-            line-height: 2;
-        }
-        
-        .translation {
-            color: #E0E0E0;
-            font-size: 1.2rem;
-            margin: 20px 0;
-            font-style: italic;
-        }
-        
-        .reference {
-            color: #87CEEB;
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             font-size: 1rem;
-            margin-top: 15px;
-        }
-        
-        .hadith-section {
-            background: rgba(30, 144, 255, 0.1);
-            border: 1px solid rgba(30, 144, 255, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-        }
-        
-        .hadith-section h3 {
-            color: #1E90FF;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .hadith-text {
-            color: #E0E0E0;
-            font-size: 1.2rem;
-            margin: 20px 0;
-            line-height: 1.8;
-        }
-        
-        .wisdom-section {
-            background: rgba(152, 251, 152, 0.1);
-            border: 1px solid rgba(152, 251, 152, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-        }
-        
-        .wisdom-section h3 {
-            color: #98FB98;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .wisdom-text {
-            color: #E0E0E0;
-            font-size: 1.2rem;
-            margin: 20px 0;
-            line-height: 1.8;
-        }
-        
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .action-btn {
-            padding: 15px 30px;
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
             transition: all 0.3s ease;
         }
-        
-        .action-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
-        
-        .refresh-btn {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #000;
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
-        
-        .share-btn {
-            background: linear-gradient(135deg, #98FB98 0%, #90EE90 100%);
-            color: #000;
-        }
-        
-        .close-btn {
-            background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
-            color: white;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
-        }
-        
-        .kahf-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-        
-        /* Hover animations for all section titles and headers */
-        .header h1:hover,
-        .message-title:hover,
-        .quran-verse h3:hover,
-        .hadith-section h3:hover,
-        .wisdom-section h3:hover,
-        .kahf-section h4:hover,
-        .pdf-request-section h3:hover,
-        .single-pdf-option h4:hover,
-        .cycle-pdf-option h4:hover {
-            transform: scale(1.05);
-            text-shadow: 0 0 25px currentColor;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        /* Smooth transitions for all interactive elements */
-        .header h1,
-        .message-title,
-        .quran-verse h3,
-        .hadith-section h3,
-        .wisdom-section h3,
-        .kahf-section h4,
-        .pdf-request-section h3,
-        .single-pdf-option h4,
-        .cycle-pdf-option h4 {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        /* Enhanced hover effects for action buttons */
-        .action-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        /* Hover effects for PDF option cards */
-        .single-pdf-option:hover,
-        .cycle-pdf-option:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 255, 255, 0.6);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .single-pdf-option,
-        .cycle-pdf-option {
-            transition: all 0.3s ease;
-        }
-        
-        /* Hover effects for modal headers */
-        .modal-content h2:hover {
-            transform: scale(1.02);
-            text-shadow: 0 0 20px currentColor;
-            transition: all 0.3s ease;
-        }
-        
-        .modal-content h2 {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        /* Enhanced hover for section content */
-        .quran-verse:hover,
-        .hadith-section:hover,
-        .wisdom-section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .quran-verse,
-        .hadith-section,
-        .wisdom-section {
-            transition: all 0.3s ease;
-        }
-        
-        /* Hover effects for delivery info section */
-        .delivery-info:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border-left-color: rgba(255, 215, 0, 0.8);
-            transition: all 0.3s ease;
-        }
-        
-        .delivery-info {
-            transition: all 0.3s ease;
-        }
-        
-        /* Hover effects for form inputs */
-        input:hover,
-        select:hover {
-            border-color: rgba(255, 215, 0, 0.6);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        input,
-        select {
-            transition: all 0.3s ease;
-        }
-        
-        /* Hover effects for close buttons */
-        .close:hover {
-            transform: scale(1.2) rotate(90deg);
-            color: #FFD700;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-            transition: all 0.3s ease;
-        }
-        
-        .close {
-            transition: all 0.3s ease;
-        }
-        
+
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 1rem;
             }
             
             .header h1 {
                 font-size: 2rem;
             }
             
-            .daily-message {
-                padding: 20px;
+            .content-grid {
+                grid-template-columns: 1fr;
             }
             
-            .arabic-text {
-                font-size: 1.4rem;
-            }
-            
-            .action-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .back-btn {
-                position: relative;
-                top: auto;
-                left: auto;
-                margin-bottom: 20px;
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
-    <script src="universal-pdf-delivery.js"></script>
 </head>
 <body>
-    <button class="back-btn" onclick="goBack()">Back to Main</button>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     
     <div class="container">
-        <div class="header">
-            <h1>Daily Islamic Message</h1>
-            <p>Your daily dose of Islamic wisdom and inspiration</p>
+        <header class="header">
+            <h1>Daily Message</h1>
+            <p>Complete guide to daily message with comprehensive Islamic content and resources</p>
+        </header>
+        
+        <div class="content-section">
             
-            <!-- Date Display Section -->
-            <div class="date-section" style="margin-top: 20px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(68, 68, 68, 0.3);">
-                <div class="gregorian-date" id="gregorianDate" style="color: #87CEEB; font-size: 1.1rem; margin-bottom: 10px;"></div>
-                <div class="islamic-date" id="islamicDate" style="color: #FFD700; font-size: 1.2rem; font-weight: bold; margin-bottom: 10px;"></div>
-                <div class="juma-greeting" id="jumaGreeting" style="color: #98FB98; font-size: 1.3rem; font-weight: bold; display: none;"></div>
+                    <h3>Daily Islamic Messages</h3>
+                    <p>Daily Islamic messages and reminders to help strengthen your faith and provide spiritual guidance for everyday life.</p>
+                    
+                    <h4>Today's Message:</h4>
+                    <div class="content-card">
+                        <h4>Patience and Gratitude</h4>
+                        <p>"Verily, with hardship comes ease. Verily, with hardship comes ease." (Quran 94:5-6)</p>
+                        <p>Today's reminder: Practice patience in difficulties and gratitude in blessings. Both are essential qualities for a believer.</p>
+                    </div>
+                    
+                    <h3>Message Categories:</h3>
+                    <div class="content-grid">
+                        <div class="content-card">
+                            <h4>Faith & Belief</h4>
+                            <p>Messages strengthening core Islamic beliefs and principles.</p>
+                        </div>
+                        <div class="content-card">
+                            <h4>Character & Ethics</h4>
+                            <p>Guidance on developing good character and moral conduct.</p>
+                        </div>
+                        <div class="content-card">
+                            <h4>Daily Practices</h4>
+                            <p>Practical reminders for daily Islamic practices and worship.</p>
+                        </div>
+                    </div>
                 
-                <!-- Friday Exclusive: Surah Al-Kahf Reminder -->
-                <div class="friday-kahf-reminder" id="fridayKahfReminder" style="display: none; margin-top: 20px; padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 15px; border: 2px solid rgba(255, 215, 0, 0.3);">
-                    <h3 style="color: #FFD700; font-size: 1.4rem; margin-bottom: 15px; text-align: center;">📖 Friday Reminder: Read Surah Al-Kahf</h3>
-                    
-                    <div class="kahf-benefits" style="margin-bottom: 20px;">
-                        <h4 style="color: #98FB98; font-size: 1.2rem; margin-bottom: 10px;">🌟 Benefits of Reading Surah Al-Kahf on Friday:</h4>
-                        <ul style="color: #E0E0E0; line-height: 1.6; text-align: left; padding-left: 20px;">
-                            <li><strong>Light for the next Friday:</strong> Provides spiritual illumination for the entire week</li>
-                            <li><strong>Protection from trials:</strong> Shields from the trials of Dajjal (Antichrist)</li>
-                            <li><strong>Forgiveness of sins:</strong> Minor sins committed between two Fridays are forgiven</li>
-                            <li><strong>Increased blessings:</strong> Brings abundant barakah to your life</li>
-                            <li><strong>Spiritual elevation:</strong> Raises your spiritual status and connection with Allah</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="kahf-sources" style="margin-bottom: 20px;">
-                        <h4 style="color: #87CEEB; font-size: 1.2rem; margin-bottom: 10px;">📚 Authentic Sources:</h4>
-                        <div style="background: rgba(30, 144, 255, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #1E90FF;">
-                            <p style="color: #E0E0E0; margin-bottom: 8px;"><strong>Hadith:</strong> "Whoever recites Surah Al-Kahf on Friday, a light will shine for him between the two Fridays."</p>
-                            <p style="color: #87CEEB; font-size: 0.9rem;"><em>Source: Sahih al-Jami' (6470), authenticated by Al-Albani</em></p>
-                        </div>
-                        <div style="background: rgba(152, 251, 152, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #98FB98; margin-top: 10px;">
-                            <p style="color: #E0E0E0; margin-bottom: 8px;"><strong>Hadith:</strong> "Whoever reads Surah Al-Kahf on the day of Jumu'ah, a light will shine for him from under his feet to the clouds of the sky, which will shine with him on the Day of Resurrection."</p>
-                            <p style="color: #98FB98; font-size: 0.9rem;"><em>Source: Al-Hakim (2/399), authenticated by Al-Albani</em></p>
-                        </div>
-                    </div>
-                    
-                    <div class="kahf-actions" style="text-align: center;">
-                        <button onclick="openKahfModal()" class="action-btn" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000; margin-right: 10px;">📖 Read Surah Al-Kahf</button>
-                        <button onclick="openFullKahfModal()" class="action-btn" style="background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%); color: white; margin-right: 10px;">📚 Full Surah Al-Kahf</button>
-                        <button onclick="openKahfPdfModal()" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white;">📄 Get PDF with Tafsir</button>
-                    </div>
-                </div>
-            </div>
         </div>
         
-        <div class="daily-message" id="dailyMessage">
-            <div class="message-date" id="messageDate"></div>
-            <div class="message-title" id="messageTitle"></div>
-            
-            <div class="quran-verse" id="quranVerse">
-                <h3>Quran Verse of the Day</h3>
-                <div class="arabic-text" id="arabicText"></div>
-                <div class="translation" id="translation"></div>
-                <div class="reference" id="reference"></div>
-            </div>
-            
-            <div class="hadith-section" id="hadithSection">
-                <h3>Hadith of the Day</h3>
-                <div class="hadith-text" id="hadithText"></div>
-                <div class="reference" id="hadithReference"></div>
-            </div>
-            
-            <div class="wisdom-section" id="wisdomSection">
-                <h3>Islamic Wisdom</h3>
-                <div class="wisdom-text" id="wisdomText"></div>
-            </div>
-            
-            <div class="action-buttons">
-                <button class="action-btn refresh-btn" onclick="refreshMessage()">New Message</button>
-                <button class="action-btn share-btn" onclick="openShareModal()">Share Wisdom</button>
-            </div>
-            
-            <!-- PDF Request Section -->
-            <div class="pdf-request-section" style="margin-top: 40px; padding: 30px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; border: 1px solid rgba(68, 68, 68, 0.3);">
-                <h3 style="color: #FFD700; font-size: 1.8rem; margin-bottom: 25px; text-align: center;">📄 Get Your Daily Islamic Wisdom as PDF</h3>
-                
-                <div class="pdf-options" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 30px;">
-                    <div class="single-pdf-option" style="background: rgba(30, 144, 255, 0.1); padding: 25px; border-radius: 15px; border: 2px solid rgba(30, 144, 255, 0.3); text-align: center;">
-                        <div style="color: #1E90FF; font-size: 3rem; margin-bottom: 15px;">📖</div>
-                        <h4 style="color: #1E90FF; font-size: 1.4rem; margin-bottom: 15px;">Single Daily Message</h4>
-                        <p style="color: #E0E0E0; margin-bottom: 20px; line-height: 1.6;">Get today's complete message including Quran verse, Hadith, and Islamic wisdom as a beautiful PDF.</p>
-                        <button onclick="openSinglePdfModal()" class="action-btn" style="background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%); color: white; width: 100%; padding: 15px;">📄 Get Today's PDF</button>
-                    </div>
-                    
-                    <div class="cycle-pdf-option" style="background: rgba(152, 251, 152, 0.1); padding: 25px; border-radius: 15px; border: 2px solid rgba(152, 251, 152, 0.3); text-align: center;">
-                        <div style="color: #98FB98; font-size: 3rem; margin-bottom: 15px;">📖</div>
-                        <h4 style="color: #98FB98; font-size: 1.4rem; margin-bottom: 15px;">Quran Completion Cycles</h4>
-                        <p style="color: #E0E0E0; margin-bottom: 20px; line-height: 1.6;">Track your Quran reading progress with Juz-based cycles (1 of 30, 2 of 30, etc.) for complete Quran completion.</p>
-                        <button onclick="openCyclePdfModal()" class="action-btn" style="background: linear-gradient(135deg, #98FB98 0%, #90EE90 100%); color: #000; width: 100%; padding: 15px;">📚 Get Quran Cycle PDF</button>
-                    </div>
-                </div>
-                
-                <div class="delivery-info" style="text-align: center; padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 15px; border-left: 4px solid #FFD700;">
-                    <h4 style="color: #FFD700; margin-bottom: 15px; font-size: 1.2rem;">🚀 Delivery Options</h4>
-                    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <span style="color: #87CEEB; font-size: 1.5rem;">📧</span>
-                            <span style="color: #E0E0E0;">Email PDF</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <span style="color: #87CEEB; font-size: 1.5rem;">📱</span>
-                            <span style="color: #E0E0E0;">Text Message Link</span>
-                        </div>
-                    </div>
-                    <p style="color: #87CEEB; margin-top: 15px; font-size: 0.9rem;">All PDFs are delivered within 24 hours with beautiful Islamic design and formatting</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Share Wisdom Modal -->
-        <div id="shareModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
-            <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 500px; border: 2px solid rgba(255, 215, 0, 0.3);">
-                <span class="close" onclick="closeShareModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
-                <h2 style="color: #FFD700; margin-bottom: 20px;">Share Islamic Wisdom</h2>
-                
-                <div class="share-options">
-                    <div class="share-option" style="margin-bottom: 20px;">
-                        <h3 style="color: #87CEEB; margin-bottom: 10px;">📱 Send via Text Message</h3>
-                        <p style="color: #E0E0E0; margin-bottom: 15px;">Share this wisdom with friends and family via SMS</p>
-                        <button onclick="shareViaText()" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; width: 100%;">📱 Send Text Message</button>
-                    </div>
-                    
-                    <div class="share-option" style="margin-bottom: 20px;">
-                        <h3 style="color: #87CEEB; margin-bottom: 10px;">📄 Download PDF</h3>
-                        <p style="color: #E0E0E0; margin-bottom: 15px;">Get a beautiful PDF version of today's message</p>
-                        <button onclick="openPdfModal()" class="action-btn" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000; width: 100%;">📄 Request PDF</button>
-                    </div>
-                    
-                    <div class="share-option" style="margin-bottom: 20px;">
-                        <h3 style="color: #87CEEB; margin-bottom: 10px;">🔗 Copy Link</h3>
-                        <p style="color: #E0E0E0; margin-bottom: 15px;">Copy a link to share on social media</p>
-                        <button onclick="copyShareLink()" class="action-btn" style="background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%); color: white; width: 100%;">🔗 Copy Link</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- PDF Request Modal -->
-        <div id="pdfModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
-            <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 500px; border: 2px solid rgba(255, 215, 0, 0.3);">
-                <span class="close" onclick="closePdfModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
-                <h2 style="color: #FFD700; margin-bottom: 20px;">📄 Request PDF of Today's Message</h2>
-                
-                <form id="pdfForm" onsubmit="submitPdfRequest(event)">
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="pdfName" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Full Name *</label>
-                        <input type="text" id="pdfName" name="name" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="pdfEmail" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Email Address *</label>
-                        <input type="email" id="pdfEmail" name="email" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="pdfPhone" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Phone Number (Optional)</label>
-                        <input type="tel" id="pdfPhone" name="phone" style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="pdfDelivery" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Delivery Method *</label>
-                        <select id="pdfDelivery" name="delivery" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                            <option value="">Select delivery method</option>
-                            <option value="email">Email PDF</option>
-                            <option value="text">Text Message Link</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; width: 100%; padding: 15px;">📄 Send PDF Request</button>
-                </form>
-                
-                <div id="pdfSuccessMessage" class="success-message" style="display: none; background: rgba(40, 167, 69, 0.2); color: #98FB98; padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center; border: 1px solid rgba(40, 167, 69, 0.5);">
-                    Thank you! Your PDF request has been submitted. You will receive it within 24 hours.
-                </div>
-                            </div>
-            </div>
-        </div>
-        
-        <!-- Surah Al-Kahf Reading Modal -->
-        <div id="kahfModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
-            <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 2% auto; padding: 30px; border-radius: 20px; width: 95%; max-width: 800px; border: 2px solid rgba(255, 215, 0, 0.3); max-height: 90vh; overflow-y: auto;">
-                <span class="close" onclick="closeKahfModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
-                <h2 style="color: #FFD700; margin-bottom: 20px; text-align: center;">📖 Surah Al-Kahf - The Cave</h2>
-                
-                <div class="kahf-intro" style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 4px solid #FFD700;">
-                    <h3 style="color: #FFD700; margin-bottom: 15px;">🌟 Why Read This Surah on Friday?</h3>
-                    <p style="color: #E0E0E0; line-height: 1.6;">Surah Al-Kahf contains powerful stories and lessons that provide spiritual protection and blessings. Reading it on Friday brings light to your entire week and protection from trials.</p>
-                </div>
-                
-                <div class="kahf-content" style="margin-bottom: 25px;">
-                    <h3 style="color: #98FB98; margin-bottom: 15px;">📚 Surah Al-Kahf in 4 Sections - Click Each for Details:</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                        <div class="kahf-section" onclick="openKahfSectionModal(1)" style="background: rgba(30, 144, 255, 0.1); padding: 20px; border-radius: 15px; border: 2px solid rgba(30, 144, 255, 0.3); cursor: pointer; transition: all 0.3s ease; hover: transform: translateY(-5px);">
-                            <h4 style="color: #1E90FF; margin-bottom: 15px; font-size: 1.3rem;">🏰 Section 1: The People of the Cave (Verses 1-26)</h4>
-                            <p style="color: #E0E0E0; font-size: 1rem; margin-bottom: 15px;">Young believers who sought refuge in a cave, protected by Allah for 300+ years.</p>
-                            <div style="color: #87CEEB; font-size: 0.9rem; text-align: center; padding: 10px; background: rgba(30, 144, 255, 0.1); border-radius: 8px;">
-                                📖 Click to read Arabic, Translation, & Tafsir
-                            </div>
-                        </div>
-                        
-                        <div class="kahf-section" onclick="openKahfSectionModal(2)" style="background: rgba(152, 251, 152, 0.1); padding: 20px; border-radius: 15px; border: 2px solid rgba(152, 251, 152, 0.3); cursor: pointer; transition: all 0.3s ease; hover: transform: translateY(-5px);">
-                            <h4 style="color: #98FB98; margin-bottom: 15px; font-size: 1.3rem;">🌳 Section 2: The Two Gardens (Verses 27-59)</h4>
-                            <p style="color: #E0E0E0; font-size: 1rem; margin-bottom: 15px;">Story of wealth and gratitude, teaching us to be thankful for Allah's blessings.</p>
-                            <div style="color: #87CEEB; font-size: 0.9rem; text-align: center; padding: 10px; background: rgba(152, 251, 152, 0.1); border-radius: 8px;">
-                                📖 Click to read Arabic, Translation, & Tafsir
-                            </div>
-                        </div>
-                        
-                        <div class="kahf-section" onclick="openKahfSectionModal(3)" style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 15px; border: 2px solid rgba(255, 215, 0, 0.3); cursor: pointer; transition: all 0.3s ease; hover: transform: translateY(-5px);">
-                            <h4 style="color: #FFD700; margin-bottom: 15px; font-size: 1.3rem;">🧭 Section 3: Musa and Khidr (Verses 60-82)</h4>
-                            <p style="color: #E0E0E0; font-size: 1rem; margin-bottom: 15px;">Journey of knowledge and wisdom, showing that Allah's wisdom is beyond our understanding.</p>
-                            <div style="color: #87CEEB; font-size: 0.9rem; text-align: center; padding: 10px; background: rgba(255, 215, 0, 0.1); border-radius: 8px;">
-                                📖 Click to read Arabic, Translation, & Tafsir
-                            </div>
-                        </div>
-                        
-                        <div class="kahf-section" onclick="openKahfSectionModal(4)" style="background: rgba(255, 69, 0, 0.1); padding: 20px; border-radius: 15px; border: 2px solid rgba(255, 69, 0, 0.3); cursor: pointer; transition: all 0.3s ease; hover: transform: translateY(-5px);">
-                            <h4 style="color: #FF4500; margin-bottom: 15px; font-size: 1.3rem;">👑 Section 4: Dhul-Qarnayn (Verses 83-110)</h4>
-                            <p style="color: #E0E0E0; font-size: 1rem; margin-bottom: 15px;">Righteous ruler who used his power to help people and spread justice.</p>
-                            <div style="color: #87CEEB; font-size: 0.9rem; text-align: center; padding: 10px; background: rgba(255, 69, 0, 0.1); border-radius: 8px;">
-                                📖 Click to read Arabic, Translation, & Tafsir
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="kahf-actions" style="text-align: center;">
-                    <button onclick="closeKahfModal()" class="action-btn" style="background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%); color: white; margin-right: 10px;">Close</button>
-                    <button onclick="openKahfPdfModal()" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white;">📄 Get Complete PDF with Tafsir</button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Individual Section Details Modal -->
-        <div id="kahfSectionModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
-            <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 2% auto; padding: 30px; border-radius: 20px; width: 95%; max-width: 900px; border: 2px solid rgba(255, 215, 0, 0.3); max-height: 90vh; overflow-y: auto;">
-                <span class="close" onclick="closeKahfSectionModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
-                <div id="sectionContent">
-                    <!-- Content will be dynamically loaded -->
-                </div>
-                
-                <div class="section-actions" style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 215, 0, 0.3);">
-                    <button onclick="requestSectionPdf()" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; margin-right: 15px;">📄 Get This Section as PDF</button>
-                    <button onclick="closeKahfSectionModal()" class="action-btn" style="background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%); color: white;">Close</button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Full Surah Al-Kahf Modal -->
-        <div id="fullKahfModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
-            <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 2% auto; padding: 30px; border-radius: 20px; width: 95%; max-width: 1000px; border: 2px solid rgba(156, 39, 176, 0.3); max-height: 90vh; overflow-y: auto;">
-                <span class="close" onclick="closeFullKahfModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
-                <div class="full-kahf-header" style="text-align: center; margin-bottom: 30px;">
-                    <h2 style="color: #9C27B0; font-size: 2.5rem; margin-bottom: 15px;">📚 Complete Surah Al-Kahf</h2>
-                    <div style="color: #87CEEB; font-size: 1.2rem; padding: 20px; background: rgba(156, 39, 176, 0.1); border-radius: 15px; border-left: 4px solid #9C27B0;">
-                        🌟 The complete surah with all 110 verses - Arabic text, transliteration, Saheeh International translation, and comprehensive tafsir
-                    </div>
-                </div>
-                
-                <div class="full-kahf-content" style="margin-bottom: 30px;">
-                    <div class="surah-overview" style="background: rgba(156, 39, 176, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #9C27B0; margin-bottom: 25px;">
-                        <h3 style="color: #9C27B0; margin-bottom: 20px; font-size: 1.5rem;">📖 Surah Overview</h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; color: #E0E0E0;">
-                            <div style="text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 10px;">
-                                <div style="color: #9C27B0; font-size: 1.2rem; font-weight: bold;">110</div>
-                                <div style="font-size: 0.9rem;">Verses</div>
-                            </div>
-                            <div style="text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 10px;">
-                                <div style="color: #9C27B0; font-size: 1.2rem; font-weight: bold;">Meccan</div>
-                                <div style="font-size: 0.9rem;">Revelation</div>
-                            </div>
-                            <div style="text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 10px;">
-                                <div style="color: #9C27B0; font-size: 1.2rem; font-weight: bold;">18</div>
-                                <div style="font-size: 0.9rem;">Juz</div>
-                            </div>
-                            <div style="text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 10px;">
-                                <div style="color: #9C27B0; font-size: 1.2rem; font-weight: bold;">The Cave</div>
-                                <div style="font-size: 0.9rem;">Meaning</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="surah-sections" style="margin-bottom: 25px;">
-                        <h3 style="color: #98FB98; margin-bottom: 20px; font-size: 1.5rem;">📚 What's Included in the Complete PDF:</h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                            <div style="background: rgba(30, 144, 255, 0.1); padding: 20px; border-radius: 10px; border-left: 3px solid #1E90FF;">
-                                <h4 style="color: #1E90FF; margin-bottom: 10px;">📖 Complete Arabic Text</h4>
-                                <p style="color: #E0E0E0; font-size: 0.9rem;">All 110 verses with proper Arabic calligraphy and verse numbers</p>
-                            </div>
-                            <div style="background: rgba(152, 251, 152, 0.1); padding: 20px; border-radius: 10px; border-left: 3px solid #98FB98;">
-                                <h4 style="color: #98FB98; margin-bottom: 10px;">🔤 Full Transliteration</h4>
-                                <p style="color: #E0E0E0; font-size: 0.9rem;">Complete transliteration for proper pronunciation and recitation</p>
-                            </div>
-                            <div style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 10px; border-left: 3px solid #FFD700;">
-                                <h4 style="color: #FFD700; margin-bottom: 10px;">🌍 Saheeh International</h4>
-                                <p style="color: #E0E0E0; font-size: 0.9rem;">Complete English translation with authentic scholarly approval</p>
-                            </div>
-                            <div style="background: rgba(255, 69, 0, 0.1); padding: 20px; border-radius: 10px; border-left: 3px solid #FF4500;">
-                                <h4 style="color: #FF4500; margin-bottom: 10px;">📚 Comprehensive Tafsir</h4>
-                                <p style="color: #E0E0E0; font-size: 0.9rem;">Detailed commentary explaining the meaning and lessons of each verse</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="friday-benefits" style="background: rgba(255, 215, 0, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #FFD700;">
-                        <h3 style="color: #FFD700; margin-bottom: 20px; font-size: 1.5rem;">🌟 Friday Reading Benefits</h3>
-                        <div style="color: #E0E0E0; line-height: 1.8;">
-                            <p style="margin-bottom: 15px;"><strong>• Light for the next Friday:</strong> Provides spiritual illumination for the entire week</p>
-                            <p style="margin-bottom: 15px;"><strong>• Protection from trials:</strong> Shields from the trials of Dajjal (Antichrist)</p>
-                            <p style="margin-bottom: 15px;"><strong>• Forgiveness of sins:</strong> Minor sins committed between two Fridays are forgiven</p>
-                            <p style="margin-bottom: 15px;"><strong>• Increased blessings:</strong> Brings abundant barakah to your life</p>
-                            <p><strong>• Spiritual elevation:</strong> Raises your spiritual status and connection with Allah</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="full-kahf-actions" style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(156, 39, 176, 0.3);">
-                    <button onclick="openFullKahfPdfModal()" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; margin-right: 15px; padding: 18px 30px; font-size: 1.1rem;">📄 Get Complete Surah Al-Kahf PDF</button>
-                    <button onclick="closeFullKahfModal()" class="action-btn" style="background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%); color: white; padding: 18px 30px; font-size: 1.1rem;">Close</button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Full Surah Al-Kahf PDF Request Modal -->
-        <div id="fullKahfPdfModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
-            <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 600px; border: 2px solid rgba(156, 39, 176, 0.3);">
-                <span class="close" onclick="closeFullKahfPdfModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
-                <h2 style="color: #9C27B0; margin-bottom: 20px; text-align: center;">📄 Complete Surah Al-Kahf PDF Request</h2>
-                
-                <div class="full-kahf-pdf-info" style="background: rgba(156, 39, 176, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 4px solid #9C27B0;">
-                    <h3 style="color: #9C27B0; margin-bottom: 15px;">📖 What You'll Receive:</h3>
-                    <ul style="color: #E0E0E0; line-height: 1.6; padding-left: 20px;">
-                        <li><strong>Complete Surah Al-Kahf (110 verses)</strong> with beautiful Arabic calligraphy</li>
-                        <li><strong>Full transliteration</strong> for proper pronunciation</li>
-                        <li><strong>Saheeh International English translation</strong> for all verses</li>
-                        <li><strong>Comprehensive tafsir</strong> explaining the meaning and lessons</li>
-                        <li><strong>Friday reading benefits</strong> and authentic Hadith references</li>
-                        <li><strong>Beautiful Islamic design</strong> with proper formatting</li>
-                        <li><strong>Printable format</strong> for personal and family use</li>
-                    </ul>
-                </div>
-                
-                <form id="fullKahfPdfForm" onsubmit="submitFullKahfPdfRequest(event)">
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="fullKahfPdfName" style="display: block; margin-bottom: 8px; color: #9C27B0; font-weight: bold;">Full Name *</label>
-                        <input type="text" id="fullKahfPdfName" name="name" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="fullKahfPdfEmail" style="display: block; margin-bottom: 8px; color: #9C27B0; font-weight: bold;">Email Address *</label>
-                        <input type="email" id="fullKahfPdfEmail" name="email" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="fullKahfPdfPhone" style="display: block; margin-bottom: 8px; color: #9C27B0; font-weight: bold;">Phone Number (Optional)</label>
-                        <input type="tel" id="fullKahfPdfPhone" name="phone" style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="fullKahfPdfDelivery" style="display: block; margin-bottom: 8px; color: #9C27B0; font-weight: bold;">Delivery Method *</label>
-                        <select id="fullKahfPdfDelivery" name="delivery" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                            <option value="">Select delivery method</option>
-                            <option value="email">Email PDF</option>
-                            <option value="text">Text Message Link</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; width: 100%; padding: 15px; font-size: 1.1rem;">📄 Request Complete Surah Al-Kahf PDF</button>
-                </form>
-                
-                <div id="fullKahfPdfSuccessMessage" class="success-message" style="display: none; background: rgba(40, 167, 69, 0.2); color: #98FB98; padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center; border: 1px solid rgba(40, 167, 69, 0.5);">
-                    Thank you! Your complete Surah Al-Kahf PDF request has been submitted. You will receive it within 24 hours.
-                </div>
-            </div>
-        </div>
-        
-        <!-- Surah Al-Kahf PDF Request Modal -->
-        <div id="kahfPdfModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
-            <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 500px; border: 2px solid rgba(255, 215, 0, 0.3);">
-                <span class="close" onclick="closeKahfPdfModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
-                <h2 style="color: #FFD700; margin-bottom: 20px;">📄 Get Surah Al-Kahf PDF with Tafsir</h2>
-                
-                <div class="kahf-pdf-info" style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 4px solid #FFD700;">
-                    <h3 style="color: #FFD700; margin-bottom: 15px;">📖 What's Included:</h3>
-                    <ul style="color: #E0E0E0; line-height: 1.6; padding-left: 20px;">
-                        <li>Complete Arabic text with verse numbers</li>
-                        <li>English translation (Sahih International)</li>
-                        <li>Detailed tafsir (explanation) for each story</li>
-                        <li>Benefits and virtues of reading on Friday</li>
-                        <li>Authentic Hadith references</li>
-                        <li>Beautiful Islamic design and formatting</li>
-                    </ul>
-                </div>
-                
-                <form id="kahfPdfForm" onsubmit="submitKahfPdfRequest(event)">
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="kahfPdfName" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Full Name *</label>
-                        <input type="text" id="kahfPdfName" name="name" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="kahfPdfEmail" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Email Address *</label>
-                        <input type="email" id="kahfPdfEmail" name="email" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="kahfPdfPhone" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Phone Number (Optional)</label>
-                        <input type="tel" id="kahfPdfPhone" name="phone" style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="kahfPdfDelivery" style="display: block; margin-bottom: 8px; color: #FFD700; font-weight: bold;">Delivery Method *</label>
-                        <select id="kahfPdfDelivery" name="delivery" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                            <option value="">Select delivery method</option>
-                            <option value="email">Email PDF</option>
-                            <option value="text">Text Message Link</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; width: 100%; padding: 15px;">📄 Send Surah Al-Kahf PDF Request</button>
-                </form>
-                
-                <div id="kahfPdfSuccessMessage" class="success-message" style="display: none; background: rgba(40, 167, 69, 0.2); color: #98FB98; padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center; border: 1px solid rgba(40, 167, 69, 0.5);">
-                    Thank you! Your Surah Al-Kahf PDF request has been submitted. You will receive it within 24 hours.
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Single Daily Message PDF Modal -->
-    <div id="singlePdfModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
-        <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 600px; border: 2px solid rgba(30, 144, 255, 0.3);">
-            <span class="close" onclick="closeSinglePdfModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
-            <h2 style="color: #1E90FF; margin-bottom: 20px; text-align: center;">📄 Today's Daily Islamic Message PDF</h2>
-            
-            <div class="single-pdf-preview" style="background: rgba(30, 144, 255, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 4px solid #1E90FF;">
-                <h3 style="color: #1E90FF; margin-bottom: 15px;">📖 What You'll Receive:</h3>
-                <div id="singlePdfPreview" style="color: #E0E0E0; line-height: 1.6;">
-                    <!-- Preview content will be dynamically loaded -->
-                </div>
-            </div>
-            
-            <form id="singlePdfForm" onsubmit="submitSinglePdfRequest(event)">
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="singlePdfName" style="display: block; margin-bottom: 8px; color: #1E90FF; font-weight: bold;">Full Name *</label>
-                    <input type="text" id="singlePdfName" name="name" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                </div>
-                
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="singlePdfEmail" style="display: block; margin-bottom: 8px; color: #1E90FF; font-weight: bold;">Email Address *</label>
-                    <input type="email" id="singlePdfEmail" name="email" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                </div>
-                
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="singlePdfPhone" style="display: block; margin-bottom: 8px; color: #1E90FF; font-weight: bold;">Phone Number (Optional)</label>
-                    <input type="tel" id="singlePdfPhone" name="phone" style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                </div>
-                
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="singlePdfDelivery" style="display: block; margin-bottom: 8px; color: #1E90FF; font-weight: bold;">Delivery Method *</label>
-                    <select id="singlePdfDelivery" name="delivery" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                        <option value="">Select delivery method</option>
-                        <option value="email">Email PDF</option>
-                        <option value="text">Text Message Link</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; width: 100%; padding: 15px;">📄 Request Today's PDF</button>
-            </form>
-            
-            <div id="singlePdfSuccessMessage" class="success-message" style="display: none; background: rgba(40, 167, 69, 0.2); color: #98FB98; padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center; border: 1px solid rgba(40, 167, 69, 0.5);">
-                Thank you! Your daily message PDF request has been submitted. You will receive it within 24 hours.
-            </div>
-        </div>
-    </div>
-    
-    <!-- Full Daily Cycle PDF Modal -->
-    <div id="cyclePdfModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8);">
-        <div class="modal-content" style="background: rgba(18, 18, 18, 0.95); margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 700px; border: 2px solid rgba(152, 251, 152, 0.3); max-height: 90vh; overflow-y: auto;">
-            <span class="close" onclick="closeCyclePdfModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
-            <h2 style="color: #98FB98; margin-bottom: 20px; text-align: center;">📚 Complete Daily Islamic Wisdom Collection PDF</h2>
-            
-            <div class="cycle-pdf-preview" style="background: rgba(152, 251, 152, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 4px solid #98FB98;">
-                <h3 style="color: #98FB98; margin-bottom: 15px;">🔄 What's Included in the Full Cycle:</h3>
-                <div class="cycle-messages" style="display: grid; gap: 15px;">
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; border-left: 3px solid #1E90FF;">
-                        <h4 style="color: #1E90FF; margin-bottom: 8px;">📖 Message 1: The Power of Patience</h4>
-                        <p style="color: #E0E0E0; font-size: 0.9rem;">Quran verse about patience, Hadith on trials, and wisdom about enduring difficulties</p>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; border-left: 3px solid #FFD700;">
-                        <h4 style="color: #FFD700; margin-bottom: 8px;">🌟 Message 2: The Mercy of Allah</h4>
-                        <p style="color: #E0E0E0; font-size: 0.9rem;">Quran verse about Allah's mercy, Hadith on divine compassion, and wisdom about forgiveness</p>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; border-left: 3px solid #98FB98;">
-                        <h4 style="color: #98FB98; margin-bottom: 8px;">📚 Message 3: The Importance of Knowledge</h4>
-                        <p style="color: #E0E0E0; font-size: 0.9rem;">Quran verse about reading, Hadith on seeking knowledge, and wisdom about learning</p>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; border-left: 3px solid #FF4500;">
-                        <h4 style="color: #FF4500; margin-bottom: 8px;">💎 Message 4: The Value of Good Character</h4>
-                        <p style="color: #E0E0E0; font-size: 0.9rem;">Quran verse about character, Hadith on good manners, and wisdom about moral excellence</p>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; border-left: 3px solid #9C27B0;">
-                        <h4 style="color: #9C27B0; margin-bottom: 8px;">🙏 Message 5: The Blessing of Gratitude</h4>
-                        <p style="color: #E0E0E0; font-size: 0.9rem;">Quran verse about gratitude, Hadith on thankfulness, and wisdom about appreciating blessings</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="cycle-benefits" style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 4px solid #FFD700;">
-                <h3 style="color: #FFD700; margin-bottom: 15px;">🌟 Benefits of the Complete Collection:</h3>
-                <ul style="color: #E0E0E0; line-height: 1.6; padding-left: 20px;">
-                    <li><strong>Comprehensive Wisdom:</strong> All 5 daily messages in one beautiful PDF</li>
-                    <li><strong>Spiritual Journey:</strong> Complete cycle for continuous spiritual growth</li>
-                    <li><strong>Reference Material:</strong> Keep for personal study and family sharing</li>
-                    <li><strong>Beautiful Design:</strong> Professional Islamic formatting and layout</li>
-                    <li><strong>Printable Format:</strong> Perfect for home, office, or masjid use</li>
-                </ul>
-            </div>
-            
-            <form id="cyclePdfForm" onsubmit="submitCyclePdfRequest(event)">
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="cyclePdfName" style="display: block; margin-bottom: 8px; color: #98FB98; font-weight: bold;">Full Name *</label>
-                    <input type="text" id="cyclePdfName" name="name" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                </div>
-                
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="cyclePdfEmail" style="display: block; margin-bottom: 8px; color: #98FB98; font-weight: bold;">Email Address *</label>
-                    <input type="email" id="cyclePdfEmail" name="email" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                </div>
-                
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="cyclePdfPhone" style="display: block; margin-bottom: 8px; color: #98FB98; font-weight: bold;">Phone Number (Optional)</label>
-                    <input type="tel" id="cyclePdfPhone" name="phone" style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                </div>
-                
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="cyclePdfDelivery" style="display: block; margin-bottom: 8px; color: #98FB98; font-weight: bold;">Delivery Method *</label>
-                    <select id="cyclePdfDelivery" name="delivery" required style="width: 100%; padding: 12px; border: 2px solid rgba(68, 68, 68, 0.5); border-radius: 8px; background: rgba(18, 18, 18, 0.8); color: #E0E0E0; font-size: 1rem;">
-                        <option value="">Select delivery method</option>
-                        <option value="email">Email PDF</option>
-                        <option value="text">Text Message Link</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="action-btn" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; width: 100%; padding: 15px;">📚 Request Complete Cycle PDF</button>
-            </form>
-            
-            <div id="cyclePdfSuccessMessage" class="success-message" style="display: none; background: rgba(40, 167, 69, 0.2); color: #98FB98; padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center; border: 1px solid rgba(40, 167, 69, 0.5);">
-                Thank you! Your complete daily cycle PDF request has been submitted. You will receive it within 24 hours.
-            </div>
-        </div>
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
     
     <script>
-        // Daily Islamic Messages Database
-        const dailyMessages = [
-            {
-                title: "The Power of Patience",
-                quran: {
-                    arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
-                    translation: "O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient.",
-                    reference: "Al-Baqarah 2:153"
-                },
-                hadith: {
-                    text: "The Prophet (PBUH) said: 'No fatigue, illness, anxiety, sorrow, harm, or grief afflicts a Muslim, even a thorn that pricks him, except that Allah expiates some of his sins by it.'",
-                    reference: "Sahih Bukhari"
-                },
-                wisdom: "Patience is not the ability to wait, but the ability to keep a positive attitude while waiting. Allah tests us with difficulties to purify our hearts and increase our faith."
-            },
-            {
-                title: "The Mercy of Allah",
-                quran: {
-                    arabic: "إِنَّ اللَّهَ غَفُورٌ رَّحِيمٌ",
-                    translation: "Indeed, Allah is Forgiving and Merciful.",
-                    reference: "Multiple verses"
-                },
-                hadith: {
-                    text: "The Prophet (PBUH) said: 'When Allah decreed the creation, He wrote in His Book which is with Him on His Throne: My mercy prevails over My wrath.'",
-                    reference: "Sahih Bukhari"
-                },
-                wisdom: "Allah's mercy encompasses everything. No matter how many mistakes we make, His forgiveness is always available to those who sincerely repent and seek His mercy."
-            },
-            {
-                title: "The Importance of Knowledge",
-                quran: {
-                    arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
-                    translation: "Read in the name of your Lord who created.",
-                    reference: "Al-Alaq 96:1"
-                },
-                hadith: {
-                    text: "The Prophet (PBUH) said: 'Seek knowledge from the cradle to the grave.'",
-                    reference: "Various sources"
-                },
-                wisdom: "Knowledge is the light that guides us through life's journey. Every piece of beneficial knowledge brings us closer to Allah and helps us serve His creation better."
-            },
-            {
-                title: "The Value of Good Character",
-                quran: {
-                    arabic: "وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ",
-                    translation: "And indeed, you are of a great moral character.",
-                    reference: "Al-Qalam 68:4"
-                },
-                hadith: {
-                    text: "The Prophet (PBUH) said: 'The most beloved of you to me and the nearest to me in the Hereafter are those with the best character.'",
-                    reference: "Sahih Bukhari"
-                },
-                wisdom: "Good character is the foundation of a successful life. It opens doors, builds relationships, and brings peace to our hearts. Strive to be the best version of yourself."
-            },
-            {
-                title: "The Blessing of Gratitude",
-                quran: {
-                    arabic: "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
-                    translation: "If you are grateful, I will surely increase you.",
-                    reference: "Ibrahim 14:7"
-                },
-                hadith: {
-                    text: "The Prophet (PBUH) said: 'Whoever does not thank people does not thank Allah.'",
-                    reference: "Sahih Bukhari"
-                },
-                wisdom: "Gratitude is the key to abundance. When we appreciate what we have, Allah gives us more. Start each day by counting your blessings and thanking Allah for them."
-            }
-        ];
-        
-        let currentMessageIndex = 0;
-        
-        function displayMessage() {
-            const message = dailyMessages[currentMessageIndex];
-            const today = new Date().toLocaleDateString('en-US', { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-            });
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
             
-            document.getElementById('messageDate').textContent = today;
-            document.getElementById('messageTitle').textContent = message.title;
-            document.getElementById('arabicText').textContent = message.quran.arabic;
-            document.getElementById('translation').textContent = message.quran.translation;
-            document.getElementById('reference').textContent = message.quran.reference;
-            document.getElementById('hadithText').textContent = message.hadith.text;
-            document.getElementById('hadithReference').textContent = message.hadith.reference;
-            document.getElementById('wisdomText').textContent = message.wisdom;
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
         
-        function refreshMessage() {
-            currentMessageIndex = (currentMessageIndex + 1) % dailyMessages.length;
-            displayMessage();
-        }
-        
-        function shareMessage() {
-            const message = dailyMessages[currentMessageIndex];
-            const shareText = `Daily Islamic Wisdom: ${message.title}\n\nQuran: ${message.quran.translation}\n\nHadith: ${message.hadith.text}\n\nWisdom: ${message.wisdom}`;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Daily Islamic Message',
-                    text: shareText
-                });
-            } else {
-                navigator.clipboard.writeText(shareText).then(() => {
-                    alert('Message copied to clipboard!');
-                });
-            }
-        }
-        
-        function goBack() {
-            window.location.href = 'index.html';
-        }
-        
-        // Initialize with first message
-        displayMessage();
-        
-        // Update dates and check for Juma
-        updateDates();
-        
-        // Change message every 24 hours
-        setInterval(() => {
-            currentMessageIndex = (currentMessageIndex + 1) % dailyMessages.length;
-            displayMessage();
-        }, 24 * 60 * 60 * 1000);
-        
-        // Update dates every minute to keep Islamic date current
-        setInterval(updateDates, 60 * 1000);
-        
-        // Function to update dates and check for Juma
-        function updateDates() {
-            const today = new Date();
-            
-            // Update Gregorian date
-            const gregorianDate = today.toLocaleDateString('en-US', { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-            });
-            document.getElementById('gregorianDate').textContent = gregorianDate;
-            
-            // Calculate Islamic date (Hijri)
-            const islamicDate = getIslamicDate(today);
-            document.getElementById('islamicDate').textContent = islamicDate;
-            
-            // Check if it's Friday and show Juma Mubarak + Surah Al-Kahf reminder
-            const jumaGreeting = document.getElementById('jumaGreeting');
-            const fridayKahfReminder = document.getElementById('fridayKahfReminder');
-            
-            if (today.getDay() === 5) { // Friday is day 5 (0 = Sunday)
-                jumaGreeting.textContent = "🕌 Juma Mubarak! Blessed Friday! 🕌";
-                jumaGreeting.style.display = 'block';
-                fridayKahfReminder.style.display = 'block';
-            } else {
-                jumaGreeting.style.display = 'none';
-                fridayKahfReminder.style.display = 'none';
-            }
-        }
-        
-        // Function to convert Gregorian date to Islamic date
-        function getIslamicDate(gregorianDate) {
-            // Simple approximation - for accurate dates, you'd use a proper Hijri calendar library
-            const year = gregorianDate.getFullYear();
-            const month = gregorianDate.getMonth() + 1;
-            const day = gregorianDate.getDate();
-            
-            // Approximate conversion (this is a simplified version)
-            const hijriYear = Math.floor((year - 622) * 1.0307);
-            const hijriMonth = month;
-            const hijriDay = day;
-            
-            const islamicMonths = [
-                'Muharram', 'Safar', 'Rabi al-Awwal', 'Rabi al-Thani',
-                'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Shaban',
-                'Ramadan', 'Shawwal', 'Dhu al-Qadah', 'Dhu al-Hijjah'
-            ];
-            
-            return `${islamicMonths[hijriMonth - 1]} ${hijriDay}, ${hijriYear} AH`;
-        }
-        
-        // Share Wisdom Modal Functions
-        function openShareModal() {
-            document.getElementById('shareModal').style.display = 'block';
-        }
-        
-        function closeShareModal() {
-            document.getElementById('shareModal').style.display = 'none';
-        }
-        
-        function openPdfModal() {
-            document.getElementById('shareModal').style.display = 'none';
-            document.getElementById('pdfModal').style.display = 'block';
-        }
-        
-        function closePdfModal() {
-            document.getElementById('pdfModal').style.display = 'none';
-            document.getElementById('pdfSuccessMessage').style.display = 'none';
-            document.getElementById('pdfForm').reset();
-        }
-        
-        // Share via Text Message
-        function shareViaText() {
-            const message = dailyMessages[currentMessageIndex];
-            const shareText = `Daily Islamic Wisdom: ${message.title}\n\nQuran: ${message.quran.translation}\n\nHadith: ${message.hadith.text}\n\nWisdom: ${message.wisdom}`;
-            
-            // Create SMS link
-            const smsLink = `sms:?body=${encodeURIComponent(shareText)}`;
-            window.open(smsLink, '_self');
-        }
-        
-        // Copy Share Link
-        function copyShareLink() {
-            const currentUrl = window.location.href;
-            navigator.clipboard.writeText(currentUrl).then(() => {
-                alert('Link copied to clipboard!');
-            }).catch(() => {
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = currentUrl;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                alert('Link copied to clipboard!');
-            });
-        }
-        
-        // Submit PDF Request
-        function submitPdfRequest(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                delivery: formData.get('delivery'),
-                message: dailyMessages[currentMessageIndex],
-                date: new Date().toLocaleDateString()
-            };
-            
-            // Here you would typically send this data to your backend
-            // For now, we'll just show a success message
-            console.log('PDF request submitted:', data);
-            
-            // Show success message
-            document.getElementById('pdfSuccessMessage').style.display = 'block';
-            
-            // Hide form
-            event.target.style.display = 'none';
-            
-            // Close modal after 3 seconds
-            setTimeout(() => {
-                closePdfModal();
-            }, 3000);
-        }
-        
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            const shareModal = document.getElementById('shareModal');
-            const pdfModal = document.getElementById('pdfModal');
-            const kahfModal = document.getElementById('kahfModal');
-            const kahfPdfModal = document.getElementById('kahfPdfModal');
-            
-            if (event.target === shareModal) {
-                closeShareModal();
-            }
-            if (event.target === pdfModal) {
-                closePdfModal();
-            }
-            if (event.target === kahfModal) {
-                closeKahfModal();
-            }
-            if (event.target === kahfPdfModal) {
-                closeKahfPdfModal();
-            }
-        }
-        
-        // Surah Al-Kahf Section Modal Functions
-        function openKahfSectionModal(sectionNumber) {
-            const modal = document.getElementById('kahfSectionModal');
-            const content = document.getElementById('sectionContent');
-            
-            // Load section content based on section number
-            const sectionData = getKahfSectionData(sectionNumber);
-            content.innerHTML = sectionData;
-            
-            modal.style.display = 'block';
-            currentSection = sectionNumber;
-        }
-        
-        function closeKahfSectionModal() {
-            document.getElementById('kahfSectionModal').style.display = 'none';
-        }
-        
-        function getKahfSectionData(sectionNumber) {
-            const sections = {
-                1: {
-                    title: "Section 1: The People of the Cave (Verses 1-26)",
-                    arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَنزَلَ عَلَىٰ عَبْدِهِ الْكِتَابَ وَلَمْ يَجْعَل لَّهُ عِوَجًا ﴿١﴾ قَيِّمًا لِّيُنذِرَ بَأْسًا شَدِيدًا مِّن لَّدُنْهُ وَيُبَشِّرَ الْمُؤْمِنِينَ الَّذِينَ يَعْمَلُونَ الصَّالِحَاتِ أَنَّ لَهُمْ أَجْرًا حَسَنًا ﴿٢﴾ مَّاكِثِينَ فِيهِ أَبَدًا ﴿٣﴾ وَيُنذِرَ الَّذِينَ قَالُوا اتَّخَذَ اللَّهُ وَلَدًا ﴿٤﴾ مَّا لَهُم بِهِ مِنْ عِلْمٍ وَلَا لِآبَائِهِمْ ۚ كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا ﴿٥﴾",
-                    transliteration: "Alhamdu lillahil-lathee anzala 'ala 'abdihil-kitaaba wa lam yaj'al lahu 'iwajaa. Qayyiman liyunthira ba'san shadeedan min ladunhu wa yubashshiral-mu'mineenal-lathee ya'maloonas-saalihaati anna lahum ajran hasanaa. Maakitheena feehi abadaa. Wa yunthiral-lathee qaalut-takhathal-laahu waladaa. Maa lahum bihi min 'ilmin wa laa li-aabaa'ihim. Kaburat kalimatan takhruju min afwaahihim. In yaqooloona illaa kathibaa.",
-                    translation: "All praise is due to Allah, who has sent down upon His Servant the Book and has not made therein any deviance. [He has made it] straight, to warn of severe punishment from Him and to give good tidings to the believers who do righteous deeds that they will have a good reward. In which they will remain forever. And to warn those who say, \"Allah has taken a son.\" They have no knowledge of it, nor had their fathers. Grave is the word that comes out of their mouths; they speak not except a lie.",
-                    tafsir: "This section introduces the main themes of the surah: the Quran as divine guidance, the warning against false beliefs, and the promise of reward for believers. The opening verses establish Allah's sovereignty and the Quran's role as a straight path for humanity. The warning about those who attribute a son to Allah refers to various religious misconceptions throughout history. The surah then transitions into the story of the People of the Cave, which serves as a powerful example of divine protection and the triumph of faith over persecution."
-                },
-                2: {
-                    title: "Section 2: The Two Gardens (Verses 27-59)",
-                    arabic: "وَاضْرِبْ لَهُم مَّثَلًا رَّجُلَيْنِ جَعَلْنَا لِأَحَدِهِمَا جَنَّتَيْنِ مِنْ أَعْنَابٍ وَحَفَفْنَاهُمَا بِنَخْلٍ وَجَعَلْنَا بَيْنَهُمَا زَرْعًا ﴿٣٢﴾ كِلْتَا الْجَنَّتَيْنِ آتَتْ أُكُلَهَا وَلَمْ تَظْلِم مِّنْهَا شَيْئًا ۚ وَفَجَّرْنَا خِلَالَهُمَا نَهَرًا ﴿٣٣﴾ وَكَانَ لَهُ ثَمَرٌ فَقَالَ لِصَاحِبِهِ وَهُوَ يُحَاوِرُهُ أَنَا أَكْثَرُ مِنكَ مَالًا وَأَعَزُّ نَفَرًا ﴿٣٤﴾",
-                    transliteration: "Wadrib lahum mathalan rajulayni ja'alnaa li-ahadihimaa jannatayni min a'naabin wa hafafnaahumaa binakhlin wa ja'alnaa baynahumaa zar'aa. Kiltal-jannatayni aatat ukulahaa wa lam tathlim minhaa shay'aa. Wa fajjarnaa khilaalahumaa naharaa. Wa kaana lahu thamarun faqaala li-saahibihi wa huwa yuhaawiruhu ana aktharu minka maalan wa a'azzu nafaraa.",
-                    translation: "And present to them an example of two men: We granted to one of them two gardens of grapevines, and We bordered them with palm trees and placed between them [fields of] crops. Each of the two gardens yielded its produce and did not fall short thereof in anything. And We caused to gush forth within them a river. And he had fruit, so he said to his companion while he was conversing with him, \"I am greater than you in wealth and mightier in [numbers of] men.\"",
-                    tafsir: "This section presents the parable of the two gardens, illustrating the dangers of arrogance and ingratitude. The wealthy man becomes proud of his material possessions and forgets that all blessings come from Allah. His attitude of superiority and lack of gratitude leads to his downfall. This story teaches us the importance of humility, gratitude, and recognizing that all success comes from Allah's mercy. It serves as a warning against the spiritual dangers of wealth and power when not accompanied by proper Islamic values."
-                },
-                3: {
-                    title: "Section 3: Musa and Khidr (Verses 60-82)",
-                    arabic: "وَإِذْ قَالَ مُوسَىٰ لِفَتَاهُ لَا أَبْرَحُ حَتَّىٰ أَبْلُغَ مَجْمَعَ الْبَحْرَيْنِ أَوْ أَمْضِيَ حُقُبًا ﴿٦٠﴾ فَلَمَّا بَلَغَا مَجْمَعَ بَيْنِهِمَا نَسِيَا حُوتَهُمَا فَاتَّخَذَ سَبِيلَهُ فِي الْبَحْرِ سَرَبًا ﴿٦١﴾ فَلَمَّا جَاوَزَا قَالَ لِفَتَاهُ آتِنَا غَدَاءَنَا لَقَدْ لَقِينَا مِن سَفَرِنَا هَٰذَا نَصَبًا ﴿٦٢﴾",
-                    transliteration: "Wa idh qaala Moosaa li-fataahu laa abrahu hattaa ablugha majma'al-bahrayni aw amdhiya huqubaa. Falammaa balaghaa majma'a baynihimaa nasiya hootahumaa fattakhadha sabeelahu fil-bahri sarabaa. Falammaa jaawazaa qaala li-fataahu aatinaa ghadaa'anaa laqad laqeena min safarinaa haathaa nasabaa.",
-                    translation: "And [mention] when Moses said to his servant, \"I will not cease [traveling] until I reach the junction of the two seas or continue for a prolonged period.\" But when they reached the junction between them, they forgot their fish, and it took its course into the sea, going away. And when they had passed beyond it, [Moses] said to his servant, \"Bring us our morning meal. We have certainly suffered in this, our journey, [much] fatigue.\"",
-                    tafsir: "This section recounts the journey of Prophet Musa (Moses) with his young companion in search of knowledge from Khidr, a righteous servant of Allah. The story demonstrates that divine wisdom often appears illogical to human understanding. Musa's journey teaches us the importance of seeking knowledge, the value of patience, and the recognition that Allah's wisdom transcends human comprehension. The three incidents that follow (damaging the boat, killing the boy, and fixing the wall) reveal profound spiritual lessons about apparent evil containing hidden good."
-                },
-                4: {
-                    title: "Section 4: Dhul-Qarnayn (Verses 83-110)",
-                    arabic: "وَيَسْأَلُونَكَ عَن ذِي الْقَرْنَيْنِ ۖ قُلْ سَأَتْلُو عَلَيْكُم مِّنْهُ ذِكْرًا ﴿٨٣﴾ إِنَّا مَكَّنَّا لَهُ فِي الْأَرْضِ وَآتَيْنَاهُ مِن كُلِّ شَيْءٍ سَبَبًا ﴿٨٤﴾ فَأَتْبَعَ سَبَبًا ﴿٨٥﴾ حَتَّىٰ إِذَا بَلَغَ مَغْرِبَ الشَّمْسِ وَجَدَهَا تَغْرُبُ فِي عَيْنٍ حَمِئَةٍ وَوَجَدَ عِندَهَا قَوْمًا ۖ قُلْنَا يَا ذَا الْقَرْنَيْنِ إِمَّا أَن تُعَذِّبَ وَإِمَّا أَن تَتَّخِذَ فِيهِمْ حُسْنًا ﴿٨٦﴾",
-                    transliteration: "Wa yas'aloonaka 'an dhil-qarnayn. Qul sa-atloo 'alaykum minhu dhikraa. Innaa makkannaa lahu fil-ardi wa aataynaahu min kulli shay'in sababaa. Fa-atba'a sababaa. Hattaa idhaa balagha maghribash-shamsi wajadahaa taghrubu fee 'aynin hami'atin wa wajada 'indahaa qawman. Qulnaa yaa dhal-qarnayni immaa an tu'adhdhiba wa immaa an tattakhidha feehim husnaa.",
-                    translation: "And they ask you, [O Muhammad], about Dhul-Qarnayn. Say, \"I will recite to you about him a report.\" Indeed We established him upon the earth, and We gave him from everything a way. So he followed a way. Until, when he reached the setting of the sun, he found it [as if] setting in a body of dark water, and he found near it a people. We [said], \"O Dhul-Qarnayn, either you punish [them] or else adopt among them [a way of] goodness.\"",
-                    tafsir: "This final section tells the story of Dhul-Qarnayn, a righteous ruler who used his power and resources to help people and establish justice. The story emphasizes the importance of using wealth and power for the benefit of humanity rather than for oppression. Dhul-Qarnayn's journey to the east and west, and his construction of a barrier against the corrupting influence of Ya'juj and Ma'juj (Gog and Magog), symbolizes the struggle between good and evil. The surah concludes with a powerful reminder of the temporary nature of this world and the certainty of the Hereafter."
-                }
-            };
-            
-            const section = sections[sectionNumber];
-            return `
-                <div class="section-header" style="text-align: center; margin-bottom: 30px;">
-                    <h2 style="color: #FFD700; font-size: 2rem; margin-bottom: 15px;">${section.title}</h2>
-                    <div style="color: #87CEEB; font-size: 1.1rem; padding: 15px; background: rgba(255, 215, 0, 0.1); border-radius: 10px; border-left: 4px solid #FFD700;">
-                        📖 Complete section with Arabic text, transliteration, translation, and detailed tafsir
-                    </div>
-                </div>
-                
-                <div class="section-content" style="display: grid; gap: 25px;">
-                    <div class="arabic-section" style="background: rgba(30, 144, 255, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #1E90FF;">
-                        <h3 style="color: #1E90FF; margin-bottom: 20px; font-size: 1.4rem;">📖 Arabic Text</h3>
-                        <div class="arabic-text" style="color: #98FB98; font-size: 1.6rem; text-align: center; direction: rtl; line-height: 2.5; margin: 20px 0;">${section.arabic}</div>
-                    </div>
-                    
-                    <div class="transliteration-section" style="background: rgba(152, 251, 152, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #98FB98;">
-                        <h3 style="color: #98FB98; margin-bottom: 20px; font-size: 1.4rem;">🔤 Transliteration</h3>
-                        <div class="transliteration-text" style="color: #E0E0E0; font-size: 1.1rem; line-height: 1.8; margin: 20px 0; font-style: italic;">${section.transliteration}</div>
-                    </div>
-                    
-                    <div class="translation-section" style="background: rgba(255, 215, 0, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #FFD700;">
-                        <h3 style="color: #FFD700; margin-bottom: 20px; font-size: 1.4rem;">🌍 Saheeh International Translation</h3>
-                        <div class="translation-text" style="color: #E0E0E0; font-size: 1.1rem; line-height: 1.8; margin: 20px 0;">${section.translation}</div>
-                    </div>
-                    
-                    <div class="tafsir-section" style="background: rgba(255, 69, 0, 0.1); padding: 25px; border-radius: 15px; border-left: 4px solid #FF4500;">
-                        <h3 style="color: #FF4500; margin-bottom: 20px; font-size: 1.4rem;">📚 Tafsir (Commentary)</h3>
-                        <div class="tafsir-text" style="color: #E0E0E0; font-size: 1.1rem; line-height: 1.8; margin: 20px 0;">${section.tafsir}</div>
-                    </div>
-                </div>
-            `;
-        }
-        
-        // Surah Al-Kahf Modal Functions
-        function openKahfModal() {
-            document.getElementById('kahfModal').style.display = 'block';
-        }
-        
-        function closeKahfModal() {
-            document.getElementById('kahfModal').style.display = 'none';
-        }
-        
-        function openKahfPdfModal() {
-            document.getElementById('kahfModal').style.display = 'none';
-            document.getElementById('kahfPdfModal').style.display = 'block';
-        }
-        
-        function closeKahfPdfModal() {
-            document.getElementById('kahfPdfModal').style.display = 'none';
-            document.getElementById('kahfPdfSuccessMessage').style.display = 'none';
-            document.getElementById('kahfPdfForm').reset();
-        }
-        
-        function submitKahfPdfRequest(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                delivery: formData.get('delivery'),
-                request: 'Surah Al-Kahf PDF with Tafsir',
-                date: new Date().toLocaleDateString(),
-                day: 'Friday'
-            };
-            
-            // Here you would typically send this data to your backend
-            // For now, we'll just show a success message
-            console.log('Surah Al-Kahf PDF request submitted:', data);
-            
-            // Show success message
-            document.getElementById('kahfPdfSuccessMessage').style.display = 'block';
-            
-            // Hide form
-            event.target.style.display = 'none';
-            
-            // Close modal after 3 seconds
-            setTimeout(() => {
-                closeKahfPdfModal();
-            }, 3000);
-        }
-
-        // Full Surah Al-Kahf Modal Functions
-        function openFullKahfModal() {
-            document.getElementById('fullKahfModal').style.display = 'block';
-        }
-        
-        function closeFullKahfModal() {
-            document.getElementById('fullKahfModal').style.display = 'none';
-        }
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

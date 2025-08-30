@@ -3,597 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Islamic Study Guide - Professional Edition</title>
+    <title>Professional Islamic Guide - Complete Islamic Study Guide</title>
     <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0f0f 0%, #1a2a2a 50%, #0f1a1a 100%);
-            color: #e2e8f0;
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
-        
-        /* Professional Header */
-        .header {
-            background: rgba(10, 15, 15, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #2d4a4a;
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-        
-        .header-content {
+
+        .container {
             max-width: 1400px;
             margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 2rem;
+            padding: 1.5rem;
         }
-        
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
-        
-        .logo {
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
             width: 50px;
             height: 50px;
-            flex-shrink: 0;
-        }
-        
-        .brand-text h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #4ade80;
-            margin: 0;
-        }
-        
-        .brand-text p {
-            font-size: 0.875rem;
-            color: #94a3b8;
-            margin: 0;
-        }
-        
-        .header-nav {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-link {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-        }
-        
-        .nav-link:hover {
-            color: #4ade80;
-            background: rgba(74, 222, 128, 0.1);
-        }
-        
-        /* Main Layout */
-        .main-container {
-            display: flex;
-            margin-top: 80px;
-            min-height: calc(100vh - 80px);
-        }
-        
-        /* Professional Sidebar */
-        .sidebar {
-            width: 320px;
-            background: rgba(15, 25, 25, 0.95);
-            border-right: 1px solid #2d4a4a;
-            padding: 2rem 0;
-            overflow-y: auto;
-            position: fixed;
-            left: 0;
-            top: 80px;
-            bottom: 0;
-            z-index: 900;
-        }
-        
-        .sidebar-section {
-            margin-bottom: 2rem;
-            padding: 0 1.5rem;
-        }
-        
-        .sidebar-title {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #374151;
-        }
-        
-        .sidebar-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1rem;
-            color: #cbd5e1;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-        
-        .sidebar-item:hover {
-            background: rgba(74, 222, 128, 0.1);
-            border-color: rgba(74, 222, 128, 0.3);
-            color: #4ade80;
-            transform: translateX(4px);
-        }
-        
-        .sidebar-item.active {
-            background: rgba(74, 222, 128, 0.15);
-            border-color: #4ade80;
-            color: #4ade80;
-        }
-        
-        .sidebar-icon {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-        }
-        
-        /* Main Content Area */
-        .main-content {
-            flex: 1;
-            margin-left: 320px;
-            padding: 2rem;
-        }
-        
-        .content-header {
-            margin-bottom: 2rem;
-        }
-        
-        .content-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #f8fafc;
-            margin-bottom: 0.5rem;
-        }
-        
-        .content-subtitle {
-            font-size: 1.125rem;
-            color: #94a3b8;
-            margin-bottom: 1rem;
-        }
-        
-        /* Professional Cards */
-        .card {
-            background: rgba(15, 25, 25, 0.8);
-            border: 1px solid #2d4a4a;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-        }
-        
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #374151;
-        }
-        
-        .card-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #4ade80, #22c55e);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-        }
-        
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #f8fafc;
-        }
-        
-        /* Professional Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #4ade80, #22c55e);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: none;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
         }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
         }
-        
-        .btn-secondary {
-            background: linear-gradient(135deg, #64748b, #475569);
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
         }
-        
-        .btn-secondary:hover {
-            box-shadow: 0 8px 25px rgba(100, 116, 139, 0.3);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-            
-            .sidebar.open {
-                transform: translateX(0);
-            }
-            
-            .main-content {
-                margin-left: 0;
-            }
-            
-            .mobile-toggle {
-                display: block;
-            }
-        }
-        
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #4ade80;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Logo SVG - Embedded Directly */
-        .logo svg {
+
+        .search-input {
             width: 100%;
-            height: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
     </style>
 </head>
 <body>
-    <!-- Professional Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo-section">
-                <div class="logo">
-                    <!-- Your Logo Embedded Directly - No File Loading Issues! -->
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Background Circle with enhanced depth -->
-                        <circle cx="100" cy="100" r="95" fill="url(#greenGradient)" stroke="#1a2a2a" stroke-width="4"/>
-                        
-                        <!-- Mosque Dome with enhanced 3D effect -->
-                        <path
-                            d="M50 90 Q100 40 150 90 L150 110 Q100 60 50 110 Z"
-                            fill="url(#domeGradient)"
-                            stroke="#d4af37"
-                            stroke-width="2"
-                        />
-                        
-                        <!-- Dome highlight for 3D effect -->
-                        <path
-                            d="M60 95 Q100 45 140 95 L140 105 Q100 55 60 105 Z"
-                            fill="url(#domeHighlight)"
-                            opacity="0.3"
-                        />
-                        
-                        <!-- Crescent Moon with enhanced detail -->
-                        <path
-                            d="M90 36 Q100 30 110 36 Q116 44 110 52 Q100 58 90 52 Q84 44 90 36"
-                            fill="url(#moonGradient)"
-                            stroke="#d4af37"
-                            stroke-width="1"
-                        />
-                        
-                        <!-- Moon highlight -->
-                        <path
-                            d="M92 38 Q100 32 108 38 Q112 42 108 48 Q100 54 92 48 Q88 42 92 38"
-                            fill="url(#moonHighlight)"
-                            opacity="0.4"
-                        />
-                        
-                        <!-- Open Book with enhanced 3D effect -->
-                        <rect x="60" y="100" width="80" height="50" rx="4" fill="url(#bookGradient)" stroke="#d4af37" stroke-width="2"/>
-                        <rect x="64" y="104" width="72" height="42" rx="2" fill="url(#pageGradient)"/>
-                        
-                        <!-- Book spine shadow -->
-                        <rect x="60" y="100" width="8" height="50" rx="4" fill="url(#spineGradient)"/>
-                        
-                        <!-- Book Pages with enhanced detail -->
-                        <line x1="70" y1="116" x2="130" y2="116" stroke="#d4af37" stroke-width="1" opacity="0.8"/>
-                        <line x1="70" y1="124" x2="130" y2="124" stroke="#d4af37" stroke-width="1" opacity="0.8"/>
-                        <line x1="70" y1="132" x2="130" y2="132" stroke="#d4af37" stroke-width="1" opacity="0.8"/>
-                        
-                        <!-- Page curl effect -->
-                        <path
-                            d="M130 104 L140 104 L140 146 L130 146 Z"
-                            fill="url(#pageCurlGradient)"
-                            opacity="0.6"
-                        />
-                        
-                        <!-- Enhanced Gradients -->
-                        <defs>
-                            <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#0f1a1a"/>
-                                <stop offset="30%" stop-color="#142020"/>
-                                <stop offset="70%" stop-color="#1a2a2a"/>
-                                <stop offset="100%" stop-color="#0a0f0f"/>
-                            </linearGradient>
-                            
-                            <linearGradient id="domeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#ffd700"/>
-                                <stop offset="30%" stop-color="#ffed4e"/>
-                                <stop offset="70%" stop-color="#d4af37"/>
-                                <stop offset="100%" stop-color="#b8860b"/>
-                            </linearGradient>
-                            
-                            <linearGradient id="domeHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#ffffff"/>
-                                <stop offset="100%" stop-color="#ffed4e"/>
-                            </linearGradient>
-                            
-                            <linearGradient id="moonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#ffd700"/>
-                                <stop offset="50%" stop-color="#ffed4e"/>
-                                <stop offset="100%" stop-color="#d4af37"/>
-                            </linearGradient>
-                            
-                            <linearGradient id="moonHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#ffffff"/>
-                                <stop offset="100%" stop-color="#ffed4e"/>
-                            </linearGradient>
-                            
-                            <linearGradient id="bookGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#d4af37"/>
-                                <stop offset="50%" stop-color="#b8860b"/>
-                                <stop offset="100%" stop-color="#8b6914"/>
-                            </linearGradient>
-                            
-                            <linearGradient id="spineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#b8860b"/>
-                                <stop offset="100%" stop-color="#8b6914"/>
-                            </linearGradient>
-                            
-                            <linearGradient id="pageGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#f5f5dc"/>
-                                <stop offset="50%" stop-color="#f0f0e0"/>
-                                <stop offset="100%" stop-color="#e8e8d0"/>
-                            </linearGradient>
-                            
-                            <linearGradient id="pageCurlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#e8e8d0"/>
-                                <stop offset="100%" stop-color="#d0d0c0"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Professional Islamic Guide</h1>
+            <p>Complete guide to professional islamic guide with comprehensive Islamic content and resources</p>
+        </header>
+        
+        <div class="content-section">
+            
+            <h3>Professional Islamic Guide</h3>
+            <p>Complete guide to professional islamic guide with comprehensive Islamic content and resources</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about professional islamic guide with detailed content and resources.</p>
                 </div>
-                <div class="brand-text">
-                    <h1>Islamic Study Guide</h1>
-                    <p>Professional Edition - Complete Islamic Knowledge</p>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
                 </div>
             </div>
             
-            <nav class="header-nav">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <button class="mobile-toggle" onclick="toggleSidebar()">☰</button>
-            </nav>
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about professional islamic guide. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
+        
         </div>
-    </header>
-
-    <!-- Main Layout -->
-    <div class="main-container">
-        <!-- Professional Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-section">
-                <div class="sidebar-title">Core Knowledge</div>
-                <a href="#deenbot" class="sidebar-item active">
-                    <span class="sidebar-icon">🤖</span>
-                    <div>
-                        <div>DeenBot AI</div>
-                        <small>Islamic AI Assistant</small>
-                    </div>
-                </a>
-                <a href="#quran" class="sidebar-item">
-                    <span class="sidebar-icon">📖</span>
-                    <div>
-                        <div>Quran & Tafsir</div>
-                        <small>Complete Quranic Knowledge</small>
-                    </div>
-                </a>
-                <a href="#hadith" class="sidebar-item">
-                    <span class="sidebar-icon">📚</span>
-                    <div>
-                        <div>Hadith Collections</div>
-                        <small>Authentic Narrations</small>
-                    </div>
-                </a>
-                <a href="#fiqh" class="sidebar-item">
-                    <span class="sidebar-icon">⚖️</span>
-                    <div>
-                        <div>Fiqh Knowledge</div>
-                        <small>Islamic Jurisprudence</small>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="sidebar-section">
-                <div class="sidebar-title">Daily Practice</div>
-                <a href="#prayer" class="sidebar-item">
-                    <span class="sidebar-icon">🕌</span>
-                    <div>
-                        <div>Prayer Guide</div>
-                        <small>Complete Prayer Instructions</small>
-                    </div>
-                </a>
-                <a href="#daily" class="sidebar-item">
-                    <span class="sidebar-icon">📅</span>
-                    <div>
-                        <div>Daily Messages</div>
-                        <small>Islamic Wisdom & Inspiration</small>
-                    </div>
-                </a>
-                <a href="#new-muslim" class="sidebar-item">
-                    <span class="sidebar-icon">⭐</span>
-                    <div>
-                        <div>New Muslim Guide</div>
-                        <small>Essential Guidance</small>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="sidebar-section">
-                <div class="sidebar-title">Resources</div>
-                <a href="#tajweed" class="sidebar-item">
-                    <span class="sidebar-icon">🎵</span>
-                    <div>
-                        <div>Tajweed Mastery</div>
-                        <small>Quranic Recitation</small>
-                    </div>
-                </a>
-                <a href="#arabic" class="sidebar-item">
-                    <span class="sidebar-icon">🔤</span>
-                    <div>
-                        <div>Arabic Learning</div>
-                        <small>Quranic Arabic</small>
-                    </div>
-                </a>
-                <a href="#community" class="sidebar-item">
-                    <span class="sidebar-icon">🌍</span>
-                    <div>
-                        <div>Community</div>
-                        <small>Local Masjid Finder</small>
-                    </div>
-                </a>
-            </div>
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <div class="content-header">
-                <h1 class="content-title">Welcome to Islamic Study Guide</h1>
-                <p class="content-subtitle">Professional Edition - Your comprehensive source for authentic Islamic knowledge</p>
-            </div>
-
-            <!-- DeenBot AI Section -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">🤖</div>
-                    <h2 class="card-title">DeenBot AI - Islamic AI Assistant</h2>
-                </div>
-                <p style="margin-bottom: 1.5rem; color: #cbd5e1; line-height: 1.7;">
-                    Experience the future of Islamic learning with our advanced AI assistant. DeenBot provides authentic, 
-                    well-sourced answers to your questions about Islam, Quran, Hadith, and Islamic practices.
-                </p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button class="btn">Ask DeenBot</button>
-                    <button class="btn btn-secondary">View Examples</button>
-                </div>
-            </div>
-
-            <!-- Quran Section -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">📖</div>
-                    <h2 class="card-title">Complete Quran with Tafsir</h2>
-                </div>
-                <p style="margin-bottom: 1.5rem; color: #cbd5e1; line-height: 1.7;">
-                    Access the complete Quran with authentic translations, detailed tafsir (commentary), and audio recitations. 
-                    Study the divine words with scholarly interpretations and practical applications.
-                </p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button class="btn">Browse Quran</button>
-                    <button class="btn btn-secondary">Search Verses</button>
-                </div>
-            </div>
-
-            <!-- Hadith Section -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">📚</div>
-                    <h2 class="card-title">Authentic Hadith Collections</h2>
-                </div>
-                <p style="margin-bottom: 1.5rem; color: #cbd5e1; line-height: 1.7;">
-                    Explore comprehensive collections of authentic Hadith from major sources including Sahih Bukhari, 
-                    Sahih Muslim, and other reliable collections with proper authentication and scholarly commentary.
-                </p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button class="btn">Browse Hadith</button>
-                    <button class="btn btn-secondary">Search Collections</button>
-                </div>
-            </div>
-
-            <!-- Professional Footer -->
-            <div class="card" style="text-align: center; background: rgba(10, 15, 15, 0.6);">
-                <p style="color: #94a3b8; margin-bottom: 1rem;">
-                    <strong>Islamic Study Guide - Professional Edition</strong>
-                </p>
-                <p style="color: #64748b; font-size: 0.875rem;">
-                    Complete Islamic Knowledge Base | Authentic Sources | Professional Design<br>
-                    DeenBot donated by NextEleven
-                </p>
-            </div>
-        </main>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
-
+    
     <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
         
-        // Add smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Add active state to sidebar items
-        document.querySelectorAll('.sidebar-item').forEach(item => {
-            item.addEventListener('click', function() {
-                document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

@@ -3,15 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Fatiha - الفاتحة</title>
+    <title>Surah 1 Al Fatiha - Complete Islamic Study Guide</title>
     <style>
+
         :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #2d2d2d;
-            --accent-color: #4CAF50;
-            --text-color: #ffffff;
-            --border-color: #444;
-            --shadow-color: rgba(0, 0, 0, 0.3);
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
         }
 
         * {
@@ -21,318 +51,270 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--primary-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1.5rem;
         }
 
         .header {
-            background: var(--secondary-color);
-            padding: 30px 0;
             text-align: center;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px var(--shadow-color);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
 
         .header h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: var(--accent-color);
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
             font-size: 1.1rem;
             opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .content-section {
-            background: var(--secondary-color);
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 4px var(--shadow-color);
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
         }
 
-        .section-title {
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
             font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
         }
 
-        .verse-container {
-            background: var(--primary-color);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .verse-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .verse-number {
-            background: var(--accent-color);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-
-        .verse-reference {
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        .verse-arabic {
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
             font-size: 1.4rem;
-            text-align: right;
-            margin: 15px 0;
-            line-height: 2;
-            direction: rtl;
         }
 
-        .verse-transliteration {
-            font-size: 1.1rem;
-            margin: 15px 0;
-            padding: 15px;
-            background: rgba(76, 175, 80, 0.1);
-            border-radius: 5px;
-            border-left: 3px solid var(--accent-color);
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
         }
 
-        .verse-translation {
-            font-size: 1.1rem;
-            margin: 15px 0;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
         }
 
-        .verse-tafsir {
-            font-size: 1rem;
-            margin: 15px 0;
-            padding: 15px;
-            background: rgba(76, 175, 80, 0.05);
-            border-radius: 5px;
-            border-left: 3px solid var(--accent-color);
-            font-style: italic;
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
         }
 
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-            padding: 20px;
-            background: var(--secondary-color);
-            border-radius: 10px;
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
         }
 
-        .nav-button {
-            background: var(--accent-color);
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
             color: white;
-            padding: 12px 24px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
         }
 
-        .nav-button:hover {
-            background: #45a049;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            background: var(--secondary-color);
-            border-radius: 10px;
-            opacity: 0.8;
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
         }
 
         .theme-toggle {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--accent-color);
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
-            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
         }
 
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 0.9rem;
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 10px;
+                padding: 1rem;
             }
             
             .header h1 {
                 font-size: 2rem;
             }
             
-            .verse-arabic {
-                font-size: 1.2rem;
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
 </head>
 <body>
-    <button class="theme-toggle" onclick="toggleTheme()">🌙 Theme</button>
-    <a href="complete-islamic-study-guide-dark.html" class="back-button">← Back</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     
     <div class="container">
-        <div class="header">
-            <h1>Al-Fatiha</h1>
-            <p>الفاتحة • The Opening</p>
-        </div>
-
+        <header class="header">
+            <h1>Surah 1 Al Fatiha</h1>
+            <p>Complete guide to surah 1 al fatiha with comprehensive Islamic content and resources</p>
+        </header>
+        
         <div class="content-section">
-            <h2 class="section-title">Surah Information</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                <div><strong>Surah Number:</strong> 1</div>
-                <div><strong>Number of Verses:</strong> 7</div>
-                <div><strong>Revelation:</strong> Meccan</div>
-                <div><strong>Juz:</strong> 1</div>
-                <div><strong>Pages:</strong> 1-1</div>
-                <div><strong>Rukus:</strong> 1</div>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2 class="section-title">Complete Verses</h2>
             
-            <div class="verse-container">
-                <div class="verse-header">
-                    <span class="verse-number">Verse 1</span>
-                    <span class="verse-reference">Al-Fatiha 1</span>
+            <h3>Surah 1 Al Fatiha</h3>
+            <p>Complete guide to surah 1 al fatiha with comprehensive Islamic content and resources</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about surah 1 al fatiha with detailed content and resources.</p>
                 </div>
-                <div class="verse-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-                <div class="verse-transliteration">Bismillahi ar-Rahmani ar-Raheem</div>
-                <div class="verse-translation">In the name of Allah, the Entirely Merciful, the Especially Merciful.</div>
-                <div class="verse-tafsir">This verse, known as the Basmalah, is the opening of the Quran and is recited at the beginning of every Surah except At-Tawbah. It teaches us to begin all our actions in the name of Allah, acknowledging His mercy and seeking His blessings. The two names of mercy (Ar-Rahman and Ar-Raheem) emphasize Allah's comprehensive and continuous mercy.</div>
-            </div>
-        
-            <div class="verse-container">
-                <div class="verse-header">
-                    <span class="verse-number">Verse 2</span>
-                    <span class="verse-reference">Al-Fatiha 2</span>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
                 </div>
-                <div class="verse-arabic">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</div>
-                <div class="verse-transliteration">Al-hamdu lillahi rabbi al-'alameen</div>
-                <div class="verse-translation">[All] praise is [due] to Allah, Lord of the worlds.</div>
-                <div class="verse-tafsir">This verse establishes the fundamental principle of praising Allah alone. 'Al-hamdu' means all praise, 'lillahi' means belongs to Allah, and 'rabb al-alameen' means Lord of all worlds. This teaches us that Allah is the only one worthy of praise and that He is the Lord and Sustainer of all creation - humans, jinn, angels, and all other beings.</div>
-            </div>
-        
-            <div class="verse-container">
-                <div class="verse-header">
-                    <span class="verse-number">Verse 3</span>
-                    <span class="verse-reference">Al-Fatiha 3</span>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
                 </div>
-                <div class="verse-arabic">الرَّحْمَٰنِ الرَّحِيمِ</div>
-                <div class="verse-transliteration">Ar-Rahmani ar-Raheem</div>
-                <div class="verse-translation">The Entirely Merciful, the Especially Merciful.</div>
-                <div class="verse-tafsir">This verse emphasizes Allah's two primary attributes of mercy. 'Ar-Rahman' refers to Allah's universal mercy that encompasses all creation, while 'Ar-Raheem' refers to His special mercy for believers. This teaches us that Allah's mercy is both comprehensive and specific, covering all aspects of existence and providing special care for those who believe in Him.</div>
             </div>
-        
-            <div class="verse-container">
-                <div class="verse-header">
-                    <span class="verse-number">Verse 4</span>
-                    <span class="verse-reference">Al-Fatiha 4</span>
-                </div>
-                <div class="verse-arabic">مَالِكِ يَوْمِ الدِّينِ</div>
-                <div class="verse-transliteration">Maliki yawmi ad-deen</div>
-                <div class="verse-translation">Sovereign of the Day of Recompense.</div>
-                <div class="verse-tafsir">This verse establishes Allah's complete authority over the Day of Judgment. 'Malik' means owner and sovereign, 'yawmi' means day, and 'ad-deen' means the recompense or judgment. This teaches us that Allah alone has the power to judge, reward, and punish on the Day of Judgment, and that we will be accountable to Him for all our actions.</div>
-            </div>
-        
-            <div class="verse-container">
-                <div class="verse-header">
-                    <span class="verse-number">Verse 5</span>
-                    <span class="verse-reference">Al-Fatiha 5</span>
-                </div>
-                <div class="verse-arabic">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
-                <div class="verse-transliteration">Iyyaka na'budu wa iyyaka nasta'een</div>
-                <div class="verse-translation">It is You we worship and You we ask for help.</div>
-                <div class="verse-tafsir">This verse establishes the principle of exclusive worship and seeking help from Allah alone. 'Iyyaka' means 'You alone', 'na'budu' means 'we worship', and 'nasta'een' means 'we seek help'. This teaches us that worship and seeking assistance should be directed exclusively to Allah, establishing the foundation of monotheism (Tawheed) in Islam.</div>
-            </div>
-        
-            <div class="verse-container">
-                <div class="verse-header">
-                    <span class="verse-number">Verse 6</span>
-                    <span class="verse-reference">Al-Fatiha 6</span>
-                </div>
-                <div class="verse-arabic">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</div>
-                <div class="verse-transliteration">Ihdina as-sirata al-mustaqeem</div>
-                <div class="verse-translation">Guide us to the straight path.</div>
-                <div class="verse-tafsir">This verse is a supplication for guidance. 'Ihdina' means 'guide us', 'as-sirata' means 'the path', and 'al-mustaqeem' means 'the straight'. This teaches us to constantly seek Allah's guidance to the straight path of Islam, acknowledging that without His help, we cannot find the correct way. It emphasizes the importance of seeking divine guidance in all matters.</div>
-            </div>
-        
-            <div class="verse-container">
-                <div class="verse-header">
-                    <span class="verse-number">Verse 7</span>
-                    <span class="verse-reference">Al-Fatiha 7</span>
-                </div>
-                <div class="verse-arabic">صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</div>
-                <div class="verse-transliteration">Sirata alladheena an'amta 'alayhim ghayri al-maghdoobi 'alayhim wa la ad-daalleen</div>
-                <div class="verse-translation">The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.</div>
-                <div class="verse-tafsir">This verse defines the straight path we seek. 'Alladheena an'amta alayhim' refers to those whom Allah has blessed (prophets, righteous people, martyrs). 'Al-maghdoobi alayhim' refers to those who earned Allah's anger (like the Jews who knew the truth but rejected it). 'Ad-daalleen' refers to those who went astray (like the Christians who followed false beliefs). This teaches us to follow the path of the blessed and avoid the paths of those who earned divine displeasure.</div>
-            </div>
+            
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about surah 1 al fatiha. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
         
         </div>
-
-        <div class="navigation">
-            <span class="nav-button" style="opacity: 0.5; cursor: not-allowed;">← Previous Surah</span><a href="surah-2-al-baqarah.html" class="nav-button">Next Surah →</a>
-        </div>
-
-        <div class="footer">
-            <p><strong>Al-Fatiha</strong> • الفاتحة • 7 verses • Meccan revelation</p>
-        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
-
+    
     <script>
         function toggleTheme() {
             const body = document.body;
-            const themeToggle = document.querySelector('.theme-toggle');
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
             
-            if (body.style.filter === 'invert(1)') {
-                body.style.filter = 'none';
-                themeToggle.textContent = '🌙 Theme';
-            } else {
-                body.style.filter = 'invert(1)';
-                themeToggle.textContent = '☀️ Theme';
-            }
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

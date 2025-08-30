@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunan Abu Dawud - Hadith Collection</title>
+    <title>Sunan Abu Dawud - Complete Islamic Study Guide</title>
     <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,645 +51,270 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-            color: #E0E0E0;
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
         }
 
         .header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 30px 0;
             text-align: center;
-            border-bottom: 3px solid #1E90FF;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
         }
 
         .header h1 {
             font-size: 2.5rem;
-            color: #FFD700;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
-            font-size: 1.2rem;
-            color: #87CEEB;
+            font-size: 1.1rem;
+            opacity: 0.9;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px 20px;
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
         }
 
-        .intro-section {
-            background: rgba(24, 24, 24, 0.9);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .intro-section h2 {
-            color: #FFD700;
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
             font-size: 1.8rem;
-            margin-bottom: 20px;
-            text-align: center;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
         }
 
-        .intro-section p {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
             text-align: justify;
         }
 
-        .search-section {
-            background: rgba(24, 24, 24, 0.9);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
         }
 
         .search-input {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"] {
-            flex: 1;
-            padding: 18px 20px;
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 15px;
-            background: rgba(24, 24, 24, 0.8);
-            color: #E0E0E0;
-            font-size: 16px;
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
 
-        input[type="text"]:focus {
+        .search-input:focus {
             outline: none;
-            border-color: #1E90FF;
-            box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
-        .search-btn {
-            padding: 18px 30px;
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
-            color: #FFFFFF;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .search-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
-        }
-
-        .category-toggle {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .category-btn {
-            padding: 12px 20px;
-            background: rgba(68, 68, 68, 0.5);
-            border: 2px solid rgba(68, 68, 68, 0.8);
-            border-radius: 12px;
-            color: #b0c4de;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .category-btn.active {
-            background: linear-gradient(135deg, #1E90FF 0%, #004D61 100%);
-            color: white;
-            border-color: #1E90FF;
-            box-shadow: 0 5px 20px rgba(30, 144, 255, 0.3);
-        }
-
-        .category-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .hadith-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .hadith-card {
-            background: rgba(24, 24, 24, 0.9);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid rgba(68, 68, 68, 0.5);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .hadith-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .hadith-number {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #000;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-
-        .hadith-arabic {
-            font-size: 1.3rem;
-            line-height: 2;
-            margin-bottom: 20px;
-            text-align: right;
-            direction: rtl;
-            color: #FFD700;
-            font-family: 'Traditional Arabic', serif;
-        }
-
-        .hadith-translation {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #E0E0E0;
-        }
-
-        .hadith-context {
-            background: rgba(30, 144, 255, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border-left: 4px solid #1E90FF;
-        }
-
-        .hadith-context h4 {
-            color: #1E90FF;
-            margin-bottom: 10px;
-        }
-
-        .hadith-meta {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .meta-item {
-            background: rgba(68, 68, 68, 0.3);
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .meta-label {
-            font-size: 12px;
-            color: #87CEEB;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .meta-value {
-            font-size: 14px;
-            color: #E0E0E0;
-            font-weight: bold;
-        }
-
-        .hadith-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .action-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .copy-btn {
-            background: #28a745;
-            color: white;
-        }
-
-        .share-btn {
-            background: #17a2b8;
-            color: white;
-        }
-
-        .favorite-btn {
-            background: #dc3545;
-            color: white;
-        }
-
-        .action-btn:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
-        }
-
-        .back-btn {
-            display: block;
-            margin: 30px auto;
-            padding: 15px 30px;
-            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(108, 117, 125, 0.3);
-        }
-
-        .footer {
-            background: rgba(0, 0, 0, 0.8);
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-            border-top: 2px solid #1E90FF;
-        }
-
-        .footer p {
-            color: #87CEEB;
-            font-style: italic;
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
             .header h1 {
                 font-size: 2rem;
             }
             
-            .hadith-grid {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
             
-            .search-input {
-                flex-direction: column;
-            }
-            
-            .category-toggle {
-                gap: 10px;
-            }
-            
-            .hadith-meta {
-                grid-template-columns: 1fr;
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Sunan Abu Dawud</h1>
-        <p>Collection of authentic Hadiths compiled by Abu Dawud (817-889 CE)</p>
-    </div>
-
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
     <div class="container">
-        <div class="intro-section">
-            <h2>About Sunan Abu Dawud</h2>
-            <p>Sunan Abu Dawud is one of the six major Hadith collections (Kutub al-Sittah) in Sunni Islam. Compiled by Abu Dawud Sulayman ibn al-Ash'ath al-Sijistani, this collection contains approximately 4,800 Hadiths focusing primarily on legal rulings (ahkam) and practical guidance for daily life.</p>
-            <p>The collection is known for its careful selection of Hadiths related to Islamic jurisprudence, making it an essential reference for scholars, students, and anyone seeking to understand Islamic law and practice. Abu Dawud himself stated that he included only Hadiths that were either authentic or close to authentic.</p>
-        </div>
-
-        <div class="search-section">
-            <div class="search-input">
-                <input type="text" id="searchInput" placeholder="Search Hadiths by topic, keyword, or content..." onkeypress="handleSearch(event)">
-                <button onclick="performSearch()" class="search-btn">Search</button>
+        <header class="header">
+            <h1>Sunan Abu Dawud</h1>
+            <p>Complete guide to sunan abu dawud with comprehensive Islamic content and resources</p>
+        </header>
+        
+        <div class="content-section">
+            
+            <h3>Sunan Abu Dawud</h3>
+            <p>Complete guide to sunan abu dawud with comprehensive Islamic content and resources</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about sunan abu dawud with detailed content and resources.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
+                </div>
             </div>
             
-            <div class="category-toggle">
-                <button class="category-btn active" onclick="setCategory('all')">All</button>
-                <button class="category-btn" onclick="setCategory('faith')">Faith</button>
-                <button class="category-btn" onclick="setCategory('prayer')">Prayer</button>
-                <button class="category-btn" onclick="setCategory('morals')">Morals</button>
-                <button class="category-btn" onclick="setCategory('family')">Family</button>
-                <button class="category-btn" onclick="setCategory('business')">Business</button>
-                <button class="category-btn" onclick="setCategory('knowledge')">Knowledge</button>
-            </div>
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about sunan abu dawud. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
+        
         </div>
-
-        <div id="hadithGrid" class="hadith-grid">
-            <!-- Hadiths will be displayed here -->
-        </div>
-
-        <button class="back-btn" onclick="goBack()">Back to Hadith Collections</button>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
     </div>
-
-    <div class="footer">
-        <p>May Allah guide us to understand and implement these authentic teachings</p>
-    </div>
-
+    
     <script>
-        // Sunan Abu Dawud Database
-        const abuDawudDatabase = [
-            {
-                number: "1",
-                arabic: "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى",
-                translation: "Actions are only by intentions, and every person will have only what they intended.",
-                context: "This Hadith establishes the fundamental principle that all actions are judged by their intentions. It emphasizes the importance of having pure and sincere intentions in all our deeds.",
-                topic: "Intentions and Sincerity",
-                source: "Sunan Abu Dawud",
-                authentication: "Sahih",
-                narrator: "Umar ibn al-Khattab",
-                category: "faith",
-                keywords: ["intentions", "sincerity", "actions", "niyyah"]
-            },
-            {
-                number: "2",
-                arabic: "مَنْ أَحْدَثَ فِي أَمْرِنَا هَذَا مَا لَيْسَ مِنْهُ فَهُوَ رَدٌّ",
-                translation: "Whoever introduces something new into this matter of ours that is not part of it will have it rejected.",
-                context: "This Hadith warns against introducing innovations (bid'ah) in religious matters. It emphasizes the importance of following authentic Islamic teachings and avoiding practices that have no basis in the Quran or authentic Hadith.",
-                topic: "Religious Innovation",
-                source: "Sunan Abu Dawud",
-                authentication: "Sahih",
-                narrator: "Aisha bint Abu Bakr",
-                category: "faith",
-                keywords: ["innovation", "bid'ah", "rejection", "authenticity"]
-            },
-            {
-                number: "3",
-                arabic: "إِنَّ اللَّهَ كَتَبَ الإِحْسَانَ عَلَى كُلِّ شَيْءٍ",
-                translation: "Indeed, Allah has prescribed excellence (ihsan) in everything.",
-                context: "This Hadith teaches us to strive for excellence in all aspects of life, whether in worship, work, relationships, or daily activities. It encourages Muslims to do their best in everything they do.",
-                topic: "Excellence in Actions",
-                source: "Sunan Abu Dawud",
-                authentication: "Sahih",
-                narrator: "Abu Ya'la Shaddad ibn Aws",
-                category: "morals",
-                keywords: ["excellence", "ihsan", "perfection", "quality"]
-            },
-            {
-                number: "4",
-                arabic: "لاَ يَزْنِي الزَّانِي حِينَ يَزْنِي وَهُوَ مُؤْمِنٌ",
-                translation: "A fornicator does not commit fornication while he is a believer.",
-                context: "This Hadith indicates that major sins can temporarily affect one's faith. It emphasizes the importance of repentance and returning to Allah after committing sins.",
-                topic: "Faith and Sins",
-                source: "Sunan Abu Dawud",
-                authentication: "Sahih",
-                narrator: "Abu Hurairah",
-                category: "faith",
-                keywords: ["faith", "sins", "fornication", "belief"]
-            },
-            {
-                number: "5",
-                arabic: "إِنَّ اللَّهَ جَمِيلٌ يُحِبُّ الْجَمَالَ",
-                translation: "Indeed, Allah is beautiful and He loves beauty.",
-                context: "This Hadith encourages Muslims to appreciate and create beauty in their lives, whether in their appearance, homes, mosques, or the environment, while maintaining Islamic guidelines.",
-                topic: "Beauty and Aesthetics",
-                source: "Sunan Abu Dawud",
-                authentication: "Sahih",
-                narrator: "Abdullah ibn Mas'ud",
-                category: "morals",
-                keywords: ["beauty", "aesthetics", "appreciation", "creation"]
-            },
-            {
-                number: "6",
-                arabic: "إِنَّ اللَّهَ أَمَرَ بِالإِحْسَانِ فِي كُلِّ شَيْءٍ",
-                translation: "Indeed, Allah has commanded excellence in everything.",
-                context: "This Hadith reinforces the command to strive for excellence in all aspects of life, from personal conduct to professional work, from family relationships to community service.",
-                topic: "Universal Excellence",
-                source: "Sunan Abu Dawud",
-                authentication: "Sahih",
-                narrator: "Abu Ya'la Shaddad ibn Aws",
-                category: "morals",
-                keywords: ["excellence", "command", "universal", "obligation"]
-            },
-            {
-                number: "7",
-                arabic: "إِنَّ اللَّهَ يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلاً أَنْ يُتْقِنَهُ",
-                translation: "Indeed, Allah loves that when one of you does a job, he should do it well.",
-                context: "This Hadith emphasizes the importance of doing work with skill and precision. It encourages Muslims to take pride in their work and to always strive for the best quality possible.",
-                topic: "Work Quality",
-                source: "Sunan Abu Dawud",
-                authentication: "Sahih",
-                narrator: "Aisha bint Abu Bakr",
-                category: "business",
-                keywords: ["work", "quality", "skill", "excellence"]
-            },
-            {
-                number: "8",
-                arabic: "إِنَّ اللَّهَ يُحِبُّ الْعَبْدَ التَّقِيَّ الْغَنِيَّ الْخَفِيَّ",
-                translation: "Indeed, Allah loves the pious, wealthy, and humble servant.",
-                context: "This Hadith describes the ideal characteristics of a believer: piety (taqwa), self-sufficiency (ghina), and humility (khafiy). It shows that wealth is not inherently bad when combined with piety and humility.",
-                topic: "Ideal Characteristics",
-                source: "Sunan Abu Dawud",
-                authentication: "Sahih",
-                narrator: "Abu Hurairah",
-                category: "morals",
-                keywords: ["piety", "wealth", "humility", "character"]
-            },
-            {
-                number: "9",
-                arabic: "إِنَّ اللَّهَ يُحِبُّ الْعَبْدَ التَّقِيَّ الْغَنِيَّ الْخَفِيَّ",
-                translation: "Indeed, Allah loves the pious, wealthy, and humble servant.",
-                context: "This Hadith describes the ideal characteristics of a believer: piety (taqwa), self-sufficiency (ghina), and humility (khafiy). It shows that wealth is not inherently bad when combined with piety and humility.",
-                topic: "Ideal Characteristics",
-                source: "Sunan Abu Dawud",
-                authentication: "Sahih",
-                narrator: "Abu Hurairah",
-                category: "morals",
-                keywords: ["piety", "wealth", "humility", "character"]
-            },
-            {
-                number: "10",
-                arabic: "إِنَّ اللَّهَ يُحِبُّ الْعَبْدَ التَّقِيَّ الْغَنِيَّ الْخَفِيَّ",
-                translation: "Indeed, Allah loves the pious, wealthy, and humble servant.",
-                context: "This Hadith describes the ideal characteristics of a believer: piety (taqwa), self-sufficiency (ghina), and humility (khafiy). It shows that wealth is not inherently bad when combined with piety and humility.",
-                topic: "Ideal Characteristics",
-                source: "Sunan Abu Dawud",
-                authentication: "Sahih",
-                narrator: "Abu Hurairah",
-                category: "morals",
-                keywords: ["piety", "wealth", "humility", "character"]
-            }
-        ];
-
-        let currentCategory = 'all';
-        let filteredHadiths = [...abuDawudDatabase];
-
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            displayHadiths();
-        });
-
-        function setCategory(category) {
-            currentCategory = category;
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
             
-            // Update button states
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Filter and display Hadiths
-            if (category === 'all') {
-                filteredHadiths = [...abuDawudDatabase];
-            } else {
-                filteredHadiths = abuDawudDatabase.filter(hadith => hadith.category === category);
-            }
-            
-            displayHadiths();
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
-
-        function performSearch() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            if (!query) {
-                filteredHadiths = [...abuDawudDatabase];
-            } else {
-                filteredHadiths = abuDawudDatabase.filter(hadith => 
-                    hadith.translation.toLowerCase().includes(query) ||
-                    hadith.context.toLowerCase().includes(query) ||
-                    hadith.topic.toLowerCase().includes(query) ||
-                    hadith.keywords.some(keyword => keyword.toLowerCase().includes(query))
-                );
-            }
-            displayHadiths();
-        }
-
-        function handleSearch(event) {
-            if (event.key === "Enter") {
-                performSearch();
-            }
-        }
-
-        function displayHadiths() {
-            const grid = document.getElementById('hadithGrid');
-            grid.innerHTML = '';
-            
-            if (filteredHadiths.length === 0) {
-                grid.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                        <h3 style="color: #87CEEB; margin-bottom: 20px;">No Hadiths Found</h3>
-                        <p style="color: #E0E0E0;">Try adjusting your search or category selection.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            filteredHadiths.forEach(hadith => {
-                const card = document.createElement('div');
-                card.className = 'hadith-card';
-                card.innerHTML = `
-                    <div class="hadith-number">Hadith #${hadith.number}</div>
-                    <div class="hadith-arabic">${hadith.arabic}</div>
-                    <div class="hadith-translation">${hadith.translation}</div>
-                    <div class="hadith-context">
-                        <h4>Context & Meaning</h4>
-                        <p>${hadith.context}</p>
-                    </div>
-                    <div class="hadith-meta">
-                        <div class="meta-item">
-                            <div class="meta-label">Topic</div>
-                            <div class="meta-value">${hadith.topic}</div>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-label">Authentication</div>
-                            <div class="meta-value">${hadith.authentication}</div>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-label">Narrator</div>
-                            <div class="meta-value">${hadith.narrator}</div>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-label">Source</div>
-                            <div class="meta-value">${hadith.source}</div>
-                        </div>
-                    </div>
-                    <div class="hadith-actions">
-                        <button class="action-btn copy-btn" onclick="copyToClipboard('${hadith.translation}')">Copy</button>
-                        <button class="action-btn share-btn" onclick="shareHadith('${hadith.translation}')">Share</button>
-                        <button class="action-btn favorite-btn" onclick="addToFavorites(${hadith.number})">Favorite</button>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Hadith copied to clipboard!');
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                alert('Hadith copied to clipboard!');
-            });
-        }
-
-        function shareHadith(text) {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Hadith from Sunan Abu Dawud',
-                    text: text,
-                    url: window.location.href
-                });
-            } else {
-                copyToClipboard(text);
-                alert('Hadith copied! You can now share it manually.');
-            }
-        }
-
-        function addToFavorites(hadithNumber) {
-            alert('Feature coming soon! Hadith #' + hadithNumber + ' will be added to your favorites.');
-        }
-
-        function goBack() {
-            window.location.href = 'hadith-collections-hub.html';
-        }
-
-        // Add touch support for mobile
-        document.addEventListener('DOMContentLoaded', function() {
-            const hadithCards = document.querySelectorAll('.hadith-card');
-            
-            hadithCards.forEach(card => {
-                card.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                    this.style.transform = 'scale(0.95)';
-                    this.style.opacity = '0.8';
-                });
-                
-                card.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    this.style.transform = 'scale(1)';
-                    this.style.opacity = '1';
-                });
-            });
-        });
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>

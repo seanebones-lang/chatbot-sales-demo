@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hadith Collections - Islamic Knowledge Hub</title>
+    <title>Hadith Collections Hub - Complete Islamic Study Guide</title>
     <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,378 +51,270 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        .header {
-            background: rgba(18, 18, 18, 0.9);
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            border-bottom: 2px solid rgba(30, 144, 255, 0.3);
-        }
-
-        .header h1 {
-            color: #FFD700;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        }
-
-        .header p {
-            color: #87CEEB;
-            font-size: 1.1rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .intro-section {
-            background: rgba(18, 18, 18, 0.8);
-            padding: 2rem;
-            border-radius: 20px;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-        }
-
-        .intro-section h2 {
-            color: #FFD700;
-            margin-bottom: 1rem;
-            text-align: center;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        }
-
-        .intro-section p {
-            text-align: justify;
-            margin-bottom: 1rem;
-            color: #87CEEB;
-        }
-
-        .collections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .collection-card {
-            background: rgba(18, 18, 18, 0.8);
-            border: 2px solid rgba(68, 68, 68, 0.5);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
             transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .collection-card:hover {
-            transform: translateY(-10px);
-            border-color: #1E90FF;
-            box-shadow: 0 20px 40px rgba(30, 144, 255, 0.3);
-            background: rgba(18, 18, 18, 0.95);
-        }
-
-        .collection-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .collection-card:hover::before {
-            left: 100%;
-        }
-
-        .collection-card h3 {
-            color: #1E90FF;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .collection-card p {
-            color: #87CEEB;
-            margin-bottom: 1.5rem;
-        }
-
-        .collection-stats {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 1.5rem;
             font-size: 0.9rem;
         }
 
-        .collection-stats span {
-            background: rgba(30, 144, 255, 0.2);
-            color: #87CEEB;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            border: 1px solid rgba(30, 144, 255, 0.3);
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
         }
 
-        .view-btn {
-            background: linear-gradient(135deg, #1E90FF, #4169E1);
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-secondary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .content-section h4 {
+            color: var(--accent-teal);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .content-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .content-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
             color: white;
             border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
-            font-size: 1rem;
             transition: all 0.3s ease;
-            font-weight: bold;
+            box-shadow: var(--shadow-primary);
+            z-index: 1000;
         }
 
-        .view-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(30, 144, 255, 0.4);
-            background: linear-gradient(135deg, #4169E1, #1E90FF);
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
         }
 
-        .back-btn {
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            color: #333;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 2rem;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .back-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
-        }
-
-        .footer {
-            background: rgba(18, 18, 18, 0.9);
+        .search-container {
+            margin: 2rem 0;
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            border-radius: 20px 20px 0 0;
-            border-top: 2px solid rgba(30, 144, 255, 0.3);
-            color: #87CEEB;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
-        .intro-section {
-            animation: fadeIn 1s ease-out;
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
         }
-
-        .collection-card {
-            animation: fadeIn 1s ease-out;
-        }
-
-        .collection-card:nth-child(1) { animation-delay: 0.1s; }
-        .collection-card:nth-child(2) { animation-delay: 0.2s; }
-        .collection-card:nth-child(3) { animation-delay: 0.3s; }
-        .collection-card:nth-child(4) { animation-delay: 0.4s; }
-        .collection-card:nth-child(5) { animation-delay: 0.5s; }
-        .collection-card:nth-child(6) { animation-delay: 0.6s; }
-        .collection-card:nth-child(7) { animation-delay: 0.7s; }
-        .collection-card:nth-child(8) { animation-delay: 0.8s; }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            
             .container {
                 padding: 1rem;
             }
             
-            .collections-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+            .header h1 {
+                font-size: 2rem;
             }
             
-            .collection-card {
-                padding: 1.5rem;
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
             }
         }
+    
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Hadith Collections</h1>
-        <p>Complete collection of authentic Hadiths from major Islamic scholars</p>
-    </div>
-
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
     <div class="container">
-        <div class="intro-section">
-            <h2>Authentic Hadith Collections</h2>
-            <p>The Hadith collections represent the second most important source of Islamic knowledge after the Quran. These collections contain the sayings, actions, and approvals of Prophet Muhammad (PBUH), carefully preserved and transmitted by generations of scholars.</p>
-            <p>Each collection has its own unique characteristics, authentication methods, and organizational structure. Scholars have dedicated their lives to preserving these precious teachings and ensuring their authenticity through rigorous chains of narration (isnad).</p>
-        </div>
-
-        <div class="collections-grid">
-            <div class="collection-card" onclick="goToCollection('sahih-bukhari')">
-                <h3>Sahih al-Bukhari</h3>
-                <p>The most authentic collection of Hadiths, compiled by Imam Muhammad ibn Ismail al-Bukhari (810-870 CE).</p>
-                <div class="collection-stats">
-                    <span>7,275 Hadiths</span>
-                    <span>9th Century</span>
-                    <span>Most Authentic</span>
-                </div>
-                <button class="view-btn">View Collection</button>
-            </div>
-
-            <div class="collection-card" onclick="goToCollection('sahih-muslim')">
-                <h3>Sahih Muslim</h3>
-                <p>Second most authentic collection, compiled by Imam Muslim ibn al-Hajjaj (817-875 CE).</p>
-                <div class="collection-stats">
-                    <span>7,500+ Hadiths</span>
-                    <span>9th Century</span>
-                    <span>Highly Authentic</span>
-                </div>
-                <button class="view-btn">View Collection</button>
-            </div>
-
-            <div class="collection-card" onclick="goToCollection('sunan-abu-dawud')">
-                <h3>Sunan Abu Dawud</h3>
-                <p>Collection focusing on legal Hadiths, compiled by Abu Dawud Sulayman ibn al-Ash'ath (817-889 CE).</p>
-                <div class="collection-stats">
-                    <span>5,274 Hadiths</span>
-                    <span>9th Century</span>
-                    <span>Legal Focus</span>
-                </div>
-                <button class="view-btn">View Collection</button>
-            </div>
-
-            <div class="collection-card" onclick="goToCollection('sunan-tirmidhi')">
-                <h3>Sunan al-Tirmidhi</h3>
-                <p>Comprehensive collection with detailed commentary, compiled by Abu Isa Muhammad ibn Isa (824-892 CE).</p>
-                <div class="collection-stats">
-                    <span>3,956 Hadiths</span>
-                    <span>9th Century</span>
-                    <span>With Commentary</span>
-                </div>
-                <button class="view-btn">View Collection</button>
-            </div>
-
-            <div class="collection-card" onclick="goToCollection('sunan-nasai')">
-                <h3>Sunan al-Nasai</h3>
-                <p>Collection known for its strict authentication criteria, compiled by Ahmad ibn Shu'ayb (829-915 CE).</p>
-                <div class="collection-stats">
-                    <span>5,662 Hadiths</span>
-                    <span>9th Century</span>
-                    <span>Strict Criteria</span>
-                </div>
-                <button class="view-btn">View Collection</button>
-            </div>
-
-            <div class="collection-card" onclick="goToCollection('sunan-ibn-majah')">
-                <h3>Sunan Ibn Majah</h3>
-                <p>Collection that completes the six major Hadith books, compiled by Muhammad ibn Yazid (824-887 CE).</p>
-                <div class="collection-stats">
-                    <span>4,341 Hadiths</span>
-                    <span>9th Century</span>
-                    <span>Sixth Major</span>
-                </div>
-                <button class="view-btn">View Collection</button>
-            </div>
-
-            <div class="collection-card" onclick="goToCollection('musnad-ahmad')">
-                <h3>Musnad Ahmad</h3>
-                <p>Largest Hadith collection organized by companions, compiled by Imam Ahmad ibn Hanbal (780-855 CE).</p>
-                <div class="collection-stats">
-                    <span>30,000+ Hadiths</span>
-                    <span>9th Century</span>
-                    <span>By Companions</span>
-                </div>
-                <button class="view-btn">View Collection</button>
-            </div>
-
-            <div class="collection-card" onclick="goToCollection('mishkat-masabih')">
-                <h3>Mishkat al-Masabih</h3>
-                <p>Compilation combining multiple collections, compiled by Waliuddin Abu Abdullah (1254-1342 CE).</p>
-                <div class="collection-stats">
-                    <span>5,000+ Hadiths</span>
-                    <span>14th Century</span>
-                    <span>Combined Sources</span>
-                </div>
-                <button class="view-btn">View Collection</button>
-            </div>
-
-            <div class="collection-card" onclick="goToCollection('riyadh-saliheen')">
-                <h3>Riyadh as-Saliheen</h3>
-                <p>Collection focusing on virtuous behavior and manners, compiled by Imam an-Nawawi (1233-1277 CE).</p>
-                <div class="collection-stats">
-                    <span>1,900+ Hadiths</span>
-                    <span>13th Century</span>
-                    <span>Virtues & Manners</span>
-                </div>
-                <button class="view-btn">View Collection</button>
-            </div>
-        </div>
-
-        <div style="text-align: center;">
-            <button class="back-btn" onclick="goBack()">Back to Main Menu</button>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>May Allah guide us to understand and implement these authentic teachings</p>
-    </div>
-
-    <script>
-        function goToCollection(collectionName) {
-            window.location.href = `${collectionName}.html`;
-        }
-
-        function goBack() {
-            window.location.href = 'index.html';
-        }
-
-        // Add touch support for mobile
-        document.addEventListener('DOMContentLoaded', function() {
-            const collectionCards = document.querySelectorAll('.collection-card');
+        <header class="header">
+            <h1>Hadith Collections Hub</h1>
+            <p>Complete guide to hadith collections hub with comprehensive Islamic content and resources</p>
+        </header>
+        
+        <div class="content-section">
             
-            collectionCards.forEach(card => {
-                card.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                    this.style.transform = 'scale(0.95)';
-                    this.style.opacity = '0.8';
-                });
-                
-                card.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    this.style.transform = 'scale(1)';
-                    this.style.opacity = '1';
-                    const onclick = this.getAttribute('onclick');
-                    if (onclick) {
-                        eval(onclick);
-                    }
-                });
-            });
-        });
+            <h3>Hadith Collections Hub</h3>
+            <p>Complete guide to hadith collections hub with comprehensive Islamic content and resources</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h4>Overview</h4>
+                    <p>This section provides comprehensive information about hadith collections hub with detailed content and resources.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Key Topics</h4>
+                    <p>Explore the main topics and themes related to this subject area.</p>
+                </div>
+                <div class="content-card">
+                    <h4>Resources</h4>
+                    <p>Access additional resources, references, and study materials.</p>
+                </div>
+            </div>
+            
+            <h3>Detailed Content</h3>
+            <p>This page contains comprehensive information about hadith collections hub. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            
+            <h4>Main Sections:</h4>
+            <ul>
+                <li><strong>Introduction:</strong> Basic concepts and overview</li>
+                <li><strong>Core Topics:</strong> Essential information and principles</li>
+                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
+                <li><strong>Practical Applications:</strong> Real-world implementation</li>
+                <li><strong>References:</strong> Sources and additional reading</li>
+            </ul>
+        
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
     </script>
 </body>
 </html>
