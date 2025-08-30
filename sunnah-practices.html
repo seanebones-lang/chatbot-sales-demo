@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunnah Practices - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .sunnah-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .sunnah-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .sunnah-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Sunnah Practices</h1>
+            <p>Complete guide to following the prophetic traditions and daily practices of Prophet Muhammad sallallahu alayhi wa sallam</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Understanding Sunnah</h2>
+            <p>The Sunnah refers to the way of life, practices, and traditions of Prophet Muhammad sallallahu alayhi wa sallam. It includes his sayings, actions, approvals, and characteristics. Following the Sunnah is a way to draw closer to Allah and earn His pleasure.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ لِمَنْ كَانَ يَرْجُو اللَّهَ وَالْيَوْمَ الْآخِرَ</div>
+                <div class="translation">"There has certainly been for you in the Messenger of Allah an excellent pattern for anyone whose hope is in Allah and the Last Day." (Quran 33:21)</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Daily Sunnah Practices</h2>
+            
+            <div class="sunnah-card">
+                <h4>1. Morning and Evening Remembrance</h4>
+                <p>Start and end your day with Islamic remembrance:</p>
+                <div class="arabic-text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ</div>
+                <div class="translation">"We have reached the morning and at this very time all sovereignty belongs to Allah. All praise is for Allah."</div>
+                <p><strong>Evening version:</strong> Replace "asbahna" with "amsayna" (we have reached the evening).</p>
+                <div class="evidence-box">
+                    <h5>Benefits</h5>
+                    <ul>
+                        <li>Protection throughout the day</li>
+                        <li>Remembrance of Allah's sovereignty</li>
+                        <li>Expression of gratitude</li>
+                        <li>Spiritual protection and blessings</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>2. Before Eating and Drinking</h4>
+                <p>Always begin meals with the proper remembrance:</p>
+                <div class="arabic-text">بِسْمِ اللَّهِ</div>
+                <div class="translation">"In the name of Allah"</div>
+                <p><strong>After eating:</strong> Say "Alhamdulillah" (Praise be to Allah)</p>
+                <div class="evidence-box">
+                    <h5>Prophetic Teaching</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "When one of you eats, let him mention the name of Allah. If he forgets to mention the name of Allah at the beginning, let him say: 'In the name of Allah at the beginning and at the end.'"</p>
+                </div>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>3. Entering and Leaving Home</h4>
+                <p>Proper etiquette when entering and leaving:</p>
+                <div class="arabic-text">بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</div>
+                <div class="translation">"In the name of Allah, I place my trust in Allah, and there is no power and no strength except with Allah."</div>
+                <p><strong>When leaving:</strong> Add "Allahumma inni a'udhu bika an adilla aw udalla, aw azilla aw uzalla, aw azlima aw uzlima, aw ajhala aw yujhala 'alayya"</p>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>4. Entering and Leaving the Mosque</h4>
+                <p>Proper etiquette for places of worship:</p>
+                <div class="arabic-text">اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ</div>
+                <div class="translation">"O Allah, open for me the gates of Your mercy."</div>
+                <p><strong>When leaving:</strong> Say "Allahumma inni as'aluka min fadlika" (O Allah, I ask You of Your bounty)</p>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>5. Sneezing and Yawning</h4>
+                <p>Proper responses to natural actions:</p>
+                <div class="arabic-text">الْحَمْدُ لِلَّهِ</div>
+                <div class="translation">"Praise be to Allah" (when sneezing)</div>
+                <p><strong>Response:</strong> "Yarhamuk Allah" (May Allah have mercy on you)</p>
+                <p><strong>For yawning:</strong> Try to suppress it, and if you must yawn, cover your mouth</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Personal Hygiene Sunnah</h2>
+            
+            <div class="sunnah-card">
+                <h4>1. Using the Miswak (Tooth Stick)</h4>
+                <p>Regular oral hygiene practice:</p>
+                <ul>
+                    <li><strong>Frequency:</strong> Before prayers and when needed</li>
+                    <li><strong>Benefits:</strong> Clean mouth, fresh breath, spiritual reward</li>
+                    <li><strong>Method:</strong> Clean teeth and gums gently</li>
+                    <li><strong>Alternative:</strong> Toothbrush if miswak unavailable</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Prophetic Teaching</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "The miswak is a means of purifying the mouth and pleasing the Lord."</p>
+                </div>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>2. Trimming Nails and Mustache</h4>
+                <p>Regular grooming practices:</p>
+                <ul>
+                    <li><strong>Nails:</strong> Trim regularly, preferably on Fridays</li>
+                    <li><strong>Mustache:</strong> Keep trimmed and neat</li>
+                    <li><strong>Beard:</strong> Let grow naturally (for men)</li>
+                    <li><strong>Hair:</strong> Keep clean and well-groomed</li>
+                </ul>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>3. Wearing Perfume</h4>
+                <p>Maintaining pleasant fragrance:</p>
+                <ul>
+                    <li><strong>For men:</strong> Use perfume when going out</li>
+                    <li><strong>For women:</strong> Use perfume at home, not in public</li>
+                    <li><strong>Types:</strong> Natural fragrances preferred</li>
+                    <li><strong>Moderation:</strong> Don't overuse</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Social Sunnah Practices</h2>
+            
+            <div class="sunnah-card">
+                <h4>1. Greeting with Salam</h4>
+                <p>Proper Islamic greetings:</p>
+                <div class="arabic-text">السَّلَامُ عَلَيْكُمْ</div>
+                <div class="translation">"Peace be upon you"</div>
+                <p><strong>Response:</strong> "Wa alaykum as-salam" (And upon you be peace)</p>
+                <div class="evidence-box">
+                    <h5>Benefits</h5>
+                    <ul>
+                        <li>Spreads peace and love</li>
+                        <li>Earns reward from Allah</li>
+                        <li>Strengthens community bonds</li>
+                        <li>Follows prophetic example</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>2. Visiting the Sick</h4>
+                <p>Showing care and compassion:</p>
+                <ul>
+                    <li><strong>Frequency:</strong> Visit when possible</li>
+                    <li><strong>Duration:</strong> Keep visits short and beneficial</li>
+                    <li><strong>Actions:</strong> Make dua, offer help, show concern</li>
+                    <li><strong>Benefits:</strong> Earns reward and strengthens bonds</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Prophetic Teaching</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam said: "When you visit a sick person, ask him to make dua for you, for his dua is like the dua of angels."</p>
+                </div>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>3. Attending Funerals</h4>
+                <p>Showing respect for the deceased:</p>
+                <ul>
+                    <li><strong>Participation:</strong> Attend when possible</li>
+                    <li><strong>Behavior:</strong> Show respect and solemnity</li>
+                    <li><strong>Dua:</strong> Make sincere dua for the deceased</li>
+                    <li><strong>Reflection:</strong> Remember your own mortality</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Business and Financial Sunnah</h2>
+            
+            <div class="sunnah-card">
+                <h4>1. Honest Business Practices</h4>
+                <p>Maintaining integrity in business:</p>
+                <ul>
+                    <li><strong>Truthfulness:</strong> Always be honest about products and services</li>
+                    <li><strong>Fair Pricing:</strong> Don't overcharge or undercut unfairly</li>
+                    <li><strong>Quality:</strong> Provide the best possible service</li>
+                    <li><strong>Transparency:</strong> Be clear about terms and conditions</li>
+                    <li><strong>Charity:</strong> Give from your business earnings</li>
+                </ul>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>2. Avoiding Interest (Riba)</h4>
+                <p>Islamic financial principles:</p>
+                <ul>
+                    <li><strong>Definition:</strong> Avoid all forms of interest</li>
+                    <li><strong>Alternatives:</strong> Use interest-free financial products</li>
+                    <li><strong>Investments:</strong> Choose halal investment options</li>
+                    <li><strong>Banking:</strong> Use Islamic banking services when available</li>
+                </ul>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>3. Paying Workers Promptly</h4>
+                <p>Fair treatment of employees:</p>
+                <ul>
+                    <li><strong>Timely Payment:</strong> Pay wages when due</li>
+                    <li><strong>Fair Wages:</strong> Pay what is deserved</li>
+                    <li><strong>Respect:</strong> Treat workers with dignity</li>
+                    <li><strong>Benefits:</strong> Provide fair benefits when possible</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Family and Home Sunnah</h2>
+            
+            <div class="sunnah-card">
+                <h4>1. Family Meals</h4>
+                <p>Building family bonds through food:</p>
+                <ul>
+                    <li><strong>Togetherness:</strong> Eat together when possible</li>
+                    <li><strong>Sharing:</strong> Share food with family members</li>
+                    <li><strong>Gratitude:</strong> Express thanks for the meal</li>
+                    <li><strong>Moderation:</strong> Don't overeat</li>
+                </ul>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>2. Visiting Family</h4>
+                <p>Maintaining family relationships:</p>
+                <ul>
+                    <li><strong>Regular Visits:</strong> Visit family members regularly</li>
+                    <li><strong>Gifts:</strong> Bring small gifts when visiting</li>
+                    <li><strong>Time:</strong> Spend quality time together</li>
+                    <li><strong>Support:</strong> Offer help when needed</li>
+                </ul>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>3. Home Environment</h4>
+                <p>Creating a positive home atmosphere:</p>
+                <ul>
+                    <li><strong>Cleanliness:</strong> Keep home clean and organized</li>
+                    <li><strong>Islamic Reminders:</strong> Display Islamic calligraphy or verses</li>
+                    <li><strong>Prayer Area:</strong> Designate a clean prayer space</li>
+                    <li><strong>Positive Atmosphere:</strong> Maintain peace and harmony</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Benefits of Following Sunnah</h2>
+            
+            <div class="sunnah-card">
+                <h4>Spiritual Benefits</h4>
+                <ul>
+                    <li><strong>Closer to Allah:</strong> Following the Prophet's example draws us closer to Allah</li>
+                    <li><strong>Increased Reward:</strong> Sunnah practices earn additional rewards</li>
+                    <li><strong>Protection:</strong> Many sunnah practices provide spiritual protection</li>
+                    <li><strong>Blessings:</strong> Following sunnah brings barakah (blessings)</li>
+                </ul>
+            </div>
+
+            <div class="sunnah-card">
+                <h4>Practical Benefits</h4>
+                <ul>
+                    <li><strong>Better Health:</strong> Many sunnah practices promote good health</li>
+                    <li><strong>Stronger Relationships:</strong> Social sunnah practices build bonds</li>
+                    <li><strong>Improved Character:</strong> Following sunnah develops good character</li>
+                    <li><strong>Community Harmony:</strong> Sunnah practices create social harmony</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="family-values.html">Islamic Family Values</a></li>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>

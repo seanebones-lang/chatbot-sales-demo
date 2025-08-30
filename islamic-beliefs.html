@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Beliefs and Aqeedah - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .belief-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .belief-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .belief-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Beliefs and Aqeedah</h1>
+            <p>Complete guide to the core beliefs, theological concepts, and fundamental principles of Islamic faith</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Understanding Islamic Beliefs</h2>
+            <p>Islamic beliefs (Aqeedah) form the foundation of a Muslim's faith. These beliefs are based on the Quran and authentic Sunnah, providing a comprehensive understanding of Allah, His attributes, and the purpose of human existence.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ</div>
+                <div class="translation">"The Messenger has believed in what was revealed to him from his Lord, and [so have] the believers. All of them have believed in Allah and His angels and His books and His messengers." (Quran 2:285)</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Six Pillars of Iman (Faith)</h2>
+            
+            <div class="belief-card">
+                <h4>1. Belief in Allah (Tawheed)</h4>
+                <p>The foundation of Islamic belief is the absolute oneness of Allah. This includes:</p>
+                
+                <h4>Oneness of Lordship (Tawheed ar-Rububiyyah)</h4>
+                <ul>
+                    <li><strong>Creation:</strong> Allah alone is the Creator of everything</li>
+                    <li><strong>Sustenance:</strong> Allah provides for all creation</li>
+                    <li><strong>Control:</strong> Allah controls all affairs</li>
+                    <li><strong>Ownership:</strong> Everything belongs to Allah</li>
+                </ul>
+                
+                <h4>Oneness of Worship (Tawheed al-Uluhiyyah)</h4>
+                <ul>
+                    <li><strong>Exclusive Worship:</strong> Only Allah deserves worship</li>
+                    <li><strong>No Intermediaries:</strong> Direct connection with Allah</li>
+                    <li><strong>Complete Submission:</strong> Surrendering to Allah's will</li>
+                </ul>
+                
+                <h4>Oneness of Names and Attributes (Tawheed al-Asma wa Sifat)</h4>
+                <ul>
+                    <li><strong>Perfect Attributes:</strong> Allah has the most perfect names and attributes</li>
+                    <li><strong>No Comparison:</strong> Cannot be compared to creation</li>
+                    <li><strong>No Negation:</strong> Cannot deny His attributes</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾</div>
+                    <div class="translation">"Say: He is Allah, [who is] One, Allah, the Eternal Refuge. He neither begets nor is born, nor is there to Him any equivalent." (Quran 112:1-4)</div>
+                </div>
+            </div>
+
+            <div class="belief-card">
+                <h4>2. Belief in Angels (Malaikah)</h4>
+                <p>Angels are spiritual beings created by Allah from light who carry out His commands:</p>
+                
+                <h4>Nature of Angels</h4>
+                <ul>
+                    <li><strong>Creation:</strong> Made from light (noor)</li>
+                    <li><strong>Obedience:</strong> Never disobey Allah</li>
+                    <li><strong>Invisibility:</strong> Cannot be seen by humans normally</li>
+                    <li><strong>No Gender:</strong> Neither male nor female</li>
+                    <li><strong>No Free Will:</strong> Always follow Allah's commands</li>
+                </ul>
+                
+                <h4>Famous Angels and Their Duties</h4>
+                <ul>
+                    <li><strong>Jibreel:</strong> Brings revelation to prophets</li>
+                    <li><strong>Mikail:</strong> Manages rain and sustenance</li>
+                    <li><strong>Israfil:</strong> Will blow the trumpet on Day of Judgment</li>
+                    <li><strong>Azrael:</strong> Takes souls at death</li>
+                    <li><strong>Raqib and Atid:</strong> Record good and bad deeds</li>
+                    <li><strong>Munkar and Nakir:</strong> Question souls in the grave</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">مَن كَانَ عَدُوًّا لِّلَّهِ وَمَلَائِكَتِهِ وَرُسُلِهِ وَجِبْرِيلَ وَمِيكَالَ فَإِنَّ اللَّهَ عَدُوٌّ لِّلْكَافِرِينَ</div>
+                    <div class="translation">"Whoever is an enemy to Allah and His angels and His messengers and Gabriel and Michael - then indeed, Allah is an enemy to the disbelievers." (Quran 2:98)</div>
+                </div>
+            </div>
+
+            <div class="belief-card">
+                <h4>3. Belief in Divine Books (Kutub)</h4>
+                <p>Allah has revealed divine books to guide humanity:</p>
+                
+                <h4>Major Divine Books</h4>
+                <ul>
+                    <li><strong>Scrolls of Ibrahim:</strong> First revelations to Prophet Ibrahim</li>
+                    <li><strong>Zabur (Psalms):</strong> Revealed to Prophet Dawud</li>
+                    <li><strong>Tawrat (Torah):</strong> Revealed to Prophet Musa</li>
+                    <li><strong>Injil (Gospel):</strong> Revealed to Prophet Isa</li>
+                    <li><strong>Quran:</strong> Final revelation to Prophet Muhammad</li>
+                </ul>
+                
+                <h4>Characteristics of Divine Books</h4>
+                <ul>
+                    <li><strong>Divine Origin:</strong> All come from Allah</li>
+                    <li><strong>Guidance:</strong> Provide guidance for humanity</li>
+                    <li><strong>Preservation:</strong> Quran is perfectly preserved</li>
+                    <li><strong>Progressive:</strong> Each book built upon previous ones</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">نَزَّلَ عَلَيْكَ الْكِتَابَ بِالْحَقِّ مُصَدِّقًا لِّمَا بَيْنَ يَدَيْهِ وَأَنزَلَ التَّوْرَاةَ وَالْإِنجِيلَ</div>
+                    <div class="translation">"He has sent down upon you, [O Muhammad], the Book in truth, confirming what was before it. And He revealed the Torah and the Gospel." (Quran 3:3)</div>
+                </div>
+            </div>
+
+            <div class="belief-card">
+                <h4>4. Belief in Messengers (Rusul)</h4>
+                <p>Allah has sent messengers to every nation to guide them:</p>
+                
+                <h4>Nature of Messengers</h4>
+                <ul>
+                    <li><strong>Human Beings:</strong> All messengers were human</li>
+                    <li><strong>Infallible:</strong> Protected from major sins</li>
+                    <li><strong>Miracles:</strong> Given signs to prove their prophethood</li>
+                    <li><strong>Guidance:</strong> Teach the same core message</li>
+                </ul>
+                
+                <h4>Famous Messengers</h4>
+                <ul>
+                    <li><strong>Adam:</strong> First human and first prophet</li>
+                    <li><strong>Nuh:</strong> Prophet of the flood</li>
+                    <li><strong>Ibrahim:</strong> Father of monotheism</li>
+                    <li><strong>Musa:</strong> Prophet of the Torah</li>
+                    <li><strong>Isa:</strong> Prophet of the Gospel</li>
+                    <li><strong>Muhammad:</strong> Final messenger</li>
+                </ul>
+                
+                <h4>Finality of Prophet Muhammad</h4>
+                <p>Prophet Muhammad sallallahu alayhi wa sallam is the final messenger, and no prophet will come after him. His message is universal and for all time.</p>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">مَّا كَانَ مُحَمَّدٌ أَبَا أَحَدٍ مِّن رِّجَالِكُمْ وَلَٰكِن رَّسُولَ اللَّهِ وَخَاتَمَ النَّبِيِّينَ</div>
+                    <div class="translation">"Muhammad is not the father of [any] one of your men, but [he is] the Messenger of Allah and last of the prophets." (Quran 33:40)</div>
+                </div>
+            </div>
+
+            <div class="belief-card">
+                <h4>5. Belief in the Day of Judgment (Yawm al-Qiyamah)</h4>
+                <p>The Day of Judgment is when all humans will be resurrected and judged:</p>
+                
+                <h4>Events of the Day of Judgment</h4>
+                <ul>
+                    <li><strong>Trumpet Blast:</strong> Angel Israfil will blow the trumpet</li>
+                    <li><strong>Resurrection:</strong> All humans will be raised from graves</li>
+                    <li><strong>Assembly:</strong> Everyone will gather for judgment</li>
+                    <li><strong>Scales:</strong> Deeds will be weighed</li>
+                    <li><strong>Records:</strong> Books of deeds will be opened</li>
+                    <li><strong>Bridge:</strong> Crossing over Hell to Paradise</li>
+                </ul>
+                
+                <h4>Signs of the Day of Judgment</h4>
+                <ul>
+                    <li><strong>Minor Signs:</strong> Moral decline, increase in knowledge</li>
+                    <li><strong>Major Signs:</strong> Coming of Dajjal, descent of Isa</li>
+                    <li><strong>Final Signs:</strong> Sun rising from west, smoke</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">إِنَّ السَّاعَةَ لَآتِيَةٌ لَّا رَيْبَ فِيهَا وَلَٰكِنَّ أَكْثَرَ النَّاسِ لَا يُؤْمِنُونَ</div>
+                    <div class="translation">"Indeed, the Hour is coming - no doubt about it - but most of the people do not believe." (Quran 40:59)</div>
+                </div>
+            </div>
+
+            <div class="belief-card">
+                <h4>6. Belief in Divine Decree (Qadr)</h4>
+                <p>Everything that happens is according to Allah's knowledge and will:</p>
+                
+                <h4>Understanding Qadr</h4>
+                <ul>
+                    <li><strong>Allah's Knowledge:</strong> Allah knows everything that will happen</li>
+                    <li><strong>Allah's Will:</strong> Nothing happens without Allah's permission</li>
+                    <li><strong>Allah's Creation:</strong> Allah creates everything</li>
+                    <li><strong>Human Choice:</strong> Humans have free will within Allah's plan</li>
+                </ul>
+                
+                <h4>Balancing Qadr and Free Will</h4>
+                <ul>
+                    <li><strong>Predestination:</strong> Major events are predetermined</li>
+                    <li><strong>Free Choice:</strong> Daily decisions are our choice</li>
+                    <li><strong>Responsibility:</strong> We are accountable for our choices</li>
+                    <li><strong>Trust in Allah:</strong> Accept what we cannot change</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">إِنَّا كُلَّ شَيْءٍ خَلَقْنَاهُ بِقَدَرٍ</div>
+                    <div class="translation">"Indeed, all things We created with predestination." (Quran 54:49)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Additional Islamic Beliefs</h2>
+            
+            <div class="belief-card">
+                <h4>Belief in the Afterlife</h4>
+                <p>Life after death includes several stages:</p>
+                
+                <h4>Stages of the Afterlife</h4>
+                <ul>
+                    <li><strong>Death:</strong> Soul leaves the body</li>
+                    <li><strong>Grave:</strong> Questioning by Munkar and Nakir</li>
+                    <li><strong>Barzakh:</strong> Intermediate state between death and resurrection</li>
+                    <li><strong>Resurrection:</strong> Rising from the grave</li>
+                    <li><strong>Judgment:</strong> Account of deeds</li>
+                    <li><strong>Paradise/Hell:</strong> Eternal destination</li>
+                </ul>
+            </div>
+
+            <div class="belief-card">
+                <h4>Belief in the Unseen (Ghaib)</h4>
+                <p>Muslims believe in realities beyond human perception:</p>
+                
+                <ul>
+                    <li><strong>Jinn:</strong> Spiritual beings created from fire</li>
+                    <li><strong>Shaytan:</strong> Evil jinn who mislead humans</li>
+                    <li><strong>Heavenly Realms:</strong> Seven heavens and their inhabitants</li>
+                    <li><strong>Divine Throne:</strong> Allah's magnificent throne</li>
+                    <li><strong>Preserved Tablet:</strong> Where all events are recorded</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Misconceptions About Islamic Beliefs</h2>
+            
+            <div class="belief-card">
+                <h4>Addressing Misunderstandings</h4>
+                
+                <h4>Is Allah a "God" like other religions?</h4>
+                <p>No, Allah is completely unique and unlike any created being. He has no partners, no equals, and no limitations.</p>
+                
+                <h4>Do Muslims worship Muhammad?</h4>
+                <p>No, Muslims only worship Allah. Muhammad sallallahu alayhi wa sallam is respected as the final messenger but never worshipped.</p>
+                
+                <h4>Is everything predetermined?</h4>
+                <p>While major events are predetermined, humans have free will in daily choices and are accountable for their actions.</p>
+                
+                <h4>Do Muslims believe in the Bible?</h4>
+                <p>Muslims believe in the original divine messages but recognize that current versions may have been altered over time.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
+                <li><a href="tawheed.html">Tawheed (Islamic Monotheism)</a></li>
+                <li><a href="prophets.html">Stories of the Prophets</a></li>
+                <li><a href="afterlife.html">Afterlife and Hereafter</a></li>
+                <li><a href="islamic-philosophy.html">Islamic Philosophy</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+                <li><a href="sunnah-practices.html">Sunnah Practices</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>
