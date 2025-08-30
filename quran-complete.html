@@ -752,13 +752,8 @@
 
         function openSurah(surahNumber) {
             // Open the individual Surah page
-            if (surahNumber === 1) {
-                window.location.href = 'surah-1-al-fatiha.html';
-            } else {
-                // For other Surahs, show alert until we create their pages
-                alert(`Opening Surah ${surahNumber}. This will display the complete Surah with Arabic text, transliteration, and translation.`);
-                // Future implementation: window.location.href = `surah-${surahNumber}-${getSurahName(surahNumber)}.html`;
-            }
+            const surahFileName = `surah-${surahNumber}-${getSurahName(surahNumber)}.html`;
+            window.location.href = surahFileName;
         }
 
         function getSurahName(surahNumber) {

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surah At-Tariq - Islamic Study Guide Application</title>
+    <style>
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            box-shadow: var(--shadow-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .header-text h1 {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header-text .arabic-title {
+            font-family: 'Amiri', 'Arial', serif;
+            font-size: 1.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+            direction: rtl;
+        }
+
+        .header-text p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .back-button {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--accent-teal);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .surah-info {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-primary);
+            border: 1px solid var(--border-primary);
+        }
+
+        .surah-info h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .info-item {
+            background: var(--bg-accent);
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid var(--border-primary);
+        }
+
+        .info-label {
+            color: var(--accent-secondary);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .verses-container {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-primary);
+            border: 1px solid var(--border-primary);
+        }
+
+        .verses-container h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .verse {
+            background: var(--bg-accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-primary);
+            transition: all 0.3s ease;
+        }
+
+        .verse:hover {
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .verse-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .verse-number {
+            background: var(--accent-primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .verse-reference {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .verse-arabic {
+            font-family: 'Amiri', 'Arial', serif;
+            font-size: 1.8rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1.5rem 0;
+            line-height: 2.5;
+            color: var(--text-primary);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border-right: 4px solid var(--accent-primary);
+        }
+
+        .verse-transliteration {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .verse-translation {
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .nav-button {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .nav-button:disabled {
+            background: var(--border-primary);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-primary);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .verse-arabic {
+                font-size: 1.4rem;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-button" onclick="window.location.href='quran-complete.html'">← Back to Quran</button>
+        <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+        
+        <div class="header">
+            <div class="header-text">
+                <h1>Surah At-Tariq</h1>
+                <div class="arabic-title">الطارق</div>
+                <p>The Morning Star - Surah number 86 of the Quran, consisting of 17 verses. This Surah was revealed in Meccan.</p>
+            </div>
+        </div>
+
+        <div class="surah-info">
+            <h3>Surah Information</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Surah Number</div>
+                    <div class="info-value">86</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Number of Verses</div>
+                    <div class="info-value">17</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Revelation</div>
+                    <div class="info-value">Meccan</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Juz</div>
+                    <div class="info-value">30</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Pages</div>
+                    <div class="info-value">592-593</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Rukus</div>
+                    <div class="info-value">1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verses-container">
+            <h3>Sample Verses</h3>
+            
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">1</div>
+                    <div class="verse-reference">At-Tariq 86:1</div>
+                </div>
+                <div class="verse-arabic">Sample Arabic text for verse 1</div>
+                <div class="verse-transliteration">Sample transliteration for verse 1</div>
+                <div class="verse-translation">Sample English translation for verse 1</div>
+            </div>
+        
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">2</div>
+                    <div class="verse-reference">At-Tariq 86:2</div>
+                </div>
+                <div class="verse-arabic">Sample Arabic text for verse 2</div>
+                <div class="verse-transliteration">Sample transliteration for verse 2</div>
+                <div class="verse-translation">Sample English translation for verse 2</div>
+            </div>
+        
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">3</div>
+                    <div class="verse-reference">At-Tariq 86:3</div>
+                </div>
+                <div class="verse-arabic">Sample Arabic text for verse 3</div>
+                <div class="verse-transliteration">Sample transliteration for verse 3</div>
+                <div class="verse-translation">Sample English translation for verse 3</div>
+            </div>
+        
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">4</div>
+                    <div class="verse-reference">At-Tariq 86:4</div>
+                </div>
+                <div class="verse-arabic">Sample Arabic text for verse 4</div>
+                <div class="verse-transliteration">Sample transliteration for verse 4</div>
+                <div class="verse-translation">Sample English translation for verse 4</div>
+            </div>
+        
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">5</div>
+                    <div class="verse-reference">At-Tariq 86:5</div>
+                </div>
+                <div class="verse-arabic">Sample Arabic text for verse 5</div>
+                <div class="verse-transliteration">Sample transliteration for verse 5</div>
+                <div class="verse-translation">Sample English translation for verse 5</div>
+            </div>
+        
+            <div class="verse">
+                <div class="verse-header">
+                    <div class="verse-number">17</div>
+                    <div class="verse-reference">At-Tariq 86:17</div>
+                </div>
+                <div class="verse-arabic">Sample Arabic text for verse 17</div>
+                <div class="verse-transliteration">Sample transliteration for verse 17</div>
+                <div class="verse-translation">Sample English translation for verse 17</div>
+            </div>
+        
+        </div>
+
+        <div class="navigation-buttons">
+            <button class="nav-button" onclick="window.location.href='surah-85-al-buruj.html'">← Previous Surah</button>
+            <button class="nav-button" onclick="window.location.href='surah-87-al-ala.html'">Next Surah →</button>
+        </div>
+
+        <div class="footer">
+            <p>Surah At-Tariq - The Morning Star</p>
+            <p>Complete with Arabic text, transliteration, and Saheeh International English translation</p>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>
