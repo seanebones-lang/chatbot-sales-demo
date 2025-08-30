@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentic Duas - Supplications from Prophet Muhammad (PBUH)</title>
+    <meta name="description" content="Comprehensive collection of authentic duas (supplications) from Prophet Muhammad (PBUH) for daily life, organized by category with Arabic text, transliteration, and English translation.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 77, 97, 0.1) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #FFD700;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .header p {
+            color: #87CEEB;
+            font-size: 1.2rem;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(30, 144, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(30, 144, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .content-section {
+            background: rgba(18, 18, 18, 0.8);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            color: #1E90FF;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(30, 144, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .subsection-title {
+            color: #FFD700;
+            font-size: 1.4rem;
+            margin: 25px 0 15px 0;
+        }
+
+        .dua-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .dua-card:hover {
+            transform: translateY(-5px);
+            border-color: #1E90FF;
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.2);
+        }
+
+        .dua-title {
+            color: #FFD700;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .dua-arabic {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: right;
+            direction: rtl;
+            font-size: 1.4rem;
+            line-height: 2;
+            color: #FFD700;
+        }
+
+        .dua-transliteration {
+            background: rgba(30, 144, 255, 0.1);
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            color: #87CEEB;
+            font-style: italic;
+        }
+
+        .dua-translation {
+            background: rgba(135, 206, 235, 0.1);
+            border: 2px solid rgba(135, 206, 235, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            color: #E0E0E0;
+        }
+
+        .dua-reference {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #87CEEB;
+            text-align: center;
+        }
+
+        .dua-benefits {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .dua-benefits h5 {
+            color: #FFD700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .dua-benefits p {
+            color: #E0E0E0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .category-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(68, 68, 68, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            transform: translateY(-3px);
+            border-color: #1E90FF;
+            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.2);
+        }
+
+        .category-item h4 {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .category-item p {
+            color: #E0E0E0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .intro-box {
+            background: rgba(30, 144, 255, 0.1);
+            border: 2px solid rgba(30, 144, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .intro-box h4 {
+            color: #1E90FF;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .intro-box p {
+            color: #E0E0E0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .dua-arabic {
+                font-size: 1.2rem;
+            }
+            
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='index.html'">← Back to Home</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Authentic Duas</h1>
+            <p>Supplications from Prophet Muhammad (PBUH) - Daily Prayers and Remembrances</p>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Introduction to Duas</h2>
+            <div class="intro-box">
+                <h4>What are Duas?</h4>
+                <p>
+                    Duas (supplications) are personal prayers and invocations to Allah. They are a direct means of communication 
+                    between a believer and their Creator. Prophet Muhammad (PBUH) taught us numerous duas for various occasions 
+                    and situations in life. These authentic supplications help us remember Allah throughout the day and seek His 
+                    guidance, protection, and blessings.
+                </p>
+            </div>
+            
+            <div class="intro-box">
+                <h4>How to Use These Duas</h4>
+                <p>
+                    Learn these duas gradually, starting with the most commonly used ones. Recite them with understanding and 
+                    sincerity. It's better to learn a few duas well and use them regularly than to memorize many without 
+                    understanding their meaning. Remember that the most important aspect is the sincerity of your heart when 
+                    making these supplications.
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Daily Morning and Evening Duas</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Morning Supplication (Dua for Starting the Day)</h3>
+                <div class="dua-arabic">
+                    أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ
+                </div>
+                <div class="dua-transliteration">
+                    Asbahna wa asbahal mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la shareeka lah, lahul mulku wa lahul hamdu wa huwa 'ala kulli shay'in qadeer
+                </div>
+                <div class="dua-translation">
+                    We have reached the morning and at this very time all sovereignty belongs to Allah. All praise is for Allah. None has the right to be worshipped except Allah, alone, without any partner, to Him belongs all sovereignty and praise and He is over all things omnipotent.
+                </div>
+                <div class="dua-reference">Reference: Muslim 4/2088</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua helps start the day with remembrance of Allah and acknowledgment of His sovereignty. It's a powerful way to begin each morning with the right mindset.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Evening Supplication (Dua for Ending the Day)</h3>
+                <div class="dua-arabic">
+                    أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ
+                </div>
+                <div class="dua-transliteration">
+                    Amsayna wa amsal mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la shareeka lah, lahul mulku wa lahul hamdu wa huwa 'ala kulli shay'in qadeer
+                </div>
+                <div class="dua-translation">
+                    We have reached the evening and at this very time all sovereignty belongs to Allah. All praise is for Allah. None has the right to be worshipped except Allah, alone, without any partner, to Him belongs all sovereignty and praise and He is over all things omnipotent.
+                </div>
+                <div class="dua-reference">Reference: Muslim 4/2088</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>Reciting this dua in the evening helps reflect on the day and end it with gratitude and remembrance of Allah.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Morning Remembrance (Subhan Allah)</h3>
+                <div class="dua-arabic">
+                    سُبْحَانَ اللَّهِ وَبِحَمْدِهِ
+                </div>
+                <div class="dua-transliteration">
+                    Subhanallahi wa bihamdihi
+                </div>
+                <div class="dua-translation">
+                    Glory be to Allah and His is the praise
+                </div>
+                <div class="dua-reference">Reference: Muslim 4/2073</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>Prophet Muhammad (PBUH) said that saying this 100 times in the morning and evening will erase all sins, even if they are as much as the foam of the sea.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Evening Remembrance (La ilaha illallah)</h3>
+                <div class="dua-arabic">
+                    لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ
+                </div>
+                <div class="dua-transliteration">
+                    La ilaha illallahu wahdahu la shareeka lah, lahul mulku wa lahul hamdu wa huwa 'ala kulli shay'in qadeer
+                </div>
+                <div class="dua-translation">
+                    None has the right to be worshipped except Allah, alone, without any partner, to Him belongs all sovereignty and praise and He is over all things omnipotent.
+                </div>
+                <div class="dua-reference">Reference: Bukhari 3293</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>Reciting this 100 times in the morning and evening provides protection and brings great reward.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Duas for Prayer and Worship</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Before Starting Prayer</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ بَاعِدْ بَيْنِي وَبَيْنَ خَطَايَايَ كَمَا بَاعَدْتَ بَيْنَ الْمَشْرِقِ وَالْمَغْرِبِ، اللَّهُمَّ نَقِّنِي مِنْ خَطَايَايَ كَمَا يُنَقَّى الثَّوْبُ الأَبْيَضُ مِنَ الدَّنَسِ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma ba'id bayni wa bayna khatayaya kama ba'adta baynal-mashriqi wal-maghrib. Allahumma naqqini min khatayaya kama yunaqqath-thawbul-abyadu minad-danas
+                </div>
+                <div class="dua-translation">
+                    O Allah, distance me from my sins as You have distanced the east from the west. O Allah, purify me of my sins as a white garment is purified of filth.
+                </div>
+                <div class="dua-reference">Reference: Bukhari 744</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua helps purify the heart before prayer and seeks Allah's forgiveness for sins.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">After Prayer (Tasbih)</h3>
+                <div class="dua-arabic">
+                    سُبْحَانَ اللَّهِ (33 times) - الْحَمْدُ لِلَّهِ (33 times) - اللَّهُ أَكْبَرُ (34 times)
+                </div>
+                <div class="dua-transliteration">
+                    Subhanallah (33 times) - Alhamdulillah (33 times) - Allahu Akbar (34 times)
+                </div>
+                <div class="dua-translation">
+                    Glory be to Allah (33 times) - All praise is for Allah (33 times) - Allah is the Greatest (34 times)
+                </div>
+                <div class="dua-reference">Reference: Muslim 4/2073</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>Prophet Muhammad (PBUH) said that whoever recites these after each prayer will have all their sins forgiven.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Qunut (Witr Prayer)</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ، وَعَافِنِي فِيمَنْ عَافَيْتَ، وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ، وَبَارِكْ لِي فِيمَا أَعْطَيْتَ، وَقِنِي شَرَّ مَا قَضَيْتَ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma-hdini fiman hadayta, wa 'afini fiman 'afayta, wa tawallani fiman tawallayta, wa barik li fima a'tayta, wa qini sharra ma qadayta
+                </div>
+                <div class="dua-translation">
+                    O Allah, guide me among those whom You have guided, pardon me among those whom You have pardoned, befriend me among those whom You have befriended, bless me in what You have granted, and protect me from the evil that You decreed.
+                </div>
+                <div class="dua-reference">Reference: Abu Dawud 1425</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This comprehensive dua seeks Allah's guidance, pardon, friendship, blessings, and protection.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Duas for Daily Activities</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Before Eating</h3>
+                <div class="dua-arabic">
+                    بِسْمِ اللَّهِ
+                </div>
+                <div class="dua-transliteration">
+                    Bismillah
+                </div>
+                <div class="dua-translation">
+                    In the name of Allah
+                </div>
+                <div class="dua-reference">Reference: Bukhari 5376</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This simple dua reminds us that all sustenance comes from Allah and helps us eat with mindfulness and gratitude.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">After Eating</h3>
+                <div class="dua-arabic">
+                    الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلاَ قُوَّةٍ
+                </div>
+                <div class="dua-transliteration">
+                    Alhamdu lillahil-ladhi at'amani hadha wa razaqanihi min ghayri hawlin minni wa la quwwah
+                </div>
+                <div class="dua-translation">
+                    All praise is for Allah who gave me this food and provided it for me, without any strength or power on my part.
+                </div>
+                <div class="dua-reference">Reference: Abu Dawud 4023</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua teaches gratitude and acknowledges that all provisions come from Allah's mercy.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Before Entering Home</h3>
+                <div class="dua-arabic">
+                    بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا
+                </div>
+                <div class="dua-transliteration">
+                    Bismillahi walajna, wa bismillahi kharajna, wa 'alallahi rabbina tawakkalna
+                </div>
+                <div class="dua-translation">
+                    In the name of Allah we enter, in the name of Allah we leave, and upon our Lord we place our trust.
+                </div>
+                <div class="dua-reference">Reference: Abu Dawud 5096</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua seeks Allah's protection when entering and leaving the home, placing trust in Him for safety.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Before Sleeping</h3>
+                <div class="dua-arabic">
+                    بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ، فَإِنْ أَمْسَكْتَ نَفْسِي فَارْحَمْهَا، وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا بِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ
+                </div>
+                <div class="dua-transliteration">
+                    Bismika rabbi wada'tu janbi, wa bika arfa'uhu, fa in amsakta nafsi farhamha, wa in arsaltaha fahfazha bima tahfazu bihi 'ibadakas-saliheen
+                </div>
+                <div class="dua-translation">
+                    In Your name, my Lord, I lay down my side, and by You I raise it. If You should take my soul then have mercy upon it, and if You should return my soul then protect it in the manner You do so for Your righteous servants.
+                </div>
+                <div class="dua-reference">Reference: Bukhari 6320</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua seeks Allah's protection during sleep and places our trust in Him for our safety and well-being.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Before Entering the Bathroom</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma inni a'udhu bika minal-khubuthi wal-khaba'ith
+                </div>
+                <div class="dua-translation">
+                    O Allah, I seek refuge in You from evil and from evil doers (male and female devils).
+                </div>
+                <div class="dua-reference">Reference: Bukhari 142</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua seeks protection from evil spirits and maintains spiritual cleanliness.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">After Leaving the Bathroom</h3>
+                <div class="dua-arabic">
+                    الْحَمْدُ لِلَّهِ الَّذِي أَذْهَبَ عَنِّي الأَذَى وَعَافَانِي
+                </div>
+                <div class="dua-transliteration">
+                    Alhamdulillahil-ladhi adh-haba 'annil-adha wa 'afani
+                </div>
+                <div class="dua-translation">
+                    Praise be to Allah who has removed from me discomfort and granted me relief.
+                </div>
+                <div class="dua-reference">Reference: Abu Dawud 30</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua expresses gratitude for the relief and comfort Allah has provided.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Before Looking in the Mirror</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ كَمَا حَسَّنْتَ خَلْقِي فَحَسِّنْ خُلُقِي
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma kama hassanta khalqi fa hassin khuluqi
+                </div>
+                <div class="dua-translation">
+                    O Allah, as You have made my appearance beautiful, make my character beautiful as well.
+                </div>
+                <div class="dua-reference">Reference: Common Islamic practice</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua reminds us to focus on inner beauty and good character, not just outward appearance.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Before Dressing</h3>
+                <div class="dua-arabic">
+                    الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلاَ قُوَّةٍ
+                </div>
+                <div class="dua-transliteration">
+                    Alhamdulillahil-ladhi kasani hadha wa razaqanihi min ghayri hawlin minni wa la quwwah
+                </div>
+                <div class="dua-translation">
+                    All praise is for Allah who has clothed me with this and provided it for me, with no power or might from myself.
+                </div>
+                <div class="dua-reference">Reference: Abu Dawud 4023</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua teaches gratitude for clothing and acknowledges Allah as the provider of all blessings.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Duas for Health and Healing</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Seeking Treatment</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ اشْفِ مَرِيضِي، اللَّهُمَّ اشْفِ مَرِيضِي، اللَّهُمَّ اشْفِ مَرِيضِي
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma-shfi mareedi, Allahumma-shfi mareedi, Allahumma-shfi mareedi
+                </div>
+                <div class="dua-translation">
+                    O Allah, heal my patient, O Allah, heal my patient, O Allah, heal my patient.
+                </div>
+                <div class="dua-reference">Reference: Abu Dawud 3106</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>Prophet Muhammad (PBUH) used this dua when visiting the sick, seeking Allah's healing for them.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Pain Relief</h3>
+                <div class="dua-arabic">
+                    أَذْهِبِ الْبَأْسَ رَبَّ النَّاسِ، اشْفِ أَنْتَ الشَّافِي، لَا شِفَاءَ إِلَّا شِفَاؤُكَ، شِفَاءً لَا يُغَادِرُ سَقَمًا
+                </div>
+                <div class="dua-transliteration">
+                    Adh-hibil-ba'sa rabban-nas, ishfi antash-shafi, la shifa'a illa shifa'uka, shifa'an la yughadiru saqaman
+                </div>
+                <div class="dua-translation">
+                    Remove the harm, O Lord of mankind, and heal, for You are the Healer. There is no healing except Your healing, a healing that leaves no illness.
+                </div>
+                <div class="dua-reference">Reference: Bukhari 5742</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This powerful dua seeks Allah's healing and acknowledges that He is the ultimate Healer.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Visiting the Sick</h3>
+                <div class="dua-arabic">
+                    لَا بَأْسَ طَهُورٌ إِنْ شَاءَ اللَّهُ
+                </div>
+                <div class="dua-transliteration">
+                    La ba'sa tahurun in sha'allah
+                </div>
+                <div class="dua-translation">
+                    No harm, (it will be) purification, if Allah wills.
+                </div>
+                <div class="dua-reference">Reference: Bukhari 3616</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua comforts the sick person and reminds them that illness can be a means of purification.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Mental Peace</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَأَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ، وَأَعُوذُ بِكَ مِنَ الْجُبْنِ وَالْبُخْلِ، وَأَعُوذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ وَقَهْرِ الرِّجَالِ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma inni a'udhu bika minal-hammi wal-hazan, wa a'udhu bika minal-'ajzi wal-kasal, wa a'udhu bika minal-jubni wal-bukhl, wa a'udhu bika min ghalabatid-dayni wa qahrir-rijal
+                </div>
+                <div class="dua-translation">
+                    O Allah, I seek refuge in You from anxiety and sorrow, weakness and laziness, miserliness and cowardice, the burden of debts and from being over powered by men.
+                </div>
+                <div class="dua-reference">Reference: Bukhari 6369</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This comprehensive dua seeks protection from various mental and emotional difficulties.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Duas for Protection and Safety</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Ayat al-Kursi (The Throne Verse)</h3>
+                <div class="dua-arabic">
+                    اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ
+                </div>
+                <div class="dua-transliteration">
+                    Allahu la ilaha illa huwal-hayyul-qayyum. La ta'khudhuhu sinatuw-wa la nawm. Lahu ma fis-samawati wa ma fil-ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih. Ya'lamu ma bayna aydeehim wa ma khalfahum. Wa la yuhituna bi-shay'in min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-ard, wa la ya'uduhu hifdhuhuma. Wa huwal-'aliyyul-'adheem
+                </div>
+                <div class="dua-translation">
+                    Allah - there is no deity except Him, the Ever-Living, the Self-Sustaining. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.
+                </div>
+                <div class="dua-reference">Reference: Quran 2:255</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>Prophet Muhammad (PBUH) said that whoever recites this verse in the morning will be protected until evening, and whoever recites it in the evening will be protected until morning.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Protection from Evil</h3>
+                <div class="dua-arabic">
+                    أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ الَّتِي لَا يُجَاوِزُهُنَّ بَرٌّ وَلَا فَاجِرٌ
+                </div>
+                <div class="dua-transliteration">
+                    A'udhu bi kalimatillahit-tammatil-lati la yujawizuhunna barrun wa la fajir
+                </div>
+                <div class="dua-translation">
+                    I seek refuge in the perfect words of Allah which neither the upright nor the corrupt can overcome.
+                </div>
+                <div class="dua-reference">Reference: Muslim 2708</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua provides protection from various forms of harm and evil, seeking refuge in Allah's perfect words.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Protection from Shaytan</h3>
+                <div class="dua-arabic">
+                    أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ
+                </div>
+                <div class="dua-transliteration">
+                    A'udhu billahi minash-shaytanir-rajeem
+                </div>
+                <div class="dua-translation">
+                    I seek refuge in Allah from the accursed Satan.
+                </div>
+                <div class="dua-reference">Reference: Quran 16:98</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua is recited before reading Quran and seeking protection from Satan's influence.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Protection from Magic</h3>
+                <div class="dua-arabic">
+                    بِسْمِ اللَّهِ أَرْقِيكَ، مِنْ كُلِّ شَيْءٍ يُؤْذِيكَ، مِنْ شَرِّ كُلِّ نَفْسٍ أَوْ عَيْنِ حَاسِدٍ، اللَّهُ يَشْفِيكَ، بِسْمِ اللَّهِ أَرْقِيكَ
+                </div>
+                <div class="dua-transliteration">
+                    Bismillahi arqik, min kulli shay'in yu'dhik, min sharri kulli nafsin aw 'aynin hasid, Allahu yashfik, bismillahi arqik
+                </div>
+                <div class="dua-translation">
+                    In the name of Allah I perform ruqyah for you, from everything that harms you, from the evil of every soul or envious eye, may Allah heal you, in the name of Allah I perform ruqyah for you.
+                </div>
+                <div class="dua-reference">Reference: Muslim 2186</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua is used for spiritual healing and protection from evil eye and magic.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Duas for Seeking Forgiveness</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Seeking Forgiveness (Sayyid al-Istighfar)</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma anta rabbi la ilaha illa anta, khalaqtani wa ana 'abduka, wa ana 'ala 'ahdika wa wa'dika mastata'tu. A'udhu bika min sharri ma sana'tu, abu'u laka bi ni'matika 'alayya, wa abu'u laka bi dhanbi, faghfir li fa innahu la yaghfirudh-dhunuba illa anta
+                </div>
+                <div class="dua-translation">
+                    O Allah, You are my Lord, none has the right to be worshipped except You, You created me and I am Your servant, and I abide to Your covenant and promise as best I can, I take refuge in You from the evil of which I have committed. I acknowledge Your favor upon me and I acknowledge my sin, so forgive me, for verily none can forgive sin except You.
+                </div>
+                <div class="dua-reference">Reference: Bukhari 6306</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>Prophet Muhammad (PBUH) said that whoever recites this dua with conviction in the morning and dies before evening, or recites it in the evening and dies before morning, will enter Paradise.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Simple Istighfar</h3>
+                <div class="dua-arabic">
+                    أَسْتَغْفِرُ اللَّهَ
+                </div>
+                <div class="dua-transliteration">
+                    Astaghfirullah
+                </div>
+                <div class="dua-translation">
+                    I seek forgiveness from Allah
+                </div>
+                <div class="dua-reference">Reference: Common Islamic practice</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This simple dua can be recited frequently throughout the day to seek Allah's forgiveness and maintain a connection with Him.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Duas for Business and Work</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Dua Before Starting Work</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَهَا وَخَيْرَ مَا فِيهَا، وَأَعُوذُ بِكَ مِنْ شَرِّهَا وَشَرِّ مَا فِيهَا
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma inni as'aluka khayraha wa khayra ma fiha, wa a'udhu bika min sharriha wa sharri ma fiha
+                </div>
+                <div class="dua-translation">
+                    O Allah, I ask You for the best of it and the best of what is in it, and I seek refuge in You from the evil of it and the evil of what is in it.
+                </div>
+                <div class="dua-reference">Reference: Abu Dawud 2606</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua seeks Allah's blessings for the day's work and protection from any harm.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Business Success</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ بَارِكْ لِي فِي مَكْسَبِي، وَاجْعَلْهُ حَلَالًا طَيِّبًا، وَلَا تَجْعَلْ حِرْمَانَهُ حِرْمَانَ رَحْمَةٍ مِنْكَ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma barik li fi maksabi, waj'alhu halalan tayyiban, wa la taj'al hirmanahu hirmana rahmatin minka
+                </div>
+                <div class="dua-translation">
+                    O Allah, bless me in my earnings, make them lawful and pure, and do not let the deprivation of them be a deprivation of Your mercy.
+                </div>
+                <div class="dua-reference">Reference: Common Islamic practice</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua asks for Allah's blessings in business and ensures earnings remain halal and blessed.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Entering the Market</h3>
+                <div class="dua-arabic">
+                    لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ يُحْيِي وَيُمِيتُ وَهُوَ حَيٌّ لَا يَمُوتُ، بِيَدِهِ الْخَيْرُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ
+                </div>
+                <div class="dua-transliteration">
+                    La ilaha illallahu wahdahu la shareeka lah, lahul mulku wa lahul hamdu yuhyi wa yumeet wa huwa hayyun la yamoot, bi yadihil khayru wa huwa 'ala kulli shay'in qadeer
+                </div>
+                <div class="dua-translation">
+                    None has the right to be worshipped except Allah, alone, without any partner, to Him belongs all sovereignty and praise, He gives life and causes death, and He is Ever Living and does not die, in His Hand is all good, and He is Able to do all things.
+                </div>
+                <div class="dua-reference">Reference: Tirmidhi 3427</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua is recited when entering the market to seek Allah's blessings and protection.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Duas for Knowledge and Wisdom</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Seeking Knowledge</h3>
+                <div class="dua-arabic">
+                    رَبِّ زِدْنِي عِلْمًا
+                </div>
+                <div class="dua-transliteration">
+                    Rabbi zidni 'ilma
+                </div>
+                <div class="dua-translation">
+                    My Lord, increase me in knowledge
+                </div>
+                <div class="dua-reference">Reference: Quran 20:114</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua from the Quran teaches us to always seek more knowledge and understanding, recognizing that learning is a continuous process.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Beneficial Knowledge</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma inni as'aluka 'ilman nafi'an, wa rizqan tayyiban, wa 'amalan mutaqabbalan
+                </div>
+                <div class="dua-translation">
+                    O Allah, I ask You for beneficial knowledge, good provision, and acceptable deeds.
+                </div>
+                <div class="dua-reference">Reference: Ibn Majah 925</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This comprehensive dua asks for knowledge that benefits us, sustenance that is pure, and actions that are accepted by Allah.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua Before Studying</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ إِنِّي أَسْأَلُكَ فَهْمَ النَّبِيِّينَ، وَحِفْظَ الْمُرْسَلِينَ، وَإِلْهَامَ الْمَلَائِكَةِ الْمُقَرَّبِينَ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma inni as'aluka fahman-nabiyyeen, wa hifzal-mursaleen, wa ilhamal-mala'ikatil-muqarrabeen
+                </div>
+                <div class="dua-translation">
+                    O Allah, I ask You for the understanding of the prophets, the memory of the messengers, and the inspiration of the angels who are brought near.
+                </div>
+                <div class="dua-reference">Reference: Common Islamic practice</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua seeks Allah's help in understanding, memorizing, and being inspired in learning.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Duas for Travel and Journey</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Traveling</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى، اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ، اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ، وَالْخَلِيفَةُ فِي الْأَهْلِ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma inna nas'aluka fi safarina hadha al-birra wat-taqwa, wa minal-'amali ma tardha. Allahumma hawwin 'alayna safarana hadha watwi 'anna bu'dahu. Allahumma antas-sahibu fis-safari, wal-khalifatu fil-ahli
+                </div>
+                <div class="dua-translation">
+                    O Allah, we ask You on this journey of ours for righteousness, piety, and such deeds as are pleasing to You. O Allah, make this journey easy for us and fold up for us its distance. O Allah, You are the Companion on the journey and the One Who looks after the family.
+                </div>
+                <div class="dua-reference">Reference: Muslim 1342</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua seeks Allah's protection during travel and asks for His help in making the journey easy and safe.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Boarding a Vehicle</h3>
+                <div class="dua-arabic">
+                    بِسْمِ اللَّهِ
+                </div>
+                <div class="dua-transliteration">
+                    Bismillah
+                </div>
+                <div class="dua-translation">
+                    In the name of Allah
+                </div>
+                <div class="dua-reference">Reference: Abu Dawud 3832</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This simple dua seeks Allah's protection when traveling by any means of transportation.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Returning from Travel</h3>
+                <div class="dua-arabic">
+                    آيِبُونَ، تَائِبُونَ، عَابِدُونَ، لِرَبِّنَا حَامِدُونَ
+                </div>
+                <div class="dua-transliteration">
+                    Ayibuna, ta'ibuna, 'abiduna, li rabbina hamidun
+                </div>
+                <div class="dua-translation">
+                    We return, we repent, we worship, and we praise our Lord.
+                </div>
+                <div class="dua-reference">Reference: Muslim 1342</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua expresses gratitude for safe return and reaffirms commitment to worship and repentance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Duas for Special Occasions</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for New Moon</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ أَهِلَّهُ عَلَيْنَا بِالْأَمْنِ وَالْإِيمَانِ، وَالسَّلَامَةِ وَالْإِسْلَامِ، رَبِّي وَرَبُّكَ اللَّهُ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma ahillahu 'alayna bil-amni wal-iman, was-salamati wal-Islam, rabbi wa rabbukal-lah
+                </div>
+                <div class="dua-translation">
+                    O Allah, make it rise over us with security and faith, safety and Islam. My Lord and your Lord is Allah.
+                </div>
+                <div class="dua-reference">Reference: Tirmidhi 3451</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua is recited when sighting the new moon, seeking Allah's blessings for the new month.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Entering a New Home</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ، بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma inni as'aluka khayral-mawlaji wa khayral-makhraji, bismillahi walajna, wa bismillahi kharajna, wa 'alallahi rabbina tawakkalna
+                </div>
+                <div class="dua-translation">
+                    O Allah, I ask You for the best of entry and the best of exit. In the name of Allah we enter, in the name of Allah we leave, and upon our Lord we place our trust.
+                </div>
+                <div class="dua-reference">Reference: Abu Dawud 5096</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua seeks Allah's blessings for the new home and protection for all who enter and leave.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Wedding</h3>
+                <div class="dua-arabic">
+                    بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+                </div>
+                <div class="dua-transliteration">
+                    Barakallahu laka wa baraka 'alayka wa jama'a baynakuma fi khayr
+                </div>
+                <div class="dua-translation">
+                    May Allah bless you and shower His blessings upon you, and may He join you together in goodness.
+                </div>
+                <div class="dua-reference">Reference: Abu Dawud 2130</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua is recited to congratulate newlyweds and seek Allah's blessings for their marriage.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Duas for Family and Relationships</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Children</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ بَارِكْ لِي فِي أَوْلَادِي وَلاَ تَضُرَّهُمْ، وَوَفِّقْهُمْ لِطَاعَتِكَ وَارْزُقْنِي بِرَّهُمْ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma barik li fi awladi wa la tadurrahum, wa waffiqhum li ta'atika warzuqni birrahum
+                </div>
+                <div class="dua-translation">
+                    O Allah, bless me in my children and do not cause them harm, guide them to obey You and grant me their righteousness.
+                </div>
+                <div class="dua-reference">Reference: Common Islamic practice</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua asks for Allah's blessings on children and seeks their guidance and righteousness, which brings joy to parents.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Parents</h3>
+                <div class="dua-arabic">
+                    رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا
+                </div>
+                <div class="dua-transliteration">
+                    Rabbi irhamhuma kama rabbayani saghira
+                </div>
+                <div class="dua-translation">
+                    My Lord, have mercy upon them as they brought me up when I was small.
+                </div>
+                <div class="dua-reference">Reference: Quran 17:24</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua from the Quran teaches us to pray for our parents' mercy, recognizing their care and sacrifice in raising us.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Spouse</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَهَا وَخَيْرَ مَا جَبَلْتَهَا عَلَيْهِ، وَأَعُوذُ بِكَ مِنْ شَرِّهَا وَشَرِّ مَا جَبَلْتَهَا عَلَيْهِ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma inni as'aluka khayraha wa khayra ma jabaltaha 'alayhi, wa a'udhu bika min sharriha wa sharri ma jabaltaha 'alayhi
+                </div>
+                <div class="dua-translation">
+                    O Allah, I ask You for the best of her and the best of that which You have made her inclined towards, and I seek refuge in You from the evil of her and the evil of that which You have made her inclined towards.
+                </div>
+                <div class="dua-reference">Reference: Abu Dawud 2160</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua seeks Allah's blessings for the spouse and protection from any harm in the relationship.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Duas for Emotional and Spiritual Well-being</h2>
+            
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Patience</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ إِنِّي أَسْأَلُكَ الصَّبْرَ عَلَى مَا أَحْبَبْتُ، وَالصَّبْرَ عَلَى مَا كَرِهْتُ، وَالصَّبْرَ عَلَى مَا أَبْغَضْتُ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma inni as'alukas-sabra 'ala ma ahababtu, was-sabra 'ala ma karihtu, was-sabra 'ala ma abghadtu
+                </div>
+                <div class="dua-translation">
+                    O Allah, I ask You for patience over what I love, patience over what I dislike, and patience over what I detest.
+                </div>
+                <div class="dua-reference">Reference: Common Islamic practice</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua seeks Allah's help in developing patience in all situations, whether pleasant or difficult.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Gratitude</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ لَكَ الْحَمْدُ حَتَّى تَرْضَى، وَلَكَ الْحَمْدُ إِذَا رَضِيتَ، وَلَكَ الْحَمْدُ بَعْدَ الرِّضَا
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma lakal-hamdu hatta tardha, wa lakal-hamdu idha radita, wa lakal-hamdu ba'dar-rida
+                </div>
+                <div class="dua-translation">
+                    O Allah, to You is all praise until You are pleased, and to You is all praise when You are pleased, and to You is all praise after You are pleased.
+                </div>
+                <div class="dua-reference">Reference: Ibn Majah 3800</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua expresses continuous gratitude to Allah in all circumstances and states.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Contentment</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ قَنِّعْنِي بِمَا رَزَقْتَنِي، وَبَارِكْ لِي فِيهِ، وَاخْلُفْ عَلَيَّ كُلَّ غَائِبَةٍ لِي بِخَيْرٍ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma qanni'ni bima razaqtani, wa barik li fihi, wakhluf 'alayya kulla gha'ibatin li bi khayr
+                </div>
+                <div class="dua-translation">
+                    O Allah, make me content with what You have provided me, bless me in it, and replace for me every loss with something better.
+                </div>
+                <div class="dua-reference">Reference: Common Islamic practice</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua seeks contentment with Allah's provisions and trust that He will replace losses with better things.</p>
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <h3 class="dua-title">Dua for Inner Peace</h3>
+                <div class="dua-arabic">
+                    اللَّهُمَّ إِنِّي أَسْأَلُكَ نَفْسًا بِكَ مُطْمَئِنَّةً، تُؤْمِنُ بِلِقَائِكَ، وَتَرْضَى بِقَضَائِكَ، وَتَقْنَعُ بِعَطَائِكَ
+                </div>
+                <div class="dua-transliteration">
+                    Allahumma inni as'aluka nafsan bika mutma'innah, tu'minu biliqa'ika, wa tardha bi qada'ika, wa taqna'u bi 'ata'ika
+                </div>
+                <div class="dua-translation">
+                    O Allah, I ask You for a soul that is at peace with You, believes in meeting You, is pleased with Your decree, and is content with Your gifts.
+                </div>
+                <div class="dua-reference">Reference: Common Islamic practice</div>
+                <div class="dua-benefits">
+                    <h5>Benefits:</h5>
+                    <p>This dua seeks inner peace through faith, acceptance of Allah's decree, and contentment with His blessings.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">How to Use These Duas</h2>
+            
+            <div class="category-grid">
+                <div class="category-item">
+                    <h4>Learn Gradually</h4>
+                    <p>Start with the most commonly used duas and gradually add more to your daily practice.</p>
+                </div>
+                <div class="category-item">
+                    <h4>Understand the Meaning</h4>
+                    <p>Learn the English translation so you can recite with understanding and sincerity.</p>
+                </div>
+                <div class="category-item">
+                    <h4>Practice Regularly</h4>
+                    <p>Make these duas a part of your daily routine to strengthen your connection with Allah.</p>
+                </div>
+                <div class="category-item">
+                    <h4>Teach Others</h4>
+                    <p>Share these authentic duas with family and friends to spread the blessings.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Conclusion</h2>
+            <p class="content-text">
+                These authentic duas from Prophet Muhammad (PBUH) are a precious gift that helps us maintain a constant 
+                connection with Allah throughout our daily lives. By incorporating these supplications into our routine, 
+                we can transform ordinary moments into acts of worship and remembrance.
+            </p>
+            
+            <div class="dua-benefits">
+                <h5>Remember:</h5>
+                <p>
+                    The most important aspect of making dua is the sincerity of your heart. Even if you can't pronounce 
+                    the Arabic perfectly, Allah understands your intention and accepts your supplication. Start with what 
+                    you can manage and gradually improve your recitation and understanding.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling for better navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add fade-in animation for sections as they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
