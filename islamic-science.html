@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Science Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .science-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .science-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .science-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Science Guide</h1>
+            <p>Complete guide to Quranic science, Islamic scientific achievements, and modern applications based on Islamic principles</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Science</h2>
+            <p>Islam encourages the study of science and the natural world as a means to understand Allah's creation. The Quran contains numerous verses that invite reflection on the universe, encouraging Muslims to explore and discover the laws of nature.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ</div>
+                <div class="translation">"Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding." (Quran 3:190)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "Seeking knowledge is obligatory upon every Muslim." (Ibn Majah)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Quranic Science and Natural Phenomena</h2>
+            
+            <div class="science-card">
+                <h4>Astronomy and Space</h4>
+                <ul>
+                    <li><strong>Expanding Universe:</strong> "And the heaven We constructed with strength, and indeed, We are [its] expander." (Quran 51:47)</li>
+                    <li><strong>Orbital Motion:</strong> "And it is He who created the night and the day and the sun and the moon; all [heavenly bodies] in an orbit are swimming." (Quran 21:33)</li>
+                    <li><strong>Solar System:</strong> References to sun, moon, and stars in various contexts</li>
+                    <li><strong>Cosmic Scale:</strong> Emphasis on the vastness of creation</li>
+                    <li><strong>Scientific Method:</strong> Encouragement to observe and reflect</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Modern Scientific Confirmation</h5>
+                    <p>Modern astronomy confirms that the universe is expanding, and all celestial bodies move in orbits, validating Quranic descriptions from over 1400 years ago.</p>
+                </div>
+            </div>
+
+            <div class="science-card">
+                <h4>Earth Sciences</h4>
+                <ul>
+                    <li><strong>Water Cycle:</strong> "And We sent down rain from the sky in measured amounts and settled it in the earth." (Quran 23:18)</li>
+                    <li><strong>Mountain Formation:</strong> "And He has cast into the earth firmly set mountains, lest it shift with you." (Quran 16:15)</li>
+                    <li><strong>Ocean Depths:</strong> "Or [they are] like darknesses within an unfathomable sea which is covered by waves." (Quran 24:40)</li>
+                    <li><strong>Geological Processes:</strong> References to natural phenomena and earth's structure</li>
+                    <li><strong>Environmental Balance:</strong> Emphasis on maintaining natural harmony</li>
+                </ul>
+            </div>
+
+            <div class="science-card">
+                <h4>Biology and Life Sciences</h4>
+                <ul>
+                    <li><strong>Origin of Life:</strong> "And We made from water every living thing." (Quran 21:30)</li>
+                    <li><strong>Human Development:</strong> Detailed description of fetal development stages</li>
+                    <li><strong>Biodiversity:</strong> References to various forms of life</li>
+                    <li><strong>Animal Behavior:</strong> Observations of natural animal instincts</li>
+                    <li><strong>Plant Growth:</strong> References to agricultural and natural processes</li>
+                </ul>
+            </div>
+
+            <div class="science-card">
+                <h4>Physics and Natural Laws</h4>
+                <ul>
+                    <li><strong>Gravity and Motion:</strong> Implicit references to natural laws</li>
+                    <li><strong>Light and Darkness:</strong> Scientific understanding of light phenomena</li>
+                    <li><strong>Time and Space:</strong> References to temporal and spatial concepts</li>
+                    <li><strong>Energy and Matter:</strong> Understanding of natural processes</li>
+                    <li><strong>Cause and Effect:</strong> Recognition of natural causality</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Historical Islamic Scientific Achievements</h2>
+            
+            <div class="science-card">
+                <h4>Mathematics</h4>
+                <ul>
+                    <li><strong>Algebra:</strong> Al-Khwarizmi developed systematic algebra</li>
+                    <li><strong>Decimal System:</strong> Introduction of Arabic numerals and zero</li>
+                    <strong>Trigonometry:</strong> Development of trigonometric functions</li>
+                    <li><strong>Geometry:</strong> Advanced geometric theorems and proofs</li>
+                    <li><strong>Number Theory:</strong> Contributions to mathematical theory</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Global Impact</h5>
+                    <p>Islamic mathematicians' work formed the foundation of modern mathematics, with terms like "algorithm" and "algebra" derived from Arabic words.</p>
+                </div>
+            </div>
+
+            <div class="science-card">
+                <h4>Medicine and Healthcare</h4>
+                <ul>
+                    <li><strong>Hospitals:</strong> First organized hospital system</li>
+                    <li><strong>Medical Education:</strong> Systematic medical training programs</li>
+                    <li><strong>Pharmacology:</strong> Development of medicinal compounds</li>
+                    <li><strong>Surgery:</strong> Advanced surgical techniques and instruments</li>
+                    <li><strong>Medical Ethics:</strong> Establishment of medical professional standards</li>
+                </ul>
+            </div>
+
+            <div class="science-card">
+                <h4>Astronomy and Navigation</h4>
+                <ul>
+                    <li><strong>Observatories:</strong> Advanced astronomical observation facilities</li>
+                    <li><strong>Star Catalogs:</strong> Comprehensive mapping of celestial objects</li>
+                    <li><strong>Navigation Tools:</strong> Astrolabes and other navigational instruments</li>
+                    <li><strong>Calendar Systems:</strong> Accurate lunar and solar calendars</li>
+                    <li><strong>Planetary Motion:</strong> Detailed study of planetary movements</li>
+                </ul>
+            </div>
+
+            <div class="science-card">
+                <h4>Chemistry and Alchemy</h4>
+                <ul>
+                    <li><strong>Distillation:</strong> Development of distillation techniques</li>
+                    <li><strong>Acids and Bases:</strong> Discovery and classification of chemical substances</li>
+                    <li><strong>Chemical Processes:</strong> Understanding of chemical reactions</li>
+                    <li><strong>Laboratory Equipment:</strong> Invention of various lab apparatus</li>
+                    <li><strong>Chemical Nomenclature:</strong> Systematic naming of compounds</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Islamic Scientific Methodology</h2>
+            
+            <div class="science-card">
+                <h4>Observation and Experimentation</h4>
+                <ul>
+                    <li><strong>Empirical Method:</strong> Basing conclusions on observable evidence</li>
+                    <li><strong>Systematic Observation:</strong> Organized and repeated observations</li>
+                    <li><strong>Experimental Design:</strong> Controlled experiments and testing</li>
+                    <li><strong>Data Collection:</strong> Systematic gathering of information</li>
+                    <li><strong>Verification:</strong> Confirming results through repetition</li>
+                </ul>
+            </div>
+
+            <div class="science-card">
+                <h4>Critical Thinking and Analysis</h4>
+                <ul>
+                    <li><strong>Questioning Assumptions:</strong> Challenging established beliefs</li>
+                    <li><strong>Logical Reasoning:</strong> Using deductive and inductive logic</li>
+                    <li><strong>Evidence-Based Conclusions:</strong> Drawing conclusions from data</li>
+                    <li><strong>Peer Review:</strong> Sharing findings with other scholars</li>
+                    <li><strong>Continuous Improvement:</strong> Always seeking better understanding</li>
+                </ul>
+            </div>
+
+            <div class="science-card">
+                <h4>Integration of Knowledge</h4>
+                <ul>
+                    <li><strong>Interdisciplinary Approach:</strong> Combining different fields of study</li>
+                    <li><strong>Cultural Exchange:</strong> Learning from various civilizations</li>
+                    <li><strong>Translation Movement:</strong> Preserving and translating ancient knowledge</li>
+                    <li><strong>Building on Previous Work:</strong> Acknowledging and improving upon earlier discoveries</li>
+                    <li><strong>Practical Application:</strong> Using knowledge for human benefit</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Modern Islamic Science</h2>
+            
+            <div class="science-card">
+                <h4>Contemporary Research</h4>
+                <ul>
+                    <li><strong>Islamic Universities:</strong> Modern research institutions</li>
+                    <li><strong>Scientific Publications:</strong> Peer-reviewed research journals</li>
+                    <li><strong>International Collaboration:</strong> Working with global research teams</li>
+                    <li><strong>Technology Development:</strong> Creating innovative solutions</li>
+                    <li><strong>Environmental Research:</strong> Studying climate change and sustainability</li>
+                </ul>
+            </div>
+
+            <div class="science-card">
+                <h4>Technology and Innovation</h4>
+                <ul>
+                    <li><strong>Information Technology:</strong> Software and digital solutions</li>
+                    <li><strong>Biotechnology:</strong> Medical and agricultural applications</li>
+                    <li><strong>Renewable Energy:</strong> Solar, wind, and other clean energy</li>
+                    <li><strong>Artificial Intelligence:</strong> Machine learning and automation</li>
+                    <li><strong>Space Technology:</strong> Satellite and space exploration</li>
+                </ul>
+            </div>
+
+            <div class="science-card">
+                <h4>Ethical Considerations</h4>
+                <ul>
+                    <li><strong>Benefit to Humanity:</strong> Ensuring research serves human welfare</li>
+                    <li><strong>Environmental Protection:</strong> Minimizing harm to nature</li>
+                    <li><strong>Animal Welfare:</strong> Ethical treatment in research</li>
+                    <li><strong>Privacy and Security:</strong> Protecting personal information</li>
+                    <li><strong>Social Responsibility:</strong> Considering broader societal impacts</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Science and Islamic Ethics</h2>
+            
+            <div class="science-card">
+                <h4>Responsible Research</h4>
+                <ul>
+                    <li><strong>Purposeful Investigation:</strong> Research with clear beneficial goals</li>
+                    <li><strong>Transparency:</strong> Open sharing of methods and results</li>
+                    <li><strong>Accountability:</strong> Taking responsibility for research outcomes</li>
+                    <li><strong>Collaboration:</strong> Working with others for better results</li>
+                    <li><strong>Continuous Learning:</strong> Always seeking to improve</li>
+                </ul>
+            </div>
+
+            <div class="science-card">
+                <h4>Balancing Progress and Values</h4>
+                <ul>
+                    <li><strong>Technological Advancement:</strong> Embracing beneficial innovations</li>
+                    <li><strong>Cultural Preservation:</strong> Maintaining Islamic values and traditions</li>
+                    <li><strong>Social Harmony:</strong> Ensuring technology benefits society</li>
+                    <li><strong>Environmental Stewardship:</strong> Caring for Allah's creation</li>
+                    <li><strong>Future Generations:</strong> Considering long-term impacts</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Future of Islamic Science</h2>
+            
+            <div class="science-card">
+                <h4>Emerging Fields</h4>
+                <ul>
+                    <li><strong>Quantum Computing:</strong> Next-generation computing technology</li>
+                    <li><strong>Nanotechnology:</strong> Manipulating matter at atomic scale</li>
+                    <li><strong>Genetic Engineering:</strong> Understanding and modifying DNA</li>
+                    <li><strong>Climate Science:</strong> Studying and addressing climate change</li>
+                    <li><strong>Space Exploration:</strong> Expanding human presence in space</li>
+                </ul>
+            </div>
+
+            <div class="science-card">
+                <h4>Challenges and Opportunities</h4>
+                <ul>
+                    <li><strong>Funding and Resources:</strong> Securing adequate research support</li>
+                    <li><strong>Education and Training:</strong> Developing skilled researchers</li>
+                    <li><strong>International Cooperation:</strong> Building global research networks</li>
+                    <li><strong>Public Understanding:</strong> Communicating science to society</li>
+                    <li><strong>Ethical Guidelines:</strong> Establishing research standards</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="islamic-education.html">Islamic Education Guide</a></li>
+                <li><a href="islamic-history.html">Islamic History Guide</a></li>
+                <li><a href="islamic-health.html">Islamic Health Guide</a></li>
+                <li><a href="quran-guide.html">Quran Study Guide</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>

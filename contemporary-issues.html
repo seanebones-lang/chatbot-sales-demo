@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contemporary Issues Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .issue-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .issue-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .issue-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Contemporary Issues Guide</h1>
+            <p>Complete guide to modern challenges, social issues, and Islamic perspectives on contemporary problems</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Response to Modern Issues</h2>
+            <p>Islam provides timeless principles that can be applied to address contemporary challenges. The Quran and Sunnah offer guidance that remains relevant across all eras, helping Muslims navigate modern complexities while maintaining their faith and values.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ</div>
+                <div class="translation">"And We have not sent you, [O Muhammad], except as a mercy to the worlds." (Quran 21:107)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "The best of people are those who are most beneficial to people." (Al-Tabarani)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Technology and Digital Age</h2>
+            
+            <div class="issue-card">
+                <h4>Social Media and Digital Communication</h4>
+                <ul>
+                    <li><strong>Benefits:</strong> Connecting with family, sharing knowledge, building community</li>
+                    <li><strong>Challenges:</strong> Privacy concerns, misinformation, addiction, cyberbullying</li>
+                    <li><strong>Islamic Guidelines:</strong> Truthfulness, kindness, avoiding gossip and slander</li>
+                    <li><strong>Time Management:</strong> Balancing online and offline activities</li>
+                    <li><strong>Content Creation:</strong> Sharing beneficial Islamic content</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Islamic Principles</h5>
+                    <p>The Prophet sallallahu alayhi wa sallam taught: "Whoever believes in Allah and the Last Day, let him speak good or remain silent." (Sahih Bukhari)</p>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <h4>Artificial Intelligence and Automation</h4>
+                <ul>
+                    <li><strong>Opportunities:</strong> Improving efficiency, solving complex problems</li>
+                    <li><strong>Concerns:</strong> Job displacement, privacy, ethical decision-making</li>
+                    <li><strong>Islamic Perspective:</strong> Using technology for human benefit</li>
+                    <li><strong>Ethical Guidelines:</strong> Ensuring fairness and transparency</li>
+                    <li><strong>Human Dignity:</strong> Maintaining human value and purpose</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Online Learning and Education</h4>
+                <ul>
+                    <li><strong>Accessibility:</strong> Learning opportunities for everyone</li>
+                    <li><strong>Quality Control:</strong> Ensuring accurate Islamic knowledge</li>
+                    <li><strong>Community Building:</strong> Virtual study circles and discussions</li>
+                    <li><strong>Digital Literacy:</strong> Teaching responsible technology use</li>
+                    <li><strong>Balanced Approach:</strong> Combining online and traditional learning</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Social and Family Issues</h2>
+            
+            <div class="issue-card">
+                <h4>Marriage and Relationships</h4>
+                <ul>
+                    <li><strong>Modern Challenges:</strong> Dating culture, premarital relationships, divorce rates</li>
+                    <li><strong>Islamic Solutions:</strong> Proper courtship, family involvement, marriage counseling</li>
+                    <li><strong>Communication Skills:</strong> Learning effective relationship communication</li>
+                    <li><strong>Conflict Resolution:</strong> Islamic methods of resolving disputes</li>
+                    <li><strong>Family Support:</strong> Building strong family networks</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Parenting in the Digital Age</h4>
+                <ul>
+                    <li><strong>Screen Time Management:</strong> Balancing technology use for children</li>
+                    <li><strong>Online Safety:</strong> Protecting children from online dangers</li>
+                    <li><strong>Islamic Values:</strong> Teaching faith and character in modern context</li>
+                    <li><strong>Educational Technology:</strong> Using digital tools for learning</li>
+                    <li><strong>Family Bonding:</strong> Creating quality time away from screens</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Mental Health and Well-being</h4>
+                <ul>
+                    <li><strong>Modern Stressors:</strong> Work pressure, social media, economic uncertainty</li>
+                    <li><strong>Islamic Approaches:</strong> Prayer, dhikr, community support, gratitude</li>
+                    <li><strong>Professional Help:</strong> Seeking counseling when needed</li>
+                    <li><strong>Preventive Measures:</strong> Building resilience through faith</li>
+                    <li><strong>Community Support:</strong> Creating supportive environments</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Economic and Financial Challenges</h2>
+            
+            <div class="issue-card">
+                <h4>Islamic Finance in Modern Economy</h4>
+                <ul>
+                    <li><strong>Halal Banking:</strong> Access to Islamic financial services</li>
+                    <li><strong>Investment Options:</strong> Shariah-compliant investment opportunities</li>
+                    <li><strong>Cryptocurrency:</strong> Islamic perspectives on digital currencies</li>
+                    <li><strong>Insurance (Takaful):</strong> Halal alternatives to conventional insurance</li>
+                    <li><strong>Financial Education:</strong> Teaching Islamic financial literacy</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Work and Career Issues</h4>
+                <ul>
+                    <li><strong>Work-Life Balance:</strong> Maintaining family and religious obligations</li>
+                    <li><strong>Halal Employment:</strong> Finding work that aligns with Islamic values</li>
+                    <li><strong>Professional Ethics:</strong> Islamic principles in the workplace</li>
+                    <li><strong>Career Development:</strong> Advancing while maintaining values</li>
+                    <li><strong>Entrepreneurship:</strong> Starting halal businesses</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Poverty and Social Justice</h4>
+                <ul>
+                    <li><strong>Zakat and Charity:</strong> Fulfilling religious obligations</li>
+                    <li><strong>Community Support:</strong> Helping those in need</li>
+                    <li><strong>Economic Empowerment:</strong> Teaching financial skills</li>
+                    <li><strong>Social Programs:</strong> Creating sustainable assistance programs</li>
+                    <li><strong>Advocacy:</strong> Working for systemic change</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Environmental and Global Issues</h2>
+            
+            <div class="issue-card">
+                <h4>Climate Change and Environmental Stewardship</h4>
+                <ul>
+                    <li><strong>Islamic Responsibility:</strong> Caring for Allah's creation</li>
+                    <li><strong>Sustainable Practices:</strong> Reducing waste and consumption</li>
+                    <li><strong>Renewable Energy:</strong> Supporting clean energy solutions</li>
+                    <li><strong>Community Action:</strong> Organizing environmental initiatives</li>
+                    <li><strong>Education:</strong> Teaching environmental awareness</li>
+                </ul>
+                
+                <div class="evidence-box">
+                    <h5>Quranic Guidance</h5>
+                    <div class="arabic-text">وَلَا تُفْسِدُوا فِي الْأَرْضِ بَعْدَ إِصْلَاحِهَا</div>
+                    <div class="translation">"And do not cause corruption upon the earth after its reformation." (Quran 7:56)</div>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <h4>Global Conflicts and Peace</h4>
+                <ul>
+                    <li><strong>Islamic Peace Principles:</strong> Promoting peace and justice</li>
+                    <li><strong>Conflict Resolution:</strong> Using Islamic methods of mediation</li>
+                    <li><strong>Humanitarian Aid:</strong> Helping victims of conflict</li>
+                    <li><strong>Interfaith Dialogue:</strong> Building bridges between communities</li>
+                    <li><strong>Advocacy:</strong> Speaking out against injustice</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Refugee and Migration Issues</h4>
+                <ul>
+                    <li><strong>Islamic Obligation:</strong> Helping those forced to flee</li>
+                    <li><strong>Community Integration:</strong> Welcoming newcomers</li>
+                    <li><strong>Cultural Exchange:</strong> Learning from different cultures</li>
+                    <li><strong>Legal Support:</strong> Assisting with documentation and rights</li>
+                    <li><strong>Education and Employment:</strong> Helping refugees rebuild lives</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Cultural and Identity Issues</h2>
+            
+            <div class="issue-card">
+                <h4>Muslim Identity in Western Societies</h4>
+                <ul>
+                    <li><strong>Cultural Integration:</strong> Balancing tradition and modernity</li>
+                    <li><strong>Religious Freedom:</strong> Exercising faith rights</li>
+                    <li><strong>Discrimination:</strong> Responding to Islamophobia</li>
+                    <li><strong>Community Building:</strong> Creating strong Muslim communities</li>
+                    <li><strong>Representation:</strong> Participating in civic life</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Interfaith Relations</h4>
+                <ul>
+                    <li><strong>Building Bridges:</strong> Engaging with other faith communities</li>
+                    <li><strong>Common Values:</strong> Finding shared ethical principles</li>
+                    <li><strong>Dialogue Programs:</strong> Participating in interfaith discussions</li>
+                    <li><strong>Community Service:</strong> Working together for common good</li>
+                    <li><strong>Mutual Understanding:</strong> Learning about other traditions</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Preserving Islamic Culture</h4>
+                <ul>
+                    <li><strong>Language Preservation:</strong> Maintaining Arabic and local languages</li>
+                    <li><strong>Cultural Traditions:</strong> Celebrating Islamic holidays and customs</li>
+                    <li><strong>Arts and Literature:</strong> Supporting Islamic creative expression</li>
+                    <li><strong>Historical Awareness:</strong> Teaching Islamic history and heritage</li>
+                    <li><strong>Modern Expression:</strong> Adapting traditions for contemporary life</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Health and Medical Ethics</h2>
+            
+            <div class="issue-card">
+                <h4>Modern Medical Technologies</h4>
+                <ul>
+                    <li><strong>Genetic Testing:</strong> Islamic perspectives on genetic information</li>
+                    <li><strong>Reproductive Technologies:</strong> IVF and other fertility treatments</li>
+                    <li><strong>Organ Transplantation:</strong> Ethical considerations and guidelines</li>
+                    <li><strong>End-of-Life Care:</strong> Palliative care and euthanasia</li>
+                    <li><strong>Mental Health Treatment:</strong> Modern approaches to mental illness</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Public Health Issues</h4>
+                <ul>
+                    <li><strong>Pandemic Response:</strong> Islamic guidelines during health crises</li>
+                    <li><strong>Vaccination:</strong> Religious and medical considerations</li>
+                    <li><strong>Preventive Care:</strong> Promoting healthy lifestyles</li>
+                    <li><strong>Healthcare Access:</strong> Ensuring care for all community members</li>
+                    <li><strong>Health Education:</strong> Teaching Islamic health principles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Education and Learning</h2>
+            
+            <div class="issue-card">
+                <h4>Islamic Education in Modern Schools</h4>
+                <ul>
+                    <li><strong>Curriculum Integration:</strong> Including Islamic studies in education</li>
+                    <li><strong>Religious Accommodation:</strong> Prayer times and halal food</li>
+                    <li><strong>Cultural Sensitivity:</strong> Teaching about Islamic culture</li>
+                    <li><strong>Parent Involvement:</strong> Supporting Islamic education at home</li>
+                    <li><strong>Community Schools:</strong> Islamic schools and madrasahs</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Lifelong Learning</h4>
+                <ul>
+                    <li><strong>Continuous Education:</strong> Learning throughout life</li>
+                    <li><strong>Skill Development:</strong> Acquiring new abilities</li>
+                    <li><strong>Technology Skills:</strong> Keeping up with digital changes</li>
+                    <li><strong>Islamic Knowledge:</strong> Deepening religious understanding</li>
+                    <li><strong>Professional Development:</strong> Advancing in careers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Community and Social Responsibility</h2>
+            
+            <div class="issue-card">
+                <h4>Building Strong Communities</h4>
+                <ul>
+                    <li><strong>Mosque Activities:</strong> Creating vibrant community centers</li>
+                    <li><strong>Youth Programs:</strong> Engaging young Muslims</li>
+                    <li><strong>Elder Care:</strong> Supporting senior community members</li>
+                    <li><strong>Family Services:</strong> Providing counseling and support</li>
+                    <li><strong>Social Events:</strong> Building community bonds</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Civic Engagement</h4>
+                <ul>
+                    <li><strong>Voting and Participation:</strong> Exercising civic rights</li>
+                    <li><strong>Community Service:</strong> Volunteering and helping others</li>
+                    <li><strong>Advocacy:</strong> Speaking up for justice and rights</li>
+                    <li><strong>Leadership Development:</strong> Training community leaders</li>
+                    <li><strong>Partnership Building:</strong> Working with other organizations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="islamic-finance.html">Islamic Finance Guide</a></li>
+                <li><a href="islamic-health.html">Islamic Health Guide</a></li>
+                <li><a href="islamic-education.html">Islamic Education Guide</a></li>
+                <li><a href="islamic-family-values.html">Islamic Family Values</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>
