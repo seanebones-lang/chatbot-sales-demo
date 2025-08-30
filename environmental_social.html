@@ -129,7 +129,6 @@
             transform: translateY(-2px);
         }
 
-        /* Content Links Sections - EXACT from index page */
         .content-section {
             background: var(--bg-secondary);
             border-radius: 8px;
@@ -199,7 +198,6 @@
             transform: translateX(5px);
         }
 
-        /* Search Section - Matching index page style */
         .search-section {
             background: var(--bg-secondary);
             border-radius: 8px;
@@ -281,7 +279,6 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -310,17 +307,17 @@
     </style>
 </head>
 <body>
-    <a href="fiqh-index.html" class="back-button">← Back to Fiqh</a>
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+    <a href="fiqh-index.html" class="back-button">Back to Fiqh</a>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
     
     <div class="container">
         <div class="header">
-            <h1>🌍 Environmental & Social Fiqh</h1>
+            <h1>Environmental & Social Fiqh</h1>
             <p>Islamic rulings on environmental protection and social responsibility</p>
         </div>
 
         <div class="search-section">
-            <h3>🔍 Search Fiqh Topics</h3>
+            <h3>Search Fiqh Topics</h3>
             <div class="search-container">
                 <input type="text" class="search-input" id="searchInput" placeholder="Search for specific fiqh topics..." onkeyup="performSearch()">
                 <button class="search-button" onclick="performSearch()">Search</button>
@@ -331,7 +328,7 @@
         </div>
 
         <div class="content-section">
-            <h3>📚 Available Topics</h3>
+            <h3>Available Topics</h3>
             <div class="links-grid">
                 
                 <div class="link-category">
@@ -480,10 +477,10 @@
             
             if (body.getAttribute('data-theme') === 'light') {
                 body.removeAttribute('data-theme');
-                themeToggle.textContent = 'Toggle Dark Mode';
+                themeToggle.textContent = 'Toggle Theme';
             } else {
                 body.setAttribute('data-theme', 'light');
-                themeToggle.textContent = 'Toggle Light Mode';
+                themeToggle.textContent = 'Toggle Theme';
             }
         }
     </script>

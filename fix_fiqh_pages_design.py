@@ -3,12 +3,13 @@
 """
 Fix Fiqh Pages Design - Match Index Page Exactly
 Recreates all advanced fiqh pages with the exact design from complete-islamic-study-guide-dark.html
+NO EMOJIS - This is a serious Islamic research application
 """
 
 import os
 
 def get_exact_index_page_design():
-    """Get the exact CSS and structure from the index page"""
+    """Get the exact CSS and structure from the index page - NO EMOJIS"""
     return """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,7 +141,6 @@ def get_exact_index_page_design():
             transform: translateY(-2px);
         }}
 
-        /* Content Links Sections - EXACT from index page */
         .content-section {{
             background: var(--bg-secondary);
             border-radius: 8px;
@@ -210,7 +210,6 @@ def get_exact_index_page_design():
             transform: translateX(5px);
         }}
 
-        /* Search Section - Matching index page style */
         .search-section {{
             background: var(--bg-secondary);
             border-radius: 8px;
@@ -292,7 +291,6 @@ def get_exact_index_page_design():
             font-size: 0.9rem;
         }}
 
-        /* Responsive Design */
         @media (max-width: 768px) {{
             .container {{
                 padding: 1rem;
@@ -321,17 +319,17 @@ def get_exact_index_page_design():
     </style>
 </head>
 <body>
-    <a href="fiqh-index.html" class="back-button">← Back to Fiqh</a>
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+    <a href="fiqh-index.html" class="back-button">Back to Fiqh</a>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
     
     <div class="container">
         <div class="header">
-            <h1>{icon} {title}</h1>
+            <h1>{title}</h1>
             <p>{description}</p>
         </div>
 
         <div class="search-section">
-            <h3>🔍 Search Fiqh Topics</h3>
+            <h3>Search Fiqh Topics</h3>
             <div class="search-container">
                 <input type="text" class="search-input" id="searchInput" placeholder="Search for specific fiqh topics..." onkeyup="performSearch()">
                 <button class="search-button" onclick="performSearch()">Search</button>
@@ -342,7 +340,7 @@ def get_exact_index_page_design():
         </div>
 
         <div class="content-section">
-            <h3>📚 Available Topics</h3>
+            <h3>Available Topics</h3>
             <div class="links-grid">
                 {topics_content}
             </div>
@@ -402,10 +400,10 @@ def get_exact_index_page_design():
             
             if (body.getAttribute('data-theme') === 'light') {{
                 body.removeAttribute('data-theme');
-                themeToggle.textContent = 'Toggle Dark Mode';
+                themeToggle.textContent = 'Toggle Theme';
             }} else {{
                 body.setAttribute('data-theme', 'light');
-                themeToggle.textContent = 'Toggle Light Mode';
+                themeToggle.textContent = 'Toggle Theme';
             }}
         }}
     </script>
@@ -413,12 +411,11 @@ def get_exact_index_page_design():
 </html>"""
 
 def get_advanced_fiqh_topics():
-    """Get comprehensive list of advanced fiqh topics"""
+    """Get comprehensive list of advanced fiqh topics - NO EMOJIS"""
     return {
         "business_financial": {
             "title": "Business & Financial Fiqh",
             "description": "Islamic rulings on business transactions, finance, and economic activities",
-            "icon": "💼",
             "topics": [
                 "Trade and Commerce", "Banking and Interest", "Investment and Stocks",
                 "Insurance and Risk Management", "Partnership and Joint Ventures",
@@ -429,7 +426,6 @@ def get_advanced_fiqh_topics():
         "medical_health": {
             "title": "Medical & Health Fiqh",
             "description": "Islamic rulings on medical treatment, health, and bioethics",
-            "icon": "🏥",
             "topics": [
                 "Medical Treatment and Surgery", "Organ Transplantation", "Blood Donation",
                 "Pregnancy and Abortion", "Mental Health Treatment", "Vaccination",
@@ -440,7 +436,6 @@ def get_advanced_fiqh_topics():
         "technology_modern": {
             "title": "Technology & Modern Life Fiqh",
             "description": "Islamic rulings on modern technology and contemporary issues",
-            "icon": "💻",
             "topics": [
                 "Social Media and Internet", "Artificial Intelligence", "Gaming and Entertainment",
                 "Digital Privacy and Security", "Online Business", "Remote Work",
@@ -451,7 +446,6 @@ def get_advanced_fiqh_topics():
         "environmental_social": {
             "title": "Environmental & Social Fiqh",
             "description": "Islamic rulings on environmental protection and social responsibility",
-            "icon": "🌍",
             "topics": [
                 "Environmental Conservation", "Climate Change", "Sustainable Living",
                 "Animal Rights and Welfare", "Community Service", "Social Justice",
@@ -462,7 +456,6 @@ def get_advanced_fiqh_topics():
         "contemporary_issues": {
             "title": "Contemporary Issues Fiqh",
             "description": "Islamic rulings on modern challenges and current events",
-            "icon": "🌐",
             "topics": [
                 "Globalization and Cultural Exchange", "Refugee and Immigration",
                 "International Relations", "Media and Journalism", "Sports and Recreation",
@@ -473,7 +466,7 @@ def get_advanced_fiqh_topics():
     }
 
 def generate_topics_content(topics):
-    """Generate topics content in exact index page format"""
+    """Generate topics content in exact index page format - NO EMOJIS"""
     topics_html = ""
     for topic in topics:
         topics_html += f"""
@@ -488,7 +481,7 @@ def generate_topics_content(topics):
     return topics_html
 
 def generate_content_database(topics):
-    """Generate JavaScript content database for search functionality"""
+    """Generate JavaScript content database for search functionality - NO EMOJIS"""
     content_db = {}
     
     # Sample fiqh content for each topic
@@ -519,7 +512,7 @@ def generate_content_database(topics):
     return js_content.rstrip(',\n            ')
 
 def create_fiqh_page_with_exact_design(topic_key, topic_data):
-    """Create a fiqh page with exact index page design"""
+    """Create a fiqh page with exact index page design - NO EMOJIS"""
     
     # Generate topics content
     topics_content = generate_topics_content(topic_data['topics'])
@@ -533,7 +526,6 @@ def create_fiqh_page_with_exact_design(topic_key, topic_data):
     # Fill template with exact design
     page_content = get_exact_index_page_design().format(
         title=topic_data['title'],
-        icon=topic_data['icon'],
         description=topic_data['description'],
         topics_content=topics_content,
         about_content=about_content,
@@ -543,9 +535,10 @@ def create_fiqh_page_with_exact_design(topic_key, topic_data):
     return page_content
 
 def fix_all_fiqh_pages_design():
-    """Fix all advanced fiqh pages to match index page design exactly"""
+    """Fix all advanced fiqh pages to match index page design exactly - NO EMOJIS"""
     
-    print("🔄 Fixing all fiqh pages to match index page design exactly...")
+    print("Fixing all fiqh pages to match index page design exactly...")
+    print("NO EMOJIS - This is a serious Islamic research application")
     
     topics = get_advanced_fiqh_topics()
     pages_fixed = 0
@@ -561,27 +554,27 @@ def fix_all_fiqh_pages_design():
                 f.write(page_content)
             
             pages_fixed += 1
-            print(f"✅ Fixed: {filename} - Now matches index page design exactly")
+            print(f"Fixed: {filename} - Now matches index page design exactly")
             
         except Exception as e:
-            print(f"❌ Error fixing {filename}: {e}")
+            print(f"Error fixing {filename}: {e}")
     
-    print(f"\n🎉 All fiqh pages design fixed!")
-    print(f"📊 Total pages corrected: {pages_fixed}")
-    print(f"🎨 Design now matches index page exactly")
-    print(f"🔍 Search functionality maintained")
+    print(f"\nAll fiqh pages design fixed!")
+    print(f"Total pages corrected: {pages_fixed}")
+    print(f"Design now matches index page exactly")
+    print(f"NO EMOJIS - Serious Islamic research application design")
     
     return pages_fixed
 
 if __name__ == "__main__":
     try:
         pages_fixed = fix_all_fiqh_pages_design()
-        print(f"\n🎯 Fix Summary:")
-        print(f"   • All fiqh pages now match index page design exactly")
-        print(f"   • Same CSS variables, fonts, colors, and layout")
-        print(f"   • Same header, content sections, and styling")
-        print(f"   • Search functionality preserved")
+        print(f"\nFix Summary:")
+        print(f"   All fiqh pages now match index page design exactly")
+        print(f"   Same CSS variables, fonts, colors, and layout")
+        print(f"   Same header, content sections, and styling")
+        print(f"   NO EMOJIS - Professional Islamic research interface")
         
     except Exception as e:
-        print(f"❌ Error during fix: {e}")
+        print(f"Error during fix: {e}")
         print("Please check the files and try again.")

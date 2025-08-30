@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete Islamic Study Guide - Islamic Study Guide</title>
+    <title>Morning and Evening Duas - Islamic Study Guide</title>
     <style>
         :root {
             --bg-primary: #0a0f0f;
@@ -146,56 +146,37 @@
             padding-bottom: 0.5rem;
         }
 
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .link-category {
-            background: var(--bg-accent);
-            padding: 1rem;
-            border-radius: 6px;
-            border-left: 4px solid var(--accent-primary);
-        }
-
-        .link-category h4 {
-            color: var(--accent-secondary);
-            margin-bottom: 0.75rem;
+        .content-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
             font-size: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .link-category ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .link-category li {
-            margin-bottom: 0.25rem;
-            padding: 0.25rem;
-            border-radius: 4px;
-            transition: background 0.2s ease;
-        }
-
-        .link-category li:hover {
-            background: var(--bg-secondary);
-        }
-
-        .link-category a {
+        .content-text h2 {
             color: var(--accent-primary);
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-            padding: 0.25rem;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            font-size: 0.85rem;
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
         }
 
-        .link-category a:hover {
-            background: var(--accent-primary);
-            color: white;
-            transform: translateX(5px);
+        .content-text h3 {
+            color: var(--accent-secondary);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-text p {
+            margin-bottom: 1rem;
+        }
+
+        .content-text ul, .content-text ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        .content-text li {
+            margin-bottom: 0.5rem;
         }
 
         .search-section {
@@ -279,54 +260,6 @@
             font-size: 0.9rem;
         }
 
-        .subject-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .subject-card {
-            background: var(--bg-accent);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-primary);
-            transition: all 0.3s ease;
-        }
-
-        .subject-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-secondary);
-        }
-
-        .subject-card h3 {
-            color: var(--accent-primary);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .subject-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .subject-link {
-            display: inline-block;
-            background: var(--accent-primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .subject-link:hover {
-            background: var(--accent-secondary);
-            transform: translateY(-2px);
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -334,10 +267,6 @@
             
             .header h1 {
                 font-size: 1.5rem;
-            }
-            
-            .links-grid, .subject-grid {
-                grid-template-columns: 1fr;
             }
             
             .search-container {
@@ -355,115 +284,90 @@
     </style>
 </head>
 <body>
-    <a href="#" class="back-button">Back to Home</a>
+    <a href="duas-index.html" class="back-button">Back to Duas Index</a>
     <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
     
     <div class="container">
         <div class="header">
-            <h1>Complete Islamic Study Guide</h1>
-            <p>Comprehensive Islamic knowledge covering Quran, Hadith, Sunnah, Fiqh, and more</p>
+            <h1>Morning and Evening Duas</h1>
+            <p>Essential supplications for beginning and ending the day</p>
         </div>
 
-        
+        <div class="search-section">
+            <h3>Search Morning and Evening Duas</h3>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for specific topics..." onkeyup="performSearch()">
+                <button class="search-button" onclick="performSearch()">Search</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <p style="text-align: center; color: var(--text-secondary);">Search results will appear here...</p>
+            </div>
+        </div>
 
         <div class="content-section">
-            <h3>Islamic Study Subjects</h3>
-            <div class="links-grid">
+            <h3>Morning and Evening Supplications</h3>
+            <div class="content-text">
                 
-                <div class="link-category">
-                    <h4>The Holy Quran</h4>
-                    <ul>
-                        <li><a href="quran-index.html">The Holy Quran</a></li>
-                        <li>Complete Quran with Arabic, Transliteration, Translation, and Tafsir</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Hadith Collections</h4>
-                    <ul>
-                        <li><a href="hadith-index.html">Hadith Collections</a></li>
-                        <li>Authentic Hadith from major collections</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Sunnah Prophetic Traditions</h4>
-                    <ul>
-                        <li><a href="sunnah-index.html">Sunnah Prophetic Traditions</a></li>
-                        <li>Prophetic way of life and teachings</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islamic Jurisprudence</h4>
-                    <ul>
-                        <li><a href="fiqh-index.html">Islamic Jurisprudence</a></li>
-                        <li>Islamic law and legal rulings</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islamic Beliefs</h4>
-                    <ul>
-                        <li><a href="aqeedah-index.html">Islamic Beliefs</a></li>
-                        <li>Core Islamic beliefs and theology</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Prophetic Biography</h4>
-                    <ul>
-                        <li><a href="seerah-index.html">Prophetic Biography</a></li>
-                        <li>Life and teachings of Prophet Muhammad</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islamic Supplications</h4>
-                    <ul>
-                        <li><a href="duas-index.html">Islamic Supplications</a></li>
-                        <li>Duas and prayers</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islamic Ethics Morality</h4>
-                    <ul>
-                        <li><a href="ethics-index.html">Islamic Ethics Morality</a></li>
-                        <li>Moral principles and character</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islamic History</h4>
-                    <ul>
-                        <li><a href="history-index.html">Islamic History</a></li>
-                        <li>Historical events and figures</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islam Science</h4>
-                    <ul>
-                        <li><a href="science-index.html">Islam Science</a></li>
-                        <li>Islamic perspective on scientific matters</li>
-                    </ul>
-                </div>
+                <h2>Essential Morning and Evening Supplications</h2>
+                
+                <p>Morning and evening supplications are an important part of a Muslim's daily routine. These duas help protect us throughout the day and night and keep us connected to Allah.</p>
+                
+                <h3>Morning Supplications</h3>
+                <p>Upon waking up in the morning, Muslims should recite these supplications:</p>
+                
+                <h4>1. Dua upon Waking Up</h4>
+                <p><strong>Arabic:</strong> الحمد لله الذي أحيانا بعد ما أماتنا وإليه النشور</p>
+                <p><strong>Transliteration:</strong> Alhamdu lillahil-lathee ahyana ba'da ma amatana wa ilayhin-nushoor</p>
+                <p><strong>Translation:</strong> "All praise is for Allah who gave us life after causing us to die (sleep) and unto Him is the resurrection."</p>
+                
+                <h4>2. Dua for Morning Protection</h4>
+                <p><strong>Arabic:</strong> أصبحنا وأصبح الملك لله والحمد لله لا إله إلا الله وحده لا شريك له</p>
+                <p><strong>Transliteration:</strong> Asbahna wa asbahal-mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la shareeka lah</p>
+                <p><strong>Translation:</strong> "We have reached the morning and at this very time all sovereignty belongs to Allah. All praise is for Allah. None has the right to be worshipped except Allah, alone, without any partner."</p>
+                
+                <h4>3. Ayat al-Kursi</h4>
+                <p>Reciting Ayat al-Kursi (Quran 2:255) in the morning provides protection throughout the day.</p>
+                
+                <h3>Evening Supplications</h3>
+                <p>In the evening, before sleeping, Muslims should recite these supplications:</p>
+                
+                <h4>1. Dua for Evening Protection</h4>
+                <p><strong>Arabic:</strong> أمسينا وأمسى الملك لله والحمد لله لا إله إلا الله وحده لا شريك له</p>
+                <p><strong>Transliteration:</strong> Amsayna wa amsal-mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la shareeka lah</p>
+                <p><strong>Translation:</strong> "We have reached the evening and at this very time all sovereignty belongs to Allah. All praise is for Allah. None has the right to be worshipped except Allah, alone, without any partner."</p>
+                
+                <h4>2. Dua before Sleeping</h4>
+                <p><strong>Arabic:</strong> باسمك ربي وضعت جنبي وبك أرفعه فإن أمسكت نفسي فارحمها وإن أرسلتها فاحفظها بما تحفظ به عبادك الصالحين</p>
+                <p><strong>Transliteration:</strong> Bismika rabbee wada'tu janbee wa bika arfa'uh, fa in amsakta nafsee farhamhaa, wa in arsaltahaa fahfadhhaa bimaa tahfadhu bihi 'ibaadakas-saaliheen</p>
+                <p><strong>Translation:</strong> "In Your name, my Lord, I lay down my side, and in Your name I raise it. If You should take my soul, then have mercy upon it, and if You should return my soul, then protect it as You protect Your righteous servants."</p>
+                
+                <h4>3. The Three Quls</h4>
+                <p>Recite Surah Al-Ikhlas, Al-Falaq, and An-Nas three times each for protection during sleep.</p>
+                
+                <h3>Benefits of Morning and Evening Duas</h3>
+                <p>Reciting these supplications regularly provides numerous benefits:</p>
+                <ul>
+                    <li><strong>Protection:</strong> These duas protect us from harm and evil throughout the day and night.</li>
+                    <li><strong>Connection with Allah:</strong> They keep us mindful of Allah and strengthen our relationship with Him.</li>
+                    <li><strong>Gratitude:</strong> They help us express gratitude for Allah's blessings and protection.</li>
+                    <li><strong>Discipline:</strong> They establish a daily routine of remembrance and worship.</li>
+                    <li><strong>Peace of Mind:</strong> They provide comfort and reassurance in our daily lives.</li>
+                </ul>
+                
+                <h3>When to Recite</h3>
+                <p>These supplications should be recited:</p>
+                <ul>
+                    <li><strong>Morning:</strong> After Fajr prayer or when starting the day's activities.</li>
+                    <li><strong>Evening:</strong> After Maghrib prayer or before going to sleep.</li>
+                    <li><strong>Consistently:</strong> Make it a habit to recite them daily without fail.</li>
+                </ul>
+                
+                <p>Making these supplications a regular part of your daily routine will bring blessings, protection, and spiritual growth. They are simple yet powerful ways to stay connected to Allah throughout the day.</p>
+            
             </div>
         </div>
 
         
-        <div class="content-section">
-            <h3>Complete Surah Access</h3>
-            <div class="subject-grid">
-                <div class="subject-card">
-                    <h3>Surahs 1-30</h3>
-                    <p>Access to the first 30 chapters of the Quran with complete verses, translation, and tafsir.</p>
-                    <a href="quran-surahs-1-30.html" class="subject-link">Access Surahs</a>
-                </div>
-                <div class="subject-card">
-                    <h3>Surahs 31-60</h3>
-                    <p>Access to chapters 31-60 of the Quran with complete verses, translation, and tafsir.</p>
-                    <a href="quran-surahs-31-60.html" class="subject-link">Access Surahs</a>
-                </div>
-                <div class="subject-card">
-                    <h3>Surahs 61-114</h3>
-                    <p>Access to chapters 61-114 of the Quran with complete verses, translation, and tafsir.</p>
-                    <a href="quran-surahs-61-114.html" class="subject-link">Access Surahs</a>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -480,7 +384,18 @@
             }
         }
 
-        
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (searchTerm.length < 2) {
+                resultsContainer.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Search results will appear here...</p>';
+                return;
+            }
+            
+            // Placeholder search functionality
+            resultsContainer.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Search functionality will be implemented with comprehensive Islamic content database.</p>';
+        }
     </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete Islamic Study Guide - Islamic Study Guide</title>
+    <title>Six Articles of Faith - Islamic Study Guide</title>
     <style>
         :root {
             --bg-primary: #0a0f0f;
@@ -146,56 +146,37 @@
             padding-bottom: 0.5rem;
         }
 
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .link-category {
-            background: var(--bg-accent);
-            padding: 1rem;
-            border-radius: 6px;
-            border-left: 4px solid var(--accent-primary);
-        }
-
-        .link-category h4 {
-            color: var(--accent-secondary);
-            margin-bottom: 0.75rem;
+        .content-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
             font-size: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .link-category ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .link-category li {
-            margin-bottom: 0.25rem;
-            padding: 0.25rem;
-            border-radius: 4px;
-            transition: background 0.2s ease;
-        }
-
-        .link-category li:hover {
-            background: var(--bg-secondary);
-        }
-
-        .link-category a {
+        .content-text h2 {
             color: var(--accent-primary);
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-            padding: 0.25rem;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            font-size: 0.85rem;
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
         }
 
-        .link-category a:hover {
-            background: var(--accent-primary);
-            color: white;
-            transform: translateX(5px);
+        .content-text h3 {
+            color: var(--accent-secondary);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-text p {
+            margin-bottom: 1rem;
+        }
+
+        .content-text ul, .content-text ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        .content-text li {
+            margin-bottom: 0.5rem;
         }
 
         .search-section {
@@ -279,54 +260,6 @@
             font-size: 0.9rem;
         }
 
-        .subject-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .subject-card {
-            background: var(--bg-accent);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-primary);
-            transition: all 0.3s ease;
-        }
-
-        .subject-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-secondary);
-        }
-
-        .subject-card h3 {
-            color: var(--accent-primary);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .subject-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .subject-link {
-            display: inline-block;
-            background: var(--accent-primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .subject-link:hover {
-            background: var(--accent-secondary);
-            transform: translateY(-2px);
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -334,10 +267,6 @@
             
             .header h1 {
                 font-size: 1.5rem;
-            }
-            
-            .links-grid, .subject-grid {
-                grid-template-columns: 1fr;
             }
             
             .search-container {
@@ -355,115 +284,98 @@
     </style>
 </head>
 <body>
-    <a href="#" class="back-button">Back to Home</a>
+    <a href="aqeedah-index.html" class="back-button">Back to Aqeedah Index</a>
     <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
     
     <div class="container">
         <div class="header">
-            <h1>Complete Islamic Study Guide</h1>
-            <p>Comprehensive Islamic knowledge covering Quran, Hadith, Sunnah, Fiqh, and more</p>
+            <h1>Six Articles of Faith</h1>
+            <p>Belief in Allah, angels, books, messengers, Day of Judgment, and divine decree</p>
         </div>
 
-        
+        <div class="search-section">
+            <h3>Search Six Articles of Faith</h3>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for specific topics..." onkeyup="performSearch()">
+                <button class="search-button" onclick="performSearch()">Search</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <p style="text-align: center; color: var(--text-secondary);">Search results will appear here...</p>
+            </div>
+        </div>
 
         <div class="content-section">
-            <h3>Islamic Study Subjects</h3>
-            <div class="links-grid">
+            <h3>The Six Articles of Faith</h3>
+            <div class="content-text">
                 
-                <div class="link-category">
-                    <h4>The Holy Quran</h4>
-                    <ul>
-                        <li><a href="quran-index.html">The Holy Quran</a></li>
-                        <li>Complete Quran with Arabic, Transliteration, Translation, and Tafsir</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Hadith Collections</h4>
-                    <ul>
-                        <li><a href="hadith-index.html">Hadith Collections</a></li>
-                        <li>Authentic Hadith from major collections</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Sunnah Prophetic Traditions</h4>
-                    <ul>
-                        <li><a href="sunnah-index.html">Sunnah Prophetic Traditions</a></li>
-                        <li>Prophetic way of life and teachings</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islamic Jurisprudence</h4>
-                    <ul>
-                        <li><a href="fiqh-index.html">Islamic Jurisprudence</a></li>
-                        <li>Islamic law and legal rulings</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islamic Beliefs</h4>
-                    <ul>
-                        <li><a href="aqeedah-index.html">Islamic Beliefs</a></li>
-                        <li>Core Islamic beliefs and theology</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Prophetic Biography</h4>
-                    <ul>
-                        <li><a href="seerah-index.html">Prophetic Biography</a></li>
-                        <li>Life and teachings of Prophet Muhammad</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islamic Supplications</h4>
-                    <ul>
-                        <li><a href="duas-index.html">Islamic Supplications</a></li>
-                        <li>Duas and prayers</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islamic Ethics Morality</h4>
-                    <ul>
-                        <li><a href="ethics-index.html">Islamic Ethics Morality</a></li>
-                        <li>Moral principles and character</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islamic History</h4>
-                    <ul>
-                        <li><a href="history-index.html">Islamic History</a></li>
-                        <li>Historical events and figures</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Islam Science</h4>
-                    <ul>
-                        <li><a href="science-index.html">Islam Science</a></li>
-                        <li>Islamic perspective on scientific matters</li>
-                    </ul>
-                </div>
+                <h2>The Six Articles of Faith in Islam</h2>
+                
+                <p>The six articles of faith (Arkan al-Iman) form the foundation of Islamic belief. These are the core beliefs that every Muslim must accept and believe in with certainty.</p>
+                
+                <h3>1. Belief in Allah (Tawheed)</h3>
+                <p>Belief in Allah is the most fundamental article of faith. Muslims believe in:</p>
+                <ul>
+                    <li><strong>Oneness of Allah:</strong> There is no god but Allah, and He has no partners or equals.</li>
+                    <li><strong>Divine Attributes:</strong> Allah possesses perfect attributes such as knowledge, power, mercy, and wisdom.</li>
+                    <li><strong>Worship:</strong> Only Allah deserves to be worshipped, and no one else should be associated with Him in worship.</li>
+                </ul>
+                
+                <h3>2. Belief in Angels (Malaika)</h3>
+                <p>Angels are spiritual beings created by Allah from light. Muslims believe in:</p>
+                <ul>
+                    <li><strong>Existence:</strong> Angels are real beings, not metaphorical or symbolic.</li>
+                    <li><strong>Functions:</strong> Angels have specific duties assigned by Allah, such as recording deeds, delivering messages, and managing natural phenomena.</li>
+                    <li><strong>Names:</strong> Some angels are known by name, such as Jibreel (Gabriel), Mikail (Michael), and Israfil.</li>
+                </ul>
+                
+                <h3>3. Belief in Divine Books (Kutub)</h3>
+                <p>Allah has revealed books to guide humanity. Muslims believe in:</p>
+                <ul>
+                    <li><strong>Previous Books:</strong> The Torah (Tawrat), Psalms (Zabur), and Gospel (Injeel) were revealed to previous prophets.</li>
+                    <li><strong>The Quran:</strong> The final and complete revelation to Prophet Muhammad (PBUH), which confirms and supersedes previous revelations.</li>
+                    <li><strong>Preservation:</strong> The Quran is perfectly preserved in its original form, unlike previous books that have been altered.</li>
+                </ul>
+                
+                <h3>4. Belief in Prophets and Messengers (Rusul)</h3>
+                <p>Allah has sent prophets and messengers to guide humanity. Muslims believe in:</p>
+                <ul>
+                    <li><strong>All Prophets:</strong> All prophets sent by Allah, including Adam, Noah, Abraham, Moses, Jesus, and Muhammad (PBUH).</li>
+                    <li><strong>Finality:</strong> Prophet Muhammad (PBUH) is the final prophet, and no prophet will come after him.</li>
+                    <li><strong>Infallibility:</strong> Prophets are protected from major sins and errors in conveying Allah's message.</li>
+                </ul>
+                
+                <h3>5. Belief in the Day of Judgment (Yawm al-Qiyamah)</h3>
+                <p>There will be a day when all people will be resurrected and judged. Muslims believe in:</p>
+                <ul>
+                    <li><strong>Resurrection:</strong> All people will be brought back to life on the Day of Judgment.</li>
+                    <li><strong>Accountability:</strong> Every person will be held accountable for their beliefs and actions.</li>
+                    <li><strong>Reward and Punishment:</strong> People will be rewarded for good deeds and punished for bad deeds, with Allah's mercy and justice.</li>
+                </ul>
+                
+                <h3>6. Belief in Divine Decree (Qadr)</h3>
+                <p>Everything that happens is according to Allah's knowledge and will. Muslims believe in:</p>
+                <ul>
+                    <li><strong>Allah's Knowledge:</strong> Allah knows everything that has happened, is happening, and will happen.</li>
+                    <li><strong>Allah's Will:</strong> Nothing happens except by Allah's permission and will.</li>
+                    <li><strong>Human Choice:</strong> While Allah knows our choices, humans have free will and are responsible for their actions.</li>
+                </ul>
+                
+                <h3>Importance of These Beliefs</h3>
+                <p>These six articles of faith are essential because:</p>
+                <ul>
+                    <li>They provide a complete worldview that explains the purpose of life and existence.</li>
+                    <li>They establish the relationship between Allah and His creation.</li>
+                    <li>They guide moral and ethical behavior.</li>
+                    <li>They provide comfort and hope in difficult times.</li>
+                    <li>They unite Muslims around common beliefs and values.</li>
+                </ul>
+                
+                <p>Understanding and believing in these articles of faith is the foundation of Islamic practice. They are not just intellectual concepts but living beliefs that should influence every aspect of a Muslim's life.</p>
+            
             </div>
         </div>
 
         
-        <div class="content-section">
-            <h3>Complete Surah Access</h3>
-            <div class="subject-grid">
-                <div class="subject-card">
-                    <h3>Surahs 1-30</h3>
-                    <p>Access to the first 30 chapters of the Quran with complete verses, translation, and tafsir.</p>
-                    <a href="quran-surahs-1-30.html" class="subject-link">Access Surahs</a>
-                </div>
-                <div class="subject-card">
-                    <h3>Surahs 31-60</h3>
-                    <p>Access to chapters 31-60 of the Quran with complete verses, translation, and tafsir.</p>
-                    <a href="quran-surahs-31-60.html" class="subject-link">Access Surahs</a>
-                </div>
-                <div class="subject-card">
-                    <h3>Surahs 61-114</h3>
-                    <p>Access to chapters 61-114 of the Quran with complete verses, translation, and tafsir.</p>
-                    <a href="quran-surahs-61-114.html" class="subject-link">Access Surahs</a>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -480,7 +392,18 @@
             }
         }
 
-        
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (searchTerm.length < 2) {
+                resultsContainer.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Search results will appear here...</p>';
+                return;
+            }
+            
+            // Placeholder search functionality
+            resultsContainer.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Search functionality will be implemented with comprehensive Islamic content database.</p>';
+        }
     </script>
 </body>
 </html>
