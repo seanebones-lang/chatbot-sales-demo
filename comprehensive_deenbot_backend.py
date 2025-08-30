@@ -2236,6 +2236,11 @@ These pillars form the foundation of Islamic practice and are essential for spir
         
         # Priority matching for specific topics with flexible word matching
         priority_keywords = {
+            # Five pillars - MUST come before general "islam" keyword
+            "five pillars of islam": "five_pillars",
+            "five pillars": "five_pillars",
+            "pillars of islam": "five_pillars",
+            
             # Core Islamic concepts
             "islam": "islam_basics",
             "what is islam": "islam_basics",
