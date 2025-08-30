@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer & Worship - Islamic Study Guide</title>
+    <style>
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --bg-glass: rgba(248, 250, 252, 0.8);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            box-shadow: var(--shadow-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .back-button {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .back-button:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .content-section {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-primary);
+            border: 1px solid var(--border-primary);
+        }
+
+        .content-section h3 {
+            color: var(--accent-primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .link-category {
+            background: var(--bg-accent);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .link-category h4 {
+            color: var(--accent-secondary);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .link-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-category li {
+            margin-bottom: 0.25rem;
+            padding: 0.25rem;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+        }
+
+        .link-category li:hover {
+            background: var(--bg-secondary);
+        }
+
+        .link-category a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            padding: 0.25rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-size: 0.85rem;
+        }
+
+        .link-category a:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .search-section {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-primary);
+            border: 1px solid var(--border-primary);
+        }
+
+        .search-section h3 {
+            color: var(--accent-primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 6px;
+            background: var(--bg-accent);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        .search-button {
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .search-results {
+            margin-top: 1.5rem;
+        }
+
+        .result-item {
+            background: var(--bg-accent);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .result-title {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .result-content {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .subject-card {
+            background: var(--bg-accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-primary);
+            transition: all 0.3s ease;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .subject-card h3 {
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .subject-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .subject-link {
+            display: inline-block;
+            background: var(--accent-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .subject-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .content-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-text h2 {
+            color: var(--accent-primary);
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-text h3 {
+            color: var(--accent-secondary);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-text p {
+            margin-bottom: 1rem;
+        }
+
+        .content-text ul, .content-text ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        .content-text li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .links-grid, .subject-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-container {
+                flex-direction: column;
+            }
+            
+            .theme-toggle, .back-button {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="complete-islamic-study-guide-dark.html" class="back-button">Back to Main Guide</a>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Prayer & Worship</h1>
+            <p>Complete guide to Islamic prayer, worship, and spiritual practices</p>
+        </div>
+
+        
+        <div class="search-section">
+            <h3>Search Prayer & Worship</h3>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for specific topics..." onkeyup="performSearch()">
+                <button class="search-button" onclick="performSearch()">Search</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <p style="text-align: center; color: var(--text-secondary);">Search results will appear here...</p>
+            </div>
+        </div>
+
+        
+        <div class="content-section">
+            <h3>Daily Prayers</h3>
+            <div class="links-grid">
+
+                <div class="link-category">
+                    <h4>Fajr Prayer</h4>
+                    <ul>
+                        <li><a href="fajr-prayer.html">Fajr Prayer</a></li>
+                        <li>Dawn prayer procedures and supplications</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Dhuhr Prayer</h4>
+                    <ul>
+                        <li><a href="dhuhr-prayer.html">Dhuhr Prayer</a></li>
+                        <li>Noon prayer procedures and supplications</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Asr Prayer</h4>
+                    <ul>
+                        <li><a href="asr-prayer.html">Asr Prayer</a></li>
+                        <li>Afternoon prayer procedures and supplications</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Maghrib Prayer</h4>
+                    <ul>
+                        <li><a href="maghrib-prayer.html">Maghrib Prayer</a></li>
+                        <li>Sunset prayer procedures and supplications</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Isha Prayer</h4>
+                    <ul>
+                        <li><a href="isha-prayer.html">Isha Prayer</a></li>
+                        <li>Night prayer procedures and supplications</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Witr Prayer</h4>
+                    <ul>
+                        <li><a href="witr-prayer.html">Witr Prayer</a></li>
+                        <li>Odd-numbered prayer after Isha</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Tahajjud Prayer</h4>
+                    <ul>
+                        <li><a href="tahajjud-prayer.html">Tahajjud Prayer</a></li>
+                        <li>Night prayer for spiritual growth</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <h3>Prayer Essentials</h3>
+            <div class="links-grid">
+
+                <div class="link-category">
+                    <h4>Wudu (Ablution)</h4>
+                    <ul>
+                        <li><a href="wudu-ablution.html">Wudu (Ablution)</a></li>
+                        <li>Complete purification procedure before prayer</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Ghusl (Full Bath)</h4>
+                    <ul>
+                        <li><a href="ghusl-full-bath.html">Ghusl (Full Bath)</a></li>
+                        <li>Complete purification for major impurities</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Tayammum</h4>
+                    <ul>
+                        <li><a href="tayammum.html">Tayammum</a></li>
+                        <li>Dry purification when water is unavailable</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Prayer Times</h4>
+                    <ul>
+                        <li><a href="prayer-times.html">Prayer Times</a></li>
+                        <li>Calculation and importance of prayer times</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Qibla Direction</h4>
+                    <ul>
+                        <li><a href="qibla-direction.html">Qibla Direction</a></li>
+                        <li>Finding the direction of the Kaaba</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Prayer Positions</h4>
+                    <ul>
+                        <li><a href="prayer-positions.html">Prayer Positions</a></li>
+                        <li>Correct standing, bowing, and prostration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <h3>Special Prayers</h3>
+            <div class="links-grid">
+
+                <div class="link-category">
+                    <h4>Friday Prayer</h4>
+                    <ul>
+                        <li><a href="friday-prayer.html">Friday Prayer</a></li>
+                        <li>Jumuah prayer and khutbah</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Eid Prayers</h4>
+                    <ul>
+                        <li><a href="eid-prayers.html">Eid Prayers</a></li>
+                        <li>Eid al-Fitr and Eid al-Adha prayers</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Funeral Prayer</h4>
+                    <ul>
+                        <li><a href="funeral-prayer.html">Funeral Prayer</a></li>
+                        <li>Janazah prayer procedures</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Rain Prayer</h4>
+                    <ul>
+                        <li><a href="rain-prayer.html">Rain Prayer</a></li>
+                        <li>Istisqa prayer for rain</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Solar Eclipse Prayer</h4>
+                    <ul>
+                        <li><a href="solar-eclipse-prayer.html">Solar Eclipse Prayer</a></li>
+                        <li>Kusuf prayer during solar eclipse</li>
+                    </ul>
+                </div>
+                <div class="link-category">
+                    <h4>Lunar Eclipse Prayer</h4>
+                    <ul>
+                        <li><a href="lunar-eclipse-prayer.html">Lunar Eclipse Prayer</a></li>
+                        <li>Khusuf prayer during lunar eclipse</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (body.getAttribute('data-theme') === 'light') {
+                body.removeAttribute('data-theme');
+                themeToggle.textContent = 'Toggle Theme';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeToggle.textContent = 'Toggle Theme';
+            }
+        }
+
+        
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (searchTerm.length < 2) {
+                resultsContainer.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Search results will appear here...</p>';
+                return;
+            }
+            
+            // Placeholder search functionality
+            resultsContainer.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Search functionality will be implemented with comprehensive Islamic content database.</p>';
+        }
+    </script>
+</body>
+</html>
