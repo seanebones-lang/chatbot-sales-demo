@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wudu (Ablution) Guide - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .wudu-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .wudu-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .wudu-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Wudu (Ablution) Guide</h1>
+            <p>Complete step-by-step guide to performing ritual ablution for prayer and other acts of worship</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Understanding Wudu</h2>
+            <p>Wudu (ablution) is the ritual purification that Muslims perform before prayer and other acts of worship. It involves washing specific parts of the body in a prescribed manner to achieve ritual purity.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قُمْتُمْ إِلَى الصَّلَاةِ فَاغْسِلُوا وُجُوهَكُمْ وَأَيْدِيَكُمْ إِلَى الْمَرَافِقِ وَامْسَحُوا بِرُءُوسِكُمْ وَأَرْجُلَكُمْ إِلَى الْكَعْبَيْنِ</div>
+                <div class="translation">"O you who have believed, when you rise to [perform] prayer, wash your faces and your forearms to the elbows and wipe over your heads and wash your feet to the ankles." (Quran 5:6)</div>
+            </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "Allah does not accept prayer without purification, nor does He accept charity from what has been stolen." (Sahih Muslim)</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>When Wudu is Required</h2>
+            
+            <div class="wudu-card">
+                <h4>Obligatory Times</h4>
+                <ul>
+                    <li><strong>Before Prayer:</strong> Required before any obligatory or voluntary prayer</li>
+                    <li><strong>Before Touching Quran:</strong> When handling the physical Quran</li>
+                    <li><strong>Before Tawaf:</strong> When circumambulating the Kaaba</li>
+                    <li><strong>Before Entering Mosque:</strong> Recommended when entering places of worship</li>
+                </ul>
+            </div>
+
+            <div class="wudu-card">
+                <h4>Recommended Times</h4>
+                <ul>
+                    <li><strong>Before Sleep:</strong> To sleep in a state of purity</li>
+                    <li><strong>After Waking:</strong> To start the day fresh</li>
+                    <li><strong>Before Reciting Quran:</strong> Even if not touching the physical book</li>
+                    <li><strong>Before Making Dua:</strong> To increase the likelihood of acceptance</li>
+                    <li><strong>Before Entering Home:</strong> To enter with blessings</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>What Breaks Wudu</h2>
+            
+            <div class="wudu-card">
+                <h4>Major Impurities</h4>
+                <ul>
+                    <li><strong>Urination/Defecation:</strong> Any form of excretion</li>
+                    <li><strong>Passing Wind:</strong> Flatulence or gas</li>
+                    <li><strong>Deep Sleep:</strong> Sleeping while lying down</li>
+                    <li><strong>Loss of Consciousness:</strong> Fainting, intoxication, etc.</li>
+                    <li><strong>Emission of Madhi:</strong> Pre-seminal fluid</li>
+                    <li><strong>Emission of Mani:</strong> Seminal fluid (requires ghusl)</li>
+                    <li><strong>Menstruation:</strong> For women (requires ghusl)</li>
+                    <li><strong>Post-Childbirth Bleeding:</strong> For women (requires ghusl)</li>
+                </ul>
+            </div>
+
+            <div class="wudu-card">
+                <h4>Minor Impurities</h4>
+                <ul>
+                    <li><strong>Sleeping While Sitting:</strong> Light dozing</li>
+                    <li><strong>Laughing During Prayer:</strong> Excessive laughter</li>
+                    <li><strong>Eating Camel Meat:</strong> According to some scholars</li>
+                    <li><strong>Doubting Wudu:</strong> When uncertain about purity</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Step-by-Step Wudu Guide</h2>
+            
+            <div class="wudu-card">
+                <h4>1. Intention (Niyyah)</h4>
+                <p>Begin by making the intention in your heart to perform wudu for the sake of Allah.</p>
+                <div class="step-box">
+                    <h5>Example Intention</h5>
+                    <p>"I intend to perform wudu to remove minor impurity and attain ritual purity for the sake of Allah."</p>
+                </div>
+            </div>
+
+            <div class="wudu-card">
+                <h4>2. Say Bismillah</h4>
+                <p>Start by saying:</p>
+                <div class="arabic-text">بِسْمِ اللَّهِ</div>
+                <div class="translation">"In the name of Allah"</div>
+                <div class="step-box">
+                    <h5>Importance</h5>
+                    <p>This invocation begins the act of worship and seeks Allah's blessings</p>
+                </div>
+            </div>
+
+            <div class="wudu-card">
+                <h4>3. Wash Hands (3 times)</h4>
+                <p>Wash both hands up to the wrists three times:</p>
+                <ul>
+                    <li><strong>Right Hand:</strong> Wash first, then left hand</li>
+                    <li><strong>Between Fingers:</strong> Rub between fingers thoroughly</li>
+                    <li><strong>Wrists:</strong> Ensure water reaches the wrist area</li>
+                </ul>
+                <div class="step-box">
+                    <h5>Method</h5>
+                    <p>Use running water and ensure complete coverage of both hands</p>
+                </div>
+            </div>
+
+            <div class="wudu-card">
+                <h4>4. Rinse Mouth (3 times)</h4>
+                <p>Take water in your mouth and rinse thoroughly:</p>
+                <ul>
+                    <li><strong>Amount:</strong> Take enough water to rinse properly</li>
+                    <li><strong>Coverage:</strong> Ensure water reaches all parts of the mouth</li>
+                    <li><strong>Gargling:</strong> Gargle to clean the throat area</li>
+                </ul>
+                <div class="step-box">
+                    <h5>Purpose</h5>
+                    <p>Cleanses the mouth and removes any food particles or impurities</p>
+                </div>
+            </div>
+
+            <div class="wudu-card">
+                <h4>5. Rinse Nose (3 times)</h4>
+                <p>Sniff water into your nose and then blow it out:</p>
+                <ul>
+                    <li><strong>Right Nostril:</strong> Sniff water with right hand</li>
+                    <li><strong>Left Nostril:</strong> Sniff water with left hand</li>
+                    <li><strong>Blowing:</strong> Blow out water thoroughly</li>
+                </ul>
+                <div class="step-box">
+                    <h5>Method</h5>
+                    <p>Use the right hand to sniff water into the right nostril, left hand for left nostril</p>
+                </div>
+            </div>
+
+            <div class="wudu-card">
+                <h4>6. Wash Face (3 times)</h4>
+                <p>Wash your entire face from hairline to chin and ear to ear:</p>
+                <ul>
+                    <li><strong>Hairline to Chin:</strong> From the top of the forehead to below the chin</li>
+                    <li><strong>Ear to Ear:</strong> From one ear to the other</li>
+                    <li><strong>Beard:</strong> Run wet fingers through beard if present</li>
+                    <li><strong>Coverage:</strong> Ensure no part of the face is missed</li>
+                </ul>
+                <div class="step-box">
+                    <h5>Important</h5>
+                    <p>This is one of the obligatory parts of wudu - must be done completely</p>
+                </div>
+            </div>
+
+            <div class="wudu-card">
+                <h4>7. Wash Arms (3 times)</h4>
+                <p>Wash both arms from fingertips to elbows:</p>
+                <ul>
+                    <li><strong>Right Arm:</strong> Wash first, from fingertips to above elbow</li>
+                    <li><strong>Left Arm:</strong> Wash second, from fingertips to above elbow</li>
+                    <li><strong>Elbows:</strong> Ensure water reaches above the elbow</li>
+                    <li><strong>Between Fingers:</strong> Rub between fingers thoroughly</li>
+                </ul>
+                <div class="step-box">
+                    <h5>Coverage</h5>
+                    <p>Water must reach above the elbow, not just to the elbow</p>
+                </div>
+            </div>
+
+            <div class="wudu-card">
+                <h4>8. Wipe Head (1 time)</h4>
+                <p>Wipe your head with wet hands:</p>
+                <ul>
+                    <li><strong>Method:</strong> Wet hands and wipe from front to back</li>
+                    <li><strong>Coverage:</strong> Wipe the entire head, not just a small part</li>
+                    <li><strong>Ears:</strong> Wipe the inside and outside of ears</li>
+                    <li><strong>Neck:</strong> Wipe the back of the neck</li>
+                </ul>
+                <div class="step-box">
+                    <h5>Technique</h5>
+                    <p>Use both hands to wipe the entire head, including ears and neck</p>
+                </div>
+            </div>
+
+            <div class="wudu-card">
+                <h4>9. Wash Feet (3 times)</h4>
+                <p>Wash both feet from toes to ankles:</p>
+                <ul>
+                    <li><strong>Right Foot:</strong> Wash first, from toes to above ankle</li>
+                    <li><strong>Left Foot:</strong> Wash second, from toes to above ankle</li>
+                    <li><strong>Ankles:</strong> Ensure water reaches above the ankle</li>
+                    <li><strong>Between Toes:</strong> Rub between toes thoroughly</li>
+                </ul>
+                <div class="step-box">
+                    <h5>Coverage</h5>
+                    <p>Water must reach above the ankle, not just to the ankle</p>
+                </div>
+            </div>
+
+            <div class="wudu-card">
+                <h4>10. Dua After Wudu</h4>
+                <p>After completing wudu, recite this dua:</p>
+                <div class="arabic-text">أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ اللَّهُمَّ اجْعَلْنِي مِنَ التَّوَّابِينَ وَاجْعَلْنِي مِنَ الْمُتَطَهِّرِينَ</div>
+                <div class="translation">"I bear witness that there is no deity except Allah, alone with no partner, and I bear witness that Muhammad is His servant and messenger. O Allah, make me among those who return to You in repentance and make me among those who remain pure and clean."</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Sunan (Recommended Actions) in Wudu</h2>
+            
+            <div class="wudu-card">
+                <h4>Recommended Practices</h4>
+                <ul>
+                    <li><strong>Starting with Right Side:</strong> Begin washing with the right hand, right arm, right foot</li>
+                    <li><strong>Washing Three Times:</strong> Each part should be washed three times</li>
+                    <li><strong>Running Fingers:</strong> Run wet fingers through beard and between fingers/toes</li>
+                    <li><strong>Wiping Ears:</strong> Wipe inside and outside of ears with wet fingers</li>
+                    <li><strong>Wiping Neck:</strong> Wipe the back of the neck</li>
+                    <li><strong>Facing Qiblah:</strong> Face the direction of the Kaaba if possible</li>
+                    <li><strong>Not Wasting Water:</strong> Use water moderately without waste</li>
+                </ul>
+            </div>
+
+            <div class="wudu-card">
+                <h4>What to Avoid</h4>
+                <ul>
+                    <li><strong>Wasting Water:</strong> Don't use excessive amounts of water</li>
+                    <li><strong>Rushing:</strong> Don't rush through the process</li>
+                    <li><strong>Missing Parts:</strong> Ensure all required parts are washed</li>
+                    <li><strong>Speaking:</strong> Avoid unnecessary speech during wudu</li>
+                    <li><strong>Drying with Towel:</strong> Let water dry naturally if possible</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Special Cases and Exceptions</h2>
+            
+            <div class="wudu-card">
+                <h4>When Water is Unavailable (Tayammum)</h4>
+                <p>If water is unavailable or harmful to use, perform tayammum:</p>
+                <ul>
+                    <li><strong>Clean Earth:</strong> Use clean soil, sand, or stone</li>
+                    <li><strong>Intention:</strong> Make intention for tayammum</li>
+                    <li><strong>Strike Hands:</strong> Strike clean earth with both hands</li>
+                    <li><strong>Wipe Face:</strong> Wipe face with both hands</li>
+                    <li><strong>Wipe Arms:</strong> Wipe arms from fingertips to elbows</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Quranic Evidence</h5>
+                    <div class="arabic-text">فَلَمْ تَجِدُوا مَاءً فَتَيَمَّمُوا صَعِيدًا طَيِّبًا فَامْسَحُوا بِوُجُوهِكُمْ وَأَيْدِيكُمْ مِنْهُ</div>
+                    <div class="translation">"But if you do not find water, then use clean earth and wipe over your faces and hands with it." (Quran 5:6)</div>
+                </div>
+            </div>
+
+            <div class="wudu-card">
+                <h4>Wudu for Women</h4>
+                <p>Special considerations for women:</p>
+                <ul>
+                    <li><strong>Nail Polish:</strong> Remove nail polish for proper wudu</li>
+                    <li><strong>Hair Covering:</strong> Wudu is valid even with hair covered</li>
+                    <li><strong>Makeup:</strong> Remove makeup that prevents water from reaching skin</li>
+                    <li><strong>Jewelry:</strong> Ensure water reaches skin under jewelry</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Benefits and Virtues of Wudu</h2>
+            
+            <div class="wudu-card">
+                <h4>Spiritual Benefits</h4>
+                <ul>
+                    <li><strong>Purification:</strong> Cleanses both body and soul</li>
+                    <li><strong>Preparation:</strong> Prepares the heart for worship</li>
+                    <li><strong>Blessings:</strong> Brings Allah's blessings and mercy</li>
+                    <li><strong>Protection:</strong> Protects from evil and wrongdoing</li>
+                    <li><strong>Acceptance:</strong> Increases acceptance of prayers and duas</li>
+                </ul>
+            </div>
+
+            <div class="wudu-card">
+                <h4>Physical Benefits</h4>
+                <ul>
+                    <li><strong>Cleanliness:</strong> Maintains personal hygiene</li>
+                    <li><strong>Refreshing:</strong> Provides a refreshing feeling</li>
+                    <li><strong>Health:</strong> Regular washing promotes good health</li>
+                    <li><strong>Discipline:</strong> Develops regular hygiene habits</li>
+                    <li><strong>Focus:</strong> Helps prepare the mind for worship</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="ghusl-guide.html">Ghusl (Full Bath) Guide</a></li>
+                <li><a href="tayammum-guide.html">Tayammum (Dry Ablution) Guide</a></li>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
+                <li><a href="sunnah-practices.html">Sunnah Practices</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>

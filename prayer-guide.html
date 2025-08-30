@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prayer Guide - Complete Islamic Study Guide</title>
+    <title>Complete Prayer Guide - Complete Islamic Study Guide</title>
     <style>
 
         :root {
@@ -155,7 +155,7 @@
             border-left: 4px solid var(--accent-teal);
         }
 
-        .prayer-step {
+        .prayer-card {
             background: var(--bg-secondary);
             padding: 1.5rem;
             border-radius: 12px;
@@ -164,15 +164,28 @@
             transition: all 0.3s ease;
         }
 
-        .prayer-step:hover {
+        .prayer-card:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-secondary);
         }
 
-        .prayer-step h4 {
+        .prayer-card h4 {
             color: var(--accent-primary);
             margin-bottom: 1rem;
             font-size: 1.3rem;
+        }
+
+        .step-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .step-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
         }
 
         .evidence-box {
@@ -185,19 +198,6 @@
 
         .evidence-box h5 {
             color: var(--accent-teal);
-            margin-bottom: 0.5rem;
-        }
-
-        .warning-box {
-            background: rgba(239, 68, 68, 0.1);
-            border: 2px solid #ef4444;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-
-        .warning-box h5 {
-            color: #ef4444;
             margin-bottom: 0.5rem;
         }
 
@@ -296,196 +296,279 @@
     <div class="container">
         <header class="header">
             <h1>Complete Prayer Guide</h1>
-            <p>Comprehensive guide to Islamic prayer (Salah) with step-by-step instructions, requirements, and spiritual guidance</p>
+            <p>Step-by-step guide to performing the five daily prayers (Salah) according to Islamic tradition</p>
         </header>
         
         <div class="content-section">
-            <h2>Introduction to Islamic Prayer (Salah)</h2>
-            <p>Salah is the second pillar of Islam and the most important act of worship after the declaration of faith. It is a direct connection between the believer and Allah, performed five times daily at specific times. Prayer purifies the soul, provides discipline, and serves as a constant reminder of our purpose in life.</p>
+            <h2>Importance of Prayer</h2>
+            <p>Salah (prayer) is the second pillar of Islam and the most important act of worship after the Shahadah. It is the direct connection between a Muslim and Allah, performed five times daily at specific times.</p>
             
             <div class="evidence-box">
                 <h5>Quranic Foundation</h5>
                 <div class="arabic-text">إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا</div>
                 <div class="translation">"Indeed, prayer has been decreed upon the believers a decree of specified times." (Quran 4:103)</div>
             </div>
+            
+            <div class="evidence-box">
+                <h5>Prophetic Teaching</h5>
+                <p>The Prophet sallallahu alayhi wa sallam said: "The first thing that will be judged among a person's deeds on the Day of Resurrection is the prayer. If it is sound, then the rest of his deeds will be sound. And if it is bad, then the rest of his deeds will be bad."</p>
+            </div>
         </div>
 
         <div class="content-section">
-            <h2>The Five Daily Prayers</h2>
+            <h2>Five Daily Prayers</h2>
             
-            <div class="prayer-step">
+            <div class="prayer-card">
                 <h4>1. Fajr (Dawn Prayer)</h4>
                 <p><strong>Time:</strong> From dawn until sunrise</p>
                 <p><strong>Rak'ahs:</strong> 2 Sunnah + 2 Fard</p>
-                <p><strong>Significance:</strong> Begins the day with remembrance of Allah and sets the spiritual tone for the entire day.</p>
+                <p><strong>Significance:</strong> Begins the day with remembrance of Allah</p>
+                <div class="step-box">
+                    <h5>Best Time</h5>
+                    <p>Perform as early as possible after dawn, before the sun rises</p>
+                </div>
             </div>
 
-            <div class="prayer-step">
+            <div class="prayer-card">
                 <h4>2. Dhuhr (Noon Prayer)</h4>
-                <p><strong>Time:</strong> After sun passes zenith until Asr</p>
+                <p><strong>Time:</strong> After the sun passes its zenith until Asr</p>
                 <p><strong>Rak'ahs:</strong> 4 Sunnah + 4 Fard + 2 Sunnah + 2 Nafl</p>
-                <p><strong>Significance:</strong> Midday prayer that breaks the work routine and reconnects with Allah.</p>
+                <p><strong>Significance:</strong> Midday break for spiritual renewal</p>
+                <div class="step-box">
+                    <h5>Best Time</h5>
+                    <p>Perform when the sun begins to decline from its peak</p>
+                </div>
             </div>
 
-            <div class="prayer-step">
+            <div class="prayer-card">
                 <h4>3. Asr (Afternoon Prayer)</h4>
-                <p><strong>Time:</strong> Mid-afternoon until sunset</p>
+                <p><strong>Time:</strong> From mid-afternoon until sunset</p>
                 <p><strong>Rak'ahs:</strong> 4 Sunnah + 4 Fard</p>
-                <p><strong>Significance:</strong> Afternoon prayer that maintains spiritual focus during the day's activities.</p>
+                <p><strong>Significance:</strong> Afternoon spiritual connection</p>
+                <div class="step-box">
+                    <h5>Best Time</h5>
+                    <p>Perform before the sun turns yellow</p>
+                </div>
             </div>
 
-            <div class="prayer-step">
+            <div class="prayer-card">
                 <h4>4. Maghrib (Sunset Prayer)</h4>
-                <p><strong>Time:</strong> After sunset until twilight ends</p>
+                <p><strong>Time:</strong> From sunset until twilight ends</p>
                 <p><strong>Rak'ahs:</strong> 3 Fard + 2 Sunnah + 2 Nafl</p>
-                <p><strong>Significance:</strong> Evening prayer that marks the end of the day and provides spiritual closure.</p>
+                <p><strong>Significance:</strong> Evening prayer marking the end of the day</p>
+                <div class="step-box">
+                    <h5>Best Time</h5>
+                    <p>Perform immediately after sunset</p>
+                </div>
             </div>
 
-            <div class="prayer-step">
+            <div class="prayer-card">
                 <h4>5. Isha (Night Prayer)</h4>
-                <p><strong>Time:</strong> After twilight ends until midnight</p>
-                <p><strong>Rak'ahs:</strong> 4 Sunnah + 4 Fard + 2 Sunnah + 2 Nafl + 3 Witr</p>
-                <p><strong>Significance:</strong> Night prayer that concludes the day and prepares for rest with spiritual peace.</p>
+                <p><strong>Time:</strong> From twilight ends until midnight</p>
+                <p><strong>Rak'ahs:</strong> 4 Sunnah + 4 Fard + 2 Sunnah + 3 Witr</p>
+                <p><strong>Significance:</strong> Final prayer of the day</p>
+                <div class="step-box">
+                    <h5>Best Time</h5>
+                    <p>Perform before midnight, preferably early in the night</p>
+                </div>
             </div>
         </div>
 
         <div class="content-section">
-            <h3>Prerequisites for Prayer</h3>
-            <p>Before performing prayer, certain conditions must be met:</p>
-            <ul>
-                <li><strong>Wudu (Ablution):</strong> Ritual purification that must be performed before each prayer</li>
-                <li><strong>Clean Body and Clothes:</strong> Must be free from impurities</li>
-                <li><strong>Clean Prayer Area:</strong> The place of prayer must be clean</li>
-                <li><strong>Proper Clothing:</strong> Must cover the awrah (private parts)</li>
-                <li><strong>Facing Qiblah:</strong> Must face the direction of the Kaaba in Makkah</li>
-                <li><strong>Intention (Niyyah):</strong> Must have the intention to perform the specific prayer</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h3>Step-by-Step Prayer Guide</h3>
+            <h2>Prerequisites for Prayer (Shuroot as-Salah)</h2>
             
-            <div class="prayer-step">
-                <h4>Step 1: Standing (Qiyam)</h4>
-                <p>Stand straight with feet shoulder-width apart, facing the Qiblah. Raise your hands to your ears and say:</p>
-                <div class="arabic-text">اللهُ أَكْبَرُ</div>
-                <div class="translation">"Allahu Akbar" (Allah is the Greatest)</div>
-                <p>This begins the prayer and marks the transition from worldly matters to spiritual worship.</p>
-            </div>
-
-            <div class="prayer-step">
-                <h4>Step 2: Opening Dua</h4>
-                <p>Place your right hand over your left on your chest and recite:</p>
-                <div class="arabic-text">سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ وَتَعَالَى جَدُّكَ وَلاَ إِلَهَ غَيْرُكَ</div>
-                <div class="translation">"Subhanaka Allahumma wa bihamdika wa tabarakas-muka wa ta'ala jadduka wa la ilaha ghayruk"</div>
-                <p><strong>Translation:</strong> "Glory be to You, O Allah, and praise be to You. Blessed is Your name and exalted is Your majesty. There is no deity except You."</p>
-            </div>
-
-            <div class="prayer-step">
-                <h4>Step 3: Recitation of Al-Fatiha</h4>
-                <p>Recite Surah Al-Fatiha (The Opening), which is obligatory in every unit of prayer:</p>
-                <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ الرَّحْمَٰنِ الرَّحِيمِ مَالِكِ يَوْمِ الدِّينِ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</div>
-                <p><strong>Note:</strong> This surah must be recited in every rak'ah of every prayer.</p>
-            </div>
-
-            <div class="prayer-step">
-                <h4>Step 4: Bowing (Ruku)</h4>
-                <p>Say "Allahu Akbar" and bow down, placing your hands on your knees. Keep your back straight and say:</p>
-                <div class="arabic-text">سُبْحَانَ رَبِّيَ الْعَظِيمِ</div>
-                <div class="translation">"Subhana Rabbi al-'Adheem" (Glory be to my Lord, the Most Great)</div>
-                <p>Say this three times or more. This position shows humility and submission to Allah.</p>
-            </div>
-
-            <div class="prayer-step">
-                <h4>Step 5: Standing from Bowing</h4>
-                <p>Rise from bowing while saying:</p>
-                <div class="arabic-text">سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ</div>
-                <div class="translation">"Sami' Allahu liman hamidah" (Allah hears those who praise Him)</div>
-                <p>Then say:</p>
-                <div class="arabic-text">رَبَّنَا وَلَكَ الْحَمْدُ</div>
-                <div class="translation">"Rabbana wa lakal hamd" (Our Lord, to You is all praise)</div>
-            </div>
-
-            <div class="prayer-step">
-                <h4>Step 6: Prostration (Sujood)</h4>
-                <p>Say "Allahu Akbar" and go into prostration. Place your forehead, nose, hands, knees, and toes on the ground. Say:</p>
-                <div class="arabic-text">سُبْحَانَ رَبِّيَ الأَعْلَى</div>
-                <div class="translation">"Subhana Rabbi al-A'la" (Glory be to my Lord, the Most High)</div>
-                <p>Say this three times or more. Prostration is the position of greatest humility before Allah.</p>
-            </div>
-
-            <div class="prayer-step">
-                <h4>Step 7: Sitting Between Prostrations</h4>
-                <p>Sit up briefly and say:</p>
-                <div class="arabic-text">رَبِّ اغْفِرْ لِي</div>
-                <div class="translation">"Rabbighfir li" (My Lord, forgive me)</div>
-                <p>Then prostrate again and repeat the same dhikr as before.</p>
-            </div>
-
-            <div class="prayer-step">
-                <h4>Step 8: Second Rak'ah and Beyond</h4>
-                <p>For subsequent rak'ahs, repeat the same process. In the final rak'ah, after the second prostration, sit for the final tashahhud.</p>
-            </div>
-
-            <div class="prayer-step">
-                <h4>Step 9: Final Sitting (Tashahhud)</h4>
-                <p>In the final sitting, recite the tashahhud:</p>
-                <div class="arabic-text">التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ السَّلاَمُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ السَّلاَمُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ</div>
-                <p><strong>Translation:</strong> "All greetings, prayers, and pure words are for Allah. Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous servants of Allah. I bear witness that there is no deity except Allah, and I bear witness that Muhammad is His servant and messenger."</p>
-            </div>
-
-            <div class="prayer-step">
-                <h4>Step 10: Salawat and Dua</h4>
-                <p>Send blessings upon the Prophet Muhammad sallallahu alayhi wa sallam:</p>
-                <div class="arabic-text">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ</div>
-                <p><strong>Translation:</strong> "O Allah, send prayers upon Muhammad and the family of Muhammad, as You sent prayers upon Ibrahim and the family of Ibrahim. Indeed, You are Praiseworthy and Glorious."</p>
-            </div>
-
-            <div class="prayer-step">
-                <h4>Step 11: Salam (Ending the Prayer)</h4>
-                <p>Turn your head to the right and say:</p>
-                <div class="arabic-text">السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ</div>
-                <div class="translation">"Assalamu alaikum wa rahmatullah" (Peace be upon you and the mercy of Allah)</div>
-                <p>Then turn to the left and repeat the same. This ends the prayer.</p>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h3>Common Mistakes to Avoid</h3>
-            <div class="warning-box">
-                <h5>Prayer Mistakes</h5>
+            <div class="prayer-card">
+                <h4>Essential Requirements</h4>
                 <ul>
-                    <li><strong>Rushing:</strong> Praying too quickly without proper concentration</li>
-                    <li><strong>Incomplete Recitation:</strong> Not completing Surah Al-Fatiha properly</li>
-                    <li><strong>Poor Posture:</strong> Not maintaining proper positions during prayer</li>
-                    <li><strong>Lack of Focus:</strong> Allowing the mind to wander during prayer</li>
-                    <li><strong>Missing Sunnah:</strong> Neglecting recommended prayers and practices</li>
+                    <li><strong>Islam:</strong> Must be Muslim</li>
+                    <li><strong>Sanity:</strong> Must be mentally sound</li>
+                    <li><strong>Adulthood:</strong> Must have reached puberty</li>
+                    <li><strong>Cleanliness:</strong> Must be in a state of ritual purity</li>
+                    <li><strong>Proper Clothing:</strong> Must be properly covered</li>
+                    <li><strong>Clean Place:</strong> Must pray in a clean area</li>
+                    <li><strong>Facing Qiblah:</strong> Must face the direction of the Kaaba</li>
+                    <li><strong>Intention:</strong> Must have the intention to pray</li>
+                </ul>
+            </div>
+
+            <div class="prayer-card">
+                <h4>Ritual Purity (Taharah)</h4>
+                <p>Before praying, one must be in a state of ritual purity:</p>
+                <ul>
+                    <li><strong>Wudu (Ablution):</strong> For minor impurity</li>
+                    <li><strong>Ghusl (Full Bath):</strong> For major impurity</li>
+                    <li><strong>Tayammum:</strong> When water is unavailable</li>
                 </ul>
             </div>
         </div>
 
         <div class="content-section">
-            <h3>Virtues and Benefits of Prayer</h3>
-            <ul>
-                <li><strong>Spiritual Purification:</strong> Cleanses the soul from sins and impurities</li>
-                <li><strong>Connection with Allah:</strong> Maintains direct communication with the Creator</li>
-                <li><strong>Discipline:</strong> Develops self-control and time management</li>
-                <li><strong>Community Bonding:</strong> Unites Muslims in collective worship</li>
-                <li><strong>Stress Relief:</strong> Provides spiritual comfort and peace</li>
-                <li><strong>Protection:</strong> Guards against evil and wrongdoing</li>
-                <li><strong>Success:</strong> Leads to success in this life and the hereafter</li>
-            </ul>
+            <h2>Step-by-Step Prayer Guide</h2>
+            
+            <div class="prayer-card">
+                <h4>1. Making Intention (Niyyah)</h4>
+                <p>Silently make the intention in your heart for which prayer you are performing.</p>
+                <div class="step-box">
+                    <h5>Example Intention</h5>
+                    <p>"I intend to perform the Fard prayer of Fajr, facing the Qiblah, for Allah the Most High."</p>
+                </div>
+            </div>
+
+            <div class="prayer-card">
+                <h4>2. Takbir al-Ihram (Opening Takbir)</h4>
+                <p>Raise your hands to your ears and say:</p>
+                <div class="arabic-text">اللَّهُ أَكْبَرُ</div>
+                <div class="translation">"Allah is the Greatest"</div>
+                <p><strong>Hand Position:</strong> Raise hands to ears, palms facing forward</p>
+            </div>
+
+            <div class="prayer-card">
+                <h4>3. Standing Position (Qiyam)</h4>
+                <p>Stand straight with your hands folded over your chest:</p>
+                <ul>
+                    <li><strong>Right Hand:</strong> Over left hand, below the navel</li>
+                    <li><strong>Feet:</strong> Shoulder-width apart, facing Qiblah</li>
+                    <li><strong>Eyes:</strong> Focus on the spot where you will prostrate</li>
+                </ul>
+                <div class="step-box">
+                    <h5>Recitation in Qiyam</h5>
+                    <p>Recite Surah Al-Fatiha followed by another surah or verses from the Quran</p>
+                </div>
+            </div>
+
+            <div class="prayer-card">
+                <h4>4. Bowing (Ruku)</h4>
+                <p>Bend at the waist, keeping your back straight:</p>
+                <div class="arabic-text">سُبْحَانَ رَبِّيَ الْعَظِيمُ</div>
+                <div class="translation">"Glory be to my Lord, the Most Great"</div>
+                <p><strong>Position:</strong> Hands on knees, back parallel to ground</p>
+                <p><strong>Duration:</strong> Say the dhikr at least 3 times</p>
+            </div>
+
+            <div class="prayer-card">
+                <h4>5. Rising from Ruku</h4>
+                <p>Return to standing position while saying:</p>
+                <div class="arabic-text">سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ</div>
+                <div class="translation">"Allah hears those who praise Him"</div>
+                <p>Then say: "Rabbana wa lakal hamd" (Our Lord, to You is all praise)</p>
+            </div>
+
+            <div class="prayer-card">
+                <h4>6. Prostration (Sujood)</h4>
+                <p>Place your forehead, nose, hands, knees, and toes on the ground:</p>
+                <div class="arabic-text">سُبْحَانَ رَبِّيَ الْأَعْلَى</div>
+                <div class="translation">"Glory be to my Lord, the Most High"</div>
+                <p><strong>Position:</strong> Forehead and nose touching ground, palms flat</p>
+                <p><strong>Duration:</strong> Say the dhikr at least 3 times</p>
+            </div>
+
+            <div class="prayer-card">
+                <h4>7. Sitting Between Prostrations (Jalsa)</h4>
+                <p>Sit briefly between the two prostrations:</p>
+                <div class="arabic-text">رَبِّ اغْفِرْ لِي</div>
+                <div class="translation">"My Lord, forgive me"</div>
+                <p><strong>Position:</strong> Sit on left foot, right foot upright</p>
+            </div>
+
+            <div class="prayer-card">
+                <h4>8. Second Prostration</h4>
+                <p>Perform the second prostration exactly like the first.</p>
+            </div>
+
+            <div class="prayer-card">
+                <h4>9. Final Sitting (Tashahhud)</h4>
+                <p>In the final sitting, recite the Tashahhud:</p>
+                <div class="arabic-text">التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ</div>
+                <div class="translation">"All greetings, prayers, and pure words are for Allah. Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous servants of Allah."</div>
+            </div>
+
+            <div class="prayer-card">
+                <h4>10. Salawat (Blessings on the Prophet)</h4>
+                <p>After Tashahhud, send blessings on the Prophet:</p>
+                <div class="arabic-text">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ</div>
+                <div class="translation">"O Allah, send prayers upon Muhammad and the family of Muhammad, as You sent prayers upon Ibrahim and the family of Ibrahim. Indeed, You are Praiseworthy and Glorious."</div>
+            </div>
+
+            <div class="prayer-card">
+                <h4>11. Dua (Supplication)</h4>
+                <p>Make any dua you wish, then end with:</p>
+                <div class="arabic-text">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</div>
+                <div class="translation">"Our Lord, grant us good in this world and good in the Hereafter, and protect us from the punishment of the Fire."</div>
+            </div>
+
+            <div class="prayer-card">
+                <h4>12. Tasleem (Ending the Prayer)</h4>
+                <p>Turn your head to the right and say:</p>
+                <div class="arabic-text">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ</div>
+                <div class="translation">"Peace be upon you and the mercy of Allah"</div>
+                <p>Then turn to the left and repeat the same phrase.</p>
+            </div>
         </div>
 
         <div class="content-section">
-            <h3>Related Topics</h3>
+            <h2>Common Mistakes to Avoid</h2>
+            
+            <div class="prayer-card">
+                <h4>Common Errors</h4>
+                <ul>
+                    <li><strong>Rushing:</strong> Praying too quickly without proper concentration</li>
+                    <li><strong>Incomplete Prostrations:</strong> Not placing all required body parts on ground</li>
+                    <li><strong>Wrong Timing:</strong> Praying outside the prescribed prayer times</li>
+                    <li><strong>Missing Intention:</strong> Not making proper intention before prayer</li>
+                    <li><strong>Improper Wudu:</strong> Incomplete or incorrect ablution</li>
+                    <li><strong>Distractions:</strong> Allowing thoughts to wander during prayer</li>
+                    <li><strong>Incorrect Qiblah:</strong> Not facing the proper direction</li>
+                </ul>
+            </div>
+
+            <div class="prayer-card">
+                <h4>How to Improve Concentration</h4>
+                <ul>
+                    <li><strong>Understand Meaning:</strong> Learn the meaning of what you're reciting</li>
+                    <li><strong>Choose Quiet Place:</strong> Pray in a quiet, clean environment</li>
+                    <li><strong>Focus on Words:</strong> Concentrate on each word being recited</li>
+                    <li><strong>Visualize Allah:</strong> Remember you're standing before Allah</li>
+                    <li><strong>Regular Practice:</strong> Consistent prayer improves concentration</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Virtues and Benefits of Prayer</h2>
+            
+            <div class="prayer-card">
+                <h4>Spiritual Benefits</h4>
+                <ul>
+                    <li><strong>Connection with Allah:</strong> Direct communication with the Creator</li>
+                    <li><strong>Purification:</strong> Cleanses the soul from sins</li>
+                    <li><strong>Discipline:</strong> Develops self-control and regularity</li>
+                    <li><strong>Gratitude:</strong> Reminds us of Allah's blessings</li>
+                    <li><strong>Humility:</strong> Teaches submission to Allah's will</li>
+                </ul>
+            </div>
+
+            <div class="prayer-card">
+                <h4>Physical Benefits</h4>
+                <ul>
+                    <li><strong>Exercise:</strong> Provides gentle physical movement</li>
+                    <li><strong>Stress Relief:</strong> Calms the mind and reduces anxiety</li>
+                    <li><strong>Posture:</strong> Improves body posture and flexibility</li>
+                    <li><strong>Breathing:</strong> Encourages deep, rhythmic breathing</li>
+                    <li><strong>Focus:</strong> Enhances mental concentration</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
             <ul>
                 <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
                 <li><a href="wudu-guide.html">Wudu (Ablution) Guide</a></li>
-                <li><a href="qibla-direction.html">Qibla Direction Guide</a></li>
+                <li><a href="qiblah-direction.html">Qiblah Direction Guide</a></li>
                 <li><a href="prayer-times.html">Prayer Times and Calculations</a></li>
-                <li><a href="sunnah-prayers.html">Sunnah and Nafl Prayers</a></li>
-                <li><a href="tajweed-mastery.html">Tajweed for Prayer Recitation</a></li>
+                <li><a href="sunnah-practices.html">Sunnah Practices</a></li>
+                <li><a href="islamic-beliefs.html">Islamic Beliefs and Aqeedah</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
             </ul>
         </div>
         
