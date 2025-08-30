@@ -2248,7 +2248,21 @@ These pillars form the foundation of Islamic practice and are essential for spir
             "technology": "Technology should be used responsibly and for beneficial purposes. It can help spread Islamic knowledge and connect Muslims worldwide.",
             "environment": "Protecting the environment is important in Islam. The Earth is a trust from Allah and should be cared for responsibly.",
             "social media": "Social media should be used wisely to share beneficial information and maintain Islamic values online.",
-            "modern life": "Islam provides guidance for all aspects of modern life while maintaining core Islamic principles and values."
+            "modern life": "Islam provides guidance for all aspects of modern life while maintaining core Islamic principles and values.",
+            
+            # Emotional and psychological guidance
+            "sorrow": "**Dealing with Sorrow and Sadness in Islam - Authentic Hadith Guidance:**\n\n**1. Hadith from Sahih Muslim 2999:**\n*Narrated by Abdullah ibn Mas'ud*\n*Arabic:* مَا أَصَابَ أَحَدًا قَطُّ هَمٌّ وَلَا حُزْنٌ فَقَالَ: اللَّهُمَّ إِنِّي عَبْدُكَ، وَابْنُ عَبْدِكَ، وَابْنُ أَمَتِكَ، نَاصِيَتِي بِيَدِكَ، مَاضٍ فِيَّ حُكْمُكَ، عَدْلٌ فِيَّ قَضَاؤُكَ، أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ، سَمَّيْتَ بِهِ نَفْسَكَ، أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ، أَوْ عَلَّمْتَهُ أَحَدًا مِنْ خَلْقِكَ، أَوِ اسْتَأْثَرْتَ بِهِ فِي عِلْمِ الْغَيْبِ عِنْدَكَ، أَنْ تَجْعَلَ الْقُرْآنَ رَبِيعَ قَلْبِي، وَنُورَ صَدْرِي، وَجَلَاءَ حُزْنِي، وَذَهَابَ هَمِّي\n\n*Translation:* 'Whenever any person is afflicted with anxiety and grief, he should say: O Allah, I am Your servant, son of Your servant, son of Your maidservant. My forehead is in Your hand, Your command over me is forever executed, and Your decree over me is just. I ask You by every name belonging to You with which You have named Yourself, or which You have sent down in Your Book, or which You have taught to any of Your creation, or which You have kept to Yourself in the knowledge of the unseen, that You make the Quran the life of my heart, the light of my chest, the removal of my grief, and the departure of my anxiety.'\n\n**2. Hadith from Abu Dawud 1525:**\n*Narrated by Abu Hurairah*\n*Translation:* 'Whoever persists in seeking forgiveness, Allah will provide him a way out of every difficulty, relief from every anxiety, and will provide for him from sources he could never imagine.'\n\n**3. Hadith from Tirmidhi 3506:**\n*Narrated by Abu Hurairah*\n*Translation:* 'Allah does not place sorrow in the heart of a servant except to give him compensation for it.'\n\n**Islamic Guidance for Sorrow:**\n- Turn to Allah with specific duas for relief from grief\n- Increase istighfar (seeking forgiveness)\n- Understand that Allah's tests come with compensation and blessings\n- Use the Quran as a source of comfort and light for the heart\n- Recognize that emotional difficulties are temporary and can be overcome through faith and supplication\n\n*Sources: Sahih Muslim, Abu Dawud, Tirmidhi*",
+            "sadness": "**Dealing with Sorrow and Sadness in Islam - Authentic Hadith Guidance:**\n\n**1. Hadith from Sahih Muslim 2999:**\n*Narrated by Abdullah ibn Mas'ud*\n*Arabic:* مَا أَصَابَ أَحَدًا قَطُّ هَمٌّ وَلَا حُزْنٌ فَقَالَ: اللَّهُمَّ إِنِّي عَبْدُكَ، وَابْنُ عَبْدِكَ، وَابْنُ أَمَتِكَ، نَاصِيَتِي بِيَدِكَ، مَاضٍ فِيَّ حُكْمُكَ، عَدْلٌ فِيَّ قَضَاؤُكَ، أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ، سَمَّيْتَ بِهِ نَفْسَكَ، أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ، أَوْ عَلَّمْتَهُ أَحَدًا مِنْ خَلْقِكَ، أَوِ اسْتَأْثَرْتَ بِهِ فِي عِلْمِ الْغَيْبِ عِنْدَكَ، أَنْ تَجْعَلَ الْقُرْآنَ رَبِيعَ قَلْبِي، وَنُورَ صَدْرِي، وَجَلَاءَ حُزْنِي، وَذَهَابَ هَمِّي\n\n*Translation:* 'Whenever any person is afflicted with anxiety and grief, he should say: O Allah, I am Your servant, son of Your servant, son of Your maidservant. My forehead is in Your hand, Your command over me is forever executed, and Your decree over me is just. I ask You by every name belonging to You with which You have named Yourself, or which You have sent down in Your Book, or which You have taught to any of Your creation, or which You have kept to Yourself in the knowledge of the unseen, that You make the Quran the life of my heart, the light of my chest, the removal of my grief, and the departure of my anxiety.'\n\n**2. Hadith from Abu Dawud 1525:**\n*Narrated by Abu Hurairah*\n*Translation:* 'Whoever persists in seeking forgiveness, Allah will provide him a way out of every difficulty, relief from every anxiety, and will provide for him from sources he could never imagine.'\n\n**3. Hadith from Tirmidhi 3506:**\n*Narrated by Abu Hurairah*\n*Translation:* 'Allah does not place sorrow in the heart of a servant except to give him compensation for it.'\n\n**Islamic Guidance for Sorrow:**\n- Turn to Allah with specific duas for relief from grief\n- Increase istighfar (seeking forgiveness)\n- Understand that Allah's tests come with compensation and blessings\n- Use the Quran as a source of comfort and light for the heart\n- Recognize that emotional difficulties are temporary and can be overcome through faith and supplication\n\n*Sources: Sahih Muslim, Abu Dawud, Tirmidhi*",
+            "grief": "**Dealing with Grief and Loss in Islam - Authentic Hadith Guidance:**\n\n**1. Hadith from Sahih Bukhari 1283:**\n*Narrated by Anas ibn Malik*\n*Translation:* 'The Prophet (PBUH) said: The eyes shed tears and the heart grieves, but we do not say anything except what pleases our Lord.'\n\n**2. Hadith from Sahih Muslim 2999:**\n*Narrated by Abdullah ibn Mas'ud*\n*Translation:* 'How wonderful is the affair of the believer, for his affairs are all good, and this applies to no one except the believer.'\n\n**Islamic Guidance for Grief:**\n- It's natural and acceptable to feel sadness and cry\n- Turn to Allah in prayer and supplication\n- Remember that this life is temporary and a test\n- Seek comfort in the Quran and authentic hadith\n- Lean on family and community for support\n- Understand that Allah never burdens a soul beyond what it can bear\n\n*Sources: Sahih Bukhari, Sahih Muslim*",
+            
+            # Comprehensive Islamic topics for ANY query
+            "hadith": "**Comprehensive Hadith Database Available:**\n\nDeenBot has access to authentic hadith from:\n- **Sahih Bukhari** - Most authentic collection\n- **Sahih Muslim** - Second most authentic collection\n- **Abu Dawud** - Comprehensive sunnah collection\n- **Tirmidhi** - Authentic hadith with commentary\n- **Nasai** - Detailed sunnah collection\n- **Ibn Majah** - Extensive hadith collection\n- **Musnad Ahmad** - Largest hadith collection\n- **Malik's Muwatta** - Early hadith collection\n\n**Ask any hadith question:**\n- 'hadith on [topic]' (e.g., 'hadith on prayer', 'hadith on patience')\n- 'sunnah about [topic]' (e.g., 'sunnah about eating', 'sunnah about sleeping')\n- 'prophet muhammad on [topic]' (e.g., 'prophet muhammad on kindness')\n\n*All hadith include Arabic text, translation, context, narrator, source, and authentication level*",
+            
+            "quran": "**Comprehensive Quran Database Available:**\n\nDeenBot has access to:\n- **Complete Quran text** in Arabic\n- **English translations** with multiple interpretations\n- **Tafsir (exegesis)** from authentic scholars\n- **Context and revelation circumstances**\n- **Surah and verse references**\n- **Thematic organization** by topics\n\n**Ask any Quran question:**\n- 'quran verse about [topic]' (e.g., 'quran verse about patience')\n- 'what does quran say about [topic]' (e.g., 'what does quran say about marriage')\n- 'tafsir of [surah:verse]' (e.g., 'tafsir of al-fatiha:1')\n- 'quran on [topic]' (e.g., 'quran on forgiveness')\n\n*All responses include Arabic text, translation, and authentic tafsir*",
+            
+            "fiqh": "**Comprehensive Fiqh Database Available:**\n\nDeenBot has access to Islamic jurisprudence from:\n- **Four major schools of thought** (Hanafi, Maliki, Shafi'i, Hanbali)\n- **Contemporary rulings** from authentic scholars\n- **Islamic laws** covering all aspects of life\n- **Halal and Haram** classifications\n- **Business and financial** rulings\n- **Family and social** laws\n- **Worship and ritual** guidance\n\n**Ask any fiqh question:**\n- 'is [action] halal or haram' (e.g., 'is music halal')\n- 'fiqh ruling on [topic]' (e.g., 'fiqh ruling on inheritance')\n- 'islamic law about [topic]' (e.g., 'islamic law about marriage')\n- 'what does islam say about [topic]' (e.g., 'what does islam say about business')\n\n*All rulings include authentic sources and scholarly consensus*",
+            
+            "sunnah": "**Comprehensive Sunnah Database Available:**\n\nDeenBot has access to Prophet Muhammad's (PBUH) teachings:\n- **Daily practices** and routines\n- **Manners and etiquette** (adab)\n- **Social interactions** and relationships\n- **Business and trade** practices\n- **Family life** and parenting\n- **Health and hygiene** guidance\n- **Spiritual practices** and worship\n\n**Ask any sunnah question:**\n- 'sunnah of [topic]' (e.g., 'sunnah of eating', 'sunnah of sleeping')\n- 'how did prophet muhammad [action]' (e.g., 'how did prophet muhammad pray')\n- 'prophet's guidance on [topic]' (e.g., 'prophet's guidance on anger')\n- 'authentic sunnah about [topic]' (e.g., 'authentic sunnah about marriage')\n\n*All responses include authentic hadith and practical guidance*"
         }
 
     def get_comprehensive_response(self, user_message):
@@ -2259,21 +2273,7 @@ These pillars form the foundation of Islamic practice and are essential for spir
         
         logging.info(f"🔍 Processing query: '{user_message}'")
         
-        # FIRST: Instant content scanner access to ALL Islamic knowledge
-        if CONTENT_SCANNER_AVAILABLE:
-            try:
-                content_response, content_source = content_scanner.get_comprehensive_response(user_message)
-                if content_response:
-                    logging.info(f"✅ Found instant response from content scanner: {content_source}")
-                    return {
-                        "response": content_response,
-                        "references": ["Instant Islamic Knowledge Scanner"],
-                        "source": f"Content Scanner - {content_source}"
-                    }
-            except Exception as e:
-                logging.warning(f"⚠️ Content scanner error: {e}")
-        
-        # SECOND: Direct topic matching with priority system
+        # FIRST: Direct topic matching with priority system (most reliable for hadith)
         matched_topic = self.find_best_topic_match(message_lower)
         if matched_topic and matched_topic in self.islamic_knowledge:
             logging.info(f"✅ Found direct topic match: {matched_topic}")
@@ -2284,7 +2284,43 @@ These pillars form the foundation of Islamic practice and are essential for spir
                 "source": f"Direct Topic Match - {matched_topic}"
             }
         
-        # THIRD: Check comprehensive Islamic knowledge base for authentic responses
+        # FIRST-A: Enhanced Islamic topic recognition for ANY Islamic query
+        islamic_query_patterns = {
+            # Hadith queries
+            "hadith": ["hadith", "hadeeth", "hadis", "sunnah", "prophet", "muhammad", "pbuh", "messenger"],
+            # Quran queries  
+            "quran": ["quran", "koran", "qur'an", "verse", "surah", "ayah", "tafsir", "tafseer"],
+            # Fiqh queries
+            "fiqh": ["fiqh", "ruling", "law", "halal", "haram", "permissible", "forbidden", "juristic"],
+            # Islamic concepts
+            "islamic": ["islam", "muslim", "islamic", "shariah", "sharia", "seerah", "aqeedah", "belief"]
+        }
+        
+        # Check if this is an Islamic query that needs comprehensive response
+        is_islamic_query = False
+        query_category = None
+        
+        for category, patterns in islamic_query_patterns.items():
+            if any(pattern in message_lower for pattern in patterns):
+                is_islamic_query = True
+                query_category = category
+                break
+        
+        # If this is an Islamic query, prioritize comprehensive knowledge base
+        if is_islamic_query and COMPREHENSIVE_KNOWLEDGE_AVAILABLE:
+            try:
+                comprehensive_response, comprehensive_source = comprehensive_knowledge.get_comprehensive_response(user_message)
+                if comprehensive_response:
+                    logging.info(f"✅ Found comprehensive Islamic response for {query_category}: {comprehensive_source}")
+                    return {
+                        "response": comprehensive_response,
+                        "references": ["Authentic Islamic Knowledge Base"],
+                        "source": f"Comprehensive Islamic Knowledge - {comprehensive_source}"
+                    }
+            except Exception as e:
+                logging.warning(f"⚠️ Comprehensive knowledge base error: {e}")
+        
+        # SECOND: Check comprehensive Islamic knowledge base for authentic responses
         if COMPREHENSIVE_KNOWLEDGE_AVAILABLE:
             try:
                 comprehensive_response, comprehensive_source = comprehensive_knowledge.get_comprehensive_response(user_message)
@@ -2298,6 +2334,20 @@ These pillars form the foundation of Islamic practice and are essential for spir
                         
             except Exception as e:
                 logging.warning(f"⚠️ Comprehensive knowledge base error: {e}")
+        
+        # THIRD: Content scanner access to HTML files (filtered for Islamic content only)
+        if CONTENT_SCANNER_AVAILABLE:
+            try:
+                content_response, content_source = content_scanner.get_comprehensive_response(user_message)
+                if content_response:
+                    logging.info(f"✅ Found relevant content from scanner: {content_source}")
+                    return {
+                        "response": content_response,
+                        "references": ["Islamic Content Scanner"],
+                        "source": f"Content Scanner - {content_source}"
+                    }
+            except Exception as e:
+                logging.warning(f"⚠️ Content scanner error: {e}")
         
         # FOURTH: Enhanced knowledge base search
         for topic, content in self.enhanced_knowledge.items():

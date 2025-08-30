@@ -217,16 +217,40 @@ class ComprehensiveIslamicKnowledge:
         }
     
     def search_comprehensive_knowledge(self, query, max_results=10):
-        """Search through all Islamic knowledge sources"""
+        """Search through all Islamic knowledge sources with enhanced pattern matching"""
         query_lower = query.lower()
         results = []
         
-        # Search hadith database
+        # Enhanced Islamic query pattern recognition
+        islamic_patterns = {
+            # Hadith patterns
+            'hadith': ['hadith', 'hadeeth', 'hadis', 'sunnah', 'prophet', 'muhammad', 'pbuh', 'messenger', 'narrated', 'narrator'],
+            # Quran patterns
+            'quran': ['quran', 'koran', 'qur\'an', 'verse', 'surah', 'ayah', 'tafsir', 'tafseer', 'chapter', 'revelation'],
+            # Fiqh patterns
+            'fiqh': ['fiqh', 'ruling', 'law', 'halal', 'haram', 'permissible', 'forbidden', 'juristic', 'jurisprudence', 'islamic law'],
+            # Islamic concept patterns
+            'islamic': ['islam', 'muslim', 'islamic', 'shariah', 'sharia', 'seerah', 'aqeedah', 'belief', 'faith', 'religion']
+        }
+        
+        # Determine query type for better search
+        query_type = None
+        for pattern_type, patterns in islamic_patterns.items():
+            if any(pattern in query_lower for pattern in patterns):
+                query_type = pattern_type
+                break
+        
+        # Search hadith database with enhanced relevance
         for topic, topic_data in self.hadith_database.items():
-            if any(word in topic.lower() for word in query_lower.split()):
+            # Check topic name
+            topic_relevance = self.calculate_topic_relevance(query_lower, topic)
+            if topic_relevance > 0.1:  # Lower threshold for better coverage
                 for hadith in topic_data["hadiths"]:
                     relevance = self.calculate_hadith_relevance(query_lower, hadith)
-                    if relevance > 0.3:
+                    # Boost relevance for hadith queries
+                    if query_type == 'hadith':
+                        relevance *= 1.5
+                    if relevance > 0.1:
                         results.append({
                             'title': f"Hadith {hadith['number']}",
                             'content': f"{hadith['translation']} - {hadith['context']}",
@@ -237,12 +261,16 @@ class ComprehensiveIslamicKnowledge:
                             'authentication': hadith.get('authentication', '')
                         })
         
-        # Search Quran database
+        # Search Quran database with enhanced relevance
         for topic, topic_data in self.quran_database.items():
-            if any(word in topic.lower() for word in query_lower.split()):
+            topic_relevance = self.calculate_topic_relevance(query_lower, topic)
+            if topic_relevance > 0.1:
                 for verse in topic_data["verses"]:
                     relevance = self.calculate_quran_relevance(query_lower, verse)
-                    if relevance > 0.3:
+                    # Boost relevance for Quran queries
+                    if query_type == 'quran':
+                        relevance *= 1.5
+                    if relevance > 0.1:
                         results.append({
                             'title': f"Quran {verse['source']}",
                             'content': f"{verse['translation']} - {verse['context']}",
@@ -252,10 +280,13 @@ class ComprehensiveIslamicKnowledge:
                             'arabic': verse.get('arabic', '')
                         })
         
-        # Search fiqh database
+        # Search fiqh database with enhanced relevance
         for topic, topic_data in self.fiqh_database.items():
             relevance = self.calculate_content_relevance(query_lower, topic_data)
-            if relevance > 0.3:
+            # Boost relevance for fiqh queries
+            if query_type == 'fiqh':
+                relevance *= 1.5
+            if relevance > 0.1:
                 results.append({
                     'title': topic_data['title'],
                     'content': topic_data['content'],
@@ -264,10 +295,13 @@ class ComprehensiveIslamicKnowledge:
                     'type': 'fiqh'
                 })
         
-        # Search Islamic guidance
+        # Search Islamic guidance with enhanced relevance
         for topic, topic_data in self.islamic_guidance.items():
             relevance = self.calculate_content_relevance(query_lower, topic_data)
-            if relevance > 0.3:
+            # Boost relevance for Islamic concept queries
+            if query_type == 'islamic':
+                relevance *= 1.5
+            if relevance > 0.1:
                 results.append({
                     'title': topic_data['title'],
                     'content': topic_data['content'],
@@ -275,6 +309,11 @@ class ComprehensiveIslamicKnowledge:
                     'relevance': relevance,
                     'type': 'guidance'
                 })
+        
+        # If no results found, try broader search with lower threshold
+        if not results:
+            logging.info(f"🔍 No results found with standard threshold, trying broader search")
+            return self.search_comprehensive_knowledge_broad(query, max_results)
         
         # Sort by relevance and return top results
         results.sort(key=lambda x: x['relevance'], reverse=True)
@@ -346,6 +385,83 @@ class ComprehensiveIslamicKnowledge:
                     score += 0.1
         
         return score
+    
+    def calculate_topic_relevance(self, query, topic):
+        """Calculate relevance score for topic names"""
+        score = 0
+        topic_lower = topic.lower()
+        
+        # Check if query words are in topic name
+        for word in query.split():
+            if word in topic_lower:
+                score += 0.3
+        
+        # Check if topic words are in query
+        topic_words = topic_lower.split('_')
+        for word in topic_words:
+            if word in query:
+                score += 0.2
+        
+        return score
+    
+    def search_comprehensive_knowledge_broad(self, query, max_results=10):
+        """Broader search with lower thresholds for comprehensive coverage"""
+        query_lower = query.lower()
+        results = []
+        
+        # Search with very low threshold for maximum coverage
+        for topic, topic_data in self.hadith_database.items():
+            for hadith in topic_data["hadiths"]:
+                relevance = self.calculate_hadith_relevance(query_lower, hadith)
+                if relevance > 0.05:  # Very low threshold
+                    results.append({
+                        'title': f"Hadith {hadith['number']}",
+                        'content': f"{hadith['translation']} - {hadith['context']}",
+                        'source': f"{hadith['source']} - {hadith['narrator']}",
+                        'relevance': relevance,
+                        'type': 'hadith',
+                        'arabic': hadith.get('arabic', ''),
+                        'authentication': hadith.get('authentication', '')
+                    })
+        
+        for topic, topic_data in self.quran_database.items():
+            for verse in topic_data["verses"]:
+                relevance = self.calculate_quran_relevance(query_lower, verse)
+                if relevance > 0.05:  # Very low threshold
+                    results.append({
+                        'title': f"Quran {verse['source']}",
+                        'content': f"{verse['translation']} - {verse['context']}",
+                        'source': verse['source'],
+                        'relevance': relevance,
+                        'type': 'quran',
+                        'arabic': verse.get('arabic', '')
+                    })
+        
+        for topic, topic_data in self.fiqh_database.items():
+            relevance = self.calculate_content_relevance(query_lower, topic_data)
+            if relevance > 0.05:  # Very low threshold
+                results.append({
+                    'title': topic_data['title'],
+                    'content': topic_data['content'],
+                    'source': topic_data['source'],
+                    'relevance': relevance,
+                    'type': 'fiqh'
+                })
+        
+        for topic, topic_data in self.islamic_guidance.items():
+            relevance = self.calculate_content_relevance(query_lower, topic_data)
+            if relevance > 0.05:  # Very low threshold
+                results.append({
+                    'title': topic_data['title'],
+                    'content': topic_data['content'],
+                    'source': f"Islamic Guidance - {', '.join(topic_data['sources'])}",
+                    'relevance': relevance,
+                    'type': 'guidance'
+                })
+        
+        # Sort by relevance and return top results
+        results.sort(key=lambda x: x['relevance'], reverse=True)
+        return results[:max_results]
     
     def get_comprehensive_response(self, query):
         """Get comprehensive response from all Islamic knowledge sources"""

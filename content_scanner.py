@@ -134,21 +134,75 @@ class IslamicContentScanner:
         query_lower = query.lower()
         results = []
         
+        # Filter out technical and non-Islamic content
+        excluded_files = [
+            'test-', 'deenbot-', 'DESIGN-LOCKED', 'DEENBOT-SYSTEM-LOCKED',
+            'README', 'TRAINING_GUIDE', 'requirements.txt', 'package.json',
+            'package-lock.json', 'tailwind.config.js', 'postcss.config.js',
+            'App.tsx', 'index.css', 'logo.svg', 'docker-compose.yml'
+        ]
+        
         for file_path, file_data in self.content_index.items():
-            for section in file_data['sections']:
-                relevance_score = self.calculate_relevance(query_lower, section)
+            # Skip technical documentation files
+            if any(excluded in file_path for excluded in excluded_files):
+                continue
                 
-                if relevance_score > 0.1:  # Lower threshold for better results
-                    results.append({
-                        'title': section['title'],
-                        'content': section['content'][:500] + "..." if len(section['content']) > 500 else section['content'],
-                        'source': section['source'],
-                        'relevance': relevance_score
-                    })
+            for section in file_data['sections']:
+                # Only include sections with Islamic content
+                if self.is_islamic_content(section):
+                    relevance_score = self.calculate_relevance(query_lower, section)
+                    
+                    if relevance_score > 0.3:  # Higher threshold for better quality
+                        results.append({
+                            'title': section['title'],
+                            'content': section['content'][:500] + "..." if len(section['content']) > 500 else section['content'],
+                            'source': section['source'],
+                            'relevance': relevance_score
+                        })
         
         # Sort by relevance and return top results
         results.sort(key=lambda x: x['relevance'], reverse=True)
         return results[:max_results]
+    
+    def is_islamic_content(self, section):
+        """Check if section contains Islamic content"""
+        try:
+            content_lower = section['content'].lower()
+            title_lower = section['title'].lower()
+            
+            # Islamic keywords that indicate relevant content
+            islamic_keywords = [
+                'hadith', 'sunnah', 'quran', 'fiqh', 'islam', 'muslim', 'prayer', 'fasting', 'charity',
+                'allah', 'prophet', 'muhammad', 'pbuh', 'dua', 'supplication', 'ramadan', 'hajj',
+                'zakat', 'salah', 'wudu', 'ablution', 'halal', 'haram', 'shariah', 'seerah',
+                'tafsir', 'tafseer', 'arabic', 'arabic text', 'translation', 'narrator', 'authentication',
+                'bukhari', 'muslim', 'abudawud', 'tirmidhi', 'nasai', 'ibnmajah', 'ahmad', 'malik',
+                'shafi', 'hanafi', 'maliki', 'hanbali', 'juristic', 'jurisprudence', 'islamic law',
+                'family', 'marriage', 'children', 'business', 'ethics', 'morality', 'character',
+                'patience', 'gratitude', 'forgiveness', 'mercy', 'compassion', 'justice', 'equality'
+            ]
+            
+            # Check if content contains Islamic keywords
+            for keyword in islamic_keywords:
+                if keyword in content_lower or keyword in title_lower:
+                    return True
+            
+            # Check if title suggests Islamic content
+            islamic_titles = [
+                'prayer', 'fasting', 'charity', 'hadith', 'quran', 'sunnah', 'fiqh', 'islamic',
+                'dua', 'supplication', 'family', 'marriage', 'business', 'ethics', 'morality',
+                'character', 'patience', 'gratitude', 'forgiveness', 'mercy', 'compassion',
+                'justice', 'equality', 'bukhari', 'muslim', 'abudawud', 'tirmidhi', 'nasai',
+                'ibnmajah', 'ahmad', 'malik', 'shafi', 'hanafi', 'maliki', 'hanbali'
+            ]
+            for title_word in islamic_titles:
+                if title_word in title_lower:
+                    return True
+            
+            return False
+            
+        except Exception as e:
+            return False
     
     def calculate_relevance(self, query, section):
         """Calculate relevance score for a section"""
