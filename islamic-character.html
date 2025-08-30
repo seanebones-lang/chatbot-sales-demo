@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Character Building - Complete Islamic Study Guide</title>
+    <style>
+
+        :root {
+            --bg-primary: #0a0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-accent: #142020;
+            --bg-glass: rgba(26, 26, 26, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-accent: #cbd5e0;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(20, 32, 32, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.4);
+            --glass-blur: blur(20px);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-accent: #475569;
+            --accent-primary: #10b981;
+            --accent-secondary: #0d9488;
+            --accent-teal: #14b8a6;
+            --accent-green: #059669;
+            --border-primary: rgba(241, 245, 249, 0.8);
+            --border-secondary: rgba(16, 185, 129, 0.3);
+            --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-secondary: 0 16px 64px rgba(0, 0, 0, 0.15);
+            --glass-blur: blur(20px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-accent);
+            border-radius: 16px;
+            border: 2px solid var(--accent-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--border-primary);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .content-section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .content-section ul, .content-section ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .character-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .character-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .character-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .warning-box h5 {
+            color: #ef4444;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <header class="header">
+            <h1>Islamic Character Building</h1>
+            <p>Complete guide to developing excellent character and moral virtues based on Islamic teachings and prophetic example</p>
+        </header>
+        
+        <div class="content-section">
+            <h2>Foundation of Islamic Character</h2>
+            <p>Islamic character (Akhlaq) is the foundation of a Muslim's spiritual and moral development. It encompasses all aspects of behavior, from personal conduct to social interactions, and is based on the teachings of the Quran and the perfect example of Prophet Muhammad sallallahu alayhi wa sallam.</p>
+            
+            <div class="evidence-box">
+                <h5>Quranic Foundation</h5>
+                <div class="arabic-text">وَإِنَّكَ لَعَلَى خُلُقٍ عَظِيمٍ</div>
+                <div class="translation">"And indeed, you are of a great moral character." (Quran 68:4)</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Core Islamic Virtues</h2>
+            
+            <div class="character-card">
+                <h4>1. Truthfulness (Sidq)</h4>
+                <p>Truthfulness is the foundation of all good character:</p>
+                <ul>
+                    <li><strong>Definition:</strong> Speaking and acting with complete honesty</li>
+                    <li><strong>Importance:</strong> Essential for trust and credibility</li>
+                    <li><strong>Application:</strong> In speech, business, and all dealings</li>
+                    <li><strong>Benefits:</strong> Builds trust and earns respect</li>
+                    <li><strong>Warning:</strong> Lying destroys character and relationships</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Prophetic Teaching</h5>
+                    <div class="arabic-text">عَلَيْكُمْ بِالصِّدْقِ فَإِنَّ الصِّدْقَ يَهْدِي إِلَى الْبِرِّ وَإِنَّ الْبِرَّ يَهْدِي إِلَى الْجَنَّةِ</div>
+                    <div class="translation">"You must be truthful, for truthfulness leads to righteousness, and righteousness leads to Paradise." (Hadith)</div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <h4>2. Trustworthiness (Amanah)</h4>
+                <p>Trustworthiness is a fundamental Islamic virtue:</p>
+                <ul>
+                    <li><strong>Definition:</strong> Being reliable and trustworthy in all matters</li>
+                    <li><strong>Scope:</strong> Financial, personal, and professional responsibilities</li>
+                    <li><strong>Examples:</strong> Keeping promises, protecting secrets, honest business</li>
+                    <li><strong>Benefits:</strong> Earns respect and opens opportunities</li>
+                    <li><strong>Warning:</strong> Betrayal of trust is a major sin</li>
+                </ul>
+            </div>
+
+            <div class="character-card">
+                <h4>3. Patience (Sabr)</h4>
+                <p>Patience is essential for spiritual growth:</p>
+                <ul>
+                    <li><strong>Definition:</strong> Enduring difficulties with faith and composure</li>
+                    <li><strong>Types:</strong> Patience in worship, patience with difficulties, patience with people</li>
+                    <li><strong>Benefits:</strong> Strengthens faith and character</li>
+                    <li><strong>Reward:</strong> Allah's help and guidance</li>
+                    <li><strong>Practice:</strong> Daily challenges and long-term goals</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Quranic Guidance</h5>
+                    <div class="arabic-text">إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</div>
+                    <div class="translation">"Indeed, Allah is with the patient." (Quran 2:153)</div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <h4>4. Gratitude (Shukr)</h4>
+                <p>Gratitude is a key to happiness and success:</p>
+                <ul>
+                    <li><strong>Definition:</strong> Acknowledging and appreciating Allah's blessings</li>
+                    <li><strong>Expression:</strong> Through words, actions, and heart</li>
+                    <li><strong>Benefits:</strong> Increases blessings and contentment</li>
+                    <li><strong>Practice:</strong> Daily remembrance and thankfulness</li>
+                    <li><strong>Warning:</strong> Ingratitude leads to loss of blessings</li>
+                </ul>
+            </div>
+
+            <div class="character-card">
+                <h4>5. Humility (Tawadu')</h4>
+                <p>Humility is the mark of true greatness:</p>
+                <ul>
+                    <li><strong>Definition:</strong> Recognizing one's limitations and showing modesty</li>
+                    <li><strong>Manifestation:</strong> In speech, behavior, and treatment of others</li>
+                    <li><strong>Benefits:</strong> Earns respect and opens hearts</li>
+                    <li><strong>Warning:</strong> Arrogance is despised by Allah</li>
+                    <li><strong>Balance:</strong> Confidence without pride</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Social Character Traits</h2>
+            
+            <div class="character-card">
+                <h4>1. Kindness (Rifq)</h4>
+                <p>Kindness is essential in all relationships:</p>
+                <ul>
+                    <li><strong>Definition:</strong> Gentle and compassionate treatment of others</li>
+                    <li><strong>Scope:</strong> Family, friends, neighbors, and strangers</li>
+                    <li><strong>Examples:</strong> Soft speech, helpful actions, forgiving nature</li>
+                    <li><strong>Benefits:</strong> Creates harmony and earns love</li>
+                    <li><strong>Warning:</strong> Harshness drives people away</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Prophetic Teaching</h5>
+                    <div class="arabic-text">إِنَّ الرِّفْقَ لَا يَكُونُ فِي شَيْءٍ إِلَّا زَانَهُ وَلَا يُنْزَعُ مِنْ شَيْءٍ إِلَّا شَانَهُ</div>
+                    <div class="translation">"Gentleness is not found in anything except that it beautifies it, and it is not removed from anything except that it disgraces it." (Hadith)</div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <h4>2. Generosity (Sakha')</h4>
+                <p>Generosity reflects a giving heart:</p>
+                <ul>
+                    <li><strong>Definition:</strong> Willingness to give and share with others</li>
+                    <li><strong>Forms:</strong> Money, time, knowledge, and emotional support</li>
+                    <li><strong>Benefits:</strong> Purifies wealth and increases blessings</li>
+                    <li><strong>Practice:</strong> Regular charity and helping others</li>
+                    <li><strong>Balance:</strong> Generous without being wasteful</li>
+                </ul>
+            </div>
+
+            <div class="character-card">
+                <h4>3. Justice (Adl)</h4>
+                <p>Justice is fundamental to Islamic character:</p>
+                <ul>
+                    <li><strong>Definition:</strong> Treating everyone fairly and equally</li>
+                    <li><strong>Scope:</strong> Personal, family, business, and social matters</li>
+                    <li><strong>Examples:</strong> Fair treatment, honest judgment, equal rights</li>
+                    <li><strong>Benefits:</strong> Creates trust and social harmony</li>
+                    <li><strong>Warning:</strong> Injustice leads to social problems</li>
+                </ul>
+            </div>
+
+            <div class="character-card">
+                <h4>4. Forgiveness (Afw)</h4>
+                <p>Forgiveness is a sign of strength:</p>
+                <ul>
+                    <li><strong>Definition:</strong> Letting go of anger and resentment</li>
+                    <li><strong>Benefits:</strong> Inner peace and better relationships</li>
+                    <li><strong>Practice:</strong> Forgiving others and seeking forgiveness</li>
+                    <li><strong>Balance:</strong> Forgiveness without enabling wrongdoing</li>
+                    <li><strong>Reward:</strong> Allah's forgiveness and mercy</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Character Development Methods</h2>
+            
+            <div class="character-card">
+                <h4>1. Self-Reflection (Muhasabah)</h4>
+                <p>Regular self-assessment is essential:</p>
+                <ul>
+                    <li><strong>Daily Review:</strong> Reflect on actions and intentions</li>
+                    <li><strong>Weekly Assessment:</strong> Evaluate progress and areas for improvement</li>
+                    <li><strong>Monthly Goals:</strong> Set specific character improvement targets</li>
+                    <li><strong>Accountability:</strong> Share goals with trusted friends or family</li>
+                    <li><strong>Documentation:</strong> Keep a character development journal</li>
+                </ul>
+            </div>
+
+            <div class="character-card">
+                <h4>2. Learning and Study</h4>
+                <p>Knowledge is the foundation of good character:</p>
+                <ul>
+                    <li><strong>Islamic Studies:</strong> Learn from Quran and Hadith</li>
+                    <li><strong>Biographies:</strong> Study the lives of righteous people</li>
+                    <li><strong>Contemporary Examples:</strong> Learn from modern role models</li>
+                    <li><strong>Regular Reading:</strong> Islamic literature and character guides</li>
+                    <li><strong>Discussion Groups:</strong> Share and learn with others</li>
+                </ul>
+            </div>
+
+            <div class="character-card">
+                <h4>3. Practical Application</h4>
+                <p>Character is built through practice:</p>
+                <ul>
+                    <li><strong>Daily Challenges:</strong> Practice virtues in small situations</li>
+                    <li><strong>Role-Playing:</strong> Practice difficult conversations</li>
+                    <li><strong>Volunteer Work:</strong> Serve others to develop compassion</li>
+                    <li><strong>Family Practice:</strong> Apply virtues at home first</li>
+                    <li><strong>Community Service:</strong> Extend kindness to the community</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Character Challenges</h2>
+            
+            <div class="character-card">
+                <h4>1. Anger Management</h4>
+                <p>Controlling anger is crucial for good character:</p>
+                <ul>
+                    <li><strong>Islamic Method:</strong> Seek refuge in Allah when angry</li>
+                    <li><strong>Physical Response:</strong> Change position or location</li>
+                    <li><strong>Delayed Response:</strong> Wait before speaking or acting</li>
+                    <li><strong>Forgiveness:</strong> Remember the virtue of forgiving</li>
+                    <li><strong>Professional Help:</strong> Seek counseling if needed</li>
+                </ul>
+                <div class="warning-box">
+                    <h5>Warning About Anger</h5>
+                    <p>Uncontrolled anger can lead to sin, broken relationships, and poor decisions. The Prophet sallallahu alayhi wa sallam taught that the strong person is not the one who can wrestle someone down, but the one who can control himself when angry.</p>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <h4>2. Overcoming Pride</h4>
+                <p>Pride is a major obstacle to good character:</p>
+                <ul>
+                    <li><strong>Recognition:</strong> Acknowledge that all good comes from Allah</li>
+                    <li><strong>Humility Practice:</strong> Serve others and accept help</li>
+                    <li><strong>Gratitude:</strong> Remember Allah's blessings</li>
+                    <li><strong>Self-Reflection:</strong> Recognize your limitations</li>
+                    <li><strong>Seeking Knowledge:</strong> Learn from others</li>
+                </ul>
+            </div>
+
+            <div class="character-card">
+                <h4>3. Building Consistency</h4>
+                <p>Maintaining good character requires consistency:</p>
+                <ul>
+                    <li><strong>Small Steps:</strong> Start with manageable changes</li>
+                    <li><strong>Daily Practice:</strong> Make character building a daily habit</li>
+                    <li><strong>Support System:</strong> Surround yourself with good people</li>
+                    <li><strong>Regular Review:</strong> Assess progress regularly</li>
+                    <li><strong>Patience:</strong> Character development takes time</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Character in Different Contexts</h2>
+            
+            <div class="character-card">
+                <h4>1. Family Character</h4>
+                <p>Good character begins at home:</p>
+                <ul>
+                    <li><strong>Respect:</strong> Honor parents and elders</li>
+                    <li><strong>Kindness:</strong> Treat family members with gentleness</li>
+                    <li><strong>Patience:</strong> Be patient with family challenges</li>
+                    <li><strong>Forgiveness:</strong> Forgive family mistakes quickly</li>
+                    <li><strong>Service:</strong> Help family members willingly</li>
+                </ul>
+            </div>
+
+            <div class="character-card">
+                <h4>2. Professional Character</h4>
+                <p>Islamic character in the workplace:</p>
+                <ul>
+                    <li><strong>Honesty:</strong> Be truthful in all business dealings</li>
+                    <li><strong>Reliability:</strong> Keep promises and meet deadlines</li>
+                    <li><strong>Respect:</strong> Treat colleagues with dignity</li>
+                    <li><strong>Excellence:</strong> Do your best in all work</li>
+                    <li><strong>Integrity:</strong> Maintain ethical standards</li>
+                </ul>
+            </div>
+
+            <div class="character-card">
+                <h4>3. Social Character</h4>
+                <p>Character in community interactions:</p>
+                <ul>
+                    <li><strong>Neighborliness:</strong> Be kind to neighbors</li>
+                    <li><strong>Community Service:</strong> Help those in need</li>
+                    <li><strong>Respect for Diversity:</strong> Honor different cultures and beliefs</li>
+                    <li><strong>Conflict Resolution:</strong> Resolve disputes peacefully</li>
+                    <li><strong>Environmental Care:</strong> Protect and preserve nature</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
+            <ul>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="family-values.html">Islamic Family Values</a></li>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
+                <li><a href="tawheed.html">Islamic Monotheism</a></li>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+            </ul>
+        </div>
+        
+        <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+        
+        // Set default theme
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>
