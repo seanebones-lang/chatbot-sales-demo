@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeenBot Test - Duplicate Response Fix</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .chat-container {
+            border: 2px solid #10b981;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .chat-header {
+            background: #10b981;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+        }
+        .message.user-message {
+            justify-content: flex-end;
+        }
+        .message.deenbot-message {
+            justify-content: flex-start;
+        }
+        .message-bubble {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 18px;
+        }
+        .user-message .message-bubble {
+            background: #10b981;
+            color: white;
+        }
+        .deenbot-message .message-bubble {
+            background: white;
+            border: 1px solid #ddd;
+        }
+        .chat-input-container {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #ddd;
+        }
+        .chat-input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+        #chatInput {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+        }
+        .send-button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .test-info {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .log {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>DeenBot Test - Duplicate Response Fix</h1>
+    
+    <div class="test-section">
+        <h2>Test Purpose</h2>
+        <p>This page tests the DeenBot duplicate response fix to ensure:</p>
+        <ul>
+            <li>✅ Only one instance is created</li>
+            <li>✅ No duplicate event listeners</li>
+            <li>✅ No duplicate API calls</li>
+            <li>✅ No duplicate messages</li>
+        </ul>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Instructions</h2>
+        <ol>
+            <li>Type a message and press Enter or click Send</li>
+            <li>Watch for any duplicate responses</li>
+            <li>Check the console log for initialization messages</li>
+            <li>Try rapid clicking on send button</li>
+            <li>Verify only one response per message</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h2>DeenBot Chat Interface</h2>
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>DeenBot Test</h3>
+                <p>Testing Duplicate Response Fix</p>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message deenbot-message">
+                    <div class="message-bubble">
+                        <p>As-salamu alaykum, I'm ready for testing. Please send a message to verify the duplicate response fix.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chatInput" placeholder="Type your test message..." maxlength="500">
+                    <button id="sendButton" class="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Console Log</h2>
+        <div class="log" id="consoleLog">Console messages will appear here...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="testResults">
+            <p>Test not yet completed. Please send a message to begin testing.</p>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced DeenBot Chat Class with Duplicate Prevention
+        class DeenBotChatTest {
+            constructor() {
+                // Prevent multiple instances
+                if (window.deenbotChatTestInstance) {
+                    this.log('DeenBot test instance already exists, returning existing instance');
+                    return window.deenbotChatTestInstance;
+                }
+                
+                this.chatMessages = document.getElementById('chatMessages');
+                this.chatInput = document.getElementById('chatInput');
+                this.sendButton = document.getElementById('sendButton');
+                this.serverUrl = 'http://localhost:8080';
+                this.isProcessing = false;
+                this.messageCount = 0;
+                this.responseCount = 0;
+                
+                // Store instance globally to prevent duplicates
+                window.deenbotChatTestInstance = this;
+                
+                this.initializeChat();
+                this.log('DeenBot test instance created successfully');
+            }
+            
+            log(message) {
+                console.log(message);
+                const logElement = document.getElementById('consoleLog');
+                const timestamp = new Date().toLocaleTimeString();
+                logElement.innerHTML += `[${timestamp}] ${message}\n`;
+                logElement.scrollTop = logElement.scrollHeight;
+            }
+            
+            initializeChat() {
+                // Prevent duplicate initialization
+                if (this.initialized) {
+                    this.log('Chat already initialized, skipping...');
+                    return;
+                }
+                
+                // Remove any existing event listeners to prevent duplicates
+                if (this.boundSendMessage) {
+                    this.sendButton.removeEventListener('click', this.boundSendMessage);
+                }
+                if (this.boundKeyPress) {
+                    this.chatInput.removeEventListener('keypress', this.boundKeyPress);
+                }
+                
+                // Bind methods to prevent duplicate event handling
+                this.boundSendMessage = this.sendMessage.bind(this);
+                this.boundKeyPress = (e) => {
+                    if (e.key === 'Enter') this.sendMessage();
+                };
+                
+                // Add event listeners
+                this.sendButton.addEventListener('click', this.boundSendMessage);
+                this.chatInput.addEventListener('keypress', this.boundKeyPress);
+                
+                // Mark as initialized
+                this.initialized = true;
+                this.log('Chat initialization completed');
+            }
+            
+            async sendMessage() {
+                // Prevent duplicate requests
+                if (this.isProcessing) {
+                    this.log('⚠️ Request already in progress, ignoring duplicate send');
+                    return;
+                }
+                
+                const message = this.chatInput.value.trim();
+                if (!message) return;
+                
+                // Set processing flag
+                this.isProcessing = true;
+                this.messageCount++;
+                
+                this.log(`📤 Sending message #${this.messageCount}: "${message}"`);
+                
+                // Add user message
+                this.addUserMessage(message);
+                this.chatInput.value = '';
+                
+                try {
+                    // Send to DeenBot backend
+                    const response = await fetch(`${this.serverUrl}/chat`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ message: message })
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.responseCount++;
+                        this.log(`📥 Received response #${this.responseCount} for message #${this.messageCount}`);
+                        this.addDeenBotMessage(data.response);
+                        
+                        // Update test results
+                        this.updateTestResults();
+                    } else {
+                        throw new Error('Failed to get response');
+                    }
+                } catch (error) {
+                    this.log(`❌ Error: ${error.message}`);
+                    this.addDeenBotMessage("I apologize, but I'm having trouble connecting to my knowledge base right now. Please try again in a moment.");
+                } finally {
+                    // Reset processing flag
+                    this.isProcessing = false;
+                }
+            }
+            
+            addUserMessage(message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message user-message';
+                messageDiv.innerHTML = `
+                    <div class="message-bubble">
+                        <p>${message}</p>
+                    </div>
+                `;
+                
+                this.chatMessages.appendChild(messageDiv);
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+            
+            addDeenBotMessage(message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message deenbot-message';
+                messageDiv.innerHTML = `
+                    <div class="message-bubble">
+                        <p>${message}</p>
+                    </div>
+                `;
+                
+                this.chatMessages.appendChild(messageDiv);
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+            
+            updateTestResults() {
+                const resultsDiv = document.getElementById('testResults');
+                const duplicateRate = this.messageCount > 0 ? ((this.responseCount / this.messageCount) * 100).toFixed(1) : 0;
+                
+                resultsDiv.innerHTML = `
+                    <h3>Test Results:</h3>
+                    <ul>
+                        <li><strong>Messages Sent:</strong> ${this.messageCount}</li>
+                        <li><strong>Responses Received:</strong> ${this.responseCount}</li>
+                        <li><strong>Response Rate:</strong> ${duplicateRate}%</li>
+                        <li><strong>Status:</strong> ${this.messageCount === this.responseCount ? '✅ PASSED - No Duplicates' : '❌ FAILED - Duplicates Detected'}</li>
+                    </ul>
+                `;
+            }
+            
+            cleanup() {
+                if (this.boundSendMessage) {
+                    this.sendButton.removeEventListener('click', this.boundSendMessage);
+                }
+                if (this.boundKeyPress) {
+                    this.chatInput.removeEventListener('keypress', this.boundKeyPress);
+                }
+                this.isProcessing = false;
+            }
+        }
+        
+        // Initialize DeenBot Test Chat
+        let deenbotTestInstance = null;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Prevent multiple initializations
+            if (deenbotTestInstance) {
+                console.log('DeenBot test already initialized, skipping...');
+                return;
+            }
+            
+            // Check if DeenBot test container exists
+            const chatContainer = document.querySelector('.chat-container');
+            if (chatContainer && !deenbotTestInstance) {
+                console.log('Initializing DeenBot test chat...');
+                deenbotTestInstance = new DeenBotChatTest();
+            }
+        });
+    </script>
+</body>
+</html>
