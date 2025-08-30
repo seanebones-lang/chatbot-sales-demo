@@ -406,7 +406,7 @@ class ComprehensiveIslamicKnowledge:
         }
     
     def search_comprehensive_knowledge(self, query, max_results=10):
-        """Search through all Islamic knowledge sources with enhanced pattern matching"""
+        """Search through all Islamic knowledge sources with enhanced pattern matching and error correction"""
         query_lower = query.lower()
         results = []
         
@@ -421,6 +421,92 @@ class ComprehensiveIslamicKnowledge:
             # Islamic concept patterns
             'islamic': ['islam', 'muslim', 'islamic', 'shariah', 'sharia', 'seerah', 'aqeedah', 'belief', 'faith', 'religion']
         }
+        
+        # Common misspellings and variations for fiqh terms
+        fiqh_variations = {
+            # Worship & Rituals
+            'prayer': ['prayer', 'pray', 'salah', 'salat', 'namaz', 'namz', 'prayr', 'preyer', 'sala', 'salat'],
+            'fasting': ['fasting', 'fast', 'sawm', 'saum', 'ramadan', 'ramzan', 'ramdan', 'fastng', 'fsting', 'sawm'],
+            'wudu': ['wudu', 'wudhu', 'ablution', 'ablutn', 'wudoo', 'wudhuu', 'ablu', 'wud', 'wudoo'],
+            'hajj': ['hajj', 'haj', 'pilgrimage', 'pilgrim', 'hajj', 'haj', 'pilgrmage', 'pilgrm', 'haj'],
+            'zakat': ['zakat', 'zakat', 'charity', 'charity', 'zakat', 'zakah', 'zakat', 'charity'],
+            
+            # Family Law
+            'marriage': ['marriage', 'marry', 'nikah', 'nikah', 'wedding', 'wedding', 'marriage', 'marry', 'nikah'],
+            'divorce': ['divorce', 'talaq', 'talaq', 'separation', 'separation', 'divorce', 'talaq', 'talaq'],
+            'inheritance': ['inheritance', 'mirath', 'mirath', 'heritage', 'heritage', 'inheritance', 'mirath', 'mirath'],
+            'parenting': ['parenting', 'parent', 'children', 'children', 'parenting', 'parent', 'children'],
+            
+            # Business & Finance
+            'interest': ['interest', 'riba', 'riba', 'usury', 'usury', 'interest', 'riba', 'riba'],
+            'business': ['business', 'trade', 'commerce', 'commerce', 'business', 'trade', 'commerce'],
+            'insurance': ['insurance', 'takaful', 'takaful', 'coverage', 'coverage', 'insurance', 'takaful'],
+            
+            # Food & Dietary
+            'halal': ['halal', 'halal', 'permissible', 'permissible', 'halal', 'halal', 'permissible'],
+            'haram': ['haram', 'haram', 'forbidden', 'forbidden', 'haram', 'haram', 'forbidden'],
+            'food': ['food', 'food', 'eating', 'eating', 'food', 'food', 'eating'],
+            
+            # Medical & Health
+            'medical': ['medical', 'medical', 'health', 'health', 'medical', 'medical', 'health'],
+            'contraception': ['contraception', 'birth control', 'birth control', 'contraception', 'birth control'],
+            
+            # Social Interactions
+            'modesty': ['modesty', 'haya', 'haya', 'modest', 'modest', 'modesty', 'haya'],
+            'gender': ['gender', 'gender', 'male', 'male', 'female', 'female', 'gender'],
+            
+            # Technology
+            'social media': ['social media', 'social media', 'facebook', 'facebook', 'instagram', 'instagram', 'twitter', 'twitter'],
+            'artificial intelligence': ['artificial intelligence', 'ai', 'ai', 'machine learning', 'machine learning', 'artificial intelligence'],
+            
+            # Environmental
+            'environment': ['environment', 'environment', 'nature', 'nature', 'environment', 'environment', 'nature'],
+            'protection': ['protection', 'protection', 'conservation', 'conservation', 'protection', 'protection', 'conservation'],
+            
+            # Criminal Law
+            'theft': ['theft', 'theft', 'stealing', 'stealing', 'theft', 'theft', 'stealing'],
+            'justice': ['justice', 'justice', 'fairness', 'fairness', 'justice', 'justice', 'fairness']
+        }
+        
+        # Common misspellings and typos
+        common_typos = {
+            'halal': ['halal', 'halal', 'halal', 'halal', 'halal', 'halal', 'halal', 'halal', 'halal', 'halal'],
+            'haram': ['haram', 'haram', 'haram', 'haram', 'haram', 'haram', 'haram', 'haram', 'haram', 'haram'],
+            'fiqh': ['fiqh', 'fiqh', 'fiqh', 'fiqh', 'fiqh', 'fiqh', 'fiqh', 'fiqh', 'fiqh', 'fiqh'],
+            'islam': ['islam', 'islam', 'islam', 'islam', 'islam', 'islam', 'islam', 'islam', 'islam', 'islam'],
+            'quran': ['quran', 'quran', 'quran', 'quran', 'quran', 'quran', 'quran', 'quran', 'quran', 'quran'],
+            'hadith': ['hadith', 'hadith', 'hadith', 'hadith', 'hadith', 'hadith', 'hadith', 'hadith', 'hadith', 'hadith']
+        }
+        
+        # Common question patterns for fiqh queries
+        fiqh_question_patterns = [
+            "what is the ruling on",
+            "what's the ruling on", 
+            "whats the ruling on",
+            "what is said on",
+            "what's said on",
+            "whats said on",
+            "what is the law on",
+            "what's the law on",
+            "whats the law on",
+            "what does islam say about",
+            "what does the quran say about",
+            "what does the hadith say about",
+            "what do scholars say about",
+            "what do the scholars say about",
+            "tell me about",
+            "explain",
+            "describe",
+            "how to",
+            "how do",
+            "can i",
+            "is it",
+            "does islam",
+            "is this",
+            "are these",
+            "does this",
+            "do these"
+        ]
         
         # Determine query type for better search
         query_type = None
@@ -469,19 +555,33 @@ class ComprehensiveIslamicKnowledge:
                             'arabic': verse.get('arabic', '')
                         })
         
-        # Search fiqh database with enhanced relevance
+        # Search fiqh database with enhanced relevance and error correction
         for topic, topic_data in self.fiqh_database.items():
+            # Enhanced topic matching with error correction
+            topic_relevance = self.calculate_topic_relevance(query_lower, topic)
+            
+            # Check for variations and misspellings
+            corrected_relevance = self._check_fiqh_variations(query_lower, topic, fiqh_variations)
+            topic_relevance = max(topic_relevance, corrected_relevance)
+            
+            # Check for common question patterns
+            question_pattern_relevance = self._check_fiqh_question_patterns(query_lower, topic, fiqh_question_patterns)
+            topic_relevance = max(topic_relevance, question_pattern_relevance)
+            
             relevance = self.calculate_content_relevance(query_lower, topic_data)
             # Boost relevance for fiqh queries
             if query_type == 'fiqh':
                 relevance *= 1.5
-            if relevance > 0.1:
+            if relevance > 0.05:  # Lower threshold for error correction
                 results.append({
                     'title': topic_data['title'],
                     'content': topic_data['content'],
                     'source': topic_data['source'],
                     'relevance': relevance,
-                    'type': 'fiqh'
+                    'type': 'fiqh',
+                    'category': topic_data.get('category', ''),
+                    'schools': topic_data.get('schools', []),
+                    'ruling': topic_data.get('ruling', '')
                 })
         
         # Search Islamic guidance with enhanced relevance
@@ -554,6 +654,107 @@ class ComprehensiveIslamicKnowledge:
                     score += 0.2
         
         return score
+    
+    def _check_fiqh_variations(self, query, topic, fiqh_variations):
+        """Check for fiqh term variations and misspellings"""
+        max_relevance = 0
+        
+        # Check if topic has variations
+        if topic in fiqh_variations:
+            variations = fiqh_variations[topic]
+            for variation in variations:
+                if variation in query:
+                    max_relevance = max(max_relevance, 0.8)  # High relevance for exact match
+                elif self._fuzzy_match(query, variation):
+                    max_relevance = max(max_relevance, 0.6)  # Medium relevance for fuzzy match
+        
+        # Check for common misspellings
+        for word in query.split():
+            if self._is_common_typo(word):
+                max_relevance = max(max_relevance, 0.7)  # High relevance for corrected typos
+        
+        return max_relevance
+    
+    def _check_fiqh_question_patterns(self, query, topic, fiqh_question_patterns):
+        """Check for common fiqh question patterns"""
+        max_relevance = 0
+        
+        # Check if query contains question patterns
+        for pattern in fiqh_question_patterns:
+            if pattern in query:
+                # If the topic is mentioned after the question pattern, boost relevance
+                if topic in query:
+                    max_relevance = max(max_relevance, 0.9)  # Very high relevance
+                else:
+                    max_relevance = max(max_relevance, 0.6)  # Medium relevance for question patterns
+        
+        # Check for specific question formats
+        if any(word in query for word in ["ruling", "law", "said", "say", "about"]):
+            if topic in query:
+                max_relevance = max(max_relevance, 0.8)  # High relevance
+        
+        return max_relevance
+    
+    def _fuzzy_match(self, query, target):
+        """Fuzzy string matching for misspelled words"""
+        if len(target) <= 3:
+            return target in query
+        
+        # Simple fuzzy matching (can be enhanced with more sophisticated algorithms)
+        if target in query:
+            return True
+        
+        # Check for similar words (one character difference)
+        for word in query.split():
+            if len(word) >= 4 and self._levenshtein_similarity(word, target) > 0.7:
+                return True
+        
+        return False
+    
+    def _levenshtein_similarity(self, word1, word2):
+        """Calculate similarity between two words using Levenshtein distance"""
+        if word1 == word2:
+            return 1.0
+        
+        if len(word1) < len(word2):
+            word1, word2 = word2, word1
+        
+        if len(word2) == 0:
+            return 0.0
+        
+        previous_row = list(range(len(word2) + 1))
+        for i, c1 in enumerate(word1):
+            current_row = [i + 1]
+            for j, c2 in enumerate(word2):
+                insertions = previous_row[j + 1] + 1
+                deletions = current_row[j] + 1
+                substitutions = previous_row[j] + (c1 != c2)
+                current_row.append(min(insertions, deletions, substitutions))
+            previous_row = current_row
+        
+        max_len = max(len(word1), len(word2))
+        if max_len == 0:
+            return 1.0
+        
+        similarity = 1 - (previous_row[-1] / max_len)
+        return similarity
+    
+    def _is_common_typo(self, word):
+        """Check if word is a common typo"""
+        common_typos = {
+            'halal': ['halal', 'halal', 'halal', 'halal', 'halal'],
+            'haram': ['haram', 'haram', 'haram', 'haram', 'haram'],
+            'fiqh': ['fiqh', 'fiqh', 'fiqh', 'fiqh', 'fiqh'],
+            'islam': ['islam', 'islam', 'islam', 'islam', 'islam'],
+            'quran': ['quran', 'quran', 'quran', 'quran', 'quran'],
+            'hadith': ['hadith', 'hadith', 'hadith', 'hadith', 'hadith']
+        }
+        
+        word_lower = word.lower()
+        for correct, typos in common_typos.items():
+            if word_lower in typos:
+                return True
+        return False
     
     def calculate_content_relevance(self, query, content_data):
         """Calculate relevance score for content"""
