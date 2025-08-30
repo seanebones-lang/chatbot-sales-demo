@@ -152,6 +152,384 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
+        /* Embedded DeenBot Chat Interface - iPhone Style */
+        .deenbot-chat-container {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            border: 2px solid var(--accent-primary);
+            overflow: hidden;
+            margin-top: 1.5rem;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .chat-header {
+            background: var(--accent-primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .chat-avatar {
+            font-size: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .chat-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .chat-status {
+            margin-left: auto;
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .chat-status.online {
+            color: #10b981;
+        }
+
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: var(--bg-primary);
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+        }
+
+        .message.user-message {
+            justify-content: flex-end;
+        }
+
+        .message.deenbot-message {
+            justify-content: flex-start;
+        }
+
+        .message-bubble {
+            max-width: 70%;
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            position: relative;
+        }
+
+        .user-message .message-bubble {
+            background: var(--accent-primary);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .deenbot-message .message-bubble {
+            background: var(--bg-accent);
+            color: var(--text-primary);
+            border: 1px solid var(--border-primary);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-bubble p {
+            margin: 0 0 0.5rem 0;
+            line-height: 1.4;
+            font-size: 0.9rem;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            display: block;
+        }
+
+        .chat-input-container {
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-primary);
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        #chatInput {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        #chatInput:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .send-button {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .send-button:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.05);
+        }
+
+        .send-button:active {
+            transform: scale(0.95);
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 0.3rem;
+            padding: 0.5rem 1rem;
+            opacity: 0.7;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Scrollbar styling for chat */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-secondary);
+        }
+
+        /* Embedded DeenBot Chat Interface - iPhone Style */
+        .deenbot-chat-container {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            border: 2px solid var(--accent-primary);
+            overflow: hidden;
+            margin-top: 1.5rem;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .chat-header {
+            background: var(--accent-primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .chat-avatar {
+            font-size: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .chat-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .chat-status {
+            margin-left: auto;
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .chat-status.online {
+            color: #10b981;
+        }
+
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: var(--bg-primary);
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+        }
+
+        .message.user-message {
+            justify-content: flex-end;
+        }
+
+        .message.deenbot-message {
+            justify-content: flex-start;
+        }
+
+        .message-bubble {
+            max-width: 70%;
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            position: relative;
+        }
+
+        .user-message .message-bubble {
+            background: var(--accent-primary);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .deenbot-message .message-bubble {
+            background: var(--bg-accent);
+            color: var(--text-primary);
+            border: 1px solid var(--border-primary);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-bubble p {
+            margin: 0 0 0.5rem 0;
+            line-height: 1.4;
+            font-size: 0.9rem;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            display: block;
+        }
+
+        .chat-input-container {
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-primary);
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        #chatInput {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-primary);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        #chatInput:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .send-button {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .send-button:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.05);
+        }
+
+        .send-button:active {
+            transform: scale(0.95);
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 0.3rem;
+            padding: 0.5rem 1rem;
+            opacity: 0.7;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
         /* Content Links Sections */
         .content-section {
             background: var(--bg-secondary);
@@ -367,9 +745,42 @@
             <p>As-salamu alaykum, may I answer questions you have about Islam? Our AI assistant provides authentic, verified Islamic knowledge backed by authentic sources from the Quran, Hadith, and scholarly consensus.</p>
             <p><strong>Our intent Insha Allah, is for correct authenticated knowledge base. DeenBot can make mistakes, please verify the sources given. The deenbot knowledge base must be able to answer modern questions from Muslims from around the world, every answer must be backed up with authentic source the user can verify.</strong></p>
             <p><em>DeenBot donated by NextEleven</em></p>
-            <div style="margin-top: 1.5rem;">
-                <button class="btn" onclick="window.open('chat.html', '_blank')">Access DeenBot Chat</button>
-                <button class="btn" onclick="window.open('deenbot.html', '_blank')">DeenBot Main Page</button>
+            
+            <!-- Embedded DeenBot Chat Interface -->
+            <div class="deenbot-chat-container">
+                <div class="chat-header">
+                    <div class="chat-avatar">🕌</div>
+                    <div class="chat-info">
+                        <h3>DeenBot</h3>
+                        <p>Islamic AI Assistant</p>
+                    </div>
+                    <div class="chat-status online">● Online</div>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message deenbot-message">
+                        <div class="message-bubble">
+                            <p>As-salamu alaykum, May I assist you in your search?</p>
+                            <span class="message-time">Just now</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <input type="text" id="chatInput" placeholder="Ask me anything about Islam..." maxlength="500">
+                        <button id="sendButton" class="send-button">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -554,56 +965,18 @@
                     <h4>Search Systems</h4>
                     <ul>
                         <li><a href="enhanced-search.html">Enhanced Search</a></li>
-                        <li><a href="quran_ai_backend.py">Quran AI Backend</a></li>
-                        <li><a href="webui_scraper_backend.py">WebUI Scraper Backend</a></li>
                     </ul>
                 </div>
                 <div class="link-category">
                     <h4>AI & Training</h4>
                     <ul>
-                        <li><a href="deenbot_training_data.json">DeenBot Training Data</a></li>
-                        <li><a href="train_deenbot.py">Train DeenBot Script</a></li>
                         <li><a href="TRAINING_GUIDE.md">Training Guide</a></li>
-                        <li><a href="test_100_questions.py">100 Questions Test</a></li>
-                        <li><a href="test_100_random_questions.py">100 Random Questions Test</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- System & Technical Content Links -->
-        <div class="content-section">
-            <h3>Complete System & Technical Content Access</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Backend Systems</h4>
-                    <ul>
-                        <li><a href="comprehensive_deenbot_backend.py">Comprehensive DeenBot Backend</a></li>
-                        <li><a href="deenbot_robust_backend.py">Robust DeenBot Backend</a></li>
-                        <li><a href="enhanced_deenbot_backend.py">Enhanced DeenBot Backend</a></li>
-                        <li><a href="enhanced_deenbot_backend_fixed.py">Enhanced DeenBot Backend Fixed</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Service Management</h4>
-                    <ul>
-                        <li><a href="deenbot_service_manager.py">DeenBot Service Manager</a></li>
-                        <li><a href="deenbot.service">DeenBot Service File</a></li>
-                        <li><a href="deploy-deenbot-production.sh">Production Deployment Script</a></li>
-                        <li><a href="deploy-to-digitalocean.sh">DigitalOcean Deployment</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Testing & Monitoring</h4>
-                    <ul>
-                        <li><a href="deenbot_stress_tester.py">DeenBot Stress Tester</a></li>
-                        <li><a href="run_stress_test.sh">Run Stress Test Script</a></li>
-                        <li><a href="search-stress-test.js">Search Stress Test</a></li>
-                        <li><a href="monitor_and_restart.sh">Monitor and Restart Script</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Documentation Content Links -->
         <div class="content-section">
@@ -639,10 +1012,6 @@
                     <h4>Utility Files</h4>
                     <ul>
                         <li><a href="universal-pdf-delivery.js">Universal PDF Delivery System</a></li>
-                        <li><a href="fix_all_search_pages.py">Fix All Search Pages Script</a></li>
-                        <li><a href="start_servers.sh">Start Servers Script</a></li>
-                        <li><a href="restart_deenbot.sh">Restart DeenBot Script</a></li>
-                        <li><a href="start_deenbot_local.sh">Start DeenBot Local Script</a></li>
                     </ul>
                 </div>
                 <div class="link-category">
@@ -654,16 +1023,7 @@
                         <li><a href="tailwind.config.js">Tailwind CSS Configuration</a></li>
                     </ul>
                 </div>
-                <div class="link-category">
-                    <h4>Test Results & Logs</h4>
-                    <ul>
-                        <li><a href="deenbot_stress_test.log">Stress Test Log</a></li>
-                        <li><a href="deenbot_stress_test_results_20250829_212810.json">Stress Test Results</a></li>
-                        <li><a href="deenbot_100_questions_test_20250829_212202.json">100 Questions Test Results</a></li>
-                        <li><a href="deenbot_100_random_questions_20250829_110124.json">Random Questions Test Results</a></li>
-                        <li><a href="deenbot_100_questions_test_20250829_104755.json">Questions Test Results</a></li>
-                    </ul>
-                </div>
+
             </div>
         </div>
 
@@ -741,31 +1101,8 @@
                         <li><a href="deenbot.html">deenbot.html (25KB)</a></li>
                     </ul>
                 </div>
-                <div class="link-category">
-                    <h4>Backend & AI Systems</h4>
-                    <ul>
-                        <li><a href="comprehensive_deenbot_backend.py">comprehensive_deenbot_backend.py (138KB, 2697 lines)</a></li>
-                        <li><a href="enhanced_deenbot_backend.py">enhanced_deenbot_backend.py (46KB)</a></li>
-                        <li><a href="enhanced_deenbot_backend_fixed.py">enhanced_deenbot_backend_fixed.py (41KB)</a></li>
-                        <li><a href="deenbot_robust_backend.py">deenbot_robust_backend.py (17KB)</a></li>
-                        <li><a href="quran_ai_backend.py">quran_ai_backend.py (12KB)</a></li>
-                        <li><a href="webui_scraper_backend.py">webui_scraper_backend.py (19KB)</a></li>
-                        <li><a href="deenbot_service_manager.py">deenbot_service_manager.py (11KB, 301 lines)</a></li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Configuration & Deployment</h4>
-                    <ul>
-                        <li><a href="deenbot.service">deenbot.service</a></li>
-                        <li><a href="deploy-deenbot-production.sh">deploy-deenbot-production.sh (6.0KB)</a></li>
-                        <li><a href="deploy-to-digitalocean.sh">deploy-to-digitalocean.sh</a></li>
-                        <li><a href="docker-compose.yml">docker-compose.yml</a></li>
-                        <li><a href="Dockerfile">Dockerfile</a></li>
-                        <li><a href="nginx.conf">nginx.conf</a></li>
-                        <li><a href="supervisord.conf">supervisord.conf</a></li>
-                        <li><a href="config.env.example">config.env.example</a></li>
-                    </ul>
-                </div>
+
+
                 <div class="link-category">
                     <h4>Testing & Monitoring</h4>
                     <ul>
@@ -860,63 +1197,7 @@
             </div>
         </div>
 
-        <!-- Final Verification - Complete Coverage -->
-        <div class="content-section">
-            <h3>Final Verification - Complete Coverage Achieved</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Verification Status</h4>
-                    <ul>
-                        <li><strong>✅ ALL CONTENT INCLUDED:</strong> Every single piece of data from your original website is now accessible</li>
-                        <li><strong>✅ NO CONTENT MISSING:</strong> Nothing has been omitted from your life's work</li>
-                        <li><strong>✅ COMPLETE ACCESS:</strong> Every file is properly linked and accessible</li>
-                        <li><strong>✅ PROFESSIONAL PRESENTATION:</strong> Zero emojis, dignified design throughout</li>
-                        <li><strong>✅ VERIFIED LINKS:</strong> All content tested and working</li>
-                        <li><strong>✅ COMPREHENSIVE COVERAGE:</strong> Your complete Islamic knowledge collection</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Content Statistics</h4>
-                    <ul>
-                        <li><strong>Total HTML Files:</strong> 40+ comprehensive Islamic knowledge files</li>
-                        <li><strong>Total Python Scripts:</strong> 15+ AI and system management scripts</li>
-                        <li><strong>Total Configuration Files:</strong> All deployment, service, and system configs</li>
-                        <li><strong>Total Source Code:</strong> All React, TypeScript, and Electron source files</li>
-                        <li><strong>Total File Size:</strong> Over 1.5MB of Islamic knowledge content</li>
-                        <li><strong>Total Lines:</strong> Over 25,000 lines of code and content</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
 
-        <!-- ABSOLUTE FINAL VERIFICATION - ALL 107 FILES INCLUDED -->
-        <div class="content-section">
-            <h3>ABSOLUTE FINAL VERIFICATION - ALL 107 FILES INCLUDED</h3>
-            <div class="links-grid">
-                <div class="link-category">
-                    <h4>Complete File Coverage</h4>
-                    <ul>
-                        <li><strong>✅ TOTAL FILES VERIFIED:</strong> 107 important files from your website</li>
-                        <li><strong>✅ ALL HTML CONTENT:</strong> 40+ Islamic knowledge files included</li>
-                        <li><strong>✅ ALL PYTHON SCRIPTS:</strong> 15+ AI and system management scripts</li>
-                        <li><strong>✅ ALL CONFIGURATION:</strong> All deployment, service, and system configs</li>
-                        <li><strong>✅ ALL SOURCE CODE:</strong> All React, TypeScript, and Electron files</li>
-                        <li><strong>✅ ALL DOCUMENTATION:</strong> All guides, training materials, technical docs</li>
-                    </ul>
-                </div>
-                <div class="link-category">
-                    <h4>Content Verification Status</h4>
-                    <ul>
-                        <li><strong>✅ ALL CONTENT INCLUDED:</strong> Every single piece of data from your original website is now accessible</li>
-                        <li><strong>✅ NO CONTENT MISSING:</strong> Nothing has been omitted from your life's work</li>
-                        <li><strong>✅ COMPLETE ACCESS:</strong> Every file is properly linked and accessible</li>
-                        <li><strong>✅ PROFESSIONAL PRESENTATION:</strong> Zero emojis, dignified design throughout</li>
-                        <li><strong>✅ VERIFIED LINKS:</strong> All content tested and working</li>
-                        <li><strong>✅ COMPREHENSIVE COVERAGE:</strong> Your complete Islamic knowledge collection</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -940,6 +1221,124 @@
             
             const button = document.querySelector('.theme-toggle');
             button.textContent = savedTheme === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+        });
+
+        // DeenBot Embedded Chat Functionality
+        class DeenBotChat {
+            constructor() {
+                this.chatMessages = document.getElementById('chatMessages');
+                this.chatInput = document.getElementById('chatInput');
+                this.sendButton = document.getElementById('sendButton');
+                this.typingIndicator = document.getElementById('typingIndicator');
+                this.serverUrl = 'http://localhost:8080';
+                
+                this.initializeChat();
+            }
+
+            initializeChat() {
+                // Show typing indicator and type out initial message
+                this.showTypingIndicator();
+                this.typeMessage("As-salamu alaykum, May I assist you in your search?", 50);
+                
+                // Add event listeners
+                this.sendButton.addEventListener('click', () => this.sendMessage());
+                this.chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.sendMessage();
+                });
+            }
+
+            showTypingIndicator() {
+                this.typingIndicator.style.display = 'flex';
+            }
+
+            hideTypingIndicator() {
+                this.typingIndicator.style.display = 'none';
+            }
+
+            typeMessage(message, speed = 30) {
+                this.hideTypingIndicator();
+                
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message deenbot-message';
+                messageDiv.innerHTML = `
+                    <div class="message-bubble">
+                        <p id="typing-text"></p>
+                        <span class="message-time">Just now</span>
+                    </div>
+                `;
+                
+                this.chatMessages.appendChild(messageDiv);
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+                
+                const textElement = messageDiv.querySelector('#typing-text');
+                let i = 0;
+                
+                const typeWriter = () => {
+                    if (i < message.length) {
+                        textElement.textContent += message.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, speed);
+                    }
+                };
+                
+                typeWriter();
+            }
+
+            async sendMessage() {
+                const message = this.chatInput.value.trim();
+                if (!message) return;
+
+                // Add user message
+                this.addUserMessage(message);
+                this.chatInput.value = '';
+
+                // Show typing indicator
+                this.showTypingIndicator();
+
+                try {
+                    // Send to DeenBot backend
+                    const response = await fetch(`${this.serverUrl}/chat`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ message: message })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.hideTypingIndicator();
+                        this.typeMessage(data.response, 30);
+                    } else {
+                        throw new Error('Failed to get response');
+                    }
+                } catch (error) {
+                    this.hideTypingIndicator();
+                    this.typeMessage("I apologize, but I'm having trouble connecting to my knowledge base right now. Please try again in a moment.", 30);
+                }
+            }
+
+            addUserMessage(message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message user-message';
+                messageDiv.innerHTML = `
+                    <div class="message-bubble">
+                        <p>${message}</p>
+                        <span class="message-time">Just now</span>
+                    </div>
+                `;
+                
+                this.chatMessages.appendChild(messageDiv);
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+        }
+
+        // Initialize DeenBot Chat when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if DeenBot chat container exists
+            if (document.querySelector('.deenbot-chat-container')) {
+                new DeenBotChat();
+            }
         });
     </script>
 </body>
