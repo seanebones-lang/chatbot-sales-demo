@@ -11,6 +11,20 @@ import time
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import parse_qs, urlparse
 import os
+import re
+from datetime import datetime
+import html
+import requests
+from bs4 import BeautifulSoup
+
+# Import comprehensive Islamic knowledge base
+try:
+    from comprehensive_islamic_knowledge import comprehensive_knowledge
+    COMPREHENSIVE_KNOWLEDGE_AVAILABLE = True
+    logging.info("✅ Comprehensive Islamic knowledge base imported successfully")
+except ImportError:
+    COMPREHENSIVE_KNOWLEDGE_AVAILABLE = False
+    logging.warning("⚠️ Comprehensive knowledge base not available - using fallback knowledge base")
 
 # Configure comprehensive logging
 try:
@@ -2233,6 +2247,22 @@ These pillars form the foundation of Islamic practice and are essential for spir
         
         # Convert to lowercase for matching
         message_lower = user_message.lower()
+        
+        # FIRST: Check comprehensive Islamic knowledge base for authentic responses
+        if COMPREHENSIVE_KNOWLEDGE_AVAILABLE:
+            try:
+                comprehensive_response, comprehensive_source = comprehensive_knowledge.get_comprehensive_response(user_message)
+                if comprehensive_response:
+                    logging.info(f"✅ Found comprehensive response in Islamic knowledge base: {comprehensive_source}")
+                    return {
+                        "response": comprehensive_response,
+                        "references": ["Authentic Islamic Knowledge Base"],
+                        "source": f"Comprehensive Islamic Knowledge - {comprehensive_source}"
+                    }
+            except Exception as e:
+                logging.warning(f"⚠️ Comprehensive knowledge base error: {e}")
+        
+        # SECOND: Check priority keywords in built-in knowledge base
         
         # Priority matching for specific topics with flexible word matching
         priority_keywords = {
