@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business & Financial Fiqh - Advanced Fiqh</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #2d2d2d;
+            --accent-color: #4CAF50;
+            --text-color: #ffffff;
+            --border-color: #444;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: var(--secondary-color);
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .search-section {
+            background: var(--secondary-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        .search-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--primary-color);
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .search-button {
+            padding: 12px 24px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .search-button:hover {
+            background: #45a049;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            min-height: 100px;
+        }
+
+        .result-item {
+            background: var(--primary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+            display: none;
+        }
+
+        .result-item.show {
+            display: block;
+        }
+
+        .result-title {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .result-content {
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .topics-section {
+            background: var(--secondary-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .topic-card {
+            background: var(--primary-color);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .topic-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .topic-card p {
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .topic-link {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .topic-link:hover {
+            background: #45a049;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .search-container {
+                flex-direction: column;
+            }
+            
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="fiqh-index.html" class="back-button">← Back</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Theme</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>💼 Business & Financial Fiqh</h1>
+            <p>Islamic rulings on business transactions, finance, and economic activities</p>
+        </div>
+
+        <div class="search-section">
+            <h2 class="section-title">🔍 Search Fiqh Topics</h2>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for specific fiqh topics..." onkeyup="performSearch()">
+                <button class="search-button" onclick="performSearch()">Search</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <p style="text-align: center; opacity: 0.7;">Search results will appear here...</p>
+            </div>
+        </div>
+
+        <div class="topics-section">
+            <h2 class="section-title">📚 Available Topics</h2>
+            <div class="topics-grid">
+                
+                <div class="topic-card">
+                    <h3>Trade and Commerce</h3>
+                    <p>Comprehensive Islamic rulings and guidance on trade and commerce according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Trade and Commerce')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Banking and Interest</h3>
+                    <p>Comprehensive Islamic rulings and guidance on banking and interest according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Banking and Interest')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Investment and Stocks</h3>
+                    <p>Comprehensive Islamic rulings and guidance on investment and stocks according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Investment and Stocks')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Insurance and Risk Management</h3>
+                    <p>Comprehensive Islamic rulings and guidance on insurance and risk management according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Insurance and Risk Management')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Partnership and Joint Ventures</h3>
+                    <p>Comprehensive Islamic rulings and guidance on partnership and joint ventures according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Partnership and Joint Ventures')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Real Estate and Property</h3>
+                    <p>Comprehensive Islamic rulings and guidance on real estate and property according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Real Estate and Property')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Employment and Labor</h3>
+                    <p>Comprehensive Islamic rulings and guidance on employment and labor according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Employment and Labor')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Taxation and Zakat</h3>
+                    <p>Comprehensive Islamic rulings and guidance on taxation and zakat according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Taxation and Zakat')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Cryptocurrency and Digital Assets</h3>
+                    <p>Comprehensive Islamic rulings and guidance on cryptocurrency and digital assets according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Cryptocurrency and Digital Assets')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Islamic Banking Products</h3>
+                    <p>Comprehensive Islamic rulings and guidance on islamic banking products according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Islamic Banking Products')">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fiqh content database
+        const fiqhContent = {
+            "Trade and Commerce": "Islamic trade and commerce is based on principles of fairness, transparency, and mutual consent. The Prophet Muhammad (PBUH) said: 'The truthful and trustworthy merchant will be with the prophets, the truthful, and the martyrs on the Day of Resurrection.' Key principles include avoiding riba (interest), gharar (uncertainty), and ensuring fair pricing.",
+            "Banking and Interest": "Islamic banking operates on the principle of profit and loss sharing rather than interest. Riba (usury) is strictly prohibited in Islam. Islamic banks use contracts like Murabaha (cost-plus financing), Musharaka (partnership), and Ijara (leasing) to provide financial services while adhering to Shariah principles.",
+            "Investment and Stocks": "Islamic investment principles require avoiding companies involved in haram activities like alcohol, gambling, or interest-based finance. Shariah-compliant investments focus on halal businesses and use profit-sharing models. Screening criteria ensure investments align with Islamic values.",
+            "Insurance and Risk Management": "Islamic jurisprudence provides comprehensive guidance on insurance and risk management. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Partnership and Joint Ventures": "Islamic jurisprudence provides comprehensive guidance on partnership and joint ventures. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Real Estate and Property": "Islamic jurisprudence provides comprehensive guidance on real estate and property. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Employment and Labor": "Islamic jurisprudence provides comprehensive guidance on employment and labor. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Taxation and Zakat": "Islamic jurisprudence provides comprehensive guidance on taxation and zakat. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Cryptocurrency and Digital Assets": "Islamic jurisprudence provides comprehensive guidance on cryptocurrency and digital assets. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Islamic Banking Products": "Islamic jurisprudence provides comprehensive guidance on islamic banking products. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus."
+        };
+
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (searchTerm.length < 2) {
+                resultsContainer.innerHTML = '<p style="text-align: center; opacity: 0.7;">Search results will appear here...</p>';
+                return;
+            }
+            
+            const results = [];
+            
+            // Search through fiqh content
+            for (const [topic, content] of Object.entries(fiqhContent)) {
+                if (topic.toLowerCase().includes(searchTerm) || 
+                    content.toLowerCase().includes(searchTerm)) {
+                    results.push({topic, content});
+                }
+            }
+            
+            // Display results
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p style="text-align: center; opacity: 0.7;">No results found for "' + searchTerm + '"</p>';
+            } else {
+                let resultsHTML = '<h3 style="color: var(--accent-color); margin-bottom: 15px;">Search Results:</h3>';
+                results.forEach(result => {
+                    resultsHTML += `
+                        <div class="result-item show">
+                            <div class="result-title">${result.topic}</div>
+                            <div class="result-content">${result.content}</div>
+                        </div>
+                    `;
+                });
+                resultsContainer.innerHTML = resultsHTML;
+            }
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (body.style.filter === 'invert(1)') {
+                body.style.filter = 'none';
+                themeToggle.textContent = '🌙 Theme';
+            } else {
+                body.style.filter = 'invert(1)';
+                themeToggle.textContent = '☀️ Theme';
+            }
+        }
+    </script>
+</body>
+</html>

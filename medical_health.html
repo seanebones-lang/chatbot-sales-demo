@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical & Health Fiqh - Advanced Fiqh</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #2d2d2d;
+            --accent-color: #4CAF50;
+            --text-color: #ffffff;
+            --border-color: #444;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: var(--secondary-color);
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .search-section {
+            background: var(--secondary-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        .search-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--primary-color);
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .search-button {
+            padding: 12px 24px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .search-button:hover {
+            background: #45a049;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            min-height: 100px;
+        }
+
+        .result-item {
+            background: var(--primary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+            display: none;
+        }
+
+        .result-item.show {
+            display: block;
+        }
+
+        .result-title {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .result-content {
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .topics-section {
+            background: var(--secondary-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .topic-card {
+            background: var(--primary-color);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .topic-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .topic-card p {
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .topic-link {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .topic-link:hover {
+            background: #45a049;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .search-container {
+                flex-direction: column;
+            }
+            
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="fiqh-index.html" class="back-button">← Back</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Theme</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🏥 Medical & Health Fiqh</h1>
+            <p>Islamic rulings on medical treatment, health, and bioethics</p>
+        </div>
+
+        <div class="search-section">
+            <h2 class="section-title">🔍 Search Fiqh Topics</h2>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for specific fiqh topics..." onkeyup="performSearch()">
+                <button class="search-button" onclick="performSearch()">Search</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <p style="text-align: center; opacity: 0.7;">Search results will appear here...</p>
+            </div>
+        </div>
+
+        <div class="topics-section">
+            <h2 class="section-title">📚 Available Topics</h2>
+            <div class="topics-grid">
+                
+                <div class="topic-card">
+                    <h3>Medical Treatment and Surgery</h3>
+                    <p>Comprehensive Islamic rulings and guidance on medical treatment and surgery according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Medical Treatment and Surgery')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Organ Transplantation</h3>
+                    <p>Comprehensive Islamic rulings and guidance on organ transplantation according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Organ Transplantation')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Blood Donation</h3>
+                    <p>Comprehensive Islamic rulings and guidance on blood donation according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Blood Donation')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Pregnancy and Abortion</h3>
+                    <p>Comprehensive Islamic rulings and guidance on pregnancy and abortion according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Pregnancy and Abortion')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Mental Health Treatment</h3>
+                    <p>Comprehensive Islamic rulings and guidance on mental health treatment according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Mental Health Treatment')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Vaccination</h3>
+                    <p>Comprehensive Islamic rulings and guidance on vaccination according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Vaccination')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>End of Life Care</h3>
+                    <p>Comprehensive Islamic rulings and guidance on end of life care according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('End of Life Care')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Medical Research Ethics</h3>
+                    <p>Comprehensive Islamic rulings and guidance on medical research ethics according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Medical Research Ethics')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Alternative Medicine</h3>
+                    <p>Comprehensive Islamic rulings and guidance on alternative medicine according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Alternative Medicine')">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Health Insurance and Coverage</h3>
+                    <p>Comprehensive Islamic rulings and guidance on health insurance and coverage according to Islamic jurisprudence.</p>
+                    <a href="#" class="topic-link" onclick="searchForTopic('Health Insurance and Coverage')">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fiqh content database
+        const fiqhContent = {
+            "Medical Treatment and Surgery": "Islam encourages seeking medical treatment and considers it a religious duty. The Prophet (PBUH) said: 'There is no disease that Allah has created, except that He also has created its treatment.' Medical procedures are permissible when they provide clear benefit and don't cause unnecessary harm.",
+            "Organ Transplantation": "Organ transplantation is generally permissible in Islam when it saves lives and follows proper ethical guidelines. The donor must give informed consent, and the procedure should not cause undue harm. Living organ donation is allowed for close relatives, while cadaveric donation requires proper authorization.",
+            "Blood Donation": "Islamic jurisprudence provides comprehensive guidance on blood donation. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Pregnancy and Abortion": "Islamic jurisprudence provides comprehensive guidance on pregnancy and abortion. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Mental Health Treatment": "Islamic jurisprudence provides comprehensive guidance on mental health treatment. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Vaccination": "Islamic jurisprudence provides comprehensive guidance on vaccination. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "End of Life Care": "Islamic jurisprudence provides comprehensive guidance on end of life care. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Medical Research Ethics": "Islamic jurisprudence provides comprehensive guidance on medical research ethics. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Alternative Medicine": "Islamic jurisprudence provides comprehensive guidance on alternative medicine. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus.",
+            "Health Insurance and Coverage": "Islamic jurisprudence provides comprehensive guidance on health insurance and coverage. This topic covers various aspects including religious rulings, practical applications, and contemporary considerations according to Islamic law and scholarly consensus."
+        };
+
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (searchTerm.length < 2) {
+                resultsContainer.innerHTML = '<p style="text-align: center; opacity: 0.7;">Search results will appear here...</p>';
+                return;
+            }
+            
+            const results = [];
+            
+            // Search through fiqh content
+            for (const [topic, content] of Object.entries(fiqhContent)) {
+                if (topic.toLowerCase().includes(searchTerm) || 
+                    content.toLowerCase().includes(searchTerm)) {
+                    results.push({topic, content});
+                }
+            }
+            
+            // Display results
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p style="text-align: center; opacity: 0.7;">No results found for "' + searchTerm + '"</p>';
+            } else {
+                let resultsHTML = '<h3 style="color: var(--accent-color); margin-bottom: 15px;">Search Results:</h3>';
+                results.forEach(result => {
+                    resultsHTML += `
+                        <div class="result-item show">
+                            <div class="result-title">${result.topic}</div>
+                            <div class="result-content">${result.content}</div>
+                        </div>
+                    `;
+                });
+                resultsContainer.innerHTML = resultsHTML;
+            }
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (body.style.filter === 'invert(1)') {
+                body.style.filter = 'none';
+                themeToggle.textContent = '🌙 Theme';
+            } else {
+                body.style.filter = 'invert(1)';
+                themeToggle.textContent = '☀️ Theme';
+            }
+        }
+    </script>
+</body>
+</html>
