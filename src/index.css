@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+  color: #e0e0e0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Islamic theme colors */
+:root {
+  --islamic-gold: #FFD700;
+  --islamic-blue: #1E90FF;
+  --islamic-teal: #00CED1;
+  --islamic-green: #32CD32;
+  --islamic-purple: #9370DB;
+  --dark-bg: #0f1419;
+  --darker-bg: #1a1f2e;
+  --card-bg: rgba(18, 18, 18, 0.8);
+  --border-color: rgba(68, 68, 68, 0.5);
+}
+

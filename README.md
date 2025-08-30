@@ -1,71 +1,142 @@
-# 🕌 Complete Islamic Knowledge - Quran & Hadith System
+# Islamic Study Guide - Complete Islamic Knowledge Application
 
-A comprehensive Islamic knowledge system providing access to Quran verses, authentic Hadiths, and interactive learning features, powered by phi3:mini AI.
+A comprehensive, downloadable Islamic study application containing the complete knowledge base of Islam including Quran, Hadith, Fiqh, and Islamic jurisprudence.
 
 ## 🌟 Features
 
-- **Complete Quran Searchability** - Find any verse by topic, reference, or content
-- **Authentic Hadith Collection** - Sahih Bukhari, Muslim, and other authentic sources
-- **Interactive Learning** - Beautiful interface with Arabic text and translations
-- **AI-Powered Search** - phi3:mini model for intelligent Islamic knowledge responses
-- **Mobile Responsive** - Works perfectly on all devices
+### 📚 **Complete Islamic Knowledge Base**
+- **Quran & Tafsir**: Full Quran text with translations and interpretations
+- **Hadith Collections**: Authentic Hadith from Bukhari, Muslim, Abu Dawud, and more
+- **Fiqh (Islamic Jurisprudence)**: Comprehensive rulings on all aspects of Islamic life
+- **Prayer Guide**: Complete prayer procedures, times, and guidance
+- **Islamic Education**: New Muslim guides, basics, and daily wisdom
 
-## 🚀 Live Demo
+### 🚀 **Application Features**
+- **Desktop Application**: Downloadable and installable on Windows, Mac, and Linux
+- **Offline Access**: All content available without internet connection
+- **Modern Interface**: Beautiful, responsive design with Islamic themes
+- **Search & Navigation**: Easy access to all Islamic knowledge
+- **AI Assistant**: Intelligent Islamic Q&A system
 
-- **Production Site**: [http://165.232.155.246](http://165.232.155.246) (DigitalOcean)
-- **GitHub Pages**: [https://seanebones-lang.github.io/chatbot-sales-demo/](https://seanebones-lang.github.io/chatbot-sales-demo/)
+## 🛠️ Technology Stack
 
-## 🧠 AI Backend
+- **Frontend**: React.js with Tailwind CSS
+- **Backend**: Python with comprehensive Islamic knowledge base
+- **Desktop App**: Electron for cross-platform compatibility
+- **Styling**: Islamic-themed design with calming teals and greens
+- **Content**: 80+ categories of Islamic knowledge
 
-- **Model**: phi3:mini (specialized for Islamic knowledge)
-- **Backend**: Python server with OpenWebUI integration
-- **Endpoints**: `/chat` for AI-powered responses
-- **Features**: Islamic Q&A, Quran interpretation, Hadith insights
+## 📦 Installation
 
-## 📚 What You Can Search
+### For Users (Desktop Application)
+1. Download the latest release for your operating system
+2. Install the application
+3. Launch and access all Islamic knowledge offline
 
-- **Islamic Topics**: Mercy, kindness, prayer, patience, family, knowledge
-- **Quran Verses**: Complete verses with Arabic text and translations
-- **Hadiths**: Authentic prophetic traditions with authentication levels
-- **Context**: Detailed explanations and historical context
-- **AI Responses**: Intelligent answers from phi3:mini model
+### For Developers
+```bash
+# Clone the repository
+git clone [repository-url]
 
-## 🛠️ Technology
+# Install dependencies
+npm install
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Backend**: Python with phi3:mini AI integration
-- **Search**: AI-powered semantic search with Islamic knowledge
-- **Deployment**: Docker + Nginx + Supervisor
-- **Hosting**: DigitalOcean + GitHub Pages
+# Start development server
+npm start
 
-## 🚀 Local Development
+# Build desktop application
+npm run build-app
 
-1. **Start Frontend**: `python3 -m http.server 8001`
-2. **Start AI Backend**: `python3 webui_scraper_backend.py`
-3. **Access Site**: http://localhost:8001/
-4. **AI Chat**: http://localhost:8080/chat
+# Package for distribution
+npm run dist
+```
 
-## 📖 Usage
+## 🏗️ Project Structure
 
-1. **Search by Topic**: Enter any Islamic topic (e.g., "mercy", "prayer")
-2. **AI Chat**: Ask questions about Islam, Quran, or Hadith
-3. **Filter Sources**: Choose Quran only, Hadith only, or both
-4. **Interactive Learning**: Click on search options for quick access
+```
+islamic-study-guide/
+├── src/                    # React application source
+├── public/                 # Public assets
+├── components/             # React components
+├── *.html                  # Original Islamic website content
+├── *.py                    # Python backend and knowledge base
+├── *.sh                    # Scripts and utilities
+└── *.conf                  # Configuration files
+```
 
-## 🤲 Islamic Values
+## 📖 Content Categories
 
-This system is built with respect for Islamic tradition and provides authentic, verified Islamic knowledge from reliable sources, enhanced by AI-powered insights.
+### Core Islamic Knowledge
+- **Prayer & Worship**: Complete prayer guidance and procedures
+- **Quran Studies**: Text, translation, tafsir, and memorization
+- **Hadith Sciences**: Authentic prophetic traditions and explanations
+- **Fiqh (Jurisprudence)**: Islamic law and legal rulings
+- **Islamic Ethics**: Moral principles and character development
 
-## 📱 Mobile Friendly
+### Modern Applications
+- **Technology & Islam**: Digital age Islamic guidance
+- **Business & Finance**: Islamic business ethics and halal finance
+- **Health & Medicine**: Medical ethics and healthcare in Islam
+- **Environment**: Environmental protection and sustainability
+- **Family & Society**: Marriage, family, and social relations
 
-Optimized for all devices - desktop, tablet, and mobile phones.
+## 🎨 Design Philosophy
 
-## 🌍 Open Source
+- **Islamic Aesthetics**: Respectful and beautiful Islamic design
+- **Calming Colors**: Teals and greens on dark backgrounds
+- **Accessibility**: Easy to read and navigate for all users
+- **Responsive**: Works perfectly on all device sizes
+- **Professional**: Clean, modern interface suitable for serious study
 
-Contributions welcome! This project aims to make Islamic knowledge accessible to everyone through modern technology.
+## 🔧 Development
+
+### Prerequisites
+- Node.js 16+
+- Python 3.8+
+- npm or yarn
+
+### Build Commands
+```bash
+npm start          # Development server
+npm run build      # Production build
+npm run build-app  # Build desktop application
+npm run dist       # Package for distribution
+```
+
+## 📱 Platform Support
+
+- **Windows**: Full desktop application
+- **macOS**: Native Mac application
+- **Linux**: AppImage and package support
+- **Web**: Progressive Web App (PWA) support
+
+## 🤝 Contributing
+
+We welcome contributions to improve the Islamic Study Guide:
+
+1. **Content**: Help expand Islamic knowledge base
+2. **Features**: Suggest and implement new functionality
+3. **Design**: Improve user interface and experience
+4. **Translation**: Add support for more languages
+5. **Testing**: Help ensure quality and reliability
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- **Islamic Scholars**: For authentic knowledge and guidance
+- **Open Source Community**: For tools and frameworks
+- **Contributors**: For helping build this comprehensive guide
+
+## 📞 Support
+
+For support, questions, or contributions:
+- **Issues**: Use GitHub issues for bug reports and feature requests
+- **Discussions**: Join community discussions
+- **Documentation**: Check the comprehensive documentation
 
 ---
 
-**Built with ❤️ for Islamic education and knowledge sharing**
-
-**AI Powered by phi3:mini for authentic Islamic knowledge**
+**Islamic Study Guide** - Making comprehensive Islamic knowledge accessible to everyone, everywhere.
