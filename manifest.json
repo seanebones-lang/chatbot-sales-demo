@@ -1,13 +1,108 @@
 {
   "name": "Complete Islamic Study Guide Extended Edition",
   "short_name": "Islamic Study Guide",
-  "description": "Complete Islamic Study Guide with DeenBot AI Assistant",
+  "description": "Complete Islamic Study Guide with DeenBot AI Assistant - Comprehensive Islamic Knowledge Database",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0f0f",
   "theme_color": "#10b981",
   "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "religion", "productivity", "books", "reference"],
+  "prefer_related_applications": false,
   "icons": [
+    {
+      "src": "icon-20x20.png",
+      "sizes": "20x20",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-29x29.png",
+      "sizes": "29x29",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-40x40.png",
+      "sizes": "40x40",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-58x58.png",
+      "sizes": "58x58",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-60x60.png",
+      "sizes": "60x60",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-76x76.png",
+      "sizes": "76x76",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-80x80.png",
+      "sizes": "80x80",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-87x87.png",
+      "sizes": "87x87",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-120x120.png",
+      "sizes": "120x120",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-167x167.png",
+      "sizes": "167x167",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-168x168.png",
+      "sizes": "168x168",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "icon-192x192.png",
       "sizes": "192x192",
@@ -21,9 +116,42 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["education", "religion", "productivity"],
-  "lang": "en",
-  "dir": "ltr",
-  "scope": "/",
-  "prefer_related_applications": false
+  "shortcuts": [
+    {
+      "name": "Quran Search",
+      "short_name": "Quran",
+      "description": "Search and read Quran verses",
+      "url": "/quran-index.html",
+      "icons": [
+        {
+          "src": "icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Hadith Search",
+      "short_name": "Hadith",
+      "description": "Search authentic Hadith",
+      "url": "/hadith-index.html",
+      "icons": [
+        {
+          "src": "icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Fiqh Topics",
+      "short_name": "Fiqh",
+      "description": "Islamic jurisprudence topics",
+      "url": "/fiqh-index.html",
+      "icons": [
+        {
+          "src": "icon-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
 }
