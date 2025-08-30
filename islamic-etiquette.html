@@ -29,7 +29,6 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-accent: #f1f5f9;
-            --bg-glass: rgba(248, 250, 252, 0.8);
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-accent: #475569;
@@ -100,33 +99,33 @@
 
         .content-section h2 {
             color: var(--accent-primary);
-            margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            margin-bottom: 1rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
         .content-section h3 {
-            color: var(--accent-secondary);
-            margin: 1.5rem 0 1rem 0;
+            color: var(--accent-teal);
             font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
         }
 
         .content-section h4 {
-            color: var(--accent-teal);
-            margin: 1rem 0 0.5rem 0;
+            color: var(--accent-green);
             font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
         }
 
         .content-section p {
             margin-bottom: 1rem;
             line-height: 1.6;
-            text-align: justify;
+            color: var(--text-secondary);
         }
 
         .content-section ul, .content-section ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
         }
 
         .content-section li {
@@ -134,43 +133,78 @@
             line-height: 1.6;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
         }
 
-        .content-card {
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .etiquette-card {
             background: var(--bg-secondary);
-            border: 2px solid var(--border-primary);
-            border-radius: 12px;
             padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
             transition: all 0.3s ease;
+        }
+
+        .etiquette-card:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-secondary);
         }
 
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-            border-color: var(--accent-primary);
-        }
-
-        .content-card h4 {
+        .etiquette-card h4 {
             color: var(--accent-primary);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
-        .content-card p {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .warning-box h5 {
+            color: #ef4444;
+            margin-bottom: 0.5rem;
         }
 
         .back-link {
             display: inline-block;
-            margin: 2rem 0;
-            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
             background: var(--accent-primary);
             color: white;
             text-decoration: none;
@@ -182,7 +216,7 @@
         .back-link:hover {
             background: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-primary);
+            box-shadow: var(--shadow-secondary);
         }
 
         .theme-toggle {
@@ -190,14 +224,14 @@
             top: 2rem;
             right: 2rem;
             background: var(--accent-primary);
-            color: white;
             border: none;
-            border-radius: 50%;
+            color: white;
             width: 50px;
             height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
 
@@ -261,42 +295,280 @@
     
     <div class="container">
         <header class="header">
-            <h1>Islamic Etiquette</h1>
-            <p>Complete guide to islamic etiquette with comprehensive Islamic content and resources</p>
+            <h1>Islamic Etiquette (Adab)</h1>
+            <p>Complete guide to Islamic manners, behavior, and proper conduct in all aspects of life</p>
         </header>
         
         <div class="content-section">
+            <h2>Introduction to Islamic Etiquette</h2>
+            <p>Islamic etiquette (Adab) encompasses the proper manners and behavior that Muslims should display in all aspects of life. It is based on the teachings of the Quran and the Sunnah of Prophet Muhammad sallallahu alayhi wa sallam, and reflects the beautiful character that Islam promotes.</p>
             
-            <h3>Islamic Etiquette</h3>
-            <p>Complete guide to islamic etiquette with comprehensive Islamic content and resources</p>
+            <div class="evidence-box">
+                <h5>Quranic Guidance</h5>
+                <div class="arabic-text">وَقُولُوا لِلنَّاسِ حُسْنًا</div>
+                <div class="translation">"And speak to people good [words]." (Quran 2:83)</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Personal Etiquette</h2>
             
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>Overview</h4>
-                    <p>This section provides comprehensive information about islamic etiquette with detailed content and resources.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Key Topics</h4>
-                    <p>Explore the main topics and themes related to this subject area.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Resources</h4>
-                    <p>Access additional resources, references, and study materials.</p>
+            <div class="etiquette-card">
+                <h4>Cleanliness and Hygiene</h4>
+                <p>Islam places great emphasis on cleanliness:</p>
+                <ul>
+                    <li><strong>Wudu (Ablution):</strong> Perform before prayers and when needed</li>
+                    <li><strong>Ghusl (Full Bath):</strong> Required after major impurity</li>
+                    <li><strong>Oral Hygiene:</strong> Use miswak (tooth stick) regularly</li>
+                    <li><strong>Nail Care:</strong> Keep nails trimmed and clean</li>
+                    <li><strong>Hair Care:</strong> Maintain neat and clean appearance</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Prophetic Teaching</h5>
+                    <div class="arabic-text">النَّظَافَةُ مِنَ الإِيمَانِ</div>
+                    <div class="translation">"Cleanliness is part of faith." (Hadith)</div>
                 </div>
             </div>
+
+            <div class="etiquette-card">
+                <h4>Dress and Appearance</h4>
+                <p>Islamic dress code promotes modesty and dignity:</p>
+                <ul>
+                    <li><strong>Modesty:</strong> Cover the awrah (private parts) appropriately</li>
+                    <li><strong>Cleanliness:</strong> Wear clean, presentable clothing</li>
+                    <li><strong>Simplicity:</strong> Avoid ostentatious or revealing attire</li>
+                    <li><strong>Respect:</strong> Dress appropriately for different occasions</li>
+                    <li><strong>Hygiene:</strong> Ensure clothes are clean and well-maintained</li>
+                </ul>
+            </div>
+
+            <div class="etiquette-card">
+                <h4>Eating and Drinking</h4>
+                <p>Proper manners for consuming food and beverages:</p>
+                <ul>
+                    <li><strong>Bismillah:</strong> Begin with "In the name of Allah"</li>
+                    <li><strong>Right Hand:</strong> Use the right hand for eating and drinking</li>
+                    <li><strong>Moderation:</strong> Don't overeat or waste food</li>
+                    <li><strong>Gratitude:</strong> Say "Alhamdulillah" when finished</li>
+                    <li><strong>Sharing:</strong> Offer food to others before eating</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Prophetic Teaching</h5>
+                    <div class="arabic-text">يَا غُلاَمُ سَمِّ اللَّهَ وَكُلْ بِيَمِينِكَ وَكُلْ مِمَّا يَلِيكَ</div>
+                    <div class="translation">"O young boy, say the name of Allah and eat with your right hand, and eat from what is in front of you." (Hadith)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Social Etiquette</h2>
             
-            <h3>Detailed Content</h3>
-            <p>This page contains comprehensive information about islamic etiquette. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            <div class="etiquette-card">
+                <h4>Greetings and Salutations</h4>
+                <p>Proper Islamic greetings and responses:</p>
+                <ul>
+                    <li><strong>As-salamu alaykum:</strong> "Peace be upon you" (greeting)</li>
+                    <li><strong>Wa alaykum as-salam:</strong> "And upon you be peace" (response)</li>
+                    <li><strong>Handshake:</strong> Shake hands when meeting (same gender)</li>
+                    <li><strong>Smile:</strong> Always greet with a pleasant expression</li>
+                    <li><strong>Respect:</strong> Greet elders and those of higher status first</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Prophetic Teaching</h5>
+                    <div class="arabic-text">تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ لَكَ صَدَقَةٌ</div>
+                    <div class="translation">"Your smiling in the face of your brother is charity for you." (Hadith)</div>
+                </div>
+            </div>
+
+            <div class="etiquette-card">
+                <h4>Conversation and Speech</h4>
+                <p>Guidelines for proper communication:</p>
+                <ul>
+                    <li><strong>Truthfulness:</strong> Always speak the truth</li>
+                    <li><strong>Kindness:</strong> Use gentle and respectful language</li>
+                    <li><strong>Listening:</strong> Give others your full attention</li>
+                    <li><strong>Volume:</strong> Speak at appropriate volume levels</li>
+                    <li><strong>Content:</strong> Avoid gossip, backbiting, and harmful speech</li>
+                </ul>
+                <div class="warning-box">
+                    <h5>Avoid These Speech Habits</h5>
+                    <ul>
+                        <li>Backbiting (ghibah)</li>
+                        <li>Slander and false accusations</li>
+                        <li>Excessive joking and mockery</li>
+                        <li>Loud and aggressive speech</li>
+                        <li>Interrupting others</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="etiquette-card">
+                <h4>Visiting and Hospitality</h4>
+                <p>Proper manners when visiting others:</p>
+                <ul>
+                    <li><strong>Permission:</strong> Ask permission before entering homes</li>
+                    <li><strong>Timing:</strong> Visit at appropriate times</li>
+                    <li><strong>Duration:</strong> Don't overstay your welcome</li>
+                    <li><strong>Gifts:</strong> Bring small gifts when appropriate</li>
+                    <li><strong>Respect:</strong> Respect the privacy and rules of the home</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Religious Etiquette</h2>
             
-            <h4>Main Sections:</h4>
+            <div class="etiquette-card">
+                <h4>Mosque Etiquette</h4>
+                <p>Proper behavior in places of worship:</p>
+                <ul>
+                    <li><strong>Cleanliness:</strong> Enter in a state of ritual purity</li>
+                    <li><strong>Dress:</strong> Wear clean, modest clothing</li>
+                    <li><strong>Silence:</strong> Maintain quiet and respectful behavior</li>
+                    <li><strong>Prayer:</strong> Focus on worship, avoid distractions</li>
+                    <li><strong>Respect:</strong> Don't walk in front of praying people</li>
+                </ul>
+            </div>
+
+            <div class="etiquette-card">
+                <h4>Quran Etiquette</h4>
+                <p>Proper manners when handling and reciting the Quran:</p>
+                <ul>
+                    <li><strong>Cleanliness:</strong> Be in a state of wudu when touching</li>
+                    <li><strong>Respect:</strong> Handle with care and reverence</li>
+                    <li><strong>Placement:</strong> Don't place on the ground or dirty surfaces</li>
+                    <li><strong>Recitation:</strong> Begin with isti'adhah (seeking refuge)</li>
+                    <li><strong>Attention:</strong> Listen attentively when others recite</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Quranic Guidance</h5>
+                    <div class="arabic-text">فَإِذَا قَرَأْتَ الْقُرْآنَ فَاسْتَعِذْ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</div>
+                    <div class="translation">"So when you recite the Quran, seek refuge with Allah from Satan, the expelled [from His mercy]." (Quran 16:98)</div>
+                </div>
+            </div>
+
+            <div class="etiquette-card">
+                <h4>Prayer Etiquette</h4>
+                <p>Proper behavior during salah:</p>
+                <ul>
+                    <li><strong>Concentration:</strong> Focus on Allah, avoid distractions</li>
+                    <li><strong>Humility:</strong> Maintain proper posture and reverence</li>
+                    <li><strong>Silence:</strong> Don't talk or make unnecessary noise</li>
+                    <li><strong>Respect:</strong> Don't walk in front of praying people</li>
+                    <li><strong>Completion:</strong> Complete prayers properly without rushing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Family and Home Etiquette</h2>
+            
+            <div class="etiquette-card">
+                <h4>Respect for Parents</h4>
+                <p>Islamic guidelines for honoring parents:</p>
+                <ul>
+                    <li><strong>Obedience:</strong> Obey parents in matters not against Islam</li>
+                    <li><strong>Kindness:</strong> Speak to them with gentleness</li>
+                    <li><strong>Service:</strong> Help them with daily needs</li>
+                    <li><strong>Patience:</strong> Be patient with their limitations</li>
+                    <li><strong>Dua:</strong> Make dua for them regularly</li>
+                </ul>
+                <div class="evidence-box">
+                    <h5>Quranic Command</h5>
+                    <div class="arabic-text">وَقَضَى رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا</div>
+                    <div class="translation">"And your Lord has decreed that you not worship except Him, and to parents, good treatment." (Quran 17:23)</div>
+                </div>
+            </div>
+
+            <div class="etiquette-card">
+                <h4>Spouse Etiquette</h4>
+                <p>Proper behavior between husband and wife:</p>
+                <ul>
+                    <li><strong>Kindness:</strong> Treat each other with gentleness</li>
+                    <li><strong>Respect:</strong> Respect each other's rights and feelings</li>
+                    <li><strong>Communication:</strong> Speak kindly and avoid harsh words</li>
+                    <li><strong>Patience:</strong> Be patient with each other's faults</li>
+                    <li><strong>Forgiveness:</strong> Forgive mistakes and seek reconciliation</li>
+                </ul>
+            </div>
+
+            <div class="etiquette-card">
+                <h4>Children's Etiquette</h4>
+                <p>Teaching proper manners to children:</p>
+                <ul>
+                    <li><strong>Modeling:</strong> Set good examples through your behavior</li>
+                    <li><strong>Teaching:</strong> Explain Islamic manners patiently</li>
+                    <li><strong>Consistency:</strong> Maintain consistent expectations</li>
+                    <li><strong>Praise:</strong> Acknowledge good behavior</li>
+                    <li><strong>Correction:</strong> Correct mistakes gently and constructively</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Business and Professional Etiquette</h2>
+            
+            <div class="etiquette-card">
+                <h4>Workplace Behavior</h4>
+                <p>Islamic manners in professional settings:</p>
+                <ul>
+                    <li><strong>Honesty:</strong> Be truthful in all business dealings</li>
+                    <li><strong>Reliability:</strong> Keep promises and meet commitments</li>
+                    <li><strong>Respect:</strong> Treat colleagues with dignity</li>
+                    <li><strong>Modesty:</strong> Maintain appropriate dress and behavior</li>
+                    <li><strong>Efficiency:</strong> Work diligently and avoid waste</li>
+                </ul>
+            </div>
+
+            <div class="etiquette-card">
+                <h4>Customer Service</h4>
+                <p>Proper treatment of customers and clients:</p>
+                <ul>
+                    <li><strong>Courtesy:</strong> Greet customers warmly</li>
+                    <li><strong>Patience:</strong> Handle difficult customers calmly</li>
+                    <li><strong>Helpfulness:</strong> Go above and beyond to assist</li>
+                    <li><strong>Gratitude:</strong> Thank customers for their business</li>
+                    <li><strong>Quality:</strong> Provide the best possible service</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Digital Etiquette</h2>
+            
+            <div class="etiquette-card">
+                <h4>Online Behavior</h4>
+                <p>Islamic manners in the digital world:</p>
+                <ul>
+                    <li><strong>Truthfulness:</strong> Share accurate information</li>
+                    <li><strong>Respect:</strong> Be respectful in online discussions</li>
+                    <li><strong>Privacy:</strong> Respect others' privacy and confidentiality</li>
+                    <li><strong>Content:</strong> Share beneficial and appropriate content</li>
+                    <li><strong>Time Management:</strong> Don't waste excessive time online</li>
+                </ul>
+                <div class="warning-box">
+                    <h5>Digital Pitfalls to Avoid</h5>
+                    <ul>
+                        <li>Cyberbullying and harassment</li>
+                        <li>Sharing inappropriate content</li>
+                        <li>Spreading rumors or false information</li>
+                        <li>Excessive social media use</li>
+                        <li>Engaging in online arguments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Related Topics</h2>
             <ul>
-                <li><strong>Introduction:</strong> Basic concepts and overview</li>
-                <li><strong>Core Topics:</strong> Essential information and principles</li>
-                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
-                <li><strong>Practical Applications:</strong> Real-world implementation</li>
-                <li><strong>References:</strong> Sources and additional reading</li>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="new-muslim.html">New Muslim Guide</a></li>
+                <li><a href="family-values.html">Islamic Family Values</a></li>
+                <li><a href="islamic-character.html">Islamic Character Building</a></li>
+                <li><a href="sunnah-practices.html">Sunnah Practices</a></li>
             </ul>
-        
         </div>
         
         <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>

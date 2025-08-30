@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Muslim - Complete Islamic Study Guide</title>
+    <title>New Muslim Guide - Complete Islamic Study Guide</title>
     <style>
 
         :root {
@@ -29,7 +29,6 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-accent: #f1f5f9;
-            --bg-glass: rgba(248, 250, 252, 0.8);
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-accent: #475569;
@@ -100,33 +99,33 @@
 
         .content-section h2 {
             color: var(--accent-primary);
-            margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            margin-bottom: 1rem;
             border-bottom: 2px solid var(--accent-primary);
             padding-bottom: 0.5rem;
         }
 
         .content-section h3 {
-            color: var(--accent-secondary);
-            margin: 1.5rem 0 1rem 0;
+            color: var(--accent-teal);
             font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
         }
 
         .content-section h4 {
-            color: var(--accent-teal);
-            margin: 1rem 0 0.5rem 0;
+            color: var(--accent-green);
             font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
         }
 
         .content-section p {
             margin-bottom: 1rem;
             line-height: 1.6;
-            text-align: justify;
+            color: var(--text-secondary);
         }
 
         .content-section ul, .content-section ol {
-            margin: 1rem 0;
-            padding-left: 2rem;
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
         }
 
         .content-section li {
@@ -134,43 +133,65 @@
             line-height: 1.6;
         }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade', serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            color: var(--text-primary);
         }
 
-        .content-card {
+        .translation {
+            color: var(--text-primary);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .guide-card {
             background: var(--bg-secondary);
-            border: 2px solid var(--border-primary);
-            border-radius: 12px;
             padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            margin: 1.5rem 0;
             transition: all 0.3s ease;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-secondary);
         }
 
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary);
-            border-color: var(--accent-primary);
-        }
-
-        .content-card h4 {
+        .guide-card h4 {
             color: var(--accent-primary);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
-        .content-card p {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+        .evidence-box {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-primary);
+        }
+
+        .evidence-box h5 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
         }
 
         .back-link {
             display: inline-block;
-            margin: 2rem 0;
-            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
             background: var(--accent-primary);
             color: white;
             text-decoration: none;
@@ -182,7 +203,7 @@
         .back-link:hover {
             background: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-primary);
+            box-shadow: var(--shadow-secondary);
         }
 
         .theme-toggle {
@@ -190,14 +211,14 @@
             top: 2rem;
             right: 2rem;
             background: var(--accent-primary);
-            color: white;
             border: none;
-            border-radius: 50%;
+            color: white;
             width: 50px;
             height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-primary);
             z-index: 1000;
         }
 
@@ -261,42 +282,266 @@
     
     <div class="container">
         <header class="header">
-            <h1>New Muslim</h1>
-            <p>Complete guide to new muslim with comprehensive Islamic content and resources</p>
+            <h1>New Muslim Guide</h1>
+            <p>Complete guide for new Muslims with essential Islamic knowledge, practices, and step-by-step guidance</p>
         </header>
         
         <div class="content-section">
+            <h2>Welcome to Islam</h2>
+            <p>As-salamu alaykum! Welcome to the beautiful religion of Islam. This guide is designed to help you understand the fundamentals of Islamic faith and practice. Remember, every Muslim was once new to the faith, and Allah loves those who seek knowledge.</p>
             
-            <h3>New Muslim</h3>
-            <p>Complete guide to new muslim with comprehensive Islamic content and resources</p>
-            
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>Overview</h4>
-                    <p>This section provides comprehensive information about new muslim with detailed content and resources.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Key Topics</h4>
-                    <p>Explore the main topics and themes related to this subject area.</p>
-                </div>
-                <div class="content-card">
-                    <h4>Resources</h4>
-                    <p>Access additional resources, references, and study materials.</p>
-                </div>
+            <div class="evidence-box">
+                <h5>Quranic Guidance</h5>
+                <div class="arabic-text">إِنَّ الدِّينَ عِندَ اللَّهِ الْإِسْلَامُ</div>
+                <div class="translation">"Indeed, the religion in the sight of Allah is Islam." (Quran 3:19)</div>
             </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Essential First Steps</h2>
             
-            <h3>Detailed Content</h3>
-            <p>This page contains comprehensive information about new muslim. The content is structured to provide both overview and detailed information for effective learning and reference.</p>
+            <div class="guide-card">
+                <h4>1. The Shahadah (Declaration of Faith)</h4>
+                <p>The first step is to declare your faith by saying the Shahadah:</p>
+                <div class="arabic-text">أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ</div>
+                <div class="translation">"I bear witness that there is no deity except Allah, and I bear witness that Muhammad is the Messenger of Allah."</div>
+                <p><strong>Meaning:</strong> This declaration establishes your belief in the Oneness of Allah and acceptance of Prophet Muhammad sallallahu alayhi wa sallam as His final messenger.</p>
+            </div>
+
+            <div class="guide-card">
+                <h4>2. Learn Basic Islamic Terms</h4>
+                <ul>
+                    <li><strong>Allah:</strong> The Arabic name for God</li>
+                    <li><strong>Muslim:</strong> One who submits to Allah</li>
+                    <li><strong>Islam:</strong> Submission to Allah's will</li>
+                    <li><strong>As-salamu alaykum:</strong> Peace be upon you (greeting)</li>
+                    <li><strong>Insha Allah:</strong> If Allah wills</li>
+                    <li><strong>Alhamdulillah:</strong> Praise be to Allah</li>
+                    <li><strong>Bismillah:</strong> In the name of Allah</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h4>3. Find a Local Mosque</h4>
+                <p>Connect with your local Muslim community:</p>
+                <ul>
+                    <li>Visit local mosques and Islamic centers</li>
+                    <li>Introduce yourself to the imam (prayer leader)</li>
+                    <li>Ask about new Muslim programs and classes</li>
+                    <li>Connect with other Muslims in your area</li>
+                    <li>Learn about prayer times and community events</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>The Five Pillars of Islam</h3>
+            <p>These are the fundamental practices that every Muslim must learn and perform:</p>
             
-            <h4>Main Sections:</h4>
+            <div class="guide-card">
+                <h4>1. Shahadah (Declaration of Faith)</h4>
+                <p>You've already taken this step! The Shahadah is the foundation of Islamic belief.</p>
+            </div>
+
+            <div class="guide-card">
+                <h4>2. Salah (Prayer)</h4>
+                <p>Muslims pray five times daily. Start by learning:</p>
+                <ul>
+                    <li>How to perform wudu (ablution)</li>
+                    <li>Basic prayer movements and recitations</li>
+                    <li>Prayer times for your location</li>
+                    <li>Facing the Qiblah (direction of the Kaaba)</li>
+                </ul>
+                <p><strong>Don't worry about perfection initially - focus on learning and consistency.</strong></p>
+            </div>
+
+            <div class="guide-card">
+                <h4>3. Zakat (Charity)</h4>
+                <p>Obligatory charity for those who meet the wealth threshold:</p>
+                <ul>
+                    <li>2.5% of wealth above the nisab (minimum threshold)</li>
+                    <li>Paid annually to help the poor and needy</li>
+                    <li>Learn about zakat calculation and recipients</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h4>4. Sawm (Fasting)</h4>
+                <p>Fasting during the month of Ramadan:</p>
+                <ul>
+                    <li>Abstain from food, drink, and marital relations from dawn to sunset</li>
+                    <li>Learn about Ramadan and its significance</li>
+                    <li>Start with shorter fasts if needed</li>
+                    <li>Focus on spiritual growth and self-discipline</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h4>5. Hajj (Pilgrimage)</h4>
+                <p>Annual pilgrimage to Makkah for those who are able:</p>
+                <ul>
+                    <li>Required once in a lifetime if physically and financially able</li>
+                    <li>Learn about the significance and rituals</li>
+                    <li>Plan for future participation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Daily Islamic Practices</h3>
+            
+            <div class="guide-card">
+                <h4>Morning and Evening Remembrance</h4>
+                <p>Start and end your day with Islamic remembrance:</p>
+                <div class="arabic-text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ</div>
+                <div class="translation">"We have reached the morning and at this very time all sovereignty belongs to Allah. All praise is for Allah."</div>
+                <p><strong>Evening version:</strong> Replace "asbahna" with "amsayna" (we have reached the evening).</p>
+            </div>
+
+            <div class="guide-card">
+                <h4>Before Eating</h4>
+                <p>Always begin meals with:</p>
+                <div class="arabic-text">بِسْمِ اللَّهِ</div>
+                <div class="translation">"In the name of Allah"</div>
+                <p>This simple practice reminds us to be grateful for Allah's blessings.</p>
+            </div>
+
+            <div class="guide-card">
+                <h4>Gratitude Expressions</h4>
+                <ul>
+                    <li><strong>Alhamdulillah:</strong> Say this when something good happens</li>
+                    <li><strong>Masha Allah:</strong> Say this when admiring something beautiful</li>
+                    <li><strong>Insha Allah:</strong> Say this when making future plans</li>
+                    <li><strong>Subhan Allah:</strong> Say this when amazed or surprised</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Learning Priorities</h3>
+            <p>Focus on these topics in order of importance:</p>
+            
+            <div class="guide-card">
+                <h4>Week 1-2: Foundation</h4>
+                <ul>
+                    <li>Learn the five daily prayers</li>
+                    <li>Understand basic Islamic beliefs</li>
+                    <li>Learn essential duas and remembrances</li>
+                    <li>Connect with Muslim community</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h4>Week 3-4: Practice</h4>
+                <ul>
+                    <li>Perfect your prayer technique</li>
+                    <li>Learn about Islamic hygiene (wudu, ghusl)</li>
+                    <li>Study Quran recitation basics</li>
+                    <li>Understand Islamic etiquette</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h4>Month 2-3: Deepening</h4>
+                <ul>
+                    <li>Study Islamic history and biography</li>
+                    <li>Learn about Islamic family values</li>
+                    <li>Understand halal and haram</li>
+                    <li>Explore Islamic spirituality</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Common Questions and Concerns</h3>
+            
+            <div class="guide-card">
+                <h4>What About My Family?</h4>
+                <p>Many new Muslims worry about family reactions:</p>
+                <ul>
+                    <li>Be patient and respectful with family members</li>
+                    <li>Focus on being a good example</li>
+                    <li>Answer questions calmly and knowledgeably</li>
+                    <li>Give them time to understand your decision</li>
+                    <li>Maintain family relationships while practicing Islam</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h4>What About My Previous Life?</h4>
+                <p>Islam teaches that when you convert:</p>
+                <ul>
+                    <li>All your previous sins are forgiven</li>
+                    <li>You start with a clean slate</li>
+                    <li>Focus on the present and future</li>
+                    <li>Learn from past experiences</li>
+                    <li>Use your background to help others</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h4>How Do I Handle Mistakes?</h4>
+                <p>Remember these important points:</p>
+                <ul>
+                    <li>Allah is Most Merciful and Forgiving</li>
+                    <li>Everyone makes mistakes - even lifelong Muslims</li>
+                    <li>Learn from mistakes and improve</li>
+                    <li>Seek forgiveness through sincere repentance</li>
+                    <li>Don't let mistakes discourage you from learning</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Building Your Islamic Identity</h3>
+            
+            <div class="guide-card">
+                <h4>Islamic Names</h4>
+                <p>Consider choosing an Islamic name:</p>
+                <ul>
+                    <li>Not required but recommended</li>
+                    <li>Choose names with good meanings</li>
+                    <li>Popular names include: Ahmad, Fatima, Aisha, Ali, etc.</li>
+                    <li>Keep your given name if you prefer</li>
+                    <li>Focus on the meaning, not just the sound</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h4>Islamic Dress</h4>
+                <p>Modest dress is important in Islam:</p>
+                <ul>
+                    <li>For men: Cover from navel to knees</li>
+                    <li>For women: Cover entire body except face and hands</li>
+                    <li>Choose comfortable, practical clothing</li>
+                    <li>Focus on modesty and cleanliness</li>
+                    <li>Adapt to your cultural context</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h4>Islamic Home Environment</h4>
+                <p>Create a supportive Islamic environment:</p>
+                <ul>
+                    <li>Designate a prayer area</li>
+                    <li>Display Islamic calligraphy or verses</li>
+                    <li>Keep Islamic books and resources accessible</li>
+                    <li>Play Quran recitation occasionally</li>
+                    <li>Create a peaceful, clean space</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3>Related Topics</h3>
             <ul>
-                <li><strong>Introduction:</strong> Basic concepts and overview</li>
-                <li><strong>Core Topics:</strong> Essential information and principles</li>
-                <li><strong>Advanced Topics:</strong> Detailed analysis and applications</li>
-                <li><strong>Practical Applications:</strong> Real-world implementation</li>
-                <li><strong>References:</strong> Sources and additional reading</li>
+                <li><a href="five-pillars.html">Five Pillars of Islam</a></li>
+                <li><a href="prayer-guide.html">Complete Prayer Guide</a></li>
+                <li><a href="tawheed.html">Islamic Monotheism</a></li>
+                <li><a href="surah-1-al-fatiha.html">Surah Al-Fatiha</a></li>
+                <li><a href="islamic-etiquette.html">Islamic Etiquette</a></li>
+                <li><a href="family-values.html">Islamic Family Values</a></li>
             </ul>
-        
         </div>
         
         <a href="complete-islamic-study-guide-dark.html" class="back-link">← Back to Main Index</a>
